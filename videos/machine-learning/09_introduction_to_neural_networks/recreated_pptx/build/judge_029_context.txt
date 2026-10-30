@@ -1,0 +1,34 @@
+
+=== THIS CALL'S IMAGE ORDER (read before anything else) ===
+In THIS comparison call the images are passed ORIGINAL first, RECREATION second:
+  - IMAGE 1 (first) = ORIGINAL lecture-video frame, 960x540 JPEG (lecture 09_introduction_to_neural_networks, slide 29).
+  - IMAGE 2 (second) = RECREATION, PowerPoint render at 150 dpi, 2001x1125.
+Wherever the template text above says "image 2 (the original)" / "Image 1 = RECREATION", resolve the wording to the actual image by CONTENT, not by position.
+
+=== PER-SLIDE CONTEXT (measured ground truth for slide 29) ===
+Slide title (both images): "Neural Network Model". Badge numeral must read 29.
+The recreation's title sits at house-template position (y=0.28in) while the original's title prints lower (~y 12-16% of frame height) — house template geometry is intentional per ground rule (a); do not raise title vertical position as a defect.
+
+CONTENT THE ORIGINAL SHOWS (vision re-analysis + PIL measurement of the 960x540 frame):
+- Title "Neural Network Model", dark red (~#B22222/#C00000), centered in the upper band.
+- Yellow slide-number badge top-right, numeral 29. House-template badge position is intentional (ground rule (a)); only the NUMERAL and presence matter here.
+- Two magenta/pink filled boxes in the upper band (y ~18-23% of frame height): left box "Input Sample" (x ~6.9-13.0% of frame width) and right box "Target Label" (x ~64.0-70.0% of frame width), joined by a horizontal dashed magenta arrow pointing right. In the recreation these two boxes sit at the far left and FAR RIGHT (x ~4.7-17.7% and ~81.2-94.2%); the original's Target Label box is at x ~64-70%, i.e. NOT at the extreme right edge. This placement difference is a known, measured deviation — report it and weigh it.
+- Large beige (#E8E0D0) network-diagram panel, middle-left (x ~7-58%, y ~24-72% of frame), containing a feed-forward network: 4 magenta input dots at far left; column-1 nodes with red Sigma and red sigmoid squiggle + 3 hollow gray "omitted" dots to their right; column-2 nodes with blue outlines, red Sigma, blue sigmoid; column-3 nodes with green outlines, red Sigma, green sigmoid; red italic bold Net_j above columns and red italic bold O_j beside nodes; thin pink/red fully-connected links with three blue w_ji labels; three white "Output 1 / Output 2 / Output m" boxes at the right of column 3. The recreation's diagram is a single generated matplotlib image placed at x 0.6-7.4in, y 1.9-5.5in.
+- ONE vertical dark-red "Error Error Error" bar at x ~57.8-59.5% of frame width, y ~25-72% (between diagram and class labels). The recreation currently shows TWO such red bars (one inside the diagram image at x ~44-46% of slide width, one drawn at x ~57-59.5%) — a known defect to report.
+- ONE column of three pale-green (#D9EAD3) boxes "Class 1 / Class 2 / Class m" at x ~60-67% of frame width, y ~31-64%. The recreation currently shows TWO class-label columns (one inside the diagram image at x ~47-53%, one at x ~60.8-69.4%) — a known defect to report.
+- Beige legend box with red border, upper right (x ~67.4-92.8%, y ~25.4-43.2% of frame): three lines with red bold-italic symbol + black text: "Net_j => Summation at Node j", "O_j => Output at Node j", "w_ji => Weight from Node i to Node j". Recreation places it at x 9.5-13.0in, y 1.9-3.4in.
+- White box with red border below the legend (x ~66-93%, y ~48-58% of frame): "Number of I/P Nodes = Input Vector Length" and "Number of O/P Nodes = Number of classes". Recreation places it at x 9.5-13.0in, y 3.5-4.3in.
+- Two up-arrow callouts below the diagram: blue arrow + light-blue box "Previous Layer / Layer (i)"; green arrow + light-green box "Current Layer / (You are here)". (Ground rule (d)-level: the recreation may render the arrows slightly differently; the two callouts' presence and text matter.)
+- Bottom formula row, y ~83.3-92.8% of frame height, THREE pale-yellow (#FFFDE7) boxes: left (x ~7.7-25.6%) with red italic header "For Layer "j"" and formula Net_j = sum(w_ji O_i); center (x ~30.6-52.7%) with sigmoid formula O_j = f(Net_j) = 1/(1+e^{-Net_j}); right (x ~69.2-90.6%) with red italic header "If Layer "j" is Output Layer:" and formula E = 1/2 sum_j (t_j - O_j)^2. Per ground rule (e), the recreation's equations are matplotlib mathtext PNGs in professional 2D format (stacked fraction 1/(1+e^{-Net_j}), large Sigma) — that is the mandated upgrade over the original's linear/typed rendering, NOT a discrepancy.
+- Black letterbox bar across the very bottom of the original frame (y > 95.4%) is a video-capture artifact — correctly OMITTED from the recreation (ground rule (c)).
+
+KNOWN MEASURED DEFECTS IN THE CURRENT RECREATION (verify against pixels, then weigh):
+1. Duplicate "Error Error Error" bar (inside diagram image AND as a separate shape). Original has exactly one.
+2. Duplicate "Class 1 / Class 2 / Class m" column (inside diagram image AND as separate boxes). Original has exactly one.
+3. Center pale-yellow formula box overflows the slide bottom edge (its fill reaches 99.8% of frame height, past the house frame bottom at y=7.35in) — frame-containment violation.
+4. Left and right bottom formula boxes are missing their pale-yellow fills entirely (equations sit bare on the gray background).
+5. Bottom formula row sits lower than the original (recreation y ~86.8-99.8% vs original ~83.3-92.8%).
+
+Weigh defects 1-5 honestly: a wholly spurious duplicate element is a MAJOR; a missing/overflowing element region is MAJOR-to-BLOCKER per ground rule (6)/(5).
+
+Transcribe key text from BOTH images. List SIMILARITIES (shared layout, components, text). List DIFFERENCES (content, layout, spacing, colors, defects) with severity (BLOCKER/MAJOR/MINOR) and confidence. Then any visual-quality defects in the recreation (text overflow/clipping, wrong wrapping, misalignment, collisions, illegibility). End with: FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation'.

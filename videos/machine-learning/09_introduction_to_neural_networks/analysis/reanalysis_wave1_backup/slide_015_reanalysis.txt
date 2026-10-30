@@ -1,0 +1,138 @@
+[info] context header injected: VIEW: slide 15 of machine-learning lecture 09 — original frame | CAPTURE: 960x540 lecture slide frame, original
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 565032
+[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 270s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[warn] analysis :: images :: attempt 2: ABORT HangError: hard wall-clock 270s exceeded — call aborted (possible stuck thinking stream) — abort+retry 2/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_015.jpg ===
+[winner] images (round 1, attempt 3)
+# STRUCTURAL READING â Slide 15
+
+## 1. PRINTED SLIDE NUMBER
+- **15** â inside a yellow/cream circular badge, top-right corner (~x 0.89â0.98, y 0.09â0.21). No other number is present.
+
+## 2. TITLE
+> **Using Two Perceptron Layers with** *non-Linearity*
+
+- Span 1: "Using Two Perceptron Layers with" â **dark red/maroon (#8B0000-ish)**
+- Span 2: "non-Linearity" â **blue (#0026FF-ish)**
+- Font size estimate: ~28â32 pt heading weight, centered horizontally in the top strip.
+
+## 3. ALL OTHER TEXT
+
+**Neural-network diagram labels (left panel):**
+```
+x1            S1        Z1                      Î£   S3      O/P
+              Î£                       -1
+       1   -1     [ ]        -1
+                        ==>            Î£  S3    [ ]   Z3
+x2            S2        Z2     1
+              Î£
+     -1  1        [ ]
+```
+Node labels, verbatim from diagram:
+- `x1` (top-left input node)
+- `x2` (bottom-left input node)
+- `+` (bias marker, next to S1/S2 column)
+- `S1` (top middle Î£ node)
+- `Z1` (first-layer output, top)
+- `S2` (bottom middle Î£ node)
+- `Z2` (first-layer output, bottom)
+- `S3` (right Î£ node)
+- `Z3` (final output node)
+- `O/P` (right of Z3)
+
+Edge-weight labels, verbatim: `-1` (x1âS1), `1` (x2âS1), `1` (x1âS2), `-1` (x2âS2), `-1` (Z1âS3), `1` (Z2âS3)
+
+Threshold annotations next to each activation box (green text):
+- By Z1: `>=0.5 => 1` / `<0.5 => 0`
+- By Z2: `>=0.5 => 1` / `<0.5 => 0`
+- By Z3: `>0 => 1` / `<0 => 0`
+
+**Top-right truth table (headers):** `X1` | `X2` | `O/P`
+
+**Bottom state table (headers):** `x2` | `x1` | `S1 Z1` | `S2 Z2` | `S3 Z3`
+
+**Blue callout box (bottom-right):**
+```
+Adding Non-Linearity
+Solves the XOR Problem
+```
+("XOR" is in red/maroon inside the blue box; the rest of the line is black.)
+
+## 4. EQUATIONS / MATH EXPRESSIONS
+Printed as inline comparisons (reading only, not rendered):
+
+1. By activation of **Z1** (top-center panel): `â¥0.5 â 1`, `<0.5 â 0`
+2. By activation of **Z2** (bottom-center panel): `â¥0.5 â 1`, `<0.5 â 0`
+3. By activation of **Z3** (right-center panel): `>0 â 1`, `<0 â 0`
+4. Implicit sums inside each `Î£` node (S1, S2, S3) â sigma glyph only, no expanded expression printed.
+5. Signed edge coefficients: `â1, 1, 1, â1, â1, 1`.
+
+## 5. GRAPHS / CHARTS / DIAGRAMS
+**One diagram: a two-layer perceptron (feed-forward network sketch).**
+- Type: computational graph / node-link network diagram (not a data plot; no axes or ranges).
+- Layout: 2 inputs â 2 hidden Î£ nodes â 2 activation outputs â 1 output Î£ node â activation â O/P.
+- Node colors: x1, x2 in pale yellow/tan circles; S1, S2, S3 in blue-outlined white circles with blue `Î£`; activation boxes are small white rectangles with a red/blue diagonal "squiggle" (step-function glyph); Z1, Z2, Z3 labels in black; final `O/P` in black.
+- Edge labels in blue: `â1`, `1`, `1`, `â1`, `â1`, `1`.
+- Region: roughly x 0.02â0.67, y 0.20â0.57.
+
+## 6. TABLES / BOXES
+
+**Table A â truth table (top-right), red border:**
+| | X1 | X2 | O/P |
+|---|---|---|---|
+| 1 | 0 | 0 | **0** |
+| 2 | 0 | 1 | **1** |
+| 3 | 1 | 0 | **1** |
+| 4 | 1 | 1 | **0** |
+
+The four `O/P` cells are highlighted light cyan (#C8F0F0-ish).
+
+**Table B â state table (bottom), red border, 8 columns (3 input + 3 grouped state pairs):**
+| x2 | x1 | S1 | Z1 | S2 | Z2 | S3 | Z3 |
+|----|----|----|----|----|----|----|----|
+| 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | â1 | 0 | â1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 |
+| 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 |
+
+The `Z3` column cells are highlighted light cyan.
+
+**Box C â callout (bottom-right):** rounded rectangle, light-blue fill, thin blue/dark border; two centered text lines as quoted in Â§3.
+
+## 7. LAYOUT REGIONS (fraction of frame)
+- **Top strip** (y â 0.06â0.19): title text centered; yellow slide badge at x â 0.89â0.98.
+- **Left panel** (x â 0.02â0.67, y â 0.20â0.57): network diagram, framed by a thin dark-red/maroon border rectangle.
+- **Right upper** (x â 0.75â0.98, y â 0.24â0.46): truth table A.
+- **Bottom-left/center** (x â 0.02â0.75, y â 0.60â0.91): state table B, framed by thin red border.
+- **Bottom-right** (x â 0.75â0.98, y â 0.70â0.90): blue callout box C.
+- Overall frame: thin light-gray outer border around the whole slide.
+
+## 8. COLORS
+| Color | Approx hex | Used for |
+|---|---|---|
+| Dark red / maroon | #8B1A1A | Title span 1, table borders, "XOR" in callout |
+| Blue | #0033CC | Title span 2, Î£ glyphs, edge weights, table borders, callout fill/border |
+| Black | #000000 | Node labels, table text, O/P label |
+| Green | #1E7B1E | Threshold comparison annotations (`â¥0.5 â 1`, etc.) |
+| Yellow/cream | #FFF2A8 | Slide-number badge |
+| Pale yellow/tan | #F5E6B8 | Input nodes x1, x2 |
+| Light cyan | #C8F0F0 | Highlighted O/P and Z3 cells |
+| White | #FFFFFF | Diagram panel, table cell fills, activation boxes |
+| Light gray | #EDEDED | Slide background |
+
+## 9. GEOMETRY NOTES
+- The three activation-threshold annotation blocks are stacked vertically in the diagram, one per layer; each is a 2-line block (`â1` above `â0`) with very tight line spacing â must not merge lines across blocks.
+- In Table B, headers `S1 Z1`, `S2 Z2`, `S3 Z3` each occupy **two sub-columns**; do not read them as single cells.
+- `â1` entries in Table B are negative signs, not hyphens/dashes.
+- Cyan highlighting in Table A covers the entire `O/P` column; in Table B only the final `Z3` column â do not extend highlighting differently.
+- The bias marker `+` sits just left of the S1/S2 summation nodes, not inside them.
+- Edge weights are printed **beside** arrows (left of lines from inputs, above lines between layers), not on the nodes.
+- Callout box C is vertically centered between the bottom table's right edge and the frame edge; two text lines are centered horizontally.
+- Frame/panel boundaries: diagram panel and bottom table each have their own thin red border; the yellow badge is circular and un-bordered.
+
+---
+
+**Summary: 5 text blocks, 6 edge weights + 6 threshold expressions, 1 diagram, 3 boxes/tables.**
+

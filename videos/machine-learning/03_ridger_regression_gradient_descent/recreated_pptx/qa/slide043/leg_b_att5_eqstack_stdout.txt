@@ -1,0 +1,41 @@
+[info] context header injected: VIEW: Slide 043 zoomed crop eqstack — render vs original at matched scale (attempt 5) | CAPTURE: IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: the 6 stacked calculation rows (d(x_i) dot-product equations with their decision values, the Update Weight / Keep same Weight decisions, and the W weight-vector update equations with the red left arrow) occupying the right and lower-right of the slide
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 120357
+[info] videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide043/crop_5_eqstack_render.png, videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide043/crop_5_eqstack_orig.png: transcript written (validated winner, atomic): videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide043/crop_5_eqstack_judge.txt (pid 120357)
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide043/crop_5_eqstack_render.png, videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide043/crop_5_eqstack_orig.png ===
+[winner] images (round 1, attempt 1)
+## Scope check (settled first)
+Both images are the same slideâspace region (six stacked calculation rows) at matched effective scale. I treat the house template (white canvas, gray E9E9E7 panels, C00000 chrome strokes, FDFD96 badge/purple ring) as intentional, and typedâvsâhandwritten ink as an inherent minor difference. All coordinates below are cropârelative (IMG1 â 786Ã534, IMG2 â 794Ã516).
+
+## Cellâbyâcell / valueâbyâvalue verification (rows 1â6)
+
+| Row (yârange in IMG1) | d(xáµ¢) row vector (color) | green column | result | Wâupdate factors / result | IMG2 comparison |
+|---|---|---|---|---|---|
+| 1 (yâ15â88) | 1 1 1 (red) | 4, â10, â8 | â14 | (4,â10,â8) + 2Â·(1,1,1) = (6,â8,â6) | identical values â |
+| 2 (yâ100â172) | 1 2 1 (red) | 6, â8, â6 | â14 | (6,â8,â6) + 2Â·(1,2,1) = (8,â4,â4) | identical â |
+| 3 (yâ184â256) | 1 1 2 (red) | 8, â4, â4 | â4 | (8,â4,â4) + 2Â·(1,1,2) = (10,â2,0) | identical â |
+| 4 (yâ266â338) | 1 5 4 (blue) | 10, â2, 0 | 0 | (10,â2,0) + 2Â·(1,5,4) = (8,â12,â8) | identical â |
+| 5 (yâ350â422) | 1 6 5 (blue) | 8, â12, â8 | â104 | W = (8,â12,â8) | identical â |
+| 6 (yâ434â506) | 1 6 6 (blue) | 8, â12, â8 | â112 | W = (8,â12,â8) | identical â |
+
+Subscripts: original shows d(xâ), d(xâ), d(xâ), d(xâ), d(x), d(x); the recreation carries the same 1,2,3,4,5,5 sequence (very small type at xâ48â62 of each row, but present and correctly positioned). âUpdate Weightâ (rows 1â4) and âKeep same Weightâ (rows 5â6) match, and the red left arrow appears on rows 1â4 in both, absent on rows 5â6 in both. **No swapped digits, no missing rows, no truncated subscripts, no wrong symbols, and all column delimiters span all three entries in both images.**
+
+## Discrepancies found
+
+1. **Multiplication marker changed from ââ¢â to â*â** â in the Wâupdate factor of rows 1â4 (IMG1 xâ540â570, yâ40â52 / 124â136 / 208â220 / 288â300; IMG2 xâ545â575, yâ40â50 etc.). Original uses a filled dot bullet between the red â2â and the second vector; recreation uses a red asterisk. Meaning is unchanged and it is a typographic substitution, not garbling. **Severity: MINOR â Confidence: high.**
+
+2. **Color of the leading âââ arrow dropped in rows 1â4** â IMG1 xâ318â340 (yâ42, 126, 210, 294) renders the double arrow in black; IMG2 shows the same arrow in red for rows 1â4 (and black in rows 5â6, which the recreation does match). Loses the originalâs redâonâupdate emphasis, but no character is missing. **Severity: MINOR â Confidence: high.**
+
+3. **Weightâvector label set in lowercase âwâ instead of uppercase âWâ** â IMG1 xâ480â502 (yâ40â56, 124â140, 208â224, 292â308, 372â388, 456â472) shows a bold sansâserif lowercase âwâ; IMG2 shows a bold uppercase serif âWâ at the same positions. The variable is therefore a different letterform/case from the original, though unambiguous in context. **Severity: MINOR â Confidence: mediumâhigh.**
+
+4. **Rightâhand red arrow rendered as a thin outline double arrow rather than the originalâs heavy filled red arrowhead** â IMG1 xâ710â728 (yâ40â52, 124â136, 208â220, 288â300); IMG2 xâ710â730 has a thicker, filled, doubleâchevron red glyph. Stroke weight/style of the same symbol only. **Severity: MINOR â Confidence: medium.**
+
+5. **Typography substitution (serif/handwritten â sansâserif upright) for d(xáµ¢), âUpdate Weightâ, âKeep same Weightâ, and the numerals** â e.g., dâterms at IMG1 xâ18â62 of each row. This is the mandated typedâvsâhandwritten medium difference (noted only for completeness; e.g., original âd(xâ)â is italic serif). **Severity: MINOR (inherent) â Confidence: high.**
+
+6. **Slight rowâheight/padding and glyphâscale differences** â recreation rows are marginally taller with more leading than the tighter original rows (e.g., row 1 panel yâ15â88 vs IMG2 yâ12â82); all text stays vertically centred in its panel and no enclosure is crossed. **Severity: MINOR â Confidence: medium.**
+
+No BLOCKER or MAJOR discrepancy was identified: every number, every equation structure (numerator/column order, factors, resulting vector), every subscript, all arrow placements, and all delimiter spans match the original.
+
+**FINAL VERDICT: PASS**
+

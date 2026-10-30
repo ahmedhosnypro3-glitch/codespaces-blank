@@ -1,0 +1,127 @@
+{
+  "slide": "slide_001",
+  "source_frame": "slide_001.jpg",
+  "source_md5": "3e5dc72c27afd90810dd7ccdda8348a1",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_001.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_001.parse.md",
+      "json": "full/slide_001.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The candidate Picture's extracted text is a sparse, garbled logo line (\"ZEWAIL CITY STATE LAKO SEO INFORMATION LLC\"), so a tighter zoom could recover the unread image content.",
+    "decision_source": "chat",
+    "children": [
+      "slide_001.crop01__picture"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_001.crop01__picture",
+      "level": 1,
+      "class": "Picture",
+      "box_frame_px": [
+        592.5,
+        440.4,
+        81.5,
+        69.2
+      ],
+      "estimated": false,
+      "png": "crops/slide_001.crop01__picture.png",
+      "mean_rgb": 158.57,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_001.crop01__picture.parse.md",
+        "json": "crops/slide_001.crop01__picture.parse.json"
+      },
+      "scale": 3.0,
+      "size_px": [
+        261,
+        228
+      ],
+      "margin_applied": [
+        3,
+        3
+      ],
+      "stop_reason": "too-small",
+      "stop_note": "every candidate is frame-covering or below the 40 px floor",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          590.0,
+          437.0
+        ],
+        "scale": 3.0,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 1,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 10
+  }
+}

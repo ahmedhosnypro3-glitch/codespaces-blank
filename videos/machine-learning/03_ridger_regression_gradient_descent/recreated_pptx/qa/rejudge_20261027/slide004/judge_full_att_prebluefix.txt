@@ -1,0 +1,38 @@
+# Fidelity Check â Slide 004 "Concept of LOSS Function"
+
+## Ground-rule acknowledgments (settled first, not raised again)
+- House template chrome (white canvas, gray E9E9E7 panel, red C00000 strokes on left/right/bottom only, no top stroke, yellow slide badge "4" with purple ring) = intentional, matches the original's badge position/size visually. â Not discrepancies.
+- IMG2 is a real content-bearing lecture frame (not a placeholder), so full content comparison applies.
+- The cursor artifact in IMG2 near the Loss box is a video artifact â correctly absent from the recreation. â
+- Equations rendered in professional 2D stacked format vs. the original's more linear/typed look = mandated format upgrade, not a discrepancy (directive e). The vector parentheses in both "Let Y" and "Let Å¶" boxes span all four lines (yââ¦yâ), are wide enough to clear the glyphs, and match the original's tall-paren style. â No delimiter-geometry defect.
+
+## Element-by-element comparison
+
+| Element | Original (IMG2) | Recreation (IMG1) | Verdict |
+|---|---|---|---|
+| Title "Concept of LOSS Function" (red/blue/red, bold, centered) | â | â identical text, colors, weight | Match |
+| Left vector box: "Let Y = (yâ, yâ, â¦, yâ)_{NÃ1}" + "Original Labels / from Training Samples" | â | â verbatim, red vector, NÃ1 subscript bottom-right, paren spans full column; "Let Y =" vertically centered against the tall vector | Match |
+| Right vector box: "Let Å¶ = (Å·â, Å·â, â¦, Å·â)_{NÃ1}" + "Predicted Labels / from Model Å¶=XW" (W underlined) | â | â verbatim, hats present, underline on W present | Match |
+| Remember box: "âaââ = aáµa" | â boxed, blue fill | â text matches; **border around the Remember box omitted in recreation** | MINOR (0.8) |
+| Yellow box 1: "Objective is Å¶=Y" | **bold** | regular weight, not bold | MINOR (0.85) |
+| Yellow box 2: "If Å¶â Y â There is an Error (Loss)" | â bold, red "Error (Loss)" | â matches incl. red bold segment | Match |
+| Red-bordered box: "Å¶ = XW / Predicted / Where: X_{NÃd+1} is a matrix â Given; Y_{NÃ1} is labels vector â Given; W is Model Parameter â Required" | â | â all three rows verbatim, subscripts present, "Predicted" italic red, â/Given/â/Required column present and row-aligned; X/Y/W stack alignment approximates original | Match |
+| Peach box: "Define Loss function as squared distance between Å¶ and Y" | "Å¶" and "Y" bold+underlined | **"Å¶ and Y" rendered plain, not bold/underlined**; "Loss" red and "squared distance" blue match | MINOR (0.85) |
+| Yellow box: "Loss = âYâÅ¶ââ = (YâÅ¶)áµ(YâÅ¶)" | underlines beneath Y and Å¶ inside the norm | equation matches structurally (norm, subscript 2, transpose superscript); **underlines beneath Y/Å¶ omitted** | MINOR (0.8) |
+| Layout/regions, box order, relative sizes, gaps | â | â all seven regions present, same order and proportions; nothing omitted | Match |
+| Frame containment | â | All boxes, text, equations sit fully inside the gray panel and their own borders; nothing touches/crosses any stroke; bottom Loss box clears the bottom stroke | â No overflow |
+| Vertical centering | â | Text in all enclosed boxes (yellow boxes, peach box, red boxes, Remember box) sits vertically centered, no top-hugging with empty lower wrap | â |
+| Colors | red C00000-ish titles/borders, blue titles, yellow FDFD96-ish fills, peach fill | all approximate matches | Match |
+
+## Discrepancy list
+1. **MINOR** â "Objective is Å¶=Y" loses bold weight vs. original (confidence 0.85).
+2. **MINOR** â In "Define Loss functionâ¦", the trailing "Å¶" and "Y" are plain instead of bold/underlined (0.85).
+3. **MINOR** â Loss equation box: underlines under Y and Å¶ inside the norm omitted (0.8).
+4. **MINOR** â "Remember" box rendered without its thin border (0.8).
+
+No MAJOR or BLOCKER discrepancies. No missing elements (rule 6 satisfied), no delimiter-geometry failures (rule 7 satisfied), no table-data issues (no table), no frame-containment overflow (rule 5 satisfied).
+
+## Visual-quality defects in the recreation
+- None observed: no text overflow, clipping, wrong wrapping, collisions, or illegible glyphs. Line spacing inside multi-line blocks ("Original Labels / from Training Samples", "Predicted Labels / from Model Å¶=XW") matches the original's separation.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

@@ -1,0 +1,767 @@
+
+########## SLIDE 001 (first) ##########
+[file: slide_001_final.json]
+TITLE: "Classifications Performance Measures"
+BULLETS: []
+LABELS: [
+ "Prepared By",
+ "Dr. Khaled Mostafa ElSayed",
+ "kmelsayed@zewailcity.edu.eg",
+ "Instructors:",
+ "Dr. Khaled Mostafa ElSayed",
+ "kmelsayed@zewailcity.edu.eg",
+ "Dr. Mohamed Maher Ata",
+ "momaher@zewailcity.edu.eg",
+ "1",
+ "ZEWAIL CITY",
+ "OF SCIENCE AND TECHNOLOGY",
+ "جامعة زويل للعلوم والتكنولوجيا",
+ "University of Science and Technology"
+]
+EQUATIONS: []
+  V1 [other] Thin red rectangular border framing the slide content area
+  V2 [other] Circle containing slide number '1': white (#ffffff) fill, purple (#8e44ad) outline, black (#000000) numeral
+  V3 [image] University logo composite: left teal square with white mountain silhouette and text 'ZEWAIL CITY / OF SCIENCE AND TECHNOLOGY'; right white rectangle with dark Arabic text 'جامعة زويل للعلوم والتكنولوجيا' and dark English text 'University of Science and Technology'
+  V4 [other] Main title text block, two lines, large bold red
+  V5 [other] Course code text block
+  V6 [other] 'Prepared By' attribution block: red italic label plus blue name and email
+  V7 [other] 'Instructors:' list block: red bold label plus two blue name/email entries
+
+########## SLIDE 002 (first) ##########
+[file: slide_002_final.json]
+TITLE: "Training Samples with Labels [0,1] (Two Classes)"
+BULLETS: [
+ "+1",
+ "+1",
+ "+1",
+ "+1",
+ "+1",
+ "0",
+ "0",
+ "0",
+ "0",
+ "0"
+]
+LABELS: [
+ "2",
+ "Positive Class",
+ "\"Shoot the Enemy\"",
+ "Label",
+ "Negative Class",
+ "\"Safe\"",
+ "Label",
+ "Activation Function",
+ "Sigmoid function (0 , +1)",
+ "Threshold at \"0.5\"",
+ "Training",
+ "Input Sample",
+ "Model",
+ "[Any value] -> (-1, +1)",
+ "Predicted Class",
+ "LOSS",
+ "Label of Input Sample (+1, 0)",
+ "Evaluation",
+ "Test Sample",
+ "Model",
+ "[Any value] -> (-1, +1)",
+ "Predicted Class",
+ "(+1, 0)"
+]
+EQUATIONS: [
+ "Sigmoid function (0 , +1)",
+ "Threshold at \"0.5\"",
+ "(-1, +1)",
+ "(+1, 0)"
+]
+  V1 [diagram] Training flowchart box with red header 'Training'. Left to right: 'Input Sample' text with right arrow into red 'Model' box containing '[Any value] -> (-1, +1)' and purple sigmoid icon. Right arrow to 'Predicted Class' text. Right arrow to orange circle labeled 'LOSS'. Right arrow to 'Label of Input Sample (+1, 0)'. A mouse cursor arrow points at the Model box from the left.
+  V2 [diagram] Evaluation flowchart box with red header 'Evaluation'. Left to right: 'Test Sample' text with right arrow into red 'Model' box containing '[Any value] -> (-1, +1)' and purple sigmoid icon. Right arrow to 'Predicted Class' text. Right arrow to blue text '(+1, 0)'.
+  V3 [graph] Sigmoid curve graph inside Activation Function box. Purple S-shaped curve on light background with axes visible.
+  V4 [image] Five black-and-white line drawing airplanes in red-bordered box (Positive Class). Each plane has a small skull/crossbones or enemy marking.
+  V5 [image] Five black-and-white line drawing airplanes in green-bordered box (Negative Class). These appear to be civilian/passenger planes without enemy markings.
+  V6 [highlight-box] Red rectangular border around Positive Class airplane images.
+  V7 [highlight-box] Green rectangular border around Negative Class airplane images.
+  V8 [other] Red vertical column with five '+1' text entries aligned with positive class planes.
+  V9 [other] Green vertical column with five '0' text entries aligned with negative class planes.
+
+########## SLIDE 003 (first) ##########
+[file: slide_003_final.json]
+TITLE: "Training Samples with Labels [-1,+1] (Two Classes)"
+BULLETS: [
+ "Positive Class “Shoot the Enemy”",
+ "Negative Class “Safe”",
+ "Activation Function",
+ "Bi-polor step (-1, +1)",
+ "Threshold at “zero”",
+ "Training",
+ "Input Sample",
+ "Model",
+ "(Any value) -> (-1,+1)",
+ "Predicted Class",
+ "LOSS",
+ "Label of Input Sample (+1,-1)",
+ "Evaluation",
+ "Test Sample",
+ "Model",
+ "(Any value) -> (-1,+1)",
+ "Predicted Class (+1,-1)"
+]
+LABELS: [
+ "3",
+ "Positive Class “Shoot the Enemy”",
+ "Negative Class “Safe”",
+ "Label",
+ "Label",
+ "+1",
+ "+1",
+ "+1",
+ "+1",
+ "+1",
+ "-1",
+ "-1",
+ "-1",
+ "-1",
+ "-1",
+ "Activation Function",
+ "Bi-polor step (-1, +1)",
+ "Threshold at “zero”",
+ "Training",
+ "Input Sample",
+ "Model",
+ "(Any value) -> (-1,+1)",
+ "Predicted Class",
+ "LOSS",
+ "Label of Input Sample (+1,-1)",
+ "Evaluation",
+ "Test Sample",
+ "Model",
+ "(Any value) -> (-1,+1)",
+ "Predicted Class (+1,-1)"
+]
+EQUATIONS: [
+ "[-1,+1]",
+ "(-1, +1)",
+ "(-1,+1)",
+ "(+1,-1)"
+]
+  V1 [highlight-box] Light blue rectangular banner with dark blue border containing the title text; the bracket range [-1,+1] appears accented/red.
+  V2 [diagram] Positive Class panel: red header “Shoot the Enemy”; tall red-bordered pale-pink box with five black line-art enemy/fighter aircraft sketches; narrow Label column to the right with +1 repeated five times, aligned one per aircraft.
+  V3 [diagram] Negative Class panel: green header “Safe”; tall green-bordered pale-green box with five black line-art passenger aircraft sketches; narrow Label column to the right with -1 repeated five times, aligned one per aircraft.
+  V4 [graph] Small bi-polar step plot: y-levels -1 and +1, x threshold at 0; line is flat at -1 left of 0, jumps vertically at 0, then flat at +1 right of 0. Axis tick labels +1 and -1 are shown if legible; no other data values.
+  V5 [flowchart] Training flow: Input Sample -> Model (subcaption: (Any value) -> (-1,+1)) -> Predicted Class -> LOSS -> Label of Input Sample (+1,-1). Arrows point left-to-right.
+  V6 [flowchart] Evaluation flow: Test Sample -> Model (subcaption: (Any value) -> (-1,+1)) -> Predicted Class (+1,-1). Arrows point left-to-right.
+  V7 [other] Yellow circle with black outline and black number 3.
+
+########## SLIDE 004 (first) ##########
+[file: slide_004_raw.json]
+TITLE: "Radar Shooting of Positive Target (Enemy plane)"
+BULLETS: []
+LABELS: [
+ "Actual",
+ "Positive",
+ "Negative",
+ "30",
+ "70",
+ "Model Output",
+ "18",
+ "12",
+ "60",
+ "10",
+ "Classified as:",
+ "Positive",
+ "Negative",
+ "Negative",
+ "Positive",
+ "And classification is:",
+ "True",
+ "False",
+ "True",
+ "False",
+ "TP",
+ "FN",
+ "TN",
+ "FP",
+ "Correctly Classified",
+ "Correctly Classified",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "Confusion Matrix",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "18",
+ "12",
+ "10",
+ "60",
+ "4"
+]
+EQUATIONS: []
+  V1 [diagram] Left flow diagram inside a bordered light-gray panel. Top Actual row has Positive with an enemy-plane icon and Negative with a passenger-plane icon. Black arrows point from Positive to red circle 30 and from Negative to green circle 70. In the Model Output row, 30 splits to red circle 18 and green circle 12; 70 splits to green circle 60 and red circle 10. Under the four leaf circles are three text
+  V2 [table] Top confusion matrix, 3x3 grid. Header Predicted as spans columns P and N; vertical Actual label spans rows P and N. Cells: row P, col P = TP with green fill; row P, col N = FN on white; row N, col P = FP on white; row N, col N = TN with green fill. Blue caption below reads Confusion Matrix.
+  V3 [table] Bottom confusion matrix with the same Predicted as / Actual structure. Cells: row P, col P = 18 with green fill; row P, col N = 12 on white; row N, col P = 10 on white; row N, col N = 60 with green fill.
+  V4 [other] Yellow circular slide-number badge containing black numeral 4.
+
+########## SLIDE 005 (first) ##########
+[file: slide_005_final.json]
+TITLE: "Radar Shooting of Positive Target (Enemy plane)"
+BULLETS: [
+ "FN = Actually Positive, Miss-classified as Negative",
+ "FP = Actually Negative, Miss-classified as Positive"
+]
+LABELS: [
+ "5",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "Total Positive = TP+FN",
+ "Total Negative = FP+TN",
+ "FN = Actually Positive, Miss-classified as Negative",
+ "FP = Actually Negative, Miss-classified as Positive",
+ "Positive",
+ "Negative",
+ "Actual",
+ "Predicted",
+ "30",
+ "12",
+ "70",
+ "10",
+ "18",
+ "60",
+ "Total Positive = 18+12=30",
+ "Total Negative = 10+60=70"
+]
+EQUATIONS: [
+ "Total Positive = TP+FN",
+ "Total Negative = FP+TN",
+ "Total Positive = 18+12=30",
+ "Total Negative = 10+60=70"
+]
+  V1 [table] Small confusion matrix top-left. Header row: 'Predicted as' above columns P and N. Row header 'Actual' vertical on left. Row P: cell P-P = TP (green #00b050 fill), cell P-N = FN (red #ff0000 fill). Row N: cell N-P = FP (red #ff0000 fill), cell N-N = TN (green #00b050 fill). Labels bold black.
+  V2 [diagram] Classification diagram top-right. Two column headers: 'Positive' in red #c00000 text, 'Negative' in green #00b050 text. Under each is a line-drawing airplane icon. A horizontal dashed divider in light gray #cccccc runs across the middle. Below the line: left cluster has red #c00000 circle '30' and green #00b050 circle '12'; right cluster has green #00b050 circle '70' and red #c00000 circle '10'. A
+  V3 [table] Large confusion matrix bottom-left. Header 'Predicted as' above columns P and N. Row header 'Actual' vertical on left. Row P: cell P-P = TP (bright green #00b050 fill), cell P-N = FN (light orange #ffd966 fill). Row N: cell N-P = FP (light yellow #ffff00 fill), cell N-N = TN (bright green #00b050 fill). To the right of the matrix: 'Total Positive = TP+FN' and 'Total Negative = FP+TN' in black.
+  V4 [highlight-box] Light blue #cfe2f3 rectangular callout box below the large matrix containing two lines of black #000000 text defining FN and FP.
+  V5 [table] Numeric confusion matrix bottom-right. Header 'Predicted as' above columns P and N. Row header 'Actual' vertical on left. Row P: cell P-P = 18 (bright green #00b050 fill), cell P-N = 12 (white/unfilled). Row N: cell N-P = 10 (white/unfilled), cell N-N = 60 (bright green #00b050 fill). To the right: 'Total Positive = 18+12=30' and 'Total Negative = 10+60=70' in black.
+
+########## SLIDE 006 (first) ##########
+[file: slide_006_final.json]
+TITLE: "Accuracy"
+BULLETS: [
+ "Meaning",
+ "How Accurate is the Classification (for Both Positive and Negative Classes)",
+ "Correctly Classified",
+ "Accuracy = (TP + TN) / (TP + FP + TN + FN)",
+ "All Samples",
+ "Accuracy= (18+60)/(18+12+60+10) = 78/100 = 78%",
+ "Accuracy of ALL Classes",
+ "What About Precision of Positive Class ONLY Results?",
+ "What About Recall % of Positive Samples ?",
+ "Conclusion: Accuracy is Good but Not Sufficient"
+]
+LABELS: [
+ "Correctly Classified (Positive & Negative)",
+ "Total Number of Samples",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "18",
+ "12",
+ "10",
+ "60",
+ "Positive",
+ "Negative",
+ "30",
+ "18",
+ "12",
+ "TP",
+ "FN",
+ "70",
+ "60",
+ "10",
+ "TN",
+ "FP",
+ "6"
+]
+EQUATIONS: [
+ "Accuracy = (TP + TN) / (TP + FP + TN + FN)",
+ "Accuracy= (18+60)/(18+12+60+10) = 78/100 = 78%"
+]
+  V1 [diagram] Confusion matrix (symbolic). Header 'Predicted as'. Columns P, N. Rows Actual P, Actual N. Cells: TP (green fill), FN, FP, TN (green fill).
+  V2 [diagram] Confusion matrix (numeric). Header 'Predicted as'. Columns P, N. Rows Actual P, Actual N. Cells: 18 (green fill), 12, 10, 60 (green fill).
+  V3 [diagram] Tree diagram labeled 'Positive' in red. Root node red circle '30'. Left branch to red circle '18' labeled 'TP'. Right branch to green circle '12' labeled 'FN'.
+  V4 [diagram] Tree diagram labeled 'Negative' in green. Root node green circle '70'. Left branch to green circle '60' labeled 'TN'. Right branch to red circle '10' labeled 'FP'.
+  V5 [highlight-box] Red-bordered box containing the accuracy formula and 'All Samples' text below it.
+  V6 [highlight-box] Light blue box containing the numeric accuracy calculation.
+  V7 [highlight-box] Yellow box containing three lines of text about precision, recall, and conclusion.
+
+########## SLIDE 007 (first) ##########
+[file: slide_007_raw.json]
+TITLE: "Precision"
+BULLETS: [
+ "Correctly Classified (as Positive)",
+ "Total Classified as Positive (either Correct and Erroneous)",
+ "Meaning",
+ "% of what you Predicted as POSITIVE is Actually Positive",
+ "Positive Classified as +ive",
+ "Negative Classified as +ive",
+ "All Samples classified as Positive",
+ "If you said: the sample is positive, can I trust you ? At what %?"
+]
+LABELS: [
+ "Precision",
+ "Precision =",
+ "TP",
+ "TP + FP",
+ "Precision= 18/(18+10) =64.3%",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "18",
+ "12",
+ "10",
+ "60",
+ "Positive",
+ "Negative",
+ "30",
+ "18",
+ "12",
+ "70",
+ "60",
+ "10",
+ "TP",
+ "FN",
+ "TN",
+ "FP",
+ "7"
+]
+EQUATIONS: [
+ "Correctly Classified (as Positive) / Total Classified as Positive (either Correct and Erroneous)",
+ "Precision = TP / (TP + FP)",
+ "Precision= 18/(18+10) =64.3%"
+]
+  V1 [highlight-box] Definition fraction: dark-red bar with white text 'Correctly Classified (as Positive)', a black fraction line beneath it, and black denominator text 'Total Classified as Positive (either Correct and Erroneous)' below the line.
+  V2 [highlight-box] Formula block: dark-red box labeled 'Precision =' in white, followed by the fraction TP over TP + FP; to the right is the evaluated example 'Precision= 18/(18+10) =64.3%'.
+  V3 [callout] Two beige callout boxes with small upward pointers: left says 'Positive Classified as +ive', right says 'Negative Classified as +ive'. A green curly brace sits beneath both, with the text 'All Samples classified as Positive'.
+  V4 [highlight-box] Light-blue rounded box with blue border and blue text: 'If you said: the sample is positive, can I trust you ? At what %?'
+  V5 [table] Generic confusion matrix. Header 'Predicted as' spans columns P and N. Row label 'Actual' with rows P and N. Cells: Actual P / Predicted P = TP green; Actual P / Predicted N = FN red/pink; Actual N / Predicted P = FP red/pink; Actual N / Predicted N = TN green.
+  V6 [table] Numeric confusion matrix with same structure: Actual P row has 18 under P and 12 under N; Actual N row has 10 under P and 60 under N. The 18 cell is highlighted with a blue outline.
+  V7 [flowchart] Two-branch tree under headers 'Positive' and 'Negative'. Left branch: red circular node with white plane icon labeled 30, arrows down to red node 18 labeled TP and green node 12 labeled FN. Right branch: green circular node with white plane icon labeled 70, arrows down to green node 60 labeled TN and red node 10 labeled FP.
+  V8 [other] Yellow circle in the top-right corner containing the slide number '7'.
+
+########## SLIDE 008 (first) ##########
+[file: slide_008_raw.json]
+TITLE: "Precision"
+BULLETS: [
+ "Correctly Classified (as Positive)",
+ "Total Classified as Positive (either Correct and Erroneous)",
+ "% of what you Predicted as POSITIVE is Actually Positive",
+ "Positive Classified as +ive",
+ "Negative Classified as +ive",
+ "All Samples classified as Positive",
+ "Higher Precision value DOES NOT mean you correctly retrieved more Positive samples.",
+ "It means I HIGHLY trust you if you said this sample is Positive"
+]
+LABELS: [
+ "Meaning",
+ "Positive",
+ "Negative",
+ "Predicted as",
+ "Actual",
+ "P",
+ "N",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "8",
+ "30",
+ "10",
+ "20",
+ "70",
+ "68",
+ "2"
+]
+EQUATIONS: [
+ "Precision = TP/(TP + FP)",
+ "Precision= 10/(10+2) = 83.3%"
+]
+  V1 [highlight-box] Red-outlined definition/fraction box under the title. It contains two text lines separated by a horizontal rule: 'Correctly Classified (as Positive)' above and 'Total Classified as Positive (either Correct and Erroneous)' below.
+  V2 [highlight-box] Yellow-filled Meaning callout with red bold header 'Meaning' and black sentence '% of what you Predicted as POSITIVE is Actually Positive'.
+  V3 [other] Precision formula block: red bold label 'Precision =' beside a stacked fraction with numerator 'TP' and denominator 'TP + FP'. Small callouts read 'Positive Classified as +ive' under TP and 'Negative Classified as +ive' under FP. A green bracket under both callouts is labeled in red italic 'All Samples classified as Positive'. To the right, the worked example reads 'Precision= 10/(10+2) = 83.3%'.
+  V4 [highlight-box] Light blue note box with two lines: 'Higher Precision value DOES NOT mean you correctly retrieved more Positive samples.' and 'It means I HIGHLY trust you if you said this sample is Positive'. Emphasis is shown with bold/caps on DOES NOT, more, and HIGHLY.
+  V5 [table] Confusion-matrix template. Column header 'Predicted as' spans P and N; row header 'Actual' is vertical on the left. Cells: Actual/Predicted P = TP, Actual/Predicted N = FN, Actual N/Predicted P = FP, Actual N/Predicted N = TN. TP and TN are green-filled; FN and FP are light/white with red text.
+  V6 [table] Example confusion matrix with the same 'Predicted as' P/N columns and vertical 'Actual' row header. Cells: Actual P row = 10 and 20; Actual N row = 2 and 68. The 10 is highlighted in a blue circle, 68 is green-filled, and 20 and 2 are plain.
+  V7 [diagram] Two side-by-side branch diagrams. Left header 'Positive' in red; right header 'Negative' in green. Each has a small airplane icon. Positive branch: red circle 30 branches down to red circle 10 labeled TP and green circle 20 labeled FN. Negative branch: green circle 70 branches down to green circle 68 labeled TN and red circle 2 labeled FP. Red arrows show the branching/flow.
+  V8 [other] Small yellow circular badge at the top-right corner containing the black number 8.
+
+########## SLIDE 009 (first) ##########
+[file: slide_009_final.json]
+TITLE: "Precision"
+BULLETS: [
+ "Correctly Classified (as Positive)",
+ "Total Classified as Positive (either Correct and Erroneous)",
+ "Meaning",
+ "% of what you Predicted as POSITIVE is Actually Positive",
+ "Precision = TP / TP + FP",
+ "Precision= 5/(5+0)",
+ "= 100%",
+ "Positive Classified as +ive",
+ "Negative Classified as +ive",
+ "All Samples classified as Positive",
+ "Whatever objects you retrieved as positive, I can trust you",
+ "(Irrespective of how many MISSED Positive samples)"
+]
+LABELS: [
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "Predicted as",
+ "5",
+ "25",
+ "0",
+ "70",
+ "Positive",
+ "Negative",
+ "30",
+ "5",
+ "TP",
+ "25",
+ "FN",
+ "70",
+ "70",
+ "TN",
+ "0",
+ "FP",
+ "9"
+]
+EQUATIONS: [
+ "Precision = TP / TP + FP",
+ "Precision= 5/(5+0) = 100%"
+]
+  V1 [diagram] Fraction-style definition box. Top part: 'Correctly Classified (as Positive)'. Bottom part separated by red line: 'Total Classified as Positive (either Correct and Erroneous)'.
+  V2 [highlight-box] Yellow background box. Header 'Meaning' in red bold. Text: '% of what you Predicted as POSITIVE is Actually Positive'. 'Predicted' is red, 'POSITIVE' is blue.
+  V3 [diagram] Red bordered box containing formula: 'Precision = TP / TP + FP'.
+  V4 [highlight-box] Blue bordered box containing calculation: 'Precision= 5/(5+0)' on first line, '= 100%' on second line.
+  V5 [diagram] Two beige speech bubbles connected by a green curly bracket. Left bubble: 'Positive Classified as +ive'. Right bubble: 'Negative Classified as +ive'. Text below bracket: 'All Samples classified as Positive' (with 'classified' in red).
+  V6 [highlight-box] Light blue bordered box with quote text. 'Whatever objects you retrieved as positive, I can trust you'. Second line in red italics: '(Irrespective of how many MISSED Positive samples)'.
+  V7 [chart] Confusion matrix grid. Header 'Predicted as'. Columns P, N. Rows Actual P, N. Cells: Row P Col P: 'TP' (green bg). Row P Col N: 'FN'. Row N Col P: 'FP'. Row N Col N: 'TN' (green bg).
+  V8 [chart] Confusion matrix grid with numbers. Header 'Predicted as'. Columns P, N. Rows Actual P, N. Cells: Row P Col P: '5' (blue circle). Row P Col N: '25'. Row N Col P: '0' (orange circle). Row N Col N: '70' (green bg).
+  V9 [diagram] Tree diagram labeled 'Positive' in red. Root node red circle '30'. Left child red circle '5' labeled 'TP'. Right child green circle '25' labeled 'FN'. Red arrows point outward from leaf nodes. Airplane icon above root.
+  V10 [diagram] Tree diagram labeled 'Negative' in green. Root node green circle '70'. Left child green circle '70' labeled 'TN'. Right child red circle '0' labeled 'FP'. Red arrows point outward from leaf nodes. Airplane icon above root.
+
+########## SLIDE 010 (first) ##########
+[file: slide_010_raw.json]
+TITLE: "Recall"
+BULLETS: [
+ "Correctly Classified (as Positive)",
+ "Total objects that should be retrieved (Actually Positive)",
+ "Meaning",
+ "Does the classifier miss any of Positive Objects ?",
+ "Recall =",
+ "TP",
+ "TP + FN",
+ "Positive Classified as +ive",
+ "Positive Classified as -ive",
+ "All Positive Samples in the Dataset",
+ "If you said: I picked ALL Positive objects,",
+ "can I trust you ? At what %?",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "P",
+ "TP",
+ "FN",
+ "N",
+ "FP",
+ "TN",
+ "10",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "P",
+ "18",
+ "12",
+ "N",
+ "10",
+ "60",
+ "Precision= 18/(18+12)",
+ "=60%",
+ "Positive",
+ "Negative",
+ "30",
+ "18",
+ "TP",
+ "12",
+ "FN",
+ "70",
+ "60",
+ "TN",
+ "10",
+ "FP"
+]
+LABELS: [
+ "10",
+ "Predicted as",
+ "Actual",
+ "P",
+ "N",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "Positive",
+ "Negative"
+]
+EQUATIONS: [
+ "Recall = TP / (TP + FN)",
+ "Precision= 18/(18+12) =60%"
+]
+  V1 [diagram] Top-right confusion matrix: header 'Predicted as', column headers P and N, row header 'Actual' with row labels P and N. Cell (P,P) contains 'TP' on green background. Cell (P,N) contains 'FN'. Cell (N,P) contains 'FP'. Cell (N,N) contains 'TN' on green background.
+  V2 [diagram] Middle-right confusion matrix: header 'Predicted as', column headers P and N, row header 'Actual' with row labels P and N. Cell (P,P) contains '18' inside a purple circle. Cell (P,N) contains '12' inside an orange circle. Cell (N,P) contains '10'. Cell (N,N) contains '60' inside a green circle.
+  V3 [diagram] Bottom-right two decision trees. Left tree under red header 'Positive': root node red circle '30', left branch to red circle '18' labeled 'TP', right branch to green circle '12' labeled 'FN'. Right tree under green header 'Negative': root node green circle '70', left branch to green circle '60' labeled 'TN', right branch to red circle '10' labeled 'FP'.
+  V4 [highlight-box] Red-outlined rounded rectangle containing the Recall formula.
+  V5 [highlight-box] Blue-outlined rectangle containing the bottom trust question.
+  V6 [other] Two speech-bubble callouts pointing to small boxes: 'Positive Classified as +ive' and 'Positive Classified as -ive', with a green curly brace underneath spanning both labeled 'All Positive Samples in the Dataset'.
+
+########## SLIDE 011 (first) ##########
+[file: slide_011_final.json]
+TITLE: "Recall"
+BULLETS: [
+ "Does the classifier miss any of Positive Objects ?",
+ "Recall = TP / (TP + FN)",
+ "Recall = 28/(28+2) = 93.3%",
+ "All Positive Samples in the Dataset",
+ "Higher Recall means I HIGHLY trust you if you said I picked ALL Positive Objects.",
+ "It Does NOT mean All you said Positive are Actually Positive"
+]
+LABELS: [
+ "11",
+ "Correctly Classified (as Positive)",
+ "Total objects that should be retrieved (Actually Positive)",
+ "Meaning",
+ "Does the classifier miss any of Positive Objects ?",
+ "Recall =",
+ "TP",
+ "TP + FN",
+ "Recall = 28/(28+2)",
+ "=93.3%",
+ "Positive Classified as +ive",
+ "Positive Classified as -ive",
+ "All Positive Samples in the Dataset",
+ "Higher Recall means I HIGHLY trust you if you said I picked ALL Positive Objects.",
+ "It Does NOT mean All you said Positive are Actually Positive",
+ "Predicted as",
+ "P",
+ "N",
+ "Actual",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "28",
+ "2",
+ "30",
+ "40",
+ "70",
+ "Positive",
+ "Negative"
+]
+EQUATIONS: [
+ "Recall = TP / (TP + FN)",
+ "Recall = 28/(28+2) = 93.3%"
+]
+  V1 [text] Slide title 'Recall', largest text on the slide, bold red
+  V2 [badge] Yellow circle containing slide number '11' in black text
+  V3 [highlight-box] Gray rectangular strip with red underline along bottom edge containing two-line definition text
+  V4 [highlight-box] Cream/light yellow box for Meaning section
+  V5 [highlight-box] White box with red border containing Recall formula as a stacked fraction (TP over TP + FN)
+  V6 [highlight-box] Light blue box with numeric recall calculation
+  V7 [diagram] Two beige speech bubbles with pointers: left-pointing and right-pointing
+  V8 [text] Single-line red italic caption 'All Positive Samples in the Dataset'
+  V9 [highlight-box] Blue bordered box with recall interpretation note
+  V10 [chart] First confusion matrix table: header 'Predicted as', columns P and N, row header 'Actual' with rows P and N; cells TP (green #00AA00 fill), FN (red #FF0000 fill), FP (red #FF0000 fill), TN (green #00AA00 fill)
+  V11 [chart] Second confusion matrix table: same header structure ('Predicted as', columns P/N, row header 'Actual', rows P/N); row P cells: '28' in purple #800080 circle and '2' in red #FF0000 circle; row N cells: '30' and '40' with green #00AA00 fill
+  V12 [diagram] Tree diagram labeled 'Positive' (red label): root red circle '30' with small airplane icon above, left child red circle '28' labeled 'TP', right child green circle '2' labeled 'FN'
+  V13 [diagram] Tree diagram labeled 'Negative' (green label): root green circle '70' with small airplane icon above, left child green circle '40' labeled 'TN', right child red circle '30' labeled 'FP'
+
+########## SLIDE 012 (first) ##########
+[file: slide_012_final.json]
+TITLE: "Recall"
+BULLETS: [
+ "Correctly Classified (as Positive)",
+ "Total objects that should be retrieved (Actually Positive)",
+ "Meaning",
+ "Does the classified miss any of Positive Objects ?",
+ "Recall =",
+ "TP",
+ "TP + FN",
+ "Positive Classified as +ive",
+ "Positive Classified as -ive",
+ "All Positive Samples in the Dataset",
+ "Model Try to catch ALL Positive Samples",
+ "(Irrespective of classifying NEGATIVE Objects as Positive)",
+ "Precision= 30/(30+0) =100%",
+ "Predicted as",
+ "Actual",
+ "P",
+ "N",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "30",
+ "0",
+ "70",
+ "Positive",
+ "Negative",
+ "TP",
+ "FN",
+ "TN",
+ "FP",
+ "12"
+]
+LABELS: [
+ "Correctly Classified (as Positive)",
+ "Total objects that should be retrieved (Actually Positive)",
+ "Meaning",
+ "Does the classified miss any of Positive Objects ?",
+ "Recall =",
+ "TP",
+ "TP + FN",
+ "Positive Classified as +ive",
+ "Positive Classified as -ive",
+ "All Positive Samples in the Dataset",
+ "Model Try to catch ALL Positive Samples",
+ "(Irrespective of classifying NEGATIVE Objects as Positive)",
+ "Precision= 30/(30+0) =100%",
+ "Predicted as",
+ "Actual",
+ "P",
+ "N",
+ "TP",
+ "FN",
+ "FP",
+ "TN",
+ "30",
+ "0",
+ "70",
+ "Positive",
+ "Negative",
+ "TP",
+ "FN",
+ "TN",
+ "FP",
+ "12"
+]
+EQUATIONS: [
+ "Recall = TP / TP + FN",
+ "Precision= 30/(30+0) =100%"
+]
+  V1 [text] Slide title 'Recall', large bold red text, centered at top.
+  V2 [badge] Yellow circle containing slide number '12' in black text.
+  V3 [highlight-box] Gray definition box with red underline along its bottom edge; two lines of black text: 'Correctly Classified (as Positive)' and 'Total objects that should be retrieved (Actually Positive)'.
+  V4 [text] 'Meaning' header (red) and question 'Does the classified miss any of Positive Objects ?' with the word 'miss' in red and the word 'Positive' underlined in blue.
+  V5 [highlight-box] Red-bordered formula box, white fill, containing 'Recall =' and a stacked fraction: numerator 'TP', denominator 'TP + FN', black text.
+  V6 [other] Two white speech bubbles side by side - left bubble: 'Positive Classified as +ive', right bubble: 'Positive Classified as -ive' - with a green curly brace beneath labeled 'All Positive Samples in the Dataset'.
+  V7 [highlight-box] Blue-bordered box, white fill, at bottom left with 'Model Try to catch ALL Positive Samples' and '(Irrespective of classifying NEGATIVE Objects as Positive)' with 'NEGATIVE' in red.
+  V8 [highlight-box] Small box containing exactly 'Precision= 30/(30+0) =100%' in black text (border/fill colors unspecified in source; thin dark outline on white assumed).
+  V9 [diagram] First (upper) confusion matrix: header 'Predicted as'. Columns P, N. Row header 'Actual' with rows P, N. Cell (P,P): 'TP' on green background. Cell (P,N): 'FN' on red background. Cell (N,P): 'FP' on red background. Cell (N,N): 'TN' on green background. Black cell text.
+  V10 [diagram] Second (lower) confusion matrix: header 'Predicted as'. Columns P, N. Row header 'Actual' with rows P, N. Cell (P,P): '30' inside blue circle. Cell (P,N): '0' plain white. Cell (N,P): '70' plain white. Cell (N,N): '0' on green background. Black text.
+  V11 [diagram] Decision tree labeled 'Positive' (bottom-right area, left tree): root node orange circle '30'. Left branch to orange circle '30' labeled 'TP' below. Right branch to green circle '0' labeled 'FN' below. Black connectors.
+  V12 [diagram] Decision tree labeled 'Negative' (bottom-right area, right tree): root node green circle '70'. Left branch to green circle '0' labeled 'TN' below. Right branch to red circle '70' labeled 'FP' below. Black connectors.
+  V13 [icon] Two small line-drawing airplane icons, one above each decision tree.
+
+########## SLIDE 013 (first) ##########
+[file: slide_013_final.json]
+TITLE: "Combine Precision and Recall in one number"
+BULLETS: [
+ "13",
+ "Positive",
+ "Negative",
+ "30",
+ "20",
+ "10",
+ "TP",
+ "FN",
+ "70",
+ "59",
+ "11",
+ "TN",
+ "FP",
+ "Good Model:",
+ "Properly Classifies 20 out of 30 as Positive",
+ "Properly Classifies 59 out of 70 as Negative",
+ "Precision = TP / (TP + FP)",
+ "Recall = TP / (TP + FN)",
+ "Precision= 20/(20+11) =64.5%",
+ "Recall= 20/(20+10) =66.6%",
+ "Average= 64.5%+66.6% =65.55%"
+]
+LABELS: [
+ "13",
+ "Positive",
+ "Negative",
+ "30",
+ "20",
+ "10",
+ "TP",
+ "FN",
+ "70",
+ "59",
+ "11",
+ "TN",
+ "FP",
+ "Good Model:",
+ "Properly Classifies 20 out of 30 as Positive",
+ "Properly Classifies 59 out of 70 as Negative",
+ "Precision = TP / (TP + FP)",
+ "Recall = TP / (TP + FN)",
+ "Precision= 20/(20+11) =64.5%",
+ "Recall= 20/(20+10) =66.6%",
+ "Average= 64.5%+66.6% =65.55%"
+]
+EQUATIONS: [
+ "Precision = TP / (TP + FP)",
+ "Recall = TP / (TP + FN)",
+ "Precision= 20/(20+11) =64.5%",
+ "Recall= 20/(20+10) =66.6%",
+ "Average= 64.5%+66.6% =65.55%"
+]
+  V1 [diagram] Confusion matrix style diagram with two trees inside a red-bordered box. Left tree labeled 'Positive' (red text) with an airplane icon above root node '30' (red circle). Root branches via blue arrows to left child '20' (red circle, label 'TP' below in red) and right child '10' (green circle, label 'FN' below in red). Right tree labeled 'Negative' (green text) with an airplane icon above root node 
+  V2 [other] Formula box: 'Precision = TP / (TP + FP)' in a yellow/beige rounded rectangle.
+  V3 [other] Formula box: 'Recall = TP / (TP + FN)' in a light blue rounded rectangle with blue border.
+  V4 [highlight-box] Green-bordered box: 'Good Model: Properly Classifies 20 out of 30 as Positive Properly Classifies 59 out of 70 as Negative'
+  V5 [highlight-box] Yellow box: 'Precision= 20/(20+11) =64.5%'
+  V6 [highlight-box] Blue box: 'Recall= 20/(20+10) =66.6%'
+  V7 [highlight-box] Blue box: 'Average= 64.5%+66.6% =65.55%'

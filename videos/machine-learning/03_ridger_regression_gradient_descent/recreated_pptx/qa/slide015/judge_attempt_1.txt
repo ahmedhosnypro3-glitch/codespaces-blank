@@ -1,0 +1,27 @@
+DISCREPANCIES:
+
+1. **Equation Color Highlighting (Semantic Coloring Lost)**
+   - **Location:** Top equation block (lines 1-3), Middle "Remember" box, Bottom derivative block, Final solution box.
+   - **Original (IMG2):** Specific terms are colored green to highlight variables/operators (e.g., `W^T W`, `Î»`, `W`, `I`, the final `W` in the solution box).
+   - **Recreation (IMG1):** All equation text is rendered in uniform dark blue. No green highlighting is present.
+   - **Severity:** MAJOR (Violates color fidelity rule (f); loses semantic distinction present in original).
+   - **Confidence:** High.
+
+2. **Character Glyph Error ('J' vs '|')**
+   - **Location:** Top equation block, Line 1, first character.
+   - **Original (IMG2):** Clearly renders as `J(W)`.
+   - **Recreation (IMG1):** Renders as `|)(W)` or `I)(W)` â the character `J` lacks its top curve and appears as a vertical bar.
+   - **Severity:** MAJOR (Text verbatim/glyph fidelity violation).
+   - **Confidence:** High.
+
+3. **Spacing in Derivative Term**
+   - **Location:** Bottom equation block, Line 1, end of line.
+   - **Original (IMG2):** Shows `+ Î» W` (space between lambda and W).
+   - **Recreation (IMG1):** Shows `+ Î»W` (tight kerning, no space).
+   - **Severity:** MINOR (Spacing deviation).
+   - **Confidence:** Medium.
+
+VISUAL-QUALITY DEFECTS IN RECREATION:
+- None observed beyond the discrepancies listed above. Frame containment, delimiter geometry, and layout alignment appear correct. The house chrome (gray panel, strokes, badge) matches the mandated template rules.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation'.

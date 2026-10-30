@@ -1,0 +1,75 @@
+## 1. LAYOUT MAP
+1. Outer dark-gray canvas â full screen background behind everything.
+2. Red-bordered slide frame â center region, slightly inset from the canvas edges, containing the chart area.
+3. Chart plot â white rectangular plot area inside the frame, bounded by axis labels (-10 to 40 on both axes) and gridlines.
+4. Seven colored scatter clusters â blue (top-left, largest), red (top-middle, small), cyan (top-right), yellow (mid-left), magenta (bottom-middle, large), green (bottom-left, small), black (bottom-right).
+5. Thin arrow annotation â hovers over the red cluster near its top edge.
+6. "42" indicator pill â top-right corner, yellow fill, black text on a circular pill.
+7. Black bar â runs along the bottom edge, partially visible.
+
+Apparent scale/quality: 960x540 CSS px capture at 1x; raster chart image with soft anti-aliasing but no compression artifacts that block judgment. Nothing is blurred or cropped enough to limit analysis.
+
+## 2. FIRST-GLANCE TEST
+Within 3 seconds: a user sees a scatter plot titled (implicitly) by its axes, with several colored point groups and a single "42" pill in the corner. The screen appears to offer no visible interactive actions â no buttons, menus, or controls are shown. Given the injected VIEW purpose ("SVM/kernels/QP lecture frame"), the focal point SHOULD be the decision boundary or class separation relevant to SVMs, but nothing actually wins the eye â all clusters carry equal visual weight, the arrow is faint and unlabeled, and there is no annotation explaining what the chart demonstrates.
+
+## 3. STRENGTHS
+- The white plot area cleanly separates from the dark canvas via the red frame, establishing a clear content region (top-middle).
+- The seven clusters are visually distinct by color with no overlapping point colors, so each class is immediately separable by hue alone (throughout chart plot).
+- Axis labels and gridlines provide a readable coordinate frame without cluttering the data area (left/bottom edges of chart plot).
+
+## 4. DEFECT LIST
+
+- [minor|high] Chart plot âº top-right annotation â thin unlabeled arrow over red cluster â arrow has no label or leader text explaining what it indicates â add a callout label or remove the arrow.
+- [minor|high] Corner indicator pill âº top-right of canvas â "42" pill in yellow/black â no context, no surrounding legend or key explaining what the number measures â add a caption or integrate into a legend.
+- [minor|high] Overall composition â seven disconnected scatter clusters with no connecting visual language â reads as a raw data dump rather than an illustrated lecture concept â add a highlighted decision boundary, margin lines, or support vectors to signal SVM content.
+- [minor|med] Axis labels âº left and bottom of chart plot â small gray numerals (-10, 0, 10, 20, 30, 40) sit close to plot edge with no axis title â add "x"/"y" or feature-name axis titles.
+- [minor|med] Black bar âº bottom edge â thick black strip partially cuts off the lower canvas region with no label â appears to be an unintended overlay or cropped chrome; remove or label.
+- [i18n-risk] Axis scale region â English LTR capture only; translated axis titles (~30% longer) would crowd the tight left/bottom label area â reserve extra horizontal padding for axis titles.
+
+- (a) THEME & DARK-MODE PHYSICS: clean â checked, nothing found. Dark canvas vs white plot is a standard, professional elevation step; no gray-on-gray body text present.
+- (b) TYPOGRAPHY: clean â checked, nothing found. All visible text uses a single clean sans family at readable sizes (~12â14px); no mono-prose mixing or ALL-CAPS abuse.
+- (c) SPACING: minor|high â corner pill touches the red frame corner region with almost no padding from the frame edge â increase inset from frame corner.
+- (d) ALIGNMENT & POSITIONING: clean â checked, nothing found. Clusters sit cleanly within grid; no ragged edges.
+- (e) CROWDING & DENSITY: clean â checked, nothing found. White plot area has generous breathing room; no visual noise.
+- (f) HIERARCHY: major|high â no focal point established â all seven clusters render identically with no primary/secondary distinction â the screen fails to guide the eye to any SVM-relevant concept â add visual emphasis (decision boundary, highlighted cluster, or annotation) to create hierarchy.
+- (g) COMPOSITION: minor|med â bottom black bar occupies ~8% of screen height with no content, creating dead space at the canvas bottom â either populate it or remove it.
+- (h) COMPLETENESS: clean â checked, nothing found. No clipped text, no zero-width elements, no horizontal scrollbar visible.
+- (i) CONTINUITY: clean â checked, nothing found. Only one component style family present (scatter points, grid, frame); no conflicting radii or border treatments.
+- (j) LINES & EDGES: clean â checked, nothing found. Red frame is a continuous closed rectangle; gridlines span the full plot.
+- (k) AFFORDANCE & STATES: major|high â zero clickable or interactive elements are visible on a screen framed as a "lecture frame" â no navigation, no controls, no affordances whatsoever â add at least a back/next control or interactive annotation.
+- (l) ICONOGRAPHY: clean â checked, nothing found. No icons present.
+- (m) TABLES & LISTS: skip â none present.
+- (n) ACCESSIBILITY & LEGIBILITY: minor|med â axis numerals appear near the legibility floor (~11â12px) on mid-gray against white, estimated around 4:1 contrast â bump to ~13px and darker gray for parent-facing readability.
+- (o) UI COPY QUALITY (labels only): minor|med â the lone "42" is an opaque numeric label with no semantic meaning â replace with a self-describing label or remove.
+
+## 5. TOP 3
+1. Section 4, (f) HIERARCHY â no focal point or SVM-relevant emphasis anywhere on the screen; the lecture concept is invisible. (Cross-ref: 4-(f))
+2. Section 4, (k) AFFORDANCE & STATES â zero interactive controls on a desktop app screen; nothing is clickable. (Cross-ref: 4-(k))
+3. Section 4, corner indicator pill â unexplained "42" pill with no legend or context. (Cross-ref: 4-second defect line)
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the "42" indicator from a floating corner pill into a bottom caption bar or legend strip below the chart plot, so it reads as a data label rather than orphaned chrome. (Source: top-right canvas corner â Destination: bottom strip below chart plot)
+2. Add a single highlighted decision-boundary overlay or support-vector annotation directly on the chart plot to establish the SVM focal point. (Source: none â new overlay â Destination: chart plot, overlaid on clusters)
+3. Add a minimal back/next control strip at the bottom to restore affordance. (Source: none â Destination: bottom black bar region, replacing dead space)
+
+## 7. VERDICT
+- Theme & dark-mode: 8 â clean dark-canvas/white-plot contrast, professional elevation.
+- Typography: 8 â single clean sans family, sizes readable, no clashes.
+- Spacing: 7 â generally generous, but corner pill and bottom bar show minor padding failures.
+- Alignment: 8 â everything lines up to the grid; no misalignment found.
+- Crowding/density: 9 â sparse to a fault, but nothing feels cramped.
+- Hierarchy: 4 â no focal point; all clusters equal weight; screen fails to guide the eye.
+- Composition: 6 â dead bottom bar and isolated corner pill leave the stage unbalanced.
+- Completeness: 8 â nothing clipped, cut off, or zero-width.
+- Continuity & consistency: 8 â one consistent component language throughout.
+- Affordance & states: 2 â zero clickable elements; screen is a static image with no interaction.
+- First-glance clarity: 3 â a new user cannot tell what this screen demonstrates or what to do.
+- Overall: 4 â presentable as a raw chart, but as a lecture frame it fights the user by offering no concept emphasis and no interaction.
+
+## 8. UNCERTAINTIES
+- The black bottom bar may be intentional OS/presentation chrome captured by the harness rather than app UI; if so, the composition finding against it should be discounted.
+- The arrow annotation may be a static part of the lecture graphic rather than an interactive tooltip; its unlabeled status remains a defect either way.
+- Axis numeral sizes are estimated from a 960x540 raster; actual px could differ slightly, but the small-size concern holds regardless.
+
+## 9. VOCABULARY PROPOSALS
+no additions

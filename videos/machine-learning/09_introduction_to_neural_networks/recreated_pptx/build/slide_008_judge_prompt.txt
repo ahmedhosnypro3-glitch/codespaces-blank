@@ -1,0 +1,52 @@
+COMPARISON JUDGE — slide_008 recreation fidelity
+
+VIEW: Machine learning lecture slide "Multi-Class Classification using [ONE VS ALL] Binary Classifiers" (slide 8 of 32). Purpose: verify the recreation matches the original frame's renderable content exactly, accounting for intentional template overrides.
+
+CAPTURE:
+1. ORIGINAL (slide_008.jpg) — 960x540 JPEG, extracted lecture frame, scale 1.0
+2. RECREATION (slide_008_rendered_resized.png) — 960x540 PNG, LibreOffice headless render of pptxgenjs recreation at 150dpi, resized to match original
+
+GROUND-RULES PRELUDE (acknowledge first):
+(a) Intentional template override: the recreation uses the shared house frame (red outer frame 0.15in inset, yellow badge with numeral "8" at top-right, centered title box at y=0.28in). The original has its own frame/badge/title layout. The recreation's house frame is BY DESIGN — do not charge it as a defect.
+(b) A contentless original matches a contentless recreation — the original has no subtitle; the recreation has none.
+(c) Capture artifacts (video player chrome, watermarks) are correctly omitted in recreation.
+(d) Typed-vs-handwritten rendering is at most MINOR.
+(e) Mandated format upgrades (professional 2D equations via mathtext-PNG, OMML wrap) are upgrades, not discrepancies.
+(f) The verdict is about fidelity of RENDERABLE CONTENT ONLY — the classification diagram, axes, points, decision boundaries, labels, annotation boxes, and their relative positions.
+
+CONTENT ANCHORING — the original surface contains:
+- TITLE (single line, centered): "Multi-Class Classification using" in red #c0392b, "[ONE VS ALL]" in blue #21618c, "Binary Classifiers" in red #c0392b
+- SLIDE NUMBER: "8" in a circle at top-right (original: white circle with purple outline; recreation: yellow oval per house frame law — this is intentional override (a))
+- MAIN PLOT: large central plot area (white background, red border) with:
+  - BLACK X AND Y AXES: horizontal x-axis along bottom with arrowhead at right; vertical y-axis along left with arrowhead at top; no tick marks, no axis labels
+  - THREE CLASS CLUSTERS of small filled dots (~10-15 per class):
+    * C1 (GREEN #2ecc71) — upper region
+    * C2 (BLUE #2980b9) — right region
+    * C3 (RED #c0392b) — lower-left region
+  - THREE DECISION BOUNDARY LINES crossing full plot:
+    * RED line (d1(x)): upper-left to lower-right (negative slope), labeled "d1(x)" in red near line
+    * BLUE line (unlabeled): lower-left to upper-right (steeper positive slope)
+    * GREEN line (d3(x)): lower-left to upper-right (shallower positive slope), labeled "d3(x)" in green near line
+  - HATCHED SHADING between decision boundaries separating the three class regions
+  - THREE YELLOW LABEL BOXES (#f1c40f) with bold black "C1", "C2", "C3" near respective clusters
+  - FOUR ORANGE BOXES (#e67e22) each containing a black "?" at: left-middle, center, upper-right, bottom-center of plot
+  - THREE BLACK "+ve" TEXT LABELS near arrows/lines: one left, one top-right, one bottom-right
+- "UNDEFINED" ANNOTATION BOX (top-left outside plot): pale mint #d5f5e3 fill, black border, black text "Undefined", with THIN RED LEADER LINES (#c0392b) extending from box into plot regions
+- "NEW CLASS" ANNOTATION BOX (middle-right outside plot): light purple #d7bde2 fill, purple #8e44ad border, black text "New Class"
+
+FACTS (measured from original):
+- Original frame: 960x540, background #e6e6e6
+- Plot region roughly centered, spanning ~70% width, ~80% height
+- Badge: original uses circle with purple outline; recreation uses yellow oval — INTENTIONAL OVERRIDE
+- Title colors: red #c0392b, blue #21618c (measured from accents)
+- All class dots small (~3-5px diameter in original)
+- Decision lines span full plot width
+- Hatching: thin diagonal lines, color not clearly specified
+- Question boxes: ~15x15px in original
+- "+ve" labels: small black text near boundary arrows
+
+JUDGMENT TASK:
+Compare RECREATION (image 2) against ORIGINAL (image 1) on renderable content fidelity. List discrepancies with severity (HIGH/MEDIUM/LOW) and confidence. Ignore intentional template overrides (badge style, outer frame, title position). Charge only content that differs: missing/extra elements, wrong colors, wrong positions, wrong text, missing labels, wrong line slopes/positions, missing hatching, wrong annotation box colors/positions.
+
+End with exactly one terminal verdict line:
+FINAL VERDICT: PASS | FAIL — <one-sentence summary>

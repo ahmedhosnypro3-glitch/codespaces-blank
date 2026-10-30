@@ -1,0 +1,24 @@
+2026-10-27 23:07:02,178 INFO === crop_cascade run: slide_012.jpg ===
+2026-10-27 23:07:02,182 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 23:07:05,594 INFO chat call attempt=1 latency=3.4s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 23:07:05,594 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-27 23:07:06,811 INFO chat call attempt=1 latency=1.2s url=http://localhost:17844/v1/chat/completions bytes=142
+2026-10-27 23:07:06,811 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 23:07:06,811 INFO chat lane: active
+2026-10-27 23:07:07,776 INFO parse call attempt=1 latency=1.0s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=35918
+2026-10-27 23:07:07,779 INFO node root parsed: 573 chars, 179 out tokens
+2026-10-27 23:07:07,779 INFO root parsed: 573 chars
+2026-10-27 23:07:07,779 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:07:18,721 INFO chat call attempt=1 latency=10.9s url=http://localhost:17844/v1/chat/completions bytes=3369
+2026-10-27 23:07:19,122 INFO level 0 done: 1 nodes -> 3 children
+2026-10-27 23:07:19,893 INFO parse call attempt=1 latency=0.8s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=75460
+2026-10-27 23:07:19,894 INFO node slide_012.crop03__picture parsed: 163 chars, 47 out tokens
+2026-10-27 23:07:19,894 INFO node slide_012.crop03__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:07:19,898 INFO parse call attempt=1 latency=0.8s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=73541
+2026-10-27 23:07:19,899 INFO node slide_012.crop02__table parsed: 190 chars, 92 out tokens
+2026-10-27 23:07:19,899 INFO node slide_012.crop02__table stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:07:20,045 INFO parse call attempt=1 latency=0.9s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=77477
+2026-10-27 23:07:20,046 INFO node slide_012.crop01__picture parsed: 169 chars, 53 out tokens
+2026-10-27 23:07:20,046 INFO node slide_012.crop01__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:07:20,052 INFO level 1 done: 3 nodes -> 0 children
+2026-10-27 23:07:20,054 INFO composed -> composed/slide_012_composed.md

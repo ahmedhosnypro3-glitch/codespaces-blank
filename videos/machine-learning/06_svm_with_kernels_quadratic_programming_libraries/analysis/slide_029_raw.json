@@ -1,0 +1,69 @@
+{
+  "slide_number": 29,
+  "source_image": "slide_029.jpg",
+  "analysis_type": "vision",
+  "model": "images",
+  "round": 1,
+  "attempt": 1,
+  "winner": "images",
+  "layout_map": "1. Outer app frame (dark window chrome visible as thin black bands at top and bottom edges)\n2. Slide card / presentation surface (light rounded rectangle filling most of the frame)\n3. Slide header (title \"Radial Basis Function (RBF) Kernel\" top-left; yellow slide-number badge \"29\" top-right)\n4. Left derivation pane (three stacked blue-bordered equation boxes)\n5. Right expansion pane (single red-bordered panel with Taylor series text and approximation list)\n6. Inline annotations (pink φ(a)ᵀ / φ(b) pills and a hand-drawn connecting line inside the third equation box; stray squiggle below the left pane)",
+  "first_glance_test": "A brand-new user understands within 3 seconds that this is a lecture slide deriving the RBF kernel via Taylor series. The screen offers no visible interactive actions in this static capture; the only user action is reading/absorbing the derivation. The title wins the eye first, but the red approximation list in the right pane competes strongly for attention due to color. Given the injected VIEW purpose (lecture frame), the focal point should be the title and derivation flow — it does win the eye, though the red list pulls attention downward-right.",
+  "strengths": [
+    "Clear, descriptive title located at top-left of the slide card.",
+    "Logical two-column visual flow from derivation (left) to numeric expansion (right).",
+    "Red accent used consistently for key mathematical terms and approximations, aiding scanability.",
+    "Approximation sequence ending in \"Actual Value\" provides a clear convergence payoff."
+  ],
+  "defects": [
+    {
+      "category": "a",
+      "severity": "major",
+      "confidence": "high",
+      "description": "Slide card — surface — light near-white slide background inside a dark-themed app — a bright light panel breaks the dark-mode surface stack and reads as a theme violation — switch slide surface to a dark app token."
+    },
+    {
+      "category": "g",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "Left derivation pane — bottom area — large untreated void below the third equation box with only a stray squiggle — dead air unbalances the two-column composition — remove void or extend content to pane bottom."
+    },
+    {
+      "category": "i",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "Slide card — left vs right panes — left equation boxes use blue borders while the right expansion panel uses a red border — sibling regions with competing accent colors fracture visual continuity — unify border color system."
+    },
+    {
+      "category": "k",
+      "severity": "minor",
+      "confidence": "low",
+      "description": "Inline annotations — third equation box — pink φ(a)ᵀ / φ(b) pills with a hand-drawn connecting line sit inside a formal math box — ambiguous markup reads as stray annotation rather than deliberate content — style as an explicit annotation layer or remove."
+    }
+  ],
+  "top_3": [
+    "[4a] Light slide surface in dark app — breaks theme physics immediately and creates a bright island.",
+    "[4i] Blue vs red sibling borders — fractures visual continuity across the card.",
+    "[4g] Void below left derivation pane — dead air unbalances composition."
+  ],
+  "structural_proposal": "1. Move Right expansion pane beneath Left derivation pane inside the Slide card (source: Right expansion pane → destination: stacked under Left derivation pane) to create one reading column and eliminate the left-column void.\n2. [out-of-scope] Add slide navigation controls (prev/next) to the Slide header — none are visible in this capture.",
+  "verdict_scores": {
+    "theme_dark_mode": 3,
+    "typography": 8,
+    "spacing": 6,
+    "alignment": 8,
+    "crowding_density": 7,
+    "hierarchy": 7,
+    "composition": 5,
+    "completeness": 9,
+    "continuity_consistency": 6,
+    "affordance_states": 7,
+    "first_glance_clarity": 8,
+    "overall": 6
+  },
+  "uncertainties": [
+    "Whether the hand-drawn squiggle and pink φ pills are intentional lecture annotations or UI artifacts; a static image cannot confirm interactivity or purpose.",
+    "Whether the light slide surface is an intentional exception (slide viewer rendering at native brightness) or a theme bug.",
+    "The exact text of the \"Approx. to 9 terms\" line appears garbled (\"19.8420.01\"), but fixture data correctness is out of scope; if it is a rendering collision it may be an under-reported completeness defect."
+  ],
+  "vocabulary_proposals": []
+}

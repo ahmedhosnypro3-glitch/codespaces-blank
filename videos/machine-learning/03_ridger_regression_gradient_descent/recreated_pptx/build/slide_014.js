@@ -63,11 +63,11 @@ s.addText([
   { text: "Y", options: { fontSize: 18, color: BLACK, fontFace: FONT, underline: true } },
   { text: " =", options: { fontSize: 18, color: BLACK, fontFace: FONT } },
 ], { x: leftX + 0.15, y: vboxY, w: 0.9, h: vboxH, align: "left", valign: "middle", margin: 0 });
-s.addImage({ path: ASSETS + "eq_014_Yvec.png", x: leftX + 1.05, y: vboxY + (vboxH - 1.2083) / 2, w: 1.0483, h: 1.2083 });
+s.addImage({ path: ASSETS + "eq_014_Yvec.png", x: leftX + 1.05, y: vboxY + (vboxH - 1.2083333333333333) / 2, w: 1.0483333333333333, h: 1.2083333333333333 });
 s.addText([
   { text: "N", options: { fontSize: 12, color: BLACK, fontFace: FONT } },
   { text: "\u00D71", options: { fontSize: 12, color: BLACK, fontFace: FONT, subscript: true } },
-], { x: leftX + 2.15, y: vboxY + (vboxH - 1.2083) / 2, w: 0.7, h: 1.2083, align: "left", valign: "bottom", margin: 0 });
+], { x: leftX + 2.15, y: vboxY + (vboxH - 1.14) / 2, w: 0.7, h: 1.14, align: "left", valign: "bottom", margin: 0 });
 s.addText([
   { text: "Original Labels", options: { fontSize: 14, bold: true, color: EQ_RED, fontFace: FONT } },
 ], { x: leftX + 2.6, y: vboxY + 0.30, w: leftW - 2.7, h: 0.28, align: "left", valign: "top", margin: 0, lineSpacing: 17 });
@@ -81,11 +81,11 @@ s.addText([
   { text: "\u0176", options: { fontSize: 18, color: BLACK, fontFace: FONT } },
   { text: " =", options: { fontSize: 18, color: BLACK, fontFace: FONT } },
 ], { x: rightX + 0.15, y: vboxY, w: 0.9, h: vboxH, align: "left", valign: "middle", margin: 0 });
-s.addImage({ path: ASSETS + "eq_014_Yhatvec.png", x: rightX + 1.05, y: vboxY + (vboxH - 1.22) / 2, w: 1.0483, h: 1.22 });
+s.addImage({ path: ASSETS + "eq_014_Yhatvec.png", x: rightX + 1.05, y: vboxY + (vboxH - 1.22) / 2, w: 1.0483333333333333, h: 1.22 });
 s.addText([
   { text: "N", options: { fontSize: 12, color: BLACK, fontFace: FONT } },
   { text: "\u00D71", options: { fontSize: 12, color: BLACK, fontFace: FONT, subscript: true } },
-], { x: rightX + 2.15, y: vboxY + (vboxH - 1.22) / 2, w: 0.7, h: 1.22, align: "left", valign: "bottom", margin: 0 });
+], { x: rightX + 2.15, y: vboxY + (vboxH - 1.135) / 2, w: 0.7, h: 1.135, align: "left", valign: "bottom", margin: 0 });
 s.addText([
   { text: "Predicted Labels", options: { fontSize: 14, bold: true, color: BLUE, fontFace: FONT } },
 ], { x: rightX + 2.6, y: vboxY + 0.30, w: rightW - 2.7, h: 0.28, align: "left", valign: "top", margin: 0, lineSpacing: 17 });
@@ -112,7 +112,7 @@ const b1 = band(243, 43, YEL, NAVY);
 const b1t = { x: bandX + 0.25, y: b1.y + ruleH, w: bandW - 0.5, h: b1.h - 2 * ruleH };
 s.addText([
   { text: "Objective is ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-  { text: "\u0176=Y", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT } },
+  { text: "\u0176=Y", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT, underline: true } },
   { text: " and ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "||W||", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT } },
   { text: " is minimum This is called ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
@@ -124,12 +124,11 @@ const b2 = band(303, 39, YEL, NAVY);
 const b2t = { x: bandX + 0.25, y: b2.y + ruleH, w: bandW - 0.5, h: b2.h - 2 * ruleH };
 s.addText([
   { text: "Objective function ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-  { text: "J(W)", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT } },
-  { text: " = ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "J(W)", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
+  { text: "=", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "Loss", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT } },
-  { text: "(X,Y,W) + ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "(X,Y,W)+", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "\u03bb", options: { fontSize: 17, color: BLUE, fontFace: FONT } },
-  { text: " ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "R(W)", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT } },
   { text: " (", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "\u03bb", options: { fontSize: 17, color: BLUE, fontFace: FONT } },
@@ -144,9 +143,9 @@ s.addText([
   s.addShape(pptx.ShapeType.rect, { x, y: y + h - ruleH, w, h: ruleH, fill: { color: MAROON } });
   s.addText([
     { text: "Define ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-    { text: "Loss", options: { fontSize: 17, bold: true, color: DARKRED, fontFace: FONT } },
+    { text: "Loss", options: { fontSize: 17, bold: true, color: DARKRED, fontFace: FONT, underline: true } },
     { text: " function as ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-    { text: "squared distance", options: { fontSize: 17, bold: true, color: PURPLE, fontFace: FONT } },
+    { text: "squared distance", options: { fontSize: 17, bold: true, color: PURPLE, fontFace: FONT, underline: true } },
     { text: " between ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
     { text: "\u0176", options: { fontSize: 17, bold: true, italic: true, color: BLACK, fontFace: FONT, underline: true } },
     { text: " and ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
@@ -162,7 +161,7 @@ s.addText([
   s.addShape(pptx.ShapeType.rect, { x: lx, y, w: lw, h, fill: { color: PEACH2 }, line: { color: MAROON_BOX, width: 1.5 } });
   s.addShape(pptx.ShapeType.rect, { x: rx, y, w: rw, h, fill: { color: PALE_YEL }, line: { color: NAVY, width: 1.5 } });
   s.addText([
-    { text: "Loss Term", options: { fontSize: 17, bold: true, color: NAVY, fontFace: FONT } },
+    { text: "Loss Term", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT } },
     { text: " = ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
     { text: "||Y-\u0176||", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT } },
     { text: "2", options: { fontSize: 17, color: RED, fontFace: FONT, superscript: true } },
@@ -189,7 +188,9 @@ s.addText([
   s.addShape(pptx.ShapeType.rect, { x, y: y + h - ruleH, w, h: ruleH, fill: { color: NAVY } });
   s.addText([
     { text: "Objective function ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-  ], { x: x + 1.1, y: y + ruleH, w: 2.4, h: h - 2 * ruleH, align: "left", valign: "middle", margin: 0, lineSpacing: 20 });
+    { text: "J(W)", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
+    { text: " = ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  ], { x: x + 1.1, y: y + ruleH, w: 2.8, h: h - 2 * ruleH, align: "left", valign: "middle", margin: 0, lineSpacing: 20 });
   // 2D professional-format objective formula (stacked 1/2 fraction), measured span x350..735 y479..521
   s.addImage({ path: ASSETS + "eq_014_final.png", x: 350 / 72, y: 479 / 72, w: 3.985, h: 0.4233 });
 }

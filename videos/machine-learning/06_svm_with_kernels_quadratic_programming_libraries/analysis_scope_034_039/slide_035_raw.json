@@ -1,0 +1,117 @@
+{
+  "slide_title": "How to Kernelize SVM",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Instead of using X_i (of dimension d) use \\phi(X_i) (with higher dimension )",
+      "Instead of using \\phi(X_i)^T \\phi(X_j) use K(X_i^T , X_j) (Where K is one of kernel functions)"
+    ],
+    "labels": [
+      "35",
+      "Remember :",
+      "Mapping",
+      "Kernelization",
+      "(of dimension d)",
+      "(with higher dimension )",
+      "(Where K is one of kernel functions)",
+      "Class of vector Z",
+      "sign(W^T Z + b)"
+    ],
+    "equations": [
+      "\\mathscr{L}_D(\\alpha) = \\sum_{i=1}^N \\alpha_i - \\frac{1}{2} \\sum_{j=1}^N \\sum_{i=1}^N \\alpha_i \\alpha_j y_i y_j X_i^T X_j",
+      "W = \\sum_{i=1}^N \\alpha_i y_i X_i",
+      "b = -\\frac{1}{2} [\\max_{i: y_i=-1} W^T X_i + \\min_{i: y_i=+1} W^T X_i]",
+      "Class of vector Z \\Rightarrow sign(W^T Z + b)",
+      "X_i^T X_j \\Rightarrow \\phi(X_i)^T \\phi(X_j)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title 'How to Kernelize SVM' centered at top in red. Slide number '35' in yellow circle at top-right. Main content inside a large bordered rectangle divided into three horizontal stacked bands: top band shows original SVM formulation with a wide equation box, two side-by-side formula boxes (W and b), and an orange classification box below; middle band shows 'Remember:' section with 'Mapping' and 'Kernelization' rows containing text and inline equations; bottom band shows kernelized SVM formulation mirroring the top band but with green oval highlights on kernel terms. All text left-aligned within bands.",
+    "regions": [
+      {
+        "name": "title strip",
+        "position": "top center + top right",
+        "content": "Slide title 'How to Kernelize SVM' in red; slide number '35' in yellow circle"
+      },
+      {
+        "name": "upper band",
+        "position": "top-middle, full width",
+        "content": "Original SVM objective equation, W and b formula boxes side by side, orange classification box"
+      },
+      {
+        "name": "middle band",
+        "position": "middle, full width",
+        "content": "'Remember:' header, Mapping row with text and equation, Kernelization row with text and equation"
+      },
+      {
+        "name": "lower band",
+        "position": "bottom-middle, full width",
+        "content": "Kernelized objective equation with green highlight, W and b formula boxes with green highlights, orange classification box with green highlight"
+      }
+    ],
+    "hierarchy": "Title dominates via size and red color. Main content bands are equal visual weight but separated by blue borders. Green oval highlights draw attention to kernelized terms in the bottom band. Orange classification boxes are secondary accent containers."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Rectangular box with light orange/peach background and thin border containing text 'Class of vector Z => sign(W^T Z + b)'. Appears twice: once in upper band, once in lower band. In lower band, 'W^T Z' is circled in green.",
+      "colors": [
+        "#FDEBD0",
+        "#2C3E50",
+        "#2ECC71"
+      ],
+      "position": "Below the side-by-side W and b boxes in both upper and lower bands, left-aligned"
+    },
+    {
+      "type": "diagram",
+      "description": "Two side-by-side rectangular boxes with blue borders. Left box contains 'W = sum...'. Right box contains 'b = -1/2 [...]'. In lower band, the two 'W^T X_i' terms inside the b box are circled with green ovals.",
+      "colors": [
+        "#FFFFFF",
+        "#2980B9",
+        "#2ECC71"
+      ],
+      "position": "Center of upper and lower bands, side by side"
+    },
+    {
+      "type": "other",
+      "description": "Wide rectangular box spanning full width containing the SVM objective function equation L_D(alpha). In lower band, the term 'X_i^T X_j' is circled with a green oval.",
+      "colors": [
+        "#FFFFFF",
+        "#2980B9",
+        "#2ECC71"
+      ],
+      "position": "Top of upper band and top of lower band"
+    },
+    {
+      "type": "other",
+      "description": "Text section with blue 'Remember :' header, followed by two rows. First row: red italic 'Mapping', then text 'Instead of using X_i (of dimension d) use phi(X_i) (with higher dimension )', then equation 'X_i^T X_j => phi(X_i)^T phi(X_j)'. Second row: red italic 'Kernelization', then text 'Instead of using phi(X_i)^T phi(X_j) use K(X_i^T , X_j) (Where K is one of kernel functions)'.",
+      "colors": [
+        "#2C3E50",
+        "#C0392B",
+        "#2980B9"
+      ],
+      "position": "Middle band, full width"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FDFBF7",
+    "title_text": "#C0392B",
+    "body_text": "#2C3E50",
+    "accents": [
+      "#2980B9",
+      "#2ECC71",
+      "#F1C40F",
+      "#FDEBD0"
+    ]
+  },
+  "typography_notes": "Sans-serif font (likely Calibri or Arial) for all UI text. Equations rendered in serif math font (Computer Modern style). Title is large, bold, red, title case. Section headers 'Remember', 'Mapping', 'Kernelization' are italicized; 'Remember' is blue, 'Mapping' and 'Kernelization' are red. No numbered bullets. All body text is left-aligned.",
+  "animation_state": "Static slide; no elements appear mid-build or animated.",
+  "recreation_brief": "1. Create a new PowerPoint slide with off-white background (#FDFBF7). 2. Add title 'How to Kernelize SVM' centered at top in large bold red text (#C0392B). 3. Add a yellow circle with '35' at top-right corner. 4. Draw a large bordered rectangle covering most of the slide. 5. In the top section inside the rectangle, insert the objective equation \\mathscr{L}_D(\\alpha) = \\sum_{i=1}^N \\alpha_i - \\frac{1}{2} \\sum_{j=1}^N \\sum_{i=1}^N \\alpha_i \\alpha_j y_i y_j X_i^T X_j spanning full width. 6. Below it, place two boxes side by side: left box with W = \\sum_{i=1}^N \\alpha_i y_i X_i, right box with b = -\\frac{1}{2} [\\max_{i: y_i=-1} W^T X_i + \\min_{i: y_i=+1} W^T X_i]. Use blue borders. 7. Below those, add an orange-filled box (#FDEBD0) with 'Class of vector Z => sign(W^T Z + b)'. 8. In the middle section, add 'Remember :' in blue italic. 9. Add 'Mapping' row: red italic 'Mapping', then text 'Instead of using X_i (of dimension d) use \\phi(X_i) (with higher dimension )', then equation X_i^T X_j => \\phi(X_i)^T \\phi(X_j). 10. Add 'Kernelization' row: red italic 'Kernelization', then text 'Instead of using \\phi(X_i)^T \\phi(X_j) use K(X_i^T , X_j) (Where K is one of kernel functions)'. 11. In the bottom section, repeat the objective equation but circle/highlight X_i^T X_j with a green oval. 12. Repeat the W and b boxes side by side; in the b box, circle both W^T X_i terms with green ovals. 13. Repeat the orange classification box but circle W^T Z with a green oval. 14. Use sans-serif for body text, serif math font for equations. All text dark blue (#2C3E50) unless specified otherwise.",
+  "_meta": {
+    "frame": "slide_035.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 60.3
+  }
+}

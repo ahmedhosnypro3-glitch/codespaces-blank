@@ -166,9 +166,9 @@ slide.addShape(pptx.ShapeType.rect, {
   x: px(607), y: px(60), w: px(238), h: px(253),
   fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0 },
 });
-// slide_034_plot_v27.png: 1975 x 2116 px at 600 dpi -> 237.00 x 253.92 pt
+// slide_034_plot.png: 1975 x 2116 px at 600 dpi -> 237.00 x 253.92 pt
 slide.addImage({
-  path: ASSET_DIR + "/slide_034_plot_v27.png",
+  path: ASSET_DIR + "/slide_034_plot.png",
   x: px(608), y: px(59),
   w: 1975 / 600, h: 2116 / 600,
 });

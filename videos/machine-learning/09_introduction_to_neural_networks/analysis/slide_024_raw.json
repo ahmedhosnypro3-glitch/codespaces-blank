@@ -1,0 +1,165 @@
+{
+  "slide_title": "For Sigmoid Function",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Sigmoid (aka Logistic function)",
+      "It is a squashing function used to convert an unbounded values to a bounded probabilistic space (from 0 to 1)"
+    ],
+    "labels": [
+      "24"
+    ],
+    "equations": [
+      "f(x) = Sigmoid(x) = \\frac{1}{1+e^{-x}}",
+      "Remember: \\frac{\\partial}{\\partial x} (\\frac{1}{x}) = - \\frac{1}{x^2}",
+      "f'(x) = \\frac{e^{-x}}{(1+e^{-x})(1+e^{-x})} = \\frac{1*(1+ e^{-x} - 1)}{(1+e^{-x})(1+e^{-x})}",
+      "f'(x) = \\frac{1}{(1+e^{-x})} \\left| \\frac{(1+e^{-x}-1)}{(1+e^{-x})} \\right|",
+      "= \\frac{1}{(1+e^{-x})} \\left| \\frac{(1+e^{-x})}{(1+e^{-x})} \\frac{-1}{(1+e^{-x})} \\right|",
+      "f'(x) = \\frac{1}{(1+e^{-x})} \\left| 1 - \\frac{1}{(1+e^{-x})} \\right|",
+      "\u21d2 f'(x) = f(x) [1 - f(x)]"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title 'For Sigmoid Function' at top-left in red. Slide number '24' in yellow circle at top-right. Below, left column contains stacked formula boxes with derivative derivations; right column contains blue 'Remember' box at top, peach 'Sigmoid (aka Logistic function)' description box in middle, and peach final result box at bottom-right.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top-left",
+        "content": "Red title text 'For Sigmoid Function'"
+      },
+      {
+        "name": "slide_number",
+        "position": "top-right",
+        "content": "Yellow circle with black number '24'"
+      },
+      {
+        "name": "sigmoid_definition_box",
+        "position": "upper-left",
+        "content": "Peach box with f(x) = Sigmoid(x) = 1/(1+e^{-x})"
+      },
+      {
+        "name": "remember_box",
+        "position": "upper-right",
+        "content": "Light blue box with Remember: derivative of 1/x rule"
+      },
+      {
+        "name": "derivation_step_1",
+        "position": "middle-left",
+        "content": "Large white box with first f'(x) derivation equality"
+      },
+      {
+        "name": "sigmoid_description_box",
+        "position": "middle-right",
+        "content": "Peach box with text describing Sigmoid as squashing function"
+      },
+      {
+        "name": "derivation_step_2",
+        "position": "lower-middle-left",
+        "content": "White box with second f'(x) derivation lines"
+      },
+      {
+        "name": "derivation_step_3",
+        "position": "bottom-left",
+        "content": "White box with third f'(x) derivation"
+      },
+      {
+        "name": "final_result_box",
+        "position": "bottom-right",
+        "content": "Peach box with arrow and final f'(x) = f(x)[1 - f(x)]"
+      }
+    ],
+    "hierarchy": "Title dominates via red color and top-left placement. Large white derivation boxes command central attention. Peach and blue accent boxes provide visual grouping. Body text is secondary black sans-serif."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Peach/light orange rectangular box containing the sigmoid definition formula f(x) = Sigmoid(x) = 1/(1+e^{-x})",
+      "colors": [
+        "#fdf2e9",
+        "#c0392b"
+      ],
+      "position": "upper-left, below title"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light blue rectangular box containing 'Remember:' and the derivative rule for 1/x",
+      "colors": [
+        "#e3f2fd",
+        "#333333"
+      ],
+      "position": "upper-right"
+    },
+    {
+      "type": "other",
+      "description": "Large white rectangular box containing the first derivative derivation: f'(x) = e^{-x}/((1+e^{-x})(1+e^{-x})) = 1*(1+ e^{-x} - 1)/((1+e^{-x})(1+e^{-x}))",
+      "colors": [
+        "#ffffff",
+        "#333333"
+      ],
+      "position": "middle-left, spanning most of left column width"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Peach/light orange rectangular box containing text: 'Sigmoid (aka Logistic function)' followed by description paragraph with italic and underlined words",
+      "colors": [
+        "#fdf2e9",
+        "#c0392b",
+        "#333333"
+      ],
+      "position": "middle-right"
+    },
+    {
+      "type": "other",
+      "description": "White rectangular box containing two lines of f'(x) derivation with absolute value-style delimiters",
+      "colors": [
+        "#ffffff",
+        "#333333"
+      ],
+      "position": "lower-middle-left"
+    },
+    {
+      "type": "other",
+      "description": "White rectangular box containing f'(x) = 1/(1+e^{-x}) | 1 - 1/(1+e^{-x}) |",
+      "colors": [
+        "#ffffff",
+        "#333333"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Peach/light orange rectangular box with a red arrow pointing to the final simplified derivative formula f'(x) = f(x) [1 - f(x)]",
+      "colors": [
+        "#fdf2e9",
+        "#c0392b",
+        "#333333"
+      ],
+      "position": "bottom-right"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#f0f0f0",
+    "title_text": "#c0392b",
+    "body_text": "#333333",
+    "accents": [
+      "#fdf2e9",
+      "#e3f2fd",
+      "#c0392b",
+      "#f1c40f"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is red, larger and bold. Body text is dark gray/black. In the Sigmoid description box, 'squashing' is italicized, 'unbounded' and 'probabilistic' are underlined, and '(from 0 to 1)' is red and italicized.",
+  "animation_state": "None apparent; all slide elements appear static and fully revealed.",
+  "recreation_brief": "1. Set slide background to light gray (#f0f0f0). 2. Add title 'For Sigmoid Function' at top-left in red (#c0392b), bold sans-serif. 3. Add yellow circle at top-right with black number '24'. 4. Create peach box (#fdf2e9) upper-left with formula: f(x) = Sigmoid(x) = \\frac{1}{1+e^{-x}}. 5. Create light blue box (#e3f2fd) upper-right with text: Remember: \\frac{\\partial}{\\partial x} (\\frac{1}{x}) = - \\frac{1}{x^2}. 6. Create large white box middle-left with first derivation: f'(x) = \\frac{e^{-x}}{(1+e^{-x})(1+e^{-x})} = \\frac{1*(1+ e^{-x} - 1)}{(1+e^{-x})(1+e^{-x})}. 7. Create peach box middle-right with header 'Sigmoid (aka Logistic function)' and body: 'It is a squashing function used to convert an unbounded values to a bounded probabilistic space (from 0 to 1)' \u2014 italicize 'squashing', underline 'unbounded' and 'probabilistic', make '(from 0 to 1)' red and italic. 8. Create white box lower-middle-left with two derivation lines using \\left| ... \\right| delimiters. 9. Create white box bottom-left with f'(x) = \\frac{1}{(1+e^{-x})} \\left| 1 - \\frac{1}{(1+e^{-x})} \\right|. 10. Create peach box bottom-right with red arrow \u21d2 and formula f'(x) = f(x) [1 - f(x)].",
+  "_meta": {
+    "frame": "slide_024.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 24,
+      "image": "slide_024.jpg",
+      "title": "Slide 24"
+    },
+    "elapsed_s": 65.6
+  }
+}

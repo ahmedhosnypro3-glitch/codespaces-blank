@@ -1,0 +1,219 @@
+{
+  "slide_title": "How to Kernelize SVM",
+  "subtitle_or_header": "Example: Quadratic Kernel",
+  "verbatim_text": {
+    "bullets": [
+      "Class of vector Z \u21d2 sign(W^T Z + b)",
+      "Class of vector Z is sign([W^T Z]^2 + b)"
+    ],
+    "labels": [
+      "Example: Quadratic Kernel",
+      "36",
+      "Kernelize using"
+    ],
+    "equations": [
+      "\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)",
+      "W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i",
+      "b = \u2212 1/2 { max_{i,y=\u22121} (W^T X_i) + min_{i,y=+1} (W^T X_i) }",
+      "K(\u03b1,b) = \u03b1^T b^2",
+      "\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)^2",
+      "W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i",
+      "b = \u2212 1/2 { max_{i,y=\u22121} [W^T X_i]^2 + min_{i,y=+1} [W^T X_i]^2 }"
+    ]
+  },
+  "layout": {
+    "arrangement": "A single white slide enclosed by a thin bright-red rectangular frame. Header row across the top: a small blue-outlined italic kicker box at top-left ('Example: Quadratic Kernel'), the large bold red title 'How to Kernelize SVM' centered, and a yellow circular badge with the slide number '36' at top-right. Below the header, a wide blue-outlined panel (upper panel) holds the original SVM dual objective on its first line, a row of two blue-outlined sub-boxes (W equation on the left, b equation on the right) on its second line, and a peach/orange-outlined 'Class of vector Z \u21d2 sign(...)' strip centered beneath them. In the vertical middle of the slide sits a narrow horizontal strip: a thin red-outlined box reading 'Kernelize using' immediately followed by a red-outlined box containing the red bold formula 'K(\u03b1,b) = \u03b1^T b^2'; a red-outlined white downward arrow hangs from this strip pointing into the lower panel. The lower blue-outlined panel mirrors the upper one: kernelized dual objective on line 1, the same W box on the left and the squared b box on the right on line 2, and a peach 'Class of vector Z is sign(...)' strip on line 3. A black video letterbox bar runs along the very bottom edge of the frame.",
+    "regions": [
+      {
+        "name": "Header row",
+        "position": "top, full width (approx. x 6%-94%, y 8%-16%)",
+        "content": "Left: blue-bordered white rectangle with italic blue text 'Example: Quadratic Kernel' ('Example:' italic, 'Quadratic Kernel' bold italic). Center: bold red title 'How to Kernelize SVM'. Right: yellow filled circle with black '36'."
+      },
+      {
+        "name": "Original SVM panel (upper blue-outlined box)",
+        "position": "upper-middle, x 7%-92%, y 18%-46%",
+        "content": "Line 1: dual objective \u2112_D(\u03b1) = \u03a3 \u03b1_i \u2212 1/2 \u03a3\u03a3 \u03b1_i \u03b1_j y_i y_j (X_i^T X_j), with the trailing (X_i^T X_j) inside a light-green rounded highlight. Line 2: left blue-outlined box 'W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i' (W blue bold, \u03b1_i y_i X_i red bold); right blue-outlined box 'b = \u2212 1/2 { max_{i,y=\u22121} (W^T X_i) + min_{i,y=+1} (W^T X_i) }' (b blue bold, max/min red italic, both (W^T X_i) terms in light-green highlights). Line 3: peach-filled, orange-outlined strip 'Class of vector Z \u21d2 sign(W^T Z + b)' with Z in bold green, \u21d2 in red, and W^T Z in a light-green highlight."
+      },
+      {
+        "name": "Kernelization connector strip",
+        "position": "middle, x 30%-62%, y 49%-56%",
+        "content": "Thin red-outlined rounded rectangle containing italic black text 'Kernelize using' on the left and a separate red-outlined box on the right holding bold red 'K(\u03b1,b) = \u03b1^T b^2'."
+      },
+      {
+        "name": "Downward arrow",
+        "position": "middle, x 43%-45%, y 47%-59%",
+        "content": "Vertical downward-pointing arrow with white fill and red outline, connecting the kernelization strip to the lower panel."
+      },
+      {
+        "name": "Kernelized SVM panel (lower blue-outlined box)",
+        "position": "lower-middle, x 7%-92%, y 61%-91%",
+        "content": "Line 1: dual objective \u2112_D(\u03b1) = \u03a3 \u03b1_i \u2212 1/2 \u03a3\u03a3 \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)^2, with (X_i^T X_j)^2 in a light-green rounded highlight. Line 2: left blue-outlined box 'W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i'; right blue-outlined box 'b = \u2212 1/2 { max_{i,y=\u22121} [W^T X_i]^2 + min_{i,y=+1} [W^T X_i]^2 }' with both squared terms in light-green highlights. Line 3: peach-filled, orange-outlined strip 'Class of vector Z is sign([W^T Z]^2 + b)' with Z in bold green and [W^T Z]^2 in a light-green highlight."
+      },
+      {
+        "name": "Video letterbox bar",
+        "position": "bottom edge, x 4%-100%, y 96%-100%",
+        "content": "Solid black horizontal bar (video capture artifact), not part of the slide design."
+      }
+    ],
+    "hierarchy": "The bold red title 'How to Kernelize SVM' is the largest, heaviest element and dominates the top. The two large blue-outlined equation panels are the secondary focus, each containing a large math line, two smaller blue-outlined equation boxes, and a peach 'Class of vector' strip. The central red 'K(\u03b1,b) = \u03b1^T b^2' formula with its red arrow is the visual hinge between the panels and draws the eye through the center. Green rounded highlights on the kernel terms are the smallest but most saturated accents, marking the quantities being changed. The yellow '36' badge and the blue italic kicker are tertiary."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle with green outline around the term (X_i^T X_j) at the end of the upper dual-objective equation.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "upper panel, line 1, right end (approx. x 42%-48%, y 24%-30%)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Two light-green rounded highlights around (W^T X_i) inside the max_{i,y=\u22121} and min_{i,y=+1} terms of the upper b equation.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "upper panel, line 2, right box (approx. x 54%-77%, y 30%-36%)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded highlight around W^T Z inside the upper 'Class of vector Z \u21d2 sign(W^T Z + b)' peach strip.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "upper panel, line 3, center (approx. x 40%-48%, y 39%-44%)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle with green outline around (X_i^T X_j)^2 at the end of the lower dual-objective equation.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "lower panel, line 1, right end (approx. x 43%-52%, y 64%-70%)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Two light-green rounded highlights around [W^T X_i]^2 inside the max_{i,y=\u22121} and min_{i,y=+1} terms of the lower b equation.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "lower panel, line 2, right box (approx. x 53%-82%, y 73%-79%)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded highlight around [W^T Z]^2 inside the lower 'Class of vector Z is sign([W^T Z]^2 + b)' peach strip.",
+      "colors": [
+        "#CCFFCC",
+        "#00CC00",
+        "#009900"
+      ],
+      "position": "lower panel, line 3, center (approx. x 43%-52%, y 84%-89%)"
+    },
+    {
+      "type": "arrow",
+      "description": "Vertical downward-pointing arrow, white fill with red outline, positioned between the 'Kernelize using' strip and the lower blue panel.",
+      "colors": [
+        "#FFFFFF",
+        "#E00000"
+      ],
+      "position": "center of slide, approx. x 43%-45%, y 47%-59%"
+    },
+    {
+      "type": "other",
+      "description": "Yellow filled circle with thin dark outline containing the black slide number '36'.",
+      "colors": [
+        "#FFFF99",
+        "#000000"
+      ],
+      "position": "top-right corner (approx. x 89%-93%, y 10%-17%)"
+    },
+    {
+      "type": "other",
+      "description": "Small white/gray mouse-pointer cursor arrow hovering over the lower b equation, pointing up-left toward the min_{i,y=+1} term.",
+      "colors": [
+        "#FFFFFF",
+        "#808080"
+      ],
+      "position": "lower panel, line 2, just left of the min term (approx. x 63%, y 78%)"
+    },
+    {
+      "type": "other",
+      "description": "Peach-filled rectangle with thin orange outline containing the class-of-vector statement; appears twice (upper and lower panels).",
+      "colors": [
+        "#FDEADA",
+        "#FF9900",
+        "#000000"
+      ],
+      "position": "upper panel line 3 (approx. x 13%-51%, y 38%-45%) and lower panel line 3 (approx. x 13%-57%, y 83%-90%)"
+    },
+    {
+      "type": "other",
+      "description": "Thin blue-outlined white rectangles containing the W and b equations; four such boxes total (two per panel).",
+      "colors": [
+        "#FFFFFF",
+        "#0000CC"
+      ],
+      "position": "upper panel line 2 (left box approx. x 9%-25%, right box approx. x 36%-77%) and lower panel line 2 (left box approx. x 9%-25%, right box approx. x 34%-90%)"
+    },
+    {
+      "type": "other",
+      "description": "Thin bright-red rectangular frame enclosing the entire slide content area.",
+      "colors": [
+        "#E00000"
+      ],
+      "position": "around the whole slide, approx. x 6%-94%, y 7%-96%"
+    }
+  ],
+  "imagery": [
+    "Small white mouse-pointer cursor with gray outline, angled up-left, positioned over the lower b equation near the min_{i,y=+1} term (video-capture artifact).",
+    "Red-outlined white downward arrow used as the visual connector between the 'Kernelize using' strip and the lower equation panel.",
+    "Yellow circular slide-number badge '36' in the top-right corner."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000CC",
+      "#009900",
+      "#00CC00",
+      "#CCFFCC",
+      "#FDEADA",
+      "#FF9900",
+      "#FFFF99",
+      "#E00000",
+      "#F2F2F2"
+    ]
+  },
+  "typography_notes": "Title is a bold, non-italic sans-serif (Arial/Helvetica-like) in bright red, roughly 26-30 pt, centered. The kicker 'Example: Quadratic Kernel' is blue sans-serif italic (~14 pt) with 'Quadratic Kernel' additionally bold. 'Kernelize using' is black italic sans-serif (~13 pt). All mathematical content is set in a Times/serif math style with italic variables, upright bold roman for W and b (blue), red bold for \u03b1_i, \u03b1_i \u03b1_j y_i y_j and the max/min operators, and a blue calligraphic \u2112 with subscript D. The 'Class of vector' strips use black sans-serif text with the letter Z in bold green. The kernel formula 'K(\u03b1,b) = \u03b1^T b^2' is bold red serif math. No bullet glyphs are used; content is organized in bordered boxes and strips.",
+  "animation_state": "The slide appears fully built: both the original-SVM panel and the kernelized-SVM panel are visible simultaneously, along with the central 'Kernelize using' strip and the red downward arrow. No partially revealed bullets or missing elements are evident; only a mouse cursor is present over the lower b equation, indicating the presenter is pointing at the min term.",
+  "recreation_brief": [
+    "1. Create a 16:9 slide with a white (#FFFFFF) background. Draw a thin bright-red (#E00000) rectangle outline inset from the edges (roughly 6% from left/right, 7% from top, 4% from bottom) to frame the content.",
+    "2. Header: at top-left (approx. x 7%, y 9%) add a white rectangle with a thin blue (#0000CC) border containing the italic blue text 'Example: Quadratic Kernel', with 'Quadratic Kernel' in bold italic. At top-center add the title 'How to Kernelize SVM' in bold red (#CC0000) sans-serif, ~28 pt. At top-right (approx. x 91%, y 13%) add a yellow (#FFFF99) circle, ~0.9 inch diameter, with a thin dark outline and the black number '36' centered inside.",
+    "3. Upper panel: draw a large white rectangle with a thin blue (#0000CC) border spanning approx. x 7%-92%, y 18%-46%. Inside, on the first line, typeset the equation '\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)' in serif math style: \u2112_D in blue calligraphic, \u03b1_i in red bold, the rest black; place a light-green (#CCFFCC) rounded rectangle with a green (#00CC00) outline behind the final term (X_i^T X_j).",
+    "4. Upper panel line 2: on the left (approx. x 9%-25%) add a thin blue-bordered white box with 'W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i', W in bold blue and \u03b1_i y_i X_i in bold red. On the right (approx. x 36%-77%) add a wider thin blue-bordered white box with 'b = \u2212 1/2 { max_{i,y=\u22121} (W^T X_i) + min_{i,y=+1} (W^T X_i) }', b in bold blue, max/min in red italic, and light-green rounded highlights behind each (W^T X_i).",
+    "5. Upper panel line 3: add a peach (#FDEADA) rectangle with a thin orange (#FF9900) border, centered, containing 'Class of vector Z \u21d2 sign(W^T Z + b)' \u2014 'Class of vector' and 'sign(' and '+ b)' in black, 'Z' in bold green, '\u21d2' in red, and a light-green rounded highlight behind W^T Z.",
+    "6. Middle connector: at approx. x 30%-62%, y 49%-56%, draw a thin red-outlined rounded rectangle; inside its left half place italic black text 'Kernelize using', and inside its right half draw a second red-outlined rectangle containing bold red 'K(\u03b1,b) = \u03b1^T b^2'.",
+    "7. Add a downward arrow (white fill, red #E00000 outline, slim shaft with triangular head) centered at approx. x 44%, extending from y 47% down to y 59%, overlapping the gap between the connector strip and the lower panel.",
+    "8. Lower panel: draw a second large white rectangle with a thin blue border spanning approx. x 7%-92%, y 61%-91%. Line 1: '\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)^2' with the same color coding and a light-green rounded highlight behind (X_i^T X_j)^2.",
+    "9. Lower panel line 2: repeat the left W box ('W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i', W blue bold, \u03b1_i y_i X_i red bold) and add a right blue-bordered box with 'b = \u2212 1/2 { max_{i,y=\u22121} [W^T X_i]^2 + min_{i,y=+1} [W^T X_i]^2 }', b blue bold, max/min red italic, and light-green rounded highlights behind each [W^T X_i]^2.",
+    "10. Lower panel line 3: add a peach rectangle with thin orange border containing 'Class of vector Z is sign([W^T Z]^2 + b)' \u2014 'Class of vector' and 'is' and 'sign(' and '+ b)' in black, 'Z' in bold green, and a light-green rounded highlight behind [W^T Z]^2.",
+    "11. Optionally overlay a small white mouse-pointer cursor graphic (gray outline, angled up-left) at approx. x 63%, y 78%, just left of the min_{i,y=+1} term in the lower b equation, to reproduce the video-capture artifact.",
+    "12. Leave a solid black bar across the very bottom of the captured frame (approx. y 96%-100%) if reproducing the video screenshot rather than the clean slide."
+  ],
+  "_meta": {
+    "frame": "slide_036.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 322.0
+  }
+}

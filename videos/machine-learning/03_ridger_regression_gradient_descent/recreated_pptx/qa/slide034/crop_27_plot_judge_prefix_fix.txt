@@ -1,0 +1,30 @@
+# Zoomed Crop-Pair Analysis â Slide 034, function-plot region (attempt 27)
+
+Region: white-backed red-framed plot panel with teal multi-minima curve, red dot + dashed drop line at local max, orange annotation arrow, green ellipse at deepest minimum, pink italic "Reach global Minima" box. Crop-relative coordinates used below (IMG1 â 530Ã565 px crop).
+
+## Discrepancies
+
+**1. MISSING y-axis tick label "6" â MAJOR (confidence: high)**
+In IMG1, the y-axis numerals run 8 â 4 â 2 with an anomalous pixel gap between "8" (upper-left, ~(255, 100)) and "4" (~(255, 172)) â the gap spans two tick intervals (~72 px) where "4"â"2" spans one (~46 px). No "6" glyph is rendered beside the y=6 tick. In IMG2, "6" is clearly present between "8" and "4" with even spacing. The orange arrow sits at data-x â 6â7 (right of the axis) and cannot be occluding it. A missing axis numeral is exactly the class of defect flagged as MAJOR-to-BLOCKER under the zoom rules.
+
+**2. MISSING x-axis tick label "8" â MAJOR (confidence: medium)**
+In IMG1, positive-x numerals read 2 (~283 px) â 6 (~359 px) â 10 (~438 px); the 6â10 gap spans two tick widths, and no "8" appears near (398 px) even though the dashed drop line sits at xâ7 (~378 px) and does not cover the x=8 label slot. In IMG2, an "8" is discernible between "6" and "10" (partially crowded by the descending curve, but present). Medium confidence only because the steep curve crossing near xâ8 could theoretically mask a glyph, but no stroke fragments of an "8" are visible in IMG1.
+
+**3. Orange arrow geometry slightly different â MINOR (confidence: medium)**
+IMG1's arrow (tail ~(340, 130), head ~(378, 190)) is slightly shorter and thicker with a blunter head than IMG2's (tail ~(345, 135), head ~(385, 200)). Same color (orange), same target (the peak below the red dot). Cosmetic only.
+
+**4. Pink label box border weight/position â MINOR (confidence: medium)**
+IMG1's "Reach global Minima" box (bottom-right, ~x 290â490, y 450â530) has a slightly thinner magenta border and sits ~5â8 px higher/left than IMG2's equivalent box. Fill pink, italic purple two-line text with identical line break ("Reach" / "global Minima") match. Not content-affecting.
+
+## Verified as matching (not discrepancies)
+- Teal curve topology: left minimum (~x â9, y â â8), local max at x â â6 (y â 5), origin wiggle, dip at x â 3 (y â â2), local max at x â 7, deepest minimum at x â 10 (y â â9.5), both top-edge exits â all match.
+- Red dot at local max with red dashed drop line to the x-axis: present, same position/color in both.
+- Green ellipse at deepest minimum (x â 10, y â â9): present in both, similar size/orientation.
+- Axis arrowheads, italic serif "x"/"y" axis titles, serif tick numerals, gray gridlines, red panel frame (left/right/bottom, no top stroke â intentional template chrome).
+- Missing "4" (x-axis, positive side), "â2", and "â2"/"+6-adjacent" gaps: absent in BOTH images â a faithful reproduction of the original's own omissions, not a defect.
+- Small black diagonal mark at IMG2's right edge (~x 505, y 215) is a video-capture/annotation artifact in the original, not content the recreation must reproduce (per rule (e) analog).
+
+## Summary
+Two missing axis tick numerals ("6" on y; "8" on x) in an otherwise geometrically and chromatically faithful plot. Under the founder-mandated zoom rules, a missing tick label is a MAJOR defect, so the crop pair cannot pass this attempt.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

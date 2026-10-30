@@ -1,0 +1,211 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": "",
+  "verbatim_text": {
+    "bullets": [
+      "$W_{ji}^{Updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}$",
+      "$W_{ji}^{Updated} = W_{ji}^{old} + \\Delta_{ji}$",
+      "Where $\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}$",
+      "$E = \\frac{1}{2} \\sum_j (t_j - O_j)^2$",
+      "For Sigmoid Activation $O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}$",
+      "$Net_j = \\sum_i (w_{ji} O_i)$",
+      "$\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)$",
+      "$\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)$",
+      "$\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i$",
+      "$\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}$",
+      "$= -(t_j - O_j) * O_j(1-O_j) * O_i$",
+      "$\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)$",
+      "$\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)$",
+      "$\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i$"
+    ],
+    "labels": [
+      "Node Bias",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Class 1",
+      "Error Class 2",
+      "Error Class m",
+      "Error",
+      "Net1",
+      "Net2",
+      "Net m",
+      "O1",
+      "O2",
+      "Om",
+      "9"
+    ],
+    "equations": [
+      "$W_{ji}^{Updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}$",
+      "$W_{ji}^{Updated} = W_{ji}^{old} + \\Delta_{ji}$",
+      "$\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}$",
+      "$E = \\frac{1}{2} \\sum_j (t_j - O_j)^2$",
+      "$O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}$",
+      "$Net_j = \\sum_i (w_{ji} O_i)$",
+      "$\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)$",
+      "$\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)$",
+      "$\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i$",
+      "$\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}$",
+      "$= -(t_j - O_j) * O_j(1-O_j) * O_i$"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title 'Gradient Descent' top-left in red. Below it a boxed set of three gradient descent update equations. Top-right contains a neural network diagram with input, hidden, and output layers, plus an error panel on the far right. A horizontal strip below contains the error function, sigmoid activation, and net input equations. Beneath that is a row of three boxed partial derivatives. Bottom-left is a large box with the chain-rule expansion. Bottom-right is a light-yellow summary box with the same three derivatives. Slide number '9' in a yellow circle at top-right. A black footer bar runs along the bottom edge.",
+    "regions": [
+      {
+        "name": "top-left title and formula box",
+        "position": "top-left, approx 0-35% width, 0-30% height",
+        "content": "Red title 'Gradient Descent' and three update equations in a white box with red border."
+      },
+      {
+        "name": "neural network diagram",
+        "position": "top-right, approx 35-90% width, 0-30% height",
+        "content": "Multi-layer neural network illustration: purple input dots, grey Sigma circles with blue processing nodes, green/yellow output nodes, weighted connections, curved error-backflow arrows, green '1' arrows, labels Net1/Net2/Net m, O1/O2/Om, Output 1/Output 2/Output m, and 'Node Bias' text with a small bias icon at the diagram's bottom-left."
+      },
+      {
+        "name": "error panel",
+        "position": "far top-right, approx 90-100% width, 0-30% height",
+        "content": "Red vertical bar labeled 'Error' with 'Error Class 1', 'Error Class 2', 'Error Class m'."
+      },
+      {
+        "name": "middle equation strip",
+        "position": "middle, full width, approx 30-45% height",
+        "content": "Error function E, sigmoid activation equation, and net input equation."
+      },
+      {
+        "name": "boxed derivatives row",
+        "position": "middle-lower, full width, approx 45-55% height",
+        "content": "Three boxes with partial derivatives for E/Oj, Oj/Netj, Netj/Wji."
+      },
+      {
+        "name": "chain rule derivation box",
+        "position": "bottom-left, approx 0-70% width, 55-85% height",
+        "content": "Large box showing chain rule expansion and final result, plus a small grey pen/stylus icon near its right side."
+      },
+      {
+        "name": "summary derivatives box",
+        "position": "bottom-right, approx 70-95% width, 55-85% height",
+        "content": "Light yellow box repeating the three partial derivatives."
+      },
+      {
+        "name": "slide number",
+        "position": "top-right corner",
+        "content": "Yellow circle with black number '9'."
+      },
+      {
+        "name": "footer",
+        "position": "bottom edge",
+        "content": "Black bar."
+      }
+    ],
+    "hierarchy": "The red title 'Gradient Descent' is the most prominent text. The neural network diagram and the chain-rule box are visually large. Body text is black sans-serif; key variables like eta and Delta are colored red."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram showing layers of nodes. Left side has purple input dots. Middle layers have grey circles with Sigma symbols and blue processing nodes. Right side has green/yellow output nodes labeled O1, O2, Om and Output 1, Output 2, Output m. Curved arrows indicate error flow back to the network (count not captured in source). Small text 'Node Bias' near bottom left of diagram with a small bias icon. Green upward arrows labeled '1' beside nodes (exact count not captured in source).",
+      "colors": [
+        "#800080",
+        "#808080",
+        "#0000FF",
+        "#00FF00",
+        "#FFFF00",
+        "#FF0000"
+      ],
+      "position": "top-right quadrant"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White rectangular box with red border containing the three gradient descent update equations.",
+      "colors": [
+        "#FFFFFF",
+        "#FF0000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Three adjacent white boxes with blue borders containing partial derivative formulas.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF"
+      ],
+      "position": "middle"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Large white box with red border containing chain rule derivation.",
+      "colors": [
+        "#FFFFFF",
+        "#FF0000"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light yellow box with blue border containing summary of three derivatives.",
+      "colors": [
+        "#FFFFE0",
+        "#0000FF"
+      ],
+      "position": "bottom-right"
+    },
+    {
+      "type": "other",
+      "description": "Small pen/stylus icon inside the chain rule box near the right side.",
+      "colors": [
+        "#808080"
+      ],
+      "position": "bottom-left box, right side"
+    }
+  ],
+  "imagery": [
+    "Neural network diagram illustration with nodes, weighted connections, and error feedback arrows."
+  ],
+  "colors": {
+    "background": "#F5F5F5",
+    "title_text": "#D00000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#0000FF",
+      "#00FF00",
+      "#FFFF00",
+      "#800080",
+      "#FFFFE0"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title in red, bold, larger size. Equations in black with some variables in red (eta, Delta). Sequential layout rather than bullet points. Labels like 'Error Class' use mixed case.",
+  "animation_state": "No visible animation; all elements appear static and fully revealed.",
+  "recreation_brief": "1. SLIDE SETUP: Set the slide background to light grey #F5F5F5, full bleed. (No content-area border is attested in the source; do not add one.)\n2. FOOTER: Draw a black (#000000) rectangle spanning 100% width along the very bottom edge (approx. bottom 3% of slide height).\n3. TITLE: Add the text 'Gradient Descent' at top-left (approx. x=2%, y=2%), bold sans-serif, color #D00000 (red), largest font size on the slide.\n4. UPDATE-EQUATION BOX: Directly below the title (approx. 0-35% width, 8-30% height), draw a white (#FFFFFF) rectangle with a red (#FF0000) border. Inside, left-aligned, three black equation lines rendered exactly as: (a) $W_{ji}^{Updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}$ ; (b) $W_{ji}^{Updated} = W_{ji}^{old} + \\Delta_{ji}$ ; (c) Where $\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}$. Color the eta and Delta symbols red (#FF0000).\n5. NEURAL NETWORK DIAGRAM (top-right quadrant, approx. 35-90% width, 0-30% height): left to right draw (i) a column of purple (#800080) input dots, (ii) middle columns of grey (#808080) circles each containing a Sigma symbol plus blue (#0000FF) processing nodes, (iii) exactly three green/yellow (#00FF00/#FFFF00) output nodes on the right. Connect adjacent layers with thin weighted-connection lines. Add curved arrows from the output side back toward the network for error flow. Add green (#00FF00) upward arrows labeled '1' beside nodes. Place labels: 'Net1', 'Net2', 'Net m' above the output nodes; 'O1', 'O2', 'Om' at the output nodes; 'Output 1', 'Output 2', 'Output m' to the right of the output nodes. At the diagram's bottom-left add small black text 'Node Bias' with a small bias icon.\n6. ERROR PANEL (far top-right, approx. 90-100% width, 0-30% height): draw a vertical red (#FF0000) bar labeled 'Error'; to its right stack three labels top-to-bottom: 'Error Class 1', 'Error Class 2', 'Error Class m' (green per source brief).\n7. SLIDE NUMBER: at the top-right corner place a yellow (#FFFF00) circle containing the black numeral '9'.\n8. MIDDLE EQUATION STRIP (full width, approx. 30-45% height), three items left-to-right in black: (a) $E = \\frac{1}{2} \\sum_j (t_j - O_j)^2$ ; (b) the words 'For Sigmoid Activation' in blue (#0000FF) followed by $O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}$ ; (c) $Net_j = \\sum_i (w_{ji} O_i)$.\n9. DERIVATIVE BOXES ROW (full width, approx. 45-55% height): draw exactly three equal white (#FFFFFF) rectangles with blue (#0000FF) borders side by side containing, left to right: (a) $\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)$ ; (b) $\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)$ ; (c) $\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i$.\n10. CHAIN-RULE BOX (bottom-left, approx. 0-70% width, 55-85% height): draw a large white (#FFFFFF) rectangle with a red (#FF0000) border containing two black equation lines: (a) $\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}$ ; (b) $= -(t_j - O_j) * O_j(1-O_j) * O_i$. Inside the box near its right edge place a small grey (#808080) pen/stylus icon.\n11. SUMMARY BOX (bottom-right, approx. 70-95% width, 55-85% height): draw a light-yellow (#FFFFE0) rectangle with a blue (#0000FF) border repeating the three derivatives: $\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)$ ; $\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)$ ; $\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i$.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "subtitle_or_header was null; no subtitle exists on the slide, so set to empty string and documented instead of inventing one.",
+      "layout.regions 'neural network diagram': expanded content to enumerate all diagram labels (Net1/Net2/Net m, O1/O2/Om, Output 1/2/m), 'Node Bias' text with bias icon, green '1' arrows, and curved error-backflow arrows so the region fully covers visual_elements[0].",
+      "layout.regions 'chain rule derivation box': added the grey pen/stylus icon (visual_elements[5]) to the region content so every visual element is covered by a region.",
+      "visual_elements[0]: replaced the vague quantifier 'near some nodes' with 'beside nodes (exact count not captured in source)'.",
+      "recreation_brief: rewritten as an 11-step ordered checklist with exact positions (%), hex colors, shapes, element counts where derivable (3 output nodes, 3 Net labels, 3 O labels, 3 Output labels, 3 Error Class labels, 3 derivative boxes, 2 chain-rule lines), and verbatim LaTeX text.",
+      "recreation_brief: removed the unsupported 'thin red border around the content area' claim, which is attested nowhere else in the analysis.",
+      "Confirmed bullets 12-14 intentionally duplicate bullets 7-9 because the three derivatives appear twice on the slide (boxed derivatives row and summary box); no deduplication applied."
+    ],
+    "uncertain_items": [
+      "Exact count of purple input dots in the network diagram is not captured in the source.",
+      "Exact counts of grey Sigma circles and blue processing nodes in the hidden layers are not captured in the source.",
+      "Number of curved error-backflow arrows is not captured in the source.",
+      "Number of green upward arrows labeled '1' is not captured in the source (original text said 'near some nodes').",
+      "Green color of the 'Error Class 1/2/m' labels and blue color of the 'For Sigmoid Activation' text appear only in the original recreation_brief, not in layout.regions or typography_notes; kept but unverifiable against other fields.",
+      "Exact shape of the small bias icon next to 'Node Bias' is not specified beyond 'small bias icon'.",
+      "subtitle_or_header is genuinely absent from the source slide."
+    ],
+    "recreatability_score_1_to_10": 7
+  },
+  "_meta": {
+    "frame": "slide_009.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 61.8,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 421.1
+  }
+}

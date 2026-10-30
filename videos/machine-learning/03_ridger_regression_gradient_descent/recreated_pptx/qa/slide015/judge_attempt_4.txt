@@ -1,0 +1,38 @@
+## Element-by-element comparison (IMG1 = recreation, IMG2 = original)
+
+**House chrome** (white canvas, E9E9E7 panel, left/right/bottom C00000 strokes with intentionally no top stroke, yellow/purple badge) is treated as intentional and is not scored.
+
+### Discrepancies
+
+| # | Element | Finding | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Top equation block, line 1 | The green markup in IMG1 is drawn **on top of the black equation** (cluster over the "= Â½" between the two objective forms, with strike-through strokes crossing the black glyphs). The "=" operator and the leading "Â½" of the second form are partially obscured/illegible. In IMG2 the green content is a cleanly separated, non-overlapping term. | **MAJOR** (illegible collision / mis-placed element inside the equation region) | High |
+| 2 | Top equation block, line 2 | Same defect: a green scribbled term overlaps the black "(XW)^T(XW) â¦ - Y^T(XW)" run; the black characters beneath are crossed by green strokes and cannot be read cleanly. IMG2 has no overlap here. | **MAJOR** | High |
+| 3 | Top equation block, line 3 | Green strike-through crosses the black "(XW)^T(XW) - 2(XW)^TY" region. | **MAJOR** | High |
+| 4 | Derivative block, line 1 (âJ(W)/âW = 0 = Â½[ â¦ ]) | Green overlay again sits on the black "+ (X)^T(XW)" portion of the bracket expression. | **MAJOR** | Medium-High |
+| 5 | Derivative block, line 2 | Green overlay crosses the black "2X^T XW" term. | **MAJOR** | High |
+| 6 | Derivative block, line 2 | IMG2 reads "+ Î» **I** W" (green "Î» I", green "W"); IMG1 shows "+ Î»W" â the **identity matrix "I" is absent**, i.e. the equation's content is wrong, not merely restyled. | **MAJOR** (equation data/notation error) | Medium-High |
+| 7 | All Î» / regularization terms (top block lines 1â3, lower block lines 1â2, final row) | IMG2 uses green as a *colour code* for Î», Î»WáµW, Î»I, Î»W. In IMG1 these terms are black, and the green ink instead appears as the misplaced overlapping scribbles of #1â#5. The semantic colour-coding that carries meaning in the original is lost and replaced by illegible green overstrike. | **MAJOR** (combined with #1â#5) | High |
+| 8 | Equation typography | All equations in IMG1 are set in plain sans-serif (Arial-like) with linear Â½ and italic superscripts; IMG2 uses a serif math face (Times/Cambria-style) with true stacked fractions and larger â-style fractions. Only the stacked-fraction form of âJ(W)/âW is reproduced; the rest of the math look is not. | **MINOR** | High |
+| 9 | "J(W)" labels (3 lines of the top block, 3 in the lower block) | IMG2 sets "J(W)" in blue italic bold; IMG1 sets it in black/dark grey. | **MINOR** | High |
+| 10 | Derivative numerator/denominator in the lower yellow block | IMG2 shows âJ(W)/âW in blue; IMG1 in black. Similarly, the pink box's "âJ(W)" is magenta in IMG2 and black in IMG1. | **MINOR** | Medium-High |
+| 11 | Title | IMG2 colours the word "Objective" blue (with "BEST" also blue); IMG1 renders "Objective function" in red. | **MINOR** | Medium |
+| 12 | Vertical rhythm / region geometry | The top yellow block in IMG1 is compressed and shifted up (equation baselines â y105 / 152 / 196 vs IMG2 â y118 / 172 / 219). The lower yellow block likewise starts higher (ây318 vs ây340) and the gap between its two derivative lines is smaller (â59 px vs â68 px in IMG2). The final equation row also sits higher in IMG1 (ây440 vs ây462). | **MAJOR** (explicit directive: visible line-spacing deviation is major) | Medium |
+| 13 | Final green result box | The light-green box in IMG1 runs to the right edge of the lower yellow panel and appears to touch/cross its inner right boundary (right edge âx834â836 vs panel edge âx832), whereas IMG2 keeps a clear inner margin (box ends âx825, panel âx830). | **MAJOR** (frame containment / boundary contact) | Medium |
+| 14 | Connector arrow before the result box | IMG2 shows a wide hollow magenta-outlined arrow (â45 px); IMG1 shows a much smaller, faint white arrow with thin pink outline (â40 px, near-invisible against the yellow). | **MINOR** | Medium |
+| 15 | "Remember" callout | Box proportions differ: IMG1's peach box is taller with looser internal padding; "Remember" is not visibly underlined as in IMG2. | **MINOR** | Medium |
+| 16 | Final equation superscript | IMG2 colours the "â1" exponent red and "Î»I" green; IMG1 renders both black (shape/position of the exponent is correct). | **MINOR** | Medium-High |
+
+### Visual-quality defects in IMG1 (render quality)
+- **Text collision / illegibility:** the green markup in the top block (3 lines) and the lower block (2 lines) is drawn *over* black equation text, with strokes cutting through characters. This is the single most damaging defect â the affected expressions cannot be read cleanly at 150 dpi.
+- **Mis-styled colour application:** green is used as a scribble/overstrike instead of the original's clean term-level colour coding.
+- **Equation content error:** "+ Î»W" instead of "+ Î» I W" in the second derivative line.
+- **Tightened vertical layout** in both yellow content blocks relative to the original, so the two slides no longer share the same internal rhythm.
+- **Result box crowding** the right inner edge of the lower panel.
+
+No wholly absent block, table, chart, or image was found â the failure is in rendering, alignment, colour coding, and one notation error rather than in missing sections. Note also that IMG2 contains no contentless-placeholder issue and no cursor artifact needing matching.
+
+### Conclusion
+The recreation reproduces the correct slide structure, all major textual content (title, three objective-function lines, the "Get Best Wâ¦" instruction box, the "Remember" side box, the two derivative lines, the final normal-equation row and the boxed solution), but it (a) overlays the green Î»-terms illegibly on top of black equation text in five places, (b) drops the "I" from "Î» I W", (c) loses the original's green/blue/magenta semantic colour coding, (d) compresses and shifts the vertical spacing of both equation blocks, and (e) lets the green result box touch the panel's inner edge. Per the founder directives, the overlapping illegible ink, the notation error, and the spacing/containment deviations are MAJOR.
+
+**FINAL VERDICT: FAIL**

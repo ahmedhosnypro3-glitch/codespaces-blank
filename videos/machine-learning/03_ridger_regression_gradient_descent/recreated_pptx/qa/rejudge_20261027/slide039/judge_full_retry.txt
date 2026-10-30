@@ -1,0 +1,19 @@
+**Discrepancies**
+
+| # | Discrepancy | Severity | Confidence |
+|---|-------------|----------|------------|
+| 1 | **Title line-break shift** â In the recreation the title wraps after **âandâ** (`â¦SGD) and` / `Mini-Batch Gradient Descent`); in the original it wraps after **`SGD)`** (`â¦SGD)` / `and Mini-Batch Gradient Descent`). Line breaks are renderable content. | **MAJOR** | High |
+| 2 | **Title color mismatch** â In the original `Mini-Batch Gradient Descent` is rendered in blue; in the recreation only `Mini-Batch` is blue-purple, while `Gradient Descent` is rendered in dark red. | **MAJOR** | High |
+| 3 | **Equation box styling + caption color** â Original equation caption **âRepeat for ALL misclassified Samplesâ** is green and the equation container appears white/neutral-filled with a thin dark border; the recreation uses a light-green fill, green border, and dark-red caption text. | **MAJOR** | Med-High |
+| 4 | **Missing blue underlined emphasis in âWhy using SGDâ** â Original shows **âusually more efficientâ** and **âconverges fasterâ** in blue/underlined styled text; the recreation renders both bullets in plain black. | **MAJOR** | Med-High |
+| 5 | **Bottom paragraph color mismatch** â In the original `GD and SGD` in `Batch GD is a generalization of GD and SGDâ¦` is bold black; the recreation colors it blue-purple. | **MAJOR** | High |
+| 6 | **Minor text-content spacing** â Original first bullet contains a double space (`gradient  of the Error`); the recreation has a single space. | **MINOR** | Medium |
+| 7 | **Possible subtle font-weight/size drift** â Recreation title and body text appear slightly heavier/larger relative to the original frame; exact point-size measurement is not possible from the render alone. | **MINOR** | Low-Medium |
+
+**Visual-quality defects in the recreation**
+- The stranded **âandâ** at the end of the recreationâs first title line creates an awkward wrap that does not match the originalâs cleaner break.
+- The green-filled equation box visually dominates the slide compared with the neutral/unfilled box in the original.
+- Loss of the blue/underlined emphasis in the âWhy using SGDâ bullets flattens the hierarchy that the original deliberately encoded.
+- No clipping, overflow past the gray house panel, or collisions with the slide-number badge were observed.
+
+FINAL VERDICT: **FAIL**

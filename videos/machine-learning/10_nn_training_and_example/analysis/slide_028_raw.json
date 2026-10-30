@@ -1,0 +1,214 @@
+{
+  "slide_title": null,
+  "subtitle_or_header": "Backward (Update Output Layer Weights)",
+  "verbatim_text": {
+    "bullets": [
+      "\u03b4_j = O_j(1-O_j)(t_j-O_j)",
+      "\u0394_{ji} = \u03b7 \u00b7 O_j(1-O_j)(t_j-O_j) = \u03b7 \u00b7 O_j \u00b7 \u03b4_j",
+      "\u03b4_6 = 0.791(1-0.791)(0-0.791) = -0.131",
+      "\u03b4_7 = 0.791(1-0.791)(1-0.791) = 0.035",
+      "\u0394W_63 = 5 * (-0.131) * 0.9 = -0.59",
+      "\u0394W_64 = 5 * (-0.131) * 0.943 = -0.618",
+      "\u0394W_65 = 5 * (-0.131) * 0.968 = -0.634",
+      "\u0394W_6b = 5 * (-0.131) * 1.0 = -0.655",
+      "\u0394W_73 = 5 * (0.035) * 0.9 = 0.158",
+      "\u0394W_74 = 5 * (0.035) * 0.943 = 0.165",
+      "\u0394W_75 = 5 * (0.035) * 0.968 = 0.169",
+      "\u0394W_7b = 5 * (0.035) * 1.0 = 0.175",
+      "W_63 = 0.3 - 0.59 = -0.29",
+      "W_64 = 0.4 - 0.618 = -0.218",
+      "W_65 = 0.5 - 0.634 = -0.134",
+      "W_6b = 0.2 - 0.655 = -0.455",
+      "W_73 = 0.3 + 0.158 = 0.458",
+      "W_74 = 0.4 + 0.165 = 0.565",
+      "W_75 = 0.5 + 0.169 = 0.669",
+      "W_7b = 0.2 + 0.175 = 0.375",
+      "O_6 = 1/(1+e^-2.2) = 0.9",
+      "O_4 = 1/(1+e^-2.8) = 0.943",
+      "O_2 = 1/(1+e^-3.4) = 0.968",
+      "O_6 = 1/(1+e^-1.3312) = 0.791",
+      "O_7 = 1/(1+e^-1.3312) = 0.791"
+    ],
+    "labels": [
+      "Input",
+      "Output",
+      "Target",
+      "X1",
+      "X2",
+      "Bias",
+      "\u03b7=5",
+      "28",
+      "t_6",
+      "t_7",
+      "O_3",
+      "O_4",
+      "O_5",
+      "O_6",
+      "O_7",
+      "\u03b4_j = O_j(1-O_j)(t_j-O_j)",
+      "\u0394_{ji} = \u03b7 \u00b7 O_j(1-O_j)(t_j-O_j) = \u03b7 \u00b7 O_j \u00b7 \u03b4_j"
+    ],
+    "equations": [
+      "\u03b4_j = O_j(1-O_j)(t_j-O_j)",
+      "\u0394_{ji} = \u03b7 \u00b7 O_j(1-O_j)(t_j-O_j) = \u03b7 \u00b7 O_j \u00b7 \u03b4_j"
+    ]
+  },
+  "layout": {
+    "arrangement": "Slide number 28 in yellow circle at top-right. Top-left: red-bordered formula box. Top-right: red-bordered neural network diagram. Middle-left: blue section header 'Backward (Update Output Layer Weights)'. Below header: left column of red delta-weight calculations, middle-right column of blue updated-weight calculations, far-right stack of gray output-value boxes. Red double-headed arrow connects left and right calculation columns.",
+    "regions": [
+      {
+        "name": "slide number",
+        "position": "top-right corner",
+        "content": "Yellow circle with '28'"
+      },
+      {
+        "name": "formula box",
+        "position": "top-left",
+        "content": "Red-bordered box with delta and delta-w formulas"
+      },
+      {
+        "name": "neural network diagram",
+        "position": "top-right",
+        "content": "Network with input, hidden, output nodes; labels Input, Output, Target; weights; eta=5"
+      },
+      {
+        "name": "section header",
+        "position": "middle-left",
+        "content": "Blue bold text: Backward (Update Output Layer Weights)"
+      },
+      {
+        "name": "delta calculations",
+        "position": "middle-left below header",
+        "content": "Red text delta_6 and delta_7 equations"
+      },
+      {
+        "name": "delta W left column",
+        "position": "bottom-left",
+        "content": "Red text Delta W calculations for W_63, W_64, W_65, W_6b, W_73, W_74, W_75, W_7b"
+      },
+      {
+        "name": "updated weights right column",
+        "position": "middle-right",
+        "content": "Blue text updated W values for W_63, W_64, W_65, W_6b, W_73, W_74, W_75, W_7b"
+      },
+      {
+        "name": "output value boxes",
+        "position": "far-right",
+        "content": "Gray stacked boxes with O_6, O_4, O_2, O_6, O_7 sigmoid calculations"
+      }
+    ],
+    "hierarchy": "Section header dominates in blue bold; neural network diagram and formula box are prominent at top; calculation blocks use color-coded red (deltas) and blue (updated weights) for visual grouping"
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram: left side labeled 'Input' with X1 and X2 entering; middle column has nodes 3 (orange, top), 4 (orange, middle), 5 (blue, bottom) with Bias input; right column has nodes 6 (orange, top) and 7 (orange, bottom) labeled 'Output'; far right shows 'Target' with t_6=0 and t_7=1; edges have small weight values; node outputs labeled O_3, O_4, O_5, O_6, O_7; bottom right shows '\u03b7=5'",
+      "colors": [
+        "#ff6600",
+        "#0066cc",
+        "#000000",
+        "#cccccc"
+      ],
+      "position": "top-right quadrant"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Red-bordered box at top-left containing two equations: delta_j formula and delta_w_ji formula",
+      "colors": [
+        "#ff0000",
+        "#ffffff",
+        "#000000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with red text containing delta_6 and delta_7 calculations",
+      "colors": [
+        "#ffffff",
+        "#ff0000"
+      ],
+      "position": "middle-left below header"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with red text containing Delta W calculations for weights into node 6 (top half) and node 7 (bottom half)",
+      "colors": [
+        "#ffffff",
+        "#ff0000"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with blue text containing updated W_63, W_64, W_65, W_6b values",
+      "colors": [
+        "#ffffff",
+        "#0000ff"
+      ],
+      "position": "middle-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with blue text containing updated W_73, W_74, W_75, W_7b values",
+      "colors": [
+        "#ffffff",
+        "#0000ff"
+      ],
+      "position": "bottom-right of center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Gray stacked boxes on far right showing sigmoid outputs: O_6=0.9, O_4=0.943, O_2=0.968, O_6=0.791, O_7=0.791",
+      "colors": [
+        "#c0c0c0",
+        "#000000",
+        "#0000ff"
+      ],
+      "position": "far-right column"
+    },
+    {
+      "type": "arrow",
+      "description": "Thick red double-headed arrow pointing left-right between the Delta W calculation block and the updated weights block",
+      "colors": [
+        "#ff0000"
+      ],
+      "position": "center, between left and right calculation columns"
+    },
+    {
+      "type": "other",
+      "description": "Yellow circle with black text '28' indicating slide number",
+      "colors": [
+        "#ffd700",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#e6e6e6",
+    "title_text": "#000080",
+    "body_text": "#000000",
+    "accents": [
+      "#ff0000",
+      "#0000ff",
+      "#ffd700",
+      "#c0c0c0",
+      "#ff6600"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Section header in bold dark blue. Equations in black math-style font. Calculation text in red (left column) and blue (right column). Slide number in black inside yellow circle. No bullets used; lines are stacked equations.",
+  "animation_state": "Static slide; no mid-build elements visible.",
+  "recreation_brief": "1. Set slide background to light gray (#e6e6e6). 2. Add yellow circle with '28' at top-right corner. 3. Add red-bordered box at top-left with equations: \u03b4_j = O_j(1-O_j)(t_j-O_j) and \u0394_{ji} = \u03b7 \u00b7 O_j(1-O_j)(t_j-O_j) = \u03b7 \u00b7 O_j \u00b7 \u03b4_j. 4. Add neural network diagram at top-right with Input label left, Output and Target labels right; nodes 3,4,5 in middle column (3 and 4 orange, 5 blue), nodes 6 and 7 in right column (orange); add Bias node; add small weight labels on edges; add O_3, O_4, O_5, O_6, O_7 labels; add t_6=0, t_7=1 targets; add \u03b7=5 at bottom-right of diagram. 5. Add blue bold section header 'Backward (Update Output Layer Weights)' below top elements on left. 6. Add white box with red text below header: \u03b4_6 = 0.791(1-0.791)(0-0.791) = -0.131 and \u03b4_7 = 0.791(1-0.791)(1-0.791) = 0.035. 7. Add white box with red text at bottom-left listing all eight \u0394W equations in two groups (W_6* then W_7*). 8. Add white box with blue text at middle-right listing updated W_63, W_64, W_65, W_6b. 9. Add white box with blue text below that listing updated W_73, W_74, W_75, W_7b. 10. Add thick red double-headed arrow horizontally between the red \u0394W box and blue W boxes. 11. Add stack of gray boxes on far-right with O_6=0.9, O_4=0.943, O_2=0.968, O_6=0.791, O_7=0.791 sigmoid formulas. 12. Use sans-serif font; color-code delta calculations in red and updated weights in blue.",
+  "_meta": {
+    "frame": "slide_028.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 28,
+      "image": "slide_028.jpg",
+      "badge": "28"
+    },
+    "elapsed_s": 84.3
+  }
+}

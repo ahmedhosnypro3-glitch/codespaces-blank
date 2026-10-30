@@ -1,0 +1,35 @@
+## Comparison: IMG1 (recreation crop) vs IMG2 (original crop), matched scale
+
+Coordinates below are cropârelative (IMG1 â 600Ã450; IMG2 â 562Ã450).
+
+### Verified as matching (no defect)
+- **Table content is cellâforâcell correct**: row 1 = 17, 10, 15; row 2 = 10, 43, 46; row 3 = 20, 80, 95. No wrong digit, no swapped value, no missing row/column. Grid geometry (3Ã3, â133âpx columns, â39âpx rows) and cell centering of every numeral align between the two.
+- **Highlight targets are the correct cells**: 17 (row 1, col 1), 43 (row 2, col 2), 95 (row 3, col 3) in both images.
+- **Equation structure**: top panel `(X^T X + Î»I)` â red X^T X, black plus, blue Î»I, black enclosing parens â is structurally identical; superscript T is a proper raised T in both, not a prime or truncated glyph. Lower panel `(X^T X + Î»I)^(â1)` has the exponent correctly raised outside the closing parenthesis in both; no delimiter cuts through or spans incorrectly.
+- **Î» = 3** is present, green, correct value and spacing significance.
+- The cropped rightâedge element (black vertical stroke with small red mark, âx 585â600, y 165â220 in IMG1 / x 525â540 in IMG2) is present in both and consistent modulo crop shift.
+
+### Discrepancies
+
+1. **MINOR â Missing red emphasis underlines under the two X's in "X^T X" (top equation).**
+   Location: IMG1 â x 65â170, y 45â95 (upperâleft of top panel). IMG2 clearly shows short red handâdrawn underlines beneath each X; IMG1 has none. Handwrittenâink difference, so capped at MINOR per ground rule (c). Confidence: **high**.
+
+2. **MINOR â Highlight ovals lack the thin red/orange pen outline present in the original.**
+   Locations: 17 (âx 130, y 150), 43 (âx 270, y 188), 95 (âx 410, y 225). IMG2 shows yellow fill enclosed by a thin orangeâred ring; IMG1 shows bare yellow fill with no ring. Fill color itself matches. Confidence: **high**.
+
+3. **MINOR â The yellow highlight on "95" overruns the table's right border in IMG1.**
+   Location: IMG1 â x 355â465, y 205â245 (row 3, col 3). IMG1's blob is a wide smear that extends to/past the table's right grid line; IMG2's oval is compact and fully contained inside the cell, centered on the numeral. Slight fill/edge misalignment, no text obscured. Confidence: **mediumâhigh**.
+
+4. **MINOR â Exponent "â1" color differs in the lower equation.**
+   Location: IMG1 â x 450â490, y 400â435 (upper right of the lower panel's formula). IMG2 renders the exponent in red; IMG1 renders it in black. Small textâcolor difference. Confidence: **high**.
+
+5. **MINOR â Apparent missing bottom blue frame stroke on the upper panel in IMG1.**
+   Location: would run horizontally across â x 33â597 at â y 260â295 (between the table's bottom edge and the second panel's top at y â 340). IMG2 clearly shows this bottom edge at y â 293. In IMG1 no corresponding stroke is visible. This may be a cropâboundary/rendering artifact rather than a true omission, so rated MINOR with **medium** confidence.
+
+6. **MINOR â "Î» = 3" sits â20 px farther right relative to the table, and is spaced "Î» = 3" vs "Î»=3".**
+   Location: IMG1 â x 390â490, y 50â92 (right of the top equation); IMG2 â x 365â460, y 45â92 relative to the same table origin. Cosmetic placement/spacing difference only; value and color correct. Confidence: **medium**.
+
+### Summary
+All equation content, every table numeral, highlight targets, and delimiters are correct and structurally faithful. The defects found are limited to cosmetic emphasis/annotation details (missing hand underlines, missing highlight rings, highlight overrun, exponent color), one borderline frameâstroke observation, and small placement offsets â no wrong or garbled characters, no value errors, no structural equation errors.
+
+FINAL VERDICT: PASS

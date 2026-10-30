@@ -1,0 +1,48 @@
+# Web read 1 (query A) — run via agy_web_search MCP route
+# Query file: web/query_activation_functions.txt
+# Note: the same query first failed on the `agy -p` CLI route with
+# RESOURCE_EXHAUSTED (429) "Individual quota reached ... Resets in 35h57m16s"
+# (raw output banked at web/agy_search_01.txt). The MCP route succeeded.
+# Classification: single-read (one query, one search engine read).
+
+## Mathematical confirmation
+
+### arctan(x) = tan^-1(x)
+- Domain of tan restricted for inversion: (-pi/2, pi/2)
+- Range of arctan: (-pi/2, pi/2)
+- Strictly monotonically increasing across its entire domain (d/dx = 1/(1+x^2) > 0)
+- Odd: arctan(-x) = -arctan(x)
+- Derivative: 1/(1+x^2)
+
+### tan(x)
+- Vertical asymptotes where cos(x)=0: x = pi/2 + k*pi, k integer
+- Within [-2pi, 2pi]: {-3pi/2, -pi/2, pi/2, 3pi/2}
+- Period pi: tan(x + pi) = tan(x)
+- Zero crossings where sin(x)=0: x = k*pi. Within [-2pi, 2pi]: -2pi, -pi, 0, pi, 2pi
+  (the explicitly requested interior ones: -pi, 0, pi)
+- Unbounded (-inf..+inf on each open interval) and discontinuous
+
+### Why tan is unsuitable as a neural-network activation function
+1. Unbounded growth / explosion hazards — unlike tanh (bounded -1..1) or sigmoid
+   (bounded 0..1), tan ranges -inf..+inf, so activations blow up across layers.
+2. Discontinuities — vertical asymptotes every pi radians give undefined (NaN/Inf)
+   outputs that gradient-based optimization cannot handle.
+3. Periodic multi-valued mapping / lack of global monotonicity — distinct input
+   regions map to identical outputs, destroying coherent representation.
+
+### Standard alternatives
+- Sigmoid: sigma(x) = 1/(1+e^{-x}), maps to (0,1), midpoint output 0.5; favoured for
+  binary-classification output layers.
+- Tanh: (e^x - e^{-x})/(e^x + e^{-x}), maps to (-1,1), passes through the origin (0,0);
+  zero-centered, which aids optimization convergence in hidden layers.
+
+## Sources
+- https://www.geeksforgeeks.org/deep-learning/tanh-activation-in-neural-network/
+- https://towardsdatascience.com/activation-functions-in-neural-networks-how-to-choose-the-right-one-cb20414c04e5/
+- https://www.baeldung.com/cs/sigmoid-vs-tanh-functions
+- https://www.youtube.com/watch?v=yv_-PH_bStA
+- https://community.deeplearning.ai/t/why-do-we-not-use-hyperbolic-tan-function/436761
+- https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/tanh-activation
+- Cited primary references: Goodfellow/Bengio/Courville, Deep Learning (MIT Press, 2016);
+  Rumelhart/Hinton/Williams, Learning representations by back-propagating errors
+  (Nature, 1986)

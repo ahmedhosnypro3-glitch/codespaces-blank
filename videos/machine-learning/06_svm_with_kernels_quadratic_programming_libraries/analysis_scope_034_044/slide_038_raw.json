@@ -1,0 +1,64 @@
+## 1. LAYOUT MAP
+1. Top title bar â thin red-bordered band spanning the full width; sits directly above the main chart area.
+2. Main chart â large beige area occupying most of the width and upper-middle height; contains axes, grid lines, point markers, numerical labels, and black edge labels arranged in a triangular layout.
+3. Bottom band â dark strip along the bottom edge of the overall red frame.
+4. Right sidebar panel â gray vertical band on the right side; contains a small yellow header pill with "Use C = 1" at top, a blue box with equations below it, and a yellow circle with "38" at top-right corner.
+5. Bottom-left annotation â orange-styled equation block with bold red labels "Minimize:" and "Subject to:" plus green constraint equations; sits below the main chart.
+6. Small blue-styled equation block centered beneath the main chart and above the bottom-left block.
+
+## 2. FIRST-GLANCE TEST
+What a brand-new user understands within 3 seconds: a dense mathematical/optimization diagram with charts, equations, and numerical values; no obvious app chrome, navigation, buttons, or user-facing controls are visible â it reads as a static formula sheet or slide.
+What is confusing: there is no clear entry point, no title explaining what the screen is for, no interactive affordance, and no user context; a new user cannot tell what action to take or what this view represents.
+The 2â3 actions this screen appears to offer: none visibly â no buttons, links, or toggles; the only apparent "interaction" is passive reading.
+Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the focal point SHOULD be the central optimization content â but the eye is pulled instead to the stark red frame and the high-contrast yellow "Use C = 1" pill; the actual mathematical content competes with decorative framing and does not clearly win the eye.
+
+## 3. STRENGTHS
+- The mathematical content is densely but legibly packed into defined regions with clear borders separating the training vectors, test vectors, and equation blocks.
+- The yellow "Use C = 1" pill at top-right of the sidebar provides a distinct visual anchor for a key parameter, even if its placement is unconventional.
+
+## 4. DEFECT LIST
+- [minor|high] top title bar âº top edge â title bar sits flush against the red frame edge with no visible title text or padding â treat as missing title chrome or add top padding to frame.
+- [major|high] bottom band âº bottom edge â dark strip runs the full width at the bottom with no content or boundary to the red frame â looks like a clipped footer or unused dead strip; either populate it or remove it to eliminate dead air.
+- [minor|high] main chart âº top-left â axis tick labels "1", "2" sit extremely close to the frame corner with minimal breathing room â add consistent inner padding to the chart pane.
+- [minor|med] main chart âº center â point labels and coordinate values appear at mixed sizes and baselines within the triangular grid â standardize typographic hierarchy for chart annotations.
+- [i18n-risk] main chart âº right edge â black edge labels extend very close to the right boundary of the beige area â long translated strings could clip against the pane edge.
+- [major|high] bottom-left annotation block â the "Minimize:" / "Subject to:" block sits detached below the main chart with no visual connector, reading as a separate island rather than part of the same optimization statement â integrate into a single cohesive panel or add clear grouping borders.
+- [minor|med] right sidebar âº bottom â sidebar appears to end above the bottom band, leaving a vertical dead zone between the "38" circle region and the bottom edge â align sidebar bottom with the frame bottom or close the gap.
+- [minor|med] main chart vs bottom-left block â vertical gap between the bottom of the main chart and the top of the orange equation block is uneven vs. the sidebar's equation-box spacing â rationalize inter-region vertical rhythm.
+- [minor|high] right sidebar header pill â "Use C = 1" yellow pill at top of gray panel has no clear relationship to the page title or main content; reads as a stray parameter chip rather than intentional chrome â either connect it to a control or style it as an intentional parameter callout.
+- [med|high] overall frame â the entire composition is wrapped in a heavy red border with no apparent app shell (no window chrome, no nav, no header), making it unclear whether this is a slide, a dialog, or a page â define the container type and add matching app chrome if this is a screen within an app.
+
+## 5. TOP 3
+1. Section 4, line 10 â bottom band is a full-width dark strip with no content: dead air that looks like a clipped footer and damages perceived quality most severely.
+2. Section 4, line 7 â bottom-left equation block is visually detached from the main chart: breaks the optimization narrative into two unconnected islands.
+3. Section 4, line 9 â entire view wrapped in a red frame with no app chrome: a new user cannot tell if this is a slide, dialog, or app screen; first-glance clarity suffers most.
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the bottom-left annotation block into the main chart region as a grouped footer section within the same bordered pane (source: bottom-left annotation â destination: main chart bottom), so the optimization statement reads as one unit.
+2. Remove the bottom dark band entirely (source: bottom band â destination: removed) to eliminate dead air; if a footer is required, give it content or merge it into the frame edge.
+3. Add a single app title bar above the chart (source: none â destination: top strip) with a screen title and parameter pill integrated, replacing the current isolated yellow "Use C = 1" chip so the view reads as a deliberate screen, not a slide fragment.
+
+## 7. VERDICT
+Theme & dark-mode: 5 â near-black with heavy red frame feels amateurish, not VSCode Dark+ professional.
+Typography: 5 â mixed math notation sizes and baselines; no clear sans hierarchy for non-developer readers.
+Spacing: 4 â cramped corner labels, uneven vertical gaps, dead bottom strip.
+Alignment: 5 â chart labels and equation blocks do not share a clean grid; edges drift.
+Crowding & density: 6 â dense but not unusable; the dead bottom strip contrasts with crowded chart center.
+Hierarchy: 4 â no clear focal point; decorative frame competes with mathematical content.
+Composition: 4 â red frame, beige chart, gray sidebar, and dark band feel like four different apps glued together.
+Completeness: 3 â bottom band is empty; no title, no actions, no app shell.
+Continuity & consistency: 4 â borders, radii, and surface steps are inconsistent across regions.
+Affordance & states: 2 â no clickable elements, no selection states, no interactive affordance whatsoever.
+First-glance clarity: 3 â unreadable purpose; a new user cannot tell what this screen is or does.
+Overall: 4 â presentable as a raw formula sheet, but as a desktop app screen it fights the user with no navigation, no title, and dead space.
+
+## 8. UNCERTAINTIES
+- The red frame appears to be a screenshot border or slide frame rather than intentional app chrome â cannot verify from the static image alone whether it is part of the UI or a capture artifact.
+- The bottom dark band could be a collapsed footer, a viewport crop, or an intentional dark strip â no visible content to judge.
+- Whether the mathematical content is intentionally static or part of an interactive lecture tool cannot be determined from a single static capture.
+- No visible window title, app name, or navigation means the screen's place in an app architecture is entirely unknown.
+
+## 9. VOCABULARY PROPOSALS
+- [proposed] heavy-frame-without-shell: a screen wrapped in a thick colored border with no app title, navigation, or window chrome reads as a slide fragment rather than a deliberate UI screen â flag when the container provides no wayfinding or identity.
+- [proposed] detached-equation-island: a dense equation block separated from its parent chart or statement by vertical whitespace with no connecting border or shared surface reads as a copy-paste artifact rather than intentional layout.
+- [proposed] dead-edge-strip: a full-width band along any edge (top, bottom, side) with no content and no boundary to its container looks like a clipped footer or rendering error â either populate or remove.

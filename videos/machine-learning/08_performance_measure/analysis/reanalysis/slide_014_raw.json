@@ -1,0 +1,241 @@
+{
+  "slide_title": "Combine Precision and Recall in one number",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Properly Classifies 20 out of 30 as Positive",
+      "Properly Classifies 59 out of 70 as Negative",
+      "This is Not a Model:",
+      "It classifies ALL Samples as Positive"
+    ],
+    "labels": [
+      "14",
+      "Positive",
+      "Negative",
+      "TP",
+      "FN",
+      "TN",
+      "FP",
+      "Good Model:",
+      "Actually:",
+      "Conclusion:",
+      "Average",
+      "is NOT good idea"
+    ],
+    "equations": [
+      "Precision = TP / TP + FP",
+      "Recall = TP / TP + FN",
+      "Precision= 20/(20+11) =64.5%",
+      "Recall= 20/(20+10) =66.6%",
+      "Average= 64.5%+66.6% =65.55%",
+      "Precision= 30/(30+70) =30.3%",
+      "Recall= 30/(30+0) =100%",
+      "Average= 30.3%+100% =65%"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-left in red bold. Slide number '14' in yellow circle top-right. Two formula boxes stacked at top-right. Main body split into two columns: left column 'Good Model' with two decision-tree diagrams side by side (Positive/Negative), a green description box, and a calculation box; right column 'Actually/Not a Model' with two decision-tree diagrams, a red description box, and a calculation box. Pink conclusion box at bottom-right.",
+    "regions": [
+      {
+        "name": "Title",
+        "position": "top, left/center, ~5-15% height",
+        "content": "Red bold title text"
+      },
+      {
+        "name": "Slide number",
+        "position": "top-right, ~5-12% height",
+        "content": "Yellow circle with number 14"
+      },
+      {
+        "name": "Formula boxes",
+        "position": "top-right, ~15-35% height",
+        "content": "Precision and Recall formula definitions"
+      },
+      {
+        "name": "Left trees",
+        "position": "middle, left, ~15-45% height",
+        "content": "Good Model Positive and Negative decision trees"
+      },
+      {
+        "name": "Right trees",
+        "position": "middle, center/right, ~15-45% height",
+        "content": "Not a Model Positive and Negative decision trees"
+      },
+      {
+        "name": "Good Model description",
+        "position": "middle, left, ~45-55% height",
+        "content": "Green header box with classification description"
+      },
+      {
+        "name": "Actually description",
+        "position": "middle, right, ~45-55% height",
+        "content": "Red header box with 'Not a Model' description"
+      },
+      {
+        "name": "Left calculations",
+        "position": "bottom, left, ~55-75% height",
+        "content": "Precision, Recall, Average calculations for Good Model"
+      },
+      {
+        "name": "Right calculations",
+        "position": "bottom, center/right, ~55-75% height",
+        "content": "Precision, Recall, Average calculations for Not a Model"
+      },
+      {
+        "name": "Conclusion",
+        "position": "bottom-right, ~70-90% height",
+        "content": "Pink box with conclusion text"
+      }
+    ],
+    "hierarchy": "Title dominates in large red bold text. Tree diagrams with colored circles (red/green) are visually prominent. Formula boxes and conclusion box use pastel backgrounds to stand out. Calculation boxes are bordered and centered within their columns."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Yellow circle containing the number 14",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Cream/yellow box with formula 'Precision = TP / TP + FP', TP in numerator highlighted",
+      "colors": [
+        "#FFFFCC",
+        "#000000"
+      ],
+      "position": "top-right, upper"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light blue box with formula 'Recall = TP / TP + FN', TP in numerator highlighted",
+      "colors": [
+        "#CCFFFF",
+        "#000000"
+      ],
+      "position": "top-right, lower"
+    },
+    {
+      "type": "diagram",
+      "description": "Good Model Positive tree: airplane icon at top, red circle '30' root, branches to red circle '20' (TP) and green circle '10' (FN)",
+      "colors": [
+        "#CC0000",
+        "#009900",
+        "#000000"
+      ],
+      "position": "middle-left, left tree"
+    },
+    {
+      "type": "diagram",
+      "description": "Good Model Negative tree: airplane icon at top, green circle '70' root, branches to green circle '59' (TN) and red circle '11' (FP)",
+      "colors": [
+        "#CC0000",
+        "#009900",
+        "#000000"
+      ],
+      "position": "middle-left, right tree"
+    },
+    {
+      "type": "diagram",
+      "description": "Not a Model Positive tree: skull/crossbones icon at top, red circle '30' root, branches to red circle '30' (TP) and green circle '0' (FN)",
+      "colors": [
+        "#CC0000",
+        "#009900",
+        "#000000"
+      ],
+      "position": "middle-right, left tree"
+    },
+    {
+      "type": "diagram",
+      "description": "Not a Model Negative tree: airplane icon at top, green circle '70' root, branches to green circle '0' (TN) and red circle '70' (FP)",
+      "colors": [
+        "#CC0000",
+        "#009900",
+        "#000000"
+      ],
+      "position": "middle-right, right tree"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light green box with green header 'Good Model:' and two lines of black text describing correct classifications",
+      "colors": [
+        "#CCFFCC",
+        "#006600",
+        "#000000"
+      ],
+      "position": "middle-left, below trees"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light red/pink box with red header 'Actually:' and red text 'This is Not a Model:' plus black text 'It classifies ALL Samples as Positive'",
+      "colors": [
+        "#FFCCCC",
+        "#CC0000",
+        "#000000"
+      ],
+      "position": "middle-right, below trees"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White bordered box with three lines: Precision, Recall, Average calculations for Good Model",
+      "colors": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White bordered box with three lines: Precision, Recall, Average calculations for Not a Model",
+      "colors": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "bottom-center/right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pink box with 'Conclusion:', 'Average', 'is NOT good idea'",
+      "colors": [
+        "#FFCCFF",
+        "#000000"
+      ],
+      "position": "bottom-right"
+    }
+  ],
+  "imagery": [
+    "Airplane icon (simple line drawing) above Good Model Positive tree",
+    "Airplane icon (simple line drawing) above Good Model Negative tree",
+    "Skull/crossbones icon above Not a Model Positive tree",
+    "Airplane icon (simple line drawing) above Not a Model Negative tree"
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#CC0000",
+      "#009900",
+      "#FFFF00",
+      "#FFFFCC",
+      "#CCFFFF",
+      "#CCFFCC",
+      "#FFCCCC",
+      "#FFCCFF"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is large, bold, red. Section headers ('Positive', 'Negative', 'Good Model:', 'Actually:') are bold and colored (red or green). Body text is regular weight black. Numbers inside tree circles are white bold text on colored circle backgrounds. Calculation text is monospace-ish or regular sans-serif inside bordered boxes.",
+  "animation_state": "No build animation apparent; all elements fully visible",
+  "recreation_brief": "1. Create a white-background slide. 2. Add title 'Combine Precision and Recall in one number' in large bold red sans-serif at top-left. 3. Add a yellow circle at top-right with '14' in black. 4. Add two formula boxes at top-right: cream box with 'Precision = TP / TP + FP' and light blue box with 'Recall = TP / TP + FN'. 5. Left column: add 'Positive' (red) and 'Negative' (green) headers. Below each, draw a tree: icon at top, root circle with number, two child circles with numbers, and TP/FN/TN/FP labels below leaves. Use red circles (#CC0000) for TP/FP-side values and green circles (#009900) for TN/FN-side values, with white text inside. Connect with dark lines. 6. Add light green box below left trees with 'Good Model:' header and the two classification sentences. 7. Add white bordered calculation box below with Precision= 20/(20+11) =64.5%, Recall= 20/(20+10) =66.6%, Average= 64.5%+66.6% =65.55%. 8. Right column: repeat tree structure but use skull icon for Positive and airplane for Negative; values are 30->30(TP)/0(FN) and 70->0(TN)/70(FP). 9. Add light red box with 'Actually:' / 'This is Not a Model:' / 'It classifies ALL Samples as Positive'. 10. Add white bordered calculation box with Precision= 30/(30+70) =30.3%, Recall= 30/(30+0) =100%, Average= 30.3%+100% =65%. 11. Add pink conclusion box at bottom-right with 'Conclusion:', 'Average', 'is NOT good idea'.",
+  "_meta": {
+    "frame": "slide_014.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 14,
+      "image": "slide_014.jpg"
+    },
+    "elapsed_s": 545.8
+  }
+}

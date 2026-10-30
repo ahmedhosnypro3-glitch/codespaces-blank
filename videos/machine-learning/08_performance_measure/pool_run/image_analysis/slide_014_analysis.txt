@@ -1,0 +1,366 @@
+[info] context header injected: VIEW: Slide 14 — lecture slide (topic unlabeled) | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 90679
+[warn] /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_014.jpg: winner length 24485 chars ≈ the --max-tokens budget — likely TRUNCATED mid-body; re-run with a higher --max-tokens if sections are missing
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_014.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants me to analyze a lecture slide image. The slide is titled "Combine Precision and Recall in one number" and has slide number 14.
+
+I need to extract all text verbatim, map layout, describe visual elements, colors, typography, numeric details, anomalies, fidelity risks, and give a verdict.
+
+Let me carefully examine the image content.
+
+Title: "Combine Precision and Recall in one number" in red, with some cursor/arrow artifact near "number".
+
+Top right: a yellow badge with "14".
+
+Left side - "Good Model:" section:
+- Positive / Negative headers
+- Airplane images (white/gray with skull? Actually left side appear to be normal planes, right side have skulls - indicating toxic/negative)
+- Tree diagram: 30 splits to 20 (TP) and 10 (FN); 70 splits to 59 (TN) and 11 (FP)
+- Labels: TP, FN, TN, FP
+- Text: "Properly Classifies 20 out of 30 as Positive" and "Properly Classifies 59 out of 70 as Negative"
+- Precision = 20/(20+11) = 64.5%
+- Recall = 20/(20+10) = 66.6%
+- Average = 68.7%+60% = 65.55%
+
+Wait, 68.7%? Let me check. 64.5% and... hmm, "Average= 68.7%+60% =65.55%". Hmm, that's odd. Actually wait - recall is 66.6%. But average line says "68.7%+60%". Hmm, let me re-read.
+
+Actually it says "Average= 68.7%+60% =65.55%". That's strange because precision is 64.5%. Let me think... Actually maybe it's "64.5% + 66.6%" average = 65.55%. Yes! (64.5 + 66.6)/2 = 65.55. So the text might actually read "Average= 64.5%+66.6% =65.55%". Hmm, but I should transcribe what's written. Looking at the image again: "Average= 68.7%+60% =65.55%". 
+
+Hmm, it's hard to read. Let me look carefully. The precision row is "Precision= 20/(20+11) =64.5%". Recall row "Recall= 20/(20+10) =66.6%". Average row "Average= 68.7%+60% =65.55%". 
+
+Hmm, (64.5+66.6)/2 = 65.55. So the numbers should be 64.5% and 66.6%. The image says "68.7%+60%"? That doesn't average to 65.55. Unless it's 64.5% + 66.6%. I think the rendering shows "64.5%+66.6%" but it's partially garbled. Actually looking at pixel data description: "Average= 68.7%+60% =65.55%" â this seems like a rendering artifact. Let me note it as read.
+
+Actually, I need to be careful. The transcription should be verbatim. In the image, the average line reads "68.7%+60%=65.55%". This is likely "64.5%+66.6%=65.55%" but rendered oddly. I should transcribe what I see and flag in anomalies.
+
+Hmm wait, maybe I misread. Let me reconsider: "Precision= 20/(20+11) =64.5%" and "Recall= 20/(20+10) =66.6%". Average = (64.5+66.6)/2 = 65.55%. So the printed values in the average line might be "64.5%+66.6%" but appear as "68.7%+60%" due to resolution. I'll transcribe as best I can: "Average= 68.7%+60% =65.55%" â no wait. Let me just be honest: the visible characters appear to be "68.7%+60%". Hmm.
+
+Actually, I realize I should just report exactly what's discernible. Given the formula result 65.55 = average of 64.5 and 66.6, the input values must be 64.5% and 66.6%. I'll transcribe with a note.
+
+Right side - "Actually:" section:
+- Positive / Negative headers with skull planes
+- Tree diagram: 30 splits to 30 (TP) and 0 (FN); 70 splits to 0 (TN) and 70 (FP)
+- Text in pink box: "This is Not a Model:" (with "Not a Model" in red) and "It classifies ALL Samples as Positive"
+- Precision = 30/(30+70) = 30.3%
+- Recall = 30/(30+0) = 100%
+- Average = 30.3%+100% = 65%
+
+Conclusion box (purple/lavender): "Conclusion:" and "Average is NOT good idea"
+
+Formula boxes top right (blue):
+- TP / Precision = â / TP+FP
+- TP / Recall = â / TP+FN
+
+Colors:
+- Title red
+- TP circles red fill
+- FN circles green? Actually left diagram: 20 TP red, 10 FN green, 59 TN green, 11 FP red. TN and FN are green, TP and FP are red. Interesting - the colors represent correct (green) vs wrong (red)? TP green... wait no. 20 is TP and it's red; 10 is FN and it's green. Hmm.
+
+Actually looking again: In left diagram: top circle "30" dark red, branches to "20" red labeled TP and "10" green labeled FN; top circle "70" dark green, branches to "59" green labeled TN and "11" red labeled FP.
+
+So red = Positive class predictions/actuals (TP, FP), green = Negative (TN, FN). The top node 30 (red) is Positive count, 70 (green) is Negative count. So color coding: red for positive-related, green for negative-related.
+
+Background: light gray/white slide with a dark border frame.
+
+Slide number badge: yellow circle with "14" top right.
+
+Typography: Title ~24pt bold red. Headers "Positive" red, "Negative" green ~14pt bold. Values in circles ~10pt white bold. Labels TP/FN/TN/FP ~10pt bold. Equation text ~11-12pt black.
+
+Let me now structure the output.
+
+Layout map:
+- Title bar at top: x~60, y~48, w~850, h~40
+- Slide number badge: top right ~x~900, y~18, w~45, h~30
+- Left panel (Good Model): x~55, y~100, w~430, h~330
+- Right panel (Actually): x~490, y~100, w~420, h~330
+- Formula boxes: x~795, y~105, w~140, h~90 (two blue boxes)
+- Conclusion box: x~780, y~390, w~160, h~80
+- Left diagram with planes: x~60, y~130, w~420, h~180
+- Text box "Good Model:": x~60, y~310, w~420, h~55 (light green/teal)
+- Formula rows left: x~60, y~370 to y~500
+- Right text box "Actually:": x~490, y~310, w~420, h~55 (pink)
+- Formula rows right: x~490, y~370 to y~500
+
+Numeric details:
+- 30 (positive count left)
+- 20 TP
+- 10 FN
+- 70 (negative count left)
+- 59 TN
+- 11 FP
+- 30 positive count right
+- 30 TP right
+- 0 FN right
+- 0 TN right
+- 70 FP right
+- Precision left: 20/(20+11)=64.5%
+- Recall left: 20/(20+10)=66.6%
+- Average left: 65.55%
+- Precision right: 30/(30+70)=30.3%
+- Recall right: 30/(30+0)=100%
+- Average right: 65%
+- Slide number 14
+
+Colors:
+- Background: white (#FFFFFF) with dark gray/black border frame
+- Title: dark red (#B00000 or similar)
+- Positive text: red (#CC0000)
+- Negative text: green (#008000)
+- TP circle: dark red fill (#A00000) with white text
+- FP circle: dark red fill
+- FN circle: green fill (#007000)
+- TN circle: green fill (#007000)
+- Top node 30: red, top node 70: green
+- Formula boxes: light blue fill (#DDEEFF) with blue border
+- "Good Model" box: light green/teal fill (#E0F0E0)
+- "Actually" box: pink fill (#FCE4EC)
+- Conclusion box: light purple/lavender (#E8DAF0)
+- Slide badge: yellow fill (#FFD966) black text
+
+Anomalies:
+- Mouse cursor arrow artifact near title ("number" word area) â actually it looks like a text cursor or arrow pointer around x~545, y~75.
+- The average value line reads "68.7%+60%" which appears to be a rendering artifact of "64.5%+66.6%".
+- The left diagram planes appear to be simple airplane silhouettes; right diagram planes have skull markings (skull on fuselage).
+- Image quality is compressed (JPEG artifacts) typical of lecture video frame.
+
+Top-3 fidelity risks:
+1. The tree diagram node colors and connector arrows (which nodes are red vs green, and the arrow directions).
+2. The garbled average equation values ("68.7%+60%") â must reproduce actual math (64.5%+66.6%).
+3. The plane illustrations with skulls vs without â distinguishing left (clean planes) from right (skull planes).
+
+Verdict: Recreatability 8/10. Confidence high for text, medium for exact color hexes and the garbled average line.
+
+Let me write this out now. I need to make sure all text is transcribed verbatim with positions.
+
+Position estimates at 960x540:
+- Title: center top, x~70, y~45, w~820, h~40
+- Badge "14": x~905, y~15, w~40, h~35
+- "Positive" (left): x~140, y~105
+- "Negative" (left): x~315, y~105
+- Planes row left: y~120-160
+- Node 30: x~175, y~175 (circle), 20 TP: x~115, y~215, 10 FN: x~240, y~215
+- Node 70: x~330, y~175, 59 TN: x~290, y~215, 11 FP: x~380, y~215
+- Similar on right side shifted +430
+
+Let me estimate more carefully based on the image proportions.
+
+The left panel spans roughly x=55 to x=475. Within it:
+- "Positive" label around x=140-200, y=105-125
+- "Negative" label around x=315-375, y=105-125
+- Airplane graphics y=125-165
+- Node "30" circle center ~x=190, y=180
+- Node "70" circle center ~x=350, y=180
+- "20 TP" at ~x=120, y=215-240
+- "10 FN" at ~x=245, y=215-240
+- "59 TN" at ~x=300, y=215-240
+- "11 FP" at ~x=390, y=215-240
+
+Formulas at right top:
+- "TP" / "Precision = â / TP+FP": box at x=790-940, y=105-155
+- "TP" / "Recall = â / TP+FN": box at x=790-940, y=160-205
+
+Left text box: "Good Model:" x=60, y=310, green box x=60-475, y=305-365
+- "Properly Classifies 20 out of 30 as Positive"
+- "Properly Classifies 59 out of 70 as Negative"
+
+Left equations block: x=60-475, y=370-505
+- "Precision= 20/(20+11) =64.5%"
+- "Recall= 20/(20+10) =66.6%"
+- "Average= ... =65.55%"
+
+Right text box: "Actually:" x=490, y=310, pink box x=485-905, y=305-365
+- "This is Not a Model:" with "Not a Model" in red
+- "It classifies ALL Samples as Positive"
+
+Right equations block: x=485-905, y=370-505
+- "Precision= 30/(30+70) =30.3%"
+- "Recall= 30/(30+0) =100%"
+- "Average= 30.3%+100% =65%"
+
+Conclusion box: x=780-940, y=390-470, lavender
+- "Conclusion:" "Average is NOT good idea"
+
+OK. Writing final output now.
+
+For the fraction in the blue boxes: "TP over TP+FP" â written as TP in numerator, horizontal bar, TP+FP denominator. I'll describe as stacked fraction.
+
+The arrow/cursor near title: there's a pointer arrow around x=545, y=75, overlapping the title area. It's likely a mouse cursor captured in the video frame. I'll note it as an anomaly.
+
+One more check on the left "Average" line. Looking at the OCR description provided in image: "Average= 68.7%+60% =65.55%". Hmm, actually maybe it literally says "64.5%+66.6%" but the video compression makes 4 look like 8 and 6 like 0? "68.7" vs "64.5"... not obvious. I'll transcribe as it appears: "68.7%+60%" and flag the anomaly that mathematically it should be 64.5%+66.6%.
+
+Actually, hold on. Let me reconsider. Maybe the rendering is: "Average= 64.5%+66.6% =65.55%". The provided transcription in the problem shows "Average= 68.7%+60% =65.55%". Since I must not guess, I'll report "68.7%+60%" as read but flag it. Hmm, but actually being too literal on a possibly garbled rendering might hurt. The instructions say: transcribe verbatim, mark unreadable, never guess. So I report what's visible. I'll report "Average= 68.7%+60% =65.55%" with a note.
+
+Wait, actually, I want to reconsider once more. (64.5 + 66.6)/2 = 65.55. Yes. So the inputs should be 64.5 and 66.6. The visible text is probably "64.5%+66.6%" but OCR'd weird. Given fidelity, I'll transcribe with the most likely reading and flag it: I'll write "Average= 64.5%+66.6% =65.55%" â no. The rule says never guess characters. I'll transcribe "68.7%+60%" as it appears, and note in anomalies that arithmetic implies 64.5%+66.6%.
+
+Hmm, but is it really "68.7%+60%"? Looking at the image snippet again mentally... The line reads "Average= 68.7%+60% =65.55%". I'll go with that and flag it.
+
+Also note there's a "not equal" or dash in formulas? In the blue boxes: "TP" with a line, over "TP + FP". The numerator shows "TP" and a horizontal fraction bar.
+
+Also, in title there appears to be a cursor/arrow between "one" and "number"? Actually "Combine Precision and Recall in one number" with a pointer graphic near "number" at around x=545,y=75. It looks like a text-insertion caret or mouse arrow. Note it.
+
+Let me also describe the arrows in the tree: from node 30 down-left to 20 (TP), down-right to 10 (FN); from node 70 down-left to 59 (TN), down-right to 11 (FP). Same structure on right: 30 -> 30 (TP), 30 -> 0 (FN), 70 -> 0 (TN), 70 -> 70 (FP).
+
+Colors of connectors: dark blue/navy lines.
+
+Also the images: five airplanes total? Left diagram: 1 airplane near Positive, 1 near Negative. Right diagram: 2 airplanes. The left planes are plain; right planes have a skull icon on the body (indicating "bad/toxic" samples). Actually, looking at the image: left side planes look like normal paper planes/airplanes. Right side planes have skull faces. Both sides under "Positive" and "Negative". Hmm, interesting â the right diagram uses skull planes for both Positive and Negative headers. I'll describe: left diagram airplane silhouettes plain; right diagram airplane silhouettes with skull markings.
+
+Colors: The planes are light gray/white with darker outline.
+
+Slide background: very light gray (#F5F5F5) or white inside a dark frame. There's a dark border around the whole slide content area (x~10-950, y~8-532), maybe a black/gray rectangle outline â probably the video frame edge or a border. I'll note a thin dark outer border.
+
+Now, write the answer. Keep it structured, only the numbered sections.
+
+Font sizes: Title ~26pt bold. Section headers (Positive/Negative) ~14pt bold. Circle values ~11pt bold white. Node labels (TP etc.) ~10pt bold. Equation lines ~11pt. "Good Model:" ~12pt bold. Body text ~10pt. Conclusion ~10pt. Slide badge ~12pt.
+
+Colors estimates:
+- Red title: #C00000
+- Dark red node fill: #A52A2A / #B03030 â I'll say #A62626
+- Green node fill: #207020 / #2E7D32 â say #2E7D32
+- Positive label red: #C00000
+- Negative label green: #2E7D32
+- Blue formula boxes: fill #E3F0FF, border #4472C4, text #1F4E79
+- Green "Good Model" box: fill #E2F0D9, border #548235
+- Pink "Actually" box: fill #FCE4EC / #FBE0E6, border #C00000? Text box has red border maybe. "Not a Model" text red #C00000.
+- Conclusion box: fill #E6E0F8, border #7030A0
+- Equation rows: white/very light fill with thin gray border
+- Badge: fill #FFD966, text black
+
+Dominant palette: red/green (confusion-matrix classes) with white background and accent boxes in blue/green/pink/purple.
+
+OK, writing now.</think>## 1. VERBATIM TEXT
+
+- "Combine Precision and Recall in one number" â title, centered top, approx x=70,y=42,w=820,h=42, ~26pt bold, dark red (#C00000).
+- "14" â slide-number badge, top-right, approx x=905,y=14,w=40,h=34, ~14pt bold, black on yellow.
+- "Positive" â header over left-top diagram node, approx x=138,y=103,w=70,h=22, ~14pt bold, red (#C00000).
+- "Negative" â header over left-bottom diagram node, approx x=313,y=103,w=70,h=22, ~14pt bold, green (#2E7D32).
+- "Positive" â header over right-top diagram node, approx x=568,y=103,w=70,h=22, ~14pt bold, red.
+- "Negative" â header over right-bottom diagram node, approx x=743,y=103,w=70,h=22, ~14pt bold, green.
+- "30" â left diagram top node, approx x=178,y=168,w=24,h=24, ~11pt bold white on dark-red circle.
+- "20" â left diagram lower-left node, approx x=113,y=212,w=24,h=24, white on red circle.
+- "TP" â label under "20", approx x=113,y=238,w=24,h=16, ~10pt bold, red.
+- "10" â left diagram lower-mid node, approx x=238,y=212, white on green circle.
+- "FN" â label under "10", approx x=238,y=238, ~10pt bold, green.
+- "70" â left diagram top-right node, approx x=338,y=168, white on dark-green circle.
+- "59" â left diagram lower-mid-right node, approx x=288,y=212, white on green circle.
+- "TN" â label under "59", approx x=288,y=238, ~10pt bold, green.
+- "11" â left diagram lower-right node, approx x=378,y=212, white on red circle.
+- "FP" â label under "11", approx x=378,y=238, ~10pt bold, red.
+- "30" â right diagram top node, approx x=608,y=168, white on dark-red circle.
+- "30" â right diagram lower-left node, approx x=543,y=212, white on red circle.
+- "TP" â approx x=543,y=238, bold red.
+- "0" â right diagram lower-mid node, approx x=668,y=212, white on green circle.
+- "FN" â approx x=668,y=238, bold green.
+- "70" â right diagram top-right node, approx x=768,y=168, white on dark-green circle.
+- "0" â right diagram lower-mid-right node, approx x=718,y=212, white on green circle.
+- "TN" â approx x=718,y=238, bold green.
+- "70" â right diagram lower-right node, approx x=808,y=212, white on red circle.
+- "FP" â approx x=808,y=238, bold red.
+- "TP" â numerator in blue formula box 1, approx x=845,y=112, ~11pt bold, dark blue.
+- "Precision = TP / (TP + FP)" â blue box top-right, approx x=795,y=110,w=145,h=48: displayed as "Precision =" over a stacked fraction "TP" / "TP+FP", ~10pt, dark blue (#1F4E79).
+- "TP" â numerator in blue formula box 2, approx x=845,y=165.
+- "Recall = TP / (TP + FN)" â blue box, approx x=795,y=163,w=145,h=48, same stacked-fraction layout, dark blue.
+- "Good Model:" â approx x=68,y=312,w=120,h=20, ~12pt bold, dark green (#375623).
+- "Properly Classifies 20 out of 30 as Positive" â approx x=68,y=332,w=400,h=18, ~10pt, black.
+- "Properly Classifies 59 out of 70 as Negative" â approx x=68,y=350,w=400,h=18, ~10pt, black.
+- "Precision= 20/(20+11) =64.5%" â left equation row 1, approx x=68,y=375,w=405,h=30, ~11pt, black, values bold.
+- "Recall= 20/(20+10) =66.6%" â left equation row 2, approx x=68,y=408,w=405,h=30, ~11pt, black.
+- "Average= 68.7%+60% =65.55%" â left equation row 3, approx x=68,y=441,w=405,h=30, ~11pt, black (see Anomalies: arithmetic implies 64.5%+66.6%).
+- "Actually:" â approx x=492,y=312,w=80,h=20, ~12pt bold, dark red (#C00000).
+- "This is Not a Model:" â approx x=492,y=332,w=400,h=18, ~10pt, black with "Not a Model" in bold red.
+- "It classifies ALL Samples as Positive" â approx x=492,y=350,w=400,h=18, ~10pt, black.
+- "Precision= 30/(30+70) =30.3%" â right equation row 1, approx x=492,y=375,w=405,h=30, ~11pt, black.
+- "Recall= 30/(30+0) =100%" â right equation row 2, approx x=492,y=408,w=405,h=30, ~11pt, black.
+- "Average= 30.3%+100% =65%" â right equation row 3, approx x=492,y=441,w=405,h=30, ~11pt, black.
+- "Conclusion:" â approx x=790,y=398,w=110,h=18, ~11pt bold, dark purple (#5B2C86).
+- "Average" â same box, approx x=790,y=420,w=70,h=16, ~10pt bold italic purple.
+- "is NOT good idea" â approx x=790,y=436,w=110,h=16, ~10pt bold, black with "NOT" emphasized.
+
+## 2. LAYOUT MAP
+
+Reading order: title bar â two-column body â right-side formula boxes / conclusion box.
+
+- Title bar: x=70,y=42,w=820,h=42 â centered title text.
+- Slide-number badge: x=905,y=14,w=40,h=34 â yellow circle top-right corner.
+- Left column ("Good Model" panel): x=55,y=100,w=420,h=405.
+  - Diagram sub-region: x=60,y=100,w=410,h=185 (headers, airplane graphics, node tree with labels).
+  - Description box: x=60,y=302,w=412,h=62 (light green fill, rounded).
+  - Equation rows: x=60,y=368,w=412,h=137 (three stacked white rows with thin borders).
+- Right column ("Actually" panel): x=487,y=100,w=418,h=405.
+  - Diagram sub-region: x=487,y=100,w=410,h=185.
+  - Description box: x=487,y=302,w=412,h=62 (pink fill, rounded).
+  - Equation rows: x=487,y=368,w=412,h=137.
+- Formula reference boxes: x=793,y=108,w=148,h=105 (two stacked blue boxes).
+- Conclusion box: x=780,y=390,w=160,h=80 (lavender, rounded).
+- Thin dark outer frame around entire slide content (xâ8â952, yâ8â532).
+
+## 3. VISUAL ELEMENTS
+
+- Charts: none.
+- Tables: none (equation rows are bordered text rows, not grid tables).
+- Diagrams: two identical binary-tree structures.
+  - Left tree: node "30" (red) branches down-left to "20 / TP" and down-right to "10 / FN"; node "70" (green) branches down-left to "59 / TN" and down-right to "11 / FP". Connectors are 2px navy (#1F3864) straight lines with arrowheads pointing from parent to child.
+  - Right tree: node "30" (red) â "30 / TP" and "0 / FN"; node "70" (green) â "0 / TN" and "70 / FP". Same connector style.
+- Images/illustrations: four airplane silhouettes.
+  - Left panel: one airplane above the "Positive" header (xâ150,yâ120,wâ60,hâ40) and one above "Negative" (xâ325,yâ120,wâ60,hâ40). Plain light-gray/white bodies, no markings.
+  - Right panel: one airplane above "Positive" (xâ580,yâ120) and one above "Negative" (xâ755,yâ120). Same silhouettes but each bears a white skull marker on the fuselage, indicating "bad/toxic" samples.
+- Equations: rendered as text, not equation objects.
+  - Blue reference boxes use stacked fractions: numerator "TP", horizontal bar, denominator "TP + FP" (box 1); numerator "TP", bar, denominator "TP + FN" (box 2).
+  - All other equations are inline single-line: e.g. "Precision= 20/(20+11) =64.5%".
+
+## 4. COLORS
+
+- Slide background: white (#FFFFFF) inside a thin dark-gray/black outer frame (~2px, #404040).
+- Title text: dark red (#C00000).
+- Diagram header text: red (#C00000) for "Positive", green (#2E7D32) for "Negative".
+- Confusion-matrix nodes: TP and FP have dark-red fill (#A62626); FN and TN have green fill (#2E7D32); top-level count nodes "30"/"70" use the same red/green fills respectively; all node text white (#FFFFFF).
+- Tree connectors: navy (#1F3864).
+- "Good Model" box: pale green fill (#E2F0D9), thin green border (#548235), header dark green (#375623).
+- "Actually" box: pale pink fill (#FBE4E8), thin red border (#C00000), header dark red; "Not a Model" in bold red (#C00000).
+- Equation rows: white fill, 1px light-gray border (#BFBFBF), black text (#000000) with bolded values.
+- Formula reference boxes: pale blue fill (#DEEBF7), blue border (#4472C4), dark-blue text (#1F4E79).
+- Conclusion box: pale lavender fill (#E6E0F5), purple border (#7030A0), text dark purple (#5B2C86) with black "is NOT good idea".
+- Slide badge: yellow fill (#FFD966), black numeral.
+- Dominant palette: red vs. green semantic coding (positive/negative confusion-matrix classes) on white, with pastel accent boxes.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: centered, ~26pt, bold, dark red, serif-less sans (Arial/Calibri-like).
+- Section headers ("Positive"/"Negative", "Good Model:", "Actually:", "Conclusion:"): 12â14pt bold.
+- Node values inside circles: ~11pt bold white.
+- Node class labels (TP/FN/TN/FP): ~10pt bold, colored to match node class.
+- Body/description and equation text: 10â11pt regular, bold used for numeric results (e.g. "=64.5%", "=65%").
+- Italic usage: "Average" in the conclusion box appears bold-italic.
+- Decorative frames: rounded-rectangle fills behind the description boxes, equation rows, formula boxes, and conclusion box; 1â2px colored borders on each. No shadows evident.
+- Slide-number badge: yellow circle, diameter ~34px, top-right (xâ905,yâ14), black "14" ~14pt bold.
+
+## 6. NUMERIC DETAILS
+
+- Slide number: 14 (top-right badge).
+- Left diagram counts: 30 (positive total) â 20 TP, 10 FN; 70 (negative total) â 59 TN, 11 FP.
+- Left metrics: Precision = 20/(20+11) = 64.5%; Recall = 20/(20+10) = 66.6%; Average = 65.55%.
+- Right diagram counts: 30 (positive total) â 30 TP, 0 FN; 70 (negative total) â 0 TN, 70 FP.
+- Right metrics: Precision = 30/(30+70) = 30.3%; Recall = 30/(30+0) = 100%; Average = 65%.
+- Reference formulas: Precision = TP/(TP+FP); Recall = TP/(TP+FN).
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- A mouse-pointer/text-caret artifact overlaps the title near the word "number" (approx x=545,y=70â85); it is a capture artifact, not slide content â exclude or overlay as-is depending on fidelity target.
+- Left "Average" row reads "68.7%+60%" in the capture, but the stated result (65.55%) only follows from 64.5% + 66.6%. Treat the printed operands as the visibly garbled characters and flag them; the arithmetic implies "64.5%+66.6%". Do not silently "correct" without note.
+- JPEG/video compression artifacts around airplane silhouettes and circle edges soften outlines.
+- The right-panel airplanes carry skull markings while the left-panel airplanes are plain â this is a deliberate content difference, not noise.
+- Equation rows are separate stacked rectangles with individual borders; do not merge into one block.
+
+## 8. TOP-3 FIDELITY RISKS
+
+1. Tree-diagram color semantics: TP/FP nodes are red and FN/TN nodes are green (class-based, not correctness-based), and parent nodes inherit the class color. Recreating by "green = correct" would invert the design.
+2. The left average equation's garbled operands: rebuilding it as literally "68.7%+60%" contradicts the shown result 65.55%; rebuilding as "64.5%+66.6%" fixes the math but conflicts with visible pixels. Recreate with a deliberate choice and note it.
+3. Skull vs. plain airplane illustrations: the four planes differ between panels; losing the skull detail on the two right-panel planes removes the "toxic sample" semantics of the "Not a Model" example.
+
+## 9. VERDICT
+
+- Recreatability score: 8/10 â all text strings, counts, and both tree diagrams are extractable; only the one garbled average operand pair and exact color hexes are uncertain.
+- Confidence: high for transcribed strings, diagram topology, and numbers; medium for exact hex values and font family/size estimates; low only for the left "Average" line operands.
+- Deliberately not transcribed: the mouse-cursor artifact near the title (flagged in Anomalies instead); no watermark text is present; no illegible characters required guessing.
+

@@ -1,0 +1,77 @@
+## 1. LAYOUT MAP
+1. Outer frame â solid red rectangle filling the 960Ã540 capture area, containing everything.
+2. Presentation header â light-gray surface across the top, behind/above the plot area; no visible text.
+3. Plot container â white rectangle inset roughly 224Ã106 to 736Ã428; carries the axes, gridlines, and scatter dots.
+4. Y-axis labels â left side of plot ("â10", "0", "10", "20", "30", "40"), black text rotated/stacked vertically along the left edge.
+5. X-axis labels â bottom of plot ("0", "10", "20", "30", "40") under the white plot box.
+6. Gridlines â dotted lines inside the plot area; horizontal dotted lines for each tick, vertical dotted lines at x â 0/10/20/30/40.
+7. Scatter clusters â seven colored dot clouds inside the plot: dark blue (top-left cluster with grid background), bright green (bottom-left isolated group), yellow (mid-left above green), magenta (center-bottom large cluster), red dots (top-center), cyan dots (top-right), black dots (mid-right).
+8. Slide number badge â small rounded circle in the top-right of the outer frame containing "43".
+
+Apparent scale/quality: capture is 960Ã540 CSS px at 1Ã; content is vector-graphics-like but scaled down to thumbnail size, so fine axis text and tiny dots are borderline unreadable; nothing is clipped at the capture boundary itself.
+
+## 2. FIRST-GLANCE TEST
+A brand-new user sees a single chart framed in red inside a light-gray shell, with a badge "43" in the corner. Three actions appear to exist: (1) read/interpret the scatter plot (visible at first glance), (2) locate axes and legend (axes visible, no legend present), (3) slide navigation via the "43" badge (visible but affordance ambiguous â looks like a slide number, not a button). Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the focal point should be the decision-boundary illustration or kernel separation example inside the plot â but nothing in the frame labels what the dots represent, which class is which, or where the boundary lies, so the screen's actual subject demands study rather than winning the eye immediately.
+
+## 3. STRENGTHS
+- The seven colored dot clusters are clearly separated into distinct groups, so the visual concept of clustering / class separation reads instantly (scatter clusters region).
+- The "43" badge is cleanly framed and readable against its background, giving a clear slide position in the deck (top-right of outer frame).
+- Dotted gridlines provide readable reference axes without competing with the data (inside plot container).
+
+## 4. DEFECT LIST
+- [major|high] plot container âº top-left cluster â dark blue dot cloud sits on its own dotted grid background while other clusters sit on plain white â inconsistent surface treatment within one plot; colors compete instead of supporting one chart [i] / [k] â remove per-cluster backgrounds, use a single neutral plot surface.
+- [minor|med] plot container âº center-top â red dot cluster (~200 dots in ~30Ã15 px area) renders as a solid red mass with no individual glyph separation at this resolution â dot density overwhelms the mark size; clusters should be jittered, sized smaller, or given alpha so individuals remain distinguishable [e] â reduce dot size / add opacity / increase spacing.
+- [minor|med] whole chart âº axes â no title, axis unit labels, or legend exist anywhere in the frame; a viewer cannot tell what x/y measure or which color maps to which class [k] â add axis titles and a color legend adjacent to the plot.
+- [minor|med] plot container âº y-axis labels â "â10", "0", "10", "20", "30", "40" sit tight against the left edge of the white plot box with almost no side padding [d] â add ~8â12px left padding so axis labels don't touch the plot edge.
+- [minor|high] outer frame âº right edge â red frame border and "43" badge sit at the extreme right edge of the capture with no margin; badge touches near the frame corner [c] â inset the frame and badge ~16px from capture edges.
+- [minor|low] whole chart â no visible focus ring, hover state, or interactive affordance on the plot itself; a static image cannot confirm interactivity [k] â cannot verify from static capture; flagged low so a human can check the live component.
+- [i18n-risk] whole chart â axis numerals use Western digits with no locale formatting; translated axis titles (~30% longer) would crowd the tight label positions [d] â reserve wider label gutters.
+- (a) clean â checked, nothing found.
+- (b) clean â checked, nothing found (axis labels are small but within acceptable range for a chart).
+- (c) `- (c) seen above: badge/frame edge margin.`
+- (d) `- (d) seen above: y-axis label padding.`
+- (e) clean â checked, nothing found beyond dot-density entry above.
+- (f) clean â checked, nothing found (no hierarchy exists to judge).
+- (g) `- (g) seen above: missing title/legend leaves plot without a focal anchor.`
+- (h) clean â checked, nothing found.
+- (i) `- (i) seen above: per-cluster dotted backgrounds.`
+- (j) clean â checked, nothing found.
+- (k) clean â checked, nothing found beyond legend entry above.
+- (l) clean â checked, nothing found (no icons present).
+- (m) clean â checked, nothing found (no tables/lists present).
+- (n) clean â checked, nothing found (chart dots and labels have adequate contrast).
+- (o) clean â checked, nothing found (no UI copy present).
+
+## 5. TOP 3
+1. Section 4, missing title/legend â the chart's subject is entirely unexplained, which is the single largest usability gap on a lecture slide.
+2. Section 4, per-cluster dotted backgrounds â breaks the "one chart, one surface" rule and adds visual noise directly inside the data area.
+3. Section 4, red dot mass â at this resolution the dense cluster reads as a solid blob, defeating the purpose of showing individual sample points.
+
+## 6. STRUCTURAL PROPOSAL
+- Move the slide-number badge ("43") from top-right corner to a bottom footer strip shared across the deck, freeing the top-right corner for a chart title or legend (source: slide-number badge region; destination: new bottom footer).
+- Add a narrow legend strip directly right of the plot container, inside the white plot area or in the gray header band, mapping each of the seven colors to its class meaning (source: empty header band / whitespace right of plot; destination: legend strip adjacent to plot).
+- If interactivity exists (hover tooltips on dots), promote it with a visible affordance â otherwise leave the plot static and add a caption below explaining what the clusters represent (source: none new; destination: below plot container).
+- [out-of-scope] cannot verify whether kernel decision boundaries or SVM margins are supposed to be drawn â no such geometry is visible in the capture.
+
+## 7. VERDICT
+- Theme & dark-mode: 8 â clean dark shell with proper surface elevation; no washed-out grays.
+- Typography: 6 â axis labels are small but legible; no hierarchy beyond that exists to judge.
+- Spacing: 5 â axis labels touch the plot edge and the frame/badge hug the capture edge.
+- Alignment: 7 â axes, grid, and clusters are well aligned; no ragged columns.
+- Crowding/density: 4 â the red dot cluster is an unreadable mass; per-cluster grid backgrounds add noise.
+- Hierarchy: 3 â no title, legend, or focal anchor; the eye has nowhere to land with intent.
+- Composition: 5 â plot is centered but surrounded by empty gray shell; badge collides with the edge.
+- Completeness: 4 â missing title, axis units, and legend make the chart incomplete as a lecture frame.
+- Continuity & consistency: 4 â per-cluster dotted backgrounds violate consistency inside a single chart.
+- Affordance & states: 5 â nothing looks clickable; interactivity unverifiable from a static capture.
+- First-glance clarity: 3 â a new user cannot tell what the chart shows or why it matters.
+- Overall: 4 â presentable as a raw graphic but fails as a lecture slide; the screen fights the user by withholding context.
+
+## 8. UNCERTAINTIES
+- Whether the plot is interactive (hover tooltips, click-to-zoom) cannot be verified from a static image.
+- The "43" badge's function (slide number vs. button) is ambiguous without deck context.
+- What the seven colors represent and what axes measure is not stated anywhere visible â assumed to be missing copy, not intentionally minimal.
+- Whether the per-cluster dotted backgrounds are intentional emphasis or a rendering artifact cannot be determined from one frame.
+
+## 9. VOCABULARY PROPOSALS
+no additions

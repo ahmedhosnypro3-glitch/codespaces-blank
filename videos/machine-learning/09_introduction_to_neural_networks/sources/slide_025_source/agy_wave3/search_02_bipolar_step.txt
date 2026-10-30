@@ -1,0 +1,85 @@
+### 1. Definition and Mathematical Formulation
+
+The **bipolar step function** (often denoted as the **signum** or **sign function**, $\operatorname{sgn}(x)$) is a threshold activation function that maps continuous real inputs into binary outputs symmetric around zero:
+
+$$f(x) = \operatorname{sgn}(x) = \begin{cases} +1 & \text{if } x \ge 0 \\ -1 & \text{if } x < 0 \end{cases}$$
+
+*(Note: In pure mathematics $\operatorname{sgn}(0) = 0$, but in artificial neural networks and perceptrons, $x = 0$ is conventionally assigned to $+1$ or $-1$ to ensure a strict binary partition).*
+
+#### Comparison with the Unipolar (Heaviside) Step Function
+* **Unipolar step** (outputs in $\{0, 1\}$):
+  $$u(x) = \begin{cases} 1 & \text{if } x \ge 0 \\ 0 & \text{if } x < 0 \end{cases}$$
+* **Mathematical equivalence**: The two representations are related by a simple affine scale-and-shift:
+  $$f(x) = 2\,u(x) - 1 \quad \iff \quad u(x) = \frac{f(x) + 1}{2}$$
+
+---
+
+### 2. Zero-Centered Binary Representation
+
+Choosing the bipolar representation $\{-1, +1\}$ instead of unipolar $\{0, 1\}$ provides key geometric and algebraic advantages:
+
+1. **Zero-Mean Output (Zero-Centered)**:
+   * With unipolar inputs/outputs $\{0, 1\}$, the mean is strictly positive ($\mathbb{E}[y] > 0$). This induces systematic bias in weight updates, causing zig-zagging gradient dynamics during learning.
+   * With bipolar values $\{-1, +1\}$, balanced datasets yield $\mathbb{E}[y] \approx 0$, preventing systematic positive-directional drift in weights.
+
+2. **Symmetric Multiplication for Agreement**:
+   * The product of target $y \in \{-1, +1\}$ and prediction $\hat{y} \in \{-1, +1\}$ directly reflects classification correctness:
+     $$y \cdot \hat{y} = \begin{cases} +1 & \text{if correct } (y = \hat{y}) \\ -1 & \text{if incorrect } (y \neq \hat{y}) \end{cases}$$
+
+3. **Single-Equation Margin Test**:
+   * For an input vector $x$ and hyperplane $(w, b)$, the pre-activation is $z = w^T x + b$.
+   * A sample is correctly classified if and only if:
+     $$y \cdot (w^T x + b) > 0$$
+   * In the $\{0, 1\}$ formulation, checking correctness requires piecewise `if/else` logic ($z \ge 0$ when $y=1$ vs. $z < 0$ when $y=0$). In the bipolar formulation, the sign product $y \cdot z$ naturally captures both cases in a single inequality.
+
+---
+
+### 3. Relation to the Perceptron Learning Rule
+
+In Rosenblatt's Perceptron, the model computes:
+$$\hat{y} = \operatorname{sgn}(w^T x + b) \in \{-1, +1\}$$
+
+#### Error Signal
+Given a true target $y \in \{-1, +1\}$, the raw error $e = (y - \hat{y})$ can only take values in $\{-2, 0, +2\}$:
+
+| True $y$ | Predicted $\hat{y}$ | Condition | Error $e = (y - \hat{y})$ |
+|:---:|:---:|:---|:---:|
+| $+1$ | $+1$ | Correct | $0$ |
+| $-1$ | $-1$ | Correct | $0$ |
+| $+1$ | $-1$ | **False Negative** (under-prediction) | $+2$ |
+| $-1$ | $+1$ | **False Positive** (over-prediction) | $-2$ |
+
+#### The Weight Update Rule
+Using the generalized delta rule $\Delta w = \frac{1}{2} \eta (y - \hat{y}) x$:
+
+$$\Delta w = \begin{cases} 
+0 & \text{if } y = \hat{y} \quad (\text{correct classification}) \\
++\eta x & \text{if } y = +1, \hat{y} = -1 \quad (\text{under-prediction}) \\
+-\eta x & \text{if } y = -1, \hat{y} = +1 \quad (\text{over-prediction})
+\end{cases}$$
+
+This can be written in the classic **compact Perceptron update rule**:
+
+$$\text{For every misclassified sample } (y_i (w^T x_i + b) \le 0):$$
+$$w \leftarrow w + \eta y_i x_i$$
+$$b \leftarrow b + \eta y_i$$
+
+#### Geometric Interpretation of the Update
+* **When $y = +1$ and $w^T x + b < 0$**: The weight vector $w$ makes an obtuse angle with $x$. Adding $+\eta x$ rotates $w$ **toward** $x$, increasing the dot product $w^T x$ for future evaluations.
+* **When $y = -1$ and $w^T x + b \ge 0$**: The weight vector $w$ makes an acute angle with $x$. Adding $-\eta x$ rotates $w$ **away from** $x$, decreasing $w^T x$.
+
+---
+
+### 4. Summary: Unipolar vs. Bipolar Step
+
+| Property | Unipolar Step | Bipolar Step (Sign) |
+|---|---|---|
+| **Codomain** | $\{0, 1\}$ | $\{-1, +1\}$ |
+| **Center** | Shifted ($+0.5$) | Zero-centered ($0$) |
+| **Error values $(y - \hat{y})$** | $\{-1, 0, +1\}$ | $\{-2, 0, +2\}$ |
+| **Margin condition** | Piecewise check | $y_i (w^T x_i + b) > 0$ |
+| **Update on error** | $w \leftarrow w + \eta(y - \hat{y})x$ | $w \leftarrow w + \eta y x$ |
+| **Continuous analog** | Logistic Sigmoid: $\sigma(z) = \frac{1}{1 + e^{-z}}$ | Hyperbolic Tangent: $\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$ |
+
+> [!NOTE]
+> The relationship between the **unipolar step $\to$ logistic sigmoid** mirrors the relationship between the **bipolar step $\to$ hyperbolic tangent ($\tanh$)**. Because $\tanh$ inherits the zero-centered property of the bipolar step, it was historically favored over the standard sigmoid in hidden layers to maintain balanced gradient updates.

@@ -1,0 +1,82 @@
+## 1. LAYOUT MAP
+1. Window border frame â thin white rounded rectangle enclosing the entire screen
+2. Slide header band â top strip with centered red title text "Check class of each background point in the following datasets"
+3. Slide number pill â top-right corner, light badge showing "40"
+4. Dataset grid â six card panels arranged 2 rows Ã 3 columns, each panel consisting of a dataset label bar above and a scatter-plot chart below
+   - Panel 1: Aggregation.txt (top-left)
+   - Panel 2: Compound.txt (top-center)
+   - Panel 3: Spiral.txt (top-right)
+   - Panel 4: Pathbased.txt (bottom-left)
+   - Panel 5: Flame.txt (bottom-center)
+   - Panel 6: Jain.txt (bottom-right)
+5. Each panel â blue rounded label bar ("Aggregation.txt", etc.) plus red-bordered square plot area containing x/y axes, tick labels, gridlines, and scattered data points in multiple colors
+6. Bottom black bar â solid black horizontal band at the very bottom edge, ~60px tall
+
+Apparent scale/quality: 960x540 CSS px at 1.0x; content is crisp with no visible blur or compression artifacts; nothing is cropped except the bottom black bar which appears to be part of the slide design rather than a capture crop.
+
+## 2. FIRST-GLANCE TEST
+Within 3 seconds a new user understands this is an instructional slide asking them to classify background points across six datasets; the six scatter plots are visually prominent but unlabeled as to what "classify" means or what the axes represent. The three apparent actions are: (1) read each dataset label, (2) inspect each scatter plot, (3) determine a class for background points â none of these are interactive controls, so they are "actions" only in the cognitive sense. Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the focal point should be the datasets themselves, and they do win the eye due to the colorful points against white plot areas, but the instructional intent ("Check classâ¦ background point") is slightly grammatically awkward and competes with the colorful data for attention.
+
+## 3. STRENGTHS
+- The six dataset panels are evenly spaced and aligned in a clean grid, giving immediate scannability across all examples.
+- Each plot uses distinct, saturated colors for different point clusters, making cluster separation visually obvious.
+- The dataset label bars above each plot clearly identify the source file for every panel.
+
+## 4. DEFECT LIST
+
+- [minor|high] Slide header band âº title â The title text "Check class of each background point in the following datasets" is grammatically awkward ("class" as a verb without an object, "background point" singular) â rephrase to "Classify each background point in the following datasets".
+- [minor|high] Dataset grid âº bottom row â bottom edges of the bottom-row plot cards (Pathbased.txt, Flame.txt, Jain.txt) sit extremely close to or are partially occluded by the bottom black bar â increase bottom padding or raise the grid so no plot edge touches the black bar.
+- [minor|high] Panel cards âº all six â plot areas have white backgrounds on a light-gray canvas with no drop shadow or surface step, making them read as flat cutouts rather than contained panels â add subtle shadow or a slightly darker card surface for elevation.
+- [major|high] Axis labels âº all six plots â x-axis and y-axis numeric tick labels appear at roughly 9â10px, below the ~11px floor for non-developer users, and are cramped against plot borders â increase axis tick font size to at least 12px and add padding between ticks and plot edges.
+- [minor|med] Label bars âº all six â blue dataset label bars are horizontally centered over their plot cards but the text inside is left-aligned within the bar, creating an off-center look â center-align the label text within each bar.
+- [minor|med] Gridlines âº all six plots â light gray gridlines are faint but present; combined with white plot area on light gray canvas they add subtle gridline noise rather than clear surface differentiation â increase gridline contrast slightly or remove horizontal gridlines.
+- [minor|high] Slide number pill âº top-right â the "40" pill sits very close to the window border edge with minimal padding â increase right and top padding of the slide number badge.
+- [i18n-risk] Slide header band âº title â English title is short but would expand ~30% in translation; the centered band has no visible overflow handling and could collide with the slide-number pill in longer languages.
+
+(a) THEME & DARK-MODE PHYSICS: not applicable â this is a light-themed presentation slide, not a dark-mode app UI.
+(b) TYPOGRAPHY: see defects above â axis tick microtext and title grammar.
+(c) SPACING: see defects above â bottom bar crowding, label-bar text alignment, pill padding.
+(d) ALIGNMENT & POSITIONING: see defects above â label text left-aligned inside centered bars.
+(e) CROWDING & DENSITY: clean â checked, nothing found beyond noted bottom-edge crowding.
+(f) HIERARCHY: clean â the title establishes the primary instruction, dataset labels secondary, plot content tertiary; clear enough.
+(g) COMPOSITION: clean â 2Ã3 grid is balanced and proportional.
+(h) COMPLETENESS: see defects above â bottom plot edges may be clipped by the black bar.
+(i) CONTINUITY: clean â all six panels share identical card styling, border radii, and label-bar treatment.
+(j) LINES & EDGES: clean â no visible hairline stops or overshoots; red plot borders are consistent.
+(k) AFFORDANCE & STATES: not applicable â static instructional slide, no interactive controls.
+(l) ICONOGRAPHY: clean â no icons present.
+(m) TABLES & LISTS: skip â none present.
+(n) ACCESSIBILITY & LEGIBILITY: see defects above â axis tick text estimated below legibility floor (~9â10px).
+(o) UI COPY QUALITY: see defects above â title grammar ("Check classâ¦ background point").
+
+## 5. TOP 3
+1. Axis tick microtext across all six plots (section 4, typography/accessibility) â most damaging to legibility for the target audience.
+2. Bottom-row plot cards touching/occluded by the bottom black bar (section 4, completeness/spacing) â risks cutting off content at the standard viewport.
+3. Grammatically awkward slide title (section 4, UI copy quality) â weakens first-glance comprehension of the instructional task.
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the bottom black bar downward or remove it entirely; if it must stay as a design element, raise the dataset grid so all six panels clear it with at least 24px of bottom padding. (Source: bottom black bar â Destination: reposition below dataset grid or eliminate.)
+2. No second move required â the 2Ã3 grid and header are structurally sound; defects are cosmetic rather than architectural.
+3. [out-of-scope] Adding interactivity (clickable panels, drill-in to datasets) is not supported by this static slide capture.
+
+## 7. VERDICT
+Theme & dark-mode: N/A â light-themed slide, not applicable.
+Typography: 5 â body and title are readable but axis ticks are microtext (~9â10px) and title grammar is awkward.
+Spacing: 6 â grid is even but bottom edge crowds the black bar and pill padding is tight.
+Alignment: 7 â grid alignment is good; label-bar internal text alignment is slightly off.
+Crowding/density: 7 â comfortable except the bottom-edge collision.
+Hierarchy: 7 â title â dataset label â plot reads clearly.
+Composition: 8 â balanced 2Ã3 grid, good use of whitespace between panels.
+Completeness: 6 â possible bottom-edge clipping of plots is a real risk.
+Continuity & consistency: 8 â all six panels are stylistically identical.
+Affordance & states: N/A â no interactive elements.
+First-glance clarity: 6 â purpose is clear but grammar and microtext force a second look.
+Overall: 6 â presentable but visibly unrefined; a user would feel the cramped axes and bottom-edge tension without being able to name them.
+
+## 8. UNCERTAINTIES
+- Whether the bottom black bar is intentional slide design or a capture artifact; if intentional, the bottom-edge crowding is a defect, if not, it's out of scope.
+- Exact pixel measurements of axis tick sizes and plot-card bottom edges are estimated from the 960x540 capture; precise rect values were not measurable.
+- Whether the slide is part of a deck with consistent styling elsewhere (e.g., do all slides use this black bar?).
+
+## 9. VOCABULARY PROPOSALS
+no additions

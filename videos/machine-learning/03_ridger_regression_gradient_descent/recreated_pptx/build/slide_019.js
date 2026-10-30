@@ -36,11 +36,11 @@ const slide = pptx.addSlide();
 // House chrome: white canvas, E9E9E7 panel, C00000 L/R/bottom strokes (NO top stroke on this deck), badge with numeral 19.
 drawHouseChrome(pptx, slide, { numeral: 19 });
 
-// ── COLOR PALETTE ──────────────────────────────────────────────────────────────
-const BLUE   = "0000FF";  // headers, title
-const RED    = "FF0000";  // W vectors, ||W||²
+// ── COLOR PALETTE (spec hierarchy: headers/labels black, W+||W||² red, y green) ─
+const BLUE   = "0000FF";  // column headers, title, test-vector labels
+const RED    = "FF0000";  // W vectors, ||W||² (attempt_1 judge F1/F2 colour fix)
 const GREEN  = "008000";  // predicted y values
-const BLACK  = "000000";  // x values, labels, arrows
+const BLACK  = "000000";  // test headers, x values, labels, W label
 const FONT   = "Arial";
 // Measured from the original frame (qa/slide019/skeleton_census.py):
 const NAVY   = "201860";  // table left/top border + interior rules
@@ -447,7 +447,7 @@ for (const col of columns) {
       { text: "(", options: { color: BLACK, fontSize: 46 } },
     ], {});
     textBox(x0 + 49, gy + 2, 16, 60, v3.map((v, i) => ({
-      text: v, options: { color: BLACK, fontSize: 7, align: "center", breakLine: i < v3.length - 1 },
+      text: v, options: { color: RED, fontSize: 7, align: "center", breakLine: i < v3.length - 1 },
     })), { lineSpacing: 20 });
     textBox(x0 + 67, gy + 2, 8, 60, [
       { text: ")", options: { color: BLACK, fontSize: 46 } },
@@ -455,10 +455,10 @@ for (const col of columns) {
     textBox(x0 + 6, gy + 68, 76, 16, (() => {
       const m = group.norm.match(/^(\|\|)(W)(\|\|.*$)/);
       return m ? [
-        { text: m[1], options: { color: BLUE, fontSize: 8 } },
-        { text: m[2], options: { color: BLUE, fontSize: 8, underline: true } },
-        { text: m[3], options: { color: BLUE, fontSize: 8 } },
-      ] : [{ text: group.norm, options: { color: BLUE, fontSize: 8 } }];
+        { text: m[1], options: { color: RED, fontSize: 8 } },
+        { text: m[2], options: { color: RED, fontSize: 8, underline: true } },
+        { text: m[3], options: { color: RED, fontSize: 8 } },
+      ] : [{ text: group.norm, options: { color: RED, fontSize: 8 } }];
     })(), {});
 
     // Blue flow arrow between the W box and the test grid (crop leg 13 #4/#5;
@@ -494,9 +494,8 @@ for (const col of columns) {
     }
     // header row
     for (let ti = 0; ti < 3; ti++) {
-      const hcol = ti === 1 ? BLUE : RED;
       textBox(v0 + ti * colW, gy + 5, colW, 15, [
-        { text: `Test${"₁₂₃"[ti]}`, options: { color: hcol, fontSize: 8, align: "center" } },
+        { text: `Test${"₁₂₃"[ti]}`, options: { color: BLACK, fontSize: 8, align: "center" } },
       ], {});
     }
     // x₁ / x₂ rows
@@ -505,9 +504,8 @@ for (const col of columns) {
         { text: key === "x1" ? "x₁" : "x₂", options: { color: BLACK, fontSize: 8, align: "center" } },
       ], {});
       for (let ti = 0; ti < 3; ti++) {
-        const vcol = ti === 1 ? BLUE : RED;
         textBox(v0 + ti * colW, gy + 23 + ri * 22, colW, 15, [
-          { text: String(group.tests[ti][key]), options: { color: vcol, fontSize: 8, align: "center" } },
+          { text: String(group.tests[ti][key]), options: { color: BLACK, fontSize: 8, align: "center" } },
         ], {});
       }
     }

@@ -1,0 +1,155 @@
+{
+  "slide_title": "Radar Shooting of Positive Target (Enemy plane)",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "FN = Actually Positive, Miss-classified as Negative",
+      "FP = Actually Negative, Miss-classified as Positive"
+    ],
+    "labels": [
+      "5",
+      "Predicted as",
+      "Actual",
+      "Predicted",
+      "P",
+      "N",
+      "Positive",
+      "Negative",
+      "TP",
+      "FN",
+      "FP",
+      "TN"
+    ],
+    "equations": [
+      "Total Positive = TP+FN",
+      "Total Negative = FP+TN",
+      "Total Positive = 18+12=30",
+      "Total Negative = 10+60=70"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title centered at the top; slide number in a yellow circle at the top right. Below the title, the slide is divided into a left column and a right column. The left column has two blue-outlined confusion-matrix tables: a small generic TP/FN/FP/TN matrix at the top and a larger identical matrix at the bottom with total equations to its right and two definition lines underneath. The right column has a red-outlined radar/tree diagram at the top and a blue-outlined numeric confusion matrix at the bottom.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center/left, roughly x 8-80%, y 5-12%",
+        "content": "Radar Shooting of Positive Target (Enemy plane)"
+      },
+      {
+        "name": "slide_number",
+        "position": "top right, roughly x 90-96%, y 4-10%",
+        "content": "yellow circle containing 5"
+      },
+      {
+        "name": "top_left_generic_matrix",
+        "position": "upper left, roughly x 4-27%, y 14-42%",
+        "content": "blue-outlined 2x2 confusion matrix with Predicted as P/N and Actual P/N; cells TP, FN, FP, TN"
+      },
+      {
+        "name": "bottom_left_generic_matrix",
+        "position": "lower left, roughly x 4-27%, y 47-77%",
+        "content": "same generic confusion matrix; to its right are Total Positive = TP+FN and Total Negative = FP+TN"
+      },
+      {
+        "name": "left_footnotes",
+        "position": "bottom left under matrix, roughly x 4-45%, y 79-90%",
+        "content": "FN = Actually Positive, Miss-classified as Negative; FP = Actually Negative, Miss-classified as Positive"
+      },
+      {
+        "name": "top_right_radar_diagram",
+        "position": "upper right, roughly x 56-95%, y 12-50%",
+        "content": "red-outlined diagram with Positive and Negative airplane icons, actual totals 30 and 70, dashed arrows to predicted counts 18/12 and 60/10, Actual/Predicted labels"
+      },
+      {
+        "name": "bottom_right_numeric_matrix",
+        "position": "lower right, roughly x 56-95%, y 54-86%",
+        "content": "blue-outlined numeric confusion matrix with cells 18, 12, 10, 60 and total equations"
+      }
+    ],
+    "hierarchy": "Title is largest and dark red. The four boxed diagrams are the main visual mass; colored table cells and circles draw attention next. Equations and footnotes are smaller supporting text."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Generic confusion matrix. Header 'Predicted as' over columns P and N; row label 'Actual' beside rows P and N. Cells: Actual P/Predicted P = TP in green, Actual P/Predicted N = FN in light red, Actual N/Predicted P = FP in light red, Actual N/Predicted N = TN in green. Blue outline.",
+      "colors": [
+        "#0000FF",
+        "#00B050",
+        "#FF9999",
+        "#000000"
+      ],
+      "position": "upper left"
+    },
+    {
+      "type": "table",
+      "description": "Second generic confusion matrix identical to the top-left one. To the right: 'Total Positive = TP+FN' and 'Total Negative = FP+TN' in red.",
+      "colors": [
+        "#0000FF",
+        "#00B050",
+        "#FF9999",
+        "#FF0000"
+      ],
+      "position": "lower left"
+    },
+    {
+      "type": "flowchart",
+      "description": "Radar shooting tree. Red-outlined box split into 'Positive' on the left and 'Negative' on the right. Left: enemy airplane icon above a red circle labeled 30; dashed arrows from 30 down to a green circle labeled 18 and a red circle labeled 12. Right: green airplane icon above a green circle labeled 70; dashed arrows from 70 down to a green circle labeled 60 and a red circle labeled 10. A dashed horizontal line separates 'Actual' above from 'Predicted' below.",
+      "colors": [
+        "#FF0000",
+        "#00B050",
+        "#808080",
+        "#000000"
+      ],
+      "position": "upper right"
+    },
+    {
+      "type": "table",
+      "description": "Numeric confusion matrix. Header 'Predicted as' over P and N; row label 'Actual' beside P and N. Cells: Actual P/Predicted P = 18 in green, Actual P/Predicted N = 12 in light red, Actual N/Predicted P = 10 in light red, Actual N/Predicted N = 60 in green. To the right: 'Total Positive = 18+12=30' and 'Total Negative = 10+60=70' in red. Blue outline.",
+      "colors": [
+        "#0000FF",
+        "#00B050",
+        "#FF9999",
+        "#FF0000"
+      ],
+      "position": "lower right"
+    },
+    {
+      "type": "icon",
+      "description": "Two airplane icons: left enemy plane with skull-like marking under 'Positive'; right green plane under 'Negative'.",
+      "colors": [
+        "#808080",
+        "#00B050",
+        "#FF0000"
+      ],
+      "position": "upper right diagram"
+    }
+  ],
+  "imagery": [
+    "Left airplane icon depicting an enemy/target plane, gray/dark with a skull-like motif, sits above the red 30 circle in the Positive section.",
+    "Right airplane icon depicting a green plane, sits above the green 70 circle in the Negative section."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF",
+      "#FF0000",
+      "#00B050",
+      "#FF9999",
+      "#FFFF00"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout. Title is bold and larger, dark red with 'Positive' in brighter red. Table headers and cell labels are bold; 'Actual' is rotated vertical and red. Equations are red; footnote lines are black. Slide number is black inside a yellow circle.",
+  "animation_state": "None; the slide appears fully rendered with no partial build.",
+  "recreation_brief": "1) Set a white background. 2) Add the title 'Radar Shooting of Positive Target (Enemy plane)' at the top; make it bold dark red (#C00000) and color the word 'Positive' brighter red (#FF0000). 3) Add a small yellow circle (#FFFF00) at the top right with the number 5. 4) Upper left: draw a blue-outlined (#0000FF) box. Inside, put 'Predicted as' above two column headers P and N, and rotated red 'Actual' left of two row headers P and N. Fill a 2x2 grid: TP and TN green (#00B050), FN and FP light red (#FF9999); text black bold. 5) Lower left: repeat the same blue-outlined confusion matrix. To its right add red equations 'Total Positive = TP+FN' and 'Total Negative = FP+TN'. Under the matrix add black lines 'FN = Actually Positive, Miss-classified as Negative' and 'FP = Actually Negative, Miss-classified as Positive'. 6) Upper right: draw a red-outlined (#FF0000) box. Put 'Positive' in red on the left and 'Negative' in green on the right. Under 'Positive', place the enemy airplane icon, then a red circle '30'; draw dashed arrows to a green circle '18' and a red circle '12'. Under 'Negative', place the green airplane icon, then a green circle '70'; draw dashed arrows to a green circle '60' and a red circle '10'. Add a dashed horizontal divider with 'Actual' above it and 'Predicted' below it on the left. 7) Lower right: draw a blue-outlined numeric confusion matrix with the same P/N headers and Actual label; fill cells 18 and 60 green (#00B050), 12 and 10 light red (#FF9999). To the right add red equations 'Total Positive = 18+12=30' and 'Total Negative = 10+60=70'. 8) Keep all text sans-serif, bold for labels/cells, and align the left column matrices and right column diagrams as described.",
+  "_meta": {
+    "frame": "slide_005.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 5,
+      "image": "slide_005.jpg"
+    },
+    "elapsed_s": 636.4
+  }
+}

@@ -1,0 +1,1 @@
+<x_0.0205><y_0.0>**_Backward_** ( Update _Output_ Layer Weights)<x_0.9971><y_0.9711><class_Text>

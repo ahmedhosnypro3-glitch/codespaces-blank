@@ -1,0 +1,262 @@
+{
+  "slide_title": "Accuracy",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Correctly Classified (Positive & Negative)",
+      "Total Number of Samples",
+      "Meaning",
+      "How Accurate is the Classification (for Both Positive and Negative Classes)",
+      "Accuracy of ALL Classes",
+      "What About Precision of Positive Class ONLY  Results?",
+      "What About Recall % of Positive Samples ?",
+      "Conclusion: Accuracy is Good but Not Sufficient"
+    ],
+    "labels": [
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "18",
+      "12",
+      "10",
+      "60",
+      "Positive",
+      "Negative",
+      "30",
+      "70",
+      "TP",
+      "FN",
+      "TN",
+      "FP",
+      "6",
+      "Correctly Classified",
+      "All Samples"
+    ],
+    "equations": [
+      "Accuracy = (TP + TN) / (TP + FP + TN + FN)",
+      "Accuracy= (18+60)/(18+12+60+10)",
+      "= 78/100 = 78%"
+    ]
+  },
+  "layout": {
+    "arrangement": "Red-bordered frame around whole slide; large red title 'Accuracy' top-center; left column (approx 65% width) stacked boxes top-to-bottom: gray definition box, yellow 'Meaning' box, blue-bordered equation box, light-blue numeric calculation box with red italic side-note, yellow questions/conclusion box; right column: two confusion-matrix tables stacked at top-right, and a Positive/Negative tree diagram with airplane icons at bottom-right; black footer strip across very bottom; slide number '6' in yellow circle at top-right corner",
+    "regions": [
+      {
+        "name": "Title",
+        "position": "top center, ~5-15% height, ~25-65% width",
+        "content": "'Accuracy' in very large bold red text"
+      },
+      {
+        "name": "Definition box",
+        "position": "top-left, ~20-30% height, ~7-62% width",
+        "content": "Gray box: 'Correctly Classified (Positive & Negative)' over a horizontal red line, then 'Total Number of Samples'"
+      },
+      {
+        "name": "Meaning box",
+        "position": "upper-left, ~32-40% height, ~7-68% width",
+        "content": "Light-yellow box: 'Meaning' in red bold, definition line with 'Positive' and 'Negative' in blue bold"
+      },
+      {
+        "name": "Equation box",
+        "position": "middle-left, ~42-68% height, ~7-46% width",
+        "content": "White box with blue border: italic red 'Correctly Classified' with green curly brace over numerator; fraction Accuracy = (TP+TN)/(TP+FP+TN+FN) in dark red; green curly brace under denominator with green italic 'All Samples'"
+      },
+      {
+        "name": "Calculation box",
+        "position": "lower-middle-left, ~68-78% height, ~8-38% width",
+        "content": "Light-cyan box with black numeric accuracy computation, '78%' in red"
+      },
+      {
+        "name": "Side note",
+        "position": "lower-middle-center, ~70-76% height, ~40-50% width",
+        "content": "Red italic text 'Accuracy of ALL Classes'"
+      },
+      {
+        "name": "Questions box",
+        "position": "bottom-left, ~80-95% height, ~8-55% width",
+        "content": "Light-yellow box with two blue questions and a red conclusion line"
+      },
+      {
+        "name": "Confusion matrix (symbols)",
+        "position": "top-right, ~10-28% height, ~70-90% width",
+        "content": "2x2 table with TP/FN/FP/TN, TP and TN cells highlighted green"
+      },
+      {
+        "name": "Confusion matrix (numbers)",
+        "position": "right, ~30-52% height, ~70-90% width",
+        "content": "2x2 table with values 18/12/10/60; 18 and 60 green, 12 and 10 orange; blue rounded rectangle around the four numbers"
+      },
+      {
+        "name": "Positive/Negative tree diagram",
+        "position": "bottom-right, ~53-93% height, ~55-92% width",
+        "content": "Red-bordered box: 'Positive' and 'Negative' headers, two airplane icons, two parent circles (30 red, 70 green) each branching via blue arrows to two child circles labeled TP/FN and TN/FP"
+      },
+      {
+        "name": "Slide number",
+        "position": "top-right corner, ~8-14% height, ~88-93% width",
+        "content": "'6' in a yellow circle"
+      },
+      {
+        "name": "Footer strip",
+        "position": "very bottom, ~97-100% height, full width",
+        "content": "Solid black horizontal bar"
+      }
+    ],
+    "hierarchy": "Title 'Accuracy' dominates (largest, bold, red). Next most prominent: the blue-bordered fraction equation and the red/green tree diagram. Tables and colored boxes are medium weight; smallest text is the side-note and slide number. Red is the dominant accent color, with green and blue as secondary accents."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Confusion matrix (symbolic). Header row spans two columns labeled 'Predicted as' over column headers 'P' and 'N'. Left vertical label 'Actual' with row headers 'P' and 'N'. Cells: row P: 'TP' (green highlighted cell), 'FN'; row N: 'FP', 'TN' (green highlighted cell). Black grid lines, red header text.",
+      "colors": [
+        "#FFFFFF",
+        "#99FF33",
+        "#CC0000",
+        "#000000"
+      ],
+      "position": "top-right, above the numeric matrix"
+    },
+    {
+      "type": "table",
+      "description": "Confusion matrix (numeric). Header 'Predicted as' over columns 'P' and 'N' (the 'N' header has a hand-drawn strikethrough/pen mark). Vertical label 'Actual' with rows 'P' and 'N'. Cells: row P: 18 (green cell), 12 (orange cell); row N: 10 (orange cell), 60 (green cell). A blue rounded rectangle outlines the four numeric cells.",
+      "colors": [
+        "#FFFFFF",
+        "#99FF33",
+        "#FFCC99",
+        "#0000FF",
+        "#CC0000",
+        "#000000"
+      ],
+      "position": "right side, middle, below the symbolic matrix"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Gray definition box containing 'Correctly Classified (Positive & Negative)' with a straight red horizontal rule beneath it, and 'Total Number of Samples' below the rule.",
+      "colors": [
+        "#D9D9D9",
+        "#000000",
+        "#CC0000"
+      ],
+      "position": "top-left under the title"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-yellow 'Meaning' box: 'Meaning' in red bold; sentence 'How Accurate is the Classification (for Both Positive and Negative Classes)' in black bold with 'Positive' and 'Negative' in blue bold.",
+      "colors": [
+        "#FFFFCC",
+        "#CC0000",
+        "#0000CC",
+        "#000000"
+      ],
+      "position": "upper-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White equation box with blue border: italic red 'Correctly Classified' at top with a green curly brace pointing down at the numerator; centered fraction 'Accuracy =' (black) with numerator 'TP + TN' and denominator 'TP + FP + TN + FN' in dark red with a blue fraction bar; green curly brace under the denominator pointing up, labeled 'All Samples' in green italic.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF",
+        "#CC0000",
+        "#009900",
+        "#8B0000"
+      ],
+      "position": "middle-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-cyan calculation box: 'Accuracy= (18+60)/(18+12+60+10)' on line 1, '= 78/100 = 78%' on line 2 with '78%' in red bold.",
+      "colors": [
+        "#CCFFFF",
+        "#000000",
+        "#CC0000"
+      ],
+      "position": "lower-middle-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-yellow questions box: 'What About Precision of Positive Class ONLY  Results?' and 'What About Recall % of Positive Samples ?' in blue, 'Conclusion: Accuracy is Good but Not Sufficient' in red.",
+      "colors": [
+        "#FFFFCC",
+        "#0000CC",
+        "#CC0000"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "flowchart",
+      "description": "Positive/Negative classification tree inside a red-bordered white box. Left half headed 'Positive' (red text) with a dark-gray airplane icon above a red circle '30'; two blue arrows branch down to red circle '18' (label 'TP' in red below) and green circle '12' (label 'FN' in green below). Right half headed 'Negative' (green text) with a light-gray airplane icon above a green circle '70'; two blue arrows branch down to green circle '60' (label 'TN' in green below) and red circle '10' (label 'FP' in red below).",
+      "colors": [
+        "#FFFFFF",
+        "#CC0000",
+        "#009933",
+        "#0000FF",
+        "#808080",
+        "#C0C0C0"
+      ],
+      "position": "bottom-right"
+    },
+    {
+      "type": "arrow",
+      "description": "Four straight blue arrows with arrowheads: from circle '30' down-left to '18' and down-right to '12'; from circle '70' down-left to '60' and down-right to '10'.",
+      "colors": [
+        "#0000FF"
+      ],
+      "position": "within the bottom-right diagram"
+    },
+    {
+      "type": "other",
+      "description": "Slide number badge: small yellow circle containing the black numeral '6' at the top-right corner of the slide.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    },
+    {
+      "type": "other",
+      "description": "Solid black horizontal footer bar spanning the full width at the very bottom edge of the slide.",
+      "colors": [
+        "#000000"
+      ],
+      "position": "bottom edge"
+    }
+  ],
+  "imagery": [
+    "Dark-gray clip-art airplane in side profile (with small dark markings on fuselage) sitting above the red '30' circle under the 'Positive' header, bottom-right diagram",
+    "Lighter-gray clip-art airplane in side profile sitting above the green '70' circle under the 'Negative' header, bottom-right diagram"
+  ],
+  "colors": {
+    "background": "#E8E8E8",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#CC0000",
+      "#009933",
+      "#0000CC",
+      "#0000FF",
+      "#FFFFCC",
+      "#CCFFFF",
+      "#99FF33",
+      "#FFCC99",
+      "#FFFF00",
+      "#8B0000"
+    ]
+  },
+  "typography_notes": "Sans-serif (Arial-like) throughout. Title is very large (~54pt) bold red. Body text is bold at roughly 16-20pt. Italic styling used for 'Correctly Classified', 'All Samples', and 'Accuracy of ALL Classes'. Color-coding carries meaning: red for positive-class/error items and conclusions, green for correct/negative-class items, blue for questions and key class words. Table headers 'Predicted as'/'Actual' in red; matrix cell values in black bold. No numbered bullets; boxes are used instead of bullet lists.",
+  "animation_state": "Slide appears fully built (all boxes, tables, and diagram visible). The 'N' column header in the numeric confusion matrix shows a hand-drawn strikethrough/pen annotation, likely made live during the video, not a build state.",
+  "recreation_brief": "1. Set slide background to light gray (#E8E8E8); draw a dark-red (#C00000) rectangle outline framing the entire content area, and a solid black bar (~3% height) across the very bottom. 2. Add title text box top-center: 'Accuracy', Arial bold ~54pt, red #CC0000. 3. Insert a yellow circle (~0.5in) at top-right corner with black '6' (slide number). 4. Top-left: gray (#D9D9D9) rectangle ~55% width containing centered black bold 'Correctly Classified (Positive & Negative)' with a straight red line under it, and 'Total Number of Samples' beneath the line. 5. Below it: light-yellow (#FFFFCC) rectangle with red bold 'Meaning' on line 1 and black bold 'How Accurate is the Classification (for Both Positive and Negative Classes)' on line 2, coloring 'Positive' and 'Negative' blue (#0000CC). 6. Below that: white rectangle with 2pt blue border containing: italic red 'Correctly Classified' at top; a green curly brace under it; centered fraction with black 'Accuracy =' to the left, numerator 'TP + TN' and denominator 'TP + FP + TN + FN' in dark red (#8B0000) separated by a blue fraction bar; a green curly brace under the denominator with green italic 'All Samples'. 7. Below: light-cyan (#CCFFFF) rectangle with black bold 'Accuracy= (18+60)/(18+12+60+10)' and '= 78/100 = 78%' ('78%' in red). To its right place red italic 'Accuracy of ALL Classes'. 8. Bottom-left: light-yellow rectangle with blue lines 'What About Precision of Positive Class ONLY  Results?' and 'What About Recall % of Positive Samples ?', then red 'Conclusion: Accuracy is Good but Not Sufficient'. 9. Top-right: build a 3x3 grid table: merged header 'Predicted as' (red text) over columns 'P' and 'N'; vertical/side label 'Actual' with rows 'P' and 'N'; cells TP (fill #99FF33), FN (white), FP (white), TN (fill #99FF33), all black bold text. 10. Below it: second 3x3 grid: 'Predicted as' over 'P' and 'N' (add a thin strikethrough line on 'N' to mimic the pen mark), 'Actual' rows 'P' and 'N'; cells 18 (fill #99FF33), 12 (fill #FFCC99), 10 (fill #FFCC99), 60 (fill #99FF33); draw a blue rounded rectangle outline around the four number cells. 11. Bottom-right: white rectangle with 2pt red border. Inside, left half: red bold 'Positive' header, dark-gray airplane clip-art image, red-filled circle with white/black '30'; right half: green bold 'Negative' header, light-gray airplane clip-art, green-filled circle with '70'. 12. Add four blue (#0000FF) arrow connectors: 30->18, 30->12, 70->60, 70->10. Child circles: '18' red fill with red label 'TP' below, '12' green fill with green label 'FN' below, '60' green fill with green label 'TN' below, '10' red fill with red label 'FP' below.",
+  "_meta": {
+    "frame": "slide_006.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 6,
+      "image": "slide_006.jpg"
+    },
+    "elapsed_s": 153.4
+  }
+}

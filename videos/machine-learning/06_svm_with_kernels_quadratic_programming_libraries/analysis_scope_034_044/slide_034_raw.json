@@ -1,0 +1,109 @@
+## 1. LAYOUT MAP
+1. Outer page shell â full dark-gray canvas, thin red outline/border around the entire capture.
+2. Top bar â spans the width near the top; centered red title "How to Kernelize SVM" plus right-aligned yellow pill "34".
+3. Main lesson card â fills most of the capture below the top bar; light cream background enclosed in a blue border; contains three math blocks, then a divider, then a two-row "Remember" block (bold red label column on the left, body copy on the right).
+4. Math header row â three inline formulas: â_D(Î±) centered-left, W = Î£Î±_i y_i X_i below-left on its own light box, and b = -Â½[maxâ¦] on the right.
+5. Classification pill â centered below the math header: red arrow text "Class of vector Z â sign(WáµZ + b)" on a pale orange box.
+6. "Remember" divider section â light gray band with "Remember :" header in italic red.
+7. Mapping row â red label "Mapping", body text comparing X_i (dimension d) vs Ï(X_i) higher dimension, then an arrow and two formula clusters X_iáµX_j vs Ï(X_i)áµÏ(X_j).
+8. Kernelization row â red label "Kernelization", body comparing Ï(X_i)áµÏ(X_j) vs K(X_iáµ, X_j) with a right-side blue parenthetical.
+9. Footer â black bar along the very bottom edge; no visible text.
+10. Small thin cursor/mark â near lower-left of the main card; likely an artifact.
+
+Apparent scale/quality: capture is 960Ã540 CSS px at 1x, app context; content is crisp and fully legible; compression is minimal; nothing is clipped at the capture edges except the bottom footer which contains no legible content.
+
+## 2. FIRST-GLANCE TEST
+Within 3 seconds, a new user sees: a lecture slide titled "How to Kernelize SVM" (page 34), a dense block of math formulas at the top, and a two-row "Remember" summary below. The three apparent actions/concepts are: understand the dual SVM objective â_D(Î±), compute W and b from Î±, and apply the kernel mapping K(X_iáµ, X_j). None of these are interactive actions â the screen offers pure consumption, so the relevant question is whether the focal point wins the eye. Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the focal point should be the kernelization equivalence (Ï dot Ï â K) because it is the lecture's namesake. It does win attention, but only after scanning the upper math â the red "Kernelization" label anchors the bottom row, yet the top â_D formula sits at the visual top and is equally loud. A brand-new user may not immediately grasp that the bottom row is the payoff; the hierarchy does not strongly signal "this is the key takeaway."
+
+## 3. STRENGTHS
+- The red label column in the "Remember" section (rows 7â8) creates a strong, scannable anchor â a user can skim "Mapping / Kernelization" without reading the body copy first.
+- The "Class of vector Z â sign(WáµZ + b)" pill uses a distinct pale-orange background that separates the classification rule from the surrounding math, giving it the right prominence for a one-line takeaway.
+- The title "How to Kernelize SVM" is centered, large, and high-contrast red against the dark chrome â the screen's purpose is immediately legible from any distance.
+
+## 4. DEFECT LIST
+(a) THEME & DARK-MODE PHYSICS
+- [major|high] Main lesson card âº whole region â cream/near-white background (#f8fafc-like) sits on a dark slate shell (#0f172a-like), a ~9:1 contrast jump that is harsher than VSCode Dark+ surface stepping and vibrates against the near-black canvas â reduce the card fill to a mid-dark surface (~#1e293b) so layers step progressively lighter rather than jumping from near-black to paper white.
+
+(b) TYPOGRAPHY
+- [major|high] Main lesson card âº math formula blocks â serif math italics with no sans-serif UI fallback; the body prose in the "Remember" rows is a clean sans, but the mixed register (serif math + sans body) is context-appropriate for a lecture, so only flagged as a consistency observation â not a defect per se, but the red "Remember:" header is italic serif at ~14px while the section labels "Mapping"/"Kernelization" are bold red sans ~16px â two different treatments for same-rank section headers.
+- [minor|med] "Remember:" label â italic serif reads as emphasis noise next to the bold sans section labels; inconsistent capitalization/style across sibling region headers.
+
+(c) SPACING
+- [minor|high] Main lesson card âº between math header row and classification pill â the pill sits ~12px below the W/b box with no clear separator, making the two formula clusters feel crammed together; the gap between the classification pill and the "Remember" divider is similarly tight (~14px).
+- [minor|med] "Remember" section âº row 7 and row 8 â vertical gap between the two rows is uneven vs the gap above row 7; no measurable grid rhythm visible.
+- [minor|med] Top bar âº right edge pill "34" â sits flush against the red outline with ~6px padding, while left/right title area is wide open; asymmetrical chrome padding.
+
+(d) ALIGNMENT & POSITIONING
+- [minor|high] Math header row âº W box vs b box â W box left-aligned under â_D, b box right-aligned; the two boxes' top edges are not on the same baseline (W box starts lower than b box), creating a ragged row.
+- [minor|med] Classification pill âº center alignment â the pill appears centered under the math row but the right-side b box is wider, so optical center feels shifted right; the pill's vertical center sits closer to the W box than the b box.
+
+(e) CROWDING & DENSITY
+- [minor|high] Main lesson card âº math header â three dense formula blocks plus a classification pill occupy ~45% of card height with no white space between the â_D line and the W/b line; a first-time viewer has no visual rest.
+
+(f) HIERARCHY
+- [major|high] Main lesson card âº whole region â the â_D(Î±) dual objective at top-left and the b formula at top-right carry the same visual weight as the kernelization equivalence at the bottom; nothing signals that K(X_iáµ, X_j) â Ï(X_i)áµÏ(X_j) is the lesson's payoff. The red title wins the eye first, but within the card the eye has no guided path.
+
+(g) COMPOSITION
+- [major|high] Main lesson card âº bottom ~35% of card â after the "Remember" block there is a large empty light-cream band down to the footer; the content stops at ~65% card height leaving dead air below, while the top is densely packed. The pane looks top-heavy.
+
+(h) COMPLETENESS
+- clean â nothing clipped, squashed, or overlapping; all visible text and formulas are fully rendered.
+
+(i) CONTINUITY
+- [minor|high] Main lesson card âº section treatments â math header row uses thin blue boxes; classification pill uses pale orange fill; "Remember" rows use no boxes at all, just red labels and body text; three different containment strategies for same-rank content blocks.
+- [minor|med] Borders â outer shell is red, main card border is blue, pill fill is orange; three accent hues compete with no shared accent scale.
+
+(j) LINES & EDGES
+- [minor|med] Math header row âº blue boxes around W and b â the W box bottom edge stops short of the box's right extent visually (text baseline vs border misalignment); hairline corners look slightly mitered inconsistently.
+- [minor|low] Outer shell âº red border â uniform thickness; no issues found beyond the color competition noted in (i).
+
+(k) AFFORDANCE & STATES
+- [minor|med] Top bar âº page pill "34" â looks like a page number but has no affordance (not obviously clickable, no chevron); reads as static chrome.
+- [minor|low] No visible interactive controls at all on a lecture slide â acceptable for a static frame, but the "34" pill and the thin cursor mark near lower-left hint at interactivity that cannot be verified.
+
+(l) ICONOGRAPHY
+- clean â no icons present; nothing to mismatch.
+
+(m) TABLES & LISTS
+- clean â no tables or lists present; the "Remember" rows are a two-column comparison but not a data table.
+
+(n) ACCESSIBILITY & LEGIBILITY
+- [major|high] Main lesson card âº math formulas â serif math italic at ~16â18px against cream background; estimated contrast is adequate (~5:1) but the italic serif at small sizes is harder for non-expert users than upright sans; body copy in "Remember" rows is ~13â14px sans on cream â acceptable.
+- [minor|med] Red text (#ef4444-like) on cream â estimated contrast ~3.8:1 for the "Mapping"/"Kernelization" labels, below the 4.5:1 body-text threshold; these are section labels (UI components) and should meet ~3:1 â borderline fail.
+
+(o) UI COPY QUALITY
+- [minor|high] Main lesson card âº "Remember :" â the trailing space before the colon and the italic serif label reads as draft/debug copy, not polished UI; "Remember" as a section label is vague for a parent-facing audience (what should they remember?).
+- [minor|med] Top bar pill "34" â opaque without context (page number? step number? lesson index?); no label explaining what the count refers to.
+
+## 5. TOP 3
+1. Â§4(a) â the cream card on near-black canvas is the harshest theme violation; it flattens depth and vibrates, damaging perceived quality more than any single alignment nit. [cross-ref: Â§4(a)]
+2. Â§4(f) â no visual hierarchy guides the eye to the kernelization payoff; the three formula blocks compete equally, so the lesson's purpose is not immediately clear. [cross-ref: Â§4(f)]
+3. Â§4(g) â ~35% dead air at the bottom of the main card while the top is densely packed makes the composition look unfinished and top-heavy. [cross-ref: Â§4(g)]
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the classification pill ("Class of vector Z â sign(WáµZ + b)") from between the math header and "Remember" to a pinned bottom strip inside the main card, directly above the footer â source: main lesson card middle; destination: main lesson card bottom band. Impact: creates a fixed takeaway anchor and kills the dead air below "Remember".
+2. Split the math header into two stacked rows instead of one side-by-side row: â_D(Î±) on top, W and b formulas side by side below â source: math header row; destination: same region, restacked. Impact: removes the ragged baseline and gives each formula block breathing room.
+3. Collapse the cream card surface to a mid-dark surface (#1e293b) and keep the math formulas in light boxes only where needed â source: main lesson card fill; destination: same region, token change. Impact: restores dark-mode surface stepping. [out-of-scope] â none; all moves re-organize visible content only.
+
+## 7. VERDICT
+- Theme & dark-mode: 4 â cream-on-near-black is a harsh, unprofessional jump; surface physics broken.
+- Typography: 6 â math serif vs sans body is fine for a lecture, but header styles are inconsistent and red-on-cream labels are borderline low-contrast.
+- Spacing: 5 â tight formula packing and uneven row gaps; no clear vertical rhythm.
+- Alignment: 5 â ragged formula row top edges; pill optical center off.
+- Crowding/density: 5 â top half crammed, bottom half empty; no visual rest.
+- Hierarchy: 4 â no signal that kernelization is the payoff; all blocks equal weight.
+- Composition: 4 â dead air below content; top-heavy card; three competing border hues.
+- Completeness: 9 â nothing clipped or missing; fully rendered.
+- Continuity & consistency: 4 â three containment styles, three accent hues, inconsistent section headers.
+- Affordance & states: 6 â no interactive controls expected on a lecture slide; "34" pill ambiguous but static chrome is acceptable.
+- First-glance clarity: 5 â title wins the eye, but the lesson's key takeaway does not.
+- Overall: 5 â presentable as a raw lecture frame, but the dark-mode physics and broken hierarchy make it feel like an unpolished draft; I would not show this to a user without a theme pass and a hierarchy fix.
+
+## 8. UNCERTAINTIES
+- The outer shell appears to be a capture frame or app chrome with a red border; if it is part of the app UI it is a heavy chrome choice, but it could also be a screenshot artifact â treated as app shell per the injected context.
+- The thin cursor-like mark near the lower-left of the main card may be a mouse pointer captured mid-frame or a stray artifact; too small to judge intent.
+- The bottom black footer bar contains no legible content; cannot determine if it is intentional chrome or a capture artifact.
+- Math formula sizes (~16â18px serif italic) are estimated, not measured; contrast figures for red labels are estimates at this resolution.
+
+## 9. VOCABULARY PROPOSALS
+no additions

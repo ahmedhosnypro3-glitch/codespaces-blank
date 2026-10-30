@@ -1,0 +1,2 @@
+<x_0.0><y_0.0>Sum 1 = W11 x1 + W12 x2 Sum 2 = W21 x1 + W22 x2
+Sum 3 = (W11 x1 + W12 x2)w31 + (W21 x1 + W22 x2)w32 = (W11 w31 + W21 w32)x1 + (W21 w31 + W22 w32)x2 = W'1 x1 + W2 x2 ⇒ Still Linear Equation<x_0.998><y_0.9969><class_Picture>

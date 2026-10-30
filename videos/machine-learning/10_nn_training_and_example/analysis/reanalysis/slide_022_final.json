@@ -1,0 +1,147 @@
+{
+  "slide_title": "Back Propagation Training Algorithm",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "[1] Initialize  all Weights with random values",
+      "[2] Provide one training sample  at a time (and  its corresponding target label)",
+      "[3] Go Forward : Start from Input Layer, Calculate  Net_j,O_j  for each layer till reach output layer",
+      "[4] Go Backward : Start from Output Layer, Calculate  \u0394_ji,W_ji  for each weights of  Output  layer",
+      "\u0394_ji = \u03b7  O_i(1-O_i) (t_i-O_j)     Store: \u03b4_j = O_i(1-O_i) (t_i-O_j)   (for each node at output Layer)",
+      "[5] Go Backward : go to previous Layer, Calculate  \u0394_ji,W_ji  for each weights of  Hidden  layer",
+      "\u0394_ji = \u03b7  O_i(1-O_j) [ \u03a3 (\u03b4_k w_kj)]  Store: \u03b4_j = O_i(1-O_j) [ \u03a3 (\u03b4_k w_kj)]   (for each node at Hidden Layer)",
+      "[6] Repeat  [5]  till reach first hidden layer",
+      "Remember: \u03b4_k = \u03b4_j of next layer  (which is already calulated in previous step )"
+    ],
+    "labels": [
+      "22",
+      "Input Layer",
+      "Hidden Layer",
+      "Output Layer",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Target 1",
+      "Target 2",
+      "Target m",
+      "Error Error",
+      "Net_j",
+      "O_j",
+      "w_{1j}",
+      "w_{2j}",
+      "w_{nj}",
+      "w_{ki}",
+      "Neural Network"
+    ],
+    "equations": [
+      "\u0394_ji = \u03b7 O_i(1-O_i)(t_i-O_j)",
+      "\u03b4_j = O_i(1-O_i)(t_i-O_j)",
+      "\u0394_ji = \u03b7 O_i(1-O_j)[\u03a3(\u03b4_k w_kj)]",
+      "\u03b4_j = O_i(1-O_j)[\u03a3(\u03b4_k w_kj)]",
+      "\u03b4_k = \u03b4_j of next layer"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title centered at top in red; yellow slide-number circle at top-right; neural-network diagram in upper-left/center; bordered highlight box across the bottom containing 9 text lines: 6 numbered steps ([1]\u2013[6]), 2 formula lines, and 1 Remember note.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center, approx x 20-80%, y 5-12%",
+        "content": "Back Propagation Training Algorithm in large red bold text"
+      },
+      {
+        "name": "slide number",
+        "position": "top right, approx x 90-98%, y 3-10%",
+        "content": "Yellow circle containing 22"
+      },
+      {
+        "name": "network diagram",
+        "position": "upper left/center, approx x 2-60%, y 12-45%",
+        "content": "Feed-forward neural network with 3 input, 3 hidden, and 3 output nodes; node circles containing \u03a3; 18 black directed arrows; layer and output/target labels; small Neural Network caption"
+      },
+      {
+        "name": "algorithm steps",
+        "position": "bottom full width, approx x 2-98%, y 47-95%",
+        "content": "9 text lines: numbered steps [1]-[6], 2 formula lines, and 1 Remember note, inside a bordered highlight box"
+      }
+    ],
+    "hierarchy": "Title dominates in size and red color; the network diagram is the central visual; step text is smaller and denser; formulas and key layer names are accented in maroon/red; the slide number is minor."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Feed-forward neural network: 3 left input nodes, 3 middle hidden nodes, and 3 right output nodes. Nodes are light-green circles containing \u03a3. 9 black directed arrows connect each input node to each hidden node, and 9 black directed arrows connect each hidden node to each output node. Column captions read Input Layer, Hidden Layer, and Output Layer. Right-side labels read Output 1, Output 2, Output m in green; Target 1, Target 2, Target m in red; and Error Error in red. 4 small weight labels include w_{1j}, w_{2j}, w_{nj}, and w_{ki}; Net_j and O_j appear near the top of the network.",
+      "colors": [
+        "#CCFFCC",
+        "#006600",
+        "#000000",
+        "#C00000",
+        "#008000",
+        "#0000FF"
+      ],
+      "position": "upper left/center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Full-width rectangular container around the 9 algorithm text lines with a dark red/maroon border and very light fill; a horizontal separator appears under step [2].",
+      "colors": [
+        "#C00000",
+        "#F5F9FF",
+        "#0033A0"
+      ],
+      "position": "bottom"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow filled circle with black outline containing the slide number 22.",
+      "colors": [
+        "#FFFF99",
+        "#000000"
+      ],
+      "position": "top right"
+    }
+  ],
+  "imagery": [
+    "Schematic neural-network illustration with circles, \u03a3 symbols, and arrows in the upper-left; no photographic imagery."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#C00000",
+    "body_text": "#0033A0",
+    "accents": [
+      "#C00000",
+      "#FFFF99",
+      "#CCFFCC",
+      "#008000",
+      "#0000FF"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout. Title is large bold red. Step text is smaller, mostly dark blue, with maroon/red formula variables and emphasized layer names. Diagram labels are small and color-coded: green outputs, red targets/errors, blue layer names. The slide number is small black text inside a yellow circle.",
+  "animation_state": "Static slide; no mid-build or revealed-bullet state is visible.",
+  "recreation_brief": "1) Set slide background to white (#FFFFFF).\n2) Add title text \"Back Propagation Training Algorithm\" centered horizontally at the top (approx x 20-80%, y 5-12%) in large bold sans-serif, color #C00000.\n3) Add a yellow filled circle (#FFFF99) with black (#000000) outline at top right (approx x 90-98%, y 3-10%) containing the black text \"22\".\n4) Draw the neural network diagram in the upper left/center (approx x 2-60%, y 12-45%):\n   a. Place 3 light-green circles (#CCFFCC) with dark green (#006600) outline in the left column; label the column \"Input Layer\" in blue (#0000FF).\n   b. Place 3 light-green circles (#CCFFCC) with dark green (#006600) outline in the middle column; label the column \"Hidden Layer\" in blue (#0000FF).\n   c. Place 3 light-green circles (#CCFFCC) with dark green (#006600) outline in the right column; label the column \"Output Layer\" in blue (#0000FF).\n   d. Write the Greek letter sigma \"\u03a3\" inside each of the 9 circles.\n   e. Draw 9 black (#000000) directed arrows, one from each input node to each hidden node.\n   f. Draw 9 black (#000000) directed arrows, one from each hidden node to each output node.\n   g. Add right-side labels \"Output 1\", \"Output 2\", \"Output m\" in green (#008000); \"Target 1\", \"Target 2\", \"Target m\" in red (#C00000); and \"Error Error\" in red (#C00000).\n   h. Add 4 small black (#000000) weight labels near the connections: \"w_{1j}\", \"w_{2j}\", \"w_{nj}\", \"w_{ki}\".\n   i. Add labels \"Net_j\" and \"O_j\" in black (#000000) near the top of the network.\n   j. Add a small caption \"Neural Network\" at the bottom-left of the diagram.\n5) Add a full-width rectangular highlight box at the bottom (approx x 2-98%, y 47-95%) with a dark red/maroon (#C00000) border and very light fill (#F5F9FF).\n6) Inside the highlight box, place the following 9 text lines exactly as transcribed, using dark blue (#0033A0) for main step text and maroon/red (#C00000) for formula variables and emphasized layer names:\n   - \"[1] Initialize  all Weights with random values\"\n   - \"[2] Provide one training sample  at a time (and  its corresponding target label)\"\n   - \"[3] Go Forward : Start from Input Layer, Calculate  Net_j,O_j  for each layer till reach output layer\"\n   - \"[4] Go Backward : Start from Output Layer, Calculate  \u0394_ji,W_ji  for each weights of  Output  layer\"\n   - \"\u0394_ji = \u03b7  O_i(1-O_i) (t_i-O_j)     Store: \u03b4_j = O_i(1-O_i) (t_i-O_j)   (for each node at output Layer)\"\n   - \"[5] Go Backward : go to previous Layer, Calculate  \u0394_ji,W_ji  for each weights of  Hidden  layer\"\n   - \"\u0394_ji = \u03b7  O_i(1-O_j) [ \u03a3 (\u03b4_k w_kj)]  Store: \u03b4_j = O_i(1-O_j) [ \u03a3 (\u03b4_k w_kj)]   (for each node at Hidden Layer)\"\n   - \"[6] Repeat  [5]  till reach first hidden layer\"\n   - \"Remember: \u03b4_k = \u03b4_j of next layer  (which is already calulated in previous step )\"\n7) Add a horizontal separator line inside the highlight box directly under step [2] (after the second text line).\n8) Ensure the slide is static with no build animations.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Set subtitle_or_header to null (truly absent from source).",
+      "Replaced vague 'six-step algorithm' in layout.arrangement with exact composition: 6 numbered steps, 2 formula lines, and 1 Remember note (9 bullet lines total).",
+      "Replaced 'every input node to every hidden node' with exact arrow counts: 9 input-to-hidden arrows and 9 hidden-to-output arrows.",
+      "Replaced 'small weight labels' with exact count: 4 weight labels.",
+      "Updated visual_elements and layout.regions to reflect exact counts and the 9-line algorithm block.",
+      "Rewrote recreation_brief as an 8-step ordered checklist specifying exact text, position, color, and shape for every element."
+    ],
+    "uncertain_items": [],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_022.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 22,
+      "image": "slide_022.jpg",
+      "badge": "22"
+    },
+    "elapsed_s": 955.5,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 190.4
+  }
+}

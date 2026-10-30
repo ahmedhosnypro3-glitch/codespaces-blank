@@ -1,0 +1,46 @@
+## Fidelity check â Slide 021 (IMG1 recreation vs IMG2 original)
+
+### Element-by-element comparison
+
+| Element | IMG2 (original) | IMG1 (recreation) | Result |
+|---|---|---|---|
+| Title | "Inverse Problem of Singular Matrix", red bold serif, centered | Same text, same color/weight, same centering (Â±few px) | Match |
+| Panel 1 heading | `XáµX` (red, italic serif, super T) | Same | Match |
+| Panel 1 table | 3Ã3: 14 10 15 / 10 40 46 / 20 80 92 | Identical values, identical column widths (â61/62/62 px), same left edge (xâ89) | Match (cursor over cell in IMG2 correctly omitted per rule (c)) |
+| Panel 1 equation | `|XáµX| = 0` | `IXáµXI = 0` â same layout/scale, but the determinant delimiters render as serifed italic âIâ-like strokes rather than clean vertical bars | Minor deviation (see D3) |
+| Panel 1 arrows/labels | blue â â "Singular Matrix" â blue â â red italic "No Inverse" | Same arrows, same black/red label text, same order, gaps â original (â28 px / â35 px) | Match |
+| Panel 2 heading | `(XáµX + Î»I)` red + green `Î»=3` | `(XáµX + Î»I)` red + green `Î» = 3` | Minor spacing deviation (see D2) |
+| Panel 2 table | 17 10 15 / 10 43 46 / 20 80 95; yellow marks on 17, 43, 95 | Identical values; yellow highlight on 17, 43, 95 | Match (hand pen circles around 43/95 omitted â see D4) |
+| Panel 2 equation | `|XáµX| = 5685` | Same value, same position/scale | Match (same bar rendering caveat, D3) |
+| Panel 2 labels | â "Non-Singular Matrix" â red italic "Inverse Exists" | Same text/order/colors/gaps | Match |
+| Panel 3 equation | `(XáµX + Î»I)â»Â¹` red, blue â, 3Ã3 inverse matrix | Same, superscript â1 correctly placed, arrow at same x | Match |
+| Panel 3 matrix | 0.07 0.04 â0.03 / â0.01 0.23 â0.11 / â0.01 â0.2 0.11 | Identical values, identical cell grid, same x-position (â385â573) | Match |
+| Frame/panel chrome, badge | â | â | Excluded per rule (a) |
+
+### Discrepancies
+
+**D1 â MAJOR (confidence: medium-high): Panel 2 / Panel 3 frames collide; third panel sits ~25 px too high.**
+In the original, the blue frames are separated by a clear gray gutter: panel 2 bottom â y 388 and panel 3 top â y 407 (â19 px gap, â21 px in house-pixel space). In the recreation the same gutter has collapsed to roughly 0â3 px â the third panel's top blue border runs into / coincides with the second panel's bottom blue border (third frame top â y 382 vs second frame bottom â y 385 in the same scaled space). This is a frame-containment/collision defect: two inner frames touch, and the vertical rhythm of the original (panel 1â2 gap â24 px, panel 2â3 gap â19 px) is not reproduced. There is also a secondary vertical drift: panels 1 and 2 in the recreation are â8â9 px higher than the original, and panel 3 â25 px higher.
+
+**D2 â MINOR (confidence: high): Text not verbatim â `Î» = 3` vs `Î»=3`.**
+The original renders the green parameter with no spaces around the equals sign; the recreation adds them, slightly widening the green label (xâ225â265 vs â227â267) and altering its metric width.
+
+**D3 â MINOR (confidence: low-medium): Determinant delimiters render as serifed âIâ-like glyphs.**
+In both panel 1 and panel 2 the original shows thin vertical bars (`|XáµX|`); in the recreation the flanking characters read visually as capital âIâ in italic serif (serifed top/bottom strokes), so the expression reads âIXáµXIâ. Position, size and value are otherwise correct.
+
+**D4 â MINOR (confidence: high, subject to rule (d)): Handwritten emphasis on 43 and 95 not reproduced.**
+The original carries red pen circles around the highlighted diagonal entries 43 and 95. The recreation keeps only the yellow highlighting on 17/43/95 and drops the freehand circles. Under the typed-vs-handwritten directive this is a medium-difference, not a content omission.
+
+**D5 â MINOR (confidence: medium): Panel 2 table is offset right relative to its heading.**
+In the original the second table's left edge (xâ80) aligns with the `(XáµX + Î»I)` heading above it; in the recreation the table sits at xâ89 (inherited from the panel 1 table), i.e. â9 px right of its heading, and its right edge is â5 px further right than the original's.
+
+### Visual-quality defects in the recreation
+- **Frame collision (same as D1):** panel 2's bottom border and panel 3's top border touch/overlap at both left and right ends; the second blue frame's lower margin reads as a doubled blue line. This is the only hard geometry fault.
+- No text overflow, clipping, or bad wrapping; no text touching a blue frame edge.
+- Equations, tables and matrix values are all legible at render resolution; line heights within the small tables and label rows match the original.
+- Colors, arrow glyphs, italics and the yellow/purple badge styling are consistent with the reference (house chrome excluded per rule (a)).
+
+### Summary
+All textual content, table data, matrix values, color coding, legend order and arrow structure match the original. The reconstruction fails on geometry: the third blue panel is displaced upward so that it abuts/overlaps the second panel's bottom border, where the original has a distinct gutter â a frame/region misalignment defect. Two minor text/ink issues and two cosmetic items also remain.
+
+FINAL VERDICT: FAIL

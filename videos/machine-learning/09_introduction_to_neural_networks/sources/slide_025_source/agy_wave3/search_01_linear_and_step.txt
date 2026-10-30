@@ -1,0 +1,41 @@
+Here are the exact canonical definitions, formulas, and output ranges for both activation functions in the context of neural networks.
+
+---
+
+### 1. Linear (Identity) Activation Function
+
+The identity function passes the weighted input sum directly to the output without non-linear transformation.
+
+* **Canonical Formula:**
+  $$f(x) = x$$
+
+* **Output Range (Codomain):**
+  $$(-\infty, +\infty) \quad \text{or} \quad \mathbb{R}$$
+
+* **Derivative:**
+  $$f'(x) = 1$$
+
+* **Neural Network Context:**
+  * Primarily used in the output layer of **regression networks** where the target values are unbounded or continuous real numbers.
+  * Stacking multiple layers using only identity activations collapses mathematically into a single linear transformation ($\mathbf{W}_2(\mathbf{W}_1\mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2 = \mathbf{W}'\mathbf{x} + \mathbf{b}'$), eliminating the network's ability to learn non-linear decision boundaries.
+
+---
+
+### 2. Binary Step (Heaviside) Threshold Function
+
+The binary step function models an all-or-nothing threshold activation (canonical in Rosenblatt's Perceptron).
+
+* **Canonical Formula (Standard Neural Network Convention):**
+  $$f(x) = \begin{cases} 1, & x \ge 0 \\ 0, & x < 0 \end{cases}$$
+
+  *(With an explicit threshold/bias $\theta$, this is written as $f(z) = 1$ if $z \ge \theta$, else $0$. In standard mathematical Heaviside notation, the half-maximum convention sets $H(0) = \frac{1}{2}$, but in neural networks $f(0) = 1$ is standard.)*
+
+* **Output Range (Codomain):**
+  $$\{0, 1\} \quad \text{(discrete binary output)}$$
+
+* **Derivative:**
+  $$f'(x) = \begin{cases} 0, & x \neq 0 \\ \text{undefined (or Dirac delta } \delta(x)\text{)}, & x = 0 \end{cases}$$
+
+* **Neural Network Context:**
+  * Historically used in the original Perceptron for binary classification ($y \in \{0, 1\}$ or scaled to $\{-1, +1\}$ as the Signum function $\text{sgn}(x)$).
+  * **Incompatible with backpropagation:** Because the derivative is zero almost everywhere ($f'(x) = 0$ for $x \neq 0$) and undefined at $x = 0$, gradients cannot propagate to update network weights via gradient descent, which led to its replacement by smooth sigmoidal activations (logistic sigmoid, $\tanh$).

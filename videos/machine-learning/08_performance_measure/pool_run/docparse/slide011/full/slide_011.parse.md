@@ -1,0 +1,57 @@
+<x_0.3281><y_0.1078>**Recall**<x_0.4756><y_0.1867><class_Section-header>
+
+<x_0.2168><y_0.2359>**Correctly Classified (as Positive)**<x_0.5391><y_0.2797><class_Text>
+
+<x_0.0996><y_0.2938>**Total objects that should be retrieved (Actually Positive)**<x_0.6621><y_0.3391><class_Text>
+
+<x_0.0781><y_0.3766>**Meaning**<x_0.2002><y_0.4313><class_Section-header>
+
+<x_0.0791><y_0.4297>**Does the classifier miss any of Positive Objects ?**<x_0.5654><y_0.4742><class_Text>
+
+<x_0.0859><y_0.5242>**Recall =**<x_0.167><y_0.5625><class_Text>
+
+<x_0.2412><y_0.5016>**TP**
+**TP + FN**<x_0.3203><y_0.5953><class_Picture>
+
+<x_0.3545><y_0.5453>**Recall= 28/(28+2)**
+**=93.3%**<x_0.4951><y_0.6156><class_Text>
+
+<x_0.1182><y_0.6375>Positive
+Classified as +ive<x_0.2178><y_0.6937><class_Text>
+
+<x_0.2344><y_0.6383>Positive
+Classified as -ive<x_0.3301><y_0.693><class_Text>
+
+<x_0.0908><y_0.7477>_All  Positive Samples in the Dataset_<x_0.3476><y_0.782><class_Text>
+
+<x_0.0771><y_0.8172>_Higher Recall  means I **HIGHLY** _trust you if you said I picked_
+**_ALL_** _Positive Objects._<x_0.5029><y_0.8828><class_Text>
+
+<x_0.0801><y_0.8891>_It Does NOT_ _mean All you said Positive are Actually Positive_<x_0.502><y_0.925><class_Text>
+
+<x_0.9023><y_0.1055>11<x_0.9199><y_0.1453><class_Text>
+
+<x_0.7021><y_0.1016>\begin{tabular}{cccc}
+\multirow{2}{*}{\thead{\mbox{}}} & \multicolumn{3}{c}{\thead{Predicted as}}\\
+\mbox{} & P & N & \mbox{}\\
+\thead{Actual} & P & FP & FN\\
+\thead{N} & NP & FP & TN\\
+\end{tabular}<x_0.8818><y_0.2852><class_Table>
+
+<x_0.707><y_0.3125>\begin{tabular}{ccc}
+\multirow{2}{*}{\thead{Actual}} & \thead{P} & \thead{N}\\
+\mbox{} & P & 28 2\\
+N & 30 & 40\\
+\end{tabular}<x_0.8936><y_0.5289><class_Table>
+
+<x_0.5557><y_0.5406>Positive
+Negative
+30
+28
+2
+40
+30
+TP
+FN
+TN
+FP<x_0.9092><y_0.9258><class_Picture>

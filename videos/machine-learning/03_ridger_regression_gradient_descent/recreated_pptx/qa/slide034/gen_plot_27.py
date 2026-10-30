@@ -52,15 +52,15 @@ for tx in XT:
 for ty in YT:
     ax.plot([-0.25, 0.25], [ty, ty], color="black", lw=0.9, zorder=2)
 
-# tick labels (0 / -2 / 4 absent on the frame)
+# tick labels (0 / -2 / 4 absent on the frame) — zorder=5 to sit above curve (zorder=3)
 for tx in XT:
-    ax.text(tx, -0.95, str(tx), ha="center", va="top", fontsize=6.6, color="#333333")
+    ax.text(tx, -0.95, str(tx), ha="center", va="top", fontsize=6.6, color="#333333", zorder=5)
 for ty in YT:
-    ax.text(-0.60, ty, str(ty), ha="right", va="center", fontsize=6.6, color="#333333")
+    ax.text(-0.60, ty, str(ty), ha="right", va="center", fontsize=6.6, color="#333333", zorder=5)
 ax.text(0, 11.05, "y", ha="center", va="bottom", fontsize=8.2,
-        color="#333333", fontstyle="italic")
+        color="#333333", fontstyle="italic", zorder=5)
 ax.text(12.8, 0, "x", ha="center", va="center", fontsize=8.2,
-        color="#333333", fontstyle="italic")
+        color="#333333", fontstyle="italic", zorder=5)
 
 # the function curve
 x = np.linspace(XLIM[0], XLIM[1], 3000)
@@ -68,7 +68,7 @@ y = (x * x * np.cos(x) - x) / 10.0
 ax.plot(x, y, color=TEAL, lw=2.6, solid_capstyle="round", zorder=3)
 
 import os
-out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "build", "assets", "slide_034_plot_v27.png")
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "build", "assets", "slide_034_plot.png")
 fig.savefig(out, dpi=DPI, facecolor="white")
 print("WROTE", out)
 from PIL import Image

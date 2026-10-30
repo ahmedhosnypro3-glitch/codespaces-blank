@@ -1,0 +1,9 @@
+<x_0.0371><y_0.0375><chart type="ranked_table">
+title: Training Samples with Labels [-1,+1] (Two Classes)
+
+| Positive Class "Shoot the Enemy" | Label | Negative Class "Safe" | Label |
+| --- | --- | --- | --- |
+| +1 | +1 | -1 | -1 |
+| +1 | +1 | -1 | -1 |
+| +1 | +1 | -1 | -1 |
+</chart><x_0.9619><y_0.9641><class_Chart>

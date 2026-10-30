@@ -1,0 +1,18 @@
+**Discrepancies vs. original lecture frame (IMG2)**
+
+| # | Discrepancy | Severity | Confidence |
+|---|-------------|----------|------------|
+| 1 | **Vector delimiter type.** Recreation uses square brackets `[` `]` for row and column vectors (e.g. `[1 1 1]`, `[4;-2;-2]`, `[5;-1;-1]`). Original uses parentheses `(` `)` for the same vectors throughout (e.g. `(1 1 1)`, `(4;-2;-2)`, `(5;-1;-1)`). Systematic across all 6 dot-product rows and the weight-update equation. | MAJOR | 95% |
+| 2 | **Missing scalar parentheses in âUgmented Vectors (from Top)â table.** Original encloses certain table cells in parentheses: row 1 all six entries appear as `(1)`; row 2 entries under X1, X3, X5 appear as `(1)`, `(1)`, `(6)`. Recreation renders those cells as plain numerals `1`, `1`, `6` with no parentheses. | MAJOR | 90% |
+| 3 | **Missing red emphasis on non-unity vector entries.** Original colors selected entries inside the dot-product row vectors red (e.g. the `2` in `(1 2 1)`, the `5` and `4` in `(1 5 4)`, the `6`s in `(1 6 6)`). Recreation renders all vector entries in black. | MINOR | 85% |
+| 4 | **Operator spacing in inline equations.** Original inserts spaces around `=` and `Â·` (e.g. `d(x1) = (1 1 1) Â· (4`). Recreation omits them (e.g. `d(x1)=[1 1 1]Â·[4`). | MINOR | 90% |
+
+**Visual-quality defects in recreation**
+None observed. No text overflow/clipping, no misalignment, no collisions, no illegibility. All content elements sit fully inside their enclosing frames/panels. No empty equation regions and no missing rows/tables.
+
+**Notes (intentional / not discrepancies)**
+- Slide number badge shows `48` matching the original; house chrome (yellow badge, purple ring, red side/bottom strokes, no top stroke) matches the founder mandate.
+- Typo âUgmentedâ appears verbatim in both; class-color legend (`C1` red, `C2` blue, `Zero` green) matches.
+- Numeric data, actions (`Update Weight` / `Keep same Weight`), iteration label, and `Z`/`W` tables all match verbatim.
+
+FINAL VERDICT: FAIL for âfaithful, usable recreationâ (two MAJOR fidelity defects: systematic bracket-vs-parenthesis delimiter change across every equation, and missing parentheses inside the Augmented Vectors table).

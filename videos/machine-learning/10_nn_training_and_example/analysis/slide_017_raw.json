@@ -1,0 +1,220 @@
+{
+  "slide_title": "Neural Network Model",
+  "subtitle_or_header": "(Effect of Net_i on Calculated Error is known from O/P Layer)",
+  "verbatim_text": {
+    "bullets": [
+      "Neural Network Model",
+      "(Effect of Net_i on Calculated Error is known from O/P Layer)",
+      "Input Sample",
+      "Target Label",
+      "For Layer \u201cj\u201d",
+      "Note: Layer \u201cj\u201d is NOT Output Layer"
+    ],
+    "labels": [
+      "17",
+      "Input Sample",
+      "Target Label",
+      "\u03a3",
+      "Net_i",
+      "O_i",
+      "W_ij",
+      "Net",
+      "O_j",
+      "W_jk",
+      "O_k",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Error Error",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "1",
+      "Node Bias",
+      "1",
+      "1",
+      "k",
+      "Previous Layer",
+      "Layer (i)",
+      "Current Layer",
+      "(You are here)",
+      "Next Layer",
+      "Layer (K)",
+      "X X X"
+    ],
+    "equations": [
+      "Net_j = \u2211_i (w_ij . O_i)",
+      "O_j = f ( Net_j ) = 1/(1+e^{-Net_j})",
+      "E = 1/2 \u2211_j (t_j \u2212 O_j)^2"
+    ]
+  },
+  "layout": {
+    "arrangement": "A single framed slide (thin red rectangle border, approx. x 6%-95%, y 8%-96%) on a white page. Top-center: red bold title 'Neural Network Model' with a blue bold parenthetical subtitle directly beneath it. Top-left inside the frame: a small magenta-filled box 'Input Sample'; top-right: a matching magenta-filled box 'Target Label', plus a yellow circular badge '17' above/right of it. The middle ~45% of the slide is a large pale-cream panel containing a left-to-right, three-row neural-network schematic: magenta input dots at far left \u2192 red \u03a3 nodes \u2192 activation squares \u2192 blue \u03a3 nodes (previous layer i) \u2192 green \u03a3 nodes (current layer j) \u2192 orange \u03a3 nodes (next layer k) \u2192 blue-outlined 'Output 1/2/m' boxes \u2192 a tall dark-red vertical 'Error Error Error' bar \u2192 green 'Class 1/2/m' boxes at far right. A band below the network (~y 70-82%) contains magenta bias circles ('1', 'Node Bias'), three outlined up-arrows (blue, green, orange) and three layer-name boxes ('Previous Layer / Layer (i)', 'Current Layer / (You are here)', 'Next Layer / Layer (K)'), with the red italic notes 'For Layer \u201cj\u201d' at left and 'Note: Layer \u201cj\u201d is NOT Output Layer' at right. Bottom-left: a pale-yellow bordered equation box with two formulas; bottom-right: a matching equation box with the error formula and three red X marks.",
+    "regions": [
+      {
+        "name": "Title band",
+        "position": "top-center, approx. x 37%-63%, y 11%-16%",
+        "content": "Red bold serif/sans title 'Neural Network Model'"
+      },
+      {
+        "name": "Subtitle band",
+        "position": "top-center, approx. x 16%-83%, y 16%-21%",
+        "content": "Blue bold parenthetical line '(Effect of Net_i on Calculated Error is known from O/P Layer)'"
+      },
+      {
+        "name": "Slide-number badge",
+        "position": "top-right, approx. x 89%-93%, y 9%-16%",
+        "content": "Yellow filled circle with black outline containing '17'"
+      },
+      {
+        "name": "Input / Target label row",
+        "position": "top-left approx. x 7%-14% y 18%-24%; top-right approx. x 86%-92% y 18%-24%",
+        "content": "Magenta-filled rectangles 'Input Sample' and 'Target Label', each connected to the network by a dotted magenta arrow (arrowhead pointing outward toward the box)"
+      },
+      {
+        "name": "Neural network schematic panel",
+        "position": "middle, approx. x 7%-95%, y 25%-70%",
+        "content": "Pale-cream background panel with three parallel neuron rows, fully-connected faint pink lines, blue dashed weight arrows, black dashed skip-connection arcs, yellow inline annotation circles, output boxes, error bar and class boxes"
+      },
+      {
+        "name": "Error and class column",
+        "position": "right, approx. x 80%-92%, y 28%-68%",
+        "content": "Tall dark-red vertical bar with rotated white text 'Error Error Error'; three light-green boxes 'Class 1', 'Class 2', 'Class m'"
+      },
+      {
+        "name": "Layer-pointer band",
+        "position": "lower-middle, approx. x 7%-65%, y 69%-82%",
+        "content": "Magenta bias circles ('1' + italic 'Node Bias' at far left; two larger magenta '1' circles), blue/green/orange outlined up-arrows, and three colored layer-name boxes"
+      },
+      {
+        "name": "Notes row",
+        "position": "lower band, left approx. x 7%-18% y 78%-83%; right approx. x 67%-91% y 78%-83%",
+        "content": "Red italic serif text 'For Layer \u201cj\u201d' and 'Note: Layer \u201cj\u201d is NOT Output Layer'"
+      },
+      {
+        "name": "Bottom-left equation box",
+        "position": "bottom-left, approx. x 7%-27%, y 82%-95%",
+        "content": "Pale-yellow box with olive border containing 'Net_j = \u2211_i (w_ij . O_i)' and 'O_j = f ( Net_j ) = 1/(1+e^{-Net_j})'"
+      },
+      {
+        "name": "Bottom-right equation box",
+        "position": "bottom-right, approx. x 66%-93%, y 82%-95%",
+        "content": "Pale-yellow box with olive border containing 'E = 1/2 \u2211_j (t_j \u2212 O_j)^2' and three large red 'X X X' marks"
+      }
+    ],
+    "hierarchy": "The red title is the strongest element by color (saturated red, bold, centered). The blue subtitle is second by weight and width. The dense multicolored network schematic dominates by area and complexity, with the green current-layer column and the dark-red error bar acting as focal points. The bottom equation boxes are visually quieter (small, pale fill, thin olive border) but the red 'X X X' provides a strong accent. Body text is otherwise small black serif/italic."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Full neural-network back-propagation schematic on a pale-cream panel, three horizontal neuron rows (top row y\u2248170, middle row y\u2248235, bottom row y\u2248310). LEFT: three small solid magenta input dots stacked at x\u224875 (y\u2248210, 230, 270) with faint gray/pink fan-out lines to the first layer. PREVIOUS LAYER (i): each row has a white circle with red outline containing '\u03a3' (x\u2248137), a small solid red dot (x\u2248157), a small white square containing a red sigmoid curve (x\u2248185), two small pale unfilled circles (x\u2248200 and x\u2248215), a white circle with blue outline containing '\u03a3' (x\u2248240), a small solid red dot (x\u2248262), a white square with red sigmoid curve (x\u2248305) with red italic label 'Net_i' above it, and a small solid red dot (x\u2248320) with red label 'O_i' above. CURRENT LAYER (j): a yellow circle labeled 'W_ij' in blue (x\u2248355) sits on the connection from O_i to a white circle with green outline containing '\u03a3' (x\u2248400); a yellow circle labeled 'Net' in red (x\u2248430) sits on the connection to a white square with green sigmoid curve (x\u2248460); a solid red dot (x\u2248475) with red label 'O_j' above. NEXT LAYER (k): a yellow circle labeled 'W_jk' in blue (x\u2248505) on the connection to a white circle with orange outline containing '\u03a3' (x\u2248545); a yellow circle labeled 'Net' in red (x\u2248575); a white square with orange sigmoid curve (x\u2248605); a solid red dot (x\u2248620) with red label 'O_k' above. CONNECTIONS: faint light-pink fully-connected lines fan from every O_i node to every green \u03a3 node and from every O_j node to every orange \u03a3 node; blue dashed arrows with rotated blue labels 'W_ij' run from each O_i dot to the green \u03a3 of the same row; blue dashed arrows with rotated blue labels 'W_jk' run from each O_j dot to the orange \u03a3 of the same row; black dashed skip-connection arcs arc over the top of the diagram from the O_i/O_j nodes to the orange \u03a3 nodes (three arcs converging on the top orange \u03a3, plus a dashed arc rising from the bottom-row O_j to the middle orange \u03a3). OUTPUTS: blue-outlined white boxes 'Output 1' (x\u2248675, y\u2248170), 'Output 2' (x\u2248675, y\u2248235), 'Output m' (x\u2248675, y\u2248310). ERROR: three blue dashed arrows curve from each O_k dot to a tall dark-red vertical bar (x\u2248740, y\u2248140-340) carrying rotated white text 'Error Error Error'. CLASSES: light-green boxes 'Class 1' (y\u2248170), 'Class 2' (y\u2248235), 'Class m' (y\u2248310) at x\u2248790. A small black arrow/pointer artifact sits near x\u2248700, y\u2248290 pointing down-right.",
+      "colors": [
+        "#FFFFFF",
+        "#F7F1E4",
+        "#FF0000",
+        "#0000FF",
+        "#00CC00",
+        "#FF6600",
+        "#FFFF99",
+        "#CCFFCC",
+        "#CC0000",
+        "#FFB6C1",
+        "#000000",
+        "#FF00FF"
+      ],
+      "position": "middle of slide, approx. x 7%-95%, y 25%-70%"
+    },
+    {
+      "type": "flowchart",
+      "description": "Layer-pointer strip below the network: a small magenta circle containing white '1' at far left (x\u224875, y\u2248352) followed by magenta italic text 'Node Bias'; a larger magenta circle containing white '1' at x\u2248300, y\u2248345; another magenta circle containing white '1' at x\u2248455, y\u2248345; a small orange circle containing 'k' at x\u2248550, y\u2248355. Three hollow outlined up-arrows point from the layer-name boxes up to the corresponding \u03a3 nodes: a light-blue/white arrow at x\u2248240 pointing to the blue \u03a3 (previous layer), a green arrow at x\u2248400 pointing to the green \u03a3 (current layer), an orange arrow at x\u2248550 pointing to the orange \u03a3 (next layer). Beneath them: light-blue box 'Previous Layer' / 'Layer (i)' (x\u2248240), light-green box 'Current Layer' / '(You are here)' (x\u2248400), light-orange box 'Next Layer' / 'Layer (K)' (x\u2248550).",
+      "colors": [
+        "#CC00CC",
+        "#FF6600",
+        "#ADD8E6",
+        "#90EE90",
+        "#FFDAB9",
+        "#000000"
+      ],
+      "position": "lower-middle band, approx. x 7%-65%, y 69%-82%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Thin red rectangular outline framing the entire slide content (approx. x 55-845 px, y 40-480 px in a 900x506 image).",
+      "colors": [
+        "#FF0000"
+      ],
+      "position": "full content area"
+    },
+    {
+      "type": "other",
+      "description": "Yellow filled circle with black outline containing the slide number '17'.",
+      "colors": [
+        "#FFFF66",
+        "#000000"
+      ],
+      "position": "top-right corner, approx. x 89%-93%, y 9%-16%"
+    },
+    {
+      "type": "other",
+      "description": "Two pale-yellow (cream) rectangles with olive/green borders holding the formulas. Left box: line 1 'Net_j = \u2211_i (w_ij . O_i)' with 'Net_j' in bold italic black and 'w_ij', 'O_i' in blue; line 2 'O_j = f ( Net_j ) = 1/(1+e^{-Net_j})' with 'O_j' and 'Net_j' in bold. Right box: 'E = 1/2 \u2211_j (t_j \u2212 O_j)^2' in black serif, followed on the right by three large bold red 'X' characters ('X X X').",
+      "colors": [
+        "#FFFFE0",
+        "#808000",
+        "#000000",
+        "#0000CC",
+        "#CC0000"
+      ],
+      "position": "bottom-left and bottom-right of the slide"
+    },
+    {
+      "type": "other",
+      "description": "Two small magenta-filled rectangles with magenta borders: 'Input Sample' (top-left, two lines) and 'Target Label' (top-right, two lines), each with a dotted magenta arrow pointing outward from the network toward the box.",
+      "colors": [
+        "#FF99FF",
+        "#CC00CC",
+        "#000000"
+      ],
+      "position": "top-left and top-right of the framed area, y 18%-24%"
+    }
+  ],
+  "imagery": [
+    "No photographs or photographic imagery; the slide is entirely a hand-built vector-style schematic.",
+    "Small black arrow/pointer artifact near the lower-right of the network diagram (around x=700, y=290), pointing down-right \u2014 most likely a mouse cursor captured in the video frame.",
+    "Yellow circular badge with the slide number '17' at the top-right corner."
+  ],
+  "colors": {
+    "background": "#FFFFFF (outer page); main diagram panel is pale cream #F7F1E4; equation boxes are pale yellow #FFFFE0",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000CC",
+      "#FF0000",
+      "#CC00CC",
+      "#FF00FF",
+      "#00CC00",
+      "#FF6600",
+      "#FFFF99",
+      "#FFFF66",
+      "#CCFFCC",
+      "#FFFFE0",
+      "#808000",
+      "#FFB6C1",
+      "#ADD8E6",
+      "#90EE90",
+      "#FFDAB9"
+    ]
+  },
+  "typography_notes": "Title is a bold, saturated red, centered, noticeably larger than all other text. Subtitle is bold blue, centered, in parentheses, slightly smaller than the title. Most diagram labels are small sans-serif (Arial-like) in red, blue, green or black; the \u03a3 symbols are serif. The notes 'For Layer \u201cj\u201d' and 'Note: Layer \u201cj\u201d is NOT Output Layer' are red italic serif. The formulas are serif, with 'Net_j' and 'O_j' in bold italic and weight/output symbols in blue. The 'X X X' marks are large bold red. Layer-name boxes use small centered sans-serif text on two lines. The 'Error Error Error' text is white, rotated 90\u00b0 inside the red bar.",
+  "animation_state": "The slide appears fully built and static \u2014 all layers, arrows, labels, equations and the 'X X X' marks are visible simultaneously. No partial bullet reveals or build steps are evident.",
+  "recreation_brief": "1. Set the slide size to 16:9 (900x506 px reference). Fill the page white and draw a thin red (#FF0000) rectangle outline from about (55,40) to (845,480). 2. Add the centered red bold title 'Neural Network Model' at about (450,68) in ~20 pt, and directly below it the centered blue bold line '(Effect of Net_i on Calculated Error is known from O/P Layer)' in ~18 pt. 3. Add a yellow (#FFFF66) circle with black outline at about (815,65), 34 px diameter, containing black '17'. 4. Add a magenta (#FF99FF) rectangle at (60,90)-(120,115) with two-line black text 'Input Sample', and a matching rectangle at (765,90)-(825,115) with 'Target Label'; draw dotted magenta arrows pointing left into the first box and right into the second. 5. Draw a pale-cream (#F7F1E4) panel from about (60,115) to (840,370). 6. Build three neuron rows at y = 170, 235, 310. For each row draw: a white circle with red outline and red '\u03a3' at x=137; a small solid red dot at x=157; a 22x22 white square with red border containing a red sigmoid curve at x=185; two small pale unfilled circles at x=200 and x=215; a white circle with blue outline and blue '\u03a3' at x=240; a small solid red dot at x=262; a 22x22 white square with red border and red sigmoid at x=305 with red italic 'Net_i' above; a small solid red dot at x=320 with red 'O_i' above. 7. Continue each row: a yellow (#FFFF99) circle with blue 'W_ij' at x=355; a white circle with green outline and green '\u03a3' at x=400; a yellow circle with red 'Net' at x=430; a 22x22 white square with green border and green sigmoid at x=460; a solid red dot at x=475 with red 'O_j' above; a yellow circle with blue 'W_jk' at x=505; a white circle with orange outline and orange '\u03a3' at x=545; a yellow circle with red 'Net' at x=575; a 22x22 white square with orange border and orange sigmoid at x=605; a solid red dot at x=620 with red 'O_k' above. 8. Add three solid magenta input dots at x=75 (y=210, 230, 270) and draw faint light-pink (#FFB6C1) fully-connected lines from the O_i dots to all green \u03a3 nodes and from the O_j dots to all orange \u03a3 nodes. 9. Overlay blue (#0000FF) dashed arrows from each O_i dot to the same-row green \u03a3 and from each O_j dot to the same-row orange \u03a3, each with a rotated blue 'W_ij' / 'W_jk' label along the shaft. 10. Draw black dashed skip-connection arcs over the top from the O_i/O_j nodes to the orange \u03a3 nodes (three arcs converging on the top orange \u03a3, one arc rising from the bottom-row O_j to the middle orange \u03a3). 11. Add blue-outlined white boxes 'Output 1', 'Output 2', 'Output m' at x=675 on the three rows; draw a tall dark-red (#CC0000) bar at x=740, y=140-340 with rotated white text 'Error Error Error'; add light-green (#CCFFCC) boxes 'Class 1', 'Class 2', 'Class m' at x=790; draw three blue dashed arrows from the O_k dots to the error bar. 12. In the band below the network, add a small magenta circle with white '1' at (75,352) followed by magenta italic 'Node Bias', larger magenta circles with white '1' at (300,345) and (455,345), and a small orange circle with 'k' at (550,355). 13. Draw three hollow up-arrows (light blue at x=240, green at x=400, orange at x=550) pointing to the blue, green and orange \u03a3 nodes, and place beneath them the boxes: light-blue 'Previous Layer' / 'Layer (i)', light-green 'Current Layer' / '(You are here)', light-orange 'Next Layer' / 'Layer (K)'. 14. Add red italic serif 'For Layer \u201cj\u201d' at about (65,392) and 'Note: Layer \u201cj\u201d is NOT Output Layer' at about (605,397). 15. Add the bottom-left pale-yellow box with olive border (65,410)-(240,475) containing 'Net_j = \u2211_i (w_ij . O_i)' (Net_j bold italic, w_ij and O_i blue) and 'O_j = f ( Net_j ) = 1/(1+e^{-Net_j})' (O_j and Net_j bold). 16. Add the bottom-right pale-yellow box with olive border (590,410)-(830,475) containing 'E = 1/2 \u2211_j (t_j \u2212 O_j)^2' in black serif and three large bold red 'X' characters 'X X X' to its right. 17. Optionally reproduce the small black pointer arrow artifact near (700,290).",
+  "_meta": {
+    "frame": "slide_017.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 17,
+      "image": "slide_017.jpg",
+      "badge": "17"
+    },
+    "elapsed_s": 430.9
+  }
+}

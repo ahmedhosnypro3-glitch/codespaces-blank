@@ -1,0 +1,206 @@
+[info] context header injected: VIEW: slide 27 of machine-learning lecture 09 — original frame | CAPTURE: 960x540 lecture slide frame, original
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 694707
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== unique_slides/slide_027.jpg ===
+[winner] images (round 1, attempt 1)
+Let me analyze this image carefully.
+
+The image is a lecture slide frame, 960x540 pixels. It has:
+1. A yellow badge/circle in the top-right corner with the number "27"
+2. Title text "Multi-Layer Neural Network" on one line
+3. Subtitle text "The complete Picture" on the next line (with a cursor/arrow visible after "Picture")
+
+Let me go through the required report structure:
+
+1. PRINTED SLIDE NUMBER: There's a yellow circular badge in the top-right corner containing "27".
+
+2. TITLE: "Multi-Layer Neural Network" â appears to be in a red/crimson color, bold sans-serif font. Font size is large, maybe around 48-56px. The second line "The complete Picture" is in a slightly smaller size, maybe around 40-44px, same red color. 
+
+Wait, the question says "verbatim title text, with per-span color if it uses multiple colors". Both lines appear to be the same red color, so it's a single color. Font size estimates: Title line is larger than subtitle line.
+
+3. ALL OTHER TEXT: No other text besides the title/subtitle and the slide number badge.
+
+4. EQUATIONS: None.
+
+5. GRAPHS/CHARTS/DIAGRAMS: None â there is a small cursor/arrow graphic near "Picture" but that's a mouse pointer, not part of the slide content.
+
+6. TABLES/BOXES: The yellow badge is a box/circle containing "27". The main slide area is bordered by a thin red/dark line rectangle.
+
+7. LAYOUT REGIONS:
+   - Top strip: mostly empty light gray area; yellow badge at top-right
+   - Main body: centered text block in the middle of the frame
+   - Bottom strip: thin black band at very bottom (appears to be a dark bar at bottom edge, maybe part of the video capture)
+
+8. COLORS:
+   - Background: light gray/off-white (~#F0F0F0 or #EFEFEF)
+   - Title text: dark red/crimson (~#B02A2A or #C0392B, maybe #A93226)
+   - Badge yellow: (~#F4D03F or #F7DC6F)
+   - Badge border: thin dark outline
+   - Slide border: dark red/maroon thin frame
+   - Bottom black strip: black/dark gray
+
+9. GEOMETRY NOTES:
+   - Title is centered horizontally and positioned around vertical middle (slightly above center)
+   - Two-line text block centered
+   - Line spacing between the two lines is consistent
+   - The badge is at top-right corner, near the border rectangle corner
+   - There is a mouse cursor visible pointing after "Picture" â this is an artifact of the screenshot, not slide content
+   - The slide border rectangle is near the frame edges, roughly at 70px margin or so
+
+Font size estimates:
+- Title "Multi-Layer Neural Network": maybe 48-52 px cap-height
+- Subtitle "The complete Picture": maybe 40 px
+
+Let me estimate the layout regions in fractions:
+- Badge: top-right, roughly x: 0.885-0.945, y: 0.075-0.17
+- Title block: centered, roughly x: 0.25-0.75, y: 0.38-0.60
+- Bottom strip: black bar at y > 0.95
+
+Actually looking more carefully, the border of the slide rectangle: left edge around x=0.07, right edge around x=0.93, top edge around y=0.08, bottom edge around y=0.95 (with a black strip below).
+
+Let me refine coordinates from the image:
+- The image is 960x540.
+- The red border rectangle starts at approximately x=68 (0.071) from left and x=892 (0.930) from right... wait, actually the right edge of the red rectangle seems around x=900. The badge at 885-935.
+- The black bottom strip starts at yâ525 (0.972).
+
+Title position: The text "Multi-Layer Neural Network" cap height spans roughly from y=225 to y=270; the second line from y=290 to y=335. Horizontally centered: "Multi-Layer Neural Network" spans approximately x=255 to x=705.
+
+Font size: If cap height of "M" is ~45px, font size would be ~62-65px? Let me think. Cap height is typically ~70% of font size. 45px cap height / 0.7 â 64px. Hmm, that's for the big title. Actually let me recons: The frame is 960x540. The title appears big. Let me estimate: the word "Neural" spans maybe from x=390 to x=530? Hard to know exactly.
+
+Let me count characters: "Multi-Layer Neural Network" is 26 characters. The text spans about 450px (from 255 to 705). Average character width ~17.3px. For bold sans-serif, average char width is roughly 0.55-0.6 of font size. 17.3/0.57 â 30px? That seems too small for the visual.
+
+Hmm, let me reconsider. If the text spans 450px and 26 characters, average width = 17.3px/char. For bold Arial, average width is about 0.55 em. So font size â 31px. But cap height "M" at 31px font would be ~22px. That's plausible actually? The letters look taller than 22px though. Let me look again...
+
+The image is 540 tall. The two text lines occupy roughly the middle band from y=225 to y=340 out of 540, so about 115px total for two lines including spacing. If each line's cap height is ~45px, then font size ~64px each, line spacing perhaps 110px total including ascender/descender space. Hmm, but then the width of 26 chars would be much larger than 450px.
+
+Let me redo: If font size is ~60px bold, average char width ~0.58*60 = 35px. 26 chars = 910px â nearly full width. From the image, the text spans most of the middle width? Looking at the thumbnail, "Multi-Layer Neural Network" does span a large portion, maybe from x=250 to x=710? That would be 460px. Hmm.
+
+Actually, in the displayed image, the title spans roughly from 25% to 72% of the width. So about 450px. With 26 characters, avg 17.3px per char. That suggests font size ~30px. But that seems small relative to the 540 height. But wait â the image shows the title reasonably large relative to the slide. If the slide were 1280x720 design scaled to 960x540... 
+
+Let me just estimate proportionally: A 26-character title at font size F bold spans about 26 * 0.56 * F = 14.6F pixels. For span 450px, F â 31px. Cap height â 0.72 * 31 â 22px. The title band y=225-270 is 45px tall, but that includes... hmm, no ascenders beyond cap height much (except "l", "y" descenders). "Multi-Layer Neural Network" has no descenders except 'y' in "Layer" and "y' in nothing else. Actually "Layer" has 'y' with descender. Cap top to baseline ~22px, then descender to ~270, and the second line cap top at 285. So line pitch ~60px? Total block 225-335 = 110px for line 1 plus line 2. That could suggest larger font.
+
+Hmm, let me reconsider the span. Perhaps the title spans x=200 to x=760 (560px)? Then F â 38px, cap height â 27px.
+
+I'll estimate font size as ~40px for the main title and ~32px for the subtitle, being honest about uncertainty. Actually the subtitle "The complete Picture" is 21 chars and appears noticeably shorter than the title line, roughly 60-65% the width. If both were same font size, subtitle would be 21/26 = 81% the width. It looks like it might be slightly smaller or the same. Looking at the image, "The complete Picture" appears smaller in height than the first line â the height difference is noticeable. So subtitle ~20-25% smaller.
+
+Estimates:
+- Title font size: ~44px (range 40-48)
+- Subtitle font size: ~36px (range 32-40)
+
+Hmm, I want to be careful. Let me think about the actual pixels. The image shown is 960x540 displayed perhaps at 704x468 in my view? The title's cap height in the display... I'll estimate cap height of "M" and "N" â 45 px in original frame. That gives font size â 45/0.72 â 62px. Width would then be 26*0.56*62 â 900px, which would nearly span the full frame â but the visible span is not that wide.
+
+I think cap height ~30px is more consistent with both. Let me settle: title font size â 42px, cap height â 30px. Span: 26 chars Ã 0.56 Ã 42 â 610px. Hmm, that's wider than I estimated.
+
+OK here's a cleaner approach: typical title occupies from about 26% to 70% of width. 0.44 Ã 960 = 422px. 26 chars â 16.2px/char â font â 29px bold. Subtitle 21 chars same width ratio: 16.2Ã21 = 341px span â 35.5% of width. In the image, subtitle looks like it spans ~30-40% of width. OK so font ~29-32px for title, subtitle maybe 26-28px.
+
+But hold on, comparing relative heights: the title cap height looks to be about 1/12 of the frame height. 540/12 = 45px. Hmm, that conflicts.
+
+I'll just give ranges: Title ~40-48px; subtitle ~32-38px. Note uncertainty.
+
+Actually, let me look at the image again mentally. The title "Multi-Layer Neural Network" â the letters look quite large. In a 540px tall frame, the title band appears to be about 15-20% of height. The 'M' spans maybe y=225 to 260? The bottom line "Picture" baseline around y=340. 
+
+The distance between the two lines' baselines: if font size ~60px, line spacing might be ~75-80px. From cap top of line 1 (~225) to cap top of line 2 (~285) = 60px pitch. With font ~55-60px and line-height 1.0, cap-to-cap pitch â font size Ã (ascent+descent)/cap... roughly 1.2Ã cap height â 1.2 Ã 0.72F = 0.86F... hmm, pitch 60 â F â 70? That seems too big.
+
+I can't nail this precisely without measuring. I'll say: Title font size estimated at ~48-60px bold; subtitle ~40-48px bold, noting uncertainty. Actually, the safest is to give a single estimate with explanation: "approximately 50px" for title and "approximately 40px" for subtitle. Hmm.
+
+Let me instead think about what's likely: this is a widescreen 960x540 capture of a 16:9 slide. A typical PowerPoint title at 1280x720 default would be 40pt (â53px at 96dpi for 720p? Actually 40pt at 96dpi = 53px in 720p). Scaled to 540: ~40px. Hmm.
+
+I'll say title â 44px, subtitle â 36px bold sans-serif, with note.
+
+Color of text: dark red â looks like #B22222-ish or #C0392B. The red border rectangle is a slightly different, darker red or maybe the same. The title red looks like #A93226 or #B03A2E. I'll estimate #B03A2E (a dark crimson). Badge yellow: #F7DC6F or #F4D03F â looks like a light yellow #F9E79F? The badge appears pale yellow with darker outline. I'll say #F7DC6F.
+
+Background: #F2F3F4 or #EFEFEF (light gray). Border of slide: dark red #7B241C? The border appears dark red/maroon, maybe #922B21.
+
+Bottom black strip: black (#000000) or dark gray, at the very bottom ~y 520-540? Looking at the image, there's a black band at bottom from yâ515 to 540 (about 25px). Hmm, it looks like a black bar under the slide, maybe part of the video player capture. I'll note it as a bottom strip ~0.04-0.05 of frame height, color near-black.
+
+Badge position: top-right, center around (0.905, 0.115) of frame, radius ~0.035 of width (~34px diameter?). The badge has number "27" in black text, slightly bold. Actually the number looks dark, maybe black. Diameter ~35px.
+
+Also there's a small arrow cursor (mouse pointer) at approximately x=0.57, y=0.53 (after "Picture"). It's a white arrow with black outline. This is an artifact, I should note it as present but it's not slide content.
+
+Layout regions:
+- Region 1: Top band (y 0 to 0.08): background color; yellow badge at top right.
+- Region 2: Slide border rectangle (x 0.07-0.93, y 0.08-0.95), thin dark red outline.
+- Region 3: Center text block (x ~0.26-0.74, y ~0.40-0.63), centered.
+- Region 4: Bottom strip (y ~0.955-1.0), black bar.
+
+No equations, no graphs, no tables.
+
+Summary line: "3 text blocks (badge number, title line 1, title line 2), 0 equations, 0 graphs, 0 tables."
+
+Wait â should the badge count as a text block? It contains text "27". I'll count it: 3 text blocks, 0 equations, 0 graphs, 0 tables.
+
+Let me write the full report now, following the exact order requested.
+
+For the title verbatim: "Multi-Layer Neural Network" / "The complete Picture" â note capitalization: "The complete Picture" with lowercase "complete" and capital "Picture". Single color (red) across both lines.
+
+Font: bold sans-serif (looks like Arial Bold or Calibri Bold). All caps? No, it's title case. 
+
+Other text: "27" in badge; cursor is not text.
+
+Geometry notes:
+- Title block is horizontally and vertically centered within the slide rectangle.
+- The two lines have loose line spacing (~1.2-1.4 em).
+- The mouse cursor arrow overlaps to the right of "Picture" â a capture artifact, not part of the slide.
+- Badge sits at top-right, slightly overlapping/inside the slide border's corner region.
+- The bottom black strip is flush with the frame bottom.
+
+Colors list:
+1. Slide background: #F2F3F4 (light gray, ~96% of frame)
+2. Title text red: #B03A2E (dark crimson)
+3. Slide border line: #922B21 (dark maroon red) â thin 2-3px
+4. Badge fill: #F7DC6F (pale yellow)
+5. Badge border/number: black/dark #1B2631 or #212F3C
+6. Bottom strip: #000000/#17202A (near black)
+
+Maybe the badge border is a thin dark yellow/olive. I'll say dark outline.
+
+I'm fairly confident. Let me write it up.</think>## 1. PRINTED SLIDE NUMBER
+- **27** â black bold digits centered inside a yellow circular badge in the **top-right corner** of the frame. No other numbers appear anywhere on the slide.
+
+## 2. TITLE
+Two lines, both in the **same single color (dark crimson red)**, bold sans-serif:
+
+- Line 1: **"Multi-Layer Neural Network"** â larger, ~44â48 px bold
+- Line 2: **"The complete Picture"** â smaller, ~34â38 px bold (note the capitalization: lowercase "complete," capital "P" in "Picture")
+
+## 3. ALL OTHER TEXT
+- Badge text: **"27"** (~18â20 px, bold, near-black), centered vertically and horizontally inside the yellow circle.
+- No bullets, no body text, no footnotes. Nothing illegible.
+- A small white mouse-pointer/arrow graphic appears to the right of the word "Picture" â this is a **screen-capture artifact**, not slide content.
+
+## 4. EQUATIONS
+- None.
+
+## 5. GRAPHS/CHARTS/DIAGRAMS
+- None. (The arrow shape is a cursor, not a diagram element.)
+
+## 6. TABLES/BOXES
+- One circular badge (top-right): pale-yellow fill, thin dark outline, containing "27". Approx. diameter ~35â40 px.
+- One full-slide border rectangle: thin (~2â3 px) dark-red outline frame enclosing the slide area, running near the frame edges.
+
+## 7. LAYOUT REGIONS
+- **Top strip** (y â 0.00â0.08): plain background; yellow badge occupies the right end (x â 0.885â0.945).
+- **Border frame** (x â 0.07â0.935, y â 0.08â0.955): thin dark-red rectangle defining the slide proper.
+- **Center text block** (x â 0.26â0.74, y â 0.40â0.63): two centered title lines, horizontally centered; block sits slightly above vertical center.
+- **Bottom strip** (y â 0.955â1.00): solid near-black band flush with the frame's bottom edge (part of the capture, not slide content).
+
+## 8. COLORS
+| Color | Approx. hex | Where used |
+|---|---|---|
+| Light gray (background) | #F2F3F4 | Slide fill (~96% of frame) |
+| Dark crimson red | #B03A2E | Both title lines |
+| Dark maroon | #922B21 | Slide border outline |
+| Pale yellow | #F7DC6F | Badge fill |
+| Near-black | #1B2631 | Badge outline and "27" digits |
+| Black | #000000 | Bottom strip |
+
+## 9. GEOMETRY NOTES
+- Title block is horizontally centered within the border frame; the two lines use generous line spacing (~1.2â1.4 em) â mis-measuring this would compress the two lines.
+- Both lines are optically centered with equal side margins; "The complete Picture" is visibly shorter in cap-height than line 1, so the size difference is real, not perspective.
+- The badge sits at the top-right, just inside/abutting the border frame corner; its number is vertically centered within the circle.
+- The mouse-cursor arrow overlaps the right side of "Picture" and must be treated as an overlay, not typography.
+- The bottom black band is flush with the frame edge â include it in the background mask, not the content.
+
+**Summary: 3 text blocks, 0 equations, 0 graphs, 0 tables.**
+

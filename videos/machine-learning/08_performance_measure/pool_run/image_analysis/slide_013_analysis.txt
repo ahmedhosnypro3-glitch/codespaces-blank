@@ -1,0 +1,422 @@
+[info] context header injected: VIEW: Slide 13 — Combine Precision and Recall in one number | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 85953
+[warn] /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_013.jpg: winner length 26815 chars ≈ the --max-tokens budget — likely TRUNCATED mid-body; re-run with a higher --max-tokens if sections are missing
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_013.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants me to analyze a slide image from a lecture video. The image is described in the prompt with a VIEW and CAPTURE line. I need to extract all text, layout, visual elements, colors, typography, numeric details, anomalies, fidelity risks, and give a verdict.
+
+Looking at the image content:
+- Title: "Combine Precision and Recall in one number" in red at top left
+- Yellow badge with "13" at top right
+- A diagram with "Positive" (red) and "Negative" (green) labels at top
+- Airplane icons under Positive and Negative
+- Nodes: "30" (dark red circle), "20" (red circle, labeled TP), "10" (green circle, labeled FN) under Positive
+- Under Negative: "70" (dark green circle), "59" (green circle, labeled TN), "11" (red circle, labeled FP)
+- A green box: "Good Model:" followed by "Properly Classifies 20 out of 30 as Positive" and "Properly Classifies 59 out of 70 as Negative"
+- Yellow/cream box: "Precision= 20/(20+11) =>64.5%"
+- Blue outlined box: "Recall= 20/(20+10) =>66.6%" - there seems to be a cursor/arrow pointing at this
+- Yellow/cream box: "Average= 68.7%+60% =>65.55%" (note: 60% not 66.6%, possibly an error in the slide or transcription? Let me look carefully. The text says 68.7%+60% which seems inconsistent with the recall 66.6%. But I must transcribe verbatim.)
+- Top right: two formula boxes:
+  - "Precision = TP/(TP+FP)" in a yellow/orange rounded box
+  - "Recall = TP/(TP+FN)" in a blue rounded box
+
+Wait, looking at the "Average" line: "Average= 68.7%+60% =>65.55%". Hmm, 68.7+60 = 128.7, half is 64.35, not 65.55. If it were 66.6%, average would be 67.65%. Something is odd. But I need to transcribe exactly what is printed. Let me re-read the image description. It says "68.7%+60%". Actually, maybe it's "68.7%+66.6%"? The image shows "68.7%+60%=>65.55%". But (68.7+62.4)/2 = 65.55. So 60% would give 64.35%. The number 65.55% doesn't match 68.7% and 60%. However, my job is to transcribe what's there. Perhaps the "60%" is actually "62.4%"? No, the OCR-like description in the image says "68.7%+60%". I'll transcribe what I see: "Average= 68.7%+60% =>65.55%". Wait, I should look at the image again mentally. The text in the bottom box clearly reads "Average= 68.7%+60% =>65.55%". There's an inconsistency, but it's data.
+
+Actually, looking more carefully at the image, perhaps it says "68.7%+66.6%"? Let me reconsider. The rendered image in the prompt: "Average= 68.7%+60% =>65.55%". I will transcribe that verbatim, but note the anomaly.
+
+Also there's a mouse cursor overlapping the "Recall=" line.
+
+Let's structure the output:
+
+## 1. VERBATIM TEXT
+- "Combine Precision and Recall in one number" â title, red, ~36-40pt, top left
+- "13" â in yellow circle badge, top right
+- "Positive" â red text, inside white box, top left of diagram
+- "Negative" â green text, inside white box, top middle of diagram
+- "Precision = TP/(TP+FP)" â in yellow/orange box, top right
+- "Recall = TP/(TP+FN)" â in blue box, top right, below precision formula
+- "Good Model:" â bold green text, in green-bordered box, left side
+- "Properly Classifies 20 out of 30 as Positive" â black text, same box
+- "Properly Classifies 59 out of 70 as Negative" â black text, same box
+- "Precision= 20/(20+11) =>64.5%" â black text, yellow box, lower left
+- "Recall= 20/(20+10) =>66.6%" â black text, blue-bordered box, lower left
+- "Average= 68.7%+60% =>65.55%" â black text, yellow box, bottom left
+- "30" â white text, dark red circle, diagram
+- "20" â white text, red circle, label "TP" below it
+- "10" â white text, green circle, label "FN" below it
+- "TP" â black text label under left bottom node
+- "FN" â black text label under right bottom node
+- "70" â white text, dark green circle, diagram
+- "59" â white text, green circle, label "TN" below it
+- "11" â white text, red circle, label "FP" below it
+- "TN" â black text label under left bottom node under Negative
+- "FP" â black text label under right bottom node under Negative
+
+Positions: Need approximate x,y,w,h at 960x540. The slide frame is roughly 960x540. Title starts around x=100, y=80. Badge at x=890, y=80. Diagram occupies roughly x=75-550, y=120-420. Formula boxes at x=775-930, y=120-220. Good model box x=75-550, y=430-500. Top formula boxes x=775-930, y=125-220.
+
+Actually the slide image has a border/frame. The content is inside a white area with a red border? The image shows a white slide with a thin border.
+
+Let's be precise enough.
+
+## 2. LAYOUT MAP
+- Title bar/text: top left.
+- Badge: top right circle.
+- Diagram cluster: left-center, rectangular white area with red border containing Positive/Negative tree.
+- Formula reminder boxes: top right column.
+- Good Model box: below diagram, left-center.
+- Calculation boxes: below Good Model box, three stacked horizontal boxes.
+- Overall background: white/very light gray, with a red outline border around the slide content.
+
+## 3. VISUAL ELEMENTS
+- Confusion matrix tree diagram: Nodes are circles with numbers, connected by lines. Top nodes (30, 70) intermediate, bottom leaf nodes (20/10, 59/11). Labels TP/FN/TN/FP under leaves. Airplane icons above top nodes under "Positive"/"Negative" header labels.
+- Arrows/connectors: lines from 30 to 20 and 10; from 70 to 59 and 11. Also maybe lines from airplane to 30/70? Probably direct connections in tree.
+- Boxes: rounded rectangles for formula reminders; rectangular boxes with colored borders for calculations.
+- Cursor: mouse pointer arrow overlaps the "Recall=..." box (draw a small pointer there).
+
+## 4. COLORS
+- Background: white (#FFFFFF) or off-white.
+- Title text: red (#C00000 or similar).
+- Badge fill: yellow (#FFFF00), border/text black.
+- "Positive" text: red/maroon.
+- "Negative" text: green.
+- Node fills: dark red (#B22222 / #A00000), bright red (#FF0000 / #E00000), dark green (#006400 / #008000), bright green (#00B050 / #00FF00).
+- Diagram outer box border: red.
+- Good Model box border: green (#00B050), fill white; header text green.
+- Precision box fill: yellow/cream (#FFFFCC / #FFF2CC), border maybe none/thin.
+- Recall box fill: white/purple-ish? Actually image shows light gray/white with blue border.
+- Average box fill: yellow/cream (#FFFFCC / #FFF2CC).
+- Top right Precision formula box fill: yellow (#FFFF99 / #FFF2CC), border brown/dark yellow.
+- Top right Recall formula box fill: blue (#DDEBF7 / #BDD7EE), border blue.
+- Connector lines: blue/dark gray.
+- Text: black (#000000).
+
+## 5. TYPOGRAPHY & STYLE
+- Title: bold, sans-serif (Arial-like), ~36pt, red, top-left.
+- Badge: white/yellow circle with black numeral "13", ~24pt.
+- Body text: sans-serif, ~20-24pt depending.
+- "Good Model:" bold green.
+- Equations in boxes: same size, with => arrows.
+- Decorative elements: colored boxes, circles, airplane icons.
+
+## 6. NUMERIC DETAILS
+- 30, 20, 10, 70, 59, 11.
+- 20/(20+11) => 64.5%
+- 20/(20+10) => 66.6%
+- 68.7%+60% => 65.55%
+- TP+FP, TP+FN in formulas.
+- Slide number 13.
+- Also "20 out of 30", "59 out of 70".
+
+## 7. ANOMALIES
+- Mouse cursor/arrow over the "Recall=" text box.
+- The "Average" calculation uses "60%" which is inconsistent with the previously stated "66.6%" and the computed result "65.55%" does not follow from 68.7% and 60%. Possible typo in lecture slide or OCR ambiguity; transcribe exactly as shown.
+- Title maybe has a red underline or border? There's a red border around slide.
+- If the slide number badge has a highlight/circle, note it.
+
+## 8. TOP-3 FIDELITY RISKS
+1. The color and fill of the two top-right formula boxes (yellow vs blue) and their exact rounded-rectangle shape.
+2. The exact values/text in the "Average" line (the "60%" vs "66.6%" discrepancy and results).
+3. The airplane icon style and tree connector line positions/colors in the diagram.
+
+## 9. VERDICT
+- Recreatability: 9/10 (all elements visible and legible except possible minor ambiguity in "Average" second percentage).
+- Confidence: High for most, Medium for the exact percentage in Average line if low resolution.
+- Not transcribed: Nothing deliberately omitted; cursor is noted but no text.
+
+Let's refine the text positions:
+- Title: approx x=75, y=75, w=800, h=70. Actually "Combine Precision and Recall in one number" spans from x~90 to x~880. Font size maybe 36.
+- Badge: x=893, y=70, d=45.
+- Diagram container: x=75, y=120, w=445, h=300 (to y=420).
+- Formula right top: x=770, y=120, w=175, h=90 (two boxes stacked, each h~45).
+- Good Model: x=75, y=435, w=445, h=60.
+- Precision box: x=75, y=500, w=445, h=30.
+- Recall box: x=75, y=535? Wait image height 540, so maybe y=500, h=30; next y=535 impossible. Let me recalc. The image shows boxes lower on slide. Maybe:
+  - Good Model: y=420 to 470.
+  - Precision: y=475 to 505.
+  - Recall: y=510 to 540? But bottom is 540. Hmm, maybe slide content extends to bottom edge. Let's give approximate relative positions rather than exact. Actually 960x540 is the coordinate. The boxes might be:
+  - Good model: 75,420,445,65
+  - Precision: 75,490,445,30
+  - Recall: 75,522,445,30 (maybe cropped at bottom? No, bottom margin exists? In the image, "Average=" seems near bottom but there is space. Wait, the capture is 960x540. The "Average=" line appears to be above the bottom edge. Let's estimate: Precision line y=485; Recall y=520; Average y=555? That can't be. Let's look again at the image proportions.
+
+Actually the slide content seems to have:
+- Title at top ~10% margin.
+- Diagram from ~22% to ~55%.
+- Good Model box ~58% to ~68%.
+- Precision box ~70% to ~77%.
+- Recall box ~78% to ~85%.
+- Average box ~86% to ~93%.
+So in 540px:
+- Title y=50.
+- Diagram y=120-300? No width... Let's use percentages:
+  - Diagram top ~110, bottom ~410.
+  - Good model ~420-480.
+  - Precision ~485-515.
+  - Recall ~520-550? But 540 limit.
+Maybe camera frame includes slide border and some outside. It's okay, estimates.
+
+Let's write positions:
+- Title: (75,70) to (890,115)
+- Badge: (890,60) to (940,110)
+- Diagram frame: (75,120) to (520,420)
+- Positive header: (110,130)-(230,160)
+- Negative header: (330,130)-(460,160)
+- Top right formula Precision: (770,130)-(940,175)
+- Top right formula Recall: (770,185)-(940,230)
+- Good Model box: (75,430)-(520,500)
+- Precision calc: (75,505)-(520,535)? Wait can't overlap bottom? The image bottom is around there. Let's set: (75,505)-(520,530). Hmm. Maybe:
+  - Precision calc: (150,495)-(780,525) (centered box)
+  - Recall calc: (150,525)-(780,555) -> too low.
+Let's not be overly precise. Give approximate bounding boxes.
+
+Actually the "Precision= 20/(20+11) =>64.5%" box seems to be from x=152 to x=778, y=493 to 522. Recall next y=522 to 552? The image shows them tightly stacked with Average last. I'll use y ranges: 488-518, 518-548, 548-578 but 540 max means last is cut? The image might have bottom margin below. I'll just say stacked at bottom left-center.
+
+Need to include the TP/FN labels:
+- "TP" at x~105, y~390.
+- "FN" at x~270, y~390.
+- "TN" at x~380, y~390.
+- "FP" at x~500, y~390.
+
+Wait the diagram: Under Positive: left node 20 at x~110, right node 10 at x~270. Under Negative: left node 59 at x~360, right node 11 at x~480. So labels correspond.
+
+Let's verify numbers from image: "20" TP, "10" FN, "59" TN, "11" FP. Yes.
+
+Colors details:
+- "Positive" label text is red (#C00000 maybe). "Negative" green (#00B050).
+- "30" circle fill dark red (#8B0000 or #A52A2A? looks like dark brownish red). Let's say #9C1F1F.
+- "20" circle fill red (#FF0000).
+- "10" circle fill green (#00B050).
+- "70" circle fill dark green (#006400).
+- "59" circle fill green (#00B050).
+- "11" circle fill red (#FF0000).
+- "TP/FN/TN/FP" black text.
+
+Top right formulas: The text colors: "TP", "FP", "FN" appear red/maroon in fraction numerator/denominator? In the image, the letters TP and FP are red in the Precision formula, TP and FN red in Recall formula. The box fill precision is yellow-ish (#FFF2CC), recall is blue-ish (#DDEBF7). Border of precision box maybe brown (#BF9000), border of recall box blue (#2E75B6).
+
+Calculation boxes: fill #FFF2CC for Precision and Average; fill #DDEBF7? Actually the Recall calc box seems white with blue border. In the image, the Recall box appears light blue (#DDEBF7) and has a blue border. Precision and Average boxes are light yellow (#FFF2CC) with thin borders maybe darker yellow or none. Good Model box: fill white, border green (#00B050), text green and black.
+
+Let's structure Â§1 with each string.
+
+Need to ensure first characters are "## 1. VERBATIM TEXT". No preamble.
+
+Let's draft:
+
+## 1. VERBATIM TEXT
+- `Combine Precision and Recall in one number` â title text, red (#C00000), bold sans-serif, approx. x=88 y=72 w=790 h=68, ~36 pt.
+- `13` â white/yellow circle badge, black text, approx. x=895 y=72 w=42 h=42, ~24 pt.
+- `Positive` â dark red text on white, x=135 y=130 w=95 h=24, ~20 pt.
+- `Negative` â dark green text on white, x=345 y=130 w=85 h=24, ~20 pt.
+- `30` â white text in dark-red circle, x=205 y=165 w=40 h=40.
+- `20` â white text in red circle, x=115 y=240 w=38 h=38.
+- `10` â white text in green circle, x=268 y=240 w=38 h=38.
+- `TP` â black label under node, x=105 y=290 w=58 h=22, ~18 pt.
+- `FN` â black label, x=258 y=290 w=58 h=22.
+- `70` â white text in dark-green circle, x=378 y=165 w=40 h=40.
+- `59` â white text in green circle, x=338 y=240 w=38 h=38.
+- `11` â white text in red circle, x=487 y=240 w=38 h=38.
+- `TN` â black label, x=328 y=290 w=58 h=22.
+- `FP` â black label, x=477 y=290 w=58 h=22.
+- `Precision = TP/(TP+FP)` â black text (TP/FP red) in yellow rounded box, x=772 y=132 w=162 h=42, ~18 pt.
+- `Recall = TP/(TP+FN)` â black text (TP/FN red) in blue rounded box, x=772 y=182 w=162 h=42, ~18 pt.
+- `Good Model:` â bold dark-green text, x=88 y=438 w=110 h=22, ~18 pt.
+- `Properly Classifies 20 out of 30 as Positive` â black text, x=88 y=460 w=430 h=22, ~16-18 pt.
+- `Properly Classifies 59 out of 70 as Negative` â black text, x=88 y=482 w=430 h=22, ~16-18 pt.
+- `Precision= 20/(20+11) =>64.5%` â black text on pale yellow box, x=75 y=498 w=445 h=32, ~20 pt.
+- `Recall= 20/(20+10) =>66.6%` â black text on pale blue box, x=75 y=532? Approximately x=75 y=530 w=445 h=32? Wait image bottom is 540, but there is also Average below. This can't fit. Let me re-evaluate.
+
+Maybe the boxes are not at the bottom but between diagram and bottom. Let's estimate stack:
+- Diagram bottom ~390 (with labels).
+- Good Model box: 415-480.
+- Precision box: 485-510.
+- Recall box: 512-537? Only 3px gap. But Average is after. Actually image shows four boxes stacked vertically after diagram. If diagram ends at 400, Good Model 410-460, Precision 465-490, Recall 495-520, Average 525-550 (cut off slightly?). The visible content ends near the very bottom, with Average partially visible? In the provided image, the Average line is visible and near bottom but there is still white below. Hmm.
+
+Let's choose percentages of height instead:
+- Precision calc at y=490-515
+- Recall calc at y=518-543? No.
+
+Maybe the slide is taller than content? The image is 960x540. Let's assume:
+- Precision: top=488, bottom=518.
+- Recall: top=519, bottom=549 (but bottom exceeds 540? No, maybe 519-548 is outside capture). Hmm.
+
+Let's just provide relative placements: "bottom-left column, three stacked boxes". Give approximate values like x=150 w=640. For y, I'll give estimates that sum: Precision 490, Recall 515, Average 540? But 540 is edge. Perhaps Average box is cropped by capture? In the image, Average text is visible fully near bottom. So maybe:
+- Precision 485-508
+- Recall 509-532
+- Average 533-556 -> partially out of frame? But the image shows "Average=" line clearly. Maybe the slide has different proportions: diagram ends earlier.
+
+Let's look at actual thumbnails: The title takes ~70px. Diagram from 120 to 400. Good Model 405-450. Precision 455-478. Recall 480-503. Average 505-528. Bottom margin 12px. That fits. Let's use those y ranges:
+- Precision calc: y=455 h=25
+- Recall calc: y=482 h=25
+- Average calc: y=509 h=25.
+Good.
+
+I'll write: `Precision= 20/(20+11) =>64.5%` at (152,455)-(778,480).
+`Recall= 20/(20+10) =>66.6%` at (152,482)-(778,507).
+`Average= 68.7%+60% =>65.55%` at (152,509)-(778,534).
+
+This seems plausible.
+
+Check the image: The Precision box looks a bit taller, maybe 30px. Good.
+
+Also note the formula boxes at top right: they are rounded rectangles. Precision box is at x=772, y=130, w=162, h=44. Recall at y=180, h=44.
+
+Diagram frame: The white area containing diagram has a red border? Looking closely, there is a thin red rectangle around the whole diagram region? Actually in the image, the diagram area is enclosed with a red border from x~76 to x~517 and y~120 to y~410. It contains the tree and labels. Let's call it a bordered container. Good Model box is inside? No, separate below. The Positive/Negative header and tree inside that bordered box. The border might be red 1-2px. It starts just after title. I'll mention.
+
+Now Â§2 layout: reading order top->bottom: title, badge, top-right reminders, diagram (left to right: Positive branch then Negative branch), Good Model, calculations.
+
+Â§3: describe tree diagram details: lines/arrows:
+- Airplane icon (gray line drawing) above "30" under Positive.
+- Airplane icon above "70" under Negative.
+- Line from bottom of 30 splits to 20 and 10? Actually the lines are angled: from 30 to 20, from 30 to 10; from 70 to 59, from 70 to 11.
+- Each leaf has label below, not connected by text box.
+
+Equations: Fractions use a horizontal bar; numerator TP above, denominator below. The equals sign has color? For recreation notes.
+
+Â§4 colors: list with hex estimates:
+- #C00000 title red, Positive text, maybe diagram border.
+- #FFD966 / #FFFF99 for reminder precision box and calc precision/average fill.
+- #DDEBF7 for reminder recall box and calc recall fill.
+- #8B0000 dark red node fill.
+- #FF0000 bright red node fill.
+- #006400 dark green node fill.
+- #00B050 bright green node fill.
+- #000000 text.
+- #FFFFFF background and fills inside diagram/good model.
+- #2E75B6 blue borders/lines maybe connectors.
+- #008000 green "Negative" and Good Model text.
+
+Let's see if connectors are dark blue: The lines connecting circles appear black or dark blue. I'll say dark gray/black lines.
+
+Â§5 Typography: Title 36pt bold Arial. Body 18-20pt. Slide badge 24pt. Fonts all sans-serif. Good model header bold.
+
+Â§6 numbers: as above.
+
+Â§7 anomalies: mouse cursor (white arrow) at x~665 y~497 overlapping "Recall=" box; "Average=68.7%+60%" inconsistency; slide content extends possibly close to bottom; some circles have slight shadow? Not required. Mention that the diagram's connector lines pass near/behind icons maybe.
+
+Â§8 top risks:
+1. Exact fill colors and border colors of the boxes (yellow vs blue) and maintaining distinction between reminder boxes and calculation boxes.
+2. Correctly transcribing the anomalous Average equation: use printed "60%" and "65.55%" even though mathematically inconsistent.
+3. Reproducing the tree diagram node colors and the specific red/green circle sizes, plus the small airplane icons.
+
+Â§9 verdict: Score 9. Confidence high, except minor ambiguity in Average line. Nothing omitted.
+
+Make sure to output only numbered sections.
+
+Double-check the "Average" text. Could it be "Average= 68.7%+60% =>65.55%"? If the slide truly says that, it's a good anomaly. If it is actually "Average= 68.7%+66.6% =>67.65%" but OCR misread, I'd be wrong. But from the small image, it looks like "60%". The right side says "65.55%". The average of 68.7 and 62.4 is 65.55. 62.4 might be written as "62.4%" and visually could look like "60%"? No, it would show 62.4. Another possibility: The first number is "67.7%"? 67.7+63.4=131.1/2=65.55. No. It is likely a genuinely inconsistent notation or typo in lecture. I will transcribe "60%" and note it.
+
+Could the text be "Average= 68.7%+62.4% =>65.55%"? Wait maybe the image shows "62.4%"? I need to look closely. The thumbnail: "Average= 68.7%+60% =>65.55%". It does look like 60% in the low-res. But 68.7% is Precision. Recall is 66.6%. Average of 68.7 and 66.6 is 67.65. If using F1-like harmonic mean? No. If using (Precision+60%)/2 =64.35. The printed result 65.55 strongly suggests second term is 62.4%. Why would second term be 62.4? Maybe precision was 68.7 and the other metric is 62.4? But Recall printed is 66.6. Alternatively, maybe first term is 67.7 and second 63.4? Hard.
+
+Maybe the slide has a typo where "Average= 68.7%+60% =>65.55%" is intentionally wrong as a teaching point? I will transcribe exactly as seen and flag it.
+
+In Â§1, for unreadable text, there is none. Use [illegible] where needed. None.
+
+For the equations in Â§3:
+- Precision = TP / (TP + FP) with horizontal fraction bar. In text box: "TP" on top, bar, "TP + FP" below. Colors: TP and FP in maroon/dark red.
+- Recall = TP / (TP + FN) similarly, TP and FN maroon/dark red, box blue.
+- Calculation equations are inline slash notation, not stacked: "Precision= 20/(20+11) =>64.5%" etc.
+
+Positioning of diagram:
+- "Positive" and "Negative" are in small rectangles? Actually they appear as text headers inside the bordered region, not boxes. No fill.
+- Airplane icons: light gray outline drawings, about 50x30 px.
+
+Let's ensure all strings:
+- "Combine Precision and Recall in one number"
+- "13"
+- "Positive"
+- "Negative"
+- "30"
+- "20"
+- "10"
+- "TP"
+- "FN"
+- "70"
+- "59"
+- "11"
+- "TN"
+- "FP"
+- "Good Model:"
+- "Properly Classifies 20 out of 30 as Positive"
+- "Properly Classifies 59 out of 70 as Negative"
+- "Precision= 20/(20+11) =>64.5%"
+- "Recall= 20/(20+10) =>66.6%"
+- "Average= 68.7%+60% =>65.55%"
+- "Precision = TP/(TP+FP)"
+- "Recall = TP/(TP+FN)"
+
+Also maybe "=" signs and "=>" are separate data? They are part of strings.
+
+The title is possibly in a dark red with an underline? The image shows just text; no underline except a red border at top? There is a red horizontal line under title maybe? Actually the slide has a red border around whole content; not an underline. I'll note in layout.
+
+Let's prepare final answer.</think>## 1. VERBATIM TEXT
+
+- `Combine Precision and Recall in one number` â title, red, bold sans-serif, approx. x=88 y=70 w=790 h=70, ~36 pt.
+- `13` â black numeral inside pale-yellow circular badge, approx. x=892 y=68 w=44 h=44, ~24 pt.
+- `Positive` â dark-red label text, approx. x=133 y=128 w=95 h=26, ~20 pt.
+- `Negative` â dark-green label text, approx. x=343 y=128 w=88 h=26, ~20 pt.
+- `30` â white text inside dark-red circle node, node approx. x=206 y=163 w=42 h=42, ~20 pt.
+- `20` â white text inside red circle node, node approx. x=113 y=238 w=40 h=40, ~20 pt.
+- `10` â white text inside green circle node, node approx. x=266 y=238 w=40 h=40, ~20 pt.
+- `TP` â black caption label, approx. x=104 y=288 w=58 h=24, ~18 pt.
+- `FN` â black caption label, approx. x=258 y=288 w=58 h=24, ~18 pt.
+- `70` â white text inside dark-green circle node, node approx. x=377 y=163 w=42 h=42, ~20 pt.
+- `59` â white text inside green circle node, node approx. x=337 y=238 w=40 h=40, ~20 pt.
+- `11` â white text inside red circle node, node approx. x=487 y=238 w=40 h=40, ~20 pt.
+- `TN` â black caption label, approx. x=328 y=288 w=58 h=24, ~18 pt.
+- `FP` â black caption label, approx. x=478 y=288 w=58 h=24, ~18 pt.
+- `Precision = TP/(TP+FP)` â text in pale-yellow rounded box, `TP` and `FP` red, approx. x=770 y=130 w=166 h=46, ~18 pt.
+- `Recall = TP/(TP+FN)` â text in pale-blue rounded box, `TP` and `FN` red, approx. x=770 y=182 w=166 h=46, ~18 pt.
+- `Good Model:` â bold dark-green text, approx. x=90 y=436 w=112 h=24, ~18 pt.
+- `Properly Classifies 20 out of 30 as Positive` â black text in green-bordered box, approx. x=90 y=458 w=430 h=24, ~16-18 pt.
+- `Properly Classifies 59 out of 70 as Negative` â black text in green-bordered box, approx. x=90 y=480 w=430 h=24, ~16-18 pt.
+- `Precision= 20/(20+11) =>64.5%` â black text on pale-yellow box, approx. x=152 y=505 w=626 h=28, ~20 pt.
+- `Recall= 20/(20+10) =>66.6%` â black text on pale-blue box, approx. x=152 y=533 w=626 h=28, ~20 pt.
+- `Average= 68.7%+60% =>65.55%` â black text on pale-yellow box, approx. x=152 y=561 w=626 h=28, ~20 pt.
+
+## 2. LAYOUT MAP
+
+- Slide background: white/off-white full 960x540 canvas.
+- Title text: top-left region, xâ88-878, yâ70-140.
+- Slide-number badge: top-right, circular yellow-outlined badge centered near xâ914, yâ90.
+- Top-right formula reminder column: two stacked rounded boxes, xâ770-936, yâ130-228.
+- Diagram container: bordered rectangular region, xâ76-518, yâ120-410, containing:
+  - Section labels `Positive` / `Negative` at top inside container.
+  - Two airplane line-art icons beneath the section labels.
+  - Two 3-node binary trees with colored circles, angled connector lines, and TN/TP/FN/FP leaf captions beneath the leaf circles.
+- Good Model callout: green-bordered box below the diagram, xâ76-518, yâ424-502.
+- Calculation stack: three boxes below Good Model, xâ152-778, yâ505-590, vertically separated by ~2-4 px.
+- Mouse cursor: pointer graphic overlapping the `Recall=` box around xâ660-670, yâ540.
+
+## 3. VISUAL ELEMENTS
+
+- Diagram:
+  - Type: confusion-matrix / decision-tree hybrid schematic.
+  - Positive branch: `30` parent circle â `20` and `10` children; leaf captions `TP`, `FN`.
+  - Negative branch: `70` parent circle â `59` and `11` children; leaf captions `TN`, `FP`.
+  - Connectors: thin angled lines from parent circle bottom edge to each child circle; no arrowheads.
+  - Icons: two light-gray airplane outline drawings, one above `30` branch, one above `70` branch.
+- Equation reminder boxes:
+  - `Precision = TP/(TP+FP)` uses a stacked fraction: numerator `TP`, horizontal bar, denominator `TP + FP`.
+  - `Recall = TP/(TP+FN)` uses same stacked-fraction form: numerator `TP`, horizontal bar, denominator `TP + FN`.
+  - Both are inside rounded rectangles with subtle fills.
+- Calculation boxes:
+  - `Precision= 20/(20+11) =>64.5%` uses inline slash notation and a double-arrow result symbol.
+  - `Recall= 20/(20+10) =>66.6%` same inline notation.
+  - `Average= 68.7%+60% =>65.55%` same inline notation; mathematically inconsistent with prior values, but transcribed as printed.
+- No tables, bar charts, or external raster images other than the airplane icons.
+
+## 4. COLORS
+
+- Slide background: `#FFFFFF` / near-white.
+- Outer slide content border: thin red `#C00000`.
+- Title text: `#C00000`.
+- Badge: pale-yellow fill `#FFFF99`, black `#000000` numeral.
+- `Positive` label: dark red `#A52A2A`-ish maroon.
+- `Negative` label: green `#2E7D32`-ish.
+- Node fills:
+  - `30`: dark red `#8B1A1A`.
+  - `20`, `11`: bright red `#E00000`.
+  - `10`, `59`: green `#1F9D3A` / `#00B050`.
+  - `70`: dark green `#145A32`.
+- Leaf captions `TP`, `FN`, `TN`, `FP`: black `#000000`.
+- Precision reminder box fill: pale yellow `#FFF
+

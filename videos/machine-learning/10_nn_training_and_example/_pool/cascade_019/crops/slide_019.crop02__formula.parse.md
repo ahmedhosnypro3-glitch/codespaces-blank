@@ -1,0 +1,1 @@
+<x_0.0156><y_0.0>\(\frac{d E}{\partial w_{ji}=[\frac{d E}{\partial Net_{k=1}}\frac{d Net_{k=1}}{d O_j}+\frac{d E}{\partial Net_{k=2}}\frac{d Net_{k=2}}{d O_j}+\dots.+\frac{d E}{\partial Net_{k=m}\frac{d Net_{k=m}}{d O_j}]*\frac{d O_j}{d Net_j}+\frac{d Net_j}{d w_{ji}}\)<x_0.999><y_0.9914><class_Formula>

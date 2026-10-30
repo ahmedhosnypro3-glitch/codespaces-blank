@@ -1,0 +1,39 @@
+2026-10-27 22:59:58,942 INFO === crop_cascade run: slide_005.jpg ===
+2026-10-27 22:59:58,943 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 22:59:59,982 INFO chat call attempt=1 latency=1.0s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 22:59:59,983 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 22:59:59,983 INFO chat lane: active
+2026-10-27 23:00:01,614 INFO parse call attempt=1 latency=1.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=42477
+2026-10-27 23:00:01,614 INFO node root parsed: 265 chars, 112 out tokens
+2026-10-27 23:00:01,615 INFO root parsed: 265 chars
+2026-10-27 23:00:01,615 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:00:20,629 INFO chat call attempt=1 latency=19.0s url=http://localhost:17844/v1/chat/completions bytes=3220
+2026-10-27 23:00:20,630 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:00:50,360 INFO chat call attempt=1 latency=29.7s url=http://localhost:17844/v1/chat/completions bytes=3221
+2026-10-27 23:00:51,019 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 23:00:53,255 INFO parse call attempt=1 latency=2.2s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=433072
+2026-10-27 23:00:53,255 INFO node slide_005.crop01__picture parsed: 283 chars, 116 out tokens
+2026-10-27 23:01:07,723 INFO chat call attempt=1 latency=14.5s url=http://localhost:17844/v1/chat/completions bytes=3481
+2026-10-27 23:01:07,723 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:02:07,785 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:02:07,785 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.2s
+2026-10-27 23:03:03,692 INFO chat call attempt=2 latency=53.7s url=http://localhost:17844/v1/chat/completions bytes=3482
+2026-10-27 23:03:04,324 INFO level 1 done: 1 nodes -> 1 children
+2026-10-27 23:03:07,538 INFO parse call attempt=1 latency=3.2s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=459995
+2026-10-27 23:03:07,539 INFO node slide_005.crop02__picture parsed: 331 chars, 129 out tokens
+2026-10-27 23:03:23,169 INFO chat call attempt=1 latency=15.6s url=http://localhost:17844/v1/chat/completions bytes=3556
+2026-10-27 23:03:23,170 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:04:23,230 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:04:23,231 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.3s
+2026-10-27 23:05:25,639 INFO chat call attempt=2 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:05:25,639 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.4s
+2026-10-27 23:06:12,178 INFO chat call attempt=3 latency=42.1s url=http://localhost:17844/v1/chat/completions bytes=3557
+2026-10-27 23:06:12,850 INFO level 2 done: 1 nodes -> 1 children
+2026-10-27 23:06:14,126 INFO parse call attempt=1 latency=1.3s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=459980
+2026-10-27 23:06:14,127 INFO node slide_005.crop03__picture parsed: 338 chars, 133 out tokens
+2026-10-27 23:06:33,276 INFO chat call attempt=1 latency=19.1s url=http://localhost:17844/v1/chat/completions bytes=3603
+2026-10-27 23:06:33,276 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:07:00,942 INFO chat call attempt=1 latency=27.7s url=http://localhost:17844/v1/chat/completions bytes=3604
+2026-10-27 23:07:00,943 INFO node slide_005.crop03__picture stop: no-new-information — chat advised STOP: The child reproduces the parent's strings with no new content, and the sole candidate picture is the identical full-frame box whose extracted text is already complete, so another crop would add nothing.
+2026-10-27 23:07:00,944 INFO level 3 done: 1 nodes -> 0 children
+2026-10-27 23:07:00,948 INFO composed -> composed/slide_005_composed.md

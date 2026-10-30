@@ -1,0 +1,3 @@
+<x_0.9023><y_0.1195>33<x_0.9219><y_0.1508><class_Page-header>
+
+<x_0.2529><y_0.4047>**How to Kernelize SVM**<x_0.7383><y_0.4734><class_Title>

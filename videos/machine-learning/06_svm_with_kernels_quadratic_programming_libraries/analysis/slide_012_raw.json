@@ -1,0 +1,52 @@
+{
+  "slide_title": "SVM Primal Problem & Quadratic Equation in α with Constraints",
+  "subtitle_or_header": "Slide 12",
+  "verbatim_text": {
+    "bullets": [
+      "Minimize: [ +1 α₁²+2 α₁ α₂-5.5 α₁α₃-6 α₁α₄ +2 α₂α₁+4 α₂²-11 α₂α₃-12 α₂α₄ -5.5 α₃α₁-11α₃α₂+32.5 α₃²+36α₃α₄ -6α₄α₁-12α₄α₂+36α₄α₃+40α₄² ]- [ α₁+α₂+α₃+α₄ ]",
+      "Subject to: ∑ αᵢyᵢ=0 → α₁+α₂-α₃-α₄=0",
+      "α₁≤1, α₂≤1, α₃≤1, α₄≤1",
+      "αᵢ≥0 → α₁≥0, α₂≥0, α₃≥0, α₄≥0",
+      "Quadratic Equation in α with constraints",
+      "Minimize: ½ [ +2 α₁²+4α₁α₂-11α₁α₃-12α₁α₄ +4α₂α₁+8α₂²-22α₂α₃-24α₂α₄ -11α₃α₁-22α₃α₂+65α₃²+72α₃α₄ -12α₄α₁-24α₄α₂+72α₄α₃+80α₄² ]- [ α₁+α₂+α₃+α₄ ]",
+      "P = [2 4 -11 -12; 4 8 -22 -24; -11 -22 65 72; -12 -24 72 80]"
+    ],
+    "labels": [
+      "Slide 12", "Minimize:", "Subject to:", "Quadratic Equation in α with constraints",
+      "P", "qᵀ", "α₁", "α₂", "α₃", "α₄"
+    ],
+    "equations": [
+      "Minimize: ½ αᵀPα + qᵀα",
+      "P = [[2, 4, -11, -12], [4, 8, -22, -24], [-11, -22, 65, 72], [-12, -24, 72, 80]]",
+      "qᵀ = [1, 1, 1, 1]",
+      "Subject to: α₁ + α₂ - α₃ - α₄ = 0",
+      "0 ≤ αᵢ ≤ 1"
+    ]
+  },
+  "layout": {
+    "arrangement": "Top header with slide number 12 at top-right. Two stacked content panels: upper salmon/peach panel with primal SVM formulation (Minimize/Subject to); lower white panel with quadratic equation in α, P matrix (blue-bordered left), and qᵀ vector (blue-bordered right)",
+    "regions": [
+      {"name": "header", "position": "top 0-10% full width", "content": "Slide number 12 in yellow badge top-right"},
+      {"name": "primal_panel", "position": "upper 10-50% full width", "content": "Salmon/peach panel with SVM primal problem statement"},
+      {"name": "dual_panel", "position": "lower 50-95% full width", "content": "White panel with quadratic formulation, P matrix left, q vector right"}
+    ],
+    "hierarchy": "Two-panel stack dominates; slide number badge secondary; mathematical content in both panels is primary focus"
+  },
+  "visual_elements": [
+    {"type": "panel", "description": "Upper salmon/peach callout panel with primal formulation", "colors": ["#FADBD8", "#E74C3C"], "position": "upper half"},
+    {"type": "panel", "description": "Lower white callout panel with dual formulation", "colors": ["#FFFFFF", "#3498DB"], "position": "lower half"},
+    {"type": "matrix", "description": "P matrix (4×4) in blue-bordered box", "colors": ["#3498DB"], "position": "lower panel left"},
+    {"type": "vector", "description": "qᵀ row vector in blue-bordered box", "colors": ["#3498DB"], "position": "lower panel right"},
+    {"type": "text", "description": "Mathematical equations in red/black", "colors": ["#E74C3C", "#2C3E50"], "position": "both panels"}
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#E8E8E8",
+    "title_text": "#E74C3C",
+    "body_text": "#2C3E50",
+    "accents": ["#FADBD8", "#3498DB", "#FFF9C4", "#C00000"]
+  },
+  "typography_notes": "Red all-caps labels (Minimize:, Subject to:), black math serif font for equations, Arial for body text, yellow badge with black 18pt bold numeral",
+  "animation_state": "Static lecture slide",
+  "recreation_brief": "1. Apply house frame: 13.33×7.5in, #E8E8E8 bg, red frame 0.15in inset 1.5pt #C00000, yellow badge #FFF9C4 at x=12.48 y=0.30 w=0.5 h=0.5 with '12' in #333333 18pt bold centered. 2. Title box at y=0.28 x=0.6 w=12.13 centered: 'SVM Primal Problem & Quadratic Equation in α with Constraints'. 3. Create upper salmon panel (≈y=0.5-3.5) with primal formulation text in red/black. 4. Create lower white panel (≈y=3.7-7.0) with quadratic formulation, P matrix (blue border, 4×4), qᵀ vector (blue border, 1×4). 5. Use Professional math format for all equations (matplotlib mathtext → 600dpi PNG)."
+}

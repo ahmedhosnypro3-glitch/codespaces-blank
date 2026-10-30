@@ -238,6 +238,12 @@ STACK_BOXES.forEach(([y0, y1]) => {
   });
 });
 
+// bottom sliver: 7th box row clipped at the panel bottom (frame y531..538)
+slide.addShape(pptx.ShapeType.rect, {
+  x: px(277), y: px(531), w: px(854 - 277), h: px(538 - 531),
+  fill: { color: WHITE }, line: { color: "BEBEBE", width: 1 },
+});
+
 // band content (founder deltas + S20d stack desc; ⇒ black on this frame)
 const ROWS = [
   { sub: "1", mat: ["1", "1", "1"], matColor: RED, gVals: [4, -10, -8], dEq: "-14",

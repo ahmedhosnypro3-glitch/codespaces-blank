@@ -1,0 +1,182 @@
+[
+  {
+    "slide_title": "Example",
+    "subtitle_or_header": "Better Weights",
+    "verbatim_text": {
+      "bullets": [],
+      "labels": [
+        "Example",
+        "Better Weights",
+        "31",
+        "x1",
+        "x2",
+        "Forward",
+        "Output",
+        "Target",
+        "t6",
+        "t7",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7",
+        "0.121",
+        "0.101",
+        "0.099",
+        "0.405",
+        "0.305",
+        "0.295",
+        "-0.399",
+        "0.598",
+        "-0.288",
+        "0.696",
+        "-0.187",
+        "0.795"
+      ],
+      "equations": [
+        "Net3 = 7 * 0.121 + 4 * 0.405 = 2.146",
+        "Net4 = 7 * 0.101 + 4 * 0.305 = 1.626",
+        "Net5 = 7 * 0.099 + 4 * 0.295 = 1.574",
+        "Net6 = 0.895 * (-0.399) + 0.836 * (-0.288) + 0.828 * (-0.187) = -0.753",
+        "Net7 = 0.895 * 0.598 + 0.836 * 0.696 + 0.828 * 0.795 = 1.775",
+        "O3 = 1 / (1 + e^2.146) = 0.895",
+        "O4 = 1 / (1 + e^1.626) = 0.836",
+        "O5 = 1 / (1 + e^1.574) = 0.828",
+        "O6 = 1 / (1 + e^-0.753) = .32",
+        "O7 = 1 / (1 + e^1.775) = 0.855"
+      ]
+    },
+    "layout": {
+      "arrangement": "Title 'Example' top-left in red; subtitle 'Better Weights' in green box directly below title; slide number '31' in yellow circle top-right; large red-bordered neural network diagram spans top-center to mid-right; 'Forward' label in blue mid-left; two blue-bordered calculation boxes stacked bottom-left; two green-bordered calculation boxes stacked bottom-right",
+      "regions": [
+        {
+          "name": "header",
+          "position": "top-left to top-right",
+          "content": "Title 'Example', subtitle box 'Better Weights', slide number circle '31'"
+        },
+        {
+          "name": "neural_network_diagram",
+          "position": "top-center to mid-right, approx 20% to 90% width, 10% to 45% height",
+          "content": "Input vector x1=7, x2=4; hidden nodes 3,4,5; output nodes 6,7; weighted connections; Output/Target column vector [0;1]"
+        },
+        {
+          "name": "forward_label",
+          "position": "middle-left",
+          "content": "Blue italic text 'Forward'"
+        },
+        {
+          "name": "net_calculations",
+          "position": "bottom-left, approx 5% to 45% width, 50% to 75% height",
+          "content": "Two blue boxes with Net3-Net5 and Net6-Net7 equations"
+        },
+        {
+          "name": "output_calculations",
+          "position": "bottom-right, approx 65% to 95% width, 50% to 95% height",
+          "content": "Two green boxes with O3-O5 and O6-O7 equations"
+        }
+      ],
+      "hierarchy": "Title 'Example' dominates (largest, red); main diagram box is next largest visual element; calculation boxes are medium; body text is smallest"
+    },
+    "visual_elements": [
+      {
+        "type": "diagram",
+        "description": "Neural network diagram inside red border. Left side shows input column vector with x1 | 7 | and x2 | 4 |. Three hidden layer nodes labeled 3, 4, 5 in yellow circles with O3, O4, O5 labels above. Two output layer nodes labeled 6, 7 in orange circles with O6, O7 labels to right. Green weights from inputs to hidden nodes: 0.121, 0.405 (to node 3); 0.101, 0.305 (to node 4); 0.099, 0.295 (to node 5). Red weights from hidden to output: -0.399, 0.598 (from node 3); -0.288, 0.696 (from node 4); -0.187, 0.795 (from node 5). Right side shows 'Output' with O6, O7 and 'Target' with column vector [0; 1] labeled t6, t7.",
+        "colors": [
+          "#c00000",
+          "#ffff00",
+          "#ffa500",
+          "#008000",
+          "#ff0000",
+          "#000000"
+        ],
+        "position": "top-center to mid-right"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Blue-bordered box containing three Net equations for hidden layer nodes 3, 4, 5",
+        "colors": [
+          "#0000ff",
+          "#ffffff"
+        ],
+        "position": "bottom-left, upper of two blue boxes"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Blue-bordered box containing two Net equations for output layer nodes 6, 7",
+        "colors": [
+          "#0000ff",
+          "#ffffff"
+        ],
+        "position": "bottom-left, lower of two blue boxes"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Green-bordered box containing three O (sigmoid output) equations for nodes 3, 4, 5",
+        "colors": [
+          "#008000",
+          "#ffffff"
+        ],
+        "position": "bottom-right, upper of two green boxes"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Green-bordered box containing two O (sigmoid output) equations for nodes 6, 7",
+        "colors": [
+          "#008000",
+          "#ffffff"
+        ],
+        "position": "bottom-right, lower of two green boxes"
+      },
+      {
+        "type": "chart",
+        "description": "Column vector target on right side of diagram: [0; 1] with row labels t6 and t7",
+        "colors": [
+          "#000000",
+          "#ffffff"
+        ],
+        "position": "mid-right inside diagram"
+      }
+    ],
+    "imagery": [],
+    "colors": {
+      "background": "#f0f0f0",
+      "title_text": "#c00000",
+      "body_text": "#000000",
+      "accents": [
+        "#c00000",
+        "#008000",
+        "#0000ff",
+        "#ffd700",
+        "#ffa500"
+      ]
+    },
+    "typography_notes": "Sans-serif font throughout. Title 'Example' is large, bold, red. 'Forward' is blue, bold, italic. Equation text uses italic for variable names (Net, O) and regular for numbers. Slide number '31' is black text inside yellow circle.",
+    "animation_state": "All elements appear fully present; no mid-build animation visible",
+    "recreation_brief": "1. Set slide background to #f0f0f0.\n2. Place title text \"Example\" at top-left in the header region (top-left to top-right) using large bold red (#c00000) sans-serif.\n3. Place subtitle text \"Better Weights\" inside a green box directly below the title within the header region; use green (#008000) for the box and black (#000000) for the text.\n4. Place slide number \"31\" inside a yellow (#ffff00) circle at the top-right of the header region with black (#000000) text.\n5. Draw a red-bordered (#c00000) rectangle for the neural network diagram spanning top-center to mid-right (approx 20% to 90% width, 10% to 45% height).\n6. Inside the diagram at the left, draw an input column vector with two rows: \"x1 | 7 |\" and \"x2 | 4 |\" in black (#000000) text.\n7. Inside the diagram, draw three yellow (#ffff00) circles vertically for hidden nodes labeled \"3\", \"4\", \"5\"; place labels \"O3\", \"O4\", \"O5\" above them in black (#000000) text.\n8. Inside the diagram, draw two orange (#ffa500) circles vertically for output nodes labeled \"6\", \"7\"; place labels \"O6\", \"O7\" to their right in black (#000000) text.\n9. Draw green (#008000) weighted connection lines from the input vector to the hidden nodes with these labels: \"0.121\" and \"0.405\" to node 3; \"0.101\" and \"0.305\" to node 4; \"0.099\" and \"0.295\" to node 5.\n10. Draw red (#ff0000) weighted connection lines from the hidden nodes to the output nodes with these labels: \"-0.399\" and \"0.598\" from node 3; \"-0.288\" and \"0.696\" from node 4; \"-0.187\" and \"0.795\" from node 5.\n11. On the right side inside the diagram, add the label \"Output\" with values \"O6\" and \"O7\", and the label \"Target\" with a column vector \"[0; 1]\" and row labels \"t6\" and \"t7\" in black (#000000) text.\n12. Place blue (#0000ff) bold italic text \"Forward\" at middle-left.\n13. Place a blue-bordered (#0000ff) white-filled rectangle as the upper of two stacked boxes in the bottom-left net_calculations region (approx 5% to 45% width, 50% to 75% height) containing three lines with variable names in italic and numbers in regular: \"Net3 = 7 * 0.121 + 4 * 0.405 = 2.146\"; \"Net4 = 7 * 0.101 + 4 * 0.305 = 1.626\"; \"Net5 = 7 * 0.099 + 4 * 0.295 = 1.574\".\n14. Place a second blue-bordered (#0000ff) white-filled rectangle as the lower of two stacked boxes in the same bottom-left region containing two lines with variable names in italic and numbers in regular: \"Net6 = 0.895 * (-0.399) + 0.836 * (-0.288) + 0.828 * (-0.187) = -0.753\"; \"Net7 = 0.895 * 0.598 + 0.836 * 0.696 + 0.828 * 0.795 = 1.775\".\n15. Place a green-bordered (#008000) white-filled rectangle as the upper of two stacked boxes in the bottom-right output_calculations region (approx 65% to 95% width, 50% to 95% height) containing three lines with variable names in italic and numbers in regular: \"O3 = 1 / (1 + e^2.146) = 0.895\"; \"O4 = 1 / (1 + e^1.626) = 0.836\"; \"O5 = 1 / (1 + e^1.574) = 0.828\".\n16. Place a second green-bordered (#008000) white-filled rectangle as the lower of two stacked boxes in the same bottom-right region containing two lines with variable names in italic and numbers in regular: \"O6 = 1 / (1 + e^-0.753) = .32\"; \"O7 = 1 / (1 + e^1.775) = 0.855\".",
+    "validation": {
+      "verdict": "PASS_WITH_FIXES",
+      "fixes_applied": [
+        "Replaced vague size descriptor 'large' for the neural network diagram with exact region coordinates (20% to 90% width, 10% to 45% height).",
+        "Removed invented shape and fill details from recreation brief ('rounded rectangle', 'light green fill') not supported by source JSON.",
+        "Replaced vague stacking terms with explicit 'upper of two stacked boxes' and 'lower of two stacked boxes' tied to named layout regions.",
+        "Added exact hex colors for every element in the recreation brief, including box borders, fills, text, and connection weights.",
+        "Added typography instruction (italic variable names, regular numbers) to calculation box steps per typography_notes.",
+        "Confirmed verbatim_text.bullets remains empty because the source slide contains no bullet list."
+      ],
+      "uncertain_items": [],
+      "recreatability_score_1_to_10": 10
+    },
+    "_meta": {
+      "frame": "slide_031.jpg",
+      "model": "images",
+      "source_timestamps": {
+        "slide": 31,
+        "image": "slide_031.jpg",
+        "title": "Slide 31"
+      },
+      "elapsed_s": 69.3,
+      "validated_by": "validate_slides",
+      "validation_elapsed_s": 609.8
+    }
+  }
+]

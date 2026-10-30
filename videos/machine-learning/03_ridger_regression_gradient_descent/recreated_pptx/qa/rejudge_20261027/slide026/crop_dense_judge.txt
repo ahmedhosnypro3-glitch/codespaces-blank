@@ -1,0 +1,33 @@
+# Zoomed Crop-Pair Analysis â Slide 026, dense region (Gradient Descent Solution)
+
+Both images show the same region: heading line, then numbered items [1]â[3] with parenthetical line. Text content is identical word-for-word where visible. However, several rendering discrepancies appear at this scale.
+
+## Discrepancies
+
+**1. MAJOR â Font family mismatch across the entire region (high confidence, ~90%).**
+The original (IMG2) renders ALL text â heading, numbered items, body â in a **serif face (Times New Roman-like)**: clear serifs are visible on "S", "D", "W", "t", "h" stems throughout (e.g., heading "â¦adient Descent (GD) Algorithm:" at crop-yâ55; body line at crop-yâ130). The recreation (IMG1) renders everything in a **sans-serif face (Arial/Calibri-like)** â no serifs on any glyph, same lines. This is a systematic, region-wide glyph-shape difference, not a medium artifact, and is not covered by the typed-vs-handwritten or equation-format ground rules.
+
+**2. MAJOR â Missing underline under "Random Weights" (high confidence, ~90%).**
+In IMG2, "Random Weights" (end of item [1], crop-yâ125â145, right side) is underlined. In IMG1 the same words are bold but have **no underline**. A formatting element present in the original is absent.
+
+**3. MAJOR â Missing underline on "almost z[ero]" in item [3] (moderate-high confidence, ~80%).**
+In IMG2, the underline runs continuously through "gradient is almost" and the bold "almostâ¦" segment is underlined too. In IMG1 the underline stops after "gradient is"; "almost zâ¦" is bold but **not underlined**.
+
+**4. MINOR â "[1]/[2]/[3]" label weight (high confidence, ~85%).**
+In IMG2 the bracketed labels appear bold; in IMG1 they are regular weight (crop left edge, each numbered line).
+
+**5. MINOR â "W" style in "(w.r.t. W)" (moderate confidence, ~70%).**
+IMG2 shows a bold *italic* serif W; IMG1 shows a bold upright W (mid-crop, yâ270).
+
+**6. MINOR â Top rule weight/color (moderate confidence, ~65%).**
+The blue horizontal rule at the very top is noticeably thicker and darker in IMG1 than the thin blue line in IMG2. Not covered by the house-chrome ground rule (which specifies red side/bottom strokes only).
+
+**7. MINOR â Heading red shade (low confidence, ~40%).**
+IMG1 heading red reads slightly darker/more maroon than IMG2's brighter red; JPEG chroma bleed in IMG2 could account for part of this.
+
+**Note (not counted):** the right-edge truncations differ slightly ("almost zâ¦" in IMG1 vs "almost sâ¦" in IMG2) â this is a crop-offset artifact of the region capture, not verifiable as a wrong character; the visible glyphs before the cut match.
+
+## Summary
+Content (words, numbering, order) is fully faithful, but the region fails the "be EXACT about glyph shapes" bar: a region-wide serifâsans substitution plus two missing underlines are clearly visible at matched zoom.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

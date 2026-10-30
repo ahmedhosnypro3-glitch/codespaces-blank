@@ -1,0 +1,1 @@
+<x_0.0><y_0.0>\([a^Tb]^2=(a_1^2a_2^2\sqrt{2}a_1a_2)|\frac{b_1^2}{b_2^2}{\sqrt{2}b_1b_2})=\phi(a)^T\phi(b)\)<x_0.998><y_0.9938><class_Formula>

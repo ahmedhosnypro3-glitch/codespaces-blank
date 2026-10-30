@@ -1,0 +1,181 @@
+[
+  {
+    "slide_title": "Neural Network Model",
+    "subtitle_or_header": "(Each node consists of Summation + Activation)",
+    "verbatim_text": {
+      "bullets": [],
+      "labels": [
+        "Input Sample",
+        "Target Label",
+        "Class 1",
+        "Class 2",
+        "Class m",
+        "Error Error Error",
+        "Node Bias",
+        "1",
+        "For Layer \u201cj\u201d",
+        "Previous Layer (i)",
+        "Current Layer is Output Layer (You are here)",
+        "If Layer \u201cj\u201d is Output Layer:",
+        "Output 1",
+        "Output 2",
+        "Output m",
+        "Net_j",
+        "O_j",
+        "W_ji",
+        "i",
+        "j",
+        "3"
+      ],
+      "equations": [
+        "Net_j = \\sum_i (w_{ji} O_i)",
+        "O_j = f(Net_j) = \\frac{1}{1 + e^{-Net_j}}",
+        "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2"
+      ]
+    },
+    "layout": {
+      "arrangement": "Title and subtitle are centered at the top; a yellow slide-number circle sits at the extreme top right. Below, a large light-gray diagram panel spans the slide: Input Sample at the far left, two columns of neuron nodes in the center (Previous Layer i, then Current Layer j), Output labels and a red Error band on the right, and Target Label/Class boxes at the far right. A bottom strip holds three boxes: left pink formula box for Layer j, center layer-indicator boxes with i/j arrows, right pink formula box for output-layer error; a small Node Bias legend is at the lower left.",
+      "regions": [
+        {
+          "name": "title_block",
+          "position": "top center/left, roughly x 5\u201380%, y 4\u201316%",
+          "content": "Neural Network Model; (Each node consists of Summation + Activation)"
+        },
+        {
+          "name": "slide_number",
+          "position": "top right, roughly x 90\u201396%, y 3\u20139%",
+          "content": "Yellow circle with black numeral 3"
+        },
+        {
+          "name": "main_diagram",
+          "position": "middle, roughly x 3\u201397%, y 17\u201371%",
+          "content": "Input Sample dots, previous layer nodes, current layer nodes, weights W_ji, bias node, Output 1/2/m, red Error band, Target Label, Class 1/2/m"
+        },
+        {
+          "name": "bottom_formula_left",
+          "position": "bottom left, roughly x 4\u201338%, y 73\u201395%",
+          "content": "For Layer \u201cj\u201d box with Net_j and O_j equations"
+        },
+        {
+          "name": "layer_indicators",
+          "position": "bottom center, roughly x 39\u201363%, y 73\u201395%",
+          "content": "Previous Layer (i) and Current Layer is Output Layer (You are here), with up arrows labeled i and j"
+        },
+        {
+          "name": "bottom_formula_right",
+          "position": "bottom right, roughly x 64\u201396%, y 73\u201395%",
+          "content": "If Layer \u201cj\u201d is Output Layer: box with error equation E"
+        },
+        {
+          "name": "node_bias_legend",
+          "position": "bottom left edge, roughly x 4\u201320%, y 88\u201395%",
+          "content": "Magenta circled 1 with text Node Bias"
+        }
+      ],
+      "hierarchy": "Title/subtitle are the largest text at the top; the colored neural-network diagram dominates the middle; bottom equation boxes are smaller supporting detail; the slide number is the smallest element."
+    },
+    "visual_elements": [
+      {
+        "type": "diagram",
+        "description": "Neural network diagram. Four small purple input dots under Input Sample feed three previous-layer nodes. Each processing node is a circle containing \u03a3 followed by a small square with an activation symbol. Previous layer i has three blue/white nodes; current layer j has three green nodes. Weighted connections from previous outputs to current inputs are labeled W_ji. A magenta bias node labeled 1 connects into the current layer. Current-node inputs are labeled Net_j and outputs O_j. Outputs continue to Output 1, Output 2, Output m, then across a red vertical Error band to Class 1, Class 2, Class m. Target Label sits at the top right with a connector down toward the class column.",
+        "colors": [
+          "#FF00FF",
+          "#0070C0",
+          "#00B050",
+          "#C6E0B4",
+          "#FF0000",
+          "#7030A0",
+          "#000000"
+        ],
+        "position": "middle panel, roughly x 5\u201395%, y 18\u201370%"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Pink/magenta rounded rectangle labeled Input Sample at the upper left of the diagram; four purple dots descend from it as the input vector.",
+        "colors": [
+          "#FF00FF",
+          "#7030A0"
+        ],
+        "position": "top-left of diagram"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Pink/magenta rounded rectangle labeled Target Label at the upper right; a thin vertical connector runs down toward the Class boxes.",
+        "colors": [
+          "#FF00FF"
+        ],
+        "position": "top-right of diagram"
+      },
+      {
+        "type": "highlight-box",
+        "description": "Tall red vertical band between the output labels and the class boxes; the word Error is repeated three times as Error Error Error in white.",
+        "colors": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "position": "right side of diagram"
+      },
+      {
+        "type": "other",
+        "description": "Yellow circular slide-number badge at the top right containing the numeral 3.",
+        "colors": [
+          "#FFFF00",
+          "#000000"
+        ],
+        "position": "top-right corner"
+      }
+    ],
+    "imagery": [
+      "No photos or external images; only vector-style diagram icons: purple input dots, \u03a3 circles, activation squares, magenta bias node, and colored rounded labels."
+    ],
+    "colors": {
+      "background": "#FFFFFF",
+      "title_text": "#C00000",
+      "body_text": "#000000",
+      "accents": [
+        "#FF00FF",
+        "#00B050",
+        "#C6E0B4",
+        "#0070C0",
+        "#FF0000",
+        "#FFFF00",
+        "#7030A0",
+        "#F2F2F2"
+      ]
+    },
+    "typography_notes": "Sans-serif throughout, Arial/Calibri-like. Title is bold, large, dark red; subtitle is bold blue and enclosed in parentheses. Body labels are small black text; math variables are italic. Layer names sit inside colored rounded rectangles. The repeated Error text is white on red. The slide number is bold black on a yellow circle.",
+    "animation_state": "Static; no mid-build state is evident.",
+    "recreation_brief": "1) Set slide background to solid white #FFFFFF. 2) Add title text box at top center-left (x 5\u201380%, y 4\u201316%): text Neural Network Model, Arial bold ~40 pt, color #C00000. 3) Add subtitle text box directly below the title (x 5\u201380%, y 10\u201316%): text (Each node consists of Summation + Activation), Arial bold ~24 pt, color #0000FF. 4) Add yellow oval at top right (x 90\u201396%, y 3\u20139%): fill #FFFF00, black bold text 3. 5) Add light-gray diagram panel (x 3\u201397%, y 17\u201371%): rectangle fill #F2F2F2, thin black border. 6) Add pink/magenta rounded rectangle at top-left inside the panel (x ~5%, y ~20%): fill #FF00FF, black text Input Sample. 7) Add four small purple dots in a vertical column below Input Sample (x ~7%, y ~25%, ~30%, ~35%, ~40%): fill #7030A0, no border. 8) Add blue rounded rectangle in bottom-center indicator area (x 39\u201350%, y 73\u201395%): fill #0070C0, black text Previous Layer (i). 9) Add green rounded rectangle in bottom-center indicator area (x 51\u201363%, y 73\u201395%): fill #00B050, black text Current Layer is Output Layer (You are here) on three lines. 10) Add blue up arrow next to the Previous Layer (i) box (x ~42%, y ~78%): color #0070C0, label i. 11) Add green up arrow next to the Current Layer box (x ~55%, y ~78%): color #00B050, label j. 12) Add three previous-layer neuron nodes at x ~30%, y ~25%, ~40%, ~55%: white circle, blue border #0070C0, black \u03a3 symbol inside; attach a small white activation square to the right of each circle. 13) Add three current-layer neuron nodes at x ~55%, y ~25%, ~40%, ~55%: light-green circle fill #C6E0B4, green border #00B050, black \u03a3 symbol inside; attach a small activation square to the right of each circle. 14) Add italic black label Net_j above each current-layer node (x ~55%, y ~22%, ~37%, ~52%). 15) Add italic black label O_j to the right of each current-layer activation square (x ~60%, y ~27%, ~42%, ~57%). 16) Add magenta bias node below the current layer (x ~55%, y ~65%): circle fill #FF00FF, black text 1. 17) Add Node Bias legend at lower left (x 4\u201320%, y 88\u201395%): small magenta circle fill #FF00FF with black text 1, followed by black text Node Bias. 18) Draw thin black connector lines from each previous-layer node to each current-layer node; place italic black label W_ji near the connections (x ~42%, y ~30\u201350%). 19) Add three small green rounded rectangles to the right of the current nodes (x ~70%, y ~25%, ~40%, ~55%): fill #00B050, black text Output 1, Output 2, Output m. 20) Add tall red vertical band between outputs and classes (x ~80%, y 25\u201360%): rectangle fill #FF0000, white text Error Error Error repeated vertically. 21) Add three green rounded rectangles at the far right (x ~90%, y ~25%, ~40%, ~55%): fill #00B050, black text Class 1, Class 2, Class m. 22) Add pink/magenta rounded rectangle at top-right inside the panel (x ~85%, y ~20%): fill #FF00FF, black text Target Label. 23) Add thin black vertical connector line from Target Label down toward the Class boxes (x ~88%, y ~22\u201355%). 24) Add pink/magenta rounded rectangle box at bottom left (x 4\u201338%, y 73\u201395%): fill #FF00FF, black title text For Layer \u201cj\u201d, and inside place the two equations: Net_j = \\sum_i (w_{ji} O_i) and O_j = f(Net_j) = \\frac{1}{1 + e^{-Net_j}}. 25) Add pink/magenta rounded rectangle box at bottom right (x 64\u201396%, y 73\u201395%): fill #FF00FF, black title text If Layer \u201cj\u201d is Output Layer:, and inside place the equation: E = \\frac{1}{2} \\sum_j (t_j - O_j)^2.",
+    "validation": {
+      "verdict": "PASS_WITH_FIXES",
+      "fixes_applied": [
+        "Rewrote recreation_brief into a 25-step ordered checklist specifying exact text, approximate coordinates, fill/border colors, and shape for every element.",
+        "Relocated Previous Layer (i), Current Layer is Output Layer (You are here), and the i/j arrows to the bottom-center layer_indicators region to match layout.regions and eliminate contradiction with the main diagram panel.",
+        "Replaced all vague spatial references with exact counts derived from visual_elements: 4 input dots, 3 previous-layer nodes, 3 current-layer nodes, 3 Output labels, 3 Class labels, and 3 Error repetitions.",
+        "Added explicit shape and color details for neuron nodes (white/blue and light-green/green circles with \u03a3 and activation squares), bias node, connectors, and formula boxes.",
+        "Verified that every label in verbatim_text and every element in visual_elements is assigned to a layout region and appears in the recreation checklist."
+      ],
+      "uncertain_items": [
+        "Text color inside colored rounded rectangles (layer indicators, Output/Class boxes) is not explicitly stated; assumed black body text.",
+        "The exact glyph for the activation symbol inside the small squares is unspecified.",
+        "Subtitle blue color #0000FF is inferred from recreation_brief and typography_notes but is not listed in colors.accents.",
+        "Whether Net_j and O_j appear once per node or once per layer is inferred; the checklist places them at each of the 3 current-layer nodes based on visual_elements phrasing.",
+        "Equation strings are provided in LaTeX source form; final rendered equation layout may require manual adjustment in PowerPoint.",
+        "All coordinates are approximate percentages from layout.regions; pixel-perfect positioning may need visual tuning."
+      ],
+      "recreatability_score_1_to_10": 9
+    },
+    "_meta": {
+      "frame": "slide_003.jpg",
+      "model": "images",
+      "source_timestamps": {
+        "slide": 3,
+        "image": "slide_003.jpg",
+        "badge": "3"
+      },
+      "elapsed_s": 833.9,
+      "validated_by": "validate_slides",
+      "validation_elapsed_s": 659.1
+    }
+  }
+]

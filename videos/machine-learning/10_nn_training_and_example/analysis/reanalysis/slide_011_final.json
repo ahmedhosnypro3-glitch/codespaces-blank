@@ -1,0 +1,174 @@
+{
+  "slide_title": "Updated Weights of Output Layer",
+  "subtitle_or_header": "( Calculated Error is affected by Net_i )",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "11",
+      "Input Sample",
+      "Target Label",
+      "Node Bias",
+      "1",
+      "j",
+      "\u03a3",
+      "o",
+      "Net_i",
+      "O_i",
+      "O_j",
+      "W_ji",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error",
+      "[f/\u222b] activation-box glyph",
+      "For Output Layer, Sigmoid Activation \u21d2 \u03b4_j = (t_j-O_j) * O_j(1-O_j) \u21d2 \u0394_ji = \u03b7 (t_j-O_j) * O_j(1-O_j) * O_i"
+    ],
+    "equations": [
+      "\u2202Net_j/\u2202w_ji",
+      "\u2202E/\u2202Net_j = -\u03b4_j",
+      "\u0394_ji = -\u03b7 \u2202E/\u2202w_ji = - \u2202E/\u2202Net_j \u2202Net_j/\u2202w_ji = \u03b7 \u03b4_j * O_i    Where \u03b4_j = - \u2202E/\u2202Net_j    (one \u03b4 for each Node J)",
+      "\u03b4_j = (t_j-O_j) * O_j(1-O_j)",
+      "\u0394_ji = \u03b7 (t_j-O_j) * O_j(1-O_j) * O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title is centered at the top with a red subtitle directly beneath it. A small yellow slide-number badge sits at the top-right. The middle of the slide is dominated by a large feedforward/backpropagation network diagram. Below the diagram is a horizontal equation strip, and at the bottom is a green-bordered caption box. Input Sample is top-left of the diagram; Target Label is top-right.",
+    "regions": [
+      {
+        "name": "title_block",
+        "position": "top center, roughly x 18-82%, y 4-16%",
+        "content": "Title 'Updated Weights of Output Layer' with 'Output Layer' underlined, and subtitle '( Calculated Error is affected by Net_i )'."
+      },
+      {
+        "name": "slide_number",
+        "position": "top right, roughly x 88-98%, y 3-13%",
+        "content": "Yellow rounded badge containing the number 11."
+      },
+      {
+        "name": "input_and_target_labels",
+        "position": "top left and top right of diagram, roughly y 16-24%",
+        "content": "Pink 'Input Sample' box on the left with a dotted arrow into the network; yellow 'Target Label' box on the right with an arrow toward the output/error side."
+      },
+      {
+        "name": "network_diagram",
+        "position": "middle, roughly x 3-97%, y 18-66%",
+        "content": "Three-row neural network with input dots, blue \u03a3 nodes, activation boxes, hidden output circles, green Net_i nodes, yellow O_i/O_j outputs, W_ji weight labels, bias node, output labels, class labels, and a red vertical Error strip."
+      },
+      {
+        "name": "equation_strip",
+        "position": "lower middle, roughly x 3-97%, y 67-79%",
+        "content": "Weight-update derivation for the output layer, including the definition of \u03b4_j and the note 'one \u03b4 for each Node J'."
+      },
+      {
+        "name": "caption_box",
+        "position": "bottom, roughly x 3-97%, y 81-95%",
+        "content": "Green-bordered note specializing the formula for the Output Layer with Sigmoid Activation."
+      }
+    ],
+    "hierarchy": "The network diagram dominates visually because of its size and colored nodes. The title is the largest text and is dark red. The equation strip and bottom caption are secondary but clearly separated by boxes/borders. Small badges and node labels are tertiary."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Feedforward/backpropagation diagram. Far left: four small purple input dots fan into three horizontal rows. Each row contains a blue circle labeled \u03a3, a small white activation box whose glyph looks like \u222b or f, and two small white circles labeled o. From these hidden outputs, diagonal arrows labeled W_ji point into three green circles labeled Net_i. Each green Net_i node connects to a small white activation box and then to a yellow output circle labeled O_i; the top highlighted yellow output is labeled O_j and ringed in red. Arrows from the yellow outputs point to Output 1, Output 2, and Output m. A vertical red strip on the right repeats the word Error three times; to its right are Class 1, Class 2, and Class m. A purple circle labeled 1 with the label Node Bias sits below the hidden layer and arrows upward into the green output-layer nodes. A green downward arrow labeled j marks the output-node index. Callout \u2202Net_j/\u2202w_ji points to a W_ji arrow; callout \u2202E/\u2202Net_j = -\u03b4_j points to the top O_j node.",
+      "colors": [
+        "#BDD7EE",
+        "#2E75B6",
+        "#C6E0B4",
+        "#70AD47",
+        "#FFE699",
+        "#BF8F00",
+        "#CC99FF",
+        "#7030A0",
+        "#FF0000",
+        "#404040",
+        "#C00000"
+      ],
+      "position": "middle of slide, spanning nearly full width"
+    },
+    {
+      "type": "equation",
+      "description": "Horizontal strip containing the chain-rule weight update: \u0394_ji = -\u03b7 \u2202E/\u2202w_ji = - \u2202E/\u2202Net_j \u2202Net_j/\u2202w_ji = \u03b7 \u03b4_j * O_i, with Where \u03b4_j = - \u2202E/\u2202Net_j and '(one \u03b4 for each Node J)'.",
+      "colors": [
+        "#F2F2F2",
+        "#000000",
+        "#0070C0"
+      ],
+      "position": "below network diagram, above bottom caption"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green-bordered caption box: 'For Output Layer, Sigmoid Activation \u21d2 \u03b4_j = (t_j-O_j) * O_j(1-O_j) \u21d2 \u0394_ji = \u03b7 (t_j-O_j) * O_j(1-O_j) * O_i'.",
+      "colors": [
+        "#F7FBF3",
+        "#70AD47",
+        "#000000",
+        "#C00000",
+        "#0070C0"
+      ],
+      "position": "bottom of slide"
+    },
+    {
+      "type": "other",
+      "description": "Yellow rounded slide-number badge with '11'.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top right"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#C00000",
+      "#FF00FF",
+      "#FFFF00",
+      "#FFD966",
+      "#2E75B6",
+      "#70AD47",
+      "#BF8F00",
+      "#7030A0",
+      "#FF0000",
+      "#0070C0"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout, likely Arial/Calibri-like. Title is bold dark red and larger than all other text; 'Output Layer' is underlined. Subtitle is smaller red, with Net_i italicized. Node labels are short and centered inside colored circles. Equations are black with \u0394 and \u03b4 in blue. The bottom caption uses red emphasis for 'Output Layer' and 'Sigmoid Activation', and blue for \u0394_ji and \u03b4_j. Subscripts are smaller and lowered.",
+  "animation_state": "No mid-build state is visible; all elements appear to be shown at once.",
+  "recreation_brief": "1. Set the slide background to white (#FFFFFF) and add an optional thin black outer border. 2. Place a centered title text box at top center (x 18\u201382%, y 4\u201316%): 'Updated Weights of Output Layer' in bold dark red (#C00000), approximately 32pt, with 'Output Layer' underlined. 3. Place a subtitle text box directly beneath the title (x 18\u201382%, y ~16\u201320%): '( Calculated Error is affected by Net_i )' in smaller red (#C00000) italic text, preserving the spaces inside the parentheses; italicize 'Net_i'. 4. Place a small yellow rounded rectangle at top right (x 88\u201398%, y 3\u201313%) with black text '11'. 5. Place a pink rounded box at the upper left of the diagram (x ~5\u201320%, y ~16\u201324%) labeled 'Input Sample'. 6. Place a yellow rounded box at the upper right of the diagram (x ~80\u201395%, y ~16\u201324%) labeled 'Target Label'. 7. Draw a dotted arrow from the 'Input Sample' box into the network diagram. 8. Draw a solid arrow from the 'Target Label' box toward the output/error side of the diagram. 9. Draw four small light-purple (#CC99FF) filled circles at the far left of the diagram (x ~3\u20138%, vertically distributed between y ~25% and y ~60%). 10. Draw three horizontal rows in the diagram at approximately y 30%, y 42%, and y 54%; in each row place a blue (#2E75B6) circle labeled '\u03a3'. 11. In each of the three rows, place a small white activation box immediately to the right of the blue '\u03a3' circle; inside each box draw the activation glyph marked '[f/\u222b] activation-box glyph'. 12. In each of the three rows, place two small white circles labeled 'o' to the right of the activation box. 13. Draw three green (#70AD47) circles labeled 'Net_i' in the output-layer column (x ~55\u201370%, aligned with the three rows). 14. Draw diagonal arrows from the hidden 'o' circles to the three green 'Net_i' circles and label each arrow 'W_ji'. 15. From each green 'Net_i' circle, draw an arrow to a small white activation box placed to its right. 16. From each of those activation boxes, draw an arrow to a yellow (#FFE699) output circle labeled 'O_i'. 17. Label the top yellow output circle 'O_j' and add a red (#FF0000) ring around it. 18. Draw arrows from the three yellow output circles to three text labels: 'Output 1', 'Output 2', and 'Output m' (x ~80\u201390%). 19. Draw a vertical red (#FF0000) strip on the right side of the diagram (x ~90\u201393%, y ~30\u201360%) containing the word 'Error' repeated three times. 20. Place three text labels to the right of the red strip: 'Class 1', 'Class 2', and 'Class m' (x ~94\u201397%). 21. Draw a dark-purple (#7030A0) circle labeled '1' below the hidden layer (x ~30%, y ~60\u201366%) with a small text label 'Node Bias' beside or beneath it. 22. Draw arrows from the 'Node Bias' circle upward into the three green 'Net_i' output-layer nodes. 23. Draw a green (#70AD47) downward arrow labeled 'j' near the output nodes to mark the output-node index. 24. Add a callout text '\u2202Net_j/\u2202w_ji' with a leader line pointing to one of the 'W_ji' arrows. 25. Add a callout text '\u2202E/\u2202Net_j = -\u03b4_j' with a leader line pointing to the top 'O_j' node. 26. Place a light gray (#F2F2F2) horizontal equation strip below the diagram (x 3\u201397%, y 67\u201379%) containing the exact text: '\u0394_ji = -\u03b7 \u2202E/\u2202w_ji = - \u2202E/\u2202Net_j \u2202Net_j/\u2202w_ji = \u03b7 \u03b4_j * O_i    Where \u03b4_j = - \u2202E/\u2202Net_j    (one \u03b4 for each Node J)'; render '\u0394_ji' and '\u03b4_j' in blue (#0070C0) and all other text in black (#000000). 27. Place a green-bordered (#70AD47) caption box at the bottom (x 3\u201397%, y 81\u201395%, fill #F7FBF3) containing the exact text: 'For Output Layer, Sigmoid Activation \u21d2 \u03b4_j = (t_j-O_j) * O_j(1-O_j) \u21d2 \u0394_ji = \u03b7 (t_j-O_j) * O_j(1-O_j) * O_i'; emphasize 'Output Layer' and 'Sigmoid Activation' in red (#C00000), keep '\u0394_ji' and '\u03b4_j' in blue (#0070C0), and set all other text to black (#000000).",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Rewrote recreation_brief as a 27-step ordered checklist; each step now places exactly one element with exact text, position, color, and shape/chart type.",
+      "Expanded layout.regions coverage so every visual element and verbatim label maps to a named region.",
+      "Replaced combined diagram descriptions with exact counts: 4 input dots, 3 rows, 2 'o' circles per row, 3 Net_i nodes, 3 outputs, 3 Error repetitions, 3 class labels.",
+      "Preserved the uncertain activation glyph marker '[f/\u222b] activation-box glyph' and listed it in uncertain_items.",
+      "Retained verbatim_text.bullets as an empty array because the source slide contains no bullet list; all verbatim content is carried in labels and equations.",
+      "Assigned specific palette colors to diagram nodes (e.g., #CC99FF for input dots, #7030A0 for Node Bias, #2E75B6 for \u03a3, #70AD47 for Net_i, #FFE699 for outputs) to make the brief actionable."
+    ],
+    "uncertain_items": [
+      "[f/\u222b] activation-box glyph \u2014 exact glyph shape cannot be verified from the JSON alone.",
+      "Exact intra-diagram coordinates are inferred from the region bounding box and textual description; fine-grained node spacing is approximate.",
+      "Font family is described as 'likely Arial/Calibri-like' and is not explicitly confirmed in the source."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_011.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 11,
+      "image": "slide_011.jpg",
+      "badge": "11"
+    },
+    "elapsed_s": 1537.0,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 816.6
+  }
+}

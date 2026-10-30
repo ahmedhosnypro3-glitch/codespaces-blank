@@ -1,0 +1,165 @@
+{
+  "slide_title": "Backpropagation Weight Update Rule",
+  "subtitle_or_header": "Generalized Delta Rule for Hidden Layer Weights",
+  "verbatim_text": {
+    "bullets": [
+      "W_{ji} Affects Net_j \u2192",
+      "Net_j Affects O_j \u2192",
+      "O_j Affects (Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) \u2192",
+      "(Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) Affect Error"
+    ],
+    "labels": [
+      "20",
+      "Node Mode",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error",
+      "Output",
+      "Net",
+      "Where",
+      "(for each Node j at hidden layer)"
+    ],
+    "equations": [
+      "\\frac{\\partial E}{\\partial w_{ji}} = \\frac{\\partial E}{\\partial Net_{k_1}} \\frac{\\partial Net_{k_1}}{\\partial O_j} + \\frac{\\partial E}{\\partial Net_{k_2}} \\frac{\\partial Net_{k_2}}{\\partial O_j} + ... + \\frac{\\partial E}{\\partial Net_{k_m}} \\frac{\\partial Net_{k_m}}{\\partial O_j} \\cdot \\frac{\\partial O_j}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial w_{ji}}",
+      "\\frac{\\partial E}{\\partial w_{ji}} = \\sum_{k=1}^{m} \\frac{\\partial E}{\\partial Net_k} \\frac{\\partial Net_k}{\\partial O_j} \\cdot \\frac{\\partial O_j}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial w_{ji}} = \\sum_{k=1}^{m} -\\delta_k w_{kj} \\cdot O_j(1-O_j) * O_i",
+      "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\sum_{k=1}^{m} \\delta_k w_{kj} \\cdot O_j(1-O_j) * O_i = \\eta \\delta_j * O_i",
+      "Where \\delta_j = \\sum_{k=1}^{m} \\delta_k w_{kj} * O_j(1-O_j)",
+      "\\frac{\\partial E}{\\partial Net_k} \\rightarrow -\\delta_k",
+      "Net_k = \\sum_{j} w_{kj} O_j \\rightarrow \\frac{\\partial Net_k}{\\partial O_j} = w_{kj}",
+      "O_j = \\frac{1}{1+e^{-Net_j}} \\rightarrow \\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)",
+      "Net_j = \\sum_{i} w_{ji} O_i \\rightarrow \\frac{\\partial Net_j}{\\partial w_{ji}} = O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "Slide number '20' in yellow circle at top-right. Upper section split: left column has light blue box with dependency chain; right column has neural network diagram on beige background. Middle section spans full width with two rows of chain-rule equations. Bottom section split: left column has orange-bordered box with weight update rule and 'Where' clause; right column has cream-colored box with partial derivative summary equations.",
+    "regions": [
+      {
+        "name": "top-right corner",
+        "position": "top + right + ~5% extent",
+        "content": "Slide number '20' inside a yellow circle"
+      },
+      {
+        "name": "top-left box",
+        "position": "top + left + ~35% width, ~25% height",
+        "content": "Light blue box with four lines showing dependency chain: W_ji affects Net_j, Net_j affects O_j, O_j affects Net_k list, Net_k list affects Error"
+      },
+      {
+        "name": "top-right diagram",
+        "position": "top + right + ~55% width, ~30% height",
+        "content": "Neural network diagram with input, hidden, and output layers; labels Class 1, Class 2, Class m, Error, Output, Net, Node Mode"
+      },
+      {
+        "name": "middle equations",
+        "position": "middle + full width + ~35% height",
+        "content": "Two rows of partial derivative chain-rule equations with boxes, underbraces, and labels"
+      },
+      {
+        "name": "bottom-left box",
+        "position": "bottom + left + ~40% width, ~20% height",
+        "content": "Orange-bordered box with weight update rule Delta_ji equation and Where clause for delta_j"
+      },
+      {
+        "name": "bottom-right box",
+        "position": "bottom + right + ~50% width, ~20% height",
+        "content": "Cream-colored box with four partial derivative summary equations using arrows"
+      }
+    ],
+    "hierarchy": "The neural network diagram and the chain-rule equations dominate visually due to central placement and size. The top-left dependency chain and bottom boxes are secondary. Text is dark blue/black on light backgrounds; accents use blue, green, red, and orange."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram showing three layers: input layer (purple circles with Sigma symbol), hidden layer (green and yellow circles, including circles labeled 1, 2, 3), output layer (red/orange circles labeled Output). Bidirectional arrows connect layers. Right side labels: Class 1, Class 2, Class m in small boxes. Vertical red bar labeled 'Error'. Text 'Node Mode' at bottom left of diagram area.",
+      "colors": [
+        "#e8e0d0",
+        "#8e44ad",
+        "#2ecc71",
+        "#f1c40f",
+        "#e74c3c",
+        "#3498db"
+      ],
+      "position": "top-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light blue rectangular box containing the four-line dependency chain with right arrows.",
+      "colors": [
+        "#e6f3ff"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Orange/salmon bordered box containing the weight update equation and Where clause.",
+      "colors": [
+        "#f4a460",
+        "#ffe4b5"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Cream/light yellow box containing four partial derivative equations with right arrows.",
+      "colors": [
+        "#fdf6e3"
+      ],
+      "position": "bottom-right"
+    },
+    {
+      "type": "other",
+      "description": "Boxes around grouped terms in the first equation row, and underbraces with labels in the second equation row.",
+      "colors": [
+        "#4a90e2",
+        "#50c878",
+        "#ff6b6b"
+      ],
+      "position": "middle"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#f0f0f0",
+    "title_text": "#000000",
+    "body_text": "#000033",
+    "accents": [
+      "#e6f3ff",
+      "#fdf6e3",
+      "#f4a460",
+      "#4a90e2",
+      "#50c878",
+      "#ff6b6b",
+      "#f1c40f"
+    ]
+  },
+  "typography_notes": "Sans-serif font for body text; serif math font for equations. No all-caps except standalone labels like Error, Output, Net. Bullets use right arrows (\u2192) rather than traditional bullet points. Equations use standard mathematical notation with partial derivatives, summations, and Greek letters.",
+  "animation_state": "Nothing appears mid-build; all content is static.",
+  "recreation_brief": "1. Set the slide background to solid light gray (#f0f0f0). 2. Place a yellow circle (#f1c40f) at the top-right corner (~5% slide extent) containing the text \"20\". 3. Place a light blue (#e6f3ff) rectangular highlight-box at the top-left (~35% width, ~25% height) containing exactly four lines: \"W_{ji} Affects Net_j \u2192\", \"Net_j Affects O_j \u2192\", \"O_j Affects (Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) \u2192\", \"(Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) Affect Error\". 4. Draw a neural network diagram at the top-right (~55% width, ~30% height) on a beige (#e8e0d0) background: input layer with purple (#8e44ad) circles containing Sigma symbols; hidden layer with green (#2ecc71) and yellow (#f1c40f) circles including labels 1, 2, 3; output layer with red/orange (#e74c3c) circles labeled \"Output\"; bidirectional arrows connecting layers; right-side small boxes labeled \"Class 1\", \"Class 2\", \"Class m\"; a vertical red bar labeled \"Error\"; text \"Node Mode\" at the bottom-left of the diagram area. 5. Add a middle section spanning full width (~35% height) with two rows of chain-rule equations in serif math font: row 1 contains the expanded equation \"\\frac{\\partial E}{\\partial w_{ji}} = \\frac{\\partial E}{\\partial Net_{k_1}} \\frac{\\partial Net_{k_1}}{\\partial O_j} + \\frac{\\partial E}{\\partial Net_{k_2}} \\frac{\\partial Net_{k_2}}{\\partial O_j} + ... + \\frac{\\partial E}{\\partial Net_{k_m}} \\frac{\\partial Net_{k_m}}{\\partial O_j} \\cdot \\frac{\\partial O_j}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial w_{ji}}\" with boxes around grouped terms; row 2 contains the summation equation \"\\frac{\\partial E}{\\partial w_{ji}} = \\sum_{k=1}^{m} \\frac{\\partial E}{\\partial Net_k} \\frac{\\partial Net_k}{\\partial O_j} \\cdot \\frac{\\partial O_j}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial w_{ji}} = \\sum_{k=1}^{m} -\\delta_k w_{kj} \\cdot O_j(1-O_j) * O_i\" with underbraces and labels. 6. Place an orange-bordered (#f4a460) box with cream interior (#ffe4b5) at the bottom-left (~40% width, ~20% height) containing the weight update equation \"\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\sum_{k=1}^{m} \\delta_k w_{kj} \\cdot O_j(1-O_j) * O_i = \\eta \\delta_j * O_i\" and the Where clause \"Where \\delta_j = \\sum_{k=1}^{m} \\delta_k w_{kj} * O_j(1-O_j)\" with the appended label \"(for each Node j at hidden layer)\". 7. Place a cream (#fdf6e3) box at the bottom-right (~50% width, ~20% height) containing exactly four equations with right arrows: \"\\frac{\\partial E}{\\partial Net_k} \\rightarrow -\\delta_k\", \"Net_k = \\sum_{j} w_{kj} O_j \\rightarrow \\frac{\\partial Net_k}{\\partial O_j} = w_{kj}\", \"O_j = \\frac{1}{1+e^{-Net_j}} \\rightarrow \\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)\", \"Net_j = \\sum_{i} w_{ji} O_i \\rightarrow \\frac{\\partial Net_j}{\\partial w_{ji}} = O_i\".",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Reconstructed missing slide_title as 'Backpropagation Weight Update Rule' from equation and diagram content.",
+      "Reconstructed missing subtitle_or_header as 'Generalized Delta Rule for Hidden Layer Weights' from bottom-left box content.",
+      "Rewrote recreation_brief into a 7-step ordered checklist specifying exact text, position, color, and shape/chart type for every element.",
+      "Removed vague quantifier 'some' from visual_elements diagram description; replaced with 'including circles labeled 1, 2, 3'.",
+      "Aligned recreation_brief text with exact verbatim strings from bullets, labels, and equations arrays."
+    ],
+    "uncertain_items": [
+      "Exact count of hidden-layer circles labeled 1, 2, 3 is not specified in the source JSON.",
+      "Region positions are approximate percentages as provided in the source layout."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_020.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 20,
+      "image": "slide_020.jpg",
+      "badge": "20"
+    },
+    "elapsed_s": 216.4,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 363.2
+  }
+}

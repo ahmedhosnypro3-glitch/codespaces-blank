@@ -1,66 +1,31 @@
 // Slide 048 — machine-learning/03_ridger_regression_gradient_descent
 // "Iteration 1: Weight Update using Step η = 1"
 //
+// FRESH BUILD per CONTINUATION_PROMPT.md §5 (2026-10-26).
 // Geometry is PIL-measured from unique_slides/slide_048.jpg (960x540, 1px = 1pt).
 // Frame-px coordinates below are MEASURED absolute ink extents; `f*` helpers
 // convert them directly to PPTX inches (px/72 — no origin offset).
 //
-// Frame-vs-spec deviations (frame wins, per references/building.md):
-//   * The top band is ONE indigo box, cols 68..720 / rows 54..130 — not the
-//     spec's three clusters in separate frames. Border cores measure
-//     (33,23,118) top and (35,23,109) right; there is NO internal divider
-//     (cols 285..315 over rows 52..132: longest continuous run 12 px vs 77 for
-//     the real left border and 71 for the real right).
-//   * The Augmented-matrix block has its own light-gray frame box, cols
-//     69..247 / rows 139..257 (left stroke col 70 and right stroke col 246 are
-//     each a continuous 118-px run rows 139..256; top/bottom horizontal
-//     strokes across cols 69..246 at rows 139-140 and 255-256; cores
-//     (161,171,180)..(196,204,207), the calc-panel gray family). Fill is white
-//     like the interior's (253,254,253) median.
-//   * Calc boxes are WHITE-filled with thin gray (171,175,186) borders — the
-//     spec's "light blue E9F2F9 / 8FB3CC" is not in the frame (interior census:
-//     910 of 921 sampled px are (254,255,253)).
-//   * Action phrases ("Update Weight" / "Keep same Weight") are BLACK, not the
-//     spec's maroon 8B0000 (darkest core RGB (13,15,12)); only the ⇒ glyph is
-//     red.
-//   * "Check classes of" IS in the frame at rows 86-96 / cols 542-626 (an
-//     early note misread rows 58-70 as the caption band and dropped it);
-//     re-added, together with the input table's per-column tall parentheses
-//     (stroke pairs (90,102)...(201,215), rows ~80-102), after the crop
-//     top-band judge flagged both and frame-pixel maps confirmed them.
-//   * The analysis spec's position for the
-//     "C1 positive, C2 negative, Zero is unaccepted" note is wrong — it is
-//     measured in the top band at rows 110..124 / cols 239..508, and its
-//     "Zero" is GREEN (core 69,138,56), not the spec's red. See the note block.
-//   * The green ⇐ arrow is not measurable: a strict green census finds 583 px
-//     spread over rows 153..518 / cols 379..764 (~0.2 px per column), i.e.
-//     chroma noise, not a glyph. Not drawn.
-//   * The input table's third feature row (1 2 2 4 5 6) is kept verbatim.
-//   * The "Iteration 1" box is a RED-FILLED rect with WHITE text (box median
-//     RGB (204,68,83); 231 near-white glyph px vs 687 red px), inverting the
-//     spec's "white-filled with red border".
-//   * ~66 px of unidentified sparse ink at cols 305..323 / rows 75..85 (between
-//     the input table and the Initial-W vector) is in the frame but not in the
-//     spec and is not legibly transcribable — omitted rather than invented.
-//   * ~105 px of light-gray micro-ink at cols 283..310 / rows 293..305 (right
-//     of the Iteration box) is likewise frame-only and illegible — omitted.
+// Color constants per §5:
+const FONT = "Arial";
+const BLACK = "000000";
+const RED = "FF0000";
+const CRED = "C00000";
+const BOXRED = "C6020A";
+const INK = "211776";
+const NAVY = "1F1655";
+const ATITLE = "2B207C";
+const GRAY = "ABAFBA";
+const DGRAY = "909090";
+const IGRAY = "6E6E6E";
+const DGREEN = "008000";
+const GREEN = "5B9C4E";
 
 const pptxgenpkg = require("pptxgenjs");
 const { drawHouseChrome } = require("../../shared_patterns/house_chrome.js");
 
 const pptx = new pptxgenpkg();
 pptx.layout = "LAYOUT_WIDE";
-
-const FONT = "Arial";
-const BLACK = "000000";
-const RED = "FF0000";
-// Indigo of the top-band box border (frame cores (33,23,118) / (35,23,109)).
-const INK = "211776";
-// Light gray of the calc-panel and augmented-frame borders.
-const GRAY = "ABAFBA";
-// Delimiter strokes around the augmented-matrix column vectors (frame cores
-// mean 144, range 127..159, neutral => mid gray).
-const DGRAY = "909090";
 
 let s = pptx.addSlide();
 drawHouseChrome(pptx, s, { numeral: "48" });
@@ -76,7 +41,8 @@ const path = require("path");
 const fs = require("fs");
 const ASSET_DIR = path.join(__dirname, "assets");
 const sidecar = (n) => JSON.parse(
-  fs.readFileSync(path.join(ASSET_DIR, n + ".json"), "utf8"));
+  fs.readFileSync(path.join(ASSET_DIR, n + ".json"), "utf8")
+);
 
 // Place an equation PNG with its math baseline on a given text-line baseline.
 function addEq(name, xIn, baselineIn) {
@@ -86,12 +52,26 @@ function addEq(name, xIn, baselineIn) {
   return m.w_in;
 }
 
+// 1px delimiter stroke helper — drawn as LINE to avoid LibreOffice fill→red artifact
+function dbar(x, y, h, color) {
+  s.addShape(pptx.ShapeType.line, {
+    x: fx(x), y: fy(y), w: 0, h: fh(h),
+    line: { color, width: 1 },
+  });
+}
+
+// Centered 16x16 text box for digits
+function txt(x, y, text, { fontSize = 12, color = BLACK, bold = false, italic = false } = {}) {
+  s.addText(text, {
+    x: fx(x - 8), y: fy(y - 8), w: fw(16), h: fh(16),
+    fontFace: FONT, fontSize, color, bold, italic,
+    align: "center", valign: "middle", margin: 0,
+  });
+}
+
 // ---------------------------------------------------------------- TOP-BAND BOX
 // One box, cols 69..719 / rows 55..129 (shape edges, so the centered strokes
-// land on the measured border-band centres), indigo border. It holds all three
-// clusters (input table, Initial-W vector + red REPEAT, check-classes table).
-// Measured border bands: top rows 54-56 cols 68..719; bottom rows 128-130 cols
-// 68..719; left col 68-69 rows 54..130; right col 718-720 rows 54..130.
+// land on the measured border-band centres), indigo border.
 {
   s.addShape(pptx.ShapeType.rect, {
     x: fx(69), y: fy(55), w: fw(719 - 69), h: fh(129 - 55),
@@ -100,148 +80,182 @@ function addEq(name, xIn, baselineIn) {
 }
 
 // ---------------------------------------------------------------- INPUT TABLE
-// Input data table inside the top-band box: 5 rows x 6 cols, cols 85..219,
-// rows 64..124. Column centres measured at 96.0/118.0/140.5/163.0/185.5/208.0
-// (spacing 22.4); header row 64-73, data rows 75-106, class row 111-124.
-// Rendered as per-cell text boxes: LibreOffice expands addTable rows to ~30px
-// regardless of rowH/fontSize, which pushed the class row onto the band border.
+// Header x₁..x₆ centres [96.2,118.6,141.0,163.4,185.8,208.2] cellW 22.4, y64 h10 bold
+// Digits row1 (1,2,1,5,6,6) y78 h10.5
+// Digits row2 (1,1,2,4,5,6) y97 h10 — NO third row
+// Class C₁C₁C₁C₂C₂C₂ y113 h12 bold+italic RED(first3)/INK
+// Bars topL=[89.81,111.95,133.86,156.28,179.34,202.25]
+//      topR=[101.37,123.59,146.15,169.01,191.46,213.61] y77 h31 DGRAY
 {
   const centres = [96.2, 118.6, 141.0, 163.4, 185.8, 208.2];
   const cellW = 22.4;
-  const rowBands = [
-    { top: 64, h: 10, texts: ["x\u2081", "x\u2082", "x\u2083", "x\u2084", "x\u2085", "x\u2086"], bold: true, colors: null },
-    { top: 75, h: 10.5, texts: ["1", "2", "1", "5", "6", "6"], bold: false, colors: null },
-    { top: 85.5, h: 10, texts: ["1", "1", "2", "4", "5", "6"], bold: false, colors: null },
-    { top: 96, h: 10, texts: ["1", "2", "2", "4", "5", "6"], bold: false, colors: null },
-    { top: 111, h: 13.5, texts: ["C1", "C1", "C1", "C2", "C2", "C2"], bold: true,
-      colors: [RED, RED, RED, "1F1655", "1F1655", "1F1655"] },
-  ];
-  for (const band of rowBands) {
-    for (let ci = 0; ci < 6; ci++) {
-      s.addText(band.texts[ci], {
-        x: fx(centres[ci] - cellW / 2), y: fy(band.top), w: fw(cellW), h: fh(band.h),
-        fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
-        bold: band.bold, color: band.colors ? band.colors[ci] : BLACK,
-      });
-    }
+
+  // Header row
+  for (let ci = 0; ci < 6; ci++) {
+    s.addText(["x\u2081", "x\u2082", "x\u2083", "x\u2084", "x\u2085", "x\u2086"][ci], {
+      x: fx(centres[ci] - cellW / 2), y: fy(64), w: fw(cellW), h: fh(10),
+      fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+      bold: true, color: BLACK,
+    });
   }
-  // Per-column tall parentheses around the three data rows. Measured strokes:
-  // left col 90/111/133/156/179/201, right col 102/125/147/170/193/215,
-  // rows ~80..102 (long runs 80-104 .. 84-101).
-  const colL = [90, 111, 133, 156, 179, 201];
-  const colR = [102, 125, 147, 170, 193, 215];
+
+  // Row 1 digits - original has (1) (2) (1) (5) (6) (6) - parentheses around all
+  const row1 = ["(1)", "(2)", "(1)", "(5)", "(6)", "(6)"];
+  for (let ci = 0; ci < 6; ci++) {
+    s.addText(row1[ci], {
+      x: fx(centres[ci] - cellW / 2), y: fy(78), w: fw(cellW), h: fh(10.5),
+      fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+      bold: false, color: BLACK,
+    });
+  }
+
+  // Row 2 digits - original has (1) (1) (2) (4) (5) (6) - all black (PIL att18: orig red=0)
+  const row2 = ["(1)", "(1)", "(2)", "(4)", "(5)", "(6)"];
+  for (let ci = 0; ci < 6; ci++) {
+    const color = BLACK;
+    s.addText(row2[ci], {
+      x: fx(centres[ci] - cellW / 2), y: fy(97), w: fw(cellW), h: fh(10),
+      fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+      bold: false, color: color,
+    });
+  }
+
+  // Class row
+  const classes = ["C1", "C1", "C1", "C2", "C2", "C2"];
+  const classColors = [RED, RED, RED, NAVY, NAVY, NAVY];
+  for (let ci = 0; ci < 6; ci++) {
+    s.addText(classes[ci], {
+      x: fx(centres[ci] - cellW / 2), y: fy(113), w: fw(cellW), h: fh(12),
+      fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+      bold: true, italic: true, color: classColors[ci],
+    });
+  }
+
+  // Tall delimiter bars (DGRAY) around the three data rows (y77 h31)
+  const topL = [89.81, 111.95, 133.86, 156.28, 179.34, 202.25];
+  const topR = [101.37, 123.59, 146.15, 169.01, 191.46, 213.61];
   for (let i = 0; i < 6; i++) {
-    s.addText("(", {
-      x: fx(colL[i] - 2), y: fy(79), w: fw(6), h: fh(25),
-      fontFace: FONT, fontSize: 22, color: BLACK, align: "center", valign: "middle", margin: 0,
-    });
-    s.addText(")", {
-      x: fx(colR[i] - 2), y: fy(79), w: fw(6), h: fh(25),
-      fontFace: FONT, fontSize: 22, color: BLACK, align: "center", valign: "middle", margin: 0,
-    });
+    dbar(topL[i], 77, 31, DGRAY);
+    dbar(topR[i], 77, 31, DGRAY);
   }
-  // "Check classes of" caption above the Z-grid. Measured bbox rows 86-96,
-  // cols 542-626 (~5.6 px/char).
-  s.addText("Check classes of", {
-    x: fx(540), y: fy(84), w: fw(90), h: fh(14),
-    fontFace: FONT, fontSize: 9, color: BLACK, italic: true,
-    align: "left", valign: "middle", margin: 0,
-  });
 }
 
 // ------------------------------------------------- INITIAL-W VECTOR + REPEAT
-// Top-centre contents of the top-band box (no separate box).
-// Measured bracket strokes: left col 330 rows 64..100 / col 331 rows 59..104,
-// right col 353 rows 63..101 — so the composite spans cols 330..353 and its
-// centre is col 341.5.
-// Label "Initial W =" cols 366..421 / rows 61..72; red REPEAT cols 426..530,
-// caps rows 62..73.
+// dbar 330.28 / 351.72, y57 h49 IGRAY
+// Digits "4"/"-2"/"-2" centred (341.5,66.5)/(344.5,82.5)/(344.5,97.5) fs13 BLACK
+// Label runs [{text:"Initial", underline},{text:" W"}] x365 y61 w60 h13 fs13 italic left
+// REPEAT "REPEAT using Step η = 1" x426 y60 w150 h16 fs12 RED bold (no italic/underline)
 {
-  // stacked vector [4; -2; -2], vertically centred on the line
-  const vm = sidecar("eq_initial_w_col");
-  const vMidY = fy(81);                       // rows 61-101 centre
-  s.addImage({
-    path: path.join(ASSET_DIR, "eq_initial_w_col.png"),
-    x: fx(330), y: vMidY - vm.h_in / 2, w: vm.w_in, h: vm.h_in,
-  });
+  // Delimiter brackets around Initial W column vector - use BLACK for visibility
+  dbar(330.28, 57, 49, BLACK);
+  dbar(351.72, 57, 49, BLACK);
 
-  // "Initial W =" label. Measured band cols 366..421 (w=56 == render w=57),
-  // rows 61..72. Rendered tall because valign:"baseline" parks the first
-  // line's baseline at the box top and this is single-line, so use "middle"
-  // and put the box on the measured band.
-  s.addText("Initial W =", {
-    x: fx(366), y: fy(61), w: fw(70), h: fh(13),
-    fontFace: FONT, fontSize: 13, color: BLACK, italic: true, underline: true,
+// Initial W digits fs13 BLACK
+  txt(341.5, 66.5, "4", { fontSize: 13, color: BLACK });
+  txt(344.5, 82.5, "-2", { fontSize: 13, color: BLACK });
+  txt(344.5, 97.5, "-2", { fontSize: 13, color: BLACK });
+
+  // "Initial W =" label with underline on "Initial" + " ="
+  s.addText([
+    { text: "Initial", options: { underline: true } },
+    { text: " W" },
+    { text: " =" },
+  ], {
+    x: fx(365), y: fy(61), w: fw(70), h: fh(13),
+    fontFace: FONT, fontSize: 13, color: BLACK, italic: true,
     align: "left", valign: "middle", margin: 0, lineSpacing: 13,
   });
 
-  // red REPEAT instruction. Measured band cols 426..530 (w=105), caps rows
-  // 62..73. At fontSize 13 the string is ~13% wider than the frame's and
-  // wrapped to two lines even in a 115px box; 12pt keeps it on one line in a
-  // box that cannot wrap.
+  // REPEAT instruction
   s.addText("REPEAT using Step \u03b7 = 1", {
     x: fx(426), y: fy(60), w: fw(150), h: fh(16),
-    fontFace: FONT, fontSize: 12, color: RED, bold: true, italic: true, underline: true,
+    fontFace: FONT, fontSize: 12, color: RED, bold: true,
     align: "left", valign: "middle", margin: 0, lineSpacing: 13,
   });
 }
 
-// ------------------------------------------------------------ CLASSES-OF NOTE
-// The frame carries a caption line under the Initial-W/REPEAT cluster, rows
-// 110..124, cols 239..508 — omitted by earlier builds. Measured char pitch is
-// uniform across the whole line (5.38 px/char for cols 239..378, 5.80 for the
-// green word at 395..423, 5.57 for cols 430..508), which pins the reading:
-// 26 chars = "C1 positive, C2 negative,", 5 chars green = "Zero", 14 chars =
-// "is unaccepted". Colour census: 35 red px (the two "C1" tokens) and 238
-// green px, mean RGB (153,205,138) core (69,138,56) — so "Zero" is GREEN in
-// the frame, not red as the analysis spec says.
+// ------------------------------------------------------------ "Check classes of"
+s.addText("Check classes of", {
+  x: fx(542), y: fy(85), w: fw(88), h: fh(14),
+  fontFace: FONT, fontSize: 10, color: BLACK,
+  align: "left", valign: "middle", margin: 0,
+});
+
+// ------------------------------------------------------------ Z-GRID
+// Centres [648,670.5,693.5] cellW 22.4
+// Z₁Z₂Z₃ y71 h13 italic fs12
+// 0/7/3 y86 h14 fs12
+// 0/6/2 y106 h12 fs12
+// Bars zp=[[640.96,654.65],[664.10,676.56],[686.30,699.07]] y86 h33 DGRAY
+{
+  const zCentres = [648, 670.5, 693.5];
+  const cellW = 22.4;
+
+  // Header Z1 Z1 Z1 (PIL-adjudicated att18: orig subscripts mutually identical, best-match '1')
+  for (let ci = 0; ci < 3; ci++) {
+    s.addText(["Z\u2081", "Z\u2081", "Z\u2081"][ci], {
+      x: fx(zCentres[ci] - cellW / 2), y: fy(71), w: fw(cellW), h: fh(13),
+      fontFace: FONT, fontSize: 12, align: "center", valign: "middle", margin: 0,
+      bold: false, italic: true, color: BLACK,
+    });
+  }
+
+  // Row 1: 0 7 3
+  for (let ci = 0; ci < 3; ci++) {
+    s.addText(["0", "7", "3"][ci], {
+      x: fx(zCentres[ci] - cellW / 2), y: fy(86), w: fw(cellW), h: fh(14),
+      fontFace: FONT, fontSize: 12, align: "center", valign: "middle", margin: 0,
+      color: BLACK,
+    });
+  }
+
+  // Row 2: 0 6 2
+  for (let ci = 0; ci < 3; ci++) {
+    s.addText(["0", "6", "2"][ci], {
+      x: fx(zCentres[ci] - cellW / 2), y: fy(106), w: fw(cellW), h: fh(12),
+      fontFace: FONT, fontSize: 12, align: "center", valign: "middle", margin: 0,
+      color: BLACK,
+    });
+  }
+
+  // Delimiter bars
+  const zp = [[640.96, 654.65], [664.10, 676.56], [686.30, 699.07]];
+  for (let i = 0; i < 3; i++) {
+    dbar(zp[i][0], 86, 33, DGRAY);
+    dbar(zp[i][1], 86, 33, DGRAY);
+  }
+}
+
+// ------------------------------------------------------------ LEGEND
+// Runs C₁(RED bold)/" positive "/C₂(NAVY bold)/" negative "/Zero(GREEN bold)/" is unaccepted"
+// x239 y108 w300 h17 fs13.5 left
 {
   s.addText([
-    { text: "C1", options: { color: RED, bold: true } },
-    { text: " positive, " },
-    { text: "C2", options: { color: "1F1655", bold: true } },
-    { text: " negative, " },
-    { text: "Zero", options: { color: "458A38", bold: true } },
+    { text: "C\u2081", options: { color: RED, bold: true } },
+    { text: " positive " },
+    { text: "C\u2082", options: { color: NAVY, bold: true } },
+    { text: " negative " },
+    { text: "Zero", options: { color: DGREEN, bold: true } },
     { text: " is unaccepted" },
   ], {
-    x: fx(239), y: fy(108), w: fw(275), h: fh(18),
+    x: fx(239), y: fy(108), w: fw(300), h: fh(17),
     fontFace: FONT, fontSize: 13.5, color: BLACK,
     align: "left", valign: "middle", margin: 0, lineSpacing: 13,
   });
 }
 
-// ------------------------------------------------------------ CHECK-CLASSES
-// Check-classes table inside the top-band box (no separate box).
-// Measured column centres 648.5 / 671.0 / 693.0 (spacing 22.25) — header Z1 Z2 Z3
-// rows 71-83, data rows (0 7 3) rows ~88-100 and (0 6 2) rows ~106-114.
-{
-  // columns centred on the measured centres: 637.4 .. 704.2
-  const tx = fx(637), twid = fw(67);
-  const rows = [
-    ["Z1", "Z2", "Z3"],
-    ["0", "7", "3"],
-    ["0", "6", "2"],
-  ];
-  const tbl = rows.map((r, ri) => r.map((cell) => ({
-    text: cell,
-    options: {
-      fontFace: FONT, fontSize: 12, align: "center", valign: "middle",
-      margin: 0, bold: ri === 0, color: BLACK,
-    },
-  })));
-  s.addTable(tbl, {
-    x: tx, y: fy(71), w: twid, h: fh(45),
-    fontFace: FONT, colW: [twid / 3, twid / 3, twid / 3],
-    rowH: fw(15),
-    border: { type: "none" },
-    fill: { color: "FFFFFF" },
-  });
-}
-
-// ------------------------------------------------- MID-LEFT: augmented matrix
-// Header "Ugmented Vectors (from Top)" rows 149-156, cols 90-228 (the header
-// ink runs 90-131/138-178/185-206/214-228 measure the full line's extent).
-// A light-gray frame box encloses the matrix: cols 69..247 / rows 139..257.
+// ------------------------------------------------- MID-LEFT: AUGMENTED MATRIX BOX
+// Frame rect x69.5 y139.5 w176 h116 WHITE fill GRAY 0.75
+// Title "Ugmented Vectors (from Top)" x82 y146 w160 h15 fs9.5 italic color 2B207C
+// Centres [100,122,144.5,167,189.5,212]
+// Header x₁..x₆ y166 h10 italic
+// Vals - original has parentheses around cells:
+// Row 1: (1) (1) (1) (1) (1) (1)
+// Row 2: (1) (2) (1) (5) (6) (6) - some red
+// Row 3: (1) (1) (2) (4) (5) (6)
+// Bars augL=[93.59,115.28,137.43,160.65,182.66,205.64]
+//      augR=[105.84,127.15,149.74,172.35,195.05,217.20] y180 h46 DGRAY
+// Class C₁/C₂ y230 h14 fs11 bold+italic RED/INK
 {
   s.addShape(pptx.ShapeType.rect, {
     x: fx(69.5), y: fy(139.5), w: fw(245.5 - 69.5), h: fh(255.5 - 139.5),
@@ -249,62 +263,93 @@ function addEq(name, xIn, baselineIn) {
   });
 
   s.addText("Ugmented Vectors (from Top)", {
-    x: fx(90), y: fy(156), w: fw(138), h: fh(14),
-    fontFace: FONT, fontSize: 11, color: BLACK,
+    x: fx(82), y: fy(146), w: fw(160), h: fh(15),
+    fontFace: FONT, fontSize: 9.5, color: ATITLE, italic: true,
     align: "left", valign: "baseline", margin: 0, lineSpacing: 12,
   });
 
-  // Matrix columns centred on the measured centres 98/121/143/165.5/188/212.5
-  // (spacing ~22.7): left edge 88, width 136. Frame borders at cols 69-70 and
-  // 245-246 enclose it.
   const mx = fx(88), mw = fw(136);
-  const rows = [
-    ["x\u2081", "x\u2082", "x\u2083", "x\u2084", "x\u2085", "x\u2086"],
-    ["1", "1", "1", "1", "1", "1"],
-    ["1", "2", "1", "5", "6", "6"],
-    ["1", "1", "2", "4", "5", "6"],
-    ["C1", "C1", "C1", "C2", "C2", "C2"],
-  ];
-  const tbl = rows.map((r, ri) => r.map((cell, ci) => ({
-    text: cell,
-    options: {
-      fontFace: FONT, fontSize: 11, align: "center", valign: "middle",
-      margin: 0, bold: ri === 0 || ri === 4,
-      color: ri === 4 ? (ci < 3 ? RED : INK) : BLACK,
-    },
-  })));
-  s.addTable(tbl, {
-    x: mx, y: fy(163), w: mw, h: fh(78),
-    fontFace: FONT, colW: Array(6).fill(mw / 6),
-    rowH: fw(15.6),
-    border: { type: "none" },
-    fill: { color: "FFFFFF" },
-  });
+  const centres = [100, 122, 144.5, 167, 189.5, 212];
+  const cellW = 22.4;
 
-  // Tall delimiter strokes pair each column: the frame shows xâ..xâ as six
-  // COLUMN VECTORS, each of the three entries enclosed in parentheses spanning
-  // all three rows. PIL-measured on the frame (matched crop, 2.0737 crop-px per
-  // frame-px): 12 continuous vertical runs over rows 180..225.2, i.e. exactly
-  // the three numeric rows (the header and class rows are outside). Stroke
-  // cores are neutral gray, mean value 144 (range 127..159) => DGRAY. Centroids
-  // per column pairs: 93.8/106.5, 114.6/127.9, 136.9/150.5, 159.4/173.2,
-  // 182.2/195.8, 204.7/218.2 — each pair centred on its column centre.
-  for (const cx of [93.8, 106.5, 114.6, 127.9, 136.9, 150.5,
-    159.4, 173.2, 182.2, 195.8, 204.7, 218.2]) {
-    s.addShape(pptx.ShapeType.rect, {
-      x: fx(cx - 0.5), y: fy(180), w: fw(1), h: fh(225.2 - 180),
-      fill: { color: DGRAY }, line: { type: "none" },
+  // Header x₁..x₆
+  for (let ci = 0; ci < 6; ci++) {
+    s.addText(["x\u2081", "x\u2082", "x\u2083", "x\u2084", "x\u2085", "x\u2086"][ci], {
+      x: fx(centres[ci] - cellW / 2), y: fy(166), w: fw(cellW), h: fh(10),
+      fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+      bold: false, italic: true, color: BLACK,
     });
   }
+
+  // Three data rows - with parentheses per original
+  // Row 1: all (1)
+  const row1 = ["(1)", "(1)", "(1)", "(1)", "(1)", "(1)"];
+  // Row 2: (1) (2) (1) (5) (6) (6) - some red
+  const row2 = ["(1)", "(2)", "(1)", "(5)", "(6)", "(6)"];
+  // Row 3: (1) (1) (2) (4) (5) (6)
+  const row3 = ["(1)", "(1)", "(2)", "(4)", "(5)", "(6)"];
+  const rows = [row1, row2, row3];
+  const rowTops = [183, 198, 213];
+  for (let ri = 0; ri < 3; ri++) {
+    for (let ci = 0; ci < 6; ci++) {
+      const color = BLACK; // att18 PIL: orig aug row-2 digits all black (red=0)
+      s.addText(rows[ri][ci], {
+        x: fx(centres[ci] - cellW / 2), y: fy(rowTops[ri]), w: fw(cellW), h: fh(10),
+        fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+        color: color,
+      });
+    }
+  }
+
+  // Delimiter bars augL/augR y180 h46
+  const augL = [93.59, 115.28, 137.43, 160.65, 182.66, 205.64];
+  const augR = [105.84, 127.15, 149.74, 172.35, 195.05, 217.20];
+  for (let i = 0; i < 6; i++) {
+    dbar(augL[i], 180, 46, DGRAY);
+    dbar(augR[i], 180, 46, DGRAY);
+  }
+
+  // Class row
+  s.addText("C\u2081", {
+    x: fx(centres[0] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: RED,
+  });
+  s.addText("C\u2081", {
+    x: fx(centres[1] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: RED,
+  });
+  s.addText("C\u2081", {
+    x: fx(centres[2] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: RED,
+  });
+  s.addText("C\u2082", {
+    x: fx(centres[3] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: INK,
+  });
+  s.addText("C\u2082", {
+    x: fx(centres[4] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: INK,
+  });
+  s.addText("C\u2082", {
+    x: fx(centres[5] - cellW / 2), y: fy(230), w: fw(cellW), h: fh(14),
+    fontFace: FONT, fontSize: 11, align: "center", valign: "middle", margin: 0,
+    bold: true, italic: true, color: INK,
+  });
 }
 
 // ------------------------------------------------------- ITERATION 1 (red box)
-// Red-filled rect rows 276-306, cols 83-214, white text rows 289-298.
+// Rect x83 y276 w132 h31 fill+border C6020A
+// "Iteration 1" WHITE bold fs13 centred (measured fill x84..214 y277..305)
 {
   const bx = fx(83), by = fy(276), bw = fw(214 - 83 + 1), bh = fh(306 - 276 + 1);
   s.addShape(pptx.ShapeType.rect, {
     x: bx, y: by, w: bw, h: bh,
-    fill: { color: "C6020A" }, line: { color: "C6020A", width: 1 },
+    fill: { color: BOXRED }, line: { color: BOXRED, width: 1 },
   });
   s.addText("Iteration 1", {
     x: bx, y: by, w: bw, h: bh,
@@ -314,50 +359,169 @@ function addEq(name, xIn, baselineIn) {
 }
 
 // ------------------------------------------------------------- CALC PANEL
-// Six white boxes with thin gray (171,175,186) borders, rows 139..528, cols
-// 275..853. Measured tops/bottoms: (139,197)(197,272)(272,330)(330,395)
-// (404,461)(461,528) — a 9-frame-px gap separates box 4 from box 5.
-// Box 1 line: left expr cols 301-429, red ⇒ cols 490-498, action cols 509-582,
-// right expr cols 617-799. All text is BLACK (darkest core RGB ~(13,15,12));
-// only the ⇒ is red (JPEG-darkened C00000 family).
+// Six SEPARATE white rects (fill WHITE, line none) x274 w(853-274)
+// at bands [[140,197],[206,263],[272,330],[338,395],[404,461],[470,528]]
+// Horizontal GRAY 1pt rules at [140,197,206,263,272,330,338,395,404,461,470,528] spanning x274..853
+// Left vertical GRAY per band (segments y140..197, 206..263, 272..330, 338..395, 404..461, 470..528)
+// NO right vertical
 {
-  const px = fx(275), pw = fw(853 - 275 + 1);
-  const boxTop = [139, 197, 272, 330, 404, 461];
-  const boxBot = [197, 272, 330, 395, 461, 528];
+  const px = fx(274), pw = fw(853 - 274 + 1);
+  const boxTop = [140, 206, 272, 338, 404, 470];
+  const boxBot = [197, 263, 330, 395, 461, 528];
   const acts = ["Update Weight", "Keep same Weight", "Keep same Weight",
     "Keep same Weight", "Keep same Weight", "Keep same Weight"];
   const lefts = ["eq_r1_l", "eq_r2_l", "eq_r3_l", "eq_r4_l", "eq_r5_l", "eq_r6_l"];
 
+  // Rule y-positions (including both top and bottom of each box + the gap)
+  const ruleYs = [140, 197, 206, 263, 272, 330, 338, 395, 404, 461, 470, 528];
+
+  // Draw horizontal rules
+  for (const ry of ruleYs) {
+    s.addShape(pptx.ShapeType.line, {
+      x: px, y: fy(ry), w: pw, h: 0,
+      line: { color: GRAY, width: 0.75 },
+    });
+  }
+
+  // Draw left vertical segments (with gaps)
+  const vSegments = [
+    [140, 197], [206, 263], [272, 330], [338, 395], [404, 461], [470, 528],
+  ];
+  for (const [yt, yb] of vSegments) {
+    s.addShape(pptx.ShapeType.line, {
+      x: px, y: fy(yt), w: 0, h: fh(yb - yt),
+      line: { color: GRAY, width: 0.75 },
+    });
+  }
+
+  // Row content
   for (let i = 0; i < 6; i++) {
     const by = fy(boxTop[i]), bh = fh(boxBot[i] - boxTop[i]);
+
+    // White rect (no border — rules/verticals drawn separately)
     s.addShape(pptx.ShapeType.rect, {
       x: px, y: by, w: pw, h: bh,
-      fill: { color: "FFFFFF" }, line: { color: GRAY, width: 0.75 },
+      fill: { color: "FFFFFF" }, line: { type: "none" },
     });
 
-    // text baseline = centre of the box's main ink band
+    // Text baseline = centre of the box's main ink band + 5/72
     const baseline = fy((boxTop[i] + boxBot[i]) / 2) + 5 / 72;
 
-    // left expression (d(xN) = ... = R)
+    // Left expression (d(xN) = ... = R)
     addEq(lefts[i], fx(301), baseline);
 
-    // red ⇒ glyph at cols 490-498
+    // Red ⇒ glyph at x488
     s.addText("\u21d2", {
       x: fx(488), y: by, w: fw(12), h: bh,
-      fontFace: FONT, fontSize: 15, color: "C00000", bold: true,
+      fontFace: FONT, fontSize: 15, color: CRED, bold: true,
       align: "center", valign: "middle", margin: 0,
     });
 
-    // action phrase (black)
+    // Action phrase (black) — w100 to keep "Update Weight" on ONE line
+    // (measured x-extent in original: x489..582 = 94px wide)
     s.addText(acts[i], {
-      x: fx(509), y: by, w: fw(80), h: bh,
+      x: fx(505), y: by, w: fw(115), h: bh,
       fontFace: FONT, fontSize: 13, color: BLACK,
       align: "left", valign: "middle", margin: 0, lineSpacing: 13,
     });
-
-    // right expression (W = ...)
-    addEq(i === 0 ? "eq_r1_w" : "eq_r_kw", fx(617), baseline);
   }
+}
+
+// ------------------------------------------------- ROW-1 RIGHT SIDE — decoded update equation
+// "W =" text box x615 y162 w26 h16 fs12, runs [{text:"W", bold+underline},{text:" ="}]
+{
+  s.addText([
+    { text: "W", options: { bold: true, underline: true } },
+    { text: " =" },
+  ], {
+    x: fx(615), y: fy(162), w: fw(26), h: fh(16),
+    fontFace: FONT, fontSize: 12, color: BLACK,
+    align: "left", valign: "middle", margin: 0, lineSpacing: 12,
+  });
+}
+
+// dbar DGRAY: x643 y150 h45; x665.5 y150 h45; x707.5 y152 h41; x720.5 y152 h41
+dbar(643, 150, 45, DGRAY);
+dbar(665.5, 150, 45, DGRAY);
+dbar(707.5, 152, 41, DGRAY);
+dbar(720.5, 152, 41, DGRAY);
+
+// vec1 digits fs12 BLACK centred: "4"(656,156), "-2"(654.5,172), "-2"(654.5,188)
+txt(656, 156, "4", { fontSize: 12, color: BLACK });
+txt(654.5, 172, "-2", { fontSize: 12, color: BLACK });
+txt(654.5, 188, "-2", { fontSize: 12, color: BLACK });
+
+// red C00000: "+" (677,170) fs12; "1" (688,170) fs12. BLACK "*" (699,168) fs12
+s.addText("+", {
+  x: fx(677 - 4), y: fy(170 - 8), w: fw(8), h: fh(16),
+  fontFace: FONT, fontSize: 12, color: CRED, bold: true,
+  align: "center", valign: "middle", margin: 0,
+});
+txt(688, 170, "1", { fontSize: 12, color: CRED });
+s.addText("*", {
+  x: fx(699 - 4), y: fy(168 - 8), w: fw(8), h: fh(16),
+  fontFace: FONT, fontSize: 12, color: BLACK,
+  align: "center", valign: "middle", margin: 0,
+});
+
+// vec2 digits fs12 BLACK: "1"(714.5,156), "1"(714.5,172), "1"(714.5,188); "=" BLACK fs12 (731.5,169.5)
+txt(714.5, 156, "1", { fontSize: 12, color: BLACK });
+txt(714.5, 172, "1", { fontSize: 12, color: BLACK });
+txt(714.5, 188, "1", { fontSize: 12, color: BLACK });
+s.addText("=", {
+  x: fx(731.5 - 4), y: fy(169.5 - 8), w: fw(8), h: fh(16),
+  fontFace: FONT, fontSize: 12, color: BLACK,
+  align: "center", valign: "middle", margin: 0,
+});
+
+// vec3 GREEN=DGREEN: dbar x740 y154 h38; dbar x763 y154 h38; digits fs12 DGREEN "5"(752,156), "-1"(753,172), "-1"(753,188)
+dbar(740, 154, 38, DGREEN);
+dbar(763, 154, 38, DGREEN);
+txt(752, 156, "5", { fontSize: 12, color: DGREEN });
+txt(753, 172, "-1", { fontSize: 12, color: DGREEN });
+txt(753, 188, "-1", { fontSize: 12, color: DGREEN });
+
+// "⇐" C00000 fs15 bold, box x784 y160 w17 h16 (centre 792,168)
+s.addText("\u21d0", {
+  x: fx(784), y: fy(160), w: fw(17), h: fh(16),
+  fontFace: FONT, fontSize: 15, color: CRED, bold: true,
+  align: "center", valign: "middle", margin: 0,
+});
+
+// ------------------------------------------------- ROWS 2-6 RIGHT SIDE — W column
+// r: Wbox(x,y)   bars L/R (span)      "5"@  "-1"@  digit-cy
+// 2: 695,229     723 / 744.5 (216..260)  733.5  734    222 / 238.5 / 253.5
+// 3: 695,292     722.5 / 744.5 (280..322) 734.5  734    285 / 301.5 / 316.5
+// 4: 708,361     735 / 757   (348..392)  746.5  746    354.5 / 370.5 / 386
+// 5: 708,424     734 / 756   (410..455)  744.5  744.5  417.5 / 433 / 448.5
+// 6: 708,490     734 / 756   (476..522)  744.5  744.5  483.5 / 500 / 515
+const wRows = [
+  { x: 695, y: 229, barL: 723, barR: 744.5, d5: 733.5, d1: 734, cy: [222, 238.5, 253.5] },
+  { x: 695, y: 292, barL: 722.5, barR: 744.5, d5: 734.5, d1: 734, cy: [285, 301.5, 316.5] },
+  { x: 708, y: 361, barL: 735, barR: 757, d5: 746.5, d1: 746, cy: [354.5, 370.5, 386] },
+  { x: 708, y: 424, barL: 734, barR: 756, d5: 744.5, d1: 744.5, cy: [417.5, 433, 448.5] },
+  { x: 708, y: 490, barL: 734, barR: 756, d5: 744.5, d1: 744.5, cy: [483.5, 500, 515] },
+];
+
+for (const r of wRows) {
+  // "W =" box w26 h16 fs12 runs [{W bold+underline},{" ="}] left-aligned
+  s.addText([
+    { text: "W", options: { bold: true, underline: true } },
+    { text: " =" },
+  ], {
+    x: fx(r.x), y: fy(r.y), w: fw(26), h: fh(16),
+    fontFace: FONT, fontSize: 12, color: BLACK,
+    align: "left", valign: "middle", margin: 0, lineSpacing: 12,
+  });
+
+  // Bars DGRAY full measured span
+  dbar(r.barL, r.y, r.cy[2] - r.cy[0] + 16, DGRAY); // approx span
+  dbar(r.barR, r.y, r.cy[2] - r.cy[0] + 16, DGRAY);
+
+  // Digits fs12 BLACK centred 16x16: "5", "-1", "-1"
+  txt(r.d5, r.cy[0], "5", { fontSize: 12, color: BLACK });
+  txt(r.d1, r.cy[1], "-1", { fontSize: 12, color: BLACK });
+  txt(r.d1, r.cy[2], "-1", { fontSize: 12, color: BLACK });
 }
 
 const OUT = "videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/slide_048_recreated.pptx";

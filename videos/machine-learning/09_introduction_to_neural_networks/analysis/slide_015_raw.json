@@ -1,0 +1,177 @@
+{
+  "slide_title": "Using Two Perceptron Layers with non-Linearity",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Using Two Perceptron Layers with non-Linearity",
+      "15",
+      "x1",
+      "x2",
+      "-1",
+      "1",
+      "-1",
+      "1",
+      "S1",
+      "S2",
+      "S3",
+      "Z1",
+      "Z2",
+      "Z3",
+      "O/P",
+      ">0.5 => 1",
+      "<0.5 => 0",
+      ">= -0.5 => 1",
+      "< -0.5 => 0",
+      ">0 => 1",
+      "<0 => 0",
+      "X1",
+      "X2",
+      "O/P",
+      "0",
+      "1",
+      "x2",
+      "x1",
+      "S1",
+      "Z1",
+      "S2",
+      "Z2",
+      "S3",
+      "Z3",
+      "Adding Non-Linearity",
+      "Solves the",
+      "XOR Problem"
+    ],
+    "equations": [
+      ">0.5 => 1",
+      "<0.5 => 0",
+      ">= -0.5 => 1",
+      "< -0.5 => 0",
+      ">0 => 1",
+      "<0 => 0"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title at top-left/center in red and blue. Slide number '15' in yellow circle at top-right. Large neural network diagram in a blue-bordered box occupying the upper-left/center. A 4-row truth table (X1, X2, O/P) in a red-bordered box at upper-right. A wide data table with columns x2, x1, S1, Z1, S2, Z2, S3, Z3 spanning the bottom-left/center. A rounded callout box at bottom-right with text 'Adding Non-Linearity Solves the XOR Problem'.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top, left-center, ~10% height",
+        "content": "Slide title text 'Using Two Perceptron Layers with non-Linearity'"
+      },
+      {
+        "name": "slide_number",
+        "position": "top-right, ~5% height",
+        "content": "Yellow circle with '15'"
+      },
+      {
+        "name": "neural_network_diagram",
+        "position": "middle-left to center, ~40% height, ~65% width",
+        "content": "Perceptron network with inputs x1, x2, hidden units S1, S2, output S3, step-function boxes, weights, and labels Z1, Z2, Z3, O/P"
+      },
+      {
+        "name": "truth_table",
+        "position": "middle-right, ~30% height, ~25% width",
+        "content": "Table with headers X1, X2, O/P and four rows of XOR truth values"
+      },
+      {
+        "name": "data_table",
+        "position": "bottom-left to center, ~25% height, ~70% width",
+        "content": "Table with headers x2, x1, S1, Z1, S2, Z2, S3, Z3 and four data rows with highlighted cells"
+      },
+      {
+        "name": "callout_box",
+        "position": "bottom-right, ~15% height, ~25% width",
+        "content": "Text box 'Adding Non-Linearity Solves the XOR Problem'"
+      }
+    ],
+    "hierarchy": "Title is largest and most prominent (colored red/blue). Neural network diagram is the largest visual block. Data table and truth table are secondary. Callout box is tertiary accent."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Feedforward neural network diagram. Input layer: two circles labeled x1 (top) and x2 (bottom). Arrows to hidden layer: x1->S1 labeled '-1' (red), x1->S2 labeled '1' (blue), x2->S1 labeled '1' (red), x2->S2 labeled '-1' (blue). Hidden layer: two circles labeled S1 and S2 containing sigma (\u03a3) symbols. From S1 an arrow to a purple-outlined box containing a step-function icon, labeled 'Z1' to its right; above the box are two lines '>0.5 => 1' (yellow) and '<0.5 => 0' (red). From S2 an arrow to a similar box labeled 'Z2'; above it '>= -0.5 => 1' (green) and '< -0.5 => 0' (red). From Z1 an arrow labeled '-1' (red) to output circle S3 (sigma). From Z2 an arrow labeled '1' (green) to S3. From S3 an arrow to a purple-outlined box with step-function icon, labeled 'Z3'/'O/P'; above it '>0 => 1' (yellow) and '<0 => 0' (red). Arrow out labeled 'O/P'.",
+      "colors": [
+        "#ffffff",
+        "#0000ff",
+        "#ff0000",
+        "#008000",
+        "#ffff00",
+        "#c00000",
+        "#d2b48c"
+      ],
+      "position": "upper-left and center, inside blue-bordered rectangle"
+    },
+    {
+      "type": "table",
+      "description": "Truth table with red border. Headers: X1 | X2 | O/P. Row 1: 0 | 0 | 0 (O/P cell cyan). Row 2: 0 | 1 | 1 (O/P cell green). Row 3: 1 | 0 | 1 (O/P cell green). Row 4: 1 | 1 | 0 (O/P cell cyan).",
+      "colors": [
+        "#ffffff",
+        "#ff0000",
+        "#00ffff",
+        "#90ee90",
+        "#000000"
+      ],
+      "position": "upper-right"
+    },
+    {
+      "type": "table",
+      "description": "Data table with red borders and merged header groups. Header row: x2 | x1 || S1 | Z1 || S2 | Z2 || S3 | Z3. Row 1: 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 (last cell Z3 cyan). Row 2: 0 | 1 | -1 | 0 | -1 | 0 | 0 | 0 (last cell Z3 green). Row 3: 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 (last cell Z3 green). Row 4: 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 (last cell Z3 cyan).",
+      "colors": [
+        "#ffffff",
+        "#ff0000",
+        "#00ffff",
+        "#90ee90",
+        "#000000"
+      ],
+      "position": "bottom-left to center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rounded rectangle callout with light yellow fill and thin border. Text: 'Adding Non-Linearity' (blue) on first line, 'Solves the' (black) on second, 'XOR Problem' with 'XOR' in red on third.",
+      "colors": [
+        "#ffffe0",
+        "#0000ff",
+        "#000000",
+        "#ff0000"
+      ],
+      "position": "bottom-right"
+    },
+    {
+      "type": "other",
+      "description": "Slide number indicator: yellow circle with black outline containing '15'.",
+      "colors": [
+        "#ffd700",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [
+    "Sigma (\u03a3) symbols inside circles S1, S2, S3 representing perceptron summation units.",
+    "Step-function icons inside purple-outlined boxes representing threshold/activation functions.",
+    "No photographs or illustrations beyond schematic diagram symbols."
+  ],
+  "colors": {
+    "background": "#f2f2f2",
+    "title_text": "#c00000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000ff",
+      "#ffff00",
+      "#008000",
+      "#00ffff",
+      "#90ee90",
+      "#ffd700"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title uses mixed red ('Using Two Perceptron Layers with') and blue ('non-Linearity') with bold weight. Body text is black sans-serif. Table headers and diagram labels are black. Some condition text above step boxes is colored yellow, green, or red. No italics observed. Bullets are not used.",
+  "animation_state": "Static slide; no mid-build or partial reveals visible.",
+  "recreation_brief": "1. Set slide background to light gray (#f2f2f2). 2. Add title text at top: 'Using Two Perceptron Layers with' in red bold sans-serif, then 'non-Linearity' in blue bold sans-serif immediately after. 3. Add a yellow circle with black border at top-right containing '15'. 4. Draw a large blue-bordered rectangle for the neural network diagram on the upper-left/center. Inside, place two input circles x1 (top) and x2 (bottom). Draw weighted arrows to two sigma circles S1 and S2 with labels: x1->S1 '-1' (red), x1->S2 '1' (blue), x2->S1 '1' (red), x2->S2 '-1' (blue). From S1 and S2 draw arrows to purple-outlined step-function boxes labeled Z1 and Z2; above Z1 place '>0.5 => 1' (yellow) and '<0.5 => 0' (red); above Z2 place '>= -0.5 => 1' (green) and '< -0.5 => 0' (red). Draw arrows from Z1 and Z2 to output sigma circle S3 with weights '-1' (red) from Z1 and '1' (green) from Z2. From S3 draw arrow to a final step-function box labeled O/P/Z3 with '>0 => 1' (yellow) and '<0 => 0' (red) above it. 5. To the right of the diagram, create a red-bordered truth table with headers X1, X2, O/P and rows: 0/0/0 (cyan O/P), 0/1/1 (green O/P), 1/0/1 (green O/P), 1/1/0 (cyan O/P). 6. Below the diagram, create a wide red-bordered table with header groups: x2 | x1 || S1 | Z1 || S2 | Z2 || S3 | Z3. Fill rows: 0,0,0,0,0,1,1,1 (last cell cyan); 0,1,-1,0,-1,0,0,0 (last cell green); 1,0,1,1,1,1,0,0 (last cell green); 1,1,0,0,0,1,1,1 (last cell cyan). 7. Add a rounded light-yellow callout box at bottom-right with text: line 1 'Adding Non-Linearity' (blue), line 2 'Solves the' (black), line 3 'XOR Problem' with 'XOR' in red.",
+  "_meta": {
+    "frame": "slide_015.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 44.0
+  }
+}

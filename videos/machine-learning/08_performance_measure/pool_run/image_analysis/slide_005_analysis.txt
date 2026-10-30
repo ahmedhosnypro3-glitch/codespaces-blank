@@ -1,0 +1,511 @@
+[info] context header injected: VIEW: Slide 5 — Radar Shooting of Positive Target (Enemy plane) | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 53945
+[warn] /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_005.jpg: winner length 29196 chars ≈ the --max-tokens budget — likely TRUNCATED mid-body; re-run with a higher --max-tokens if sections are missing
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_005.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants me to analyze a slide from a recorded university lecture. The slide is titled "Radar Shooting of Positive Target (Enemy plane)" and it's slide number 5. The image shows a confusion matrix visualization related to radar detection of aircraft.
+
+Let me carefully analyze the image:
+
+1. Top title: "Radar Shooting of Positive Target (Enemy plane)" in a red/maroon color
+2. There's a circular badge in the top right with the number "5"
+
+The slide contains three main panels with confusion matrices:
+
+Top-left panel: A 3x3 confusion matrix diagram
+- Header row: "Predicted as" spanning two columns: P, N
+- Left column header: "Actual"
+- Row 1: P, TP, FN
+- Row 2: N, FP, TN
+- TP and TN cells are highlighted in green
+- This is the initial/template confusion matrix
+
+Bottom-left panel: Another 3x3 confusion matrix with:
+- Same grid structure: P/N, TP/FN/FP/TN
+- To the right there are definitions:
+  - "Total Positive = TP+FN"
+  - "Total Negative = FP+TN"
+- Below that:
+  - "FN = Actually Positive, Miss-classified as Negative"
+  - "FP = Actually Negative, Miss-classified as Positive"
+
+Right-top panel: A decision tree/flow diagram showing aircraft classification
+- Top labels: "Positive" and "Negative"
+- Positive side: an airplane icon (enemy plane) in red/maroon
+- Negative side: an airplane icon in green
+- Under Positive airplane, a node labeled "30" (red circle)
+- Arrows going down from 30:
+  - To "18" (red circle) labeled "Actual"
+  - To "12" (red circle) 
+- Under Negative airplane, a node labeled "70" (green circle)
+- Arrows going down from 70:
+  - To "60" (green circle) labeled "Predicted"
+  - To "10" (green circle)
+- The layout shows: Positive actual splits into 18 (correctly identified as positive/TP) and 12 (FN)
+- Negative actual splits into 60 (TN) and 10 (FP)
+
+Right-bottom panel: Confusion matrix with actual numbers:
+- Header: "Predicted as" with P and N columns
+- Left column: "Actual"
+- Row P: 18 (green highlight), 12, with "Total Positive = 18+12=30" text to the right
+- Row N: 10, 60 (green highlight), with "Total Negative = 10+60=70" text to the right
+
+Wait, looking more carefully at the layout: the right-bottom matrix's "Total Positive = 18+12=30" and "Total Negative = 10+60=70" appear to the right of the matrix.
+
+Also note in the top-right diagram: there are dashed lines. One from the red "18" to the green "60"? Let me look again. The dashed lines seem to connect:
+- From "18" (red) down and right - maybe to the bottom matrix? Or connecting predicted values across the actual categories?
+- Actually, looking at standard radar example: The diagram likely shows Actual classes at top (Positive/Negative aircraft), splitting into Predicted P/N. The numbers:
+  - Actual Positive = 30, split into TP=18, FN=12
+  - Actual Negative = 70, split into FP=10, TN=60
+  
+Wait, but 10 is on the Negative side and might be FP. Let me re-examine. The labels around the right-top diagram:
+- "Actual" label is on the left middle
+- "Predicted" label is on left lower middle
+- There are dashed lines connecting elements
+
+Looking at the diagram structure:
+- Top row: Two airplanes - left labeled "Positive" (red), right labeled "Negative" (green)
+- Under Positive plane: branch point labeled "30" (red circle)
+- From 30, two arrows: one to red circle "18", one to red circle "12"
+- Under Negative plane: branch point labeled "70" (green circle)
+- From 70, two arrows: one to green circle "60", one to green circle "10"
+
+The positions suggest:
+- Predictive results: maybe 18 and 60 are TP/TN, while 12 and 10 are FN/FP.
+
+In the bottom-right matrix:
+- P row: 18 (green), 12
+- N row: 10, 60 (green)
+
+So TP=18, FN=12, FP=10, TN=60.
+
+This corresponds to:
+- Actual Positive 30 = TP(18) + FN(12)
+- Actual Negative 70 = FP(10) + TN(60)
+
+In the tree:
+- The left column of circles (18, 10) might represent Predicted P
+- The right column (12, 60) might represent Predicted N? But 18 is red and 60 is green.
+Actually, the color coding is by correct/incorrect:
+- 18 red = TP (predicted positive from actual positive) - but it's red maybe because it represents a positive detection
+- 12 red = FN
+- 60 green = TN
+- 10 green = FP? But FP should be red (negative predicted as positive). Hmm.
+
+Maybe colors indicate: red = related to Positive class, green = related to Negative class.
+- 18 (red) = TP, 12 (red) = FN
+- 10 (green) = FP? No, that would relate positive predicted to actual negative...
+
+Actually, looking at the bottom matrix row N: [10, 60]. TN=60 is green. FP=10 might be red to match "Positive" prediction? But the image shows 10 as possibly green or red - hard to tell.
+
+The curved dashed lines: There's a dashed arc from the 18 circle curving down and right, and another from the 70 or 60. These might visually connect to show relationships, or be artifacts.
+
+Looking more carefully: there are two dashed curved lines in the middle-left of the right panel. They appear to connect from the top tree down to the bottom matrix? Or maybe they represent the "Actual" and "Predicted" labels pointing to the tree.
+
+The labels "Actual" and "Predicted" are written vertically along the left side of the right panel:
+- "Actual" is near the top-left of the right-top box, next to the first branching level
+- "Predicted" is lower, next to the second branching level
+
+These likely indicate which level of the tree corresponds to actual class vs predicted class.
+
+Now let me structure the full extraction. The image resolution is 960x540 CSS pixels.
+
+Let me estimate positions:
+- Title: xâ100-600, yâ80-110. "Radar Shooting of Positive Target (Enemy plane)" in a dark red/maroon font (~18-20pt). Note "Positive Target" appears underlined in the image? Let me check... In the OCR/description: "Radar Shooting of \underline{Positive Target} (Enemy plane)" - yes, "Positive Target" is underlined.
+- Slide number badge: circle at top right, xâ890, yâ65, dâ35, yellow fill with black outline, contains "5" in black (~14pt).
+
+Panels/borders:
+There are multiple bounded regions with red/dark outlines. The left side has two panels stacked vertically (top template matrix, bottom annotated matrix). The right side has two panels stacked vertically (tree diagram, numeric matrix). Actually, looking at the layout, there seem to be large red-bordered rectangles.
+
+Colors:
+- Background: white/light gray
+- Matrices: black grid lines, red/maroon outer borders
+- Green highlighted cells: bright/lime green fill for TP, TN
+- Airplane icons: red/maroon for enemy plane, green for friendly plane
+- Text: black for most labels, red/maroon for title and some annotations
+- Yellow: slide number badge
+
+Typography:
+- Title: bold, ~20pt, maroon
+- Matrix headers: bold/small, black or red
+- Body in matrices: black
+- Definitions: mix of black and red text
+- Badge number: ~14pt black
+
+Now I'll draft the output sections.
+
+Wait, I need to be careful about the dashed lines and their exact positions. Also the "Actual" and "Predicted" vertical labels in the right panel.
+
+Let me reconsider the dashed lines: In the image, there are dotted horizontal lines that might connect the tree nodes to the matrix? Actually, looking at the right panel:
+- A dashed line extends from the red node "18" down and right
+- Another dashed line from node "70" or "60"? 
+
+From the provided image, I see two dashed curves:
+1. One starting from the red circle "18" at approximately (740, 290) curving right-down to about (830, 310)? No, maybe they're connecting the predicted branches to the matrix.
+
+Actually, I should look again. In the image, between the tree diagram and the bottom matrix, there are no connection lines. Within the tree area, there might be dashed lines representing paths. But the only dashed lines I clearly see are:
+- From red "18" a dashed arc going right and down, passing near the center
+- From green "60" or "70" a dashed arc?
+
+Let me describe what I see: The tree has solid lines from planes to the "30" and "70" nodes, and solid lines from those to the four leaf circles. However, there are two dashed horizontal-ish reference axes marked "Actual" and "Predicted" on the left side, creating a grid reference for the tree. These are likely visual axes rather than data connector lines.
+
+Actually, yes - in the right-top panel, there are dashed lines forming an L-shape or axes:
+- Horizontal dashed line from left edge through the "Actual" label level
+- Another horizontal dashed line lower through the "Predicted" label level
+And "Actual" and "Predicted" are written vertically on the left.
+
+So I should describe these as dashed reference lines with labels.
+
+Now for the bottom-right matrix, let me verify values:
+- Header: "Predicted as" spanning P and N
+- Left side: "Actual" spanning P and N rows
+- Row "Actual P": 18 (green), 12
+- Row "Actual N": 10, 60 (green)
+- Right side annotations: "Total Positive = 18+12=30" and "Total Negative = 10+60=70"
+
+The top-left matrix:
+- Header: "Predicted as" spanning P and N
+- Left side: "Actual"
+- Row P: TP (green), FN
+- Row N: FP, TN (green)
+
+The bottom-left matrix:
+- Same grid with TP/FN/FP/TN, all cells unfilled (white) but with red borders
+- Right annotations: 
+  - "Total Positive = TP+FN"
+  - "Total Negative = FP+TN"
+- Below matrix:
+  - "FN = Actually Positive, Miss-classified as Negative"
+  - "FP = Actually Negative, Miss-classified as Positive"
+
+In these annotation lines, note the specific hyphenation "Miss-classified" and the bolding: In the image, "Positive" and "Negative" in the definitions are bold/red. "Actually" appears in red. Let me parse:
+- "FN = Actually Positive, Miss-classified as Negative"
+- "FP = Actually Negative, Miss-classified as Positive"
+
+These strings have color variation: "Actually" might be red, "Positive"/"Negative" might be red and bold.
+
+Now I'll compose the final response. I need to output only the numbered sections. My first characters must be "## 1. VERBATIM TEXT".
+
+Let me make sure I note all text precisely:
+1. Title: "Radar Shooting of Positive Target (Enemy plane)" - "Positive Target" underlined
+2. Badge: "5"
+3. "Predicted as"
+4. "P"
+5. "N"
+6. "Actual"
+7. "TP"
+8. "FN"
+9. "FP"
+10. "TN"
+11. "Positive"
+12. "Negative"
+13. "30"
+14. "70"
+15. "18"
+16. "12"
+17. "60"
+18. "10"
+19. "Actual" (vertical in right panel)
+20. "Predicted" (vertical in right panel)
+21. "Total Positive = 18+12=30"
+22. "Total Negative = 10+60=70"
+23. "Total Positive = TP+FN"
+24. "Total Negative = FP+TN"
+25. "FN = Actually Positive, Miss-classified as Negative"
+26. "FP = Actually Negative, Miss-classified as Positive"
+
+Colors:
+- Title text: dark red/maroon (approx #B71C1C or #8B0000)
+- Underline under "Positive Target": red
+- Badge fill: yellow/gold (#FFD700 or #FFEB3B), border black, number black
+- Green cells: #00B050 or #33CC33 or bright green
+- Airplane left: red/maroon body
+- Airplane right: green body
+- Grid lines: red/maroon for outer borders, black/gray for inner grid
+- Text: black for main labels, red for emphasis words in definitions
+
+Wait, I should verify the exact green. The highlighted cells look like a solid bright green, perhaps #92D050 or #00B050. The tree nodes: 18 and 12 are red circles with white text? Looking closely: circles have white/pale fill with colored borders? Or solid fills?
+
+Examining the tree:
+- Circles labeled 18, 12: appear as red/maroon filled circles with white numbers
+- Circles labeled 60, 10: appear as green filled circles with white numbers
+- Numbers inside circles are white
+
+For the airplanes: The left plane is colored red/maroon, the right plane is green.
+
+Now let's finalize section 1 with positions.
+
+Title: xâ107, yâ74, wâ490, hâ35, sizeâ22pt, color maroon. Center aligned? It's positioned left-ish in the top band. Actually it spans from xâ100 to xâ600, so left-aligned with padding.
+
+Badge: xâ888, yâ62, wâ36, hâ36 (circle), sizeâ16pt. "5" centered.
+
+Top-left matrix: xâ75, yâ85, wâ250, hâ150 roughly.
+Bottom-left matrix + text: xâ75, yâ240, wâ470, hâ260.
+Right-top tree: xâ575, yâ85, wâ350, hâ340.
+Right-bottom matrix: xâ615, yâ435, wâ310, hâ90.
+
+Actually, looking at the image dimensions and proportions:
+- The whole slide seems to have several large rectangular panels outlined in dark red.
+- Panel 1 (top-left): roughly x=70-320, y=88-235
+- Panel 2 (bottom-left): roughly x=70-520, y=245-510
+- Panel 3 (right-top): roughly x=570-945, y=88-410
+- Panel 4 (right-bottom): roughly x=610-930, y=430-525
+
+The panels have thick dark red borders (maybe 2-3px).
+
+Let me refine the per-string positions:
+
+Title: starts xâ100, yâ78. Font size around 20-22pt.
+
+"5" badge: top right corner, circle center around xâ905, yâ80.
+
+Top-left matrix:
+- "Predicted as" header: centered above columns, yâ95
+- "P", "N": column headers, yâ120 area
+- "Actual": vertically left, xâ85, spanning middle vertically
+- "P", "N": row headers on left
+- "TP" cell: green, row P col P
+- "FN" cell: row P col N
+- "FP" cell: row N col P
+- "TN" cell: green, row N col N
+
+Bottom-left matrix:
+- Same grid structure at yâ260
+- To right: "Total Positive = TP+FN" at xâ360, yâ285
+- "Total Negative = FP+TN" at xâ360, yâ305
+- Below: "FN = Actually Positive, Miss-classified as Negative" at xâ80, yâ430 (inside bottom-left large panel)
+- "FP = Actually Negative, Miss-classified as Positive" at xâ80, yâ455
+
+Wait, actually the "FN =" and "FP =" text might be inside a small box or just below the matrix. From image, they appear below the matrix on the left panel, around y=410-460.
+
+Right-top panel:
+- "Positive" label: xâ640, yâ100, red
+- "Negative" label: xâ810, yâ100, green
+- Airplanes: below labels, yâ125-175
+- "30": red circle, xâ665, yâ230
+- Arrow to "18": xâ655, yâ290 (red circle)
+- Arrow to "12": xâ725, yâ290 (red circle)
+- "70": green circle, xâ820, yâ230
+- Arrow to "60": xâ810, yâ290 (green circle)
+- Arrow to "10": xâ890, yâ290 (green circle)
+- "Actual": vertical text, xâ600, yâ230
+- "Predicted": vertical text, xâ600, yâ290
+- Dashed horizontal lines extending from these labels.
+
+Right-bottom panel:
+- "Predicted as" header: yâ440
+- Matrix rows: yâ460-520
+- "18" green cell, "12", "10", "60" green cell
+- "Total Positive = 18+12=30" to the right of matrix, yâ470
+- "Total Negative = 10+60=70" to the right, yâ490
+
+Section 2 LAYOUT MAP:
+Reading order: Title across top; then roughly three thematic groups. The left column has two stacked explanatory matrices; the right column has the visual tree diagram (top) and the numerical confusion matrix (bottom).
+
+Boundaries:
+- Title/header band: y=70-115
+- Badge: x=888-924, y=62-98
+- Top-left diagram panel: x=70-330, y=85-240 (outlined red)
+- Bottom-left diagram panel: x=70-525, y=245-515 (outlined red)
+- Right-top diagram panel: x=570-945, y=85-415 (outlined red)
+- Right-bottom diagram panel: x=610-935, y=430-530 (outlined red)
+- Within top-left: grid matrix
+- etc.
+
+Section 3 VISUAL ELEMENTS:
+Charts: none.
+Tables: describe the three grids as confusion matrix tables.
+- Grid A (top-left): 3 rows x 3 cols. Header row: "Predicted as" (spanning P,N), "P", "N". Left header column: "Actual", "P", "N". Cells: TP(green fill), FN, FP, TN(green fill).
+- Grid B (bottom-left): same structure, cells TP,FN,FP,TN no fill.
+- Grid C (bottom-right): same structure, cells numeric: 18(green),12 / 10,60(green). Annotations to right.
+
+Diagrams:
+- Tree diagram: two root nodes (planes). Positive plane -> 30 -> {18, 12}. Negative plane -> 70 -> {60, 10}. Solid arrows. Circle colors: red for 30,18,12; green for 70,60,10. Dashed reference lines labeled "Actual" (top level) and "Predicted" (lower level).
+- There appear to be two dashed arcs/lines: one from "18" curving down-right, one from "70"/"60" area. Wait, are these just the connector lines between levels? Let me reconsider. If the tree is drawn with lines:
+  - Plane to 30: solid line
+  - 30 splitting to 18 and 12: solid lines
+  - Plane (negative) to 70: solid line
+  - 70 splitting to 60 and 10: solid lines
+  Then what are the dashed lines? In the image, there are long dashed lines running horizontally from the left edge through the "Actual" and "Predicted" labels. These could be axes.
+  
+  Actually, looking very carefully at the captured frame, there are two dashed horizontal lines in the right-top panel that span from xâ590 to xâ930. One at yâ222 (through "Actual") and one at yâ302 (through "Predicted"). They pass right through the circles. These appear to be reference axes separating the tree levels. I will describe them as dashed reference lines.
+
+Equations:
+- "Total Positive = TP+FN"
+- "Total Negative = FP+TN"
+- "Total Positive = 18+12=30"
+- "Total Negative = 10+60=70"
+And definitions as plain text.
+
+Section 4 COLORS:
+- Background: white (#FFFFFF) with light gray (#F2F2F2) panel fills? The panels might have a very light background or white. The image background is white.
+- Title text: dark red/maroon (#8B0000 or #A52A2A)
+- Panel borders: dark red/maroon (#A52A2A)
+- Green fill: #00B050 or #33CC33 (TP/TN cells and numbers 18, 60)
+- Airplane left: #B22222 firebrick red; Airplane right: #228B22 forest green
+- Tree circles: red #C00000, green #00B050
+- Badge: yellow #FFD54F fill, black text/border
+- Body text: black #000000, emphasis red #C00000
+
+Section 5 TYPOGRAPHY:
+- Title: bold, sans-serif (likely Calibri/Arial), ~22pt, centered? It's left-ish. Actually center of the band. Let's say left-aligned with the panels. Hmm, in the image the title is roughly centered over the slide width (x=100-600, slide width 960, so left of center). I'll say centered in the top band.
+- Matrix headers: bold, ~12pt
+- Cell text: ~11pt, some bold
+- Tree numbers: white, bold-ish inside circles
+- Badge: "5", ~14pt, black, sans-serif
+- Underline under title words "Positive Target"
+
+Section 6 NUMERIC DETAILS:
+All numbers: 5, 30, 70, 18, 12, 60, 10, plus matrix indices P/N. Also arithmetic results: 18+12=30, 10+60=70.
+
+Section 7 ANOMALIES:
+- Underline under "Positive Target" in title must be preserved.
+- Positive/Negative labels on tree use hyphen? No, they are "Positive" and "Negative".
+- "Miss-classified" hyphenation must be preserved exactly.
+- Dashed lines in tree might be mistaken as connector lines; they are reference axes.
+- The "Actual" and "Predicted" vertical labels in right panel are rotated text (written vertically). Recreator must rotate text boxes.
+- The two panels on the right likely overlap or are separate boxes; ensure the tree panel doesn't merge with matrix panel.
+- The green fills on TP/TN are exact matches; recreator should apply to cells, not text.
+
+Section 8 TOP-3 FIDELITY RISKS:
+1. Underlined "Positive Target" in title; if missed, loses title emphasis.
+2. Rotated vertical "Actual"/"Predicted" labels in tree; easy to misorient.
+3. Exact confusion matrix orientations and color highlights; swapping rows/columns or putting green on wrong cells breaks the pedagogy.
+
+Section 9 VERDICT:
+- Recreatability: 9/10. Almost everything is legible and arithmetic is self-consistent.
+- Confidence: high. Least certain: exact hex values of green/red, exact dashed-line semantics.
+- Not transcribed: exact aircraft icon artwork details (shape/style), because it's a generic image; described functionally.
+
+Now I'll write the response carefully with the required structure and first characters.</think>## 1. VERBATIM TEXT
+
+- "Radar Shooting of Positive Target (Enemy plane)" â title, xâ102, yâ76, wâ492, hâ36, ~22pt, maroon; "Positive Target" is underlined.
+- "5" â top-right circular badge, center xâ905, yâ80, ~15pt, black on yellow.
+- "Predicted as" â table header, xâ155, yâ92 (top-left grid) and xâ92, yâ255 (mid-left grid), ~11pt, black.
+- "P" â column header, xâ190, yâ120 (top-left) / xâ128, yâ282 (mid-left), ~11pt, black.
+- "N" â column header, xâ235, yâ120 (top-left) / xâ175, yâ282 (mid-left), ~11pt, black.
+- "Actual" â row-group header, rotated/vertical at xâ88, yâ140 (top-left) / xâ84, yâ305 (mid-left), ~11pt, red/maroon.
+- "P" â row header, xâ155, yâ150 (top-left) / xâ96, yâ310 (mid-left), ~11pt, black.
+- "N" â row header, xâ155, yâ185 (top-left) / xâ96, yâ345 (mid-left), ~11pt, black.
+- "TP" â cell, xâ187, yâ148, green-filled, ~11pt, black bold.
+- "FN" â cell, xâ230, yâ148, ~11pt, black.
+- "FP" â cell, xâ187, yâ183, ~11pt, black.
+- "TN" â cell, xâ230, yâ183, green-filled, ~11pt, black bold.
+- "TP" â cell, xâ124, yâ308, ~11pt, black bold.
+- "FN" â cell, xâ170, yâ308, ~11pt, black.
+- "FP" â cell, xâ124, yâ343, ~11pt, black.
+- "TN" â cell, xâ170, yâ343, ~11pt, black bold.
+- "Total Positive = TP+FN" â annotation right of mid-left grid, xâ310, yâ285, wâ160, ~12pt, with "Positive" in red.
+- "Total Negative = FP+TN" â annotation right of mid-left grid, xâ310, yâ307, wâ160, ~12pt, with "Negative" in red.
+- "FN = Actually Positive, Miss-classified as Negative" â lower annotation, xâ78, yâ432, wâ440, ~13pt; "Actually" red, "Positive" red, "Negative" red.
+- "FP = Actually Negative, Miss-classified as Positive" â lower annotation, xâ78, yâ458, wâ440, ~13pt; "Actually" red, "Negative" red, "Positive" red.
+- "Positive" â diagram label above enemy plane, xâ636, yâ102, ~14pt, red.
+- "Negative" â diagram label above friendly plane, xâ810, yâ102, ~14pt, green.
+- "30" â red tree node, xâ650, yâ220, white bold number inside red circle.
+- "18" â red tree node, xâ640, yâ285, white bold number inside red circle.
+- "12" â red tree node, xâ712, yâ285, white bold number inside red circle.
+- "70" â green tree node, xâ806, yâ220, white bold number inside green circle.
+- "60" â green tree node, xâ796, yâ285, white bold number inside green circle.
+- "10" â green tree node, xâ876, yâ285, white bold number inside green circle.
+- "Actual" â vertical label in tree panel, xâ598, yâ218, rotated 90Â°, ~11pt, red.
+- "Predicted" â vertical label in tree panel, xâ598, yâ288, rotated 90Â°, ~11pt, black.
+- "Predicted as" â bottom-right table header, xâ645, yâ440, ~11pt, black.
+- "P" â column header, xâ700, yâ460, ~11pt, black.
+- "N" â column header, xâ755, yâ460, ~11pt, black.
+- "Actual" â row-group header, xâ620, yâ478, rotated/vertical, ~10pt, red.
+- "P" â row header, xâ671, yâ480, ~11pt, black.
+- "N" â row header, xâ671, yâ505, ~11pt, black.
+- "18" â cell, xâ697, yâ477, green-filled, ~11pt, black bold.
+- "12" â cell, xâ752, yâ477, ~11pt, black.
+- "10" â cell, xâ697, yâ502, ~11pt, black.
+- "60" â cell, xâ752, yâ502, green-filled, ~11pt, black bold.
+- "Total Positive = 18+12=30" â annotation right of bottom-right table, xâ790, yâ470, ~12pt, black.
+- "Total Negative = 10+60=70" â annotation right of bottom-right table, xâ790, yâ492, ~12pt, black.
+
+Unreadable text: none.
+
+## 2. LAYOUT MAP
+
+- Header/title band: xâ90â610, yâ70â115; single title line with underline; badge floats separately at top-right outside any container.
+- Top-left panel: xâ68â330, yâ86â238; outlined rectangle containing a 3Ã3 confusion-matrix table (template labels only).
+- Mid-left panel: xâ68â525, yâ244â512; outlined rectangle containing an identical 3Ã3 table, plus math annotations to the right and a two-line definition strip at the bottom.
+- Right-top panel: xâ568â946, yâ85â412; outlined rectangle containing the radar airplane decision-tree diagram.
+- Right-bottom panel: xâ608â938, yâ428â532; outlined rectangle containing the numeric confusion matrix with totals on the right.
+- Reading order: title â top-left template â mid-left definitions â right-top tree â right-bottom numeric matrix.
+
+## 3. VISUAL ELEMENTS
+
+- Charts: none present.
+- Tables (all confusion matrices): 3 columns Ã 3 rows.
+  - Grid 1: top-left; column header spans P,N under "Predicted as"; row group "Actual" spans P,N; cells TP(green), FN, FP, TN(green).
+  - Grid 2: mid-left; same structure; cells TP,FN,FP,TN unfilled; annotations "Total Positive = TP+FN" and "Total Negative = FP+TN" to the right.
+  - Grid 3: bottom-right; same structure; cells 18(green),12,10,60(green); annotations "Total Positive = 18+12=30" and "Total Negative = 10+60=70" to the right.
+- Diagrams: tree diagram in right-top panel.
+  - Left root: red enemy airplane labeled "Positive"; vertical connector to red node "30".
+  - From "30": solid arrows down-left to red node "18" and down-right to red node "12".
+  - Right root: green airplane labeled "Negative"; connector to green node "70".
+  - From "70": arrows to green node "60" and green node "10".
+  - Two dashed horizontal reference lines run left-to-right at the node level of "30"/"70" and the level of "18"/"12"/"60"/"10"; dashed lines are captioned vertically as "Actual" and "Predicted" on the left side.
+- Images/illustrations: two airplane glyphs (left plane in red/maroon tones, right plane in green tones), roughly 55Ã35 px each, decorative rather than data-bearing.
+- Equations: written as inline text, not stacked fractions:
+  - Total Positive = TP+FN
+  - Total Negative = FP+TN
+  - Total Positive = 18+12=30
+  - Total Negative = 10+60=70
+- Connectors: tree edges described above; no connector lines between the two right-hand panels.
+
+## 4. COLORS
+
+- Background: white (#FFFFFF).
+- Title/underline/borders/emphasis text: maroon/dark red (â #8B0000 to #B22222).
+- Green highlights in TP/TN cells and tree node "correct" circles: strong green (â #00B050).
+- Enemy airplane and Positive-class tree nodes: red/maroon (â #B22222).
+- Friendly/green airplane and Negative-class tree nodes: green (â #228B22 / #00B050).
+- Slide badge: yellow fill (â #FFD54F / #FFC107), black outline, black numeral.
+- Matrix grid text: black (â #000000).
+- Panel borders: dark red (â #A52A2A), medium-weight.
+- Dominant palette: white field with red/maroon structural borders and green status highlights; yellow badge is the only saturated accent outside the diagrams.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: bold sans-serif, â22pt, maroon, with underline on "Positive Target"; horizontally placed near left/center top band.
+- Table header and cell text: bold sans-serif â11pt; row/column headers black; highlighted cells bold black on green.
+- Annotations ("Total ..."): â12pt sans-serif; key words "Positive"/"Negative" colored red.
+- Definition lines: â13pt; bold colored segments for "Actually", "Positive", "Negative"; plain black for connectives.
+- Tree node numerals: white bold sans-serif inside colored circles.
+- Slide-number badge: yellow circle, black outline, black numeral "5", positioned at top-right corner.
+- Decorative frames: all four content panels are wrapped in red/maroon outline rectangles; no drop shadows or gradient fills are visible.
+
+## 6. NUMERIC DETAILS
+
+- Slide numeral: 5 (badge, top-right).
+- Diagram counts: 30 (red node), 70 (green node), 18 (red node), 12 (red node), 60 (green node), 10 (green node).
+- Matrix arithmetic results: 18+12=30; 10+60=70.
+- Matrix symbolic totals: TP+FN; FP+TN.
+- Row/column identifiers: P, N in all three matrices.
+- No axis ranges or chart tick values exist; the only ranges are counts in the diagram.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- The title underline spans only "Positive Target", not the whole title; preserve exact underline width if possible.
+- "Actual"/"Predicted" in the tree diagram are vertical (rotated) captions and must be rendered as rotated text boxes, not horizontal labels.
+- The dashed horizontal reference lines in the tree diagram sit inside the node layer and should not be mistaken for sequence connectors.
+- The "Miss-classified" hyphenation appears in both definition lines and must be transcribed exactly with the hyphen.
+- The four panels are separate outlined regions; do not merge the two right-hand panels into one diagram frame.
+- The green fill applies to cell backgrounds only; cell text stays black.
+- The two airplanes are stylized icons; exact wing shape is not recreation-critical, but color and relative position are.
+
+## 8. TOP-3 FIDELITY RISKS
+
+- Region: title. Problem: dropping the underline under "Positive Target" or bolding the entire title uniformly. Remedy: apply underline to exactly "Positive Target".
+- Region: right-top tree. Problem: rendering "Actual"/"Predicted" as horizontal text or omitting the dashed reference lines. Remedy: rotate the two captions 90Â° and keep the two dashed horizontal lines at the described levels.
+- Region: all confusion matrices. Problem: swapping row/column semantics (Actual/Predicted) or placing green highlight on FN/FP instead of TP/TN. Remedy: keep Actual rows as true class, Predicted columns as detector output, and illuminate only TP and TN.
+
+## 9. VERBATIM TEXT
+
+- Recreatability score: 9/10.
+- Confidence in transcription: high. Least certain are exact hex values for green/red and the precise font family; text content and layout are legible and internally consistent.
+- Deliberately not transcribed in depth: pixel-perfect airplane icon geometry; described functionally (red enemy aircraft, green aircraft) because only position and color matter for the concept.
+

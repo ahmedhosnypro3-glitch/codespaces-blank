@@ -1,0 +1,25 @@
+# Web read 2 (query B) — run via agy_web_search MCP route
+# Query file: web/query_sigmoid_tanh.txt
+# Classification: single-read (one query, one search engine read).
+# Independent of read 1 (different question form), so the two reads corroborate
+# each other on the sigmoid/tanh relationship.
+
+## tanh is a rescaled logistic sigmoid
+tanh(x) = 2*sigma(2x) - 1, where sigma(x) = 1/(1+e^{-x}).
+
+Derivation given by the source:
+  2*sigma(2x) - 1 = 2/(1+e^{-2x}) - 1 = (2 - 1 - e^{-2x})/(1+e^{-2x})
+                  = (1 - e^{-2x})/(1+e^{-2x}) = (e^{2x}-1)/(e^{2x}+1)
+                  = (e^x - e^{-x})/(e^x + e^{-x}) = tanh(x)
+
+## Ranges compared
+- Sigmoid range: (0,1) — strictly positive outputs (probability/confidence scale).
+- Tanh range: (-1,1) — symmetric, zero-centered; passes (0,0) rather than (0,0.5),
+  which keeps backpropagation gradients more balanced and generally aids convergence
+  of deep networks.
+
+## Sources
+- https://www.datacamp.com/tutorial/tanh-function
+- https://brenocon.com/blog/2013/10/tanh-is-a-rescaled-logistic-sigmoid-function/
+- https://www.geeksforgeeks.org/deep-learning/tanh-vs-sigmoid-vs-relu/
+- https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/tanh-activation

@@ -1,0 +1,172 @@
+{
+  "slide": "slide_025",
+  "source_frame": "slide_025.jpg",
+  "source_md5": "34adaa7ead1996dd7e724ce292902976",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 10,
+    "max_parse_calls": 14,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 3,
+  "crops_spent": 2,
+  "degraded": {
+    "chat": true,
+    "reason": "chat probe failed \u2014 decisions use the deterministic-conservative fallback"
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_025.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_025.parse.md",
+      "json": "full/slide_025.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+    "decision_source": "fallback",
+    "children": [
+      "slide_025.crop01__chart"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_025.crop01__chart",
+      "level": 1,
+      "class": "Chart",
+      "box_frame_px": [
+        35.6,
+        41.7,
+        887.8,
+        475.9
+      ],
+      "estimated": false,
+      "png": "crops/slide_025.crop01__chart.png",
+      "mean_rgb": 228.69,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_025.crop01__chart.parse.md",
+        "json": "crops/slide_025.crop01__chart.parse.json"
+      },
+      "scale": 1.7351,
+      "size_px": [
+        1664,
+        892
+      ],
+      "margin_applied": [
+        36,
+        19
+      ],
+      "stop_reason": null,
+      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+      "decision_source": "fallback",
+      "children": [
+        "slide_025.crop02__chart"
+      ],
+      "transform": {
+        "origin_px": [
+          0.0,
+          23.0
+        ],
+        "scale": 1.7351,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    },
+    {
+      "id": "slide_025.crop02__chart",
+      "level": 2,
+      "class": "Chart",
+      "box_frame_px": [
+        36.5,
+        42.3,
+        885.0,
+        475.1
+      ],
+      "estimated": false,
+      "png": "crops/slide_025.crop02__chart.png",
+      "mean_rgb": 228.82,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_025.crop02__chart.parse.md",
+        "json": "crops/slide_025.crop02__chart.parse.json"
+      },
+      "scale": 1.7413,
+      "size_px": [
+        1664,
+        894
+      ],
+      "margin_applied": [
+        61,
+        33
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "child lines are a subset of the parent parse",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          1.2,
+          23.0
+        ],
+        "scale": 1.7413,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_025.crop01__chart",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 3,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 3,
+    "chat_calls": 0,
+    "retries": 0,
+    "dedup_collapsed": 1,
+    "elements": 2
+  }
+}

@@ -1,0 +1,59 @@
+### 1. Mathematical Formulation & The Chain Rule
+
+In a neural network trained with gradient descent, the pre-activation at a neuron is $z = \mathbf{w}^T \mathbf{x} + b$, and the activation output is $a = f(z)$. 
+
+During backpropagation, the gradient of the loss $\mathcal{L}$ with respect to any incoming weight $w_i$ is computed via the chain rule:
+
+$$\frac{\partial \mathcal{L}}{\partial w_i} = \frac{\partial \mathcal{L}}{\partial a} \cdot \frac{df(z)}{dz} \cdot \frac{\partial z}{\partial w_i} = \frac{\partial \mathcal{L}}{\partial a} \cdot f'(z) \cdot x_i$$
+
+The update rule for gradient descent is:
+
+$$w_i \leftarrow w_i - \eta \frac{\partial \mathcal{L}}{\partial w_i}$$
+
+The derivative of the activation function, **$f'(z)$**, acts as a direct multiplicative gate for the gradient flowing back to the weights.
+
+---
+
+### 2. Why the Binary Step Function Fails
+
+The standard binary step (Heaviside step) function is defined as:
+
+$$f(z) = \begin{cases} 0, & z < 0 \\ 1, & z \ge 0 \end{cases}$$
+
+Evaluating its derivative reveals two fatal issues for gradient-based learning:
+
+```
+        f(z)                          f'(z)
+         |                             |
+     1 --+-------               Undefined / ∞ (Dirac delta) at z = 0
+         |                             |
+         |                             +---------------+-------
+  -------+            ===>             0               0      (Derivative is 0 everywhere else)
+  - - - -0- - - -                      |
+```
+
+1. **Derivative is Zero Almost Everywhere ($z \neq 0$):**
+   - For all $z > 0$ and $z < 0$, the function is perfectly flat:
+     $$f'(z) = 0$$
+   - Substituting this into the chain rule yields:
+     $$\frac{\partial \mathcal{L}}{\partial w_i} = \frac{\partial \mathcal{L}}{\partial a} \cdot 0 \cdot x_i = 0$$
+   - Because the gradient is identically zero, weights receive **zero update** ($\Delta w_i = 0$). The network experiences complete gradient starvation; gradient descent has no directional signal on how to adjust weights to decrease loss.
+
+2. **Discontinuity at the Threshold ($z = 0$):**
+   - At the transition point $z = 0$, the function jumps discontinuously from $0$ to $1$. 
+   - The classical derivative is **undefined** (or in generalized distribution theory, it is the Dirac delta function $\delta(0) \to \infty$). A numerical optimizer cannot evaluate or step with an infinite or non-existent gradient.
+
+3. **Loss Surface is a Piecewise Constant Step Surface:**
+   - Small continuous tweaks to weights $\mathbf{w}$ produce zero change in output $a$ until a threshold is crossed, at which point the output snaps abruptly. The error landscape consists of flat plateaus separated by vertical cliffs, rendering hill-climbing and gradient descent ineffective.
+
+---
+
+### 3. Motivation for Smooth Activations (Sigmoid, Tanh, ReLU)
+
+To make backpropagation feasible, an activation function must have a **well-behaved, non-zero derivative** over an operational range so that small changes in weights cause smooth, predictable changes in the loss:
+
+| Activation | Formula | Derivative $f'(z)$ | Why it resolves the step function limitation |
+| :--- | :--- | :--- | :--- |
+| **Sigmoid** | $\sigma(z) = \frac{1}{1 + e^{-z}}$ | $\sigma(z)(1 - \sigma(z))$ | A smooth, differentiable approximation of the step function. Outputs continuous probabilities in $(0, 1)$ with non-zero gradient across active regions. |
+| **Tanh** | $\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$ | $1 - \tanh^2(z)$ | Zero-centered variant of sigmoid mapping to $(-1, 1)$. Provides stronger gradients near $z=0$ ($f'(0)=1$) avoiding immediate gradient shrinkage. |
+| **ReLU** | $\max(0, z)$ | $\begin{cases} 1, & z > 0 \\ 0, & z < 0 \end{cases}$ | Solves the saturation/vanishing gradient problem for $z > 0$ with a constant gradient of $1$, while enabling fast gradient propagation in deep architectures. |

@@ -1,0 +1,236 @@
+[info] context header injected: VIEW: Slide 22 — lecture slide (topic unlabeled) | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 121158
+[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 450s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_022.jpg ===
+[winner] images (round 1, attempt 2)
+The user wants me to analyze a slide image. The image shows a slide titled "Effect of Selecting Threshold Value on Model Performance" with a slide number 22 badge. There's a confusion matrix, annotations, a diagram with boxes (Test Sample -> Model -> (0---1) Threshold -> (e.g.0.5) -> Class I / Class II), and a number of airplanes arranged in what looks like a plot with x-axis from 0.0 to 1.0.
+
+Let me transcribe everything carefully.
+
+Title: "Effect of Selecting Threshold Value on Model Performance" at top, dark red/maroon color, bold. Position around top center-left. Estimated size maybe 24-28pt.
+
+Top right: yellow badge "22" â yellow circle or rounded badge with "22" in it.
+
+Confusion matrix top-left: small grid labeled "Predicted as" over columns P, N. Rows labeled "Actual" with P and N. Cell colors: TP (green?), FN, FP, TN. Let me read:
+- Columns: P, N
+- Rows: P, N
+- Inner grid: top-left cell (P/P) has "TP" in green highlight; top-right (P/N) has "FN"; bottom-left (N/P) has "FP"; bottom-right (N/N) has "TN" in green highlight.
+- Below the matrix, larger text in red boxes: row P: "5", "0"; row N: "2", "4". With "Predicted as" label and P / N column headers, and "Actual" row label on left.
+
+So text: "Predicted as" (small, above first matrix and above second). "Actual" (left side, vertical). "P", "N". "TP", "FN", "FP", "TN". Numbers: 5, 0, 2, 4. "Threshold=0.3" in a red rounded box.
+
+The second confusion matrix: "Predicted as" with columns P and N; "Actual" rows P and N; values: P row: 5, 0; N row: 2, 4. The TP and TN cells appear red-filled (5 and 4 in red boxes), FN and FP white.
+
+Diagram: a beige/tan rounded rectangle panel containing:
+- "Test Sample" label above a small image of a test sample (looks like a small thumbnail/icon, maybe an airplane sketch?) with arrow to "Model" box.
+- "Model" red box with a small plot icon inside (looks like a small chart/curve).
+- Arrow to "(0 --- 1)" dark blue rounded box.
+- Arrow to "Threshold (e.g.0.5)" box â text "Threshold" and "(e.g.0.5)".
+- Arrows to two light purple/pink rounded boxes: "Class I" and "Class II".
+- Under Model: small text "[Any value] â (0, +1)" maybe. Let me read: "[Any value] â ( 0, +1 )". Actually text: "[Any value] â ( 0, +1 )".
+
+Let me look more carefully: Under the Model box there's small italic text: "[Any value] â ( 0, +1 )". And the arrow from Model to threshold says "(0 --- 1)".
+
+The threshold box: "Threshold" with "(e.g.0.5)" below in smaller text.
+
+Class I and Class II boxes on right, light purple fill.
+
+Main plot area: A large white region with scattered airplane doodles (line drawings of airplanes) in black outline. There's a vertical dashed blue line at approx x=0.3 (threshold marker) labeled. X-axis at bottom: ticks at 0.0, 0.5, 1.0 with labels "0.0", "0.5", "1.0". Axis label below: "Predicted Value" (centered under axis). The vertical dashed line goes from top down to axis at 0.3, with label "Threshold=0.3" perhaps near it? Actually the "Threshold=0.3" red box is at top-left region between matrices and plot. There may also be "0.3" near the dashed line â I see "0.3" appears in "Threshold=0.3" box. Near the dashed line at bottom there might be a small arrow/marker.
+
+The airplanes: There are multiple airplane line sketches, each with a colored dot (red or blue) maybe indicating actual class. Some airplanes have a "skull" or mark? Let me describe: airplanes drawn in black outline, some with red dot nose, some with blue dot. A few airplanes appear to have a skull-and-crossbones-like marking (maybe a different glyph). Hard to tell. Also dashed blue vertical line at xâ0.3. Airplanes on left of line are "Class I" (positive?) and right "Class II".
+
+Counting airplanes: I see about 10-11 airplane sketches. Their positions vary. Some tilted. Each has a small colored dot (red or blue/purple). A couple appear different (maybe with a face/skull). I'll describe generally.
+
+X-axis: horizontal red line at bottom from xâ50 to â910, with ticks. Labels "0.0" at left (~x=170), "0.5" center (~x=520), "1.0" right (~x=830). Actually positions: 0.0 label around x=170,y=475; 0.5 around x=515,y=475; 1.0 around x=835,y=475. The axis line is dark red/maroon.
+
+Below axis: "Predicted Value" in dark red, centered (~x=430,y=505).
+
+The dashed vertical line: blue dashed, at xâ300 (aligned with 0.3 position interpolated between 0.0 at ~170 and 0.5 at ~520: 0.3 would be at ~170 + 0.3/0.5*(520-170)=170+0.6*350=170+210=380). Hmm. Let me reconsider. Actually the dashed line appears around xâ300-310. Let me estimate axis endpoints: The axis line spans from about x=45 to x=915. If 0.0 tick at xâ170? That doesn't align with left end. Wait, the axis might have 0.0 tick at the left end region. Let me think: labels 0.0 at ~175, 0.5 at ~520, 1.0 at ~835. Spacing: 0.0â0.5 = 345 px, 0.5â1.0 = 315 px. Roughly linear (~330 px per 0.5, 660 px per 1.0). Extrapolating 0.0 tick at xâ175, axis start maybe at xâ45 (which would be ~-0.2?). Not important.
+
+The dashed line: appears at around xâ305. If 0.0 at 175 and 0.5 at 520, then 0.3 at x = 175 + (0.3/0.5)*(520-175) = 175 + 0.6*345 = 175 + 207 = 382. But dashed line looks more like xâ300. Hmm, maybe labels positions: 0.5 label is under the center ~500? The dashed line maybe at 0.3 but drawn at xâ300. Since I can't measure precisely, I'll say dashed vertical line at approximately x=300 (visually near left third), representing threshold 0.3.
+
+Actually, looking again: the "Threshold=0.3" red-boxed label is at top-left, and the dashed blue line drops from the plot top. There might be a small arrow at the bottom of the dashed line pointing to axis with "0.3"? Hard to say. I'll note it.
+
+Let me now compile all visible strings:
+
+1. Title: "Effect of Selecting Threshold Value on Model Performance"
+2. Badge: "22"
+3. "Predicted as" (top-left, above first CM)
+4. "P", "N" (column headers, first CM)
+5. "Actual" (left label, first CM)
+6. "TP", "FN", "FP", "TN"
+7. "Predicted as" (above second CM)
+8. "P", "N" (column headers second CM)
+9. "Actual" (left, second CM)
+10. "5", "0", "2", "4"
+11. "Threshold=0.3"
+12. "Test Sample"
+13. "Model"
+14. "(0 --- 1)"
+15. "[Any value] â ( 0, +1 )"
+16. "Threshold"
+17. "(e.g.0.5)"
+18. "Class I"
+19. "Class II"
+20. "Predicted Value" (x-axis label)
+21. "0.0", "0.5", "1.0" (tick labels)
+
+Colors:
+- Slide background: white.
+- Title: dark red / maroon (#8B0000 or #A00000), bold.
+- Badge "22": yellow fill (#FFD54A / gold), dark text, rounded circle/rect at top-right (~x=910,y=8,w=40,h=30).
+- Confusion matrix cells: TP and TN green highlight (#C8E6C9 / #DFF0D8) in the first small matrix; FN and FP maybe light red/pink? Actually first matrix: TP top-left cell has green fill with "TP"; FN top-right white; FP bottom-left white; TN bottom-right green fill. The bigger matrix: values 5 (red fill box), 0 (white), 2 (white), 4 (red fill). Hmm let me describe as observed.
+- "Threshold=0.3" text in red inside a bordered box.
+- Diagram panel: tan/beige fill (#F5E9C8 / #F7E7CE) rounded rectangle.
+- "Model" box: red fill (#E53935 / crimson) with white text.
+- "(0 --- 1)" box: dark blue fill (#1565C0) white text.
+- "Threshold" box: light blue/gray fill (#E3F2FD) dark text, with border.
+- "Class I", "Class II": light lavender/pink fill (#F3E5F5 / #F8BBD0) dark text.
+- Airplanes: black outline (#000), dots red (#E53935) or blue (#1E88E5).
+- Axis: dark red/maroon line; tick labels dark.
+- Dashed threshold line: blue (#1E88E5).
+- "Predicted Value": dark red.
+
+Typography: Title ~26pt bold dark red, positioned top-left with a red underline bar? There's a red horizontal rule under the title maybe. The slide has a red border frame? There appears to be a maroon border around the whole slide content (x from ~40 to ~925). Actually the layout has a maroon rounded border rectangle. The title sits inside.
+
+Body text sizes: small labels ~10-12pt; matrix numbers ~14pt; "Class" labels ~12pt.
+
+Numeric details: confusion matrix values 5,0,2,4; TP/FN/FP/TN counts; threshold 0.3, 0.5; x-axis 0.0,0.5,1.0; "(0---1)"; "(0,+1)"; badge 22; slide "22".
+
+Anomalies: airplanes are doodle-like, some with a skull marking (maybe indicating a specific example); dashed line partially drawn; the second confusion matrix uses filled red cells for 5 and 4 â recreator must replicate. The diagram "Test Sample" thumbnail shows a small sketch (airplane) in a picture box with arrow.
+
+Fidelity risks: (1) confusion matrix cell colors (which cells are highlighted green vs red) and exact cell order (TP/FN/FP/TN placement); (2) airplane doodle positions and red/blue dot assignment â must count and place each; (3) diagram box order and text (e.g., "(0 --- 1)" and "[Any value] â (0, +1)") and the threshold label "(e.g.0.5)".
+
+Verdict: Recreatability ~7-8; confidence medium-high for text, lower for doodle positions.
+
+Now produce output sections. Must start exactly with "## 1. VERBATIM TEXT". No preamble. Keep self-contained. I need to be careful about positions â give approximate regions.
+
+Let me write it.
+
+For each verbatim string include region/x,y,w,h px and size pt and color.
+
+Estimate sizes: Title ~26pt. Badge numeral ~14pt. "Predicted as" small ~9pt. Matrix headers ~10pt. TP/FN etc ~10pt bold. Big numbers ~16pt bold. "Threshold=0.3" ~13pt bold. Diagram labels: "Test Sample" ~10pt; "Model" ~13pt; "(0 --- 1)" ~10pt; "[Any value] â (0,+1)" ~8pt italic; "Threshold" ~11pt; "(e.g.0.5)" ~8pt; "Class I/II" ~11pt. Axis ticks ~10pt; "Predicted Value" ~11pt.
+
+Colors: approximate hexes.
+
+Write final.</think>## 1. VERBATIM TEXT
+
+- "Effect of Selecting Threshold Value on Model Performance" â top band, xâ52,yâ55,wâ700,hâ38 px, â26 pt bold, dark red/maroon (#7B0E0E / #8B0000).
+- "22" â top-right badge, xâ908,yâ10,wâ44,hâ34 px, â16 pt bold, dark text on yellow fill.
+- "Predicted as" â small grid #1 header, xâ170,yâ68,wâ62,hâ12 px, â8 pt, dark gray/black.
+- "P" â small grid #1 column header, xâ172,yâ82,wâ14,hâ12 px, â9 pt.
+- "N" â small grid #1 column header, xâ198,yâ82,wâ14,hâ12 px, â9 pt.
+- "Actual" â small grid #1 row label, xâ160,yâ92,wâ22,hâ30 px (rotated/stacked), â8 pt.
+- "TP" â small grid #1 cell, xâ168,yâ92,wâ24,hâ14 px, â8 pt bold, on green-tinted cell.
+- "FN" â small grid #1 cell, xâ196,yâ92,wâ24,hâ14 px, â8 pt bold, on white cell.
+- "FP" â small grid #1 cell, xâ168,yâ108,wâ24,hâ14 px, â8 pt bold, on white cell.
+- "TN" â small grid #1 cell, xâ196,yâ108,wâ24,hâ14 px, â8 pt bold, on green-tinted cell.
+- "Predicted as" â large grid header, xâ170,yâ170,wâ70,hâ13 px, â9 pt, black.
+- "P" â large grid column header, xâ205,yâ186,wâ16,hâ14 px, â11 pt bold.
+- "N" â large grid column header, xâ243,yâ186,wâ16,hâ14 px, â11 pt bold.
+- "Actual" â large grid row label, xâ163,yâ196,wâ24,hâ32 px, â9 pt.
+- "5" â large grid cell (row P / col P), xâ203,yâ186,wâ20,hâ20 px, â15 pt bold, dark red on red-tinted fill.
+- "0" â large grid cell (row P / col N), xâ241,yâ186,wâ20,hâ20 px, â15 pt bold, dark red on white.
+- "2" â large grid cell (row N / col P), xâ203,yâ212,wâ20,hâ20 px, â15 pt bold, dark red on white.
+- "4" â large grid cell (row N / col N), xâ241,yâ212,wâ20,hâ20 px, â15 pt bold, dark red on red-tinted fill.
+- "Threshold=0.3" â red rounded label, xâ265,yâ148,wâ118,hâ28 px, â12 pt bold, dark red text with red outline.
+- "Test Sample" â diagram label above thumbnail, xâ352,yâ112,wâ62,hâ12 px, â10 pt, black.
+- "Model" â red filled box, xâ410,yâ120,wâ66,hâ30 px, â13 pt bold, white on red (#D32F2F).
+- "(0 --- 1)" â dark blue rounded box, xâ500,yâ136,wâ56,hâ22 px, â10 pt bold, white on dark blue (#1565C0).
+- "[Any value] â ( 0, +1 )" â small italic caption under Model, xâ398,yâ154,wâ130,hâ12 px, â8 pt, dark gray.
+- "Threshold" â threshold box top line, xâ572,yâ126,wâ96,hâ14 px, â11 pt bold, dark.
+- "(e.g.0.5)" â threshold box second line, xâ576,yâ140,wâ84,hâ12 px, â8 pt, gray.
+- "Class I" â lavender box top, xâ690,yâ108,wâ70,hâ22 px, â11 pt bold, dark text on pale lavender (#E6D7F0).
+- "Class II" â lavender box bottom, xâ690,yâ140,wâ70,hâ22 px, â11 pt bold, dark text on pale lavender/lavender-pink (#EFD9E8).
+- "Predicted Value" â x-axis title, xâ418,yâ500,wâ120,hâ16 px, â11 pt, dark red, centered.
+- "0.0" â x-axis tick, xâ163,yâ478,wâ26,hâ14 px, â10 pt.
+- "0.5" â x-axis tick, xâ505,yâ478,wâ26,hâ14 px, â10 pt.
+- "1.0" â x-axis tick, xâ818,yâ478,wâ26,hâ14 px, â10 pt.
+
+## 2. LAYOUT MAP
+
+- Outer content frame: maroon rounded rectangle border, xâ38,yâ40,wâ886,hâ470 px, containing all elements.
+- Title band: top strip xâ52,yâ48,wâ700,hâ44 with red underline rule beneath title; title text at top-left. Reading order 1.
+- Slide-number badge: xâ908,yâ10,wâ44,hâ34, top-right corner, outside frame.
+- Confusion matrix cluster (top-left): small 2Ã2 annotation grid at xâ158,yâ64,wâ90,hâ62; larger 2Ã2 numeric grid at xâ165,yâ168,wâ100,hâ66; "Threshold=0.3" red label at xâ265,yâ148,wâ118,hâ28, to the right of the large grid. Reading order 2 (top-left block).
+- Process diagram: beige rounded panel xâ336,yâ96,wâ372,hâ104; inside it: "Test Sample" thumbnail + arrow â "Model" box â arrow â "(0 --- 1)" box â arrow â "Threshold (e.g.0.5)" box â two arrows up/down to "Class I" and "Class II" boxes. Reading order 3 (top-center/right).
+- Plot canvas: large white area xâ38,yâ232,wâ886,hâ268 (region below the diagram/left of Class boxes), holding airplane doodles, the dashed threshold line, and the x-axis. Reading order 4 (bottom, dominates slide).
+- X-axis: dark red horizontal line yâ486 from xâ45 to xâ915 with tick marks and labels below; "Predicted Value" title centered at yâ506.
+
+Alignment notes: title left-aligned; matrices left-aligned in a vertical stack; diagram horizontally centered in upper area; plot fills the bottom; Class boxes aligned right of the threshold box.
+
+## 3. VISUAL ELEMENTS
+
+- No charts (no axes with data series other than the doodle "scatter" below). No tables in the tabular sense â two confusion matrices (grids), described below.
+- Confusion matrix #1 (small annotation): 2Ã2 cells with column headers "P","N" (under "Predicted as") and row labels "P","N" (beside "Actual"). Cell fills: TP (top-left) green-tinted; TN (bottom-right) green-tinted; FN (top-right) white; FP (bottom-left) white. Cell text: TP, FN, FP, TN.
+- Confusion matrix #2 (numeric): 2Ã2 cells, same header/row layout. Cell values and fills: (P,P)="5" on red-tinted fill; (P,N)="0" on white; (N,P)="2" on white; (N,N)="4" on red-tinted fill.
+- Diagram: rounded beige panel containing, leftâright: a small picture thumbnail labeled "Test Sample" (a miniature sketch of an airplane-like glyph in a framed box); arrow â red "Model" box (with a tiny sparkline/curve glyph inside the box); arrow labeled "(0 --- 1)" (dark blue chip with the range printed on it); arrow â light blue outlined "Threshold" box with sub-caption "(e.g.0.5)"; two arrows fan up-right to "Class I" and down-right to "Class II" pale-lavender chips. A small italic caption under Model reads "[Any value] â ( 0, +1 )".
+- Plot region ("scatter" of airplanes): black line-drawing airplane doodles scattered across the lower two-thirds. Each airplane is a simple side-profile outline (fuselage, wings, tail) with a small circular nose/joint dot that is either red (#E53935) or blue (#1E88E5). Airplanes occur on both sides of the dashed threshold line and at varied angles. One or two doodles carry an extra marking resembling a small skull/skull-and-crossbones glyph rather than the plain dot, indicating a specifically highlighted example. No numeric data labels are printed on the doodles.
+- Dashed threshold marker: vertical blue dashed line at approximately xâ300 (visually one-third from the left end of the axis, at the 0.3 predicted-value position), running from the top of the plot down to the axis; a small notched marker/arrowhead sits at its base on the axis. No separate numeric label is printed at its foot in this frame.
+- X-axis: solid dark red line with tick marks at three positions labeled "0.0", "0.5", "1.0"; axis title "Predicted Value" centered below.
+
+## 4. COLORS
+
+- Slide background: white (#FFFFFF).
+- Outer content frame / axis lines / title text: dark maroon-red, approx #7B0E0Eâ#8B0000.
+- Title band underline rule: maroon-red.
+- Badge "22": yellow fill #FFD24A with dark outline and dark numeral.
+- Confusion matrix #1 correct-class tint (TP, TN): pale green, approx #CDE9CD / #D6EBD6.
+- Confusion matrix #2 highlighted cells (5 and 4): pale red/rose tint, approx #F6D5D5, with dark red numerals; non-highlighted cells white with dark red numerals.
+- "Threshold=0.3" label: red outline and red text on white.
+- Diagram panel fill: beige/tan, approx #F4E7C6.
+- "Model" box fill: red #D32F2F, white text.
+- "(0 --- 1)" chip fill: dark blue #1565C0, white text.
+- "Threshold" box: white/pale-blue #EAF3FB fill, dark outline, dark text.
+- "Class I"/"Class II" boxes: pale lavender #E9DAF2 and pale lavender-pink #F0DAEA, dark text.
+- Airplane doodles: black outline #111 with red #E53935 or blue #1E88E5 dots.
+- Dashed threshold line: blue #1E88E5.
+- Axis tick labels and "Predicted Value": dark red/maroon.
+
+Dominant palette: white background with maroon-red structure, beige/tan diagram, red+blue accents (confusion-matrix red, blue threshold line, red/blue airplane dots, yellow badge).
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: left-aligned at top, â26 pt bold, dark maroon, over a red horizontal rule; sans-serif.
+- Badge: rounded yellow square/circle top-right, numeral "22" â16 pt bold.
+- Grid annotation labels ("Predicted as", "Actual", "TP/FN/FP/TN"): small â8â9 pt; "Actual" written vertically/stacked at the left edge.
+- Numeric matrix: values â15 pt bold; headers "P"/"N" â11 pt bold.
+- Labels: "Threshold=0.3" â12 pt bold; diagram labels â10â13 pt; sub-captions â8 pt (italic for the Model caption); class chips â11 pt bold.
+- Axis tick labels â10 pt; axis title â11 pt.
+- Decorative borders: a maroon rounded-rectangle frame encloses the whole slide; the diagram is a beige rounded panel; the chip boxes have rounded corners and colored outlines.
+- No other frames or background bands; the lower plot area is plain white.
+
+## 6. NUMERIC DETAILS
+
+- Confusion matrix #2 values: row P â 5, 0; row N â 2, 4 (counts; 5 and 4 on highlighted cells).
+- Confusion matrix #1 labels: TP, FN, FP, TN (positional order top-left, top-right, bottom-left, bottom-right).
+- "Threshold=0.3".
+- Diagram threshold chip: "(e.g.0.5)"; range chip "(0 --- 1)"; Model caption "( 0, +1 )" and "[Any value]".
+- X-axis: labels 0.0, 0.5, 1.0; dashed vertical marker at the 0.3 position.
+- Slide number: 22.
+- No percentages or other counts printed on the plot; airplane dot counts are not labeled numerically.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- The airplane doodles are freehand-style glyphs; their exact count, angles, and red-vs-blue dot assignments must be reproduced individually (approximately 10â11 planes). A couple of planes carry an extra skull-like marking instead of a plain dot â keep that distinction.
+- The dashed blue threshold line has a small notched marker at the axis but no separate "0.3" tick label; only the "Threshold=0.3" box states the value.
+- The "Actual" row labels are rotated/narrow (stacked letters), which may render as a vertical text block â reproduce as a small vertical "Actual".
+- The "Test Sample" thumbnail is a tiny framed glyph, not a legible image; render as a small boxed sketch.
+- The second confusion matrix uses rose-tinted cells for 5 and 4 while the first matrix uses green-tinted TP/TN cells â two different highlight palettes in one slide.
+- Minor: "Threshold=0.3" box and the "(e.g.0.5)" box both present; do not merge or drop either.
+- No visible occlusion or cropping beyond the badge sitting partly over the frame's corner region.
+
+## 8. TOP-3 FIDELITY RISKS
+
+1. Confusion-matrix highlight colors/positions: risk of swapping which cells are green (TP/TN in the small grid) versus rose (5 and 4 in the numeric grid), and of transposing the row/column order (P-top vs N-top). Fix by copying the small grid as TP/FN on top and FP/TN below, and the numeric grid as row P = (5, 0), row N = (2, 4), with rose fills on 5 and 4.
+2. Airplane doodle scatter: risk of changing the number of planes, their tilt, or which planes have red vs blue dots (and the skull-marked plane). Fix by capturing the count and dot color of each plane relative to the dashed 0.3 line, since the point of the slide is that the threshold changes which planes fall left vs right.
+3. Threshold/diagram labels: risk of mis-stating "(0 --- 1)", "[Any value] â ( 0, +1 )", "(e.g.0.5)", and "Threshold=0.3", or mis-wiring the arrow order (Model â range chip â Threshold â Class I/II). Fix by preserving the exact strings and the left-to-right arrow chain with the fork to "Class I"/"Class II" at the end.
+
+## 9. VERDICT
+
+- Recreatability score: 7/10 (all text and structure extractable; the airplane doodle positions and exact dot-color assignment reduce score).
+- Confidence: high for text, labels, matrices, and axis; medium for exact doodle placement and the small "Test Sample" thumbnail glyph; low-medium for the dashed-line x-position versus the 0.3 value.
+- Deliberately not transcribed: nothing textual was skipped; I did not attempt to individually name/position each airplane doodle beyond the general description (they are illustrations, not strings), and I did not invent values for the small glyph inside the "Model" box or the skull markings.
+

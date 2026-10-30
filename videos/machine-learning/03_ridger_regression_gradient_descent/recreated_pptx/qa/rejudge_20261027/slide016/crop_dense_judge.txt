@@ -1,0 +1,20 @@
+## Region contents (both crops)
+
+Both images show the same four-to-five-line text block of the Lâ/Lâ Regularization slide: a yellow-highlighted phrase "better generalization of the model"; a paragraph fragment "â¦diction between model training (using â¦" / "â¦neralization term is added to the objectiâ¦" / red-underlined "â¦or (do regularization to what extent)"; then "â¦applied on the **Squared Norm of the Weâ¦**" in dark red and "â¦regularization (also known as **Ridge Reâ¦**)" in blue.
+
+## Discrepancies
+
+| # | Location (crop-relative) | Description | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Whole crop, ~15â20 px horizontal registration offset | The two crops are not perfectly registered: IMG1's left edge retains an extra character on the affected lines ("adiction" vs "diction", "tor" vs "or", "applied" vs "pplied"), while IMG2's right edge retains slightly more ("(using tâ¦" vs "(using", "objectivâ¦" vs "objecâ¦"). The underlying strings are identical; only the amount clipped by the crop window differs. This is a framing/registration artifact of the crop pair, not a content error. | MINOR | High (offset direction/pattern) / Medium (exact px) |
+| 2 | All lines, e.g. line 1 (yâ45â80) and line 5 (yâ375â415) | Stroke weight/typeface: the original's lettering is markedly heavier (bold, with faint serif-like terminals after upscaling), while the recreation uses a lighter Helvetica/Arial-like regular weight. May partly be video blur/thickening, but the weight gap is systematic across every line. | MINOR | Medium |
+| 3 | Line 4, red underlined word at xâ0â45, yâ265â305; line 5, xâ235â640 | Color: the recreation's red "Squared Norm of the Weâ¦" is a slightly brighter/more saturated red than the original's darker maroon red; the blue "regularization / Ridge Reâ¦" in IMG1 reads marginally more violet than IMG2's blue. Likely compression-driven hue shift, but a small numeric difference is present. | MINOR | LowâMedium |
+| 4 | Bottom-left of IMG2, xâ0â18, yâ292â320 | A small gray diagonal mark (pointer/check-stroke-like) appears only in the original frame, outside the red-underlined word's text. It is a recording/pointer artifact, not slide content. | MINOR (capture artifact) | Medium |
+| 5 | Line 1, yellow highlight xâ17â370, yâ33â82; line 4 red underline xâ0â45, yâ298â305; line 5â6 color runs | Verified item-by-item and matched: highlight extent covers exactly "better generalization"; the red underline sits directly beneath the red word fragment and does not intrude into the following "(" of "(do regularization to what extent)"; vertical baselines of lines 1, 2, 3, 4 and the 5/6 pair agree within a few px; all glyphs are correctly formed ("generalization", "regularization", "Squared Norm", "Ridge", "extent", closing ")" present, "(using" paren present). No wrong digits, swapped words, missing rows, truncated subscripts, or non-spanning delimiters anywhere in the region. | No discrepancy | High |
+
+## Notes
+- The white canvas / gray panel / thin dark-red strokes / yellow badge chrome governed by rule (b) is not visible in this crop, so no chrome conflicts arise.
+- No equations, tables, brackets spanning multiple lines, or sub/superscripts fall inside this region, so rule (d) is not exercised here.
+- No BLOCKER or MAJOR content differences were found: every word, numeral-free token, color run, highlight extent, and underline in IMG1 has a correct counterpart in IMG2.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation of this region" (minor registration/weight/color refinements only).

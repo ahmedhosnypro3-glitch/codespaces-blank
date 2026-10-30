@@ -1,0 +1,47 @@
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 365563
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_019.jpg, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_019_rendered-1.png ===
+[winner] images (round 1, attempt 1)
+Ground rules acknowledged: (a) house chrome (red frame, yellow "19", title at y=0.28in) overrides original positions; (b) Professional mathtext equation upgrade is intentional, not a discrepancy; (c) toast notification and bottom black letterbox strip are capture artifacts correctly omitted; (d) typeset vs handwritten captions are at most MINOR; (e) programmatic plot rendering differences are expected; (f) verdict covers renderable-content fidelity only.
+
+Region-by-region inspection:
+
+**House chrome / frame / badge**  
+- Red outer frame: PRESENT, matches house rule inset/color.  
+- Yellow badge "19" top-right: PRESENT.  
+- Main title "Sigmoid, tanh, tan, and tan⁻¹ Function Graphs" at top: PRESENT per house rule (a); original had no title band, so this inferred title is expected, not a discrepancy.
+
+**Top-left sigmoid panel**  
+- Panel border, light-gray bg, red sigmoid curve: PRESENT.  
+- Domain/ticks (−8..8, 0..1): PRESENT, matches.  
+- Caption `f(x) = Sigmoid(x) = 1/(1+e^{-x})` (stacked fraction, peach fill): PRESENT, verbatim.  
+- Discrepancy: upper-left legend text appears doubled/overlapping ("sig(x) = …" rendered twice/clustered) vs clean single legend in original.  
+  - SEVERITY: MINOR — CONFIDENCE: MEDIUM
+
+**Top-right tanh panel**  
+- Panel, red tanh curve, domain/ticks (−4..4, −1..1): PRESENT.  
+- Caption `f(x) = tanh(x) = sinh x / cosh x` (stacked fraction, peach fill): PRESENT, verbatim.  
+- Discrepancy: rotated y-axis label "tanh x" visible in original is not clearly present in recreation.  
+  - SEVERITY: MINOR — CONFIDENCE: MEDIUM
+
+**Bottom-left tan panel**  
+- Panel, gray tan curve, dashed asymptotes, gray caption `f(x) = tan(x)`: PRESENT.  
+- X-ticks with π labels and y-ticks (4,2,−2,−4): PRESENT.  
+- Discrepancy: vertical dashed lines appear denser than the original's four asymptotes at −3π/2, −π/2, π/2, 3π/2 (may include prominent grid rendering). Curve shape otherwise correct.  
+  - SEVERITY: MINOR — CONFIDENCE: MEDIUM
+
+**Bottom-right arctan panel**  
+- Panel, red arctan curve, origin marker at (0,0), caption `f(x) = tan^{-1}(x)` (superscript, peach fill): PRESENT, verbatim.  
+- Internal title "Inverse Tangent Graph": PRESENT but small/clipped at top edge vs clear upper-left in original.  
+  - SEVERITY: MINOR — CONFIDENCE: MEDIUM
+
+**Connector arrow**  
+- Hollow red block arrow between bottom panels, pointing right: PRESENT, matches.
+
+**Capture artifacts**  
+- No toast notification, no bottom black letterbox strip as slide content: CORRECTLY OMITTED per rule (c).
+
+No BLOCKER or MAJOR discrepancies. All four graphs, captions, equations, arrow, frame, and badge are present and substantially faithful; noted issues are minor rendering/layout/text-clarity differences permitted under rules (b)–(e).
+
+FINAL VERDICT: PASS for 'slide_019 recreation fidelity'

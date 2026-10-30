@@ -1,0 +1,28 @@
+2026-10-27 23:08:20,252 INFO === crop_cascade run: slide_013.jpg ===
+2026-10-27 23:08:20,253 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 23:08:26,230 INFO chat call attempt=1 latency=6.0s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 23:08:26,230 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-27 23:08:27,488 INFO chat call attempt=1 latency=1.3s url=http://localhost:17844/v1/chat/completions bytes=142
+2026-10-27 23:08:27,488 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 23:08:27,488 INFO chat lane: active
+2026-10-27 23:08:29,668 INFO parse call attempt=1 latency=2.2s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=37913
+2026-10-27 23:08:29,671 INFO node root parsed: 580 chars, 169 out tokens
+2026-10-27 23:08:29,672 INFO root parsed: 580 chars
+2026-10-27 23:08:29,672 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:08:46,874 INFO chat call attempt=1 latency=17.2s url=http://localhost:17844/v1/chat/completions bytes=3365
+2026-10-27 23:08:46,875 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:09:46,917 INFO chat call attempt=1 transport failure latency=60.0s (TimeoutError: timed out)
+2026-10-27 23:09:46,917 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.7s
+2026-10-27 23:10:43,529 INFO chat call attempt=2 latency=53.9s url=http://localhost:17844/v1/chat/completions bytes=3366
+2026-10-27 23:10:43,639 INFO level 0 done: 1 nodes -> 3 children
+2026-10-27 23:10:44,397 INFO parse call attempt=1 latency=0.8s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=65243
+2026-10-27 23:10:44,399 INFO node slide_013.crop03__picture parsed: 161 chars, 44 out tokens
+2026-10-27 23:10:44,399 INFO node slide_013.crop03__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:10:44,618 INFO parse call attempt=1 latency=1.0s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=108226
+2026-10-27 23:10:44,619 INFO node slide_013.crop01__picture parsed: 55 chars, 13 out tokens
+2026-10-27 23:10:44,619 INFO node slide_013.crop01__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:10:45,035 INFO parse call attempt=1 latency=1.4s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=74433
+2026-10-27 23:10:45,035 INFO node slide_013.crop02__table parsed: 190 chars, 92 out tokens
+2026-10-27 23:10:45,035 INFO node slide_013.crop02__table stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:10:45,038 INFO level 1 done: 3 nodes -> 0 children
+2026-10-27 23:10:45,040 INFO composed -> composed/slide_013_composed.md

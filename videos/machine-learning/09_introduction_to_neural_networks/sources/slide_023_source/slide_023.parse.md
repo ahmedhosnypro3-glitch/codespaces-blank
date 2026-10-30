@@ -1,0 +1,2 @@
+<x_0.0596><y_0.0781>**Derivatives of some Activation Functions** 23
+f(x)=Uni-polar Unit Step = 0 for x<0 1 for x≥0 Derivative f' (x)= 0 for x≠0 ? for x=0 f(x)= Bi-polar Unit Step = −1 for x<0 1 for x≥0 Derivative f' (x)= 0 for x≠0 ? for x=0 f(x)= Sigmoid (x)= 1 +e−x 1+e−x > f' (x)=f(x) ( 1–f(x) ) f(x)=tanh(x)= sinh x cosh x Derive f' (x)= tan−1(x) Derive f' (x)= 1–f(x)2 IVative f' (x)= 1 x2+1<x_0.9336><y_0.9547><class_Picture>

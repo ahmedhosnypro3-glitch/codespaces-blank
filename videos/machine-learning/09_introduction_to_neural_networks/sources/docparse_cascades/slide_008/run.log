@@ -1,0 +1,22 @@
+2026-10-27 22:59:58,969 INFO === crop_cascade run: slide_008.jpg ===
+2026-10-27 22:59:58,970 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 23:00:00,065 INFO chat call attempt=1 latency=1.1s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 23:00:00,065 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 23:00:00,065 INFO chat lane: active
+2026-10-27 23:00:03,137 INFO parse call attempt=1 latency=3.1s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=85976
+2026-10-27 23:00:03,138 INFO node root parsed: 247 chars, 68 out tokens
+2026-10-27 23:00:03,138 INFO root parsed: 247 chars
+2026-10-27 23:00:03,138 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:00:16,654 INFO chat call attempt=1 latency=13.5s url=http://localhost:17844/v1/chat/completions bytes=3149
+2026-10-27 23:00:18,048 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 23:00:19,709 INFO parse call attempt=1 latency=1.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=1277623
+2026-10-27 23:00:19,709 INFO node slide_008.crop01__chart parsed: 266 chars, 51 out tokens
+2026-10-27 23:00:38,919 INFO chat call attempt=1 latency=19.2s url=http://localhost:17844/v1/chat/completions bytes=3080
+2026-10-27 23:00:38,919 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:01:16,221 INFO chat call attempt=1 latency=37.3s url=http://localhost:17844/v1/chat/completions bytes=3081
+2026-10-27 23:01:17,213 INFO level 1 done: 1 nodes -> 1 children
+2026-10-27 23:01:18,877 INFO parse call attempt=1 latency=1.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=1846511
+2026-10-27 23:01:18,877 INFO node slide_008.crop02__picture parsed: 97 chars, 37 out tokens
+2026-10-27 23:01:18,878 INFO node slide_008.crop02__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 23:01:18,878 INFO level 2 done: 1 nodes -> 0 children
+2026-10-27 23:01:18,881 INFO composed -> composed/slide_008_composed.md

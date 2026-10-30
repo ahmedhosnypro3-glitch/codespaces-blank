@@ -1,0 +1,4 @@
+<x_0.8984><y_0.1187>10<x_0.9229><y_0.1508><class_Page-header>
+
+<x_0.1992><y_0.4062>**Solving Lagrangian Dual Equation of SVM**
+**Using Quadratic Programming**<x_0.8203><y_0.5594><class_Section-header>

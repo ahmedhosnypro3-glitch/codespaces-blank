@@ -1,0 +1,561 @@
+[info] context header injected: VIEW: Slide 33 — ROC Curve for Same Model -different thresholds | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 141500
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_033.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants me to analyze a lecture slide image. I need to extract all text, layout, visual elements, colors, typography, numeric details, anomalies, fidelity risks, and a verdict.
+
+Let me carefully examine the image.
+
+The slide title/caption from VIEW: "Slide 33 â ROC Curve for Same Model -different thresholds"
+
+Looking at the image, there's a slide number "33" in a yellow circle top right.
+
+There are four confusion matrices arranged in a 2x2 grid on the left, each labeled with a threshold:
+- Threshold=0.0
+- Threshold=0.1
+- Threshold=0.3
+- Threshold=0.4
+
+And Threshold=0.6 on the top right of the grid... wait, let me re-read.
+
+Top row: "Threshold=0.0" (left) and "Threshold=0.6" (top middle-right)
+Second row: "Threshold=0.1" (left) - right side empty for that row
+Third row: "Threshold=0.3" (left) - right side has "Threshold=0.4"? 
+
+Let me re-organize. It looks like a grid:
+
+Row 1 (top): 
+- Left: Threshold=0.0
+- Right: Threshold=0.6
+
+Row 2:
+- Left: Threshold=0.1
+
+Row 3:
+- Left: Threshold=0.3
+
+Row 4:
+- Left: Threshold=0.4
+
+And there's a blue box in the middle: "ROC Curve for Same Model -different thresholds"
+
+Right side: a chart with TPR vs FPR axes, with points labeled 0.3, 0.1, 0.0, 0.4, 0.6
+
+Bottom right: formulas and a confusion matrix legend.
+
+Let me read each confusion matrix carefully.
+
+Threshold=0.0:
+```
+        Predicted as
+        P    N
+Actual P 5    0      TPR=5/(5+0)=1
+      N 6    0      FPR=6/(6+0)=1
+```
+Wait, the text says "TPR=5/(5+0)=1" and "FPR=6/(6+0)=1"
+
+Threshold=0.1:
+```
+        Predicted as
+        P    N
+Actual P 5    0      TPR=5/(5+0)=1
+      N 4    2      FPR=4/(4+2)=.66
+```
+Text: "TPR=5/(5+0)=1", "FPR=4/(4+2)=.66"
+
+Threshold=0.3:
+```
+        Predicted as
+        P    N
+Actual P 5    0
+      N 2    4
+```
+Text: "TPR=5/(5+0)=1", "FPR=2/(2+4)=.33"
+
+Threshold=0.4:
+```
+        Predicted as
+        P    N
+Actual P 4    1
+      N 1    5
+```
+Text: "TPR=4/(4+1)=4/5", "FPR=1/(1+5)=.16"
+
+Threshold=0.6:
+```
+        Predicted as
+        P    N
+Actual P 3    1
+      N 1    5
+```
+Text: "TPR=3/(3+1)=.6", "FPR=1/(1+5)=.16"
+
+Wait, for Threshold=0.6, the text reads "TPR=3/(3+1)=.6" and "FPR=1/(1+5)=.16"
+
+Let me look again. Top right confusion matrix:
+```
+Threshold=0.6
+        Predicted as
+        P    N
+Actual P 3    1
+      N 1    5
+```
+Right side text: "TPR=3/(3+1)=.6" "FPR=1/(1+5)=.16"
+
+Hmm wait, the image shows "TPR=3/(3+1)=.6" and "FPR=1/(1+5)=.16". Let me verify with the OCR-like reading. The text says "TPR=3/(3+1)=.6" and "FPR=1/(1+5)=.16". Yes.
+
+Now the chart on the right:
+- Y-axis label: TPR (rotated)
+- X-axis label: FPR
+- Grid lines
+- Points labeled: 0.3, 0.1, 0.0, 0.4, 0.6
+- Red circles at data points
+- A red dashed line connecting them (the ROC curve)
+- Axis arrows (red)
+
+Positions:
+- 0.0 is at top left (highest TPR, highest FPR)
+- 0.1 is near top left slightly right
+- 0.3 is at middle left
+- 0.4 is at lower middle
+- 0.6 is at bottom (lowest TPR, low FPR)
+
+Actually looking at chart: y-axis is TPR (0 to 1 top to bottom? or bottom to top?). The label 0.6 is near bottom, 0.0 near top. So TPR decreases downward in the chart? Or the y-axis is inverted.
+
+Looking at coordinates: "0.0" is at top, around y=150. "0.1" at y=155. "0.3" at y=190. "0.4" at y=225. "0.6" at y=270.
+
+Wait, the y axis goes from TPR at top... Actually the y-axis label "TPR" is on the left side, vertical. The values: 0.0 at top, 0.6 at bottom. But TPR typically goes 0 at bottom, 1 at top. However here the labels 0.0, 0.1, 0.3, 0.4, 0.6 are threshold labels, not TPR values!
+
+Oh! Important. The numbers 0.0, 0.1, 0.3, 0.4, 0.6 are the threshold labels for each point on the ROC curve. So:
+- Point 0.0: FPR=1, TPR=1 (top)
+- Point 0.1: FPR=0.66, TPR=1 (near top)
+- Point 0.3: FPR=0.33, TPR=1 (middle)
+- Point 0.4: FPR=0.16, TPR=0.8 (lower middle)
+- Point 0.6: FPR=0.16, TPR=0.6 (bottom)
+
+That makes sense with an ROC curve where lowering threshold increases FPR and TPR.
+
+The chart shows horizontal grid lines. The y-axis has TPR label rotated on left. There appear to be tick marks but values may not be labeled. Actually I see grid lines at y positions with the points.
+
+Let me note the red curve connects: 0.0 (top right-ish) -> 0.1 -> 0.3 -> 0.4 -> 0.6. Actually looking at positions: 0.0 is at xâ700, yâ150. 0.1 is at xâ786, yâ150. 0.3 is at xâ700, yâ190. 0.4 is at xâ733, yâ225. 0.6 is at xâ733, yâ270.
+
+Hmm, the x-axis: FPR. 0.0 point has FPR=1 (rightmost), 0.1 has FPR=0.66, 0.3 has FPR=0.33, 0.4 has FPR=0.16, 0.6 has FPR=0.16.
+
+But in the image, 0.0 appears left of 0.1? Let me look: "0.3" is at xâ726 (label left of point), "0.1" at xâ795, "0.0" at xâ858. So 0.0 is rightmost, 0.1 is left of 0.0, 0.3 is left of 0.1. Yes: FPR(0.0)=1 > FPR(0.1)=0.66 > FPR(0.3)=0.33 > FPR(0.4)=0.16. Correct.
+
+For y (TPR): 0.0 TPR=1 (top), 0.1 TPR=1, 0.3 TPR=1, 0.4 TPR=0.8, 0.6 TPR=0.6 (bottom). In pixels, top=smaller y. 0.0 at yâ150, 0.1 at yâ155, 0.3 at yâ190, 0.4 at yâ225, 0.6 at yâ270. TPR=1 points at top (yâ150-155), TPR=0.8 at yâ225, TPR=0.6 at yâ270. Good.
+
+Now the bottom right formulas:
+Box with light background:
+```
+TPR = TP/(TP+FN)
+FPR = FP/(FP+TN)
+```
+Then another confusion matrix:
+```
+        Predicted as
+        P    N
+Actual P TP   FN
+      N FP   TN
+```
+With TP in green highlight, TN in green highlight. P and N in red background, TP and FN... let me look.
+
+The legend matrix: header "Predicted as" with columns P (red bg) and N (red bg). Row label "Actual" on left with P (red bg), N (red bg). Cells: TP (green bg), FN (white), FP (white), TN (green bg).
+
+Colors: The P and N headers have red/pink background. TP and TN cells have green background. FN and FP have white/cream background.
+
+Now let me get text colors:
+- Titles "Threshold=0.0" etc.: red text on light yellow/cream background, bold
+- "Predicted as": black text on light gray
+- "Actual": black text vertical
+- Matrix numbers: blue or black text
+- TPR/FPR formulas: black text
+- "ROC Curve for Same Model -different thresholds": white text on blue background
+- Slide number 33: black on yellow circle
+
+Let me detail colors more:
+- Threshold boxes: light yellow (#FFFFCC or similar) with red text
+- Confusion matrix header: light gray
+- Red headers: pinkish red background
+- Blue formulas box
+- Green cells
+
+Now let me write the full response.
+
+Colors estimates:
+- Background: white
+- Threshold title boxes: light yellow (#FFFFE0 / #FFFACD), red text (#FF0000 / #C00000)
+- "Predicted as" header: light gray (#D9D9D9), black text
+- Column headers P, N: pink/red (#FFC7CE or #FF9999), red text
+- Row headers P, N: pink/red
+- Cell numbers: blue (#0000FF) â looking at image the numbers 5, 0, 6, 0 appear blue/dark
+- ROC box: light blue/cyan background (#00B0F0 or #DDEBF7?), white text
+- Chart grid: light gray lines
+- Chart curve: red dashed line
+- Chart points: red circles
+- Formula box: light gray/white with black text
+- TP/TN cells: green (#C6EFCE or #92D050), black text
+- Yellow slide number circle: yellow (#FFFF00), black text
+
+Let me now carefully transcribe all text with positions.
+
+Top-left confusion matrix (Threshold=0.0): approximately x=65-390, y=35-170
+- "Threshold=0.0" at xâ95, yâ42, wâ140, hâ20, red bold ~16pt
+- "Predicted as" at xâ175, yâ75, wâ100, hâ20, black ~14pt
+- "P" at xâ185, yâ100; "N" at xâ220, yâ100 (column headers, red bg)
+- "Actual" vertical at xâ75, yâ100-140
+- "P" row label at xâ110, yâ104; "N" row label at xâ110, yâ130
+- Cells: P/P=5 (xâ135,yâ100), P/N=0 (xâ200,yâ100), N/P=6 (xâ135,yâ125), N/N=0 (xâ200,yâ125)
+- "TPR=5/(5+0)=1" at xâ270, yâ100
+- "FPR=6/(6+0)=1" at xâ270, yâ125
+
+Top-right confusion matrix (Threshold=0.6): xâ415-740, yâ35-170
+- "Threshold=0.6" at xâ445, yâ42
+- matrix similar
+- "TPR=3/(3+1)=.6" at xâ620, yâ100
+- "FPR=1/(1+5)=.16" at xâ620, yâ125
+
+Wait, let me reconsider. The top right box has "Threshold=0.6" and the matrix:
+P: 3, 1
+N: 1, 5
+TPR=3/(3+1)=.6
+FPR=1/(1+5)=.16
+
+Second row left (Threshold=0.1): xâ65-390, yâ180-315
+- "Threshold=0.1" at xâ95, yâ187
+- matrix: P: 5,0; N: 4,2
+- "TPR=5/(5+0)=1" 
+- "FPR=4/(4+2)=.66"
+
+Third row left (Threshold=0.3): xâ65-390, yâ325-420? Actually yâ325-420
+- "Threshold=0.3" at xâ95, yâ332
+- matrix: P: 5,0; N: 2,4
+- "TPR=5/(5+0)=1"
+- "FPR=2/(2+4)=.33"
+
+Fourth row left (Threshold=0.4): xâ65-390, yâ420-500? 
+- "Threshold=0.4" at xâ95, yâ432
+- matrix: P: 4,1; N: 1,5
+- "TPR=4/(4+1)=4/5"
+- "FPR=1/(1+5)=.16"
+
+Middle blue box: xâ415-745, yâ370-440
+- "ROC Curve for Same Model -different thresholds" white text ~18pt
+
+Chart: xâ765-935, yâ85-375
+- Title? none printed, but there's a yellow box at top with 33
+- Y-axis label "TPR" rotated at xâ770, yâ180-280
+- X-axis label "FPR" at xâ835, yâ355
+- Red arrow axes
+- Points: 0.3, 0.1, 0.0, 0.4, 0.6
+
+Yellow circle badge: xâ900, yâ60, wâ40, hâ35, contains "33"
+
+Formula box bottom right: xâ765-935, yâ385-500
+- "TPR = TP/(TP+FN)" â with stacked fraction. Actually it shows "TPR = TP over (TP+FN)" with a horizontal bar.
+- "FPR = FP/(FP+TN)" â stacked fraction
+- Predicted as legend matrix
+
+Let me write the fractions precisely:
+TPR = (TP) / (TP+FN) â the image shows TPR = then a fraction: numerator TP, denominator TP+FN, with a bar.
+FPR = (FP) / (FP+TN) â numerator FP, denominator FP+TN.
+
+From image: "TPR = TP/(TP+FN)" with TP over TP+FN as stacked fraction. The rendering shows "TPR = " then a fraction with TP on top, "TP+FN" below, separated by a horizontal line. Similarly FPR.
+
+Legend matrix at bottom right:
+- "Predicted as" header
+- Columns: P (red bg), N (red bg)
+- Rows: Actual P, Actual N
+- Cells: TP (green), FN, FP, TN (green)
+Text: "P", "N", "TP", "FN", "FP", "TN", "Predicted as", "Actual"
+
+Now, the slide number badge: yellow rounded shape at top right of chart area, xâ900-940, yâ60-95, "33" in black.
+
+Let me also check for any watermark: I don't see a watermark. There might be a thin black bar at the very bottom of the image (video frame edge) at yâ520-540. That's a rendering artifact / video overlay border.
+
+Anomalies:
+- The bottom has a black horizontal band (video capture frame edge) around y=520-540
+- The chart has no numeric tick labels on axes (only grid lines and axis labels)
+- The confusion matrix for Threshold=0.1 row has empty space in the right column of that row (where 0.6/0.0 don't align in a strict grid) â actually the layout is irregular: top row has two boxes (0.0 left, 0.6 right), then 0.1 left only, 0.3 left only, 0.4 left only. The right side has chart. This is an irregular hand-arranged layout.
+- Some points in ROC chart have labels with leader lines
+- Point labels: "0.3" has a small line pointing to the left; "0.4" has line; "0.6" has line
+
+Let me now compose the answer. I need to be careful and thorough.
+
+Actually, re-examining the chart: are there grid lines? Yes, light gray horizontal and vertical grid lines forming a grid. The y-axis has horizontal grid lines at intervals. The x-axis has vertical grid lines.
+
+There appear to be tick marks. But no numeric labels on axes except the point labels.
+
+The red ROC curve: a dashed red line connecting points. It starts from bottom-left (0.6) going up to top-right (0.0)? Or 0.0 -> 0.1 -> 0.3 -> 0.4 -> 0.6. The dashed line connects all five red circles.
+
+Let me reconsider whether the curve goes 0.0(top) â 0.6(bottom) or reverse. Standard ROC: as threshold decreases, move up-right. Points: 0.6 (FPR=.16,TPR=.6) bottom-left-ish, 0.4 (FPR=.16,TPR=.8), 0.3 (FPR=.33,TPR=1), 0.1 (FPR=.66,TPR=1), 0.0 (FPR=1,TPR=1) top-right. So the curve goes from 0.6 (lower) to 0.0 (upper right). In the image the red dashed line connects the circles in that path.
+
+OK. Now writing everything up.
+
+For the fraction: I should describe as stacked. "TPR = TP/(TP+FN)" but visually it's a stacked fraction. I'll note both in equations section.
+
+Text of equations in image:
+- "TPR = " followed by stacked fraction TP over TP+FN
+- "FPR = " followed by stacked fraction FP over FP+TN
+
+I'll transcribe as "TPR = TP/(TP+FN)" with note about stacking.
+
+Let me write out the section now. I need positions in px at 960x540.
+
+Estimated positions:
+1. Threshold=0.0 box: label at (95,40) size ~180x22
+   - Predicted as: (172,75) 
+   - col P: (182,100), col N: (218,100)
+   - Actual row header: (72,118) rotated
+   - row P: (108,104), row N: (108,128)
+   - cell(PP)=5: (135,100), cell(PN)=0: (198,100), cell(NP)=6: (135,125), cell(NN)=0: (198,125)
+   - TPR=5/(5+0)=1: (262,100)
+   - FPR=6/(6+0)=1: (262,125)
+
+2. Threshold=0.6 box: label (445,40)
+   - Predicted as (522,75)
+   - col P (532,100), N (568,100)
+   - row P (458,104), N (458,128)
+   - cells: PP=3 (485,100), PN=1 (548,100), NP=1 (485,125), NN=5 (548,125)
+   - TPR=3/(3+1)=.6 (612,100)
+   - FPR=1/(1+5)=.16 (612,125)
+
+3. Threshold=0.1: label (95,187)
+   - Predicted as (172,222)
+   - col P (182,247), N (218,247)
+   - row P (108,251), N (108,275)
+   - cells: PP=5, PN=0, NP=4, NN=2
+   - TPR=5/(5+0)=1 (262,247)
+   - FPR=4/(4+2)=.66 (262,272)
+
+4. Threshold=0.3: label (95,332)
+   - Predicted as (172,367)
+   - col P (182,392), N (218,392)
+   - row P (108,396), N (108,420)
+   - cells: PP=5, PN=0, NP=2, NN=4
+   - TPR=5/(5+0)=1 (262,392)
+   - FPR=2/(2+4)=.33 (262,417)
+
+5. Threshold=0.4: label (95,432)
+   - Predicted as (172,467)
+   - col P (182,492), N (218,492)
+   - row P (108,496), N (108,520) â wait, this might get cut by the bottom black band. Actually Threshold=0.4 row seems at yâ420-500. Let me estimate: label (95,432), Predicted as (170,462), col headers (180,485), row P (108,490), N (108,514). Hmm, the matrix for 0.4: P:4,1 N:1,5. And TPR/FPR to the right.
+
+Actually looking at image, the Threshold=0.4 box is at bottom-left, y around 420-500. The cells might be at yâ485-510. The bottom black band starts around y=515.
+
+Let me just give approximate positions.
+
+6. ROC box: (415,370) w=330 h=70
+   - Text: "ROC Curve for Same Model -different thresholds" at (430,395)
+
+7. Chart: (765,85) w=170 h=290
+   - TPR label vertical (770,180)
+   - FPR label (835,355)
+   - points: 0.0 (x=858,y=150), 0.1 (x=795,y=152), 0.3 (x=726,y=190), 0.4 (x=735,y=225), 0.6 (x=735,y=270)
+
+8. Badge 33: (900,60) w=40 h=35
+
+9. Formula box: (765,385) w=170 h=115
+   - TPR fraction (775,405)
+   - FPR fraction (775,450)
+   - Predicted as legend matrix (820,430-500)? Actually the legend matrix is below the formulas.
+
+Hmm, let me reconsider the bottom-right layout. There's a box containing:
+- Top part: TPR = fraction and FPR = fraction (two rows)
+- Bottom part: the "Predicted as" P/N matrix with TP/FN/FP/TN
+
+The matrix legend is at xâ820-935, yâ430-500. Headers "Predicted as" at (830,435), P (845,455), N (880,455), Actual (820,460) vertical, P (835,478), N (835,498), TP (845,475), FN (880,475), FP (845,495), TN (880,495).
+
+Actually from the image: the legend matrix is to the right of the formulas. Formulas on left (x=770-825), matrix on right (x=825-935).
+
+OK, good enough for approximate positions.
+
+Now colors. Let me be more precise:
+- Threshold label bg: #FFF2CC (light yellow/cream), text #C00000 (dark red)
+- Predicted as header: #F2F2F2 (light gray), black text
+- P/N column+row headers: #FF9999 or #F8CBAD (salmon/pink), text dark red or black. Looking closer, they appear pink-red #FF7C80 or similar. I'll say #FF9999 with black text; the row "Actual" text is black.
+- Matrix cell numbers: #000000 or dark blue. The image shows blue-ish numbers? Hard to tell from this rendering. I'll say black/dark blue #1F4E79. Actually the numbers look dark blue-black. I'll state dark blue/black.
+- ROC box: #0070C0 (blue) fill, white text
+- Chart: white bg, #BFBFBF grid, red #FF0000 axis arrows and dashed curve, red circles #FF0000
+- Formula box: white/light gray #FFFFFF with black text; TP/TN cells #C6EFCE (green) or #A9D08E; P/N headers in legend also pink #FF9999
+- Badge: #FFFF00 yellow, black text
+- Background: white #FFFFFF
+
+Dominant palette: white background, blue ROC banner, red accents (threshold titles, chart curve), green highlight cells, pink matrix headers.
+
+Typography:
+- Threshold labels: bold sans-serif ~16pt
+- Predicted as: regular ~14pt
+- Matrix numbers: bold ~14pt
+- TPR/FPR formulas: ~12-13pt regular
+- ROC title: bold ~18pt white
+- Axis labels: bold ~16pt (TPR/FPR)
+- Point labels: ~13pt bold
+- Slide number: bold ~16pt
+
+Now anomalies:
+- Bottom black band (video frame artifact) yâ515-540
+- Chart axes have arrowheads (red arrows on axes)
+- No numeric axis tick labels
+- Irregular grid layout (non-uniform box arrangement)
+- Leader lines from point labels to points
+- The threshold=0.1, 0.3, 0.4 rows have empty right halves (by design, since chart occupies right)
+- Point label 0.3 and 0.4 have short diagonal leader lines
+
+Fidelity risks:
+1. The exact values in confusion matrices and TPR/FPR computations (easy to misread 5/0 vs 4/1, etc.)
+2. The stacked fraction layout for TPR/FPR formulas (must be fractions, not inline)
+3. Chart geometry: which point goes where (TPR vs FPR mapping, point labels are thresholds not values)
+4. The irregular panel layout (five confusion matrices not in a clean grid)
+
+Let me write the final answer now.
+
+For section 1, I'll list every string. Let me make sure I capture everything, including the small details.
+
+Strings list:
+- "Threshold=0.0"
+- "Predicted as"
+- "P"
+- "N"
+- "Actual"
+- "5"
+- "0"
+- "6"
+- "0"
+- "TPR=5/(5+0)=1"
+- "FPR=6/(6+0)=1"
+
+- "Threshold=0.6"
+- "Predicted as"
+- "P", "N", "Actual"
+- "3","1","1","5"
+- "TPR=3/(3+1)=.6"
+- "FPR=1/(1+5)=.16"
+
+- "Threshold=0.1"
+- "Predicted as", P/N/Actual
+- "5","0","4","2"
+- "TPR=5/(5+0)=1"
+- "FPR=4/(4+2)=.66"
+
+- "Threshold=0.3"
+- "Predicted as", P/N/Actual
+- "5","0","2","4"
+- "TPR=5/(5+0)=1"
+- "FPR=2/(2+4)=.33"
+
+- "Threshold=0.4"
+- "Predicted as", P/N/Actual
+- "4","1","1","5"
+- "TPR=4/(4+1)=4/5"
+- "FPR=1/(1+5)=.16"
+
+- "ROC Curve for Same Model -different thresholds"
+
+- "TPR"
+- "FPR"
+- "0.3"
+- "0.1"
+- "0.0"
+- "0.4"
+- "0.6"
+
+- "33"
+
+- "TPR = TP/(TP+FN)" (stacked)
+- "FPR = FP/(FP+TN)" (stacked)
+- "Predicted as"
+- "P", "N"
+- "Actual"
+- "TP", "FN", "FP", "TN"
+
+Good. Now formatting.
+
+For the fraction, in section 1 I'll write: TPR = TP over TP+FN (stacked fraction); FPR = FP over FP+TN (stacked fraction). And note exact text.
+
+Let me write it all out.</think>## 1. VERBATIM TEXT
+
+Top-left panel â threshold 0.0:
+- "Threshold=0.0" (xâ95,yâ42,wâ145,hâ20, red bold)
+- "Predicted as" (xâ172,yâ75,wâ105,hâ18, black)
+- "Actual" (xâ72,yâ112,wâ55,hâ35, black, rotated vertical)
+- "P" (xâ182,yâ100,wâ18,hâ18, dark text on red header)
+- "N" (xâ218,yâ100,wâ18,hâ18, dark text on red header)
+- "P" (xâ108,yâ104,wâ12,hâ16, dark text on red header)
+- "N" (xâ108,yâ128,wâ12,hâ16, dark text on red header)
+- "5" (xâ135,yâ100,wâ14,hâ16, dark blue/black)
+- "0" (xâ198,yâ100,wâ14,hâ16, dark blue/black)
+- "6" (xâ135,yâ125,wâ14,hâ16, dark blue/black)
+- "0" (xâ198,yâ125,wâ14,hâ16, dark blue/black)
+- "TPR=5/(5+0)=1" (xâ262,yâ100,wâ120,hâ16, dark)
+- "FPR=6/(6+0)=1" (xâ262,yâ125,wâ120,hâ16, dark)
+
+Top-right panel â threshold 0.6:
+- "Threshold=0.6" (xâ445,yâ42,wâ145,hâ20, red bold)
+- "Predicted as" (xâ522,yâ75,wâ105,hâ18, black)
+- "Actual" (xâ422,yâ112,wâ55,hâ35, black, rotated)
+- "P" (xâ532,yâ100), "N" (xâ568,yâ100) â dark on red headers
+- "P" (xâ458,yâ104), "N" (xâ458,yâ128) â dark on red headers
+- "3" (xâ485,yâ100), "1" (xâ548,yâ100)
+- "1" (xâ485,yâ125), "5" (xâ548,yâ125)
+- "TPR=3/(3+1)=.6" (xâ612,yâ100,wâ135,hâ16, dark)
+- "FPR=1/(1+5)=.16" (xâ612,yâ125,wâ135,hâ16, dark)
+
+Second-row panel â threshold 0.1:
+- "Threshold=0.1" (xâ95,yâ187,wâ145,hâ20, red bold)
+- "Predicted as" (xâ172,yâ222,wâ105,hâ18, black)
+- "Actual" (xâ72,yâ257,wâ55,hâ35, rotated)
+- "P" (xâ182,yâ247), "N" (xâ218,yâ247)
+- "P" (xâ108,yâ251), "N" (xâ108,yâ275)
+- "5" (xâ135,yâ247), "0" (xâ198,yâ247)
+- "4" (xâ135,yâ272), "2" (xâ198,yâ272)
+- "TPR=5/(5+0)=1" (xâ262,yâ247,wâ120,hâ16)
+- "FPR=4/(4+2)=.66" (xâ262,yâ272,wâ130,hâ16)
+
+Third-row panel â threshold 0.3:
+- "Threshold=0.3" (xâ95,yâ332,wâ145,hâ20, red bold)
+- "Predicted as" (xâ172,yâ367,wâ105,hâ18, black)
+- "Actual" (xâ72,yâ402,wâ55,hâ35, rotated)
+- "P" (xâ182,yâ392), "N" (xâ218,yâ392)
+- "P" (xâ108,yâ396), "N" (xâ108,yâ420)
+- "5" (xâ135,yâ392), "0" (xâ198,yâ392)
+- "2" (xâ135,yâ417), "4" (xâ198,yâ417)
+- "TPR=5/(5+0)=1" (xâ262,yâ392,wâ120,hâ16)
+- "FPR=2/(2+4)=.33" (xâ262,yâ417,wâ125,hâ16)
+
+Bottom-left panel â threshold 0.4:
+- "Threshold=0.4" (xâ95,yâ432,wâ145,hâ20, red bold)
+- "Predicted as" (xâ170,yâ462,wâ105,hâ18, black)
+- "Actual" (xâ72,yâ430,wâ55,hâ35, rotated)
+- "P" (xâ180,yâ485), "N" (xâ216,yâ485)
+- "P" (xâ106,yâ489), "N" (xâ106,yâ513)
+- "4" (xâ133,yâ485), "1" (xâ196,yâ485)
+- "1" (xâ133,yâ510), "5" (xâ196,yâ510)
+- "TPR=4/(4+1)=4/5" (xâ260,yâ485,wâ135,hâ16)
+- "FPR=1/(1+5)=.16" (xâ260,yâ510,wâ125,hâ16)
+
+Center banner:
+- "ROC Curve for Same Model -different thresholds" (xâ430,yâ395,wâ300,hâ22, white bold)
+
+ROC chart (right side):
+- "TPR" (xâ770,yâ200,wâ30,hâ100, black, rotated vertical)
+- "FPR" (xâ838,yâ352,wâ40,hâ16, black)
+- "0.3" (xâ716,yâ185,wâ25,hâ16, dark)
+- "0.1" (xâ786,yâ145,wâ25,hâ16, dark)
+- "0.0" (xâ848,yâ145,wâ25,hâ16, dark)
+- "0.4" (xâ724,yâ220,wâ25,hâ16, dark)
+- "0.6" (xâ724,yâ262,wâ25,hâ16, dark)
+
+Badge:
+- "33" (xâ905,yâ68,wâ22,hâ20, black bold, on yellow circle)
+
+Bottom-right formula + legend box:
+- "TPR = TP/(TP+FN)" â printed as stacked fraction: numerator "TP", horizontal bar, denominator "TP+FN"; label "TPR =" to the left (xâ772,yâ400)
+- "FPR = FP/(FP+TN)" â stacked fraction: numerator "FP", bar, denominator "FP+TN"; label "FPR =" to the left (xâ772,yâ448)
+- "Predicted as" (xâ836,yâ430,wâ90,hâ16, black)
+- "P" (xâ853,yâ452,wâ14,hâ16, on pink header)
+- "N" (xâ895,yâ452,wâ14,hâ16, on pink header)
+- "
+

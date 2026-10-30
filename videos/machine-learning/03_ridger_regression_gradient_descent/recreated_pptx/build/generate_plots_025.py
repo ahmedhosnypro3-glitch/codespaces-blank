@@ -49,7 +49,7 @@ import numpy as np
 import os
 from matplotlib.lines import Line2D
 
-OUT = "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets"
+OUT = "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets"
 os.makedirs(OUT, exist_ok=True)
 
 DPI = 300
@@ -206,8 +206,9 @@ def plot_tl():
     x = np.linspace(-2, 2, 90)
     X, Y = np.meshgrid(x, x)
     Z = np.clip(4.0 * np.exp(-0.62 * (X ** 2 + Y ** 2)), 0, 4)
-    ax.plot_surface(X, Y, Z, cmap=JET, rstride=1, cstride=1,
-                    linewidth=0, antialiased=True, shade=True)
+    # Wireframe/mesh style like the original
+    ax.plot_surface(X, Y, Z, cmap=JET, rstride=3, cstride=3,
+                    linewidth=0.4, antialiased=True, shade=False, edgecolor="#888888", alpha=0.9)
     ax.set_xlim(-2, 2); ax.set_ylim(-2, 2); ax.set_zlim(0, 5)
     ax.set_xticks([-2, 0]); ax.set_yticks([-2, 0]); ax.set_zticks([0, 2, 4])
     ax.set_zticklabels(["0", "2", "5"])
@@ -244,19 +245,25 @@ def plot_bl():
     fig, ax = figure(spec)
     x = np.linspace(-3, 3, 120)
     X, Y = np.meshgrid(x, x)
-    Z = (3.0 * np.sin(X * 1.35) * np.cos(Y * 1.35)
-         + 1.5 * np.sin(2 * X * 1.35) * np.cos(2 * Y * 1.35) * 0.7)
+    # Surface designed with extrema at the four annotated positions:
+    # Global Max (0,0), Local Max (-2.1,0), Local Min (-1.1,-1.1),
+    # Global Min (1.4,1.4) — plus a gentle ripple for texture.
+    Z = (2.5 * np.exp(-0.5 * (X ** 2 + Y ** 2))                # global max
+         + 1.2 * np.exp(-0.6 * ((X + 2.1) ** 2 + Y ** 2))      # local max
+         - 0.8 * np.exp(-0.7 * ((X + 1.1) ** 2 + (Y + 1.1) ** 2))  # local min
+         - 1.5 * np.exp(-0.5 * ((X - 1.4) ** 2 + (Y - 1.4) ** 2))  # global min
+         + 0.3 * np.sin(1.2 * X) * np.cos(1.2 * Y))            # gentle ripple
     ax.plot_surface(X, Y, Z, cmap=JET, rstride=1, cstride=1,
                     linewidth=0, antialiased=True, shade=True)
 
     # measured original: x,y in [-3,3] with tick STEP 1.5, a "y" axis label,
-    # and z from -4 to 8.
-    ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_zlim(-4, 8)
+    # and z from -2 to 6 (ticks 6,4,2,0,-2).
+    ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_zlim(-2, 6)
     ax.set_xticks([-3.0, -1.5, 0.0, 1.5, 3.0])
     ax.set_yticks([-3.0, -1.5, 0.0, 1.5, 3.0])
     ax.set_xticklabels(["-3", "-1.5", "0", "1.5", "3"])
     ax.set_yticklabels(["-3", "-1.5", "0", "1.5", "3"])
-    ax.set_zticks([-4, -2, 0, 2, 4, 6, 8])
+    ax.set_zticks([-2, 0, 2, 4, 6])
     ax.set_zlabel("y", fontsize=7.5, color="#444444", labelpad=-4)
     axis_style(ax)
 

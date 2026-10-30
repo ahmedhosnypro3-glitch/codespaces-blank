@@ -1,0 +1,172 @@
+{
+  "slide": "slide_008",
+  "source_frame": "slide_008.jpg",
+  "source_md5": "ab140501a5b6663606e52611d0137dc3",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 3,
+  "crops_spent": 2,
+  "degraded": {
+    "chat": true,
+    "reason": "chat probe failed \u2014 decisions use the deterministic-conservative fallback"
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_008.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_008.parse.md",
+      "json": "full/slide_008.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+    "decision_source": "fallback",
+    "children": [
+      "slide_008.crop01__chart"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_008.crop01__chart",
+      "level": 1,
+      "class": "Chart",
+      "box_frame_px": [
+        35.6,
+        41.7,
+        872.8,
+        475.0
+      ],
+      "estimated": false,
+      "png": "crops/slide_008.crop01__chart.png",
+      "mean_rgb": 219.04,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_008.crop01__chart.parse.md",
+        "json": "crops/slide_008.crop01__chart.parse.json"
+      },
+      "scale": 1.7665,
+      "size_px": [
+        1664,
+        906
+      ],
+      "margin_applied": [
+        35,
+        19
+      ],
+      "stop_reason": null,
+      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+      "decision_source": "fallback",
+      "children": [
+        "slide_008.crop02__picture"
+      ],
+      "transform": {
+        "origin_px": [
+          1.0,
+          23.0
+        ],
+        "scale": 1.7665,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    },
+    {
+      "id": "slide_008.crop02__picture",
+      "level": 2,
+      "class": "Picture",
+      "box_frame_px": [
+        164.7,
+        118.0,
+        632.9,
+        389.8
+      ],
+      "estimated": false,
+      "png": "crops/slide_008.crop02__picture.png",
+      "mean_rgb": 220.96,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_008.crop02__picture.parse.md",
+        "json": "crops/slide_008.crop02__picture.parse.json"
+      },
+      "scale": 2.4334,
+      "size_px": [
+        1664,
+        1025
+      ],
+      "margin_applied": [
+        45,
+        28
+      ],
+      "stop_reason": "too-small",
+      "stop_note": "every candidate is frame-covering or below the 40 px floor",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          139.1,
+          102.3
+        ],
+        "scale": 2.4334,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_008.crop01__chart",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 3,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 3,
+    "chat_calls": 0,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 5
+  }
+}

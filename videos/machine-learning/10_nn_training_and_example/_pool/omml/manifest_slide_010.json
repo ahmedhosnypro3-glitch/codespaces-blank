@@ -1,0 +1,23 @@
+{
+  "slides": [
+    {
+      "slide": 1,
+      "equations": [
+        {"image": "eq1.png", "mathtext": "W_{ji}^{updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq2.png", "mathtext": "W_{ji}^{updated} = W_{ji}^{old} + \\Delta_{ji}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq3.png", "mathtext": "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq4.png", "mathtext": "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq5.png", "mathtext": "O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq6.png", "mathtext": "Net_j = \\sum_i (w_{ji} O_i)", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq7.png", "mathtext": "\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq8.png", "mathtext": "\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq9.png", "mathtext": "\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq10.png", "mathtext": "\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} \\cdot \\frac{\\partial O_j}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial W_{ji}}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq11.png", "mathtext": "= \\frac{\\partial E}{\\partial Net_j} \\cdot \\frac{\\partial Net_j}{\\partial W_{ji}}", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq12.png", "mathtext": "= -(t_j - O_j) \\cdot O_j(1-O_j) \\cdot O_i = -\\delta_j \\cdot O_i", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq13.png", "mathtext": "\\delta_j = -\\frac{\\partial E}{\\partial Net_j} = (t_j - O_j) \\cdot O_j(1-O_j)", "font_size_pt": 14.0, "color": "#000000"},
+        {"image": "eq14.png", "mathtext": "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\eta \\delta_j \\cdot O_i", "font_size_pt": 14.0, "color": "#000000"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+[info] context header injected: VIEW: Slide 016 — 'Neural Network Training and Example' lecture slide, printed badge 016 | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[warn] --timeout > 600s: the gateway at localhost:17844 is shared (Stitch proxy + vision). Long-timeout retry loops SATURATE it for everyone — prefer one modest call and retry later.
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 84822
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/unique_slides/slide_016.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants me to analyze a lecture slide image and provide a forensic extraction of all content. Let me carefully examine the image.
+
+The slide title: "Neural Network Model" with subtitle "(How Weights of hidden layer affect Calculated Error)"
+
+There's a diagram of a neural network with layers. Let me transcribe everything I can see.
+
+Top:
+- "Neural Network Model" (dark red/maroon text, centered, bold, large ~28pt)
+- "(How Weights of hidden layer affect Calculated Error)" (blue text, centered, ~24pt)
+
+Top left: a pink/magenta box labeled "Input Sample"
+Top right: a pink/magenta box labeled "Target Label"
+
+Yellow circle badges with numbers: There's a yellow circle at top with "16" (slide number badge) in the top right corner of a yellow rounded rectangle.
+
+The diagram shows layers:
+- "Node Bias" label with a purple/pink circle labeled "1"
+- Previous Layer (i) with 3 nodes (circles with sigma symbols)
+- Previous Layer (i) label with arrow "j" - box "For Layer "j"" in blue
+- "Previous Layer (i)" box
+- "j" arrow
+- "Current Layer" box with "(You are here)" - green
+- "Next Layer" box with "Layer (K)" and arrow "k"
+- "For Layer "j"" box (blue/purple outline)
+
+Labels for columns:
+- "Previous Layer (i)" - blue box
+- "j" 
+- "Current Layer (You are here)" - green box
+- "Next Layer Layer (K)" - blue box
+
+Right side vertical text: "Error Error Error" (in red)
+
+Right side labels:
+- "Class 1" with "Output 1"
+- "Class 2" with "Output 2" 
+- "Class m" with "Output m"
+
+Note box: "Note: Layer "j" is NOT Output Layer"
+
+Equations at bottom:
+- "Net_j = Î£_i (w_ji O_i)" - written as Net subscript j equals sum of w sub ji O sub i
+- "O_j = f(Net_j) = 1/(1 + e^(-Net_j))"
+- "E = 1/2 Î£_j (t_j - O_j)^2" with "XXX" next to it
+
+Let me look more carefully.
+
+Bottom left equation:
+"Net_j = Î£_i ( w_ji O_i )"
+Actually the subscript is "Net subscript j = sum of (w with subscript ji times O subscript i)"
+
+Second equation:
+"O_j = f(Net_j) = 1/(1 + e^{-Net_j})"
+
+Third equation right:
+"E = 1/2 Î£_j (t_j - O_j)^2" followed by what looks like "XXX" or crossed marks.
+
+The diagram: blue circles receive weighted inputs, arrows connect circles. "Net" labels in yellow rounded boxes. "O_i" labels.
+
+Let me count columns of nodes. 
+
+Column 1 (leftmost): circles with summation sigma - 3 of them (blue). These connect to...
+Column: blue circles labeled with f/ sigma (sigmoid) - 3 of them
+Then skinny vertical bars? No.
+
+Let me re-read. There are:
+- Input Sample box (pink, top-left)
+- Lines fanning from a point
+- "Node Bias" purple circle "1" bottom-left
+- 3 rows of blue "sigma sum" circles
+- Then arrows to 3 blue "f" circles (sigmoid), each followed by label
+- Then "Net" yellow hexagon/circle labels and more circles
+- Yellow circles (weights) with w labels
+- Output side with 3 yellow circles each connected to Output 1, 2, m labels
+- Error arrows from outputs to "Error Error Error"
+
+Column labels along bottom: 
+- "For Layer "j"" box (blue)
+- "Previous Layer (i)" (blue box)
+- arrow "i"
+- "Current Layer (You are here)" (green box)
+- arrow "j"
+- "Next Layer Layer (K)" (blue box)
+- arrow "k"
+
+Hmm, let me think about the exact layout. 
+
+The bottom center has labels. From the OCR:
+"For Layer "j"" â a label/box
+"Previous Layer (i)" â blue box
+"Current Layer (You are here)" â green box  
+"Next Layer Layer (K)" â blue box
+
+The arrows between: "i", "j", "k" pointing down to boxes.
+
+Actually looking at the image: there are downward arrows labeled i, j, k pointing to layer-naming boxes.
+
+The "For Layer "j"" is a header for the equations section.
+
+Now the equations row. Left equation:
+Net with subscript j = summation (w subscript ji * O subscript i)
+
+Let me parse the rendered math:
+"Net_j=Î£_i(w_ji O_i)"
+The sigma has subscript i (and maybe the sum symbol).
+
+"O_j=f(Net_j)= 1/(1+e^{-Net_j})"
+
+Right equation:
+"E=1/2 Î£_j (t_j - O_j)^2" then some red scribbled marks that look like "XXX" or crossed out.
+
+The red marks next to E equation appear to be handwritten-style red marks (could be "XXX" or a redaction). I'll note as three red cross marks.
+
+Slide number badge: yellow rounded rectangle at top-right with "16".
+
+Colors:
+- Title in dark red/maroon (#8B0000 or similar dark red)
+- Subtitle in blue (#0000FF or #1a4b8c)
+- "Input Sample" and "Target Label" boxes: pink/magenta (#ff69b4-ish, light magenta) with dark text
+- Node circles: blue (#0000cc / #4169e1) for sigma/sum nodes
+- Sigmoid circles: red/orange outlines? They have "f" labels. The circles with f appear red/orange.
+- "Net" labels: yellow/gold rounded boxes with "Net" text
+- Weight circles: yellow/gold with "w" subscript labels
+- Output layer: yellow circles with O
+- "Node Bias" purple/magenta circle with "1"
+- Layer label boxes: "Previous Layer (i)" light blue, "Current Layer" light green, "Next Layer" light blue
+- Equations background: tan/beige box
+- Background: white
+
+Let me estimate positions and sizes for 960x540.
+
+Title "Neural Network Model": roughly x=270-700, y=55-90. Actually centered. The image is 960 wide. Title centered around x=480. Text spans maybe x=320 to x=640, y=65, size ~30pt, dark red.
+
+Subtitle: "(How Weights of hidden layer affect Calculated Error)" blue, centered, y=95-120, size ~24pt.
+
+Input Sample box: x=60-180, y=100-135. Pink. "Input Sample" text.
+Target Label box: x=850-930? Actually top right. x=855-930, y=105-135. Pink. "Target Label".
+
+Slide badge: yellow rounded rect x=895-945, y=48-92, "16".
+
+Hmm wait, the badge "16" appears in a yellow rounded rectangle at top right, around x=898, y=50, w=45, h=38.
+
+The diagram occupies most of the frame from y~140 to y~430.
+
+Right side vertical "Error Error Error" in red â located around x=890-910, y=170-370, rotated vertical.
+
+Right side output labels: "Output 1" (with dark green/brown border), "Output 2", "Output m" â these are in small boxes at right of the output layer, around x=795-895.
+"Class 1" y~200, "Class 2" y~245, "Class m" y~305.
+
+Actually the layout: three yellow output circles at around x=775, y=195/245/295. Each connects to a box "Output 1" etc at x=800-905. Then "Class 1" labels below/beside.
+
+Let me think about the note: "Note: Layer "j" is NOT Output Layer" â in a box at x=720-930, y=430-455.
+
+Bottom equations: a tan/beige panel from x=130 to x=930, y=465-530.
+
+Equations:
+1) "Net_j = Î£_i (w_ji O_i)" at left, x=180-420, y=485
+2) "O_j = f(Net_j) = 1/(1+e^{-Net_j})" at x=180-420, y=505
+3) "E = 1/2 Î£_j (t_j - O_j)^2" at x=680-870, y=490, with red marks "XXX" after.
+
+Now the layered node diagram details:
+
+Column A (x~115-135): leftmost, there's a fan from Input. 3 blue circles with sigma (Î£) at y~180, y~255, y~310 approx. Wait the first column of blue circles with summation symbol. Actually I see columns of circles:
+
+Let me map the horizontal structure (this is a multilayer feedforward net):
+- Far left: purple "Node Bias" circle "1" at x~40, y~380. Plus a node above at x~40, y~110.
+- Lines fan out to first hidden-previous layer.
+
+The circles with Î£ (blue) at x~115: three at y~180, y~250, y~310. These sum inputs.
+Then arrows to circles with "f" (red/orange outline) at x~175: three at same y heights. Each f circle followed by node.
+Then "Net" yellow small hexagons and weight circles.
+
+Actually, I realize the diagram is quite detailed with repeating Net/O/w labels. Let me describe generically but capture all text strings.
+
+Text strings in diagram:
+- "Î£" inside circles (summation)
+- "f" inside circles
+- "Net" in yellow hexagons (multiple instances)
+- "O_i" labels (in red) next to arrows
+- "O_j" labels
+- "w" labels with subscripts (in yellow circles: "w_ji", "w_?", etc.) Many small yellow circles labeled w with subscript.
+- "1" in Node Bias purple circles
+
+This is getting complex. For the recreation, I need to note that weight labels are numerous and partially illegible. Many small w subscripts are hard to read. I'll mark them [illegible] where uncertain.
+
+Let me look again at the visible labels:
+Near top middle: a yellow circle with w label and dashed line from a "w" circle up (dashed arrow) â heavily circled.
+"Net" appears in yellow small shapes at multiple stages.
+
+I'll describe: dashed arrows are used from weight nodes to connections (indicating the weights being examined).
+
+Key annotations:
+"A red/pink circle with "1" labeled "Node Bias"" at bottom-left.
+
+OK, I have enough. Let me also read the small angle marks and the "XXX" â the three red marks after E equation look like a red "XXX" or crossed circles. Actually they might be red X marks "XXX". I'll note "red X X X marks (â 'XXX')" as possibly a redaction/scratch.
+
+Now let me write the numbered sections.
+
+I need to be careful: the user said "Your first characters are '## 1. VERBATIM TEXT'". So I must start exactly with that.
+
+Let me estimate colors:
+- Title dark red: #7B1F1F / dark maroon
+- Subtitle blue: #1F4E9C / blue
+- Pink boxes: fill #F4A6C8 / #FF9EC4, border #C2185B
+- Node Bias circle: fill #E91E8C / magenta-purple, text white
+- Blue sum circles: fill #D6E4F7 light blue, border #1F4E9C, sigma blue
+- f circles: fill #FDECEC, border #C62828 red, f red
+- Net hexagons: fill #FFD54F yellow, border #B8860B, text dark brown
+- w circles: fill #FFD54F yellow
+- Output circles: fill #FFD54F
+- Output boxes: border dark green/black, fill white
+- Class labels: dark text
+- Error text: red #C62828
+- Layer label boxes: "Previous" fill #BBDEFB blue, "Current" fill #C8E6C9 green, "Next" fill #BBDEFB blue
+- Equation panel: fill #EFE6D5 tan
+- Background: white
+
+Let me set up pt sizes:
+- Title ~28pt bold
+- Subtitle ~22pt
+- Box labels (Input Sample / Target Label) ~10pt
+- Node text ~8-10pt
+- Layer labels ~9pt
+- Equations ~14pt for main equation, ~11pt for others
+
+Now write output.
+
+For Â§6 numeric details: "16" badge, "1" node bias (multiple), "Output 1/2/m", "Class 1/2/m", equation numeric (1/2), fractions.
+
+Let me also note subscripts verbatim order: "Net subscript j equals summation over i of (w subscript j i times O subscript i)". "O subscript j equals f of Net subscript j equals 1 over (1 plus e to the negative Net subscript j)". "E equals one half sum over j of (t subscript j minus O subscript j) squared".
+
+I think the sigma in E may have limits. I'll describe as summation symbol.
+
+Regarding the "XXX" â I'll write it as three red 'X' marks, noting possible redaction, not a string.
+
+Let me write final answer. I'll keep it thorough but the requested format only.
+
+One more: In the diagram there are labels "Net", "O_i", "O_j", "1", "w" with subscripts repeated. I'll note counts approximately and mark subscripts [illegible] where not clear. I see specifically:
+- "O_i" (red) appears at outputs of previous layer
+- "O_j" (red) at outputs of current layer
+- Weight labels like "w_ji" specifically in equation. In diagram, yellow w-circles have subscripts that are tiny; mark [illegible] for most.
+
+Actually I can discern at least one: near top there's a w with a subscript in a highlighted circle (dashed callout). Hard to read. Mark [illegible].
+
+Final. Ensure no preamble. Start with "## 1. VERBATIM TEXT".</think>## 1. VERBATIM TEXT
+
+- "Neural Network Model" â centered title, approx x=330â640, y=62â92, ~30 pt, bold, dark red/maroon.
+- "(How Weights of hidden layer affect Calculated Error)" â centered subtitle, approx x=185â780, y=92â120, ~23 pt, blue.
+- "16" â slide-number badge, yellow rounded rectangle, approx x=897â943, y=48â92, ~20 pt, black numeral.
+- "Input Sample" â pink/magenta label box, approx x=60â172, y=101â134, ~10 pt.
+- "Target Label" â pink/magenta label box, approx x=856â932, y=104â137, ~10 pt.
+- "Node Bias" â small label, approx x=32â88, y=372â390, ~8 pt; adjacent magenta circle contains "1" (text white) at approx x=42â66, y=384â408.
+- "Î£" â summation symbol inside blue sum circles (3 per hidden node column), ~10 pt, appears at approx x=112â132 (first sum column), repeated in later Net-sum circles.
+- "f" â inside red-outlined sigmoid circles (~3 per column), ~9 pt, at approx x=172â194.
+- "Net" â repeated in small yellow hexagon/label shapes across all columns (~10+ instances), ~7â8 pt; one instance near top at approx x=380â400, y=152, x=470â490, y=152, plus downstream "Net" labels near x=560,690,760, etc. Subscripts are tiny/[illegible].
+- "O" with subscript "i" â red labels following previous-layer activation circles (render as "O subscript i"), ~8 pt, instances near x=210â230 on each of 3 rows.
+- "O" with subscript "j" â red labels following current-layer activation circles ("O subscript j"), ~8 pt, near x=365â385, 3 rows.
+- Yellow weight circles labeled "w" with tiny subscripts (render "w subscript â¦"); most subscripts [illegible]; one circled/callout weight near top at approx x=400â420, y=160 has subscript [illegible].
+- "1" â numeral inside magenta "Node Bias" circles (at least two instances: left column bottom, and a smaller magenta circle near current layer at approx x=452â472, y=222 and x=448â468, y=326), white text.
+- "Previous Layer (i)" â light-blue label box, approx x=213â305, y=450â472, ~9 pt.
+- "Current Layer" / "(You are here)" â light-green label box, approx x=372â470, y=450â472, two lines, ~8 pt.
+- "Next Layer" / "Layer (K)" â light-blue label box, approx x=602â688, y=450â472, two lines, ~9 pt.
+- "For Layer "j"" â blue-outlined box/label at the equation band, approx x=138â214, y=462â486, ~9 pt (this heads the equations region; quote marks are present).
+- "Note: Layer "j" is NOT Output Layer" â approx x=716â932, y=432â456, ~9 pt; "NOT" is bold.
+- "Error Error Error" â vertical red text along right edge, approx x=889â911, y=170â370, ~11 pt, three stacked "Error" words (rotated 90Â°).
+- "Output 1" â boxed label at approx x=800â905, y=190â208, ~9 pt, dark border.
+- "Output 2" â boxed label at approx x=800â905, y=238â256, ~9 pt.
+- "Output m" â boxed label at approx x=800â905, y=292â310, ~9 pt.
+- "Class 1" â approx x=855â930, y=205â222, ~9 pt.
+- "Class 2" â approx x=855â930, y=253â270, ~9 pt.
+- "Class m" â approx x=855â930, y=307â324, ~9 pt.
+- Equation 1: "Net subscript j = summation over i of ( w subscript j i O subscript i )" â approx x=175â420, y=482â496, ~13 pt.
+- Equation 2: "O subscript j = f( Net subscript j ) = 1 / ( 1 + e superscript âNet subscript j )" â approx x=175â430, y=504â520, ~13 pt; exponent is stacked as a superscript.
+- Equation 3: "E = 1/2 Ã summation over j of ( t subscript j â O subscript j ) squared" â approx x=690â870, y=486â502, ~13 pt; followed by three red hand-written style cross marks approximating "X X X" (possibly a redaction/scratch mark, not a clean printed string).
+
+## 2. LAYOUT MAP
+
+- Title band (top): "Neural Network Model" + blue parenthetical subtitle, centered, yâ60â120.
+- Top annotation row: "Input Sample" box (far left, yâ101â134), "Target Label" box (far right, yâ104â137), slide badge "16" (top-right corner of frame, yâ48â92).
+- Main diagram (center, large region): xâ35â935, yâ130â455. Multi-column feedforward network; 3 unit rows. Left fan of input lines; dark connection arrows between node circles; purple "Node Bias" circles.
+- Right edge: vertical "Error Error Error" text plus output boxes "Output 1/2/m" and class labels "Class 1/2/m".
+- Bottom label band (under diagram): layer-naming boxes "Previous Layer (i)", "Current Layer (You are here)", "Next Layer Layer (K)", with downward arrows marked i, j, k above each box; blue-outlined "For Layer "j"" header at far left of this band.
+- Note strip: "Note: Layer "j" is NOT Output Layer" at approx x=716â932, y=432â456.
+- Equation panel (bottom): tan/beige filled band xâ130â935, yâ462â530 holding three equations; two on the left stacked, one on the right.
+
+Reading order: title â subtitle â input/target labels â diagram (left to right, PreviousâCurrentâNext layer) â output/error column â layer labels â note â equations.
+
+## 3. VISUAL ELEMENTS
+
+- Diagram (not a chart): feedforward neural network. Three rows of units. Columns leftâright:
+  1. Blue sum circles (Î£) receiving fanned input lines from "Input Sample" and from purple "Node Bias" "1" circles.
+  2. Red-outlined sigmoid ("f") circles, each followed by a red "O subscript i" output label; arrows continue right.
+  3. Next stage sum circles (Î£) labeled with yellow "Net" badges; yellow weight circles ("w") on connections.
+  4. Current-layer sum circles ("Net") with red "O subscript j" outputs and a purple "1" (Node Bias) feeding in.
+  5. Next-layer ("k") / output stage: yellow "Net" labels and three yellow output circles (labeled "O") feeding "Output 1", "Output 2", "Output m".
+  - Connectors: solid dark arrows feed-forward from bias/input to sums, sums to f circles, f to O labels, etc.
+  - Dashed callout arrows: from the circled yellow weight node near top up/around (highlighting one weight, subscript [illegible]).
+- Images/illustrations: none; all vector-style diagram.
+- Tables: none.
+- Equations: see Â§1 for exact symbols; 2D layout â Equation 1: left-hand "Net" with subscript j, equals, capital sigma with subscript "i" below-right, parenthesized product "w subscript ji" Ã "O subscript i". Equation 2: "O subscript j = f(Net subscript j) = " a stacked fraction with numerator 1 and denominator "(1 + e^âNet_j)", exponent as superscript above the "e" (negative Net subscript j in the exponent). Equation 3: "E = Â½" (Â½ as reduced fraction), sigma with subscript j, parenthesized "(t subscript j â O subscript j)" followed by superscript 2 outside the parentheses.
+
+## 4. COLORS
+
+- Slide background: white (#FFFFFF).
+- Title text: dark red/maroon (~#7A1F1F).
+- Subtitle text: blue (~#1F4E9C).
+- "Input Sample"/"Target Label" box fill: magenta/pink (~#F19FC4), border darker pink (~#C2185B), text black.
+- Slide badge "16": yellow fill (~#FFE066), black numeral.
+- "Node Bias" circles: magenta/purple fill (~#E5389B / #D81B8C), white "1".
+- Sum "Î£" circles: light-blue fill (~#DCE7F7), blue border (~#1F4E9C), blue Î£.
+- Sigmoid "f" circles: near-white fill (~#FDECEC), red border (~#C62828), red "f".
+- Yellow "Net" badges and weight/output circles: gold/yellow fill (~#FFD54F), dark-gold/brown border (~#A9761B), dark-brown text.
+- Activation labels "O_i"/"O_j": red text (~#C62828).
+- Output boxes "Output 1/2/m": white fill, dark border (~#1B5E20 / near-black).
+- "Class 1/2/m" text: dark/black.
+- "Error Error Error": red (~#C62828).
+- Layer label boxes: "Previous Layer (i)" and "Next Layer Layer (K)" light-blue fill (~#BBDEFB); "Current Layer (You are here)" light-green fill (~#C8E6C9); black text.
+- Equation panel fill: tan/beige (~#EFE6D2).
+- Equation 3 trailing red marks: red (~#C62828).
+- Dominant palette: white background with blue nodes, red/orange sigmoid nodes, yellow weight/output nodes, magenta bias nodes, pink annotation boxes; dark-red title and blue subtitle.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: bold sans, ~30 pt, dark red, centered at top.
+- Subtitle: regular sans, ~23 pt, blue, centered; parenthetical form.
+- Diagram labels: all small sans, ~7â10 pt; "Net" and weight subscripts smallest (~7 pt).
+- Equation text: ~13 pt in the tan panel; bold not clearly used; subscripts are true subscripts, exponent is true superscript.
+- Note text: ~9 pt; "NOT" emphasized (bold).
+- Decorative frames/borders: rounded pink boxes for "Input Sample"/"Target Label"; rounded yellow badge for "16"; outlined boxes for layer labels; tan equation panel spans full width bottom.
+- Slide-number badge: yellow rounded rectangle at top-right (xâ897â943, yâ48â92), black numeral "16", ~20 pt.
+
+## 6. NUMERIC DETAILS
+
+- Badge numeral: "16" (top-right).
+- Bias numeral: "1" inside magenta circles (left column and mid-column), several instances.
+- Layer/weights indexing: "i", "j", "k" on down-arrows under diagram; subscripts ji, j on weights.
+- Output/class indices: "Output 1", "Output 2", "Output m"; "Class 1", "Class 2", "Class m" (m as variable, not a fixed number).
+- Equation numeric constants: "1" and "2" in Â½; "-Net_j" in exponent; subscripts i and j.
+- No axis tick ranges or plotted data values (no charts present).
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- "Next Layer Layer (K)" shows a doubled word ("Layer" twice) â reproduce verbatim, do not correct.
+- Weight-node subscripts in the diagram are extremely small; most are [illegible] â recreate as gold circles with "w" and small subscript placeholders; do not invent exact subscript letters.
+- The top weight node has a dashed circular callout; the dashed line routing should be preserved but its exact endpoint is faint.
+- Equation 3 is followed by three red scratch/cross marks (~"X X X"), likely a live-lecture annotation/redaction; reproduce as three red marks but flag as non-original.
+- Vertical "Error Error Error" is rotated text on the right edge â must be rotated when recreated.
+- Note in the layer-naming band: the left box is "For Layer "j"" (with quoted j), distinct from the "Current Layer" box; keep the quote marks.
+- Some Net badges overlap connection lines; overlapping is intentional/acceptable.
+
+## 8. TOP-3 FIDELITY RISKS
+
+- Region: equation band. Problem: exact subscript/superscript nesting (Net_j, w_ji, e^(âNet_j), (t_jâO_j)Â²) and the stacked 1/(1+â¦) fraction may be flattened erroneously. Fix: build fractions as true stacked objects in PowerPoint (Insert Equation), preserving superscript on e and superscript 2 outside the parentheses.
+- Region: diagram right edge and outputs. Problem: rotated "Error Error Error" plus the Output 1/2/m boxes and Class 1/2/m alignment may be placed as horizontal text. Fix: rotate the Error text 90Â°, and keep each "Output m" box vertically aligned with its yellow output circle and its "Class m" label.
+- Region: tiny weight subscripts and the doubled "Next Layer Layer (K)". Problem: illegible subscripts may be guessed, and the duplicate "Layer" may be auto-corrected. Fix: leave small subscripts as unreadable placeholders, and reproduce "Next Layer Layer (K)" and 'For Layer "j"' exactly as printed including quotes and the duplication.
+
+## 9. VERBATIM VERDICT
+
+- Recreatability score: 6/10 (structure, title, labels, layer names, and the three equations are extractable; many tiny diagram subscripts are not).
+- Confidence: high for title, subtitle, note, output/class labels, layer-naming boxes, badge, and the three equation structures; medium for diagram node arrangement and column positions; low for the small "w" subscripts and the exact dashed-callout path (marked [illegible] rather than guessed).
+- Deliberately not transcribed: the red "X X X"-style marks after Equation 3 are described as annotation marks rather than a clean printed string; illegible weight subscripts are flagged [illegible] instead of invented.
+

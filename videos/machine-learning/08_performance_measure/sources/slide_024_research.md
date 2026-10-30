@@ -1,0 +1,10 @@
+# Sources — Slide 24 — Effect of Selecting Threshold Value on Model Performance
+
+Consumed spec: analysis/slide_024_raw.json (RAW ONLY — no slide_024_final.json exists). Frame: unique_slides/slide_024.jpg.
+Method: NO new query spent — cross-references the banked records in slide_021_research.md (economy law).
+
+- "Threshold (e.g. 0.5)" as the pipeline's decision cut-off: CONFIRMED — Evidently AI, classification-threshold chapter (fetched live, banked on slide 21) https://www.evidentlyai.com/classification-metrics/classification-threshold — "A 0.5 threshold is a frequent choice"; scikit-learn (fetched live) https://scikit-learn.org/stable/modules/classification_threshold.html — "a positive class is predicted when the conditional probability P(y|X) is greater than 0.5".
+- Implicit lesson of the block — 0.5 is the default but not automatically the best: CONFIRMED — scikit-learn (fetched live) — verbatim: "While these hard-coded rules might at first seem reasonable as default behavior, they are most certainly not ideal for most use cases"; slides 21-26 are that demonstration, which is why slide 27 introduces the ROC curve.
+- Matrix cells (4, 1, 1, 5) at threshold 0.5: UNVERIFIED as a source fact (course-authored) but SELF-CONSISTENT — 11 samples total, actual P = 5, actual N = 6; the two off-diagonal cells are equal, so no FP/FN orientation risk (unlike slides 21/22/25/26).
+- Plain vs skull-marked airplanes encode true class (actual P vs actual N), with counts matching TP=4, FN=1, FP=1, TN=5: UNVERIFIED — course-authored iconography, no source counterpart. The underlying P/N ↔ actual/predicted semantics are CONFIRMED by Wikipedia (fetched live): actual positive + predicted positive = TP, actual negative + predicted positive = FP. Do not "fix" the icons toward any source — the frame wins for recreation.
+- Blue dashed vertical line at 0.5 with a red marker on the axis: CONFIRMED (semantics) — the dashed line is the operating threshold on the 0.0-1.0 predicted-value axis; its styling and the marker dot are course-authored rendering.

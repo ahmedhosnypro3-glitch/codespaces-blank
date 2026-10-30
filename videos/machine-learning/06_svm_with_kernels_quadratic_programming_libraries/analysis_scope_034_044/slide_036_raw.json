@@ -1,0 +1,113 @@
+## 1. LAYOUT MAP
+1. Outer presentation slide frame: thin red border around full image; solid black band along bottom edge; thick red header band across top (title level).
+2. Top-left tag box ("Example: Quadratic Kernel") inside header band, top-left corner.
+3. Main slide title ("How to Kernelize SVM") spanning the header band's right area.
+4. Slide number chip ("36") in a yellow circle at top-right corner of header band.
+5. Upper equation block ("L_D(Î±) linear SVM formulation") â light-cream card occupying the upper ~42% of the slide body below the header band, framed by a blue border.
+6. Lower equation block ("L_D(Î±) kernelized SVM formulation") â matching light-cream card occupying the lower ~38% of slide body, framed by a blue border.
+7. Center connector row between blocks: "Kernelize using" label with red down arrow into formula "K(a,b)=[aáµb]Â²".
+8. Apparent scale/quality: crisp synthetic render at 960Ã540 CSS px; no blur, no compression artifacts; small type in equations (~10â13px equivalent) is legible but dense for non-developer users.
+
+## 2. FIRST-GLANCE TEST
+Within 3 seconds a new user sees a math lecture slide titled "How to Kernelize SVM" with two large equation cards stacked vertically and a red arrow between them labeled "Kernelize using". The two actions implied by the screen are "read the linear SVM formulation" and "read the kernelized formulation" â both are immediately visible as the two dominant cards. The focal point SHOULD be the slide title and the transformation arrow connecting the two equation blocks; the title wins the eye via size and header-band placement, and the red arrow does draw attention to the transition, though the arrow's label is small.
+
+## 3. STRENGTHS
+- The header band establishes a clear slide identity (title + example tag + slide number) in a conventional lecture-slide layout at top of frame.
+- The two equation cards use consistent light-cream fills and blue borders, creating a clean visual pair that reads as "before â after".
+- Green highlight pills on key kernel terms (XáµXâ±¼, WáµXáµ¢, etc.) consistently mark the mathematical objects being transformed, giving the eye a repeatable anchor across both blocks.
+
+## 4. DEFECT LIST
+
+(a) THEME & DARK-MODE PHYSICS
+- (major|high) full-slide background vs header band â The slide uses a light-gray canvas (#eef0f5-ish) with a red header band and dark text; this is a light-theme lecture deck, not the app's dark theme, so dark-mode physics do not apply to this capture â checked, nothing found under the app's dark-theme rules.
+
+(b) TYPOGRAPHY
+- (minor|med) slide body text sizes â Equation body text reads at roughly 10â13px equivalent at this capture size; for non-developer users this is below the ~11px floor and the dense math will strain â consider scaling all equation text up one step.
+- (minor|med) "Example: Quadratic Kernel" tag box â Set in a small sans that competes with the main title; the tag's font size is roughly half the title, which is fine as a secondary label, but its placement inside the header band creates two competing header-level reads.
+
+(c) SPACING
+- (major|high) upper equation block â The top equation's right side is pinned against the card's inner right edge; the green pill containing "XáµXâ±¼" touches or nearly touches the card border, creating a cramped feel at the card's content edge â increase inner padding on equation cards.
+- (minor|med) vertical gap between upper card bottom and "Kernelize using" row â The connector row sits very close to the upper card's bottom border, compressing the breathing room between the linear formula and the transformation step.
+
+(d) ALIGNMENT & POSITIONING
+- (minor|high) top-left tag box baseline vs header band vertical center â The "Example: Quadratic Kernel" box appears slightly low in the header band, not optically centered with the slide title to its right â vertically center the tag against the title.
+- (minor|med) slide number chip ("36") â The yellow circle sits at the extreme top-right; its left edge nearly touches the title text's right extent at wider slides could collide â acceptable here but monitor at other widths.
+
+(e) CROWDING & DENSITY
+- (major|high) upper equation card â Two full display equations (L_D(Î±) definition and W formula) plus a class-of-vector pill are packed into one card; the card is dense with ~5 distinct mathematical elements at once â split into smaller progressive reveals or widen the card.
+- (minor|med) class-of-vector pill â The red pill "Class of vector Z â sign(...)" spans nearly the full card width directly under the W formula with minimal gap to the card bottom edge.
+
+(f) HIERARCHY
+- (minor|med) header band â The slide title "How to Kernelize SVM" is the dominant element (good), but the red header band itself competes with the equation cards below because both use strong color (red band vs blue borders); the eye has two competing "headers" â the band wins, which is correct for a slide title.
+- (nit|low) green highlight pills â They are the most saturated element inside the equation cards and could be mistaken for interactive buttons; they function as static highlights.
+
+(g) COMPOSITION
+- (major|high) overall slide proportions â The header band consumes roughly the top 18â20% of the slide, leaving the equation cards in a tall narrow body; at 960px wide the cards are generously sized but the composition is top-heavy vs the black bottom band which is dead weight.
+- (minor|med) bottom black band â The thick black strip along the bottom edge carries no content; it reads as an unfinished crop or a leftover player control bar, adding dead air.
+
+(h) COMPLETENESS
+- (major|high) lower equation card right side â The "min" formula tail ends with a bracket "]" that appears to touch or be clipped by the card's right inner edge â verify no clipping at the card boundary.
+- (minor|low) strike-through in lower b formula â The strike-through over "min_{i:y_i=+1}" is present but thin; if it renders lighter at smaller sizes it could be missed â confirm legibility at capture scale.
+
+(i) CONTINUITY
+- (minor|med) card borders â Both equation cards use the same blue border and cream fill (consistent), but the connector formula "K(a,b)=[aáµb]Â²" uses a pale card with red border that differs from the equation cards' blue â minor border-color inconsistency between sibling connector cards.
+- (nit|low) arrow style â The red down arrow is a heavy graphical element; its stroke weight differs from the 1px hairlines used elsewhere â acceptable as emphasis, but note it.
+
+(j) LINES & EDGES
+- (minor|med) upper card â The left side of the W equation box appears to align with the left side of the L_D equation above it; verify hairlines don't stop short or overshoot at card boundaries.
+- (clean) â No overshooting borders observed.
+
+(k) AFFORDANCE & STATES
+- (critical|high) entire slide â There are ZERO interactive controls: no Next/Previous buttons, no "Run example" trigger, no disclosure for the kernelization step; this is a static lecture frame with no affordance for the user to progress or interact â if this is meant to be an interactive lesson slide, add navigation/CTA chrome.
+- (minor|med) green highlight pills â They look like they could be buttons/tooltip targets but have no hover or focus affordance visible; static pills risk inviting clicks that do nothing.
+
+(l) ICONOGRAPHY
+- (clean) â No icons present; only typographic math glyphs and the red arrow. Nothing to flag.
+
+(m) TABLES & LISTS
+- â skip: no tables or lists present.
+
+(n) ACCESSIBILITY & LEGIBILITY
+- (major|high) equation text legibility â Dense math at ~10â13px equivalent with subscripts/superscripts (Î±áµ¢, Î±â±¼, yáµ¢, yâ±¼, XáµXâ±¼) will be hard to read for non-developer users; body math should be â¥12â14px equivalent with clear subscript sizing.
+- (minor|med) slide number chip contrast â White "36" on yellow circle: contrast likely passes but is low-saturation; verify â¥3:1 for UI component.
+- (minor|med) color as sole signal â The green pills and red arrow carry meaning (highlight / transform) via color alone; no redundant pattern or label for color-blind users.
+
+(o) UI COPY QUALITY
+- (minor|med) "Kernelize using" â This is instructional microcopy; it's clear but sits in the connector with no visual weight, making it easy to overlook.
+- (clean) â No placeholder/debug strings or jargon visible; all copy is mathematical notation appropriate to the lecture context.
+
+## 5. TOP 3
+1. [Â§4(k) critical|high] No interactive controls anywhere on the slide â if this is an app screen (per injected VIEW), it fails its purpose as a learnable UI with no navigation or action.
+2. [Â§4(h) major|high] Possible mid-formula clipping at equation card right edges â content touching or cut by card boundaries reads as broken.
+3. [Â§4(a)/(n) major|high] Equation body text at ~10â13px equivalent â below the legibility floor for the app's non-developer parent audience.
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the bottom black band's dead weight into the header band region â collapse or remove the bottom band and let the equation cards fill the stage vertically (source: bottom black band â destination: remove; frees body height for larger type).
+2. Split the upper equation card into two stacked mini-cards (L_D definition, then W formula) with the "Class of vector" pill under its owning formula only (source: upper equation block â destination: two smaller cards in same region; reduces density).
+3. Add a navigation/CTA strip at the bottom of the slide body (Previous / Next / Try kernelize) anchored right, below the lower card (source: none â new bottom strip in body region; addresses missing affordance).
+â¤10 lines; all within visible regions; no new features beyond chrome required to make the screen usable.
+
+## 7. VERDICT
+- theme & dark-mode: 5 â light-theme lecture deck; not applicable to app dark theme, internally consistent but not the product theme.
+- typography: 4 â dense subscripted math at ~10â13px equivalent is hard for the target audience; two competing header reads.
+- spacing: 5 â consistent card pairing but cramped inner padding and tight connector gaps.
+- alignment: 6 â cards align well; tag box and chip placement slightly off.
+- crowding/density: 4 â upper card packs 5 math elements; very dense for a single glance.
+- hierarchy: 6 â title wins; green pills are strong but correct as highlights.
+- composition: 5 â top-heavy header, dead black bottom band, dead air.
+- completeness: 4 â possible formula clipping at card edges; no interactive chrome at all.
+- continuity & consistency: 6 â cards match; connector card border color differs slightly.
+- affordance & states: 2 â zero controls; static pills invite clicks that do nothing.
+- first-glance clarity: 7 â title + two cards + arrow communicate "linear â kernelized" instantly.
+- overall: 4 â As a standalone lecture image it's acceptable; as an app screen (per injected VIEW) it fights the user with no affordance and cramped, small type.
+
+## 8. UNCERTAINTIES
+- Whether this capture is truly an "app screen" or a static lecture-slide image injected into an app context; the VIEW says SVM/kernels/QP lecture frame, so the lack of interactivity may be intentional for a slide.
+- Exact pixel measurements: I cannot measure computed styles, scrollWidth/clientWidth, or contrast ratios from this static image; contrast and legibility claims are estimates.
+- Whether the bottom black band is part of the app chrome, a video-player remnant, or an intentional design element.
+- Whether the equation card right edges actually clip content or merely come close â I flag it as a suspicion to verify.
+
+## 9. VOCABULARY PROPOSALS
+- [proposed] lecture-card-formula-clipping: a math/equation card whose display formula touches or is cut by the card's inner edge at standard viewport widths â measure formula bbox against card padding box, report as headline-content clipping, not generic text clipping.
+- [proposed] static-highlight-pill-without-affordance: a saturated highlight pill inside a read-only content card that visually resembles an interactive chip/button but has no hover/focus/press state â risks inviting clicks that do nothing.
+- [proposed] dead-bottom-band: a full-width solid band at the slide/viewport bottom carrying no content, reading as an unfinished crop or leftover player chrome â composition void distinct from intentional breathing room.

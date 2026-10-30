@@ -188,7 +188,9 @@ rect(78, 306, 408, 59, PALE, { color: NAVY, width: 1 });
 
 textbox(84, 306, 396, 59, [
   { text: "If ", options: { color: INK, fontSize: 14 } },
-  { text: "Ŷ≠Y", options: { color: INK, fontSize: 14, italic: true } },
+  // PIL-measured in unique_slides/slide_004.jpg: "Ŷ≠Y" run is BLUE at slide x136..181,
+  // 336 blueish px, core [0,0,139] -> 00008B (rejudge adjudication 2026-10-27, confirmed)
+  { text: "Ŷ≠Y", options: { color: "00008B", fontSize: 14, italic: true } },
   { text: " ⇒ There is an ", options: { color: INK, fontSize: 14 } },
   { text: "Error (Loss)", options: { color: REDTXT, bold: true, fontSize: 14 } },
 ], "left", "middle", 14);

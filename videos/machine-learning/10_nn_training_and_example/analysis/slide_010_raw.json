@@ -1,0 +1,170 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Gradient Descent",
+      "10",
+      "Input Bias",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Class 1",
+      "Error Class 2",
+      "Error Class m",
+      "For Sigmoid Activation",
+      "(\u03b4_j depends on j ONLY)",
+      "for output Layer"
+    ],
+    "equations": [
+      "W_{ji}^{updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "W_{ji}^{updated} = W_{ji}^{old} + \\Delta_{ji}",
+      "Where \\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2",
+      "O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}",
+      "Net_j = \\sum_i (w_{ji} O_i)",
+      "\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)",
+      "\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)",
+      "\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i",
+      "\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}",
+      "= -(t_j - O_j) * O_j(1-O_j) * O_i = -\\delta_j * O_i",
+      "Where \\delta_j = -\\frac{\\partial E}{\\partial Net_j} = (t_j - O_j) * O_j(1-O_j) (\\delta_j depends on j ONLY)",
+      "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\eta \\delta_j * O_i Where \\delta_j = (t_j - O_j) * O_j(1-O_j) for output Layer"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title box top-left; slide number '10' in yellow circle top-right; neural network diagram top-right; middle horizontal strip with error/sigmoid/net equations; lower section split into large chain-rule derivation box on left-center and smaller partial-derivative summary box on right; bottom full-width strip with final delta rule.",
+    "regions": [
+      {
+        "name": "top-left title box",
+        "position": "top-left, approx 0-35% width, 0-25% height",
+        "content": "Gradient Descent title and weight update equations"
+      },
+      {
+        "name": "slide number",
+        "position": "top-right corner",
+        "content": "Yellow circle with '10'"
+      },
+      {
+        "name": "neural network diagram",
+        "position": "top-right, approx 35-95% width, 0-30% height",
+        "content": "Multi-layer network with inputs, hidden units, outputs, error classes"
+      },
+      {
+        "name": "middle equation strip",
+        "position": "middle, full width, approx 30-45% height",
+        "content": "Error function, sigmoid activation, net input equations"
+      },
+      {
+        "name": "partial derivative boxes",
+        "position": "middle-lower, full width, approx 45-55% height",
+        "content": "Three boxed partial derivatives"
+      },
+      {
+        "name": "chain rule derivation",
+        "position": "lower-left to center, approx 55-85% height",
+        "content": "Large derivation of \u2202E/\u2202W_ji"
+      },
+      {
+        "name": "right summary box",
+        "position": "lower-right, approx 55-85% height",
+        "content": "Three partial derivatives in yellow box"
+      },
+      {
+        "name": "bottom strip",
+        "position": "bottom, full width, approx 85-95% height",
+        "content": "Final delta rule equation"
+      }
+    ],
+    "hierarchy": "Title 'Gradient Descent' dominates top-left in red bold; main equations are black sans-serif; diagram is visual anchor top-right; highlighted derivation boxes use pastel blue/green/yellow fills."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram showing input layer (purple dots labeled Input Bias), hidden layer nodes with sigma (\u03a3) symbols, connections with weights, output layer nodes labeled Output 1, Output 2, Output m, and right-side error labels Error Class 1, Error Class 2, Error Class m in stacked boxes. Some nodes have yellow checkmark circles and red X marks. Green upward arrows with '1' in purple circles appear near bottom of diagram columns.",
+      "colors": [
+        "#800080",
+        "#D3D3D3",
+        "#FFFF00",
+        "#FF0000",
+        "#008000",
+        "#FFFFFF"
+      ],
+      "position": "top-right quadrant"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Top-left bordered box containing Gradient Descent title and three weight update equations.",
+      "colors": [
+        "#FFFFFF",
+        "#B22222",
+        "#000000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Three adjacent boxes showing partial derivatives: \u2202E/\u2202O_j, \u2202O_j/\u2202Net_j, \u2202Net_j/\u2202W_ji.",
+      "colors": [
+        "#FFFFFF",
+        "#000000",
+        "#B0E0E6"
+      ],
+      "position": "middle-lower, left to right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Large derivation box showing chain rule expansion of \u2202E/\u2202W_ji with intermediate steps highlighted in light blue and light green.",
+      "colors": [
+        "#FFFFFF",
+        "#B0E0E6",
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "lower-left and center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Yellow-tinted box on right containing three partial derivative equations.",
+      "colors": [
+        "#FFFFE0",
+        "#000000"
+      ],
+      "position": "lower-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Bottom strip containing final delta rule equation with green highlighted term.",
+      "colors": [
+        "#FFFFFF",
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "bottom"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#B22222",
+    "body_text": "#000000",
+    "accents": [
+      "#FFFF00",
+      "#B0E0E6",
+      "#90EE90",
+      "#FFFFE0",
+      "#FF0000",
+      "#008000"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout (likely Calibri or Arial). Title 'Gradient Descent' is bold, red, larger than body. Body text is regular black. Some words like 'Where' and equations are emphasized in red. Boxed equations use standard math italics for variables.",
+  "animation_state": "Static slide; no elements appear mid-build or partially revealed.",
+  "recreation_brief": "1. Create a new PowerPoint slide with white background.\n2. Add a bordered text box at top-left. Set border color to dark red (#B22222). Inside, type 'Gradient Descent' in bold red font.\n3. Below the title in the same box, type the three weight update equations exactly as transcribed, using equation editor for fractions and partial derivatives. Make 'Where' and the Delta equation red.\n4. Insert a yellow circle at top-right corner with the number '10' in black.\n5. Draw the neural network diagram in the top-right area: input nodes (purple dots), hidden layer circles with \u03a3, output nodes, connecting arrows, labels 'Output 1', 'Output 2', 'Output m', and right-side stacked labels 'Error Class 1', 'Error Class 2', 'Error Class m' (last one in red box). Add 'Input Bias' label near bottom-left of diagram.\n6. Add a full-width horizontal strip below the diagram containing: E = 1/2 \u03a3(t_j - O_j)^2, then 'For Sigmoid Activation O_j = f(Net_j) = 1/(1+e^{-Net_j})', then 'Net_j = \u03a3(w_ji O_i)'.\n7. Below that, add three adjacent boxes with the partial derivatives: \u2202E/\u2202O_j = -(t_j - O_j), \u2202O_j/\u2202Net_j = O_j(1-O_j), \u2202Net_j/\u2202W_ji = O_i.\n8. Add a large box spanning lower-left to center with the chain rule derivation: \u2202E/\u2202W_ji = ... = -\u03b4_j * O_i, and the 'Where \u03b4_j = ...' line. Highlight parts in light blue and light green as seen.\n9. Add a yellow-tinted box on the lower-right with the same three partial derivatives.\n10. Add a bottom full-width strip with: \u0394_ji = -\u03b7 \u2202E/\u2202W_ji = \u03b7 \u03b4_j * O_i Where \u03b4_j = (t_j - O_j) * O_j(1-O_j) for output Layer. Highlight the \u03b4_j definition in light green.\n11. Use black sans-serif body text throughout, with red accents for emphasis words.",
+  "_meta": {
+    "frame": "slide_010.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 63.3
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "slide_title": "Combine Precision and Recall in one number",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Penalize Small Value (X) by Using 1/X",
+      "Normalize (by * 0.5) to get F1 Score between 0,1"
+    ],
+    "labels": [
+      "16",
+      "Positive",
+      "Negative",
+      "TP",
+      "FN",
+      "TN",
+      "FP",
+      "F1 Score",
+      "Precision",
+      "Recall"
+    ],
+    "equations": [
+      "Precision = TP / (TP + FP)",
+      "Recall = TP / (TP + FN)",
+      "1/F1 Score = (1/2) * (1/Precision + 1/Recall)",
+      "Precision= 20/(20+11) =64.5%",
+      "Recall= 20/(20+10) =66.6%",
+      "F1 Score= 68.7%+60% =65.55%",
+      "Precision= 30/(30+70) =30.3%",
+      "Recall= 30/(30+0) =100%",
+      "F1 Score= 30.3%+100% =46%"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-left spanning most of width; yellow slide-number circle top-right; two confusion-matrix tree diagrams side-by-side in upper-middle; two blue formula boxes stacked vertically on the right; green-bordered F1 formula box lower-center-left; orange explanation box to its right; two columns of calculation result boxes along the bottom",
+    "regions": [
+      {
+        "name": "title_bar",
+        "position": "top, left/center, ~0-10% height",
+        "content": "Dark red title text 'Combine Precision and Recall in one number'"
+      },
+      {
+        "name": "slide_number",
+        "position": "top-right, ~90-98% width, ~2-8% height",
+        "content": "Yellow circle containing the number 16"
+      },
+      {
+        "name": "left_confusion_matrix",
+        "position": "upper-middle, left, ~5-45% width, ~12-55% height",
+        "content": "Tree diagram with Positive/Negative airplane icons, red/green circles (30,20,10,70,59,11) and TP/FN/TN/FP labels"
+      },
+      {
+        "name": "right_confusion_matrix",
+        "position": "upper-middle, center, ~45-75% width, ~12-55% height",
+        "content": "Tree diagram with Positive/Negative airplane icons, red/green circles (30,30,0,70,0,70) and TP/FN/TN/FP labels"
+      },
+      {
+        "name": "formula_boxes_right",
+        "position": "right, ~75-98% width, ~12-40% height",
+        "content": "Two blue-bordered boxes: Precision = TP/(TP+FP) and Recall = TP/(TP+FN)"
+      },
+      {
+        "name": "f1_formula_box",
+        "position": "lower-middle, left/center, ~5-55% width, ~58-75% height",
+        "content": "Green-bordered box with harmonic-mean formula and 'F1 Score' label"
+      },
+      {
+        "name": "explanation_box",
+        "position": "lower-middle, right, ~55-98% width, ~58-75% height",
+        "content": "Orange/peach box with penalize/normalize explanation text"
+      },
+      {
+        "name": "left_calculations",
+        "position": "bottom, left, ~5-48% width, ~78-98% height",
+        "content": "Three stacked boxes: Precision, Recall, F1 Score calculations for left matrix"
+      },
+      {
+        "name": "right_calculations",
+        "position": "bottom, right, ~52-98% width, ~78-98% height",
+        "content": "Three stacked boxes: Precision, Recall, F1 Score calculations for right matrix"
+      }
+    ],
+    "hierarchy": "Title dominates in dark red at top; confusion-matrix diagrams are the visual focal point with colored circles; formula boxes are secondary; calculation boxes are smallest at the bottom"
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Binary confusion-matrix tree. Top: 'Positive' (red label) with airplane icon and 'Negative' (green label) with airplane icon. Positive branches down to red circle '30', which splits to red circle '20' (left) and green circle '10' (right). Negative branches down to green circle '70', which splits to green circle '59' (left) and red circle '11' (right). Bottom labels: TP under 20, FN under 10, TN under 59, FP under 11. Arrows connect each parent node to its children.",
+      "colors": [
+        "#FF0000",
+        "#008000",
+        "#000000"
+      ],
+      "position": "upper-middle left"
+    },
+    {
+      "type": "diagram",
+      "description": "Binary confusion-matrix tree. Top: 'Positive' (red label) with airplane icon and 'Negative' (green label) with airplane icon. Positive branches down to red circle '30', which splits to red circle '30' (left) and green circle '0' (right). Negative branches down to green circle '70', which splits to green circle '0' (left) and red circle '70' (right). Bottom labels: TP under 30, FN under 0, TN under 0, FP under 70. Arrows connect each parent node to its children.",
+      "colors": [
+        "#FF0000",
+        "#008000",
+        "#000000"
+      ],
+      "position": "upper-middle center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Blue-bordered rectangular box containing 'Precision = TP / (TP + FP)' with TP in a small blue pill and the fraction written below",
+      "colors": [
+        "#DEEBF7",
+        "#2E75B6",
+        "#000000"
+      ],
+      "position": "right side, upper"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Blue-bordered rectangular box containing 'Recall = TP / (TP + FN)' with TP in a small blue pill and the fraction written below",
+      "colors": [
+        "#DEEBF7",
+        "#2E75B6",
+        "#000000"
+      ],
+      "position": "right side, lower"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green-bordered rectangular box containing the stacked fraction '1/F1 Score = 1/2 * (1/Precision + 1/Recall)' with 'F1 Score' as a label beneath the left-hand fraction",
+      "colors": [
+        "#FFFFFF",
+        "#00B050",
+        "#FF0000",
+        "#008000"
+      ],
+      "position": "lower-middle left/center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Orange/peach-bordered rectangular box with two lines: 'Penalize Small Value (X) by Using 1/X' and 'Normalize (by * 0.5) to get F1 Score between 0,1'",
+      "colors": [
+        "#FCE4D6",
+        "#C55A11",
+        "#000000"
+      ],
+      "position": "lower-middle right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'Precision= 20/(20+11) =64.5%'",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#000000"
+      ],
+      "position": "bottom left, first box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'Recall= 20/(20+10) =66.6%'",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#000000"
+      ],
+      "position": "bottom left, second box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'F1 Score= 68.7%+60% =65.55%' where 'F1 Score' is in red and the result is in blue",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#FF0000",
+        "#0000FF"
+      ],
+      "position": "bottom left, third box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'Precision= 30/(30+70) =30.3%'",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#000000"
+      ],
+      "position": "bottom right, first box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'Recall= 30/(30+0) =100%'",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#000000"
+      ],
+      "position": "bottom right, second box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-bordered box with text 'F1 Score= 30.3%+100% =46%' where 'F1 Score' is in red and the result is in blue",
+      "colors": [
+        "#FFFFFF",
+        "#BFBFBF",
+        "#FF0000",
+        "#0000FF"
+      ],
+      "position": "bottom right, third box"
+    }
+  ],
+  "imagery": [
+    "Two small airplane icons above the 'Positive' and 'Negative' labels in each confusion-matrix diagram; simple line-art style, one per class per diagram",
+    "Yellow filled circle at top-right containing the slide number '16'"
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#008000",
+      "#DEEBF7",
+      "#2E75B6",
+      "#FCE4D6",
+      "#C55A11",
+      "#FFFF00",
+      "#00B050"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout. Title is large, bold, dark red. Diagram labels 'Positive'/'Negative' are bold in red/green. Circle values are bold white on colored fills. Formula boxes use regular weight black text with colored borders. Calculation boxes use smaller regular text; 'F1 Score' label within calculation boxes is red, results are blue. No italics or all-caps observed.",
+  "animation_state": "No build state apparent; all elements appear fully revealed.",
+  "recreation_brief": "1. Set slide background to white. 2. Add title text 'Combine Precision and Recall in one number' at top-left in bold dark red (~#CC0000), large sans-serif. 3. Add a yellow filled circle at top-right with the number '16' in black. 4. Draw the left confusion-matrix diagram: place 'Positive' (red bold) with a small airplane icon and 'Negative' (green bold) with a small airplane icon at the top; below Positive draw a red circle '30' and below Negative a green circle '70'; from the '30' circle draw two arrows down to a red circle '20' (left) and a green circle '10' (right); from the '70' circle draw two arrows down to a green circle '59' (left) and a red circle '11' (right); label beneath the bottom row: TP, FN, TN, FP. 5. Draw the right confusion-matrix diagram identically but with bottom-row values: red '30', green '0', green '0', red '70' and labels TP, FN, TN, FP. 6. On the right side add two blue-bordered boxes: top box 'Precision = TP / (TP + FP)' with TP in a small blue pill; bottom box 'Recall = TP / (TP + FN)' with TP in a small blue pill. 7. Add a green-bordered box in the lower-center containing the stacked fraction 1/F1 Score = (1/2)*(1/Precision + 1/Recall) with 'F1 Score' as a label under the left fraction. 8. Add an orange-bordered box to the right of the F1 box with two lines: 'Penalize Small Value (X) by Using 1/X' and 'Normalize (by * 0.5) to get F1 Score between 0,1'. 9. Along the bottom add two columns of three light-bordered boxes each. Left column: 'Precision= 20/(20+11) =64.5%', 'Recall= 20/(20+10) =66.6%', 'F1 Score= 68.7%+60% =65.55%'. Right column: 'Precision= 30/(30+70) =30.3%', 'Recall= 30/(30+0) =100%', 'F1 Score= 30.3%+100% =46%'. In the F1 boxes make 'F1 Score' red and the final percentage blue. 10. Use red (#FF0000) and green (#008000) for all circle fills and class labels; blue (#DEEBF7 fill, #2E75B6 border) for formula boxes; orange (#FCE4D6 fill, #C55A11 border) for the explanation box; green (#00B050) border for the F1 formula box.",
+  "_meta": {
+    "frame": "slide_016.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 16,
+      "image": "slide_016.jpg"
+    },
+    "elapsed_s": 319.7
+  }
+}

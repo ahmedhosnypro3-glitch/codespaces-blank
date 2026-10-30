@@ -1,0 +1,6 @@
+<x_0.9209><y_0.1234>26<x_0.9404><y_0.1523><class_Page-header>
+
+<x_0.3164><y_0.4078>**_Solved Example_**<x_0.6885><y_0.4922><class_Section-header>
+
+<x_0.0938><y_0.5305>**[ Update Weights of Output Layer and Hidden Layer ]**
+**Using one training sample**<x_0.9121><y_0.6859><class_Text>

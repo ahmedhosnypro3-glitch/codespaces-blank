@@ -1,0 +1,134 @@
+{
+  "slide_title": "Back Propagation Training Algorithm",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "[1] Initialize all Weights with random values",
+      "[2] Provide one training sample at a time (and its corresponding target label)",
+      "[3] Go Forward : Start from Input Layer, Calculate Net_j, O_j for each layer till reach output layer",
+      "[4] Go Backward : Start from Output Layer, Calculate \u0394w_ji, W_ji for each weights of Output layer\n\u0394w_ji = \u03b7 O_i O_j(1-O_j) (t_j - O_j)   Store: \u03b4_j = O_j(1-O_j) (t_j - O_j)   (for each node at output Layer)",
+      "[5] Go Backward : go to previous Layer, Calculate \u0394w_ji, W_ji for each weights of Hidden layer\n\u0394w_ji = \u03b7 O_i O_j(1-O_j) [\u03a3_k (\u03b4_k w_kj)]   Store: \u03b4_j = O_j(1-O_j) [\u03a3_k (\u03b4_k w_kj)]   (for each node at hidden Layer)",
+      "[6] Repeat [5] till reach first hidden layer\nRemember: \u03b4_k = \u03b4_j of next layer   ( which is already calculated in previous step )"
+    ],
+    "labels": [
+      "22",
+      "Target 1",
+      "Target 2",
+      "Target m",
+      "Error",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Neural Net"
+    ],
+    "equations": [
+      "Net_j, O_j",
+      "\u0394w_ji, W_ji",
+      "\u0394w_ji = \u03b7 O_i O_j(1-O_j) (t_j - O_j)",
+      "\u03b4_j = O_j(1-O_j) (t_j - O_j)",
+      "\u0394w_ji = \u03b7 O_i O_j(1-O_j) [\u03a3_k (\u03b4_k w_kj)]",
+      "\u03b4_j = O_j(1-O_j) [\u03a3_k (\u03b4_k w_kj)]",
+      "\u03b4_k = \u03b4_j of next layer"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title centered at top; slide number '22' in yellow circle top-right; neural network diagram occupies upper-left to center; two text boxes below: first box with steps [1]-[2] (light blue fill, blue border), second larger box with steps [3]-[6] (light pink fill, red border) spanning full width below diagram.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center",
+        "content": "Slide title 'Back Propagation Training Algorithm' in red"
+      },
+      {
+        "name": "slide_number",
+        "position": "top right",
+        "content": "Circle with '22'"
+      },
+      {
+        "name": "diagram",
+        "position": "upper left to center",
+        "content": "Neural network diagram with input, hidden, output layers and Target/Error panel"
+      },
+      {
+        "name": "steps_box_1",
+        "position": "middle left to right, below diagram",
+        "content": "Steps [1] and [2] in light blue box"
+      },
+      {
+        "name": "steps_box_2",
+        "position": "bottom, full width",
+        "content": "Steps [3] through [6] with equations in light pink box"
+      }
+    ],
+    "hierarchy": "Title dominates (largest, red, centered); diagram is secondary visual; numbered steps in bordered boxes below; slide number is small accent top-right."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network architecture diagram: left side shows input nodes (small purple dots), middle column shows hidden layer nodes (blue circles containing \u03a3), right column shows output layer nodes (green circles containing \u03a3). Arrows connect layers with weight labels (W_ji, etc.). Each node has associated Net_i and O_i labels with small square icons. Far right vertical panel lists 'Target 1', 'Target 2', 'Target m' next to a vertical 'Error' label. Output nodes labeled 'Output 1', 'Output 2', 'Output m'. Bottom-left corner of diagram has 'Neural Net' text/logo.",
+      "colors": [
+        "#800080",
+        "#0000ff",
+        "#00ff00",
+        "#000000",
+        "#ffffff"
+      ],
+      "position": "upper-left to center, below title"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular text box with light blue fill and dark blue border containing steps [1] and [2].",
+      "colors": [
+        "#e6f3ff",
+        "#0000ff",
+        "#000000"
+      ],
+      "position": "below diagram, full width"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Large rectangular text box with light pink fill and red border containing steps [3] through [6] with embedded equations.",
+      "colors": [
+        "#ffe6e6",
+        "#c00000",
+        "#000000"
+      ],
+      "position": "below first box, full width"
+    },
+    {
+      "type": "other",
+      "description": "Yellow/gold circle containing slide number '22'.",
+      "colors": [
+        "#ffd700",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#f2f2f2",
+    "title_text": "#c00000",
+    "body_text": "#000000",
+    "accents": [
+      "#ffd700",
+      "#0000ff",
+      "#c00000",
+      "#e6f3ff",
+      "#ffe6e6"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is large, bold, dark red, centered. Body text is black, regular weight. Numbered step markers [1]-[6] are blue. Key terms within steps (e.g., 'Go Forward', 'Go Backward', 'Output', 'Hidden', 'Repeat [5]', 'Remember') are colored red for emphasis. No italics observed. Bullets use square brackets around numbers.",
+  "animation_state": "Static; no partial reveals or mid-build states visible.",
+  "recreation_brief": "1. Set slide background to light gray (#f2f2f2).\n2. Add title 'Back Propagation Training Algorithm' centered at top in large bold dark red (#c00000) sans-serif font.\n3. Add slide number '22' in a yellow/gold circle (#ffd700) at top-right corner.\n4. Insert neural network diagram in upper portion: input layer (purple dots), hidden layer (blue circles with \u03a3), output layer (green circles with \u03a3), connecting arrows with weight labels, Net/O labels, right-side Target/Error panel, Output 1/2/m labels, and 'Neural Net' logo bottom-left of diagram.\n5. Below diagram, create a full-width rectangle with light blue fill (#e6f3ff) and blue border. Inside, add step [1] 'Initialize all Weights with random values' and step [2] 'Provide one training sample at a time (and its corresponding target label)' with blue numbered markers [1], [2].\n6. Below that, create a larger full-width rectangle with light pink fill (#ffe6e6) and red border. Inside, add steps [3]-[6] exactly as transcribed, with blue numbered markers and red-colored emphasis text for key phrases. Include the multi-line equations exactly as shown.\n7. Ensure all text is sans-serif, black unless specified red/blue.",
+  "_meta": {
+    "frame": "slide_022.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 22,
+      "image": "slide_022.jpg",
+      "badge": "22"
+    },
+    "elapsed_s": 47.8
+  }
+}

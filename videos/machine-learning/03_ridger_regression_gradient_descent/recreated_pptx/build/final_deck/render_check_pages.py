@@ -24,7 +24,7 @@ import final_deck_tool as T  # noqa: E402
 
 TOTAL = T.TOTAL
 GATE_ROOT = T.PPTX_DIR / "qa" / "final_deck_updates"
-TMPDIR = Path("/home/ahmed/Projects/ai_llm_slides/scratch/tmp")
+TMPDIR = Path("/home/codespace/ai_llm_slides/scratch/tmp")
 LO_PROFILE = TMPDIR / "s21_lo_profile_299640"
 
 

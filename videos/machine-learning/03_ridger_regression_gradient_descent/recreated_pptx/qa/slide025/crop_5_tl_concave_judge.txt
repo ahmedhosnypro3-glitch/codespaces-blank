@@ -1,0 +1,30 @@
+# Slide 025 â zoomed crop comparison: top-left concave dome region (attempt 5)
+
+## Chrome (not discrepancies, per ground rules)
+White canvas, red C00000 frame around the chart area, blue badge panel â all intentional template chrome in IMG1 and excluded from findings. The softer/jpeg edges in IMG2 are capture artifacts and excluded.
+
+## Discrepancies
+
+1. **ALL axis tick labels missing in the recreation** â IMG2 shows numeric ticks "0" (upper-left of vertical axis, ~crop 15%,15%), "-5" (~10%,40%), "2" (~5%,65%), and on the base axes "0", "0", "-2", "-2", "2" (~15â50%, 75â85%). IMG1 has **zero tick labels anywhere on the axes**. Every number in this region is absent. â **BLOCKER** (confidence: very high â the region's entire numeric content is missing).
+
+2. **Wrong surface shape: Gaussian bell vs. concave paraboloid dome** â IMG2 shows a flat-topped, wide concave dome (consistent with a function like â(xÂ²+yÂ²), appropriate for "Concave Function, One Maxima"); IMG1 shows a narrow, sharply peaked bell/Gaussian shape occupying only the central ~40% of the plot width. This changes the mathematical content the figure is illustrating. â **MAJOR** (confidence: high; arguably BLOCKER since a bell curve is not a globally concave function).
+
+3. **Surface rendering style: mesh grid missing** â IMG2's dome is drawn as a visible wireframe/mesh (crisscrossing grid lines over the surface); IMG1's surface is a smooth solid shaded render with no mesh. â **MINOR** (confidence: high).
+
+4. **Base contour projection missing** â IMG2 shows concentric contour rings projected onto the floor of the plot (~center-bottom of the chart); IMG1's floor is empty blue with no contours. â **MINOR** (confidence: high).
+
+5. **Colormap top-end mismatch** â IMG2's peak tops out in yellow/olive-green; IMG1's peak goes all the way to deep red. Also IMG1's mid-band is strongly cyan/green vs. IMG2's teal/blue-green. â **MINOR** (confidence: medium-high).
+
+6. **Axis wall/pane geometry** â IMG2 shows 3D axis panes (light gray back walls with dark axis spines at left and bottom edges); IMG1 has only faint gray grid lines on white with thin dark spines, and the vertical axis spine is barely visible. â **MINOR** (confidence: medium).
+
+7. **Badge text alignment** â IMG2: "Concave Function / One Maxima" is left-aligned inside the blue box; IMG1: both lines are center-aligned, and the second line sits noticeably lower within the box. â **MINOR** (confidence: high).
+
+8. **Red maximum-line geometry** â IMG2's three red horizontal lines are thicker and extend well past the plot's right edge, stopping just short of the badge; IMG1's lines are thinner and extend only slightly past the frame. Line count (3) and approximate heights do match. â **MINOR** (confidence: medium).
+
+## What matches well
+Region composition (chart left, badge right), badge colors (navy box, yellow "Concave", white remainder), red frame placement, three red horizontal maximum lines, rainbow colormap direction (blue base â warm peak), and overall layout are faithful.
+
+## Summary
+Two exactness violations dominate: the complete absence of every axis tick number (0, -5, 2, -2, -2, 0, 0, 2) and the substitution of a bell curve for the concave dome. Both are precisely the class of defect the ground rules flag as MAJOR-to-BLOCKER even at full-slide scale.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

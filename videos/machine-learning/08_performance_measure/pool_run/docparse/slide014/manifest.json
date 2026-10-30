@@ -1,0 +1,307 @@
+{
+  "slide": "slide_014",
+  "source_frame": "slide_014.jpg",
+  "source_md5": "c3a941c133c24a73e533acc86223787d",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 6,
+  "crops_spent": 5,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_014.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_014.parse.md",
+      "json": "full/slide_014.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The candidate is a chart block with sparse, garbled text and missing values, so a tighter crop may recover it.",
+    "decision_source": "chat",
+    "children": [
+      "slide_014.crop01__chart"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_014.crop01__chart",
+      "level": 1,
+      "class": "Chart",
+      "box_frame_px": [
+        35.6,
+        41.7,
+        887.8,
+        475.0
+      ],
+      "estimated": false,
+      "png": "crops/slide_014.crop01__chart.png",
+      "mean_rgb": 218.42,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_014.crop01__chart.parse.md",
+        "json": "crops/slide_014.crop01__chart.parse.json"
+      },
+      "scale": 1.7351,
+      "size_px": [
+        1664,
+        890
+      ],
+      "margin_applied": [
+        36,
+        19
+      ],
+      "stop_reason": null,
+      "stop_note": "chat advised CROP: The child recovered formulas and explanatory labels absent from the parent (Precision/Recall/Average values, model descriptions), while the candidate chart's extracted text remains truncated and sparse, warranting a tighter crop.",
+      "decision_source": "chat",
+      "children": [
+        "slide_014.crop02__chart"
+      ],
+      "transform": {
+        "origin_px": [
+          0.0,
+          23.0
+        ],
+        "scale": 1.7351,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    },
+    {
+      "id": "slide_014.crop02__chart",
+      "level": 2,
+      "class": "Chart",
+      "box_frame_px": [
+        36.5,
+        42.2,
+        885.0,
+        474.9
+      ],
+      "estimated": false,
+      "png": "crops/slide_014.crop02__chart.png",
+      "mean_rgb": 218.28,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_014.crop02__chart.parse.md",
+        "json": "crops/slide_014.crop02__chart.parse.json"
+      },
+      "scale": 1.7413,
+      "size_px": [
+        1664,
+        893
+      ],
+      "margin_applied": [
+        61,
+        33
+      ],
+      "stop_reason": null,
+      "stop_note": "chat advised CROP: The child adds the missing \u201cTP + FP\u201d column and values (70, 59, 0, 70) that the parent lacked, so the chart block merits another zoom.",
+      "decision_source": "chat",
+      "children": [
+        "slide_014.crop03__chart"
+      ],
+      "transform": {
+        "origin_px": [
+          1.2,
+          23.0
+        ],
+        "scale": 1.7413,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_014.crop01__chart",
+      "error": null
+    },
+    {
+      "id": "slide_014.crop03__chart",
+      "level": 3,
+      "class": "Chart",
+      "box_frame_px": [
+        36.7,
+        42.2,
+        883.7,
+        492.8
+      ],
+      "estimated": false,
+      "png": "crops/slide_014.crop03__chart.png",
+      "mean_rgb": 218.25,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_014.crop03__chart.parse.md",
+        "json": "crops/slide_014.crop03__chart.parse.json"
+      },
+      "scale": 1.7423,
+      "size_px": [
+        1664,
+        894
+      ],
+      "margin_applied": [
+        62,
+        34
+      ],
+      "stop_reason": null,
+      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
+      "decision_source": "fallback",
+      "children": [
+        "slide_014.crop04__chart"
+      ],
+      "transform": {
+        "origin_px": [
+          1.2,
+          23.0
+        ],
+        "scale": 1.7423,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_014.crop02__chart",
+      "error": null
+    },
+    {
+      "id": "slide_014.crop04__chart",
+      "level": 4,
+      "class": "Chart",
+      "box_frame_px": [
+        35.7,
+        42.2,
+        885.1,
+        474.2
+      ],
+      "estimated": false,
+      "png": "crops/slide_014.crop04__chart.png",
+      "mean_rgb": 218.44,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_014.crop04__chart.parse.md",
+        "json": "crops/slide_014.crop04__chart.parse.json"
+      },
+      "scale": 1.7423,
+      "size_px": [
+        1664,
+        892
+      ],
+      "margin_applied": [
+        62,
+        33
+      ],
+      "stop_reason": null,
+      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
+      "decision_source": "fallback",
+      "children": [
+        "slide_014.crop05__chart"
+      ],
+      "transform": {
+        "origin_px": [
+          1.2,
+          23.6
+        ],
+        "scale": 1.7423,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_014.crop03__chart",
+      "error": null
+    },
+    {
+      "id": "slide_014.crop05__chart",
+      "level": 5,
+      "class": "Chart",
+      "box_frame_px": [
+        36.6,
+        42.0,
+        883.2,
+        492.8
+      ],
+      "estimated": false,
+      "png": "crops/slide_014.crop05__chart.png",
+      "mean_rgb": 218.41,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_014.crop05__chart.parse.md",
+        "json": "crops/slide_014.crop05__chart.parse.json"
+      },
+      "scale": 1.7433,
+      "size_px": [
+        1664,
+        893
+      ],
+      "margin_applied": [
+        62,
+        34
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "child lines are a subset of the parent parse",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          1.2,
+          23.6
+        ],
+        "scale": 1.7433,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_014.crop04__chart",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 6,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 6,
+    "chat_calls": 5,
+    "retries": 2,
+    "dedup_collapsed": 2,
+    "elements": 4
+  }
+}

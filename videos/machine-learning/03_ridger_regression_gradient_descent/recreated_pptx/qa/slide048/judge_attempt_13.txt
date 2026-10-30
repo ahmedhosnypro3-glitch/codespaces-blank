@@ -1,0 +1,42 @@
+## Fidelity comparison â Slide 048 (IMG1 recreation vs IMG2 original frame)
+
+### Discrepancies (severity / confidence)
+
+**1. MAJOR â Leftâpanel caption text differs ("Ligmented" vs "Ugmented") â confidence: mediumâhigh**
+IMG1 reads **âLigmented Vectors (from Top)â**; IMG2 reads **âUgmented Vectors (from Top)â**. The first glyph is wrong (L vs U), so the label is not verbatim even relative to the originalâs own spelling.
+
+**2. MAJOR â âIteration 1â banner label is drastically undersized and mispositioned â confidence: high**
+Original: banner â x78â200, y258â285 (â27 px tall) with a large white serif âIteration 1â â 100 px wide Ã â19 px cap height, generously padded. Recreation: banner â x78â202, y245â270 with the same wording rendered at only â56 px wide Ã â9 px cap height (â9 pt bold sans), and shifted â13 px upward. This is a prominent section header in the original and is unreadably small in the render.
+
+**3. MAJOR â Wrong line breaks in every rowâs action text â confidence: high**
+Original keeps the action phrase on one line: ââ Update Weightâ (row 1) and ââ Keep same Weightâ (rows 2â6). Recreation wraps them to two lines (âUpdateâ/âWeightâ, âKeep sameâ/âWeightâ), changing the line breaks, block height and the textâtoâarrow spacing in all six rows.
+
+**4. MAJOR â Top banner line arrangement and typography differ â confidence: high**
+Original line 1: centered **âREPEAT using Step Î· = 1â** with âREPEATâ in black boldâitalic and âusing Step Î· = 1â in red boldâitalic; line 2: âInitial W = [4 / â2 / â2]â belowâleft. Recreation merges these onto one line â âInitial Wâ + column vector at left of the divider, then âREPEAT using Step Î· = 1â in uniform red, regular (nonâitalic, nonâbold) type to its right. Line order, break structure and emphasis are all lost.
+
+**5. MAJOR â Frame containment failure in the last row â confidence: mediumâhigh**
+In IMG1 the rowâ6 (d(xâ)) weight column (5 / â1 / â1) bracket extends below the bottom edge of its white row band, and the rowâ6 dâcolumn bracket sits flush against the row bottom. In IMG2 every vector column (including row 6) is fully enclosed inside its bordered row box.
+
+**6. MINOR â Row table styling â confidence: medium**
+IMG2 gives every step row a thin blueâgray outline with a light/white gradient fill. IMG1 omits the outlines entirely and uses alternating white / E9E9E7 bands (rows 2, 4, 6 gray), so the six âboxesâ read as stripes rather than the originalâs discrete bordered boxes.
+
+**7. MINOR â Added parentheses on the input vectors in d(xáµ¢) â confidence: medium**
+IMG2 shows the input as bare values (âd(xâ) = 1 1 1â beside the bracketed weight column); IMG1 renders âd(xâ) = (1 1 1)â, i.e. a delimiter that does not exist in the original.
+
+**8. MINOR â Arrow and actionâtext color deviation â confidence: medium**
+IMG2 uses black/dark ââ¨â arrows with black action text (and a red trailing arrow only after the updated weight in row 1). IMG1 uses a red âââ for the midâtable arrows in all six rows and renders the action text in navy blue rather than black.
+
+**9. MINOR â Classâcolor coding added to the topâleft matrix â confidence: lowâmedium**
+In IMG1 several cells of the topâleft xââ¦xâ matrix carry red/blue class colors (and the legend row shows a red/blue split that does not line up with IMG2âs âCâ Câ Câ Câ Câ Cââ), whereas IMG2âs topâleft matrix numerals are plain black with the coloring applied only in the lower âUgmented Vectorsâ table.
+
+### Visualâquality defects in the recreation
+- Bottomâright of the last row: weightâcolumn bracket visibly hangs out of the white row band (overflow, see #5).
+- âIteration 1â is too small to function as a section banner, and its band sits ~13 px higher than the original.
+- Six action labels are wrapped to two lines, compressing each rowâs content and changing the rhythm of the table; row heights are also ~5 px shorter than the originalâs (~48 vs ~53 px), so the table ends ~18 px above the originalâs bottom.
+- The step rows lost their borders, so the alternating gray/white banding looks like a rendering artifact rather than the originalâs boxed rows.
+- Action text in navy on gray/white is lowerâcontrast than the originalâs black text.
+
+### Elements verified as matching (no discrepancy)
+All six d(xáµ¢) equations and their numeric results (0, 2, 2, â4, â6, â7); the weight columns (4/â2/â2 for xâ, 5/â1/â1 thereafter); the rowâ1 update âW = [4 â2 â2] + 1 Ã [1 1 1] = [5 â1 â1]â with its trailing red arrow; the âKeep same Weightâ rows; the xââ¦xâ / (1)(1)(1)(5)(6)(6) style matrices and the Câ/Câ legend; âCheck classes ofâ with the Zâ Zâ Zâ columns; the panelâlevel layout (top banner box, left side table, right sixârow step table). House chrome and the intentional absence of a top stroke were ignored as instructed.
+
+**FINAL VERDICT: FAIL** â the recreation is broadly recognizable but carries multiple major fidelity defects: a wrong caption word, a severely undersized âIteration 1â banner, wrong line breaks in all six row labels, a restructured/reâstyled âREPEAT using Step Î· = 1 / Initial Wâ header, and an overflowing vector bracket in the final row.

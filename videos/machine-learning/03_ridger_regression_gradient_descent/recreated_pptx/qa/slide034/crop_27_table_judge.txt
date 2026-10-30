@@ -1,39 +1,40 @@
-# Slide 034 zoomed crop table â cell-by-cell comparison (attempt 27)
+# Cell-by-Cell Comparison â Slide 034 Gradient-Descent Table (8 rows Ã 19 columns)
 
-## Content verification (all 18 columns Ã 8 rows, read cell-by-cell)
+## Data audit (every cell, leftâright)
 
-**Row `x`:** 7, 7.2, 7.4, 7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8, 9, 9.2, 9.4, [9.6, 9.8, 9.6], 9.8, 9.6 â â identical in both images, including the 3 highlighted cells.
+**Row 1 â x:** `7 | 7.2 | 7.4 | 7.6 | 7.8 | 8 | 8.2 | 8.4 | 8.6 | 8.8 | 9 | 9.2 | 9.4 | [9.6 | 9.8 | 9.6] | 9.8 | 9.6` â identical in both. â
 
-**Row `f(x)`:** 2.99, 2.43, 1.66, 0.69, â0.45, â1.73, â3.1, â4.5, â5.88, â7.16, â8.28, â9.17, â9.77, [â10.03, â9.92, â10.03], â9.92, â10.03 â â identical.
+**Row 2 â f(x):** `2.99 | 2.43 | 1.66 | 0.69 | -0.45 | -1.73 | -3.1 | -4.5 | -5.88 | -7.16 | -8.28 | -9.17 | -9.77 | [-10.03 | -9.92 | -10.03] | -9.92 | -10.03` â identical. â
 
-**Row `x-delta`:** 6.9, 7.1, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7, 9.5, 9.7, 9.5 â â identical.
+**Row 3 â x-delta:** `6.9 | 7.1 | 7.3 | 7.5 | 7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7 | 8.9 | 9.1 | 9.3 | 9.5 | 9.7 | 9.5 | 9.7 | 9.5` â identical. â
 
-**Row `f(x-delta)`:** 3.19, 2.74, 2.07, 1.2, 0.14, â1.08, â2.41, â3.8, â5.2, â6.54, â7.75, â8.76, â9.51, â9.95, â10.02, â9.95, â10.02, â9.95 â â identical.
+**Row 4 â f(x-delta):** `3.19 | 2.74 | 2.07 | 1.2 | 0.14 | -1.08 | -2.41 | -3.8 | -5.2 | -6.54 | -7.75 | -8.76 | -9.51 | -9.95 | -10.02 | -9.95 | -10.02 | -9.95` â identical. â
 
-**Row `x+delta`:** 7.1, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7, 9.9, 9.7, 9.9, 9.7 â â identical.
+**Row 5 â x+delta:** `7.1 | 7.3 | 7.5 | 7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7 | 8.9 | 9.1 | 9.3 | 9.5 | 9.7 | 9.9 | 9.7 | 9.9 | 9.7` â identical. â
 
-**Row `f(x+delta)`:** 2.74, 2.07, 1.2, 0.14, â1.08, â2.41, â3.8, â5.2, â6.54, â7.75, â8.76, â9.51, â9.95, â10.02, â9.7, â10.02, â9.7, â10.02 â â identical.
+**Row 6 â f(x+delta):** `2.74 | 2.07 | 1.2 | 0.14 | -1.08 | -2.41 | -3.8 | -5.2 | -6.54 | -7.75 | -8.76 | -9.51 | -9.95 | -10.02 | -9.7 | -10.02 | -9.7 | -10.02` â identical. â
 
-**Slope strip:** â4.5, â6.7, â8.7, â10.6, â12.2, â13.3, â13.9, â14, â13.4, â12.1, â10.1, â7.5, â4.4, â0.7, 3.2, â0.7, 3.2, â0.7 â â identical; salmon fills on negatives and yellow fills with red frames on the two 3.2 values reproduced in both.
+**Row 7 â slope:** `-4.5 | -6.7 | -8.7 | -10.6 | -12.2 | -13.3 | -13.9 | -14 | -13.4 | -12.1 | -10.1 | -7.5 | -4.4 | -0.7 | 3.2 | -0.7 | 3.2 | -0.7` â identical, including the two sign-flip `3.2` cells. â
 
-**Row `next x`:** 7.2, 7.4, 7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8, 9, 9.2, 9.4, 9.6, 9.8, 9.6, 9.8, 9.6, 9.8 â â identical, red frame intact.
+**Row 8 â next x:** `7.2 | 7.4 | 7.6 | 7.8 | 8 | 8.2 | 8.4 | 8.6 | 8.8 | 9 | 9.2 | 9.4 | 9.6 | 9.8 | 9.6 | 9.8 | 9.6 | 9.8` â identical. â
 
-No missing rows, no wrong digits, no swapped values, no garbled characters anywhere. Row band colors (yellow-green / lavender / peach / green slope strip / pink next-x), white gridlines, dark band borders, and the red arrow at top-left are all reproduced correctly.
+No wrong digits, no swapped values, no missing/garbled cells anywhere in 152 data cells.
 
-## Discrepancies
+## Structural / styling discrepancies
 
-1. **MINOR â Highlight fill hue** (crop-relative: upper-right block, cols 14â16 of rows 1â2, ~x 1230â1500). IMG1 fills the highlighted 3Ã2 block with a pale **mint green**; IMG2 uses a distinctly **teal/cyan** fill. Values inside are correct and legible in both; this is purely the annotation color. Confidence: high.
+1. **MINOR (high confidence)** â Highlight fill color on the 9.6/9.8/9.6 (x) and -10.03/-9.92/-10.03 (f(x)) cells, crop-relative upper-right (~x 1240â1520, rows 1â2): recreation uses a light **green** fill; original uses a **teal/aqua** tint (semi-transparent over the yellow). Same cells highlighted, different hue.
 
-2. **MINOR â Dashed highlight border geometry/color** (same location). IMG1 draws a thin dark-red (C00000) **rectangular** dashed frame; IMG2 uses a brighter red, slightly thicker, **rounded-corner** dashed frame. Same coverage, different corner treatment and stroke tone. Confidence: high.
+2. **MINOR (medium confidence)** â Dashed highlight outline, same region: recreation's red dashed rectangle has **square corners** and sits tight to the cell block; the original's dashed outline is a **rounded rectangle**, slightly larger and offset a few pixels left/right of the column edges. Cosmetic geometry only; both enclose the same three columns.
 
-3. **MINOR â First slope box border looks faded in IMG2** (slope strip, col 1, ~x 150â200, y ~320). The â4.5 box border is much fainter in IMG2 than the crisp red frame in IMG1. Most consistent with JPEG/video softening rather than a missing border; confidence: lowâmedium.
+3. **MINOR (lowâmedium confidence)** â The two highlighted `3.2` slope cells (crop-relative ~x 1350â1420 and ~x 1490â1560, row 7): recreation draws them with **red** cell borders on a cream fill; in the original the border reads greenish/pale (blurred by upscaling), though the pale-yellow fill matches. Possible border-color mismatch, not resolvable definitively through the JPEG softening.
 
-4. **MINOR â Highlighted f(x) digits appear green-tinted/faded in IMG2** (row 2, cols 14â16). The â10.03 / â9.92 text in IMG2 looks washed toward the fill color versus the solid dark digits in IMG1. Consistent with compression bleed over the teal fill; confidence: low.
+4. **MINOR (high confidence)** â Arrow annotation at top-left (~x 170â230): recreation's white/red arrow is smaller and sits just above the table edge; the original's arrow is larger and overlaps the table border slightly. Same symbol, same target (x = 7 column); scale/position only.
 
-Items 3 and 4 fall under video-capture artifacts per ground rule (e) and are flagged only for completeness.
+## Confirmed matches
+- All row fills (khaki x-row, lavender x-delta, peach x+delta, salmon slope cells, pink next-x) and outer row border colors (purple, brown, green, red) match.
+- Label cells (x, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x) all present, right-aligned, correct text.
+- Column gridlines, 19-column layout, and the top/bottom blue rules and top-right red chrome segment all match.
 
-## Assessment
+No BLOCKER or MAJOR defects found. All 152 cell values are exact; discrepancies are limited to highlight hue, outline corner geometry, and arrow sizing.
 
-All 144 numeric cells, all labels, the slope strip boxing/fill logic, the red-framed next-x row, the row banding, and the highlighted region's coverage (3 columns Ã 2 rows) match exactly. Remaining differences are decorative-color and stroke-shape items on the highlight annotation plus probable compression artifacts â none affect legibility or content.
-
-FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

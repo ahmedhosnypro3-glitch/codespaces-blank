@@ -1,0 +1,32 @@
+## Comparison coverage (settled first, per ground rule a â not scored)
+
+Before the item list, one factual note about what these two windows actually contain, because it limits what can be verified:
+
+- IMG1's content sits **shifted left / wider** than IMG2's: IMG2's line 1 opens with "and âWâ is minimum This"; IMG1 opens with "is minimum This is called **Ridge Regulaâ¦**". The shared tokens ("is minimum This", "oss(X, Y,W)+Î»R(W)") are horizontally offset by roughly **170 px â a third of the crop width** (IMG1's left edge lands around IMG2 xâ170â180, i.e. mid-"Loss"). IMG1 therefore reveals type to the *right* of IMG2's window ("(Î» is a weighting factoâ¦", "is called Ridge Regulaâ¦").
+- Per ground rule (a) I treat the framing as settled and compare only the overlap. Consequence: IMG1's "J(W)=" and "and âWâ" lie outside its window (unverifiable here), and IMG2's window shows the equation terminator "R(W)" with blank band to its right (so IMG1's trailing "(Î» is a weighting facto" is *unverifiable against IMG2*, not scored).
+
+## Discrepancy list (overlapping content only)
+
+**1. MINOR â spacing around "+" in equation.** (equation row, xâ150â230 in IMG1; xâ230â300 in IMG2). Original: `W) + Î» R(W)` with clear spaces. Render: `W)+Î»R(W)` â tight, no space before `+`, no space after `Î»`. Same tokens, same order; typography only. Confidence: high.
+
+**2. MINOR â comma spacing inside the Loss argument.** (IMG1 xâ115; IMG2 xâ180). Original: `Loss(X,Y,W)` â tight commas. Render: `oss(X, Y,W)` â visible space after the first comma. No character is wrong or missing. Confidence: high (for IMG1's spacing), medium on whether this is deliberate.
+
+**3. MINOR (medium confidence) â "R(W)" colour.** (IMG1 xâ215â265; IMG2 xâ255â300). Original: `Î»` bold blue, `R(W)` bold **green** (as in the deck's formula-colour convention). In IMG1 the whole `+Î»R(W)` group reads as one blue bold run; I do not see the green in the render. If real, it is a fill/text-colour mismatch, not a glyph error. Confidence: medium (zoomed JPEG plus small glyphs make the hue read ambiguous).
+
+**4. MINOR â inter-word space before "This".** (line 1, IMG1 xâ150â175; IMG2 xâ330â360). Original shows a wide (double) space: "is minimum  This". Render shows a normal single space. Confidence: medium.
+
+**5. MINOR / UNVERIFIABLE â equation left side and line-lead text.** `J(W)=` and the `L` of `Loss` fall left of IMG1's window; `and âWâ` likewise. I cannot confirm from IMG1 that these are present and correctly set (bold blue `J(W)`, dark-red `Loss`). Note that the *visible* fragment `oss(` is dark-red bold, which matches the original's `Loss` styling, so there is no positive evidence of loss. Confidence: n/a (unverifiable).
+
+**6. NO DEFECT â glyph shapes/characters in the overlap.** `oss(X, Y,W)+Î»R(W)` matches the original character-for-character; `is minimum This` matches; line 3 `s squared distance between Å¶ and Y` matches the original's `n as squared distance between Å¶` on every overlapping glyph. The hat on `Å¶` is present and correctly placed in both; `squared distance` is blue and underlined in both; the bold `Y` is present in both (original's trailing "and Y" is outside IMG2's window but consistent). No wrong digits, no garbled or substituted characters, no missing symbol observed.
+
+**7. NO DEFECT â delimiter geometry.** `(X,Y,W)` parens in both sit tight to the enclosed glyphs and span the full expression height; the `(Î» â¦` opener in IMG1 is a full-height paren matching the original's style. No bracket that fails to span its lines.
+
+**8. NO DEFECT â row/vertical layout.** The three bands (buff caption row â yellow equation row â pink caption row) are in the same order and the text within each band is vertically centred in both windows. Band boundary positions differ by only ~10â15 px between the two crops, consistent with the framing offset noted above.
+
+**9. NO DEFECT (house chrome, rule b).** Purple/dark-red panel rules, gray panel edge and white/gray boxes at the top of both crops are template chrome and are ignored.
+
+## Summary
+
+Everything that is actually comparable in the overlap is **character-for-character correct**: no wrong digit, no swapped value, no missing row/cell, no truncated subscript, no delimiter failure. The only scored items are typographic (letter-spacing around `+`, comma spacing, sentence space) and one possible text-colour mismatch on `R(W)`, all MINOR, plus two unverifiable fragments that fall outside the windows. No BLOCKER or MAJOR defect is demonstrable from this crop pair; the caveat is that the two windows are not content-aligned, so `J(W)=` / `and âWâ` could not be checked here.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region' (with the listed MINOR typographic/colour notes; verify `J(W)=` and the `R(W)` colour on an aligned crop).

@@ -1,0 +1,83 @@
+[info] context header injected: VIEW: left column of lecture slide 10 Recall (gray band bottom, Meaning section, Recall formula box, two speech bubbles, green brace, bottom blue question box), 3x LANCZOS zoom, frame 960x540 | CAPTURE: 470x410 frame-px upscaled 3x, file lane
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 711519
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/08_performance_measure/pool_run/tmp/crops/leftcolumn.png ===
+[winner] images (round 1, attempt 1)
+Coordinate convention: cropâpixels, origin topâleft, reference frame **470 Ã 410** (the â470Ã410 frameâpxâ before the 3Ã Lanczos upscale). All pixel boxes are bestâeffort estimates (Â± a few px); colors are as resolved from the image. Nothing in the left column is illegible. The only uncertainty is exact box edges/quantized colors and where a line is clipped by the right frame edge (noted).
+
+## 1) Text strings (verbatim) + cropâpixel bboxes
+
+**Gray header band**
+- `Correctly Classified (as Positive)` â black, bold, centered â â (100, 6)â(368, 30)
+- `Total objects that should be retrieved (Actual` â black, regular, left â â (26, 38)â(470, 60). Clipped at the right frame edge; the closing `)` and following text are not visible.
+
+**Meaning section (yellow panel)**
+- `Meaning` â red, bold â â (34, 79)â(146, 110)
+- `Does the classifier ` â black â â (34, 112)â(176, 146)
+- `miss` â dark red, underlined â â (176, 112)â(210, 146)
+- ` any of ` â black â â (210, 112)â(258, 146)
+- `Positive` â blue, underlined â â (258, 112)â(322, 146)
+- ` Objects` â black â â (322, 112)â(390, 146). No `?` is visible within this leftâcolumn crop (anything beyond is offâframe).
+
+**Recall formula box**
+- `Recall =` â black, bold â â (44, 206)â(148, 238)
+- `TP` (numerator) â darkâred/maroon, bold â â (244, 182)â(282, 214)
+- `TP + FN` (denominator) â darkâred/maroon, bold â â (204, 220)â(320, 256)
+
+**Two speech bubbles**
+- `Positive` (left bubble) â black, bold â â (88, 288)â(150, 306)
+- `Classified as +ive` (left bubble) â black, bold â â (80, 308)â(198, 330)
+- `Positive` (right bubble) â black, bold â â (214, 288)â(276, 306)
+- `Classified as -ive` (right bubble) â black, bold â â (206, 308)â(334, 330)
+
+**Greenâbrace caption**
+- `All Positive Samples in the Dataset` â red, italic â â (72, 360)â(340, 384)
+
+**Bottom blue question box**
+- `If you said: I picked ALL Positive objects,` â black (`ALL` bold; rest regular) â â (34, 390)â(446, 403)
+- `can I trust you ? At what %?` â black, regular â â (34, 403)â(446, 410). Bottom sits on the lower frame edge; the last line may be very slightly clipped.
+
+**Rightâedge content bleeding into the leftâcolumn crop (outside the left column; included because it overlaps the frame)** â small panel â (398, 205)â(470, 272), clipped at x = 470:
+- `Precision= 18/(18+12)` â black â â (402, 210)â(470, 232)
+- `=60%` â black, with `60%` in blue â â (402, 234)â(470, 262)
+
+## 2) Boxes / rectangles / shapes
+
+- **Gray header band:** rect (0,0)â(470,66); fill lightâgray â #C8C8C8; no visible border; square corners. A thin darkerâgray separator line runs along its bottom edge at y â 66 (full width).
+- **Meaning panel:** rect (28,74)â(452,164); fill pale yellow â #FFF6BF; no distinct visible border; square (rectangular) corners.
+- **Recall box:** rounded rect (30,176)â(392,272); fill white #FFFFFF; border red â #C00000, thickness â 4 px; rounded corners (radius â 18 px).
+- **Left speech bubble:** rounded rect (teardail callout) (78,278)â(202,332); fill pale yellow â #FFF7C2; no distinct visible border; rounded corners (radius â 8 px); small triangular tail on top pointing up toward the numerator/bar.
+- **Right speech bubble:** rounded rect callout (204,278)â(338,332); fill tan/beige â #F7E7C6; no distinct visible border; rounded corners (radius â 8 px); small triangular tail on top pointing up toward the denominator.
+- **Bottom question box:** rectangle (28,388)â(452,408/410); fill pale cyan â #D9F7F7; border blue â #1F4FD8, thickness â 2 px; square corners. Reaches the lower frame edge.
+- **Rightâedge âPrecisionâ panel:** rectangle (398,205)â(470,272), clipped at right frame edge; fill white; thin dark border; square corners.
+
+## 3) Lines / arrows / brace
+
+- **Red underline** under `Correctly Classified (as Positive)`: line (108, 33)â(360, 33), color â #C00000, thickness â 2.
+- **Red underline** under `miss`: (176, 142)â(208, 142), â #A00000, thickness â 1.5.
+- **Blue underline** under `Positive`: (258, 142)â(320, 142), blue â #1F4FD8, thickness â 1.5.
+- **Horizontal fraction bar** in the Recall box: (206, 217)â(316, 217), darkâred/maroon â #A00000, thickness â 2.5.
+- **Callout pointers** from the two bubbles to the fraction: left â triangular tail apex â (252, 218) with base â (150, 278)â(200, 278); right â apex â (268, 218) with base â (240, 278)â(290, 278). Pointer fill matches the bubble fill; no separately colored stroke is visible.
+- **Green brace:** downwardâopening curly brace spanning under the bubbles; color green â #1E9B1E, thickness â 2.5. Endpoints: left tip (80, 336) and right tip (338, 336) both curled slightly upward; central dip to â (209, 362).
+
+## 4) Fraction inside the Recall box
+
+- Layout: **stacked 2âD fraction with a horizontal bar** (not linear/inline).
+- **Numerator:** `TP` â darkâred/maroon bold (same hue family as the box border), on the line above the bar.
+- **Denominator:** `TP + FN` â same darkâred/maroon bold, below the bar.
+- **Bar:** solid horizontal rule in the same darkâred/maroon as the TP text.
+
+## 5) Relative font sizes (ranked, largest â smallest; body sentence â 1.0)
+
+1. `Correctly Classified (as Positive)` â 1.7
+2. `Meaning` (red heading) â 1.5
+3. `Recall =` â 1.35
+4. fraction `TP` / `TP + FN` â 1.3
+5. `Total objects that should be retrievedâ¦` (header line 2) â 1.25
+6. Meaning body sentence (`Does the classifier miss any of Positive Objectsâ¦`) â 1.0
+7. `All Positive Samples in the Dataset` (red italic) â 0.85
+8. speechâbubble labels â 0.8
+9. bottom questionâbox text â 0.8
+10. rightâedge `Precisionâ¦` panel text â 0.8
+

@@ -1,0 +1,24 @@
+You are analyzing a 960x540 lecture-video slide frame (1 CSS px = 1 pt in a 13.33x7.5in PowerPoint build). Produce an EXHAUSTIVE structured transcription for pixel-faithful recreation. Do NOT summarize; enumerate everything.
+
+1. CANVAS/BACKGROUND: exact background color(s) (hex) of the whole frame and of any panels/boxes; any border/frame rectangle around the slide (color, thickness, inset px from each edge).
+
+2. SLIDE NUMBER BADGE: circle position (center px, radius or bbox), fill color, outline color/thickness, numeral text, font size approx px, color.
+
+3. TITLE: exact text, bbox (x0,y0,x1,y1 in px), font color hex, bold?, approx font size px, alignment.
+
+4. SUBTITLE/HEADER LINE: exact text, bbox, color hex, bold, underline (which words), font size px.
+
+5. BODY TEXT LINES: exact text of every line (verbatim, including typos like FBR), bbox of each line, color, font size px, line spacing (px between baselines).
+
+6. ANY ENCLOSING BOX around the text block (white box?): bbox, fill, border.
+
+7. CHART/PLOT: the ROC plot region. Give: plot axes bbox in px (left, right, top, bottom of the axis rectangle), axis line color/thickness, arrowheads?, axis tick labels and their values/positions, axis title labels ('FPR','TPR') — exact text, color hex, bbox, orientation. Grid: color, on/off, major/minor. Background fill of plot area (hex).
+   - EVERY CURVE/LINE: color hex, thickness px, marker style (circle? white-filled? size), approximate polyline points (x,y in axis fraction 0..1) for each curve — list at least 8-12 sample points per curve so it can be re-plotted. Identify: best-model curve (color), middle curve, worst/lowest curve, diagonal reference line, and ALL straight radiating lines from origin (how many, colors, endpoints).
+   - SHADED AREA: which region is shaded (under which curve), fill color hex, alpha/opacity look.
+   - ANNOTATIONS: exact text of each annotation ('Best Model ...' / 'Worst Model ...'), color hex, bbox, font size px, bold; and for EACH ARROW: start point px, end point px, color, thickness, arrowhead direction.
+
+8. COLORS SUMMARY: list every distinct hex color used with what it belongs to.
+
+9. Anything else visible (bottom strip? black bar? other marks): bbox, color.
+
+Be precise with numbers; estimate px from the 960x540 frame. If something is ambiguous, say what and give your best estimate plus alternatives.

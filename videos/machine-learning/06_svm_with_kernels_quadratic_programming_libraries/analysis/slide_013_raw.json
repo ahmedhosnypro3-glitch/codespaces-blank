@@ -1,0 +1,60 @@
+{
+  "slide_title": "SVM Constraint Transformation to Standard QP Form (Gx \u2264 h, Ax = b)",
+  "subtitle_or_header": "Slide 13",
+  "verbatim_text": {
+    "bullets": [
+      "Minimize: [ +1 \u03b1\u2081\u00b2+2 \u03b1\u2081 \u03b1\u2082-5.5 \u03b1\u2081\u03b1\u2083-6 \u03b1\u2081\u03b1\u2084 +2 \u03b1\u2082\u03b1\u2081+4 \u03b1\u2082\u00b2-11 \u03b1\u2082\u03b1\u2083-12 \u03b1\u2082\u03b1\u2084 -5.5 \u03b1\u2083\u03b1\u2081-11\u03b1\u2083\u03b1\u2082+32.5 \u03b1\u2083\u00b2+36\u03b1\u2083\u03b1\u2084 -6\u03b1\u2084\u03b1\u2081-12\u03b1\u2084\u03b1\u2082+36\u03b1\u2084\u03b1\u2083+40\u03b1\u2084\u00b2 ]- [ \u03b1\u2081+\u03b1\u2082+\u03b1\u2083+\u03b1\u2084 ]",
+      "Subject to: \u2211 \u03b1\u2081y\u2081=0 \u2192 \u03b1\u2081+\u03b1\u2082-\u03b1\u2083-\u03b1\u2084=0",
+      "\u03b1\u2081\u22641, \u03b1\u2082\u22641, \u03b1\u2083\u22641, \u03b1\u2084\u22641",
+      "\u03b1\u2081\u22650 \u2192 \u03b1\u2081\u22650, \u03b1\u2082\u22650, \u03b1\u2083\u22650, \u03b1\u2084\u22650",
+      "Quadratic Equation in \u03b1 with constraints",
+      "Constraint simplification: \u03b1\u2081\u22650, \u03b1\u2081\u22641 \u21d2 -\u03b1\u2081\u22640, \u03b1\u2081\u22641",
+      "Gx \u2264 h form: G = [-I; I] (8\u00d74), h = [0,0,0,0,1,1,1,1]\u207f",
+      "Ax = b form: A = [1 1 -1 -1], b = [0]",
+      "Solution: \u03b1\u2081=0.0690, \u03b1\u2082=0.0690, \u03b1\u2083=0.0690, \u03b1\u2084=0.000008"
+    ],
+    "labels": [
+      "Slide 13", "Minimize:", "Subject to:", "Quadratic Equation in \u03b1 with constraints",
+      "G", "h", "A", "b", "Solution", "\u03b1\u2081", "\u03b1\u2082", "\u03b1\u2083", "\u03b1\u2084"
+    ],
+    "equations": [
+      "Minimize: \u00bd \u03b1\u207fP\u03b1 + q\u207f\u03b1",
+      "Subject to: G\u03b1 \u2264 h, A\u03b1 = b",
+      "G = [[-1,0,0,0], [0,-1,0,0], [0,0,-1,0], [0,0,0,-1], [1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]]",
+      "h = [0, 0, 0, 0, 1, 1, 1, 1]\u207f",
+      "A = [1, 1, -1, -1], b = [0]"
+    ]
+  },
+  "layout": {
+    "arrangement": "Top header with slide number 13 at top-right. Main content area: left column with primal formulation and constraint transformation box; center with G matrix, h vector, A row vector, b scalar; right side with Solution box",
+    "regions": [
+      {"name": "header", "position": "top 0-8% full width", "content": "Slide number 13 in yellow badge top-right"},
+      {"name": "primal_block", "position": "left 0-45%, top 10-50%", "content": "Red-bordered peach panel with primal formulation"},
+      {"name": "constraint_box", "position": "left 0-45%, middle 50-65%", "content": "Peach box showing constraint transformation \u03b1\u22650, \u03b1\u22641 \u2192 -\u03b1\u22640, \u03b1\u22641"},
+      {"name": "G_matrix", "position": "center 45-75%, top 10-50%", "content": "Dark navy 4\u00d74 G matrix"},
+      {"name": "h_vector", "position": "center 45-75%, middle 50-60%", "content": "Dark navy h column vector"},
+      {"name": "A_vector", "position": "center-right 75-90%, top 10-30%", "content": "Peach box A = [1 1 -1 -1]\u2081\u00d7\u2084"},
+      {"name": "b_scalar", "position": "center-right 75-90%, middle 30-40%", "content": "Peach box b = [0]\u2081\u00d7\u2081"},
+      {"name": "solution_box", "position": "right 90-100%, top 10-60%", "content": "Peach Solution box with \u03b1 values"}
+    ],
+    "hierarchy": "Primal block top-left, constraint transformation below it, G/h/A/b matrices center, Solution box right"
+  },
+  "visual_elements": [
+    {"type": "panel", "description": "Red-bordered peach primal formulation panel", "colors": ["#FADBD8", "#E74C3C"], "position": "top-left"},
+    {"type": "panel", "description": "Peach constraint transformation box with arrow", "colors": ["#FADBD8"], "position": "mid-left"},
+    {"type": "matrix", "description": "G matrix (4\u00d74) dark navy", "colors": ["#1A1A2E"], "position": "center-left"},
+    {"type": "vector", "description": "h vector, A row vector, b scalar", "colors": ["#1A1A2E", "#FADBD8"], "position": "center-right"},
+    {"type": "panel", "description": "Peach Solution box with \u03b1 values", "colors": ["#FADBD8"], "position": "right"},
+    {"type": "arrow", "description": "Green Solution arrow connecting matrices to solution", "colors": ["#27AE60"], "position": "center to right"}
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#E8E8E8",
+    "title_text": "#E74C3C",
+    "body_text": "#2C3E50",
+    "accents": ["#FADBD8", "#1A1A2E", "#27AE60", "#FFF9C4", "#C00000"]
+  },
+  "typography_notes": "Red all-caps labels, dark navy math font, black serif for equations, yellow badge with black 18pt bold",
+  "animation_state": "Static lecture slide",
+  "recreation_brief": "1. Apply house frame with badge '13'. 2. Title at y=0.28: 'SVM Constraint Transformation to Standard QP Form'. 3. Left column: red-bordered peach panel with primal problem. 4. Below it: peach box with constraint transformation (\u03b1\u22650,\u03b1\u22641 \u2192 -\u03b1\u22640,\u03b1\u22641) with arrow. 4. Center: G matrix (8\u00d74, dark navy), h vector (8\u00d71), A row vector (peach box), b scalar (peach box). 5. Right: peach Solution box with \u03b1\u2081=0.0690, \u03b1\u2082=0.0690, \u03b1\u2083=0.0690, \u03b1\u2084=0.000008. 6. Green arrow from matrices to solution. 7. Professional math format for all equations."
+}

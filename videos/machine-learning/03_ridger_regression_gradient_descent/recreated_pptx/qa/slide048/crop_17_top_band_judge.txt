@@ -1,0 +1,45 @@
+## Comparison â slide 048, top_band (IMG1 recreation vs IMG2 original, matched scale)
+
+### Discrepancies found
+
+**1. Middle column vector and its "Initial W =" label are swapped left-to-right â MAJOR, high confidence**
+- IMG1: the vector (bars + `4 / â2 / â2`) sits at crop xâ558â608, yâ15â125, and the label "Initial W =" is to its **right** at xâ630â750, yâ25â55. The label therefore reads as coming *after* the vector.
+- IMG2: "Initial W =" is at xâ420â535, yâ45â75, and the vector is to its **right** at xâ555â610, yâ15â120.
+- Reading order in the original is `Initial W = [vector] REPEAT â¦`; the recreation renders `[vector] Initial W = REPEAT â¦`. This changes the mathematical statement's structure, not just spacing.
+
+**2. Right-hand table column headers are Zâ Zâ Zâ in the recreation but Zâ Zâ Zâ in the original â MAJOR, medium-high confidence**
+- IMG1: headers at xâ1200â1305, yâ48â72 read `Zâ`, `Zâ`, `Zâ`.
+- IMG2: headers at xâ1200â1300, yâ40â62 read `Zâ`, `Zâ`, `Zâ` (all three subscripts are "1"; the original slide's own labels are repeated). The recreation silently "corrected" the original, which is a character-level change inside a table.
+- Body values themselves match exactly: top row `(0)(7)(3)`, bottom row `(0)(6)(2)`.
+
+**3. Vector delimiter shape changed from parentheses to straight vertical bars â MINOR, high confidence**
+- IMG1: two straight vertical strokes at xâ558 and xâ605, spanning yâ18â125, enclosing `4 / â2 / â2`.
+- IMG2: round parentheses at xâ560 and xâ600 spanning the same three entries. Values and order (4, â2, â2) are correct, but the delimiter geometry is not reproduced.
+
+**4. "REPEAT" colored red in the recreation, black in the original â MINOR, high confidence**
+- IMG1: the whole string `REPEAT using Step Î· = 1` (xâ760â1010, yâ25â55) is red bold.
+- IMG2: `REPEAT` (xâ630â745, yâ25â50) is black bold serif; only `using Step Î· = 1` is red.
+
+**5. Vertical column separators in the "Check classes of" table are missing in the recreation â MINOR, medium confidence**
+- IMG2: thin vertical rules at approximately xâ1195, 1245, 1290, 1330 running through both value rows, giving the table a ruled 3-column look.
+- IMG1: only the parenthesized cells at xâ1210â1330 are present; no column rules.
+
+**6. Left table, second row: recreation adds parentheses the original does not have â MINOR, medium-high confidence**
+- IMG1: row 2 (yâ95â125) is `(1) (1) (2) (4) (5) (6)` with parentheses on every cell.
+- IMG2: row 2 (yâ85â110) is bare `1 1 2 4 5 6`; only row 1 is parenthesized. Digit values are identical and correct in both.
+
+**7. Left table column headers use capital "X" instead of the original's italic lowercase "x" â MINOR, medium confidence**
+- IMG1: headers at xâ60â325, yâ35â58 are bold sans-serif `Xâ â¦ Xâ` (uppercase).
+- IMG2: headers at the same position are math-italic lowercase `xâ â¦ xâ`.
+
+**8. Class labels under the left table use baseline digits instead of subscripts â MINOR, medium confidence**
+- IMG1: bottom row of the left table (xâ58â330, yâ130â155) reads `C1 C1 C1 C2 C2 C2` with full-size baseline digits.
+- IMG2: reads `Câ Câ Câ Câ Câ Câ` with lowered subscripts. (The mid-band legend `Câ positive / Câ negative` in IMG1 does use proper subscripts, so this is an internal inconsistency in the recreation.)
+- Colors are correct: Câ red, Câ blue/purple in both.
+
+**Not counted (per founder ground rules):** house-template chrome (canvas/panel/border colors, badge styling), typed-vs-handwritten ink, and the original crop's JPEG softness. Serifâsans type family across the region is a consistent template typographic choice and is noted only as background, not as a defect.
+
+### Summary
+Values inside both tables are numerically correct, the legend text and colors match, and the equation/vector content (4, â2, â2; Î· = 1; "Zero is unaccepted") is present. However, the "Initial W =" label is on the wrong side of its vector (MAJOR), the right-hand table's headers were altered from `Zâ Zâ Zâ` to `Zâ Zâ Zâ` (MAJOR), plus several minor delimiter, color, rule, parenthesis, case and subscript mismatches.
+
+FINAL VERDICT: FAIL

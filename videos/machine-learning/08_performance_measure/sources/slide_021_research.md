@@ -1,0 +1,13 @@
+# Sources — Slide 21 — Effect of Selecting Threshold Value on Model Performance
+
+Consumed spec: analysis/slide_021_final.json (validation PASS_WITH_FIXES). Frame: unique_slides/slide_021.jpg.
+Method: agy web search + live fetch of every cited page. Query budget: 7 queries across slides 21-27
+shared, not per-slide (P-R tradeoff, sklearn threshold tuning, ROC WWII origin, ROC diagonal/corners,
+sigmoid range, ROC-vs-confusion-matrix, raising-threshold direction). Do-not-reuse list:
+apxml.com/courses/.../precision-recall-tradeoff returns HTTP 403 (failed fetch, 2026-10-28).
+
+- Threshold "(e.g. 0.5)" is the conventional cut-off that turns a model score into a class label: CONFIRMED — Evidently AI, "How to use classification threshold to balance precision and recall" (fetched live) https://www.evidentlyai.com/classification-metrics/classification-threshold — "The threshold determines the minimum probability required for a positive prediction"; 0.5 is the frequent default and moving it trades precision against recall.
+- The "Predicted Value (0 — 1)" box: CONFIRMED — scikit-learn "Tuning the decision threshold for class prediction" (fetched live) https://scikit-learn.org/stable/modules/classification_threshold.html — class labels come from thresholding the conditional probability P(y|X), which is a probability estimate, not a raw label.
+- Model output range read as "[Any value] - (0, +∞)": CORRECTED — the squashed model output lies in (0, 1) (sigmoid sigma(z)=1/(1+e^-z) maps any real value into (0,1), and sigma(0)=0.5), and sibling frames 022/023/024 read "(0, +1)"; the following box is labelled "(0 — 1)" and every plotted score/threshold in slides 21-26 sits in [0,1], so "(0, +1)" is the only coherent reading — "+∞" is a vision-read artifact.
+- Two confusion matrices (legend + numeric) at ONE selected threshold: CONFIRMED — "Receiver operating characteristic", Wikipedia (fetched live) https://en.wikipedia.org/wiki/Receiver_operating_characteristic — a single threshold yields one 2x2 contingency table; "Each prediction result or instance of a confusion matrix represents one point in the ROC space".
+- Numeric cells as read (TP=5, FP=0, FN=4, TN=2): CORRECTED (off-diagonal orientation; verify on frame) — course-authored example data with no source counterpart. The four numbers sum to 11 = the same 11 test samples reused on slides 22-26. Only TP=5, FP=4, FN=0, TN=2 keeps actual positives (5) and actual negatives (6) fixed across the whole series and yields the monotone precision-up / recall-down tradeoff the block demonstrates; as-read values imply precision 1.00 vs recall 0.56 at threshold 0.1 (a U-shape against slide 26). Confirm the two off-diagonal cells against slide_021.jpg before applying.

@@ -142,6 +142,16 @@ eqAt("deriv_l2");
 eqAt("normal");
 
 // ============================================================
+// 6b. RIGHT ARROW between normal equation and green box
+// normal ends at x=229+266=495; green box starts at x=547; gap ~52px
+// arrow centered vertically with normal equation (y_frame 467, h_in 0.74 -> ~53pt)
+// ============================================================
+slide.addShape(pptx.ShapeType.rightArrow, {
+  x: px(500), y: px(470), w: px(45), h: px(20),
+  fill: { color: BLUE }, line: { color: BLUE, width: 1 }
+});
+
+// ============================================================
 // 7. GREEN BOX - the final solution, W underlined in the mathtext
 // ============================================================
 rect(547, 472, 339, 45, GFILL, { color: GRING, width: 1 });

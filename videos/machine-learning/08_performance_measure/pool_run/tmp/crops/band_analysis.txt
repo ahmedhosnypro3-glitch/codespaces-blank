@@ -1,0 +1,34 @@
+[info] context header injected: VIEW: top-left definition band of lecture slide 10 Recall, zoomed 2x crop, frame 960x540 | CAPTURE: 620x100 frame-px upscaled 2x LANCZOS, file lane
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 635817
+[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 330s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/08_performance_measure/pool_run/tmp/crops/band.png ===
+[winner] images (round 1, attempt 2)
+Assumption on coordinates: âcrop pixel coordinatesâ = the captured 620Ã100 frameâpx region (the image shown is that region upscaled 2Ã LANCZOS, so antiâaliasing is soft). Measurements read from the raster, nearest pixel; treat exact RGB and Â±2 px as the uncertainty.
+
+1) Verbatim text strings
+- Top line: `Correctly Classified (as Positive)`
+- Bottom line: `Total objects that should be retrieved (Actually Positive)`
+- No trailing periods.
+
+2) Bounding boxes of text blocks (crop px, origin topâleft)
+- Top text block: x â 231â592, y â 15â39 (tight cap/descender box). Horizontally centered in the band.
+- Bottom text block: x â 75â593, y â 60â86. Longer string; starts near the left inset and ends close to the same right edge as the top line/red rule.
+
+3) Rectangles / lines
+- Main band: rounded rectangle, corners xâ11,yâ4 to xâ619,yâ98 â size â 608 Ã 94. Fill = light gray (â #D9D9D9â#DCDCDC; exact value not reliably resolvable after 2Ã LanczosOS/compression). Outline â1â2 px, darker gray/black (â #6E6E6Eâ#000).
+- Horizontal red divider: see (5). Color dark red (â #8B0000 / maroon; exact not guaranteed).
+- No other distinct rectangles or vertical rules are confidently resolvable; the region outside the band is the light slide background.
+
+4) Font sizes relative to each other
+- Both lines are bold sansâserif, nearâblack/dark charcoal.
+- The top line is clearly larger than the bottom line. From glyph widths, the top line averages â 11.3 px/char over its box; the bottom averages â 9.1 px/char over its much longer box. Fontâsize ratio top:bottom â 1.2 (about 6:5). Cap height â 22â24 px (top) vs â 18â20 px (bottom).
+
+5) Horizontal rules and extent
+- One horizontal rule, dark red, sitting between the two text rows: vertical position y â 42â45 (center â 43), thickness â 3 px. It runs nearly the full inner width of the band: x â 27â594 (length â 567). It is inset from the bandâs left/right borders (band inner edges â x 11 and 619), i.e. it does not touch either side. It is a fullâwidth row divider, not just an underline of the centered top text.
+
+6) Background fill
+- Inside the header band: light gray (â #D9D9D9â#DCDCDC).
+- Outside the band (left/right side margins and the thin top sliver): nearâwhite slide background (â #FFFFFFâ#F5F5F5).
+

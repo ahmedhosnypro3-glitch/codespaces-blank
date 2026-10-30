@@ -1,0 +1,1 @@
+<x_0.0361><y_0.0375>**Quadratic Kernel Mapping and Kernel Trick** 26<x_0.999><y_0.9766><class_Picture>

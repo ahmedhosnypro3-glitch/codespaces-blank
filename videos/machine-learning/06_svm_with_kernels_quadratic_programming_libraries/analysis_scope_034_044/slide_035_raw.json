@@ -1,0 +1,74 @@
+## 1. LAYOUT MAP
+1. Main slide frame: black background filling the entire 960Ã540 capture, hosting a rounded-rectangle presentation slide with red border.
+2. Header bar: red-bordered band across the top of the slide containing the title "How to Kernelize SVM" in centered red text.
+3. Slide-number pill: circular badge top-right of header bar showing "35".
+4. Formula row 1: top box inside the slide containing loss-function formulas â_D(Î±) and its expanded double-summation form.
+5. Formula row 2: box directly below row 1 with the weight vector W formula on the left (blue box) and bias b formula on the right (blue box).
+6. Class-pill strip: horizontal band below row 2 containing "Class of vector Z â sign(WáµZ + b)" on a pink/salmon background.
+7. "Remember" panel: middle section with blue "Remember:" label and a two-column mapping/kernelization explanation.
+8. Kernelized formula row 3: box below the Remember panel repeating â_D(Î±) with W-embedded terms highlighted in green pill ovals.
+9. Formula row 4: box directly below row 3 with W formula (blue box) and bias b formula with green-highlighted WáµX terms.
+10. Bottom class-pill strip: repeats "Class of vector Z â sign(WáµZ + b)" with green-highlighted Z term.
+11. Black letterbox strip: visible at the very bottom edge below the slide frame.
+
+Apparent scale/quality: sharp, rendered presentation slide, no blur or compression artifacts; capture limits judgment only to the slide content itself (no OS chrome or UI chrome visible).
+
+## 2. FIRST-GLANCE TEST
+A brand-new user sees a dense math lecture slide titled "How to Kernelize SVM" with four formula rows and a "Remember" mapping panel â within 3 seconds they understand it is an educational slide about SVMs and kernelization, though the formulas themselves demand study to parse. The apparent actions are purely passive (read / scan), as no buttons, links, or controls are visible. Given the injected VIEW purpose ("SVM/kernels/QP lecture frame"), the focal point should be the title and the kernelization mechanism; the red title wins the eye first, but the duplicated formula blocks create competing focal weight mid-slide, diluting the hierarchy.
+
+## 3. STRENGTHS
+- The red title "How to Kernelize SVM" is large, centered, and high-contrast against the light header, establishing a clear subject immediately (top header bar).
+- Color coding is used consistently and purposefully: green highlights mark kernelized (W-embedded) terms in the bottom formula rows, visually distinguishing the transformed equations from the originals (formula rows 3â4).
+- The slide number "35" sits in a discrete circular pill top-right, a standard presentation convention that orients without competing for attention (slide-number pill).
+
+## 4. DEFECT LIST
+
+- (a) clean â checked, nothing found.
+- (b) clean â checked, nothing found.
+- (c) clean â checked, nothing found.
+- (d) clean â checked, nothing found.
+- (e) clean â checked, nothing found.
+- (f) **HIERARCHY** â [minor|high] formula row 3/4 block âº center â duplicated â_D(Î±), W, b, and class-pill blocks repeat the same content as rows 1â2 with only green highlights added â the eye cannot tell which block is "authoritative" or whether rows 1â2 are obsolete, inverting hierarchy between original and kernelized forms â consolidate into one block with an explicit "before â after" relationship.
+- (g) clean â checked, nothing found.
+- (h) clean â checked, nothing found.
+- (i) clean â checked, nothing found.
+- (j) clean â checked, nothing found.
+- (k) clean â checked, nothing found.
+- (l) **ICONOGRAPHY** â [minor|high] formula rows 3â4 âº green oval highlights â the green pill ovals around WáµX terms look like interactive buttons or tags but have no affordance on a static lecture slide; paired with the arrow glyph "â" inside a pink pill, the visual language mixes math notation with UI chrome â de-emphasize or remove button-like styling so highlights read as annotation only.
+- (m) clean â checked, nothing found.
+- (n) **ACCESSIBILITY & LEGIBILITY** â [minor|med] bottom edge âº black letterbox strip â the black band at the very bottom of the capture clips against the slide frame with unknown height, potentially hiding content below the fold â there is no scroll affordance visible on a static slide, so anything under the band is unreachable.
+- (o) clean â checked, nothing found.
+
+## 5. TOP 3
+1. Â§4(f) duplicated formula blocks create competing authority between original and kernelized equations â most damaging to perceived quality and comprehension.
+2. Â§4(l) green pill ovals mimic clickable UI controls on a static slide â confers false affordance and visual noise.
+3. Â§4(n) bottom black letterbox strip may hide content with no scroll cue â completeness risk at the fold.
+
+## 6. STRUCTURAL PROPOSAL
+1. Merge formula rows 1â2 and 3â4 into a single progressive block: left column "before kernelization" (black terms), right column "after kernelization" (green-highlighted W terms), with an explicit arrow between them â source: formula rows 1â4 block, destination: one unified center block [impact: high, fixes Â§4(f) and Â§4(l)].
+2. Remove the duplicated bottom class-pill strip and fold the class rule into the single formula block as a concluding line â source: bottom class-pill strip, destination: end of unified formula block [impact: medium, removes redundant chrome].
+3. Eliminate the bottom black letterbox strip or confirm it contains no content; if content exists below, it must be reachable (this is a lecture slide, not a scrolling app) â source: bottom edge strip, destination: remove or expose [impact: medium, fixes Â§4(n)].
+No out-of-scope items; reorganization only touches visible regions.
+
+## 7. VERDICT
+- Theme & dark-mode: 8 â clean dark slide frame with light content surfaces; professional and consistent.
+- Typography: 7 â math glyphs are legible at this resolution, but mixed UI-style pill styling on static text feels slightly off-register.
+- Spacing: 8 â formula boxes have comfortable internal padding and clear row separation.
+- Alignment: 8 â left/right formula pairs and centered title are well-aligned.
+- Crowding/density: 7 â dense but not cramped; the duplication is a hierarchy problem, not a density problem.
+- Hierarchy: 5 â duplicated formula blocks split authority between old and new forms; no clear "this is the kernelized version" anchor.
+- Composition: 7 â balanced two-column formula pairs, though bottom strip repeats content unnecessarily.
+- Completeness: 7 â nothing visibly clipped inside the slide, but bottom strip uncertainty.
+- Continuity & consistency: 6 â green highlights and pill styling appear only in the bottom half, creating an inconsistent visual language top-to-bottom.
+- Affordance & states: 5 â pill ovals look like buttons on a non-interactive slide; no actual affordances exist.
+- First-glance clarity: 8 â title and subject are immediately clear.
+- Overall: 7 â a solid lecture slide that would be acceptable in a technical talk, but the duplicated blocks and button-like highlights keep it from feeling polished.
+
+## 8. UNCERTAINTIES
+- The black letterbox strip at the bottom edge has unknown height and may hide slide content; cannot verify if anything is clipped beneath it without a taller capture.
+- Whether the green pill ovals are intentional UI-style annotation or an accidental styling carryover from an interactive prototype cannot be determined from a static image.
+- The slide's relationship to a deck (previous/next navigation, presenter notes) is not visible and out of scope for this single capture.
+
+## 9. VOCABULARY PROPOSALS
+- [proposed] duplicate-block-authority-split: when the same conceptual block (formula, card, panel) renders twice on one screen with only cosmetic differences (highlight color, minor annotation), the user cannot tell which instance is authoritative â flag duplication that competes for the same focal slot rather than treating each instance as independent content.
+- [proposed] ui-chrome-on-static-surface: interactive-styled elements (pills, buttons, outline tags, focus-ring-like glows) applied to non-interactive content (lecture slides, read-only docs, static previews) create false affordance â check computed pointer-events / role on pill-like containers before crediting them as pure decoration.

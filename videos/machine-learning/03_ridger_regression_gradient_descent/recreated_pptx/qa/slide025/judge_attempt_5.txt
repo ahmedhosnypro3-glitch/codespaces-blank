@@ -1,0 +1,33 @@
+## Fidelity check â IMG1 (recreation) vs IMG2 (original lecture frame)
+
+House chrome (gray panel, red L/R/B strokes, missing top stroke, "25" badge, colors of title/label boxes) is treated as intentional per ground rules and is **not** counted as a discrepancy. Text inside the four blue label boxes is verbatim in all four cases ("Concave Function / One Maxima", "Convex Function / One Minima", "Gradient Descent / Path to reach Minima", "Non-Convex / Multiple Minima"), and box size/line structure match well.
+
+---
+
+### Discrepancies (renderable content)
+
+| # | Region | Discrepancy | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Top-right chart panel | The original shows a clear **convex bowl with a minimum** (mesh surface, red curve, red horizontal lines, full axis ticks: 100, 50, 0, â50, â100 and 100/50). The recreation shows an essentially **flat, tilted rainbow plane** â no bowl, no minimum. The panel labeled "Convex Function / One Minima" therefore does not depict a convex function. | **MAJOR (high)** | High |
+| 2 | Top-right chart panel | Axis tick values **50 and â50 are missing** (recreation retains only â100, 0, 100); 3D box/grid lines absent. | MAJOR | High |
+| 3 | Top-left chart panel | Original is a rounded **dome** with a mesh wireframe and axis ticks (0, â5, 2, â2, 0, 2). Recreation renders a **narrow pointed spike** with a smooth (unmeshed) surface, different orientation/aspect, and no 3D axes box or tick labels. | **MAJOR (high)** | High |
+| 4 | Bottom-left chart panel | Original has a full wireframe mesh, a light 3D grid/axes box, and axis tick numbers (â6â¦6, â3â¦3, â1â¦1). All of these are **omitted** in the recreation. | MAJOR | High |
+| 5 | Bottom-left chart panel | **Annotation mapping is wrong.** In the original, "Global Maxima" is above the dominant peak (top of panel), "Local Maxima" is at the right-hand secondary peak, "Local Minima" is below-left (outside the surface), and "Global Minima" is below-right at the deep valley. In the recreation the four labels are relocated onto the surface itself ("Global Minima" at upper-right over a ridge, "Global Maxima" mid-surface in blue), so each label no longer points at the feature it names. | **MAJOR** | High |
+| 6 | Bottom-left chart panel | Labels are placed **on top of the saturated rainbow surface** instead of on white space outside it; "Local Minima" and "Global Minima" nearly collide (ây=358 vs 337) and legibility is reduced. | MAJOR | Medium |
+| 7 | Bottom-right chart panel | Original is a full **rainbow multi-lobed surface (red peak â green â blue trough)** with black contour/spiral gradient-descent trajectories drawn **on** the surface. The recreation is a mostly **monochrome blue/teal U-shaped wall with vertical sides**, no red/green upper terrain, and a single straight near-vertical black stroke that does not follow the terrain. The gradient-descent illustration is therefore not reproduced. | **MAJOR (high)** | High |
+| 8 | Bottom-right chart panel | The black path stroke **starts flush with the top panel border** (xâ680, yâ310) rather than originating inside the surface region; corner gray plot edges differ from the original's framing. | MINOR | Medium |
+| 9 | Whole layout / vertical placement | The entire panel grid sits **higher and slightly compressed** relative to the house panel than in the original: top panels start ~10 px higher, bottom panels' bottom edges are ~20â25 px above the panel's bottom red stroke (recreation leaves a wide empty band above the bottom border; the original's bottom panels sit almost flush with it). Left-column bottom panel is also ~8â10 % shorter. | MAJOR (alignment/size) | Medium |
+| 10 | Title | Original title "Types of Loss function shapes" spans ~337 px; recreation spans ~300 px â recreation's title is ~10 % smaller/narrower, with slightly smaller cap height. | MINOR | Medium |
+| 11 | Top-left chart | Recreation's surface runs flush into the panel's bottom-left border (effectively clipped by the frame) whereas the original's dome is framed with margin. | MINOR | LowâMedium |
+
+### Visual-quality defects in the recreation
+- Bottom-left panel: four annotation labels crowd the plot area and overlap the rainbow surface; "Local Minima" sits immediately under "Global Minima" with almost no separation.
+- Bottom-left panel: label color is inconsistent with the original (the "Global Maxima" label renders in blue, others dark), reducing contrast against the colored surface.
+- Top-left and top-right panels: lack of any mesh/grid/tick marks makes the surfaces read as abstract rainbow blobs rather than measured 3D plots.
+- Bottom-right panel: the flat-sided U geometry with a vertical black line looks like a partially rendered/placeholder graphic rather than the intended gradient-descent-on-surface figure.
+- No text overflow, wrapping, or clipping in the four blue label boxes or the title; the red horizontal guide lines match the original's behavior (they extend past the chart borders in the original as well).
+
+### Overall
+Text and label-box content are faithful, but all four scientific figures are wrong renderings (wrong shapes, missing meshes, missing axis ticks, wrong annotation placement, wrong color scheme and wrong gradient-descent path), and the content block is vertically mispositioned/compressed relative to the original.
+
+**FINAL VERDICT: FAIL**

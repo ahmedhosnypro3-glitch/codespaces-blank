@@ -1,0 +1,19 @@
+chat lane probe failed — running degraded: chat: giving up after 1 attempts — last failure: TimeoutError: timed out
+Traceback (most recent call last):
+  File "/home/codespace/.agents/skills/doc-parse/scripts/crop_cascade.py", line 83, in <module>
+    main()
+    ~~~~^^
+  File "/home/codespace/.agents/skills/doc-parse/scripts/crop_cascade.py", line 79, in main
+    sys.exit(cascade.run())
+             ~~~~~~~~~~~^^
+  File "/home/codespace/.agents/skills/doc-parse/scripts/cascade_runner.py", line 130, in run
+    parsed = self.parse_root()
+  File "/home/codespace/.agents/skills/doc-parse/scripts/cascade_runner.py", line 113, in parse_root
+    img_w, img_h = cb.image_size(self.image)
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/codespace/.agents/skills/doc-parse/scripts/cascade_blocks.py", line 247, in image_size
+    with Image.open(src) as image:
+         ~~~~~~~~~~^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/site-packages/PIL/Image.py", line 3654, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide005/regions/bottom_right_matrix/slide_005_bottom_right_matrix.png'

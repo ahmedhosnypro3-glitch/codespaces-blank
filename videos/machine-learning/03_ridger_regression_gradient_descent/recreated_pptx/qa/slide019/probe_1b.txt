@@ -1,0 +1,97 @@
+**1. Verbatim visible text**
+
+Top-left blue-bordered box:
+```
+Test Data
+
+Z1 = [30]   Z2 = [40]   Z3 = [56]
+        [15]        [20]        [25]
+
+y=60        y=80        y=100
+```
+(Note: `Zâ`, `Zâ`, `Zâ` rendered as plain `Z1`, `Z2`, `Z3` in transcription; the image shows subscript numerals.)
+
+Top-right corner:
+```
+19
+```
+inside a yellow circle with a thin blue outline.
+
+Left vertical header column (Outlier section):
+```
+Outlier
+Xs = [11]
+        [3]
+[22]   [in yellow highlighted box]
+[30]
+        [3]
+[22]
+[60]
+        [3]
+[22]
+```
+(Each row shows a column vector on white background, then a yellow box with `22`.)
+
+Column 2 header: `NO Regularizer with (as if Î»=0)`
+
+Column 3 header: `Ridge Regularizer with Î»=3`
+
+Column 4 header: `Ridge Regularizer with Î»=10`
+
+Repeated across each cell block:
+```
+W = [ 0  ]
+    [ 2  ]
+    [ 0  ]
+||W||Â²=4
+```
+(second row shows `||W||Â²=8.11`, third row `||W||Â²=16.7` in column 2; other columns show different values.)
+
+Tables contain headers: `Testâ`, `Testâ`, `Testâ`
+
+Table rows:
+```
+xâ    30    40    50
+xâ    15    20    25
+y     60    80    100
+```
+(Values vary per cell block, e.g. `32.4`, `42.3`, `52.3`, `59`, `78.7`, `98.4`, etc.)
+
+Full transcription of table contents by column/row:
+
+**Column 2 (NO Regularizer):**
+Row 1: W=[0,2,0]áµ, ||W||Â²=4 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 60, 80, 100  
+Row 2: W=[2.7, 0.67, 0.64]áµ, ||W||Â²=8.11 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 32.4, 42.3, 52.3  
+Row 3: W=[4, 0.29, 0.78]áµ, ||W||Â²=16.7 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 24.4, 31.2, 38
+
+**Column 3 (Ridge Î»=3):**
+Row 1: W=[0.1, 1.95, 0.03]áµ, ||W||Â²=3.8 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 59, 78.7, 98.4  
+Row 2: W=[1.2, 0.72, 0.77]áµ, ||W||Â²=2.45 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 34.1, 45.1, 56.1  
+Row 3: W=[1.77, 0.32, 0.99]áµ, ||W||Â²=4.2 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 26.2, 34.4, 42.5
+
+**Column 4 (Ridge Î»=10):**
+Row 1: W=[0.13, 1.87, 0.09]áµ, ||W||Â²=3.5 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 57.4, 76.5, 95.6  
+Row 2: W=[0.54, 0.73, 0.81]áµ, ||W||Â²=1.48 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 34.6, 46, 57.4  
+Row 3: W=[0.82, 0.33, 1.1]áµ, ||W||Â²=1.92 â xâ: 30, 40, 50; xâ: 15, 20, 25; y: 26.8, 35.4, 44.1
+
+---
+
+**2. Layout description**
+
+- **Top edge:** Grey background strip occupying the full width. Top-left contains the blue-bordered `Test Data` box. Top-right contains a yellow circle with `19`.
+- **Left edge:** A narrow vertical column titled `Outlier` containing three large column-vector blocks (`[11, 3]`, `[30, 3]`, `[60, 3]`) each paired with a yellow box showing `22`. A thin red border runs along the extreme left edge of the entire slide.
+- **Right edge:** The fourth panel (`Ridge Regularizer with Î»=10`) extends to near the right edge; a thin green border runs along the extreme right edge.
+- **Bottom edge:** A thin red border runs along the bottom edge. The lowest table rows (`y: ...`) sit just above this border.
+
+The slide is organized as a grid: one left label column followed by four content columns (one `Test Data` summary box at top, then three method columns below: NO Regularizer, Ridge Î»=3, Ridge Î»=10). Each content column contains three stacked row-blocks corresponding to the three outlier vectors.
+
+---
+
+**3. Visual defects**
+
+- The top `Test Data` box has subscript notation rendered as plain `Z1`, `Z2`, `Z3` rather than formatted subscripts (`Zâ`, `Zâ`, `Zâ`); whether this is a transcription artifact or an actual formatting issue in the slide is unclear from the image alone.
+- Some W-vector entries appear to overlap vertically with adjacent entries (e.g., in the Î»=10 column row 1, `0.13`, `1.87`, `0.09` are tightly stacked).
+- No text is clipped at the slide edges; all content appears fully within the red boundary frame.
+- No placeholder or garbage strings are visible.
+- All text is in English; no wrong-language text is present.
+- The slide number `19` appears in the top-right, despite the slide filename referencing `Slide 019`.

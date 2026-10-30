@@ -1,0 +1,143 @@
+{
+  "slide_title": "Training Vectors / Test Vectors (QP Formulation)",
+  "subtitle_or_header": "Use C=1",
+  "verbatim_text": {
+    "bullets": [
+      "Minimize L_D(\u03b1) = 1/2 \u2211_{j=1}^N \u2211_{i=1}^N \u03b1_i \u03b1_j y_i y_j [X_i^T X_j + 1]^2 - \u2211_{i=1}^N \u03b1_i",
+      "Subject to: - [\u03b11+\u03b12+\u03b13+\u03b14]",
+      "\u2211 \u03b1_i y_i = 0",
+      "\u03b11+\u03b12-\u03b13-\u03b14=0",
+      "\u03b11\u22641, \u03b12\u22641, \u03b13\u22641, \u03b14\u22641",
+      "\u03b1_i \u2265 0, \u03b11\u22650, \u03b12\u22650, \u03b13\u22650, \u03b14\u22650"
+    ],
+    "labels": [
+      "Training Vectors",
+      "Test Vectors",
+      "Use C=1",
+      "38",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "T1 T2 T3",
+      "X1 X2 X3 X4",
+      "X1",
+      "Minimize:",
+      "Subject to:"
+    ],
+    "equations": [
+      "L_D(\u03b1) = 1/2 \u2211_{j=1}^N \u2211_{i=1}^N \u03b1_i \u03b1_j y_i y_j [X_i^T X_j + 1]^2 - \u2211_{i=1}^N \u03b1_i",
+      "\u2211 \u03b1_i y_i = 0",
+      "\u03b11+\u03b12-\u03b13-\u03b14=0",
+      "\u03b11\u22641, \u03b12\u22641, \u03b13\u22641, \u03b14\u22641",
+      "\u03b1_i \u2265 0",
+      "Matrix: [4.5, 12.5, -72, -84.5; 12.5, 40.5, -264.5, -312.5; -72, -264.5, 2178, 2664.5; -84.5, -312.5, 2664.5, 3280.5]"
+    ]
+  },
+  "layout": {
+    "arrangement": "Two-column header row: 'Training Vectors' top-left and 'Test Vectors' top-right; light-yellow 'Use C=1' pill plus slide number '38' in the top-right corner. Upper-middle: labeled data table with 4 feature columns (x1-x4) and row labels T1-T3 (training) / X1-X4 (test). Lower half split into two blocks: left 'Minimize:' block containing the Lagrangian L_D(\u03b1) and a bracketed 4\u00d74 coefficient matrix (16 entries); right 'Subject to:' block containing 5 constraint lines (expanded linear term -[\u03b11+\u03b12+\u03b13+\u03b14]; equality \u2211\u03b1_i y_i = 0; equality \u03b11+\u03b12-\u03b13-\u03b14=0; upper bounds \u03b11\u22641, \u03b12\u22641, \u03b13\u22641, \u03b14\u22641; lower bounds \u03b1_i\u22650).",
+    "regions": [
+      {
+        "name": "header",
+        "position": "top",
+        "content": "Bold titles 'Training Vectors' (left) and 'Test Vectors' (right) in #333333; #FFF9C4 'Use C=1' pill and slide number '38' at top-right"
+      },
+      {
+        "name": "data_matrix",
+        "position": "upper middle",
+        "content": "Table with 4 feature column headers x1, x2, x3, x4; row labels T1, T2, T3 (training) and X1, X2, X3, X4 (test); numeric cell values not captured in source [?]"
+      },
+      {
+        "name": "minimize_block",
+        "position": "lower middle left",
+        "content": "'Minimize:' label; Lagrangian L_D(\u03b1) = 1/2 \u2211\u2211 \u03b1_i \u03b1_j y_i y_j [X_i^T X_j + 1]^2 - \u2211 \u03b1_i; bracketed 4\u00d74 coefficient matrix with 16 entries (4.5 ... 3280.5)"
+      },
+      {
+        "name": "subject_to_block",
+        "position": "lower middle right",
+        "content": "'Subject to:' label; 5 lines: -[\u03b11+\u03b12+\u03b13+\u03b14]; \u2211 \u03b1_i y_i = 0; \u03b11+\u03b12-\u03b13-\u03b14=0; \u03b11\u22641, \u03b12\u22641, \u03b13\u22641, \u03b14\u22641; \u03b1_i \u2265 0"
+      }
+    ],
+    "hierarchy": "Header titles > Use C=1 callout > data table > Minimize equation + 4\u00d74 matrix > Subject-to constraint lines"
+  },
+  "visual_elements": [
+    {
+      "type": "section_header",
+      "description": "Two bold column-group headers: 'Training Vectors' (top-left) and 'Test Vectors' (top-right)",
+      "colors": [
+        "#333333"
+      ],
+      "position": "top left / top right"
+    },
+    {
+      "type": "parameter_callout",
+      "description": "Light-yellow pill containing 'Use C=1' plus slide number '38' beside it",
+      "colors": [
+        "#FFF9C4",
+        "#333333"
+      ],
+      "position": "top right"
+    },
+    {
+      "type": "data_table",
+      "description": "Labeled table: 4 feature columns (x1-x4), row labels T1-T3 and X1-X4; numeric cell values not captured in source [?]",
+      "colors": [
+        "#000000"
+      ],
+      "position": "upper middle"
+    },
+    {
+      "type": "equation_block",
+      "description": "'Minimize:' label + Lagrangian L_D(\u03b1) + bracketed 4\u00d74 coefficient matrix (16 entries: 4.5, 12.5, -72, -84.5; 12.5, 40.5, -264.5, -312.5; -72, -264.5, 2178, 2664.5; -84.5, -312.5, 2664.5, 3280.5)",
+      "colors": [
+        "#000000"
+      ],
+      "position": "lower left"
+    },
+    {
+      "type": "constraint_block",
+      "description": "'Subject to:' label + 5 constraint lines (1 expanded linear term, 2 equalities, 4 upper bounds \u03b1_i\u22641, lower bounds \u03b1_i\u22650)",
+      "colors": [
+        "#000000"
+      ],
+      "position": "lower right"
+    }
+  ],
+  "imagery": "None \u2014 the slide contains no photographs, icons, charts, or diagrams; only text, equations, and one numeric table.",
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#333333",
+    "body_text": "#333333",
+    "accents": [
+      "#FFF9C4"
+    ]
+  },
+  "typography_notes": "Sans-serif for headers and body text; all math in serif italic with true subscripts (\u03b1_i, y_i, x1-x4) and superscripts (squares, transposes); matrix coefficients aligned in a tabular grid.",
+  "animation_state": "Not specified in source; treat as a static slide with no animations or transitions.",
+  "recreation_brief": "1. Set the slide background to solid white (#FFFFFF). The slide contains no images, icons, or charts \u2014 text, equations, and one table only.\n2. Header row, top of slide: place the text 'Training Vectors' at the top-left in bold sans-serif, color #333333; place the text 'Test Vectors' at the top-right (above the right-hand table area) in bold sans-serif, color #333333. These are the two column-group headers.\n3. Top-right corner: draw a light-yellow (#FFF9C4) rounded-rectangle pill containing the text 'Use C=1' in #333333; place the slide number '38' immediately adjacent in the same top-right strip, color #333333.\n4. Upper-middle, directly below the header row: build the data table spanning under both headers. Column headers exactly 'x1', 'x2', 'x3', 'x4' (4 columns). Row labels: 'T1', 'T2', 'T3' under the Training Vectors side and 'X1', 'X2', 'X3', 'X4' under the Test Vectors side. All table text #000000. Mark every data cell '[?]' \u2014 the source analysis did not capture the numeric cell values; do not invent numbers.\n5. Lower-left block: place the label 'Minimize:' in #000000, then render the equation exactly as: L_D(\u03b1) = 1/2 \u2211_{j=1}^N \u2211_{i=1}^N \u03b1_i \u03b1_j y_i y_j [X_i^T X_j + 1]^2 - \u2211_{i=1}^N \u03b1_i \u2014 serif italic math with real subscripts/superscripts, color #000000.\n6. Same lower-left block, below step 5: render a bracketed 4\u00d74 matrix with exactly these 16 coefficients, rows top-to-bottom: [4.5, 12.5, -72, -84.5]; [12.5, 40.5, -264.5, -312.5]; [-72, -264.5, 2178, 2664.5]; [-84.5, -312.5, 2664.5, 3280.5]. Align all coefficients in a tabular grid, color #000000.\n7. Lower-right block: place the label 'Subject to:' in #000000, then list these 5 lines in order, serif italic math, #000000: (a) '- [\u03b11+\u03b12+\u03b13+\u03b14]'; (b) '\u2211 \u03b1_i y_i = 0'; (c) '\u03b11+\u03b12-\u03b13-\u03b14=0'; (d) '\u03b11\u22641, \u03b12\u22641, \u03b13\u22641, \u03b14\u22641'; (e) '\u03b1_i \u2265 0' (i.e., \u03b11\u22650, \u03b12\u22650, \u03b13\u22650, \u03b14\u22650).\n8. Typography: sans-serif for the two headers and any body text (#333333); serif italic for all math variables with proper subscripts and superscripts; matrix coefficients tabularly aligned.\n9. Final check: the only accent color on the slide is the #FFF9C4 'Use C=1' pill; all other text is #333333 (headers/body) or #000000 (table, equations, constraints); background remains #FFFFFF; no additional decorative elements.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "animation_state was null \u2192 filled with 'static slide, no animation data in source'.",
+      "imagery was an empty array \u2192 filled with explicit 'none' statement (text/equations/table only).",
+      "Normalized label 'X1 X2 x3 x4' \u2192 'X1 X2 X3 X4' (inconsistent casing treated as extraction artifact).",
+      "Removed unsupported 'monospace' font instruction from the original brief; typography_notes specify serif italic math with tabularly aligned matrix coefficients.",
+      "Replaced vague phrases ('data table/matrix region', 'numeric values') with exact counts: 4 feature columns, 4\u00d74 matrix = 16 coefficients, 5 subject-to lines.",
+      "Assigned the 4\u00d74 numeric matrix to the minimize_block (where the equations list places it) and explicitly marked the upper table's cell values as not captured instead of implying they exist.",
+      "Rewrote recreation_brief as a 9-step ordered checklist with exact text, position, hex color, and element type per step."
+    ],
+    "uncertain_items": [
+      "Numeric cell values of the upper Training/Test vectors table are absent from the source JSON; only labels x1-x4, T1-T3, X1-X4 are known \u2014 cells rendered as [?].",
+      "Bullet 'Subject to: - [\u03b11+\u03b12+\u03b13+\u03b14]' reads as the expanded linear term -(\u03b11+\u03b12+\u03b13+\u03b14) of the Minimize objective rather than a constraint; kept verbatim under 'Subject to:' per the bullet grouping \u2014 placement unverifiable without the image.",
+      "Title suffix '(QP Formulation)' does not appear in the extracted labels; retained because the Minimize/Subject-to content is derivably a QP formulation.",
+      "Standalone label 'X1' may duplicate the first test-vector row label; its exact role in the table is unresolved.",
+      "Exact visual form of the 'expanded \u03b11-\u03b14 polynomial' in the Minimize block beyond the bracketed 4\u00d74 matrix is not specified.",
+      "Ambiguity whether the 4\u00d74 numeric matrix appears only in the Minimize block or is duplicated in the upper data region; assigned to the Minimize block only."
+    ],
+    "recreatability_score_1_to_10": 7
+  },
+  "_meta": {
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 328.7
+  }
+}

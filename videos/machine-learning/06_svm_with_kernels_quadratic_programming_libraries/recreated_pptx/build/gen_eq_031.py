@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+"""Generate the six kernel equations for slide_031 as 2-D mathtext PNGs.
+
+Each equation is one render_math.py row of color:latex segments ("||"
+separated). PNGs land in eq_031/ at 600 dpi with manifest.json (w_in/h_in =
+px/600) so slide_031.js can addImage() at exact size, never rescaled.
+Font pt is chosen per equation: tall enough to fill ~85% of the spec box
+height, capped so the width stays inside the panel (cap_w).
+"""
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import numpy as np
+import render_math
+from PIL import Image
+
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eq_031")
+os.makedirs(OUT, exist_ok=True)
+
+W, H = 13.33, 7.5
+DPI = render_math.DPI
+
+
+def box(x0, y0, x1, y1):
+    return (x0 * W, y0 * H, (x1 - x0) * W, (y1 - y0) * H)
+
+
+# name -> (row, spec box, max width cap in inches)
+EQS = {
+    "eq1": ("CC0000:\\boldsymbol{K}||000000:(a,b)=||CC0000:a||000000:{}^{T}||CC0000:b",
+            (0.121, 0.246, 0.217, 0.289), 2.80),
+    "eq2": ("CC0000:\\boldsymbol{K}||000000:(a,b)=[||CC0000:a||000000:{}^{T}||CC0000:b||000000:]^{2}",
+            (0.125, 0.387, 0.235, 0.431), 2.60),
+    "eq3": ("CC0000:\\boldsymbol{K}||000000:(a,b)=[||CC0000:a||000000:{}^{T}||CC0000:b||000000: + 1]^{2}",
+            (0.408, 0.387, 0.535, 0.431), 3.30),
+    "eq4": ("CC0000:\\boldsymbol{K}||000000:(a,b)=[||CC0000:a||000000:{}^{T}||CC0000:b||000000:]||CC0000:{}^{d}",
+            (0.121, 0.533, 0.238, 0.580), 2.70),
+    "eq5": ("CC0000:\\boldsymbol{K}||000000:(a,b)=[||CC0000:a||000000:{}^{T}||CC0000:b||000000: + 1]||CC0000:{}^{d}",
+            (0.408, 0.533, 0.560, 0.580), 3.30),
+    "eq6": ("CC0000:\\boldsymbol{K}||000000:(a,b)=[||CC0000:e||CC0000:{}^{-\\gamma}||000000:{}^{\\|a-b\\|^{2}}||000000:]",
+            (0.129, 0.717, 0.333, 0.770), 4.60),
+}
+
+PROBE_PT = 18.0
+manifest = {}
+for name, (row, b, cap_w) in EQS.items():
+    x, y, box_w, box_h = box(*b)
+    probe = render_math.render_row(row, PROBE_PT)
+    ink = probe[:, :, 3] > 40
+    ys, xs = np.nonzero(ink)
+    ink_w = (xs.max() - xs.min() + 1) / DPI
+    ink_h = (ys.max() - ys.min() + 1) / DPI
+    pt_h = PROBE_PT * (0.85 * box_h) / ink_h
+    pt_w = PROBE_PT * cap_w / ink_w
+    pt = min(pt_h, pt_w, 42.0)
+    canvas = render_math.render_row(row, pt)
+    path = os.path.join(OUT, name + ".png")
+    Image.fromarray(canvas).save(path)
+    w_in, h_in = canvas.shape[1] / DPI, canvas.shape[0] / DPI
+    manifest[name] = {"file": name + ".png", "x": round(x, 4), "y": round(y, 4),
+                      "w_in": round(w_in, 5), "h_in": round(h_in, 5), "pt": round(pt, 2)}
+    print(name, "w_in=%.3f h_in=%.3f pt=%.1f" % (w_in, h_in, pt))
+
+with open(os.path.join(OUT, "manifest.json"), "w") as fh:
+    json.dump(manifest, fh, indent=2)

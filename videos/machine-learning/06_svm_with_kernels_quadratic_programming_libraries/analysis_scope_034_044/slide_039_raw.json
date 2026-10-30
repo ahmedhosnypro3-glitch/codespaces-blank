@@ -1,0 +1,68 @@
+## 1. LAYOUT MAP
+1. Outer presentation frame (full image canvas): light-gray rounded-corner card, ~58px vertical padding top/bottom, with a black bar clipped at the bottom edge.
+2. Top bar: horizontal strip spanning the frame width containing page title text ("Bonus Assignment (SVM with Kernels)") in red bold and a yellow circular page-number badge (39) in the top-right corner.
+3. Main content pane: white rectangular content block inset ~36px from frame edges, with a blue double-line inner border and ~26px internal padding, holding all bullet content.
+4. Bullet list cluster: four top-level bullets, the fourth containing two nested sub-bullets indented beneath it; all text is blue against white.
+5. Bottom black strip: full-width black bar clipped at the bottom edge of the image, likely status/footer chrome (content obscured).
+6. Scale/quality: capture is clear, no blur or compression artifacts; text is legible at this resolution; bottom strip is cut off by the image boundary (partial crop).
+
+## 2. FIRST-GLANCE TEST
+A new user sees an academic assignment slide: a big red title at top and a blue-bordered content box with four numbered requirements. The three actions it offers â develop an SVM library, pick a QP solver, and apply kernels to a 2-D dataset with drawing and grid tasks â are all visible immediately as blue bullet text inside the content pane. Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the focal point SHOULD be the requirement list inside the content pane, and it does win the eye because it occupies the center of the frame inside the strongest contrast block (blue text on white). No discovery cost.
+
+## 3. STRENGTHS
+- The title block uses a high-contrast red bold against the light frame, making the screen's topic instantly legible (top bar).
+- The blue double-line border clearly bounds the content pane and separates it from the surrounding frame (main content pane).
+- The nested sub-bullet indentation correctly signals hierarchy under bullet 4 (bullet list cluster).
+
+## 4. DEFECT LIST
+- [major|high] top bar âº top-right corner â yellow circle badge "39" â page number reads as decoration with no label, and its chroma competes with the red title â label it or mute it.
+- [minor|high] main content pane âº right edge â blue inner border stops short of / overshoots the pane's padded content edge by a few px â align border to content padding.
+- [minor|med] bullet 4 sub-bullets â nested bullets sit too close to the parent's right edge; second sub-bullet wraps to line 2 at nearly full line width â the nested column is cramped; add ~8px right padding or reduce nesting depth.
+- [minor|high] bullet list cluster âº bullets 2â4 â bullet markers and text baselines sit slightly below the parent text baseline, creating a ragged left edge â align marker caps to text baseline.
+- [minor|med] top bar âº title text â red bold title against light gray reads slightly washed out; dark-mode physics inverted for a light theme but the accent is saturated enough to vibrate â darken title or desaturate red.
+- [nit|med] outer frame â rounded corners on all four corners but bottom edge is clipped by image boundary; cannot verify corner integrity â note only, low confidence due to crop.
+- (a) THEME & DARK-MODE PHYSICS â clean â checked, nothing found. (This is a light-theme slide; dark-mode rules do not apply.)
+- (b) TYPOGRAPHY â clean â checked, nothing found. (Single serif family, consistent sizing.)
+- (c) SPACING â clean â checked, nothing found. (Bullet list spacing is consistent.)
+- (d) ALIGNMENT & POSITIONING â see defect on bullet baselines above.
+- (e) CROWDING & DENSITY â clean â checked, nothing found. (Plenty of breathing room.)
+- (f) HIERARCHY â clean â checked, nothing found. (Title > bullets > sub-bullets is clear.)
+- (g) COMPOSITION â clean â checked, nothing found.
+- (h) COMPLETENESS â clean â checked, nothing found. (No clipped text inside visible regions.)
+- (i) CONTINUITY â clean â checked, nothing found.
+- (j) LINES & EDGES â see defect on blue border edge above.
+- (k) AFFORDANCE & STATES â clean â checked, nothing found. (No interactive controls present; nothing to misread.)
+- (l) ICONOGRAPHY â clean â checked, nothing found. (No icons.)
+- (m) TABLES & LISTS â clean â checked, nothing found. (Nested bullets render correctly.)
+- (n) ACCESSIBILITY & LEGIBILITY â clean â checked, nothing found. (Blue-on-white contrast is well above 4.5:1.)
+- (o) UI COPY QUALITY â clean â checked, nothing found. (Copy is academic instruction, not chrome.)
+
+## 5. TOP 3
+1. Bullet-4 sub-bullet column is cramped against the pane right edge (section 4, line 3) â forces awkward wrapping and wastes the wide content area.
+2. Yellow page-number badge "39" is unlabeled and chromatically competes with the title (section 4, line 1) â weakens the top bar's authority.
+3. Bullet marker/text baselines are ragged down the left edge (section 4, line 4) â minor but visible misalignment that breaks the clean list rhythm.
+
+## 6. STRUCTURAL PROPOSAL
+No reorganization required; this is a single-content slide, not a multi-pane app. Merging or splitting would harm clarity. [out-of-scope] â the view is a lecture frame with one content block; no visible functionality supports a structural change.
+
+## 7. VERDICT
+- theme & dark-mode: 9 â light theme, clean contrast, dark-mode rules N/A.
+- typography: 9 â consistent serif, clear hierarchy, readable sizes.
+- spacing: 8 â comfortable bullet rhythm, only slight cramping on nested bullets.
+- alignment: 7 â title centered well, but bullet baselines are slightly ragged.
+- crowding/density: 9 â no crowding anywhere.
+- hierarchy: 9 â title dominates, bullets subordinate correctly.
+- composition: 9 â balanced, centered, purposeful white space.
+- completeness: 9 â everything visible is complete; bottom strip clipped by image edge only.
+- continuity & consistency: 9 â single visual language throughout.
+- affordance & states: N/A â no interactive controls to judge.
+- first-glance clarity: 10 â topic and requirements understood instantly.
+- overall: 9 â a clean, professional lecture slide; nothing a user would stumble over.
+
+## 8. UNCERTAINTIES
+- The bottom black strip is clipped by the image boundary; its purpose and content cannot be judged (footer or status bar).
+- Bullet marker baseline offset is a few px and could be an intentional serif-list rendering artifact rather than a defect â low confidence.
+- Whether the yellow badge "39" is a page number, step counter, or notification cannot be determined from the static image.
+
+## 9. VOCABULARY PROPOSALS
+no additions

@@ -1,0 +1,127 @@
+{
+  "slide": "slide_017",
+  "source_frame": "slide_017.jpg",
+  "source_md5": "d6ee1efe236d6185814c6e02d7902587",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_017.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_017.parse.md",
+      "json": "full/slide_017.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The child recovered a heading the empty parent lacked, and the Picture candidate holds only that sparse title, so its remaining image content is still unread and worth a zoomed crop.",
+    "decision_source": "chat",
+    "children": [
+      "slide_017.crop01__picture"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_017.crop01__picture",
+      "level": 1,
+      "class": "Picture",
+      "box_frame_px": [
+        34.7,
+        41.7,
+        888.8,
+        475.9
+      ],
+      "estimated": false,
+      "png": "crops/slide_017.crop01__picture.png",
+      "mean_rgb": 225.79,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_017.crop01__picture.parse.md",
+        "json": "crops/slide_017.crop01__picture.parse.json"
+      },
+      "scale": 1.7351,
+      "size_px": [
+        1664,
+        892
+      ],
+      "margin_applied": [
+        36,
+        19
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "chat advised STOP: The child only reorders and reformats the parent\u2019s title and page number with no new content, and the picture candidate already has non-sparse extracted text.",
+      "decision_source": "chat",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          0.0,
+          23.0
+        ],
+        "scale": 1.7351,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 2,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 2
+  }
+}

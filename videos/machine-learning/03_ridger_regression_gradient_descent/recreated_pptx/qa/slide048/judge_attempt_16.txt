@@ -1,0 +1,61 @@
+# Element-by-Element Fidelity Check â Slide 048
+
+## Ground-rule dispositions (settled first, not raised again)
+- House panel (gray E9E9E7, red C00000 left/right/bottom strokes, **no top stroke**), yellow "48" badge at (876,73): present in IMG1 as specified â **not discrepancies**.
+- IMG2 mouse cursor near "unaccepted": video artifact, correctly omitted â **not a discrepancy**.
+- Typed-vs-handwritten ink: medium difference â **not a discrepancy**.
+
+---
+
+## Discrepancies (recreation vs original)
+
+**D1 â Header: initial W vector is dislocated from its equation. BLOCKER-adjacent / MAJOR (high confidence).**
+In IMG2, the vector (4; â2; â2) sits immediately after "Initial **W** =" with parentheses. In IMG1, the "4 / â2 / â2" column floats ~200px to the LEFT of the text "Initial W = REPEAT using Step Î· = 1", above "Check classes of", with no "=" attachment and no parentheses. Reading order is broken: the header reads "Initial W = REPEATâ¦" with an orphaned number column. This is a placement/association defect, MAJOR.
+
+**D2 â Header W vector has no enclosing parentheses. MAJOR (high confidence).**
+Original: (4; â2; â2) with parens. Recreation: bare stacked numbers. Per directive (7), a missing delimiter is a MAJOR defect.
+
+**D3 â Systematic delimiter style mismatch: parentheses replaced by vertical bars in all d(xáµ¢) equations. MAJOR (high confidence).**
+IMG2 uses parentheses for the row vector (1 1 1) and the column (4; â2; â2), (5; â1; â1) in every row. IMG1 renders these as |1 1 1|Â·|4; â2; â2| etc., with vertical bar delimiters. Per (7)(iii) the delimiter shape must match the original's style. Affects all six d(xáµ¢) rows.
+
+**D4 â W result vectors in rows 2â6 have NO delimiters at all. MAJOR (high confidence).**
+Original: W = (5; â1; â1) with parentheses in rows d(xâ)âd(xâ). Recreation: bare stacked "5 / â1 / â1" â invisible/absent delimiters, explicitly MAJOR under (7).
+
+**D5 â "Check classes of" Z-vectors lack parentheses. MAJOR (medium-high confidence).**
+Original: (0; 7; 3) and (0; 6; 2) with parens. Recreation: bare columns "0 7 3" / "0 6 2".
+
+**D6 â "Keep same Weight" wraps to two lines. MAJOR (medium confidence, per founder 2026-10-10 line-break rule).**
+Original renders it on ONE line in rows d(xâ)âd(xâ). Recreation wraps to "Keep same / Weight" in all five rows. Text is verbatim; the wrap is a layout deviation.
+
+**D7 â Augmented Vectors panel: per-column parentheses omitted. MAJOR (medium-high confidence).**
+IMG2 shows each xâ±¼ as a 3-row column vector with a spanning parenthesis. IMG1 shows a flat grid of bare numbers (1 1 1 / 1 2 1 5 6 6 / 1 1 2 4 5 6) with no spanning delimiters.
+
+**D8 â Stray semicolons in row 1 update equation. MINOR (high confidence).**
+IMG1 shows "4 / â2; / â2;" with semicolons; original has none.
+
+**D9 â "Â·" dot product dot added in d(xâ). MINOR (high confidence).**
+Original juxtaposes (1 1 1)(4; â2; â2) with no "Â·"; recreation inserts "Â·". Trivial notation addition.
+
+**D10 â Color of header W entries. MINOR (medium confidence).**
+Original's â2 values are dark navy; recreation's are dark red. Approximate-hex deviation only.
+
+**D11 â Italic styling. MINOR (medium confidence).**
+Original italicizes "positive", "negative", "Zero"; recreation renders them upright bold (colors red/blue/green correct).
+
+---
+
+## Visual-quality defects in the recreation
+1. **Stray light-gray vertical rules** inside rows 2â6 (right of the W columns and near "Update Weight") â not present in the original. MINOR.
+2. **Vertical centering inside row boxes is acceptable**; d(xáµ¢) baselines align to the middle vector row as in the original. No defect.
+3. **Frame containment:** all six white row boxes, header box, and left panel sit fully inside the gray panel; the last row box approaches the bottom red stroke closely but does not cross it. No overflow defect. The displaced header W-vector (D1) does not itself cross a frame boundary.
+4. **No missing rows/equations:** all six d(xáµ¢) rows present with correct values (0, 2, 2, â4, â6, â7); table data matches exactly. No BLOCKER under rule (6)/(8).
+5. All text verbatim otherwise; colors (C00000 reds, greens, blues) match approximately.
+
+---
+
+## Summary
+- BLOCKER: none (no absent content, no table-data errors, no overflow).
+- MAJOR: D1, D2, D3, D4, D5, D6, D7 â a systematic failure of delimiter geometry (parentheses dropped or replaced by bars across the header, all six computation rows, the W results, the Z vectors, and the augmented-vector panel) plus the dislocated header W vector and the wrapped "Keep same Weight".
+- MINOR: D8, D9, D10, D11, stray rules.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation' â content values are all correct and present, but the pervasive parenthesisâbar/bare-column delimiter mismatch (D2âD5, D7), the dislocated header W-vector (D1), and the five-row line-wrap deviation (D6) constitute multiple MAJOR fidelity defects under founder directives 2026-10-09/10.

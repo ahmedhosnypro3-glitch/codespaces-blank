@@ -1,0 +1,1 @@
+<x_0.0><y_0.0>Error = ∑ W T Xi ∨ (WT Xi) take positive and negative values X all mislassified vectors(i)<x_0.999><y_0.9914><class_Formula>

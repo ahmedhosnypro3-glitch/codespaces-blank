@@ -1,0 +1,202 @@
+{
+  "slide_title": "Backpropagation: Chain Rule Derivation",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "W_\u03b2 Affects Net_j \u21d2",
+      "Net_j Affects O_j \u21d2",
+      "O_j Affects (Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) \u21d2",
+      "(Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) Affect Error"
+    ],
+    "labels": [
+      "19",
+      "Sample Data",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error",
+      "Net_{k=1}",
+      "Net_{k=2}",
+      "Net_{k=3}",
+      "\u03a3",
+      "f",
+      "1",
+      "1",
+      "X"
+    ],
+    "equations": [
+      "\u2202E/\u2202w_\u03b2 = [\u2202E/\u2202Net_{k=1} \u00b7 \u2202Net_{k=1}/\u2202O_j] + [\u2202E/\u2202Net_{k=2} \u00b7 \u2202Net_{k=2}/\u2202O_j] + ... + [\u2202E/\u2202Net_{k=m} \u00b7 \u2202Net_{k=m}/\u2202O_j] \u00b7 [\u2202O_j/\u2202Net_j] \u00b7 [\u2202Net_j/\u2202w_\u03b2]",
+      "\u2202E/\u2202Net_k \u21d2 -\u03b4_k",
+      "Net_j = \u03a3_i w_ij O_j \u21d2 \u2202Net_j/\u2202O_j = w_ij",
+      "O_j = 1/(1+e^{-Net_j}) \u21d2 \u2202O_j/\u2202Net_j = O_j(1-O_j)",
+      "Net_j = \u03a3_j w_ij O_j \u21d2 \u2202Net_j/\u2202w_ij = O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "White slide with a thin dark-red rectangular frame inset from all four edges. Upper-left: a pale-cyan, blue-bordered box containing four bold-italic implication statements. Upper-center/right: a tan-background neural-network diagram (input dots \u2192 \u03a3/f node columns \u2192 Net_{k=1..3} blue rectangles \u2192 vertical red 'Error' bar \u2192 green 'Class 1 / Class 2 / Class m' labels). Top-right corner: a yellow circular badge with the slide number 19. Lower-left: a large white, blue-bordered panel holding one long chain-rule equation across its top edge (the rest of the panel is empty white space). Lower-right: a narrower white, blue-bordered panel holding four stacked derivative equations.",
+    "regions": [
+      {
+        "name": "Slide frame",
+        "position": "full slide, ~4% inset on all sides",
+        "content": "Thin dark-red/maroon rectangular outline enclosing the entire slide content."
+      },
+      {
+        "name": "Implication statements box (top-left)",
+        "position": "top-left, x \u2248 4\u201340%, y \u2248 11\u201342%",
+        "content": "Pale-cyan filled rectangle with a thin blue border; four left-aligned lines of black bold-italic serif text, each ending in a red '\u21d2' arrow (last line has no arrow)."
+      },
+      {
+        "name": "Neural network diagram",
+        "position": "top-center to top-right, x \u2248 41\u201389%, y \u2248 13\u201340%",
+        "content": "Tan/beige rectangular diagram area with colored node circles (\u03a3 and f), dense colored connection lines, dashed dependency arcs, three blue Net_k rectangles, a vertical red 'Error' bar, green class labels, and a bottom annotation row (Sample Data dot, hollow arrows, two '1' circles, an 'X')."
+      },
+      {
+        "name": "Slide number badge",
+        "position": "top-right, x \u2248 90\u201395%, y \u2248 8\u201316%",
+        "content": "Yellow filled circle with a magenta/purple outline containing the black numeral '19'."
+      },
+      {
+        "name": "Chain-rule equation panel (bottom-left)",
+        "position": "bottom-left, x \u2248 4\u201367%, y \u2248 42\u201374%",
+        "content": "White rectangle with thin blue border; a single long chain-rule equation runs along the top of the panel; the lower ~60% of the panel is blank white."
+      },
+      {
+        "name": "Derivative reference panel (bottom-right)",
+        "position": "bottom-right, x \u2248 67\u201395%, y \u2248 42\u201383%",
+        "content": "White rectangle with thin blue border; four vertically stacked equations, each of the form 'expression \u21d2 derivative', with red implication arrows and green results on the first line."
+      }
+    ],
+    "hierarchy": "The upper half is visually dominant: the cyan implication box (left) and the colorful network diagram (right) carry the most saturated color. The lower half is mostly white space with thin blue-bordered panels; the long chain-rule equation is the widest single element on the slide, while the four-line derivative panel on the lower right is the densest text block. Color coding drives attention: red '\u21d2' arrows, green final results, magenta/red subscripts, and blue Net_k rectangles."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural-network / back-propagation schematic on a tan background. Far left: a vertical column of four small magenta filled dots (the input/sample-data nodes). Moving right, six vertical columns of small circles, three circles per column (one per row): column 1 = red-outlined circles containing a red '\u03a3'; column 2 = red-outlined circles containing a red italic 'f'; column 3 = blue-outlined circles containing a blue 'f'; column 4 = green-outlined circles containing a green '\u03a3'; column 5 = yellow-filled circles with orange outline containing an orange 'f'; column 6 = orange-filled circles with orange outline containing an orange '\u03a3'. The three rows are densely interconnected by thin straight lines in magenta/pink, blue, green and orange, forming a fully-connected mesh between adjacent columns. At the right of column 6 are three dark-blue filled rectangles with white text: 'Net_{k=1}' (top row), 'Net_{k=2}' (middle row), 'Net_{k=3}' (bottom row). Immediately right of them is a tall vertical dark-red bar spanning all three rows with white bold text 'Error' rotated 90\u00b0. To the right of that bar are three green labels aligned with the rows: 'Class 1', 'Class 2', 'Class m'. Dashed dependency arcs: a black dashed arc over the top from the green \u03a3 column to the orange \u03a3 column, a blue dashed arc over the top from the orange \u03a3 column to the Net_k rectangles, a blue dashed arc under the bottom from the orange \u03a3 column to the Net_k rectangles, and a black dashed arc under the bottom from the green \u03a3 column to the orange \u03a3 column. Along the bottom edge of the diagram, left to right: a small magenta filled dot followed by the magenta text 'Sample Data'; a hollow light-blue upward arrow under the blue 'f' column; a magenta filled circle containing a white '1'; a hollow green upward arrow under the green \u03a3 column; a second magenta filled circle containing a white '1'; and an orange 'X' under the orange \u03a3 column.",
+      "colors": [
+        "#D8CEC0",
+        "#FF0000",
+        "#4472C4",
+        "#70AD47",
+        "#FFC000",
+        "#ED7D31",
+        "#1F4E79",
+        "#C00000",
+        "#008000",
+        "#CC00CC",
+        "#E060A0"
+      ],
+      "position": "upper-center/right of slide, x \u2248 41\u201389%, y \u2248 13\u201340%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pale-cyan rectangle with thin blue border containing four lines of black bold-italic serif text: 'W_\u03b2 Affects Net_j \u21d2', 'Net_j Affects O_j \u21d2', 'O_j Affects (Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) \u21d2', '(Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) Affect Error'. Each of the first three lines ends with a red '\u21d2' arrow; the fourth line ends with the words 'Affect Error' and no arrow.",
+      "colors": [
+        "#D9F2F2",
+        "#2E5C8A",
+        "#000000",
+        "#FF0000"
+      ],
+      "position": "top-left, x \u2248 4\u201340%, y \u2248 11\u201342%"
+    },
+    {
+      "type": "other",
+      "description": "Large white rectangle with thin blue border containing one long chain-rule equation across its top: '\u2202E/\u2202w_\u03b2 = [\u2202E/\u2202Net_{k=1} \u00b7 \u2202Net_{k=1}/\u2202O_j] + [\u2202E/\u2202Net_{k=2} \u00b7 \u2202Net_{k=2}/\u2202O_j] + ... + [\u2202E/\u2202Net_{k=m} \u00b7 \u2202Net_{k=m}/\u2202O_j] \u00b7 [\u2202O_j/\u2202Net_j] \u00b7 [\u2202Net_j/\u2202w_\u03b2]'. The subscripts 'k=1', 'k=2' and 'k=m' are colored red/magenta while the rest is black. The remainder of the panel is empty white space.",
+      "colors": [
+        "#FFFFFF",
+        "#2E5C8A",
+        "#000000",
+        "#FF0000"
+      ],
+      "position": "bottom-left, x \u2248 4\u201367%, y \u2248 42\u201374%"
+    },
+    {
+      "type": "other",
+      "description": "White rectangle with thin blue border containing four stacked equations: (1) '\u2202E/\u2202Net_k \u21d2 -\u03b4_k' with red arrow and green '-\u03b4_k'; (2) 'Net_j = \u03a3_i w_ij O_j \u21d2 \u2202Net_j/\u2202O_j = w_ij' with red arrow; (3) 'O_j = 1/(1+e^{-Net_j}) \u21d2 \u2202O_j/\u2202Net_j = O_j(1-O_j)' with the sigmoid written as a stacked fraction and a red arrow; (4) 'Net_j = \u03a3_j w_ij O_j \u21d2 \u2202Net_j/\u2202w_ij = O_i' with a red arrow.",
+      "colors": [
+        "#FFFFFF",
+        "#2E5C8A",
+        "#000000",
+        "#FF0000",
+        "#008000"
+      ],
+      "position": "bottom-right, x \u2248 67\u201395%, y \u2248 42\u201383%"
+    },
+    {
+      "type": "icon",
+      "description": "Slide-number badge: yellow filled circle with a magenta/purple circular outline containing the black numeral '19'.",
+      "colors": [
+        "#FFFF00",
+        "#CC00CC",
+        "#000000"
+      ],
+      "position": "top-right corner, x \u2248 90\u201395%, y \u2248 8\u201316%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Thin dark-red rectangular outline framing the entire slide, inset roughly 4% from each edge.",
+      "colors": [
+        "#B03030"
+      ],
+      "position": "full slide perimeter"
+    }
+  ],
+  "imagery": [
+    "Yellow circular slide-number badge with magenta outline and black '19' (top-right).",
+    "Four small magenta filled dots forming the input column of the network diagram (far left of diagram).",
+    "Two hollow upward-pointing arrows (one light blue, one green) beneath the network diagram.",
+    "Two magenta filled circles each containing a white '1' beneath the network diagram.",
+    "An orange 'X' mark beneath the network diagram.",
+    "Vertical dark-red 'Error' bar with rotated white text (right side of the network diagram).",
+    "No photographs or photographic imagery; all graphics are simple vector shapes and text."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#000000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#008000",
+      "#CC00CC",
+      "#2E5C8A",
+      "#D9F2F2",
+      "#D8CEC0",
+      "#1F4E79",
+      "#C00000",
+      "#FFC000",
+      "#ED7D31",
+      "#70AD47",
+      "#4472C4",
+      "#FFFF00",
+      "#B03030"
+    ]
+  },
+  "typography_notes": "All text is serif (Times New Roman / Cambria-style). The four statements in the top-left cyan box are bold italic, with variables (W_\u03b2, Net_j, O_j, Net_{k=1}...) in bold italic and the connecting words ('Affects', 'Affect', 'Error') also bold italic; the '\u21d2' arrows are red and non-italic. Equations use serif math italic for variables with true subscripts; the chain-rule equation is a single long line with bracketed fractions and centered dots as separators, with red/magenta subscripts 'k=1', 'k=2', 'k=m'. In the lower-right panel the implication arrows are red and the first result '-\u03b4_k' is green. Diagram node labels (\u03a3, f) are italic serif in the node colors; 'Net_{k=1..3}' are white bold serif on blue rectangles; 'Error' is white bold rotated 90\u00b0; 'Class 1 / Class 2 / Class m' are green bold serif; 'Sample Data' is small magenta serif.",
+  "animation_state": "No visible mid-build state; all four implication statements, the full network diagram, the complete chain-rule equation and all four derivative equations are simultaneously visible. The slide is fully rendered (slide number 19).",
+  "recreation_brief": "1. Place a plain white (#FFFFFF) slide background. Draw a thin dark-red (#B03030) rectangular outline inset approximately 4% from all four edges to frame the entire slide.\n2. Top-left (x \u2248 4\u201340%, y \u2248 11\u201342%): insert a pale-cyan (#D9F2F2) filled rectangle with a thin blue (#2E5C8A) border. Add four left-aligned lines of black bold-italic serif text: 'W_\u03b2 Affects Net_j \u21d2' (red \u21d2), 'Net_j Affects O_j \u21d2' (red \u21d2), 'O_j Affects (Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) \u21d2' (red \u21d2), and '(Net_{k=1}, Net_{k=2}, ..., Net_{k=m}) Affect Error' (no arrow).\n3. Top-center/right (x \u2248 41\u201389%, y \u2248 13\u201340%): insert a tan (#D8CEC0) rectangular diagram canvas.\n4. Inside the canvas far left, draw a vertical column of 4 small magenta (#CC00CC) filled dots as input nodes.\n5. Draw 6 columns of 3 small circles each, aligned in 3 rows: column 1 red-outlined with red '\u03a3'; column 2 red-outlined with red italic 'f'; column 3 blue-outlined with blue 'f'; column 4 green-outlined with green '\u03a3'; column 5 yellow-filled with orange outline and orange 'f'; column 6 orange-filled with orange outline and orange '\u03a3'.\n6. Connect adjacent columns with a dense mesh of thin straight lines colored to match the target column: magenta/pink (#E060A0), blue (#4472C4), green (#70AD47), and orange (#ED7D31).\n7. Add 4 dashed dependency arcs: a black dashed arc over the top from the green \u03a3 column to the orange \u03a3 column; a blue dashed arc over the top from the orange \u03a3 column to the Net_k rectangles; a blue dashed arc under the bottom from the orange \u03a3 column to the Net_k rectangles; and a black dashed arc under the bottom from the green \u03a3 column to the orange \u03a3 column.\n8. To the right of column 6, add 3 dark-blue (#1F4E79) filled rectangles aligned with the rows, containing white bold serif text 'Net_{k=1}', 'Net_{k=2}', and 'Net_{k=3}'.\n9. Immediately right of the Net rectangles, add a tall vertical dark-red (#C00000) bar spanning all 3 rows with white bold text 'Error' rotated 90\u00b0.\n10. To the right of the Error bar, add 3 green (#008000) bold serif labels aligned with the rows: 'Class 1', 'Class 2', and 'Class m'.\n11. Along the bottom edge of the canvas, left to right, add: a small magenta filled dot followed by magenta text 'Sample Data'; a hollow light-blue upward arrow under the blue 'f' column; a magenta filled circle with white '1'; a hollow green upward arrow under the green \u03a3 column; a second magenta filled circle with white '1'; and an orange 'X' under the orange \u03a3 column.\n12. Top-right (x \u2248 90\u201395%, y \u2248 8\u201316%): draw a yellow (#FFFF00) filled circle with a magenta (#CC00CC) outline containing the black numeral '19'.\n13. Bottom-left (x \u2248 4\u201367%, y \u2248 42\u201374%): insert a white rectangle with a thin blue (#2E5C8A) border. Place the single-line chain-rule equation across its top edge: '\u2202E/\u2202w_\u03b2 = [\u2202E/\u2202Net_{k=1} \u00b7 \u2202Net_{k=1}/\u2202O_j] + [\u2202E/\u2202Net_{k=2} \u00b7 \u2202Net_{k=2}/\u2202O_j] + ... + [\u2202E/\u2202Net_{k=m} \u00b7 \u2202Net_{k=m}/\u2202O_j] \u00b7 [\u2202O_j/\u2202Net_j] \u00b7 [\u2202Net_j/\u2202w_\u03b2]', with subscripts 'k=1', 'k=2', and 'k=m' in red/magenta and all other text black. Leave the lower ~60% of the panel blank.\n14. Bottom-right (x \u2248 67\u201395%, y \u2248 42\u201383%): insert a white rectangle with a thin blue (#2E5C8A) border. Add 4 left-aligned, vertically stacked serif equations: (1) '\u2202E/\u2202Net_k \u21d2 -\u03b4_k' with red \u21d2 and green '-\u03b4_k'; (2) 'Net_j = \u03a3_i w_ij O_j \u21d2 \u2202Net_j/\u2202O_j = w_ij' with red \u21d2; (3) 'O_j = 1/(1+e^{-Net_j}) \u21d2 \u2202O_j/\u2202Net_j = O_j(1-O_j)' with the sigmoid as a stacked fraction and red \u21d2; (4) 'Net_j = \u03a3_j w_ij O_j \u21d2 \u2202Net_j/\u2202w_ij = O_i' with red \u21d2.\n15. Verify that no element overlaps the dark-red frame, the tan canvas sits behind all diagram nodes, and all colors match the specified hex values.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Reconstructed missing slide_title as 'Backpropagation: Chain Rule Derivation' from the neural-network diagram and chain-rule equations.",
+      "Rewrote recreation_brief into a 15-step ordered checklist using exact percentage bounds from layout.regions and exact element counts from visual_elements; removed non-derivable pixel coordinates.",
+      "Confirmed layout.regions covers all 6 visual_elements and all verbatim_text components.",
+      "Standardized recreation_brief text to match verbatim_text.bullets and verbatim_text.equations exactly."
+    ],
+    "uncertain_items": [
+      "slide_title was not present in the source JSON and was reconstructed from context.",
+      "subtitle_or_header is absent from the source."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_019.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 19,
+      "image": "slide_019.jpg",
+      "badge": "19"
+    },
+    "elapsed_s": 402.6,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 476.3
+  }
+}

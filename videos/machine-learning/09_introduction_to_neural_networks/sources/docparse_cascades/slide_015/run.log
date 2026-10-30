@@ -1,0 +1,25 @@
+2026-10-27 23:08:20,054 INFO === crop_cascade run: slide_015.jpg ===
+2026-10-27 23:08:20,054 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 23:08:28,482 INFO chat call attempt=1 latency=8.4s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 23:08:28,482 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-27 23:08:42,650 INFO chat call attempt=1 latency=14.2s url=http://localhost:17844/v1/chat/completions bytes=142
+2026-10-27 23:08:42,650 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 23:08:42,650 INFO chat lane: active
+2026-10-27 23:08:43,544 INFO parse call attempt=1 latency=0.9s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=58394
+2026-10-27 23:08:43,544 INFO node root parsed: 167 chars, 54 out tokens
+2026-10-27 23:08:43,544 INFO root parsed: 167 chars
+2026-10-27 23:08:43,544 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:08:53,815 INFO chat call attempt=1 latency=10.3s url=http://localhost:17844/v1/chat/completions bytes=2987
+2026-10-27 23:08:54,125 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 23:08:56,216 INFO parse call attempt=1 latency=2.1s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=604256
+2026-10-27 23:08:56,217 INFO node slide_015.crop01__picture parsed: 235 chars, 76 out tokens
+2026-10-27 23:09:39,951 INFO chat call attempt=1 latency=43.7s url=http://localhost:17844/v1/chat/completions bytes=3237
+2026-10-27 23:09:39,951 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:10:40,012 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:10:40,012 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.9s
+2026-10-27 23:11:42,958 INFO chat call attempt=2 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:11:42,958 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.7s
+2026-10-27 23:12:18,775 INFO chat call attempt=3 latency=31.1s url=http://localhost:17844/v1/chat/completions bytes=3238
+2026-10-27 23:12:18,776 INFO node slide_015.crop01__picture stop: no-new-information — chat advised STOP: The child already recovered the complete chart table, and the only candidate is the same full crop box, so another crop adds no detail.
+2026-10-27 23:12:18,777 INFO level 1 done: 1 nodes -> 0 children
+2026-10-27 23:12:18,778 INFO composed -> composed/slide_015_composed.md

@@ -12,9 +12,11 @@
 // Title: red ink x290..708 y77..101, center (499, 89), cap h=19px (~26pt serif bold)
 // House chrome: house_chrome.js (panel E9E9E7 x54..903 y45..540, C00000 strokes L/R/B, badge "21")
 //
-// BLOCKS — closed rectangles, ~2px blue stroke (all three confirmed closed; x76 is a
-// solid (46,36,123) column running the full block height):
-//   B1 y129..257 x76..886 | B2 y288..418 x76..889 | B3 y437..530 x76..889
+// BLOCKS — closed rectangles, 2pt blue stroke. Rejudge r2 (2026-10-30) row census on
+// the orig: stroke centers rows 128.96/256.00 (B1), 289.00/416.50 (B2), 438.00/528.00
+// (B3); cols L 76.0, R 885.0 (B1) / 887.5 (B2/B3). Rect boundaries set ~0.3px below
+// target so the centered stroke lands on the measured line (LO render offset):
+//   B1 y129.2..256.2 x76.3..885.3 | B2 y289.3..416.8 x76.3..887.8 | B3 y438.3..528.3 x76.3..887.8
 //
 // EQUATIONS — matplotlib mathtext -> 600dpi PNG -> addImage at px/600.
 // PLACEMENT LAW (the attempt-3 BLOCKER): a 600-dpi PNG's pixel counts are NOT frame px.
@@ -30,14 +32,15 @@
 //     det0    ink  x341..435 y187..212  fs22       |X^T X| = 0   (red X^TX 345..390)
 //     d5685   ink  x338..464 y354..379  fs20.5     |X^T X| = 5685 (red X^TX 342..387)
 //     regmat  ink  x89..206  y300..326  fs24       (X^T X + lambda I)
-//     lam3    grn  x245..289 y304..321  fs18       lambda = 3
-//     invexpr ink  x155..289 y466..492  fs24       (X^T X + lambda I)^-1
+//     lam3    grn  x247..288 y305..320  fs18       lambda=3 (verbatim, no spaces; D2)
+//     invexpr ink  x155..289 y466..492  fs24       (X^T X + lambda I)^-1 with \underline
+//               underbars on both X glyphs (task 129; orig rows 487-488)
 //   Equations are MULTI-COLOUR in the original (typography_notes): X^T X dark red,
 //   "+ lambda I" blue, lambda=3 green, rest near-black - composed per-segment by
 //   qa/slide021/compose_eq_021.py (probe: scratch/tmp/probe021_fontsets.py).
 //
-// TABLES (3x3, gridlines gray): P1 x97..303 y173..227 | P2 x89..295 y340..395
-//                               P3 x421..626 y457..511
+// TABLES (3x3, gridlines gray; rejudge r2 gridline census on orig: 68px cols):
+//   P1 x98..302 y173..226 | P2 x90..294 y341..395 | P3 x422..626 y457..511
 // TABLE ROW-HEIGHT LAW (measured 2026-10-24, the "rows drift down" defect):
 //   LibreOffice treats a table row's declared height as a MINIMUM and expands it to
 //   fit the glyph line-height PLUS the cell's default vertical insets. At fs14 that
@@ -138,13 +141,13 @@ slide.addText("Inverse Problem of Singular Matrix", {
 
 // ── 2. THREE CONTENT PANELS ──────────────────────────────────────────────────
 const PANELS = [
-  { name: "P1", x: 76, y: 129, w: 810, h: 129 }, // top
-  { name: "P2", x: 76, y: 288, w: 813, h: 130 }, // middle (rule lands y418)
-  { name: "P3", x: 76, y: 437, w: 813, h: 93 },  // bottom
+  { name: "P1", x: 76.3, y: 129.2, w: 809.0, h: 127.0 }, // top (stroke centers 128.96/256.0)
+  { name: "P2", x: 76.3, y: 289.3, w: 811.5, h: 127.5 }, // middle (289.0/416.5)
+  { name: "P3", x: 76.3, y: 438.3, w: 811.5, h: 90.0 },  // bottom (438.0/528.0)
 ];
 for (const p of PANELS) {
   rect(p.x, p.y, p.w, p.h, WHITE);
-  rect(p.x, p.y, p.w, p.h, null, { color: BLUE, width: 1 });
+  rect(p.x, p.y, p.w, p.h, null, { color: BLUE, width: 2 });
 }
 
 // ── 3. TOP PANEL (P1): singular X^T X, det 0 -> No Inverse ────────────────────
@@ -156,7 +159,7 @@ const topTableData = [
   [{ text: "20" }, { text: "80" }, { text: "92" }],
 ];
 slide.addTable(topTableData, {
-  x: px(97), y: px(173), w: px(206), h: px(53),
+  x: px(98), y: px(173), w: px(204), h: px(53),
   fontFace: FONT_SERIF, fontSize: 14, color: BLACK,
   align: "center", valign: "middle",
   border: { type: "solid", color: GRID, pt: 1 },
@@ -172,7 +175,7 @@ textAt("No Inverse", 704, 193, 207, { boxW: 120, fontSize: 21, italic: true, col
 
 // ── 4. MIDDLE PANEL (P2): (X^T X + lambda I) lambda=3, det 5685 -> Inverse Exists ──
 eq("eq_021_regmat.png", 89, 300, 940, 227);
-eq("eq_021_lambda3.png", 245, 304, 380, 132);
+eq("eq_021_lambda3.png", 247, 305, 378, 131);
 
 // Original highlight = an OPAQUE FDFD96 ELLIPSE behind each diagonal cell's digits
 // (PIL-measured ovals, tapered not hard-edged: r1c1 x107..143 y340..363, r2c2
@@ -196,7 +199,7 @@ const midTableData = [
   ["20", "80", "95"],
 ];
 slide.addTable(midTableData, {
-  x: px(89), y: px(341), w: px(190), h: px(54),
+  x: px(90), y: px(341), w: px(204), h: px(54),
   fontFace: FONT_SERIF, fontSize: 14, color: BLACK,
   align: "center", valign: "middle",
   border: { type: "solid", color: GRID, pt: 1 },
@@ -213,7 +216,7 @@ arrowD(725, 368, 734, BLUE, 13);
 textAt("Inverse Exists", 761, 359, 373, { boxW: 140, fontSize: 21, italic: true, color: RED });
 
 // ── 5. BOTTOM PANEL (P3): (X^T X + lambda I)^-1 -> inverse matrix ─────────────
-eq("eq_021_invexpr.png", 155, 466, 1153, 227);
+eq("eq_021_invexpr.png", 155, 466, 1140, 259);
 arrowD(364, 480, 380, BLUE);
 
 const botTableData = [
@@ -222,7 +225,7 @@ const botTableData = [
   [{ text: "-0.01" }, { text: "-0.2" }, { text: "0.11" }],
 ];
 slide.addTable(botTableData, {
-  x: px(421), y: px(458), w: px(205), h: px(53),
+  x: px(422), y: px(458), w: px(204), h: px(53),
   fontFace: FONT_SERIF, fontSize: 13, color: BLACK,
   align: "center", valign: "middle",
   border: { type: "solid", color: GRID, pt: 1 },

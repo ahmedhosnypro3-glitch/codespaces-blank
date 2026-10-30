@@ -341,3 +341,18 @@ as minor/style. Post-fix deliverable = render_7c (chrome PASS; doc-parse: left
 box 2 lines `Original Labels / from Training Samples`, right box `from Model Ŷ = X W`).
 No attempt 8 (cap law). Slide PARKED with evidence chain; deliverable carries all
 verified fixes but visual_check remains FAIL-by-cap.
+
+## Attempt 8 — CERTIFIED (2026-10-30, worker agent-014-fresh)
+
+- render_9.png was stale vs build/slide_014.js (Oct-28 edits post-dated it) → rebuilt pptx from
+  current build, rendered render_10.png (2001x1125 @150dpi), house chrome check PASS.
+- Both zoomed-judge legs dispatched in one gate window (dispatch_att8.sh):
+  - FULL (Template A payload, render_10 vs unique_slides/slide_014.jpg): FINAL VERDICT PASS,
+    transcript judge_att8_full.txt — 0 BLOCKER/MAJOR, no visual-quality defects.
+  - CROP (Template B payload, densest region 280,208-584,416 at matched scale 2.0833):
+    FINAL VERDICT PASS, transcript judge_att8_crop.txt — only MINOR typographic/colour notes
+    (letter-spacing, one possible R(W) colour), 0 demonstrable BLOCKER/MAJOR.
+- No FAILs → no PIL adjudication needed; register row appended to
+  qa/rejudge_20261027/REJUDGE_REGISTER.md.
+- DB: gen_status='passed', visual_check='PASS', visual_attempts 7→8, last_error cleared.
+- Final deck: page 14 updated via final_deck_tool.py update 14 + render_check_pages.py 14.

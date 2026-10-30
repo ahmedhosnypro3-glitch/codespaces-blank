@@ -1,0 +1,25 @@
+# Zoomed Crop-Pair Judgment â Slide 029, densest region (title block: "â¦Obtain Minimum â¦ unction using â¦ nt Descent (GD")
+
+Both crops show the same three partially-visible title lines in bold red type on the gray template panel, cut off at the same crop boundaries (left edge mid-glyph "ðtain/â¦unction/â¦nt", right edge mid-"Minimuâ¦/(GD"). Text content is identical line-for-line.
+
+## Discrepancy list
+
+1. **White diagonal streak over the "G" in "(GD" (bottom-right of region, ~x 560â600, y 370â420) in IMG2 only.** IMG1 renders this area cleanly; IMG2 shows a small bright white slash cutting across the G/D junction. Per ground rule (e), this matches the signature of a video-capture/compression artifact (overexposed highlight, not a glyph defect â the underlying strokes of G and D are intact and match IMG1 beneath it). Severity: **MINOR** (artifact, not content). Confidence: high.
+
+2. **Background luminance mismatch.** IMG1's panel reads as the house gray E9E9E7 uniformly; IMG2's background is slightly brighter/warmer, washing toward white on the right half of the crop. Consistent with capture gamma/white-balance drift in the upscaled original frame, not a fill-color change. Severity: **MINOR** (capture artifact). Confidence: high.
+
+3. **Edge softness / slight halo on red glyphs in IMG2** (most visible on "Minimuâ¦" and "Descent"), with IMG1 showing crisper anti-aliased edges. Mandated as a capture artifact under rule (e). Severity: **MINOR**. Confidence: high.
+
+4. **Red hue.** IMG1's text red appears marginally deeper/darker; IMG2's is a touch lighter â within tolerance expected from JPEG chroma subsampling at this zoom. Severity: **MINOR**. Confidence: medium-high.
+
+5. **Line vertical positions.** IMG2's three lines sit a few pixels higher relative to the crop frame than IMG1's (line 1 top ~25px vs ~30px crop-relative). This is sub-pixel crop-registration offset between the two sources, not a layout difference; line spacing and relative alignment match. Severity: **MINOR**. Confidence: high.
+
+## What checks out
+- **Glyph fidelity:** every visible character ("â¦btain", "Minimuâ¦", "â¦unction using", "â¦nt Descent", "(GD") matches in shape, weight, and bold sans styling; no wrong, missing, or garbled characters.
+- **Text color:** same red family in both; no wrong-color text.
+- **Line breaks, line spacing, and horizontal placement of each partial word match.**
+- No tables, equations, delimiters, or badge chrome fall inside this crop â nothing further to audit cell-by-cell.
+
+No MAJOR or BLOCKER defects found. All deltas trace to capture artifacts under rule (e) or sub-pixel registration.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

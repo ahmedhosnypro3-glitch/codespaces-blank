@@ -1,0 +1,9 @@
+<x_0.2051><y_0.1062>**Derivatives of some Activation Functions**<x_0.7705><y_0.157><class_Section-header>
+
+<x_0.8916><y_0.0969>22<x_0.9326><y_0.1625><class_Page-header>
+
+<x_0.0742><y_0.2062>f(x)= Re ctified Linear U nit = 0 for x<0
+x for x≥0 Derivative f'(x)= 0 for x<0
+f(x)= P arametric ReLU = α x for x≤0 + Derivative f'(x)= 1 for x≥0
+f(x)= Exponential LU = α ( e^X-1 ) for x<0 for x≥0
+f(x)= SoftPlus= loge (1+e^x)<x_0.9336><y_0.9414><class_Picture>

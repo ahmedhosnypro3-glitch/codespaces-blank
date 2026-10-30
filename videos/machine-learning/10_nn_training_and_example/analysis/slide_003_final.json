@@ -1,0 +1,263 @@
+{
+  "slide_title": "Neural Network Model",
+  "subtitle_or_header": "(Each node consists of Summation + Activation)",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Neural Network Model",
+      "(Each node consists of Summation + Activation)",
+      "3",
+      "Input Sample",
+      "Target Label",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error Error",
+      "Node Bias",
+      "2",
+      "For Layer \"j\"",
+      "Net_j = \u03a3_i (w_ji * O_i)",
+      "O_j = f(Net_j) = 1 / (1 + e^-Net_j)",
+      "Previous Layer Layer (i)",
+      "i",
+      "1",
+      "Current Layer is Output Layer (You are here)",
+      "j",
+      "If Layer \"j\" is Output Layer:",
+      "E = 1/2 \u03a3_j (t_j - O_j)^2",
+      "w_ji",
+      "w_jj",
+      "Net_j",
+      "O_j"
+    ],
+    "equations": [
+      "Net_j = \u03a3_i (w_ji * O_i)",
+      "O_j = f(Net_j) = 1 / (1 + e^-Net_j)",
+      "E = 1/2 \u03a3_j (t_j - O_j)^2"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title centered at top; subtitle directly below in blue; main neural network diagram occupies center; 'Input Sample' box top-left of diagram; 'Target Label' box top-right of diagram; vertical red 'Error Error' bar far right with adjacent green Class boxes; bottom strip contains four annotation boxes, 'Node Bias' text with circled marker 2, and circled marker 1; yellow circled marker 3 sits in the top right corner.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center, full width",
+        "content": "Slide title 'Neural Network Model' in dark red, subtitle '(Each node consists of Summation + Activation)' in blue below it"
+      },
+      {
+        "name": "main_diagram",
+        "position": "center, roughly 20% to 80% width, 25% to 70% height",
+        "content": "Feedforward neural network diagram with input, hidden, and output layers; summation nodes (\u03a3), activation nodes (f), weight labels w_ji and w_jj, Net_j and O_j labels, and output boxes Output 1/2/m"
+      },
+      {
+        "name": "input_label",
+        "position": "top left of diagram",
+        "content": "Purple box 'Input Sample' with arrow pointing into network"
+      },
+      {
+        "name": "target_label",
+        "position": "top right of diagram",
+        "content": "Purple box 'Target Label' with arrow pointing into network"
+      },
+      {
+        "name": "error_bar",
+        "position": "far right, middle vertical strip",
+        "content": "Tall red vertical bar with white vertical text 'Error Error'; adjacent green boxes 'Class 1', 'Class 2', 'Class m'"
+      },
+      {
+        "name": "bottom_annotations",
+        "position": "bottom strip, full width",
+        "content": "Four boxes: 'For Layer \"j\"' with equations; 'Previous Layer Layer (i)' with up arrow i; 'Current Layer is Output Layer (You are here)' with up arrow j; 'If Layer \"j\" is Output Layer:' with error equation; text 'Node Bias' with purple circled marker 2 at bottom left; purple circled marker 1 at bottom center"
+      },
+      {
+        "name": "top_right_marker",
+        "position": "top right corner",
+        "content": "Yellow circled marker '3'"
+      }
+    ],
+    "hierarchy": "Title dominates (largest, dark red, centered); diagram is primary visual focus; subtitle secondary (blue); annotation boxes and labels tertiary; circled numbers 1, 2, 3 are small callout markers"
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Feedforward neural network with three visible layers. Leftmost input shows three purple dots feeding into white circles containing red \u03a3 symbols, then square f activation boxes, then small open circles. Middle layer shows blue circles with red \u03a3, then f boxes, then O_j labels. Right layer shows green circles with red \u03a3, then f boxes, then O_j labels leading to Output 1, Output 2, Output m boxes. Blue weight labels w_ji and w_jj appear on diagonal connecting arrows between middle and right layers.",
+      "colors": [
+        "#F5EFE0",
+        "#FFFFFF",
+        "#8B0000",
+        "#0000FF",
+        "#008000",
+        "#000000"
+      ],
+      "position": "center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple rectangular box with text 'Input Sample' and arrow pointing into diagram",
+      "colors": [
+        "#9370DB",
+        "#FFFFFF"
+      ],
+      "position": "top left of diagram area"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple rectangular box with text 'Target Label' and arrow pointing into diagram",
+      "colors": [
+        "#9370DB",
+        "#FFFFFF"
+      ],
+      "position": "top right of diagram area"
+    },
+    {
+      "type": "other",
+      "description": "Tall red vertical rectangle with white text 'Error Error' rotated 90 degrees counter-clockwise",
+      "colors": [
+        "#8B0000",
+        "#FFFFFF"
+      ],
+      "position": "far right edge of diagram"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green box 'Class 1'",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "right of error bar, top"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green box 'Class 2'",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "right of error bar, middle"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green box 'Class m'",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "right of error bar, bottom"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Cream box 'For Layer \"j\"' containing two equations: Net_j = \u03a3_i (w_ji * O_i) and O_j = f(Net_j) = 1 / (1 + e^-Net_j)",
+      "colors": [
+        "#FFFFE0",
+        "#000000"
+      ],
+      "position": "bottom left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light blue box 'Previous Layer Layer (i)' with upward arrow labeled 'i'",
+      "colors": [
+        "#ADD8E6",
+        "#000000"
+      ],
+      "position": "bottom center-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light green box 'Current Layer is Output Layer (You are here)' with upward arrow labeled 'j'",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "bottom center-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Cream box 'If Layer \"j\" is Output Layer:' containing equation E = 1/2 \u03a3_j (t_j - O_j)^2",
+      "colors": [
+        "#FFFFE0",
+        "#000000"
+      ],
+      "position": "bottom right"
+    },
+    {
+      "type": "other",
+      "description": "Purple circle with white number '2' next to text 'Node Bias'",
+      "colors": [
+        "#800080",
+        "#FFFFFF"
+      ],
+      "position": "bottom left"
+    },
+    {
+      "type": "other",
+      "description": "Purple circle with white number '1' near middle column bottom",
+      "colors": [
+        "#800080",
+        "#FFFFFF"
+      ],
+      "position": "bottom center"
+    },
+    {
+      "type": "other",
+      "description": "Yellow circle with black number '3'",
+      "colors": [
+        "#FFD700",
+        "#000000"
+      ],
+      "position": "top right corner"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#F5EFE0",
+    "title_text": "#8B0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF",
+      "#800080",
+      "#008000",
+      "#8B0000",
+      "#FFFFE0",
+      "#ADD8E6",
+      "#90EE90",
+      "#9370DB",
+      "#FFD700"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is large, bold, dark red, centered. Subtitle is medium, bold, blue, centered below title. Diagram labels are small black sans-serif. Boxed text uses black sans-serif on colored backgrounds. Circled numbers are white bold text inside colored circles.",
+  "animation_state": "None - static slide with all elements visible simultaneously",
+  "recreation_brief": "1. Set the slide background to light beige (#F5EFE0).\n2. Add the title text \"Neural Network Model\" centered horizontally at the top of the slide in large, bold, dark red (#8B0000) sans-serif.\n3. Add the subtitle text \"(Each node consists of Summation + Activation)\" centered horizontally directly below the title in medium, bold, blue (#0000FF) sans-serif.\n4. Place three small purple dots in a vertical column on the left side of the central diagram area (approximately 20% from the left edge).\n5. Draw three white circles, each containing a red \u03a3 symbol, to the right of the purple dots; connect each purple dot to its corresponding white circle with a black arrow.\n6. Draw three white square activation boxes labeled \"f\" to the right of the white \u03a3 circles.\n7. Draw three open circles to the right of the f boxes.\n8. Draw a vertical column of blue circles, each containing a red \u03a3 symbol, in the center of the diagram.\n9. Draw white square activation boxes labeled \"f\" to the right of each blue \u03a3 circle.\n10. Place the black text label \"O_j\" to the right of each middle-layer f box.\n11. Draw a vertical column of green circles, each containing a red \u03a3 symbol, to the right of the middle layer.\n12. Draw white square activation boxes labeled \"f\" to the right of each green \u03a3 circle.\n13. Place the black text label \"O_j\" to the right of each right-layer f box.\n14. Draw three rectangular output boxes labeled \"Output 1\", \"Output 2\", and \"Output m\" to the right of the right layer; connect the right-layer O_j labels to these boxes with black arrows.\n15. Place the blue text labels \"w_ji\" and \"w_jj\" on the diagonal connecting arrows between the middle and right layers.\n16. Place the black text label \"Net_j\" adjacent to the \u03a3 circles in the middle and right layers.\n17. Place a purple (#9370DB) rectangular highlight box with white text \"Input Sample\" at the top-left of the diagram; draw a black arrow from the box pointing into the network.\n18. Place a purple (#9370DB) rectangular highlight box with white text \"Target Label\" at the top-right of the diagram; draw a black arrow from the box pointing into the network.\n19. Place a dark red (#8B0000) vertical rectangle in the far-right middle strip of the diagram; add white text \"Error Error\" rotated 90 degrees counter-clockwise inside it.\n20. Place a light green (#90EE90) rectangular box with black text \"Class 1\" to the right of the error bar, top position.\n21. Place a light green (#90EE90) rectangular box with black text \"Class 2\" to the right of the error bar, middle position.\n22. Place a light green (#90EE90) rectangular box with black text \"Class m\" to the right of the error bar, bottom position.\n23. Place a cream (#FFFFE0) rectangular box at the bottom-left of the slide containing the header \"For Layer \"j\"\" and the two equations \"Net_j = \u03a3_i (w_ji * O_i)\" and \"O_j = f(Net_j) = 1 / (1 + e^-Net_j)\" in black text.\n24. Place the black text \"Node Bias\" in the bottom-left area with a purple (#800080) circle containing the white number \"2\" immediately to its left, adjacent to the \"For Layer \"j\"\" box.\n25. Place a light blue (#ADD8E6) rectangular box in the bottom center-left area containing the text \"Previous Layer Layer (i)\" and an upward arrow labeled \"i\" in black.\n26. Place a purple (#800080) circle containing the white number \"1\" in the bottom center area.\n27. Place a light green (#90EE90) rectangular box in the bottom center-right area containing the text \"Current Layer is Output Layer (You are here)\" and an upward arrow labeled \"j\" in black.\n28. Place a cream (#FFFFE0) rectangular box at the bottom-right of the slide containing the header \"If Layer \"j\" is Output Layer:\" and the equation \"E = 1/2 \u03a3_j (t_j - O_j)^2\" in black text.\n29. Place a yellow (#FFD700) circle containing the black number \"3\" in the top-right corner of the slide.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Corrected layout.arrangement to place yellow circled marker 3 in the top right corner instead of the bottom strip, aligning with visual_elements.",
+      "Added a new layout region 'top_right_marker' to cover the yellow circled marker 3.",
+      "Expanded the 'bottom_annotations' region content to explicitly include the 'Node Bias' text, circled marker 2, and circled marker 1.",
+      "Updated 'main_diagram' region content to explicitly list Net_j labels and Output 1/2/m boxes for full coverage.",
+      "Rewrote recreation_brief as a 29-step ordered checklist that places one element per step with exact text, position, color, and shape.",
+      "Verified verbatim_text.bullets is intentionally empty because the slide uses diagram labels and equations rather than bullet points."
+    ],
+    "uncertain_items": [
+      "Exact pixel coordinates, font sizes, and arrow angles are not specified in the source; positions are described as approximate regions.",
+      "The label 'Net_j' is present in verbatim_text.labels but its on-diagram placement is not explicitly described in visual_elements; it has been positioned adjacent to \u03a3 nodes based on standard neural network notation."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_003.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 3,
+      "image": "slide_003.jpg",
+      "badge": "3"
+    },
+    "elapsed_s": 93.8,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 2225.9
+  }
+}

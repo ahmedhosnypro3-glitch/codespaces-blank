@@ -1,0 +1,208 @@
+{
+  "slide_title": "Neural Network Model",
+  "subtitle_or_header": "(Effect of Net_k on Calculated Error is known from O/P Layer)",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Input Sample",
+      "Target Label",
+      "Node Bias",
+      "1",
+      "i",
+      "Previous Layer (l)",
+      "j",
+      "Current Layer (You are here)",
+      "k",
+      "Next Layer (K)",
+      "For Layer \"j\"",
+      "Note: Layer \"j\" is NOT Output Layer",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error",
+      "O_i",
+      "W_ji",
+      "Net_j",
+      "O_j",
+      "W_jk",
+      "Net_k",
+      "O_k",
+      "17",
+      "\u2717 \u2717 \u2717"
+    ],
+    "equations": [
+      "Net_j = \\sum_i (w_{ji} O_i)",
+      "O_j = f(Net_j) = \\frac{1}{1 + e^{-Net_j}}",
+      "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title and subtitle are centered across the top; a yellow slide-number circle sits at the top-right. The main neural-network diagram fills the center, extending from a pink Input Sample box on the left to a pink Target Label box and Class labels on the right. A bottom band contains the layer-j formula panel on the left, the error equation with red \u2717 marks in the center/right, and a note panel at the bottom-right.",
+    "regions": [
+      {
+        "name": "title_header",
+        "position": "top center, roughly x 20-80%, y 5-22%",
+        "content": "Title 'Neural Network Model' and blue subtitle '(Effect of Net_k on Calculated Error is known from O/P Layer)'."
+      },
+      {
+        "name": "slide_number",
+        "position": "top right, roughly x 88-95%, y 3-10%",
+        "content": "Yellow circle containing the number 17."
+      },
+      {
+        "name": "input_sample_box",
+        "position": "top left, roughly x 6-16%, y 16-23%",
+        "content": "Pink rounded box labeled 'Input Sample' with an arrow into the first network column."
+      },
+      {
+        "name": "target_label_box",
+        "position": "top right, roughly x 86-96%, y 16-23%",
+        "content": "Pink rounded box labeled 'Target Label' with arrows/error paths toward the outputs."
+      },
+      {
+        "name": "bias_node",
+        "position": "left of network, below Input Sample box, roughly x 6-12%, y 55-65%",
+        "content": "Bias node labeled '1' with adjacent text 'Node Bias', feeding column 1."
+      },
+      {
+        "name": "network_diagram",
+        "position": "center, roughly x 10-85%, y 25-80%",
+        "content": "Six-column feedforward/backpropagation network with three rows of nodes, forward black arrows, backward dashed error arrows, weight/signal labels, output boxes, class labels, and red Error annotations."
+      },
+      {
+        "name": "layer_labels",
+        "position": "below network, roughly y 76-84%",
+        "content": "Layer markers i, j, k with labels 'Previous Layer (l)', 'Current Layer (You are here)', and 'Next Layer (K)'."
+      },
+      {
+        "name": "formula_panel",
+        "position": "bottom left, roughly x 4-43%, y 83-96%",
+        "content": "Panel headed 'For Layer \"j\"' containing Net_j and O_j equations."
+      },
+      {
+        "name": "error_formula",
+        "position": "bottom center/right, roughly x 50-88%, y 84-92%",
+        "content": "Error equation E = 1/2 sum_j (t_j - O_j)^2 followed by red \u2717 \u2717 \u2717."
+      },
+      {
+        "name": "note_panel",
+        "position": "bottom right, roughly x 56-97%, y 92-99%",
+        "content": "Panel with text 'Note: Layer \"j\" is NOT Output Layer'."
+      }
+    ],
+    "hierarchy": "The title/subtitle dominate the top; the large colored network diagram is the visual focus; formulas and notes are smaller supporting text at the bottom."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Feedforward neural network with backpropagation error hints. Three horizontal rows and six node columns. Column 1: blue \u03a3 nodes receiving Input Sample and Node Bias. Column 2: red f nodes producing O_i. Column 3: blue \u03a3 nodes labeled Net_j. Column 4: red f nodes labeled O_j. Column 5: yellow \u03a3 nodes labeled Net_k. Column 6: red f nodes labeled O_k. Solid black arrows show forward signal flow left-to-right, including all-to-all connections between adjacent columns. Labels on forward paths include O_i, W_ji, Net_j, O_j, W_jk, Net_k, and O_k. Dashed blue/red arrows show backward error information from Target Label/outputs toward Net_k and earlier layers. Output boxes read Output 1, Output 2, Output m; right-side class labels read Class 1, Class 2, Class m; red vertical Error annotations appear along the error path.",
+      "colors": [
+        "#0070C0",
+        "#FF0000",
+        "#FFFF00",
+        "#FF99CC",
+        "#000000",
+        "#0000CC",
+        "#CCFFCC"
+      ],
+      "position": "center of slide"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pink rounded rectangle labeled 'Input Sample'.",
+      "colors": [
+        "#FF99CC",
+        "#CC0066",
+        "#000000"
+      ],
+      "position": "top left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pink rounded rectangle labeled 'Target Label'.",
+      "colors": [
+        "#FF99CC",
+        "#CC0066",
+        "#000000"
+      ],
+      "position": "top right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Bottom-left formula panel headed 'For Layer \"j\"' containing the Net_j and logistic O_j equations.",
+      "colors": [
+        "#F2F2F2",
+        "#000000"
+      ],
+      "position": "bottom left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Bottom-right note panel containing 'Note: Layer \"j\" is NOT Output Layer'.",
+      "colors": [
+        "#F2F2F2",
+        "#000000"
+      ],
+      "position": "bottom right"
+    },
+    {
+      "type": "other",
+      "description": "Yellow circular slide-number badge containing '17'.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top right"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#000000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000CC",
+      "#FF0000",
+      "#FFFF00",
+      "#FF99CC",
+      "#0070C0",
+      "#CCFFCC",
+      "#F2F2F2"
+    ]
+  },
+  "typography_notes": "Mostly sans-serif, Arial/Calibri-like. Title is bold black and largest; subtitle is bold blue. Diagram labels are small and mostly black, with white symbols inside colored nodes. Formulas use math-style subscripts/superscripts. The word NOT in the note is capitalized for emphasis.",
+  "animation_state": "Static; no mid-build or partial reveal is evident.",
+  "recreation_brief": "1) Set slide size to 16:9 with white (#FFFFFF) background. 2) Add centered title text box at top (x 20-80%, y 5-15%): text 'Neural Network Model', bold, black (#000000), ~30-32 pt, sans-serif. 3) Add centered subtitle text box directly below title (x 20-80%, y 15-22%): text '(Effect of Net_k on Calculated Error is known from O/P Layer)', bold, blue (#0000CC), ~18-20 pt; render Net_k with subscript k. 4) Add yellow (#FFFF00) circle at top right (x 88-95%, y 3-10%) with black outline and centered text '17'. 5) Add pink (#FF99CC) rounded rectangle at top left (x 6-16%, y 16-23%) with dark pink (#CC0066) outline and text 'Input Sample'. 6) Add pink (#FF99CC) rounded rectangle at top right (x 86-96%, y 16-23%) with dark pink (#CC0066) outline and text 'Target Label'. 7) Add a bias node (circle; fill color not specified in source) at lower left of network (approx x 6-12%, y 55-65%) labeled '1', with text label 'Node Bias' beside it; draw a forward arrow into column 1. 8) Build the network diagram in the center (x 10-85%, y 25-80%) as 3 rows by 6 columns of circles. Column x-centers approx 16%, 25%, 34%, 43%, 52%, 61%; row y-centers approx 37%, 51%, 65%. 9) Column 1 (x~16%): 3 blue (#0070C0) circles with white '\u03a3' symbols. 10) Column 2 (x~25%): 3 red (#FF0000) circles with white 'f' symbols; label outputs 'O_i'. 11) Column 3 (x~34%): 3 blue (#0070C0) circles with white '\u03a3' symbols; label 'Net_j'. 12) Column 4 (x~43%): 3 red (#FF0000) circles with white 'f' symbols; label 'O_j'. 13) Column 5 (x~52%): 3 yellow (#FFFF00) circles with black '\u03a3' symbols; label 'Net_k'. 14) Column 6 (x~61%): 3 red (#FF0000) circles with white 'f' symbols; label 'O_k'. 15) Draw solid black forward arrows between every node in adjacent columns (all-to-all), left-to-right. Label paths with 'O_i', 'W_ji', 'Net_j', 'O_j', 'W_jk', 'Net_k', 'O_k' using subscripts. 16) Add pale green (#CCFFCC) output boxes to the right of column 6 (approx x 70-80%): 'Output 1', 'Output 2', 'Output m' (m subscript). 17) Add class labels to the right of output boxes (approx x 82-90%): 'Class 1', 'Class 2', 'Class m'. 18) Add red (#FF0000) vertical text 'Error' along the backward error path between outputs and Target Label. 19) Draw dashed blue and red backward arrows from 'Target Label'/outputs toward the Net_k nodes and earlier layers to show error propagation. 20) Add layer markers below the network (y 76-84%): 'i' with 'Previous Layer (l)', 'j' with 'Current Layer (You are here)', and 'k' with 'Next Layer (K)'. 21) Add light gray (#F2F2F2) formula panel at bottom left (x 4-43%, y 83-96%) headed 'For Layer \"j\"' containing equations: 'Net_j = \u03a3_i (w_ji O_i)' and 'O_j = f(Net_j) = 1/(1+e^{-Net_j})'. 22) Add error equation at bottom center/right (x 50-88%, y 84-92%): 'E = 1/2 \u03a3_j (t_j - O_j)^2' followed by red '\u2717 \u2717 \u2717'. 23) Add light gray (#F2F2F2) note panel at bottom right (x 56-97%, y 92-99%) with text 'Note: Layer \"j\" is NOT Output Layer'.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Added missing bias_node region to layout.regions to cover the 'Node Bias' and '1' labels referenced in verbatim_text and visual_elements.",
+      "Removed 'Node Bias' from layer_labels region to resolve positional contradiction; bias node belongs to the network input area, not the sub-network layer markers.",
+      "Corrected recreation_brief backward-arrow description from 'dashed blue' to 'dashed blue and red' to match visual_elements.",
+      "Removed unsupported pink color specification for the bias node in recreation_brief; color is not explicitly stated in the source.",
+      "Rewrote recreation_brief as a strict 23-step numbered checklist specifying exact text, approximate position, color, and shape/chart type for every placed element.",
+      "Replaced vague positional phrasing with concrete approximate percentage coordinates derived from existing layout.regions."
+    ],
+    "uncertain_items": [
+      "Bias node fill color is not explicitly specified in the source JSON.",
+      "Exact coordinates are reconstructed as approximate percentages from qualitative layout descriptions.",
+      "The label 'Previous Layer (l)' uses a lowercase letter l in parentheses as extracted; whether it is the letter l or numeral 1 cannot be verified from the JSON alone."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_017.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 17,
+      "image": "slide_017.jpg",
+      "badge": "17"
+    },
+    "elapsed_s": 677.6,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 637.4
+  }
+}

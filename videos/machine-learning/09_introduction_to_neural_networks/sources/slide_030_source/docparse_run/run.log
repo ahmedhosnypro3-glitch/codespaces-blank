@@ -1,0 +1,15 @@
+2026-10-27 19:48:43,412 INFO === crop_cascade run: slide_030.jpg ===
+2026-10-27 19:48:43,412 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 19:48:43,444 INFO chat call attempt=1 HTTP=404 latency=0.0s url=http://localhost:17844/v1/chat/completions
+2026-10-27 19:48:43,444 WARNING chat lane probe failed — running degraded: chat: HTTP 404 on http://localhost:17844/v1/chat/completions — {"error":{"code":"model_not_found","message":"the requested model does not exist or is not available to this API key","type":"invalid_request_error"}}. fix the config or credentials — retrying cannot help
+2026-10-27 19:48:43,445 INFO chat lane: degraded
+2026-10-27 19:48:46,013 INFO parse call attempt=1 latency=2.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=62494
+2026-10-27 19:48:46,013 INFO node root parsed: 245 chars, 79 out tokens
+2026-10-27 19:48:46,014 INFO root parsed: 245 chars
+2026-10-27 19:48:46,014 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 19:48:46,301 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 19:48:48,059 INFO parse call attempt=1 latency=1.8s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=677102
+2026-10-27 19:48:48,060 INFO node slide_030.crop01__chart parsed: 250 chars, 82 out tokens
+2026-10-27 19:48:48,060 INFO node slide_030.crop01__chart stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-27 19:48:48,060 INFO level 1 done: 1 nodes -> 0 children
+2026-10-27 19:48:48,062 INFO composed -> composed/slide_030_composed.md

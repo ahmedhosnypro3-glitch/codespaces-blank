@@ -1,0 +1,176 @@
+{
+  "slide_title": "Vanishing and Exploding Gradients",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "25",
+      "Long Chain of Derivatives",
+      "Node Bias",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Error Error",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "1.0",
+      "Exploding Gradients",
+      "Vanishing Gradients",
+      "Sigmoid vs Tanh",
+      "Tanh",
+      "Sigmoid",
+      "Tanh Derivative",
+      "Sigmoid Derivative",
+      "f",
+      "x",
+      "-10",
+      "-5",
+      "0",
+      "5",
+      "10",
+      "-4",
+      "4",
+      "-1.00",
+      "-0.75",
+      "-0.50",
+      "-0.25",
+      "0.00",
+      "0.25",
+      "0.50",
+      "0.75",
+      "1.00",
+      "0.0",
+      "0.2",
+      "0.4",
+      "0.6",
+      "0.8",
+      "1.0"
+    ],
+    "equations": [
+      "f(x) = ReLU = { 0 for x<0, x for x>=0 }",
+      "f'(x) = { 0 for x<0, 1 for x>=0 }"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title centered at top. Below, left column contains 'Long Chain of Derivatives' header and two piecewise function boxes. Center-top contains a large neural network diagram. Right edge of diagram has a vertical red bar with 'Error Error Error' stacked vertically and class labels. Bottom section split: 'Exploding Gradients' header above left chart, 'Vanishing Gradients' header above right-side charts. Slide number '25' in yellow circle top-right.",
+    "regions": [
+      {
+        "name": "title bar",
+        "position": "top center",
+        "content": "Slide title 'Vanishing and Exploding Gradients' in red, slide number '25' in yellow circle top-right"
+      },
+      {
+        "name": "left column",
+        "position": "top-left to middle-left",
+        "content": "Header 'Long Chain of Derivatives' in blue, followed by two equation boxes for ReLU and its derivative"
+      },
+      {
+        "name": "center diagram",
+        "position": "center-top",
+        "content": "Large neural network diagram with summation nodes, activation circles, weights, outputs, bias label, and vertical error/class bar on right"
+      },
+      {
+        "name": "bottom left",
+        "position": "bottom-left",
+        "content": "Header 'Exploding Gradients' in red above a line chart of ReLU function"
+      },
+      {
+        "name": "bottom right",
+        "position": "bottom-right",
+        "content": "Header 'Vanishing Gradients' in red above a combined chart area titled 'Sigmoid vs Tanh' with function curves and derivative curves"
+      }
+    ],
+    "hierarchy": "Title dominates (largest, red, centered). Neural network diagram is the largest visual element. Section headers in red bold. Body text dark sans-serif. Equations in light-colored boxes."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Peach/light orange box containing ReLU piecewise function: f(x) = ReLU = { 0 for x<0, x for x>=0 }",
+      "colors": [
+        "#ffe6cc",
+        "#000000",
+        "#00aa00"
+      ],
+      "position": "left-middle-upper"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light yellow box containing derivative piecewise function: f'(x) = { 0 for x<0, 1 for x>=0 }",
+      "colors": [
+        "#fff2cc",
+        "#000000",
+        "#00aa00"
+      ],
+      "position": "left-middle-lower"
+    },
+    {
+      "type": "diagram",
+      "description": "Multi-layer feedforward neural network. Leftmost inputs are purple dots. Hidden layers contain circular nodes with Sigma (\u03a3) symbols. Connections between layers are curved arrows labeled with weights (w). Activation functions appear as colored circles (blue, green, orange). Output nodes on right labeled Output 1, Output 2, Output m. Far right vertical red bar contains 'Error Error Error' stacked vertically, aligned with Class 1, Class 2, Class m. Purple circle icon labeled 'Node Bias' at bottom-left of diagram. Circled purple '1' markers near some nodes. Red '1.0' annotation near bottom center.",
+      "colors": [
+        "#d9d9d9",
+        "#800080",
+        "#0000ff",
+        "#00aa00",
+        "#ff9900",
+        "#c00000",
+        "#ffffff"
+      ],
+      "position": "center-top"
+    },
+    {
+      "type": "chart",
+      "description": "Line chart under 'Exploding Gradients'. X-axis labeled 'x' with ticks -10, -5, 0, 5, 10. Y-axis labeled 'f' with ticks 0, 5, 10. Red line shows ReLU: flat at 0 for x<0, then linear diagonal for x>=0.",
+      "colors": [
+        "#ffffff",
+        "#000000",
+        "#c00000",
+        "#cccccc"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "chart",
+      "description": "Combined chart area under 'Vanishing Gradients' titled 'Sigmoid vs Tanh'. Left sub-chart shows Sigmoid (blue) and Tanh (red) S-curves, y-axis -1.00 to 1.00, x-axis -4 to 4. Right sub-chart shows derivatives: Tanh Derivative (green) and Sigmoid Derivative (purple), with red annotations '1.0' and '0.25', y-axis 0.0 to 1.0, x-axis -4 to 4.",
+      "colors": [
+        "#ffffff",
+        "#000000",
+        "#0000ff",
+        "#c00000",
+        "#00aa00",
+        "#800080",
+        "#cccccc"
+      ],
+      "position": "bottom-right"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#f0f0f0",
+    "title_text": "#c00000",
+    "body_text": "#333333",
+    "accents": [
+      "#0000ff",
+      "#00aa00",
+      "#c00000",
+      "#800080",
+      "#ff9900",
+      "#ffe6cc",
+      "#fff2cc",
+      "#ffff00"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is large, bold, red, title case. Section headers ('Long Chain of Derivatives', 'Exploding Gradients', 'Vanishing Gradients') are colored blue or red and bold. Equation text is black inside light boxes, with some variables in green. Diagram labels are small black text.",
+  "animation_state": "None visible; slide appears static with all elements present.",
+  "recreation_brief": "1. Set slide background to light gray (#f0f0f0). 2. Add title 'Vanishing and Exploding Gradients' centered at top in large bold red text (#c00000). 3. Add yellow circle with '25' in top-right corner. 4. On left side, add blue header 'Long Chain of Derivatives'. 5. Below it, add a peach box (#ffe6cc) with equation: f(x) = ReLU = { 0 for x<0, x for x>=0 }. 6. Below that, add a light yellow box (#fff2cc) with equation: f'(x) = { 0 for x<0, 1 for x>=0 }. 7. In center-top, draw a multi-layer neural network diagram: input dots on left, Sigma nodes in hidden layers, weighted curved arrows (w), colored activation circles, output nodes labeled Output 1, Output 2, Output m on right. Add vertical red bar on far right with 'Error Error Error' stacked vertically and Class 1, Class 2, Class m labels. Add purple 'Node Bias' icon and label at bottom-left of diagram. Add circled purple '1' markers and red '1.0' annotation. 8. At bottom-left, add red header 'Exploding Gradients' and a line chart with x-axis -10 to 10, y-axis 0 to 10 labeled f, showing red ReLU line. 9. At bottom-right, add red header 'Vanishing Gradients' and a chart box titled 'Sigmoid vs Tanh' containing two sub-charts: left with Sigmoid (blue) and Tanh (red) curves, y-axis -1.00 to 1.00; right with Tanh Derivative (green) and Sigmoid Derivative (purple) curves, red annotations '1.0' and '0.25', y-axis 0.0 to 1.0. 10. Ensure all axis ticks and labels match the transcription exactly.",
+  "_meta": {
+    "frame": "slide_025.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 25,
+      "image": "slide_025.jpg",
+      "badge": "25"
+    },
+    "elapsed_s": 33.0
+  }
+}

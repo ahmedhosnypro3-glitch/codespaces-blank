@@ -1,0 +1,48 @@
+# Fidelity Check â Slide 025 "Types of Loss function shapes"
+
+## Ground rules applied (settled, not raised as discrepancies)
+- House chrome (gray E9E9E7 panel, red strokes on left/right/bottom only, **no top stroke**, yellow badge "25" at top-right) â present and correct in both; **not listed**.
+- Original is a real content slide (not a placeholder), so content fidelity is fully in scope.
+- The thin cursor arrow in IMG2's bottom-right chart is a video-capture artifact â its omission is **correct**, not a discrepancy.
+- Professional 2D equation formatting â not applicable (no equations on this slide).
+
+## Element-by-element comparison
+
+### Title
+- "Types of Loss function shapes" â verbatim match, same dark-red bold, same position. callout boxes (4 navy boxes, yellow keyword + white text)
+- "Concave Function / One Maxima", "Convex Function / One Minima", "Gradient Descent Path to reach Minima", "Non-Convex / Multiple Minima" â all verbatim, correct two-line breaks, correct yellow/white coloring, approximately correct positions.-left chart (Concave)
+- **MAJOR (confidence high):** Different surface plot. Original: a low dome mesh viewed from a raised angle with visible z-axis ticks (0, â5) and x/y ticks (2, 0, â2, â2). Recreation: a tall Gaussian bell with rainbow colormap and **no axis tick labels at all**. Same concept (concave + red slice lines) but different data, axes, and viewpoint.
+
+### Top-right chart (Convex)
+- **MAJOR (confidence high):** Original shows a 3D convex bowl (paraboloid) with z-axis Ã10â´, ticks 0.5â2, axes 100â¦â100 on both sides. Recreation shows a nearly **flat plane with a blue annulus/ring** â not the convex bowl; z-ticks 0.5â2 absent.
+- **MINOR (confidence high):** Right-edge tick labels collide/overlap ("100" doubled/overprinted, and "100 105"-looking overlap at right edge) â illegible.
+- **MAJOR (confidence medium):** The two red horizontal slice lines extend to/past the right border of the chart frame, and the right-side "100" labels touch the frame border â containment violation per rule (5).
+
+### Bottom-left chart (Non-Convex surface)
+- **MAJOR (confidence medium-high):** Axis data differ: original axes span roughly â3â¦3 with Y/X axis titles; recreation spans â3â¦1.5/â1.5 with a "y" label and **bottom tick text ("1 â3") clipped/overlapping the bottom frame border** â containment violation.
+- **MAJOR (confidence high):** Original annotates minima with **red â markers** on the surface and arrows from all four labels; recreation has the four text labels and leader lines but **no red â markers**, and "Global Maxima" label placement is mid-chart rather than top-annotated.
+- **MINOR (confidence medium):** The red horizontal slice line extends slightly beyond the right edge of the chart frame.
+
+### Bottom-right chart (Gradient Descent path)
+- **MAJOR (confidence high):** Wrong surface. Original: wavy **non-convex** surface with a curved black descent path. Recreation: a smooth **convex paraboloid bowl** with a straight black line â contradicts the very concept the original illustrates on this panel (the path on a non-convex surface).
+- **MAJOR (confidence high):** Thin black lines at the bottom-left and bottom-right of this chart **cross outside the red frame border** â clear frame-containment overflow (rule 5).
+
+## Visual-quality defects in the recreation
+- Overlapping/clipped tick labels top-right ("100") and bottom-left ("1 â3") â legibility defects.
+- Red slice lines crossing chart frame borders (bottom-left, top-right).
+- Black stray lines escaping the bottom-right chart frame.
+
+## Summary
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | Top-left chart: different surface, missing axis ticks (0/â5, Â±2) | MAJOR | High |
+| 2 | Top-right chart: flat plane + ring instead of convex bowl; missing 0.5â2 z-ticks | MAJOR | High |
+| 3 | Bottom-right chart: convex bowl + straight line instead of non-convex surface + curved descent path | MAJOR | High |
+| 4 | Bottom-left: missing red â minima markers; different axes/range; label placement off | MAJOR | Med-High |
+| 5 | Containment: black lines exit bottom-right frame; red lines exit bottom-left/top-right frames; clipped "1 â3" | MAJOR | High |
+| 6 | Overlapping tick labels ("100" collision, top-right) | MINOR | High |
+| 7 | "Global Maxima" annotation position differs from original | MINOR | Medium |
+
+Text, title, callout boxes, layout regions, colors, and house chrome all match. However, three of the four charts depict substantially different mathematical surfaces/data than the original, and multiple elements overflow their chart frames.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation".

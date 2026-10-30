@@ -1,0 +1,151 @@
+{
+  "slide_title": "Example",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Backward (Update hidden Layer Weights)"
+    ],
+    "labels": [
+      "Example",
+      "31",
+      "Input",
+      "Output",
+      "Target",
+      "Bias",
+      "\u03b7=5",
+      "x1 (1)",
+      "x2 (1)",
+      "O3",
+      "O4",
+      "O5",
+      "O6",
+      "O7",
+      "t1",
+      "t2"
+    ],
+    "equations": [
+      "\u03b4j = Oj(1-Oj) [ \u03a3k (\u03b4k wkj) ]",
+      "\u0394j = \u03b7 Oj(1-Oj) [ \u03a3k (\u03b4k wkj) ] = \u03b7 Oj \u03b4j",
+      "\u03b46=0.791(1-0.791)(0-0.791)=-0.131",
+      "\u03b47=0.791(1-0.791)(1-0.791)=0.035",
+      "\u03b43=O3(1-O3)[\u03b46*W63+\u03b47*W73]",
+      "\u03b43=0.9(1-0.9)[-0.131*-0.29+0.035*0.458]=0.005",
+      "\u03b44=0.943(1-0.943)[-0.131*-0.218+0.035*0.565]=0.003",
+      "\u03b45=0.968(1-0.968)[-0.131*-0.134+0.035*0.669]=0.001",
+      "\u0394W31=5*0.005*1=0.025",
+      "\u0394W32=5*0.005*1=0.125",
+      "\u0394W3b=5*0.005*1=0.025",
+      "\u0394W41=5*0.003*1=0.015",
+      "\u0394W42=5*0.003*5=0.075",
+      "\u0394W4b=5*0.003*1=0.015",
+      "\u0394W51=5*0.001*1=0.005",
+      "\u0394W52=5*0.001*5=0.025",
+      "\u0394W5b=5*0.001*1=0.005",
+      "W31=0.1+0.025=0.125",
+      "W32=0.4+0.125=0.525",
+      "W3b=0.1+0.025=0.125",
+      "W41=0.2+0.015=0.215",
+      "W42=0.075+0.075=0.15",
+      "W4b=0.1+0.015=0.115",
+      "W51=0.3+0.005=0.305",
+      "W52=0.6+0.025=0.625",
+      "W5b=0.1+0.005=0.105",
+      "O3 = 1/(1+e^-2.2) = 0.9",
+      "O4 = 1/(1+e^-2.8) = 0.943",
+      "O5 = 1/(1+e^-3.4) = 0.968",
+      "O6 = 1/(1+e^-1.3312) = 0.791",
+      "O7 = 1/(1+e^-1.3312) = 0.791"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-left; top band split into left equation block and right neural network diagram; middle band split into left backward-propagation derivations and right activation-value calculations; bottom band split into left delta-weight column and right updated-weight column with large blue arrows between; slide number badge top-right corner.",
+    "regions": [
+      {
+        "name": "title_area",
+        "position": "top-left, ~5% width",
+        "content": "The word 'Example' in large red text"
+      },
+      {
+        "name": "slide_number",
+        "position": "top-right corner",
+        "content": "Yellow circle containing the number 31"
+      },
+      {
+        "name": "forward_equations",
+        "position": "top-left/middle, left ~35%",
+        "content": "General delta and Delta-j formulas in red and blue, plus computed delta_6 and delta_7 values"
+      },
+      {
+        "name": "network_diagram",
+        "position": "top-right/center, right ~60%",
+        "content": "Feed-forward neural network with Input, Hidden, Output, and Target layers, edge weights, and eta=5"
+      },
+      {
+        "name": "backward_section",
+        "position": "middle-left",
+        "content": "Header 'Backward (Update hidden Layer Weights)' followed by delta_3, delta_4, delta_5 derivations"
+      },
+      {
+        "name": "activation_calculations",
+        "position": "middle-right",
+        "content": "Sigmoid activation computations for O3 through O7"
+      },
+      {
+        "name": "weight_updates",
+        "position": "bottom-left and bottom-center",
+        "content": "Two columns of weight-update arithmetic: left column shows \u0394W values, right column shows new W values; three large blue arrows point from left to right"
+      }
+    ],
+    "hierarchy": "Title is largest; network diagram is the visually dominant graphic element; equations are medium-sized with red/blue color coding; bottom weight-update block is dense but structured in two aligned columns."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Feed-forward neural network diagram. Input layer (left) has three nodes: x1(1), x2(1), and Bias. Hidden layer (middle) has four nodes: O3, O4, O5, and Bias. Output layer (right) has two nodes: O6 and O7. A Target column vector [t1; t2] sits to the right of the output layer. Directed edges connect every input/hidden node to the next layer; edge weights are labeled with small decimal values (e.g., 0.1, 0.2, 0.3, 0.4, 0.5). The label \u03b7=5 appears at the bottom right of the diagram.",
+      "colors": [
+        "#000000",
+        "#0000FF",
+        "#FF0000",
+        "#800080"
+      ],
+      "position": "top-right quadrant"
+    },
+    {
+      "type": "arrow",
+      "description": "Three large, solid blue right-pointing arrows separate the left \u0394W column from the right W column in the bottom weight-update region, indicating the update flow.",
+      "colors": [
+        "#0000FF"
+      ],
+      "position": "bottom-center, between the two weight columns"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Yellow circular badge in the upper-right corner containing the slide number 31.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#FF0000",
+    "body_text": "#0000FF",
+    "accents": [
+      "#FF0000",
+      "#0000FF",
+      "#FFFF00",
+      "#800080"
+    ]
+  },
+  "typography_notes": "Sans-serif/math-type font throughout. Title 'Example' is large and red. Equations alternate between red and blue for emphasis. Subscript notation is used for indices (e.g., \u03b4j, Wkj, \u0394W31). The 'Backward' header mixes red and blue text. Body equations are smaller than the title but larger than the edge-weight labels in the diagram.",
+  "animation_state": "No mid-build animation detected; all content appears fully revealed.",
+  "recreation_brief": "1. Create a white slide. Place the title 'Example' in large red text at the top-left. 2. Add a yellow circle at the top-right with the number '31' inside. 3. In the top-left area, write the two general formulas in red and blue: \u03b4j = Oj(1-Oj)[\u03a3k(\u03b4k wkj)] and \u0394j = \u03b7 Oj(1-Oj)[\u03a3k(\u03b4k wkj)] = \u03b7 Oj \u03b4j. Below them add \u03b46=0.791(1-0.791)(0-0.791)=-0.131 in red and \u03b47=0.791(1-0.791)(1-0.791)=0.035 in blue. 4. In the top-right area, draw the neural network: three input circles labeled x1(1), x2(1), Bias; four hidden circles labeled O3, O4, O5, Bias; two output circles labeled O6, O7; and a target vector [t1; t2]. Connect layers with arrows and label edges with small weight values. Add 'Input', 'Output', 'Target' labels and '\u03b7=5' at the bottom. 5. In the middle-left, add the red/blue header 'Backward (Update hidden Layer Weights)' and the three delta derivations for \u03b43, \u03b44, \u03b45 exactly as transcribed. 6. In the middle-right, add the five sigmoid equations for O3 through O7. 7. In the bottom-left column, list the nine \u0394W equations. 8. In the bottom-right column, list the nine updated W equations. 9. Place three large blue right-pointing arrows between the two bottom columns. 10. Use blue (#0000FF) and red (#FF0000) for equation text matching the original color coding.",
+  "_meta": {
+    "frame": "slide_031.jpg",
+    "model": "images",
+    "elapsed_s": 403.2
+  }
+}

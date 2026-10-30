@@ -1,0 +1,18 @@
+2026-10-27 18:48:17,308 INFO === crop_cascade run: slide_017.jpg ===
+2026-10-27 18:48:17,308 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 18:48:17,334 INFO chat call attempt=1 HTTP=404 latency=0.0s url=http://localhost:17844/v1/chat/completions
+2026-10-27 18:48:17,334 WARNING chat lane probe failed — running degraded: chat: HTTP 404 on http://localhost:17844/v1/chat/completions — {"error":{"code":"model_not_found","message":"the requested model does not exist or is not available to this API key","type":"invalid_request_error"}}. fix the config or credentials — retrying cannot help
+2026-10-27 18:48:17,334 INFO chat lane: degraded
+2026-10-27 18:48:18,296 INFO parse call attempt=1 latency=1.0s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=39843
+2026-10-27 18:48:18,297 INFO node root parsed: 99 chars, 15 out tokens
+2026-10-27 18:48:18,297 INFO root parsed: 99 chars
+2026-10-27 18:48:18,297 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 18:48:18,466 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 18:48:19,724 INFO parse call attempt=1 latency=1.3s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=355121
+2026-10-27 18:48:19,725 INFO node slide_017.crop01__picture parsed: 103 chars, 17 out tokens
+2026-10-27 18:48:19,919 INFO level 1 done: 1 nodes -> 1 children
+2026-10-27 18:48:21,978 INFO parse call attempt=1 latency=2.1s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=406345
+2026-10-27 18:48:21,979 INFO node slide_017.crop02__picture parsed: 103 chars, 17 out tokens
+2026-10-27 18:48:21,979 INFO node slide_017.crop02__picture stop: no-new-information — child lines are a subset of the parent parse
+2026-10-27 18:48:21,979 INFO level 2 done: 1 nodes -> 0 children
+2026-10-27 18:48:21,980 INFO composed -> composed/slide_017_composed.md

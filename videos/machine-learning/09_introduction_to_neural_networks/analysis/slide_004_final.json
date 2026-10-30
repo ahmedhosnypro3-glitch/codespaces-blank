@@ -1,0 +1,214 @@
+{
+  "slide_title": "Problem Formulation",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Define \u03b4_i as:",
+      "If X \u2208 class I and misclassified as Class II then d(X) will be <0 \u21d2 \u03b4_i = -1 \u21d2 d(X) \u03b4_i >0",
+      "If X \u2208 class II and misclassified as Class I then d(X) will be >0 \u21d2 \u03b4_i = +1 \u21d2 d(X) \u03b4_i >0",
+      "Redefine Error function as:",
+      "Summation is always positive",
+      "Minimize the Error using Gradient Descent with step \u03b7"
+    ],
+    "labels": [
+      "4",
+      "all misclassified vectors (i)",
+      "misclassified vectors",
+      "misclassified vectors ONLY (i)",
+      "Update after each sample",
+      "where"
+    ],
+    "equations": [
+      "\u03b4_i = -1",
+      "\u03b4_i = +1",
+      "d(X) \u03b4_i >0",
+      "Error = \u03a3_{all misclassified vectors (i)} \u03b4_i W^T X_i",
+      "(W^T X_i) takes positive and negative values and \u03b4_i has the same sign",
+      "W^(updated) = W^old - \u03b7 \u2202Error/\u2202W",
+      "\u2202Error/\u2202W = \u03a3_{misclassified vectors} \u03b4_i X_i",
+      "W^(updated) = W^old - \u03b7 \u03a3_{misclassified vectors ONLY (i)} \u03b4_i X_i",
+      "W^(updated) = W^old - \u03b7 \u03b4_i X_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "White slide with a thin red rectangular frame enclosing the content (approx. x 6%-94%, y 7%-91%). Centered red bold title at the top; a yellow circular slide-number badge at the top-right corner inside the frame. Below the title, three stacked full-width panels: (1) a square-cornered red-outlined white box defining \u03b4_i, (2) a rounded red-outlined white box redefining the Error function, (3) a rounded red-outlined pale-peach box containing the gradient-descent update, with two light-green rounded sub-boxes side by side at its bottom separated by a red caption and arrow. A black horizontal bar (video-player overlay) runs along the very bottom edge of the image.",
+    "regions": [
+      {
+        "name": "Title band",
+        "position": "top, center (approx. x 36%-64%, y 10%-16%)",
+        "content": "Large bold red title text 'Problem Formulation'"
+      },
+      {
+        "name": "Slide number badge",
+        "position": "top-right (approx. x 89%-93%, y 9%-16%)",
+        "content": "Yellow filled circle with purple outline containing the black numeral '4'"
+      },
+      {
+        "name": "Panel 1 - Define delta",
+        "position": "upper-middle, full width (approx. x 7%-91%, y 19%-37%)",
+        "content": "Red thin square-cornered rectangle on white: 'Define \u03b4_i as:' followed by two conditional lines about class I / class II misclassification, with colored class names, red <0 / >0, green \u03b4_i and implication arrows"
+      },
+      {
+        "name": "Panel 2 - Redefine Error function",
+        "position": "middle, full width (approx. x 7%-93%, y 40%-58%)",
+        "content": "Red rounded rectangle on white: heading 'Redefine Error function as:', the Error summation formula with red italic subscript 'all misclassified vectors (i)', an implication clause in serif italic, and the line 'Summation is always positive' with 'positive' in red bold italic"
+      },
+      {
+        "name": "Panel 3 - Gradient descent update",
+        "position": "lower-middle, full width (approx. x 7%-93%, y 60%-91%)",
+        "content": "Red rounded rectangle with pale peach fill: underlined italic heading 'Minimize the Error using Gradient Descent with step \u03b7', the update equation W^(updated) = W^old - \u03b7 \u2202Error/\u2202W, the word 'where', the gradient formula \u2202Error/\u2202W = \u03a3 \u03b4_i X_i with red italic subscript 'misclassified vectors', and a bottom row of two light-green rounded boxes with a red caption and arrow between them"
+      },
+      {
+        "name": "Left green sub-box",
+        "position": "bottom-left inside Panel 3 (approx. x 8%-51%, y 78%-90%)",
+        "content": "Light-green rounded rectangle with green border containing W^(updated) = W^old - \u03b7 \u03a3 \u03b4_i X_i with red italic subscript 'misclassified vectors ONLY (i)'"
+      },
+      {
+        "name": "Center caption and arrow",
+        "position": "bottom-center inside Panel 3 (approx. x 51%-63%, y 79%-88%)",
+        "content": "Red text 'Update after each sample' with a small red left-pointing arrow beneath it and a visible mouse cursor pointer"
+      },
+      {
+        "name": "Right green sub-box",
+        "position": "bottom-right inside Panel 3 (approx. x 67%-92%, y 78%-90%)",
+        "content": "Light-green rounded rectangle with green border containing W^(updated) = W^old - \u03b7 \u03b4_i X_i"
+      },
+      {
+        "name": "Bottom overlay bar",
+        "position": "very bottom (approx. x 4%-93%, y 92%-95%)",
+        "content": "Solid black horizontal rectangle (video player / progress-bar overlay artifact), partially covering the bottom of the slide"
+      }
+    ],
+    "hierarchy": "The large bold red centered title dominates. Next in weight are the three bold black panel headings ('Define \u03b4_i as:', 'Redefine Error function as:', 'Minimize the Error using Gradient Descent with step \u03b7'). The large display equations in the peach panel are the next visual focus, followed by the two green boxed update equations. Color is used as the primary emphasis device: red for key words and inequalities, green for \u03b4_i / X_i and the green boxes, blue for 'Class II', yellow for the slide-number badge."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Thin red rectangular outline framing the entire slide content area (approx. from 6% to 94% width, 7% to 91% height), 1 pt stroke, no fill",
+      "colors": [
+        "#FF0000"
+      ],
+      "position": "around the whole slide content"
+    },
+    {
+      "type": "other",
+      "description": "Circular badge: yellow filled circle with a purple/violet outline, containing the black numeral '4' centered inside",
+      "colors": [
+        "#FFF68F",
+        "#800080",
+        "#000000"
+      ],
+      "position": "top-right corner inside the red frame"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Panel 1: square-cornered rectangle with thin red border and white fill, containing the \u03b4_i definition and two conditional misclassification lines",
+      "colors": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "upper-middle, full width"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Panel 2: rounded rectangle with red border and white fill, containing the Error summation formula and the 'Summation is always positive' line",
+      "colors": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "middle, full width"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Panel 3: rounded rectangle with red border and pale peach/cream fill (#FDEADA), containing the gradient-descent heading, the update equation, the gradient equation, and the two green sub-boxes",
+      "colors": [
+        "#FF0000",
+        "#FDEADA"
+      ],
+      "position": "lower-middle, full width"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Left green rounded rectangle with medium-green border and light-green fill (#E2EFDA), containing 'W^(updated) = W^old - \u03b7 \u03a3 \u03b4_i X_i' with the summation subscript 'misclassified vectors ONLY (i)' in small red italic text",
+      "colors": [
+        "#E2EFDA",
+        "#00B050",
+        "#000000",
+        "#FF0000",
+        "#00B050"
+      ],
+      "position": "bottom-left inside Panel 3"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Right green rounded rectangle with medium-green border and light-green fill (#E2EFDA), containing 'W^(updated) = W^old - \u03b7 \u03b4_i X_i'",
+      "colors": [
+        "#E2EFDA",
+        "#00B050",
+        "#000000",
+        "#FF0000"
+      ],
+      "position": "bottom-right inside Panel 3"
+    },
+    {
+      "type": "arrow",
+      "description": "Small red arrow beneath the caption 'Update after each sample', drawn as a short horizontal shaft with a triangular head pointing left (toward the left green box) and a diagonal tail rising to the upper right; a small white mouse-cursor pointer overlaps its lower-right side",
+      "colors": [
+        "#FF0000",
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "bottom-center of Panel 3, between the two green boxes"
+    },
+    {
+      "type": "other",
+      "description": "Solid black horizontal bar spanning most of the slide width at the very bottom of the image (video playback overlay), overlapping the lower edge of the peach panel",
+      "colors": [
+        "#000000"
+      ],
+      "position": "very bottom of the image"
+    }
+  ],
+  "imagery": [
+    "Yellow circular slide-number badge with purple outline and black '4' (top-right)",
+    "Small white arrow mouse cursor visible over the red arrow in the lower-center of the peach panel",
+    "Black horizontal video-player overlay bar along the bottom edge of the frame"
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#00B050",
+      "#0000FF",
+      "#FFF68F",
+      "#800080",
+      "#FDEADA",
+      "#E2EFDA"
+    ]
+  },
+  "typography_notes": "Mixed typography: the title and most body text are in a bold/regular sans-serif (Arial/Calibri-like); the explanatory clauses ('(W^T X_i) takes positive and negative values and \u03b4_i has the same sign', 'Summation is always', 'Minimize the Error using', 'with step \u03b7') and the summation subscripts are set in a smaller serif italic (Times/Cambria-like). Title is large (~28-30 pt) bold red, centered. Panel headings are bold black ~16-18 pt. Body lines ~14-16 pt. Display equations in the peach panel are larger (~18-20 pt) bold serif. Emphasis conventions: 'class I' and 'Class I' in bold red italic, 'class II' and 'Class II' in bold blue italic, 'misclassified as' in black italic, 'd(X)' in black italic, '<0' and '>0' in bold red, '\u03b4_i' and 'X_i' in bold green, 'Gradient Descent' in bold red italic, 'positive' in bold red italic, 'Minimize the Error using' underlined. The word 'where' is bold black sans-serif. No bullet glyphs are used; lines are flush-left.",
+  "animation_state": "No visible build animation; all three panels, both green boxes, the caption and arrow are fully present. The only non-slide elements are the mouse cursor and the black video-player bar at the bottom.",
+  "recreation_brief": "1) Set slide background to white (#FFFFFF), 16:9 aspect ratio.\n2) Draw a thin 1 pt red (#FF0000) rectangle outline with no fill framing the content area from x 6% to 94% width and y 7% to 91% height.\n3) Add centered title text 'Problem Formulation' in bold red (#C00000), Arial/Calibri-like sans-serif, 28-30 pt, positioned at x 36% to 64%, y 10% to 16%.\n4) At top-right inside the frame (x 89% to 93%, y 9% to 16%), add a yellow filled circle (#FFF68F) with a purple outline (#800080), approximately 0.9 inch wide, containing the black numeral '4' centered in ~14 pt.\n5) Add Panel 1: a square-cornered rectangle with a 1 pt red (#FF0000) border and white fill (#FFFFFF), spanning x 7% to 91% width and y 19% to 37% height. Inside, left-aligned, add the heading 'Define ' (bold black) + '\u03b4_i' (bold green #00B050) + ' as:' (bold black).\n6) Inside Panel 1, add the first conditional line: 'If X \u2208 class I and misclassified as Class II then d(X) will be <0 \u21d2 \u03b4_i = -1 \u21d2 d(X) \u03b4_i >0' with 'If X \u2208' black, 'class I' bold red italic, 'and' black, 'misclassified as' black italic, 'Class II' bold blue (#0000FF) italic, 'then d(X) will be' black with 'd(X)' italic, '<0' bold red, '\u21d2' black, '\u03b4_i' bold green, '= -1' black, '\u21d2' black, 'd(X)' black italic, '\u03b4_i' bold green, '>0' bold red.\n7) Inside Panel 1, add the second conditional line: 'If X \u2208 class II and misclassified as Class I then d(X) will be >0 \u21d2 \u03b4_i = +1 \u21d2 d(X) \u03b4_i >0' with 'class II' bold blue italic, 'Class I' bold red italic, '>0' bold red, '\u03b4_i' bold green, '= +1' black, and the trailing '\u21d2 d(X) \u03b4_i >0' with '>0' bold red.\n8) Add Panel 2: a rounded rectangle with a 1.5 pt red (#FF0000) border and white fill (#FFFFFF), spanning x 7% to 93% width and y 40% to 58% height. Inside, add the bold black heading 'Redefine Error function as:'.\n9) Inside Panel 2, add the display equation 'Error = \u03a3 \u03b4_i W^T X_i' with 'Error =' bold black, a large \u03a3 bearing the small red italic subscript 'all misclassified vectors (i)' beneath it, '\u03b4_i' bold green, and 'W^T X_i' with 'X_i' bold green.\n10) Inside Panel 2, add the serif italic clause '\u21d2 (W^T X_i) takes positive and negative values and \u03b4_i has the same sign' in smaller black serif italic with '\u03b4_i' green.\n11) Inside Panel 2, add the line 'Summation is always positive' in black serif italic with 'positive' in bold red italic.\n12) Add Panel 3: a rounded rectangle with a 1.5 pt red (#FF0000) border and pale peach fill (#FDEADA), spanning x 7% to 93% width and y 60% to 91% height.\n13) Inside Panel 3, add the heading 'Minimize the Error using' (black serif italic, underlined) + 'Gradient Descent' (bold red italic) + 'with step \u03b7' (black serif italic).\n14) Inside Panel 3, add the large bold serif equation 'W^(updated) = W^old - \u03b7 \u2202Error/\u2202W' with '\u03b7' in red and superscripts 'updated' and 'old'.\n15) Inside Panel 3, add the bold black sans-serif word 'where'.\n16) Inside Panel 3, add the equation '\u2202Error/\u2202W = \u03a3 \u03b4_i X_i' with a large \u03a3 bearing the small red italic subscript 'misclassified vectors' beneath it, and '\u03b4_i' and 'X_i' in bold green.\n17) Inside Panel 3 at bottom-left (x 8% to 51%, y 78% to 90%), add a light-green rounded rectangle (fill #E2EFDA, border #00B050, 1.5 pt) containing 'W^(updated) = W^old - \u03b7 \u03a3 \u03b4_i X_i' with '\u03b7' red, '\u03b4_i'/'X_i' green, and the small red italic subscript 'misclassified vectors ONLY (i)' beneath the \u03a3.\n18) Inside Panel 3 at bottom-center (x 51% to 63%, y 79% to 88%), add the red text 'Update after each sample' (~12-13 pt) and, just below it, a small red left-pointing arrow (short horizontal shaft with triangular head and diagonal tail).\n19) Inside Panel 3 at bottom-right (x 67% to 92%, y 78% to 90%), add a light-green rounded rectangle (fill #E2EFDA, border #00B050, 1.5 pt) containing 'W^(updated) = W^old - \u03b7 \u03b4_i X_i' with '\u03b7' red and '\u03b4_i'/'X_i' green.\n20) Optional: overlay a solid black rectangle (#000000) across the bottom edge (x 4% to 93%, y 92% to 95%) to reproduce the video-player bar artifact.\n21) Optional: place a small white mouse-cursor pointer overlapping the lower-right side of the red arrow (video-capture artifact, not slide content).",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Set subtitle_or_header to null because no subtitle exists in the source slide.",
+      "Rewrote recreation_brief as a 21-step ordered checklist using exact positions, colors, fonts, and text from the JSON; removed vague terms ('roughly', 'about', '~') and replaced them with the precise percentage ranges and point sizes given in the source.",
+      "Corrected inconsistency in recreation_brief step 6 where the final '>0' was specified as black; changed to bold red to match typography_notes and step 7.",
+      "Verified layout.regions cover all 9 visual_elements and all verbatim_text content; no missing regions.",
+      "Confirmed no vague quantifiers ('several', 'some', 'many', 'a few', 'various') remain; exact counts (three panels, two green sub-boxes, two conditional lines) are used."
+    ],
+    "uncertain_items": [],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_004.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 298.6,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 1465.7
+  }
+}

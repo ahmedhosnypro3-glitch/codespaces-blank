@@ -1,0 +1,4 @@
+<x_0.0371><y_0.0773>Training Samples with Labels [-1,+1] (Two Classes) 3
+Positive Class "Shoot the Enemy" Label Negative Class "Safe" Label Activation Function Bi-polor step (-1 , +1) Threshold at "zero" Threshold at "zero"
++1 -1 Training
+Input Sample Predicted Class Label of Input Sample Model [Any value] --- (-1 , +1) LOSS (+1, -1) Evaluation Test Sample Predicted Class Model (+1, -1) [Any value] -- (-1 , +1)<x_0.9463><y_0.957><class_Picture>

@@ -1,0 +1,23 @@
+2026-10-28 05:21:25,904 INFO === crop_cascade run: slide_023.jpg ===
+2026-10-28 05:21:25,904 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-28 05:21:59,072 INFO chat call attempt=1 latency=33.2s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-28 05:21:59,072 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-28 05:22:53,103 INFO chat call attempt=1 latency=54.0s url=http://localhost:17844/v1/chat/completions bytes=142
+2026-10-28 05:22:53,103 INFO chat lane probe OK (model=docparsechat)
+2026-10-28 05:22:53,103 INFO chat lane: active
+2026-10-28 05:22:56,372 INFO parse call attempt=1 latency=3.3s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=59995
+2026-10-28 05:22:56,373 INFO node root parsed: 407 chars, 192 out tokens
+2026-10-28 05:22:56,373 INFO root parsed: 407 chars
+2026-10-28 05:22:56,373 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-28 05:23:07,810 INFO chat call attempt=1 latency=11.4s url=http://localhost:17844/v1/chat/completions bytes=3381
+2026-10-28 05:23:07,810 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-28 05:24:07,846 INFO chat call attempt=1 transport failure latency=60.0s (TimeoutError: timed out)
+2026-10-28 05:24:07,846 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.8s
+2026-10-28 05:25:10,656 INFO chat call attempt=2 transport failure latency=60.0s (TimeoutError: timed out)
+2026-10-28 05:25:10,656 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.5s
+2026-10-28 05:26:15,240 INFO chat call attempt=3 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-28 05:26:15,240 WARNING chat attempt 3/4 failed (TimeoutError: timed out) — retrying in 8.1s
+2026-10-28 05:26:52,441 INFO chat call attempt=4 latency=29.1s url=http://localhost:17844/v1/chat/completions bytes=3382
+2026-10-28 05:26:52,442 INFO node root stop: no-new-information — chat advised STOP: The only candidate is the same-size Picture block already parsed with dense text, so no tighter subregion remains to crop.
+2026-10-28 05:26:52,443 INFO level 0 done: 1 nodes -> 0 children
+2026-10-28 05:26:52,444 INFO composed -> composed/slide_023_composed.md

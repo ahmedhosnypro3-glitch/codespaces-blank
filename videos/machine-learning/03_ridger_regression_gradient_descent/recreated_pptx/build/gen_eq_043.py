@@ -149,7 +149,7 @@ SPECS = [
                   {"col": ["4", "-10", "-8"], "color": GREEN}, {"t": " = -14"}]},
     {"name": "eq043_dx2", "fontsize": FS, "target_w_in": 160 / 72,
      "segments": [{"t": "d(x_2) = "}, {"t": "\\left|1\\;2\\;1\\right|", "color": RED},
-                  {"col": ["6", "-8", "-6"], "color": GREEN}, {"t": " = -16"}]},
+                  {"col": ["6", "-8", "-6"], "color": GREEN}, {"t": " = -14"}]},
     {"name": "eq043_dx3", "fontsize": FS, "target_w_in": 155 / 72,
      "segments": [{"t": "d(x_3) = "}, {"t": "\\left|1\\;1\\;2\\right|", "color": RED},
                   {"col": ["8", "-4", "-4"], "color": GREEN}, {"t": " = -4"}]},

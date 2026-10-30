@@ -1,0 +1,37 @@
+2026-10-28 05:29:50,498 INFO === crop_cascade run: slide_026.jpg ===
+2026-10-28 05:29:50,498 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-28 05:30:26,465 INFO chat call attempt=1 latency=36.0s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-28 05:30:26,465 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-29 23:39:20,856 INFO === crop_cascade run: slide_026.jpg ===
+2026-10-29 23:39:20,906 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-29 23:39:22,321 INFO chat call attempt=1 latency=1.4s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-29 23:39:22,322 INFO chat lane probe OK (model=docparsechat)
+2026-10-29 23:39:22,322 INFO chat lane: active
+2026-10-29 23:39:26,516 INFO parse call attempt=1 latency=4.2s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=73278
+2026-10-29 23:39:26,517 INFO node root parsed: 739 chars, 322 out tokens
+2026-10-29 23:39:26,517 INFO root parsed: 739 chars
+2026-10-29 23:39:26,517 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-29 23:39:43,846 INFO chat call attempt=1 latency=17.3s url=http://localhost:17844/v1/chat/completions bytes=3646
+2026-10-29 23:39:43,846 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-29 23:40:22,192 INFO chat call attempt=1 latency=38.3s url=http://localhost:17844/v1/chat/completions bytes=3647
+2026-10-29 23:40:22,441 INFO level 0 done: 1 nodes -> 1 children
+2026-10-29 23:40:24,428 INFO parse call attempt=1 latency=2.0s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=772463
+2026-10-29 23:40:24,428 INFO node slide_026.crop01__chart parsed: 775 chars, 343 out tokens
+2026-10-29 23:40:41,447 INFO chat call attempt=1 latency=17.0s url=http://localhost:17844/v1/chat/completions bytes=4368
+2026-10-29 23:40:41,447 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-29 23:41:41,508 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-29 23:41:41,508 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.5s
+2026-10-29 23:42:22,149 INFO chat call attempt=2 latency=38.2s url=http://localhost:17844/v1/chat/completions bytes=4369
+2026-10-29 23:42:22,379 INFO level 1 done: 1 nodes -> 1 children
+2026-10-29 23:42:29,199 INFO parse call attempt=1 latency=6.8s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=772429
+2026-10-29 23:42:29,199 INFO node slide_026.crop02__chart parsed: 775 chars, 343 out tokens
+2026-10-29 23:42:49,569 INFO chat call attempt=1 latency=20.4s url=http://localhost:17844/v1/chat/completions bytes=4403
+2026-10-29 23:42:49,569 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-29 23:43:49,630 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-29 23:43:49,630 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.8s
+2026-10-29 23:44:52,497 INFO chat call attempt=2 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-29 23:44:52,497 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.2s
+2026-10-29 23:45:15,918 INFO chat call attempt=3 latency=19.2s url=http://localhost:17844/v1/chat/completions bytes=4404
+2026-10-29 23:45:15,919 INFO node slide_026.crop02__chart stop: no-new-information — chat advised STOP: The child reproduces the parent's full chart structure, labels, and tables with only trivial numeric OCR jitter, and the sole candidate's text is already complete rather than sparse.
+2026-10-29 23:45:15,919 INFO level 2 done: 1 nodes -> 0 children
+2026-10-29 23:45:15,921 INFO composed -> composed/slide_026_composed.md

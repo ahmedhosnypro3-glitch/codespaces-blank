@@ -1,0 +1,1 @@
+<x_0.0><y_0.0>Where: \(\phi(x)\equiv\big(\frac{x_1}{x_2}\Rightarrow\Longrightarrow\sqrt{2}x_1x_2\sqrt{2}x_1\sqrt{2}x_2\text{1}\)<x_0.9971><y_0.9938><class_Formula>

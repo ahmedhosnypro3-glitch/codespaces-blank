@@ -1,0 +1,220 @@
+{
+  "slide_title": "Example",
+  "subtitle_or_header": "Bad Weights",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "x1",
+      "x2",
+      "[7]",
+      "[4]",
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.5",
+      "0.6",
+      "O3",
+      "O4",
+      "O5",
+      "3",
+      "4",
+      "5",
+      "Output",
+      "Target",
+      "O6",
+      "O7",
+      "6",
+      "7",
+      "t6",
+      "t7",
+      "[0]",
+      "[1]",
+      "Forward",
+      "30"
+    ],
+    "equations": [
+      "Net3 = 7 * 0.1 + 4 * 0.4 = 2.3",
+      "Net4 = 7 * 0.2 + 4 * 0.5 = 3.4",
+      "Net5 = 7 * 0.3 + 4 * 0.6 = 4.5",
+      "Net6 = 0.909 * 0.3 + 0.968 * 0.4 + 0.989 * 0.5 = 1.1544",
+      "Net7 = 0.909 * 0.3 + 0.968 * 0.4 + 0.989 * 0.5 = 1.1544",
+      "O3 = 1 / (1 + e^-2.3) = 0.909",
+      "O4 = 1 / (1 + e^-3.4) = 0.968",
+      "O5 = 1 / (1 + e^-4.5) = 0.989",
+      "O6 = 1 / (1 + e^-1.1544) = 0.76",
+      "O7 = 1 / (1 + e^-1.1544) = 0.76"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title 'Example' top-left in red serif; kicker 'Bad Weights' in pink box just below title; slide number '30' in yellow circle top-right. Large red-bordered neural network diagram occupies top-center. 'Forward' header in blue italic middle-left. Two stacked blue equation boxes bottom-left. Two stacked green equation boxes bottom-right. Light gray background throughout.",
+    "regions": [
+      {
+        "name": "title area",
+        "position": "top-left, roughly x=5% to x=20%, y=8% to y=18%",
+        "content": "Title 'Example' in red serif, and 'Bad Weights' in a pink rectangular box below it."
+      },
+      {
+        "name": "slide number",
+        "position": "top-right corner, circle",
+        "content": "Yellow circle with black text '30'."
+      },
+      {
+        "name": "neural network diagram",
+        "position": "top-center, roughly x=20% to x=88%, y=10% to y=45%",
+        "content": "Feedforward neural network with input layer [7], [4], hidden nodes 3-5 in yellow circles, output nodes 6-7 in orange circles, connection weights, and target column [0] t6 / [1] t7."
+      },
+      {
+        "name": "forward header",
+        "position": "middle-left, roughly x=5% to x=18%, y=45% to y=50%",
+        "content": "Blue italic serif text 'Forward'."
+      },
+      {
+        "name": "blue equation box 1",
+        "position": "bottom-left, roughly x=5% to x=37%, y=50% to y=68%",
+        "content": "Blue-bordered box with equations for Net3, Net4, Net5."
+      },
+      {
+        "name": "blue equation box 2",
+        "position": "bottom-left, roughly x=5% to x=62%, y=68% to y=92%",
+        "content": "Blue-bordered box with equations for Net6, Net7."
+      },
+      {
+        "name": "green equation box 1",
+        "position": "bottom-right, roughly x=66% to x=95%, y=50% to y=68%",
+        "content": "Green-bordered box with sigmoid equations for O3, O4, O5."
+      },
+      {
+        "name": "green equation box 2",
+        "position": "bottom-right, roughly x=66% to x=95%, y=68% to y=92%",
+        "content": "Green-bordered box with sigmoid equations for O6, O7."
+      }
+    ],
+    "hierarchy": "The neural network diagram dominates visually due to its large size and red border. The title 'Example' is next most prominent in red serif. The equation boxes are secondary with colored borders (blue and green). Body text is black sans-serif."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Feedforward neural network diagram inside a red #C00000 rectangular border with white #FFFFFF fill. Left side: input labels x1 and x2 in black with a vertical bracket containing [7] and [4]. Input-to-hidden weights in black, mapped per the Net3-Net5 equations: x1->3 = 0.1, x1->4 = 0.2, x1->5 = 0.3; x2->3 = 0.4, x2->4 = 0.5, x2->5 = 0.6. Center: three hidden nodes labeled 3, 4, 5 in yellow #FFE699 circles with blue #0000FF labels O3, O4, O5 above them. Right side: two output nodes labeled 6, 7 in orange #F4B183 circles with blue #0000FF labels O6, O7 above them. Red #FF0000 weights 0.3, 0.4, 0.5 on the connections from hidden nodes 3, 4, 5 to both output nodes (Net6 and Net7 use identical weights, so the same three weights feed outputs 6 and 7). Far right: black headers 'Output' and 'Target', then a column with [0] aligned to t6 and [1] aligned to t7, with dashed lines from O6 and O7 to the targets.",
+      "colors": [
+        "#FFFFFF",
+        "#FFE699",
+        "#F4B183",
+        "#C00000",
+        "#000000",
+        "#0000FF",
+        "#008000",
+        "#FF0000"
+      ],
+      "position": "top-center, spanning roughly x=20% to x=88%, y=10% to y=45%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular box with blue #0000FF border and white background containing three lines. 'Net3', 'Net4', 'Net5' are in red #C00000; the rest of each equation is black.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF",
+        "#C00000",
+        "#000000"
+      ],
+      "position": "bottom-left, below Forward header, roughly x=5% to x=37%, y=50% to y=68%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular box with blue #0000FF border and white background containing two lines. 'Net6', 'Net7' are in red #C00000; the rest is black.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF",
+        "#C00000",
+        "#000000"
+      ],
+      "position": "bottom-left, below first blue box, roughly x=5% to x=62%, y=68% to y=92%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular box with green #00B050 border and white background containing three lines. 'O3', 'O4', 'O5' are in red #C00000; the rest is black.",
+      "colors": [
+        "#FFFFFF",
+        "#00B050",
+        "#C00000",
+        "#000000"
+      ],
+      "position": "bottom-right, upper, roughly x=66% to x=95%, y=50% to y=68%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular box with green #00B050 border and white background containing two lines. 'O6', 'O7' are in red #C00000; the rest is black.",
+      "colors": [
+        "#FFFFFF",
+        "#00B050",
+        "#C00000",
+        "#000000"
+      ],
+      "position": "bottom-right, lower, roughly x=66% to x=95%, y=68% to y=92%"
+    },
+    {
+      "type": "other",
+      "description": "Pink/salmon #F8CBAD rectangular box containing the text 'Bad Weights' in black, located directly below the title 'Example'.",
+      "colors": [
+        "#F8CBAD",
+        "#000000"
+      ],
+      "position": "top-left, below title, roughly x=5% to x=18%, y=16% to y=20%"
+    },
+    {
+      "type": "other",
+      "description": "Yellow #FFD966 circle with black outline containing the slide number '30' in black.",
+      "colors": [
+        "#FFD966",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#E8E8E8",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#F8CBAD",
+      "#0000FF",
+      "#00B050",
+      "#FFD966",
+      "#FFE699",
+      "#F4B183"
+    ]
+  },
+  "typography_notes": "Title 'Example' is red serif bold. 'Bad Weights' is small sans-serif black text inside a pink box. 'Forward' is blue serif italic. Equation labels 'Net3' through 'Net7' and 'O3' through 'O7' are red; numeric values and operators are black sans-serif. Slide number '30' is black inside a yellow circle.",
+  "animation_state": "No visible animation; all elements appear static and fully revealed.",
+  "recreation_brief": "1. Set the slide background to light gray #E8E8E8 (all positions below are percentages of slide width x / height y).\n2. Title: add text box 'Example' at x=5-20%, y=8-18%; color #C00000, bold serif, largest text on the slide.\n3. Kicker: add rectangle filled #F8CBAD at x=5-18%, y=16-20% (directly below the title) containing 'Bad Weights' in black #000000 small sans-serif.\n4. Slide number: add circle filled #FFD966 with black outline in the top-right corner (approx x=92-98%, y=3-10%) containing '30' in black.\n5. Diagram frame: add rectangle with white #FFFFFF fill and red #C00000 border spanning x=20-88%, y=10-45%; it contains the network built in steps 6-11.\n6. Inputs: at the left edge inside the frame, add black labels 'x1' (upper) and 'x2' (lower); to their left add a vertical bracket grouping black values '[7]' (aligned with x1) and '[4]' (aligned with x2).\n7. Hidden layer: add a vertical column of three circles filled #FFE699 at the frame center, labeled '3', '4', '5' top-to-bottom in black; directly above each circle place blue #0000FF labels 'O3', 'O4', 'O5' respectively.\n8. Output layer: add a vertical column of two circles filled #F4B183 to the right of the hidden column, labeled '6' (top) and '7' (bottom) in black; above them place blue #0000FF labels 'O6' and 'O7'.\n9. Input-to-hidden connections: draw lines x1->3, x1->4, x1->5, x2->3, x2->4, x2->5 and label the weights in black: 0.1 (x1->3), 0.2 (x1->4), 0.3 (x1->5), 0.4 (x2->3), 0.5 (x2->4), 0.6 (x2->5).\n10. Hidden-to-output connections: draw lines from nodes 3, 4, 5 to both outputs 6 and 7; label them in red #FF0000: 0.3 from node 3, 0.4 from node 4, 0.5 from node 5 (the same three weights feed both outputs, matching Net6 = Net7).\n11. Targets: at the far right of the frame add black column headers 'Output' (above the O6/O7 column) and 'Target' (rightmost); under 'Target' place '[0]' on the t6 row and '[1]' on the t7 row with black row labels 't6' and 't7'; connect O6 to the [0]/t6 row and O7 to the [1]/t7 row with dashed lines.\n12. Header: add text 'Forward' at x=5-18%, y=45-50% in blue #0000FF italic serif.\n13. Blue box 1: add rectangle, white fill, blue #0000FF border, at x=5-37%, y=50-68%, with three black sans-serif lines, leading token in red #C00000: 'Net3 = 7 * 0.1 + 4 * 0.4 = 2.3' / 'Net4 = 7 * 0.2 + 4 * 0.5 = 3.4' / 'Net5 = 7 * 0.3 + 4 * 0.6 = 4.5'.\n14. Blue box 2: add rectangle, white fill, blue #0000FF border, at x=5-62%, y=68-92%, with two lines ('Net6' and 'Net7' in red #C00000, rest black): 'Net6 = 0.909 * 0.3 + 0.968 * 0.4 + 0.989 * 0.5 = 1.1544' / 'Net7 = 0.909 * 0.3 + 0.968 * 0.4 + 0.989 * 0.5 = 1.1544'.\n15. Green box 1: add rectangle, white fill, green #00B050 border, at x=66-95%, y=50-68%, with three lines ('O3', 'O4', 'O5' in red #C00000, rest black): 'O3 = 1 / (1 + e^-2.3) = 0.909' / 'O4 = 1 / (1 + e^-3.4) = 0.968' / 'O5 = 1 / (1 + e^-4.5) = 0.989'.\n16. Green box 2: add rectangle, white fill, green #00B050 border, at x=66-95%, y=68-92%, with two lines ('O6' and 'O7' in red #C00000, rest black): 'O6 = 1 / (1 + e^-1.1544) = 0.76' / 'O7 = 1 / (1 + e^-1.1544) = 0.76'.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Rebuilt recreation_brief into a 16-step ordered checklist; added explicit x/y positions, hex colors, and shape types to every step (original steps 2 and 5-11 lacked positions and hex codes).",
+      "Replaced vague weight placement ('near x1', 'near x2') with an exact per-connection mapping derived from the Net3-Net5 equations: x1->3=0.1, x1->4=0.2, x1->5=0.3, x2->3=0.4, x2->4=0.5, x2->5=0.6.",
+      "Clarified that the red hidden-to-output weights 0.3/0.4/0.5 label connections from nodes 3/4/5 to both outputs 6 and 7, as required by the identical Net6 and Net7 equations.",
+      "Attributed diagram palette entries to elements: #C00000 = frame border, #FF0000 = weight labels, #FFE699 = hidden-node fill, #F4B183 = output-node fill, #0000FF = O-labels.",
+      "Confirmed verbatim_text.bullets is legitimately empty rather than an extraction gap: the slide contains no bullet list; all 28 text items are captured in labels and all 10 lines in equations.",
+      "Arithmetically verified all 10 equations (e.g., 7*0.1+4*0.4=2.3; 0.909*0.3+0.968*0.4+0.989*0.5=1.1544; sigmoid(2.3)~0.909); no text corrections were needed."
+    ],
+    "uncertain_items": [
+      "Green #008000 is listed in the neural-network diagram's color palette but no diagram element is described as green (the equation boxes use #00B050); it may belong to the 'Target' header or the dashed target lines - unverifiable without the source image.",
+      "Exact coordinates of individual nodes, connection lines, weight labels, and dashed lines inside the diagram frame (x=20-88%, y=10-45%) were not extracted; the builder must distribute them evenly (3-node hidden column, 2-node output column, 2-row target column).",
+      "No [?] markers were present in the source JSON; nothing was carried forward under that marker."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_030.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 30,
+      "image": "slide_030.jpg",
+      "title": "Slide 30"
+    },
+    "elapsed_s": 134.5,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 341.7
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "(No bullet list present; verbatim text is captured in labels and equations.)"
+    ],
+    "labels": [
+      "Gradient Descent",
+      "10",
+      "Input Bias",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Class 1",
+      "Error Class 2",
+      "Error Class m",
+      "For Sigmoid Activation",
+      "(\u03b4_j depends on j ONLY)",
+      "for output Layer"
+    ],
+    "equations": [
+      "W_{ji}^{updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "W_{ji}^{updated} = W_{ji}^{old} + \\Delta_{ji}",
+      "Where \\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2",
+      "O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}",
+      "Net_j = \\sum_i (w_{ji} O_i)",
+      "\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)",
+      "\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)",
+      "\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i",
+      "\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}",
+      "= -(t_j - O_j) * O_j(1-O_j) * O_i = -\\delta_j * O_i",
+      "Where \\delta_j = -\\frac{\\partial E}{\\partial Net_j} = (t_j - O_j) * O_j(1-O_j) (\\delta_j depends on j ONLY)",
+      "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\eta \\delta_j * O_i Where \\delta_j = (t_j - O_j) * O_j(1-O_j) for output Layer"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title box top-left; slide number '10' in yellow circle top-right; neural network diagram top-right; middle horizontal strip with error/sigmoid/net equations; lower section split into large chain-rule derivation box on left-center and smaller partial-derivative summary box on right; bottom full-width strip with final delta rule.",
+    "regions": [
+      {
+        "name": "top-left title box",
+        "position": "top-left, approx 0-35% width, 0-25% height",
+        "content": "Gradient Descent title and 3 weight update equations"
+      },
+      {
+        "name": "slide number",
+        "position": "top-right corner",
+        "content": "Yellow circle with '10'"
+      },
+      {
+        "name": "neural network diagram",
+        "position": "top-right, approx 35-95% width, 0-30% height",
+        "content": "Multi-layer network with inputs, hidden units, outputs, error classes"
+      },
+      {
+        "name": "middle equation strip",
+        "position": "middle, full width, approx 30-45% height",
+        "content": "Error function, sigmoid activation, net input equations"
+      },
+      {
+        "name": "partial derivative boxes",
+        "position": "middle-lower, full width, approx 45-55% height",
+        "content": "Three boxed partial derivatives"
+      },
+      {
+        "name": "chain rule derivation",
+        "position": "lower-left to center, approx 55-85% height",
+        "content": "Large derivation of \u2202E/\u2202W_ji"
+      },
+      {
+        "name": "right summary box",
+        "position": "lower-right, approx 55-85% height",
+        "content": "Three partial derivatives in yellow box"
+      },
+      {
+        "name": "bottom strip",
+        "position": "bottom, full width, approx 85-95% height",
+        "content": "Final delta rule equation"
+      }
+    ],
+    "hierarchy": "Title 'Gradient Descent' dominates top-left in red bold; main equations are black sans-serif; diagram is visual anchor top-right; highlighted derivation boxes use pastel blue/green/yellow fills."
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram in the top-right quadrant: input layer purple dots labeled 'Input Bias'; hidden-layer circles with sigma (\u03a3) symbols; connecting lines for weights; output layer nodes labeled 'Output 1', 'Output 2', 'Output m'; right-side stacked labels 'Error Class 1', 'Error Class 2', 'Error Class m'. Yellow checkmark circles and red X marks appear on nodes; exact count is not specified in the JSON. Green upward arrows with '1' in purple circles appear near the bottom of diagram columns; exact count is not specified in the JSON.",
+      "colors": [
+        "#800080",
+        "#D3D3D3",
+        "#FFFF00",
+        "#FF0000",
+        "#008000",
+        "#FFFFFF"
+      ],
+      "position": "top-right quadrant"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Top-left bordered box containing the 'Gradient Descent' title and 3 weight update equations.",
+      "colors": [
+        "#FFFFFF",
+        "#B22222",
+        "#000000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Three adjacent boxes showing partial derivatives: \u2202E/\u2202O_j, \u2202O_j/\u2202Net_j, \u2202Net_j/\u2202W_ji.",
+      "colors": [
+        "#FFFFFF",
+        "#000000",
+        "#B0E0E6"
+      ],
+      "position": "middle-lower, left to right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Large derivation box showing chain rule expansion of \u2202E/\u2202W_ji with intermediate steps highlighted in light blue and light green.",
+      "colors": [
+        "#FFFFFF",
+        "#B0E0E6",
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "lower-left and center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Yellow-tinted box on the right containing the same 3 partial derivative equations.",
+      "colors": [
+        "#FFFFE0",
+        "#000000"
+      ],
+      "position": "lower-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Bottom strip containing the final delta rule equation with a green highlighted term.",
+      "colors": [
+        "#FFFFFF",
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "bottom"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#B22222",
+    "body_text": "#000000",
+    "accents": [
+      "#FFFF00",
+      "#B0E0E6",
+      "#90EE90",
+      "#FFFFE0",
+      "#FF0000",
+      "#008000"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout; exact family is not verified and is noted as likely Calibri or Arial. Title 'Gradient Descent' is bold, red (#B22222), and larger than body. Body text is regular black (#000000). Some words such as 'Where' and some equations are emphasized in red. Boxed equations use standard math italics for variables.",
+  "animation_state": "Static slide; no elements appear mid-build or partially revealed.",
+  "recreation_brief": "1. Set the slide background to white #FFFFFF.\n2. Place a bordered rectangle/text box at top-left, approx 0-35% width and 0-25% height; border #B22222, fill #FFFFFF. Add the text 'Gradient Descent' in bold red #B22222 sans-serif.\n3. In the same top-left box, below the title, add these 3 equations in black sans-serif; make 'Where' and the Delta equation red #B22222: 'W_{ji}^{updated} = W_{ji}^{old} - \u03b7 \u2202E/\u2202W_{ji}'; 'W_{ji}^{updated} = W_{ji}^{old} + \u0394_{ji}'; 'Where \u0394_{ji} = -\u03b7 \u2202E/\u2202W_{ji}'.\n4. Place a yellow oval at the top-right corner; fill #FFFF00, outline black #000000. Add the text '10' in black #000000.\n5. Draw the neural network diagram in the top-right area, approx 35-95% width and 0-30% height: purple #800080 input dots with the label 'Input Bias' near the input layer/bottom-left of the diagram; hidden-layer circles containing '\u03a3'; connecting lines for weights; output nodes labeled 'Output 1', 'Output 2', 'Output m'; right-side stacked labels 'Error Class 1', 'Error Class 2', 'Error Class m'. Add yellow #FFFF00 checkmark circles and red #FF0000 X marks on nodes; exact count is not specified in the JSON [?]. Add green #008000 upward arrows with '1' in purple #800080 circles near the bottom of diagram columns; exact count is not specified in the JSON [?].\n6. Place a full-width horizontal strip in the middle, approx 30-45% height. Add in black: 'E = 1/2 \u03a3_j (t_j - O_j)^2'; 'For Sigmoid Activation'; 'O_j = f(Net_j) = 1/(1+e^{-Net_j})'; 'Net_j = \u03a3_i (w_{ji} O_i)'.\n7. Place 3 adjacent rectangles in a row at middle-lower, approx 45-55% height, left to right; fill #B0E0E6, border black #000000. Add respectively: '\u2202E/\u2202O_j = -(t_j - O_j)'; '\u2202O_j/\u2202Net_j = O_j(1-O_j)'; '\u2202Net_j/\u2202W_ji = O_i'.\n8. Place a large rectangle at lower-left to center, approx 55-85% height; fill #FFFFFF, border black #000000. Add the chain-rule derivation: '\u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji = \u2202E/\u2202Net_j * \u2202Net_j/\u2202W_ji'; '= -(t_j - O_j) * O_j(1-O_j) * O_i = -\u03b4_j * O_i'; 'Where \u03b4_j = -\u2202E/\u2202Net_j = (t_j - O_j) * O_j(1-O_j) (\u03b4_j depends on j ONLY)'. Highlight intermediate factors with #B0E0E6 and #90EE90; the exact factor-to-color mapping is not specified in the JSON [?].\n9. Place a rectangle at lower-right, approx 55-85% height; fill #FFFFE0, border black #000000. Add the same 3 partial derivatives: '\u2202E/\u2202O_j = -(t_j - O_j)'; '\u2202O_j/\u2202Net_j = O_j(1-O_j)'; '\u2202Net_j/\u2202W_ji = O_i'.\n10. Place a full-width rectangle at the bottom, approx 85-95% height; fill #FFFFFF, border black #000000. Add: '\u0394_{ji} = -\u03b7 \u2202E/\u2202W_{ji} = \u03b7 \u03b4_j * O_i Where \u03b4_j = (t_j - O_j) * O_j(1-O_j) for output Layer'. Highlight the \u03b4_j definition in #90EE90.\n11. Use black #000000 sans-serif body text throughout, with red #B22222 for the emphasis words and equations indicated above.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Set subtitle_or_header to null because no subtitle or header is present in the source JSON.",
+      "Filled verbatim_text.bullets with an explicit no-bullet note because the source bullets array was empty; no bullet text was invented.",
+      "Replaced the vague phrase 'Some nodes' in the neural-network description with a non-count phrasing and flagged the missing exact count as uncertain.",
+      "Added exact counts where available: 1 title, 1 slide number, 3 weight-update equations, 3 output labels, 3 error-class labels, 3 partial-derivative boxes, 3 partial derivatives in the right summary, and 1 final delta rule.",
+      "Rewrote recreation_brief as an 11-step numbered placement checklist with exact text, approximate positions, colors, and shape types.",
+      "Did not assert the unverifiable red box around 'Error Class m'; listed it in uncertain_items."
+    ],
+    "uncertain_items": [
+      "Exact font family is not verified; typography_notes says 'likely Calibri or Arial'.",
+      "Exact pixel coordinates are not provided; layout positions are approximate percentages.",
+      "Exact number of hidden-layer nodes, weight connections, checkmark circles, red X marks, and green arrows labeled '1' is not specified in the JSON.",
+      "Exact light-blue vs light-green highlight mapping inside the chain-rule derivation is not specified.",
+      "A red box/outline for 'Error Class m' appears only in the original recreation_brief and is not confirmed by visual_elements or labels.",
+      "Text color of slide number '10' is not explicitly stated; black #000000 is inferred from body text and the original brief."
+    ],
+    "recreatability_score_1_to_10": 7
+  },
+  "_meta": {
+    "frame": "slide_010.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 63.3,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 765.6
+  }
+}

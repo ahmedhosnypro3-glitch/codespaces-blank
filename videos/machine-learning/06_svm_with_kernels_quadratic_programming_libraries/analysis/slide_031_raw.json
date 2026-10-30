@@ -1,0 +1,63 @@
+{
+  "slide_number": 31,
+  "source_image": "slide_031.jpg",
+  "analysis_type": "vision",
+  "model": "images",
+  "round": 1,
+  "attempt": 1,
+  "winner": "images",
+  "layout_map": "1. Slide number badge — top-right corner (yellow circle with \"31\")\n2. Main title — top-center (\"Most Common Kernel Functions\", dark red, largest text)\n3. Four kernel definition cards — stacked vertically, center-left to center-right; each has a red title, blue/purple border, and formula content:\n   - Linear Kernel\n   - Quadratic Kernel\n   - Polynomial Kernel (of degree \"d\")\n   - Radial Basis Function (RBF) Kernel\n4. Math notation — inside each card; variables in red, connector words (\"or\", \"No Mapping\") in dark gray/black\n5. Small unlabeled icon — inside RBF card, between formula and right-side annotation\n6. Bottom black band — full-width black strip along the bottom edge (approx. bottom 8% of frame)\n7. Thin reddish outer frame — hairline border enclosing the slide content area",
+  "first_glance_test": "A brand-new user understands within 3 seconds that this is a reference slide listing four common SVM kernel functions with their mathematical formulas. The screen offers zero interactive actions — it is a static information display, and nothing on it looks clickable. Given the injected VIEW purpose (lecture frame), the focal point should be the kernel formulas; the red main title wins the eye first, then the four red card titles draw the gaze downward in a clear top-to-bottom sequence. The focal point works as intended.",
+  "strengths": [
+    "Four cards stacked vertically with identical borders and red titles make the four kernel types instantly scannable (cards 1–4).",
+    "Consistent color coding: all kernel titles and math variables use the same dark red; all card borders share the same blue/purple hue (cards 1–4).",
+    "Clear typographic hierarchy: main title is largest at top, card titles are second, formulas are third, connector words (\"or\", \"No Mapping\") are smallest and darkest (title area and cards)."
+  ],
+  "defects": [
+    {
+      "category": "b",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "Linear Kernel card — right annotation — \"No Mapping ,\" — space before comma breaks standard punctuation spacing — delete the space before the comma."
+    },
+    {
+      "category": "h",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "bottom band — full-width black strip at frame bottom — empty black strip reads as a cropped footer or dead void — populate with footer copy or remove the band."
+    },
+    {
+      "category": "k",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "RBF Kernel card — between formula and right annotation — small unlabeled icon floats with no container or label — it implies interactivity on a static slide — remove the icon or add a visible label."
+    }
+  ],
+  "top_3": [
+    "Bottom black band — §4(h) — dead full-width strip reads as a cropped footer or void, the most visible anomaly on the slide.",
+    "Unlabeled icon — §4(k) — floating glyph implies false interactivity on a static slide, weakening trust in the frame's affordances.",
+    "Space before comma — §4(b) — punctuation error undercuts the professional polish of the mathematical copy."
+  ],
+  "structural_proposal": "No structural moves recommended — the four-card vertical stack already matches the content's reading order, and any reorganization would reduce scannability.",
+  "verdict_scores": {
+    "theme_dark_mode": 8,
+    "typography": 7,
+    "spacing": 8,
+    "alignment": 9,
+    "crowding_density": 9,
+    "hierarchy": 8,
+    "composition": 7,
+    "completeness": 7,
+    "continuity_consistency": 9,
+    "affordance_states": 6,
+    "first_glance_clarity": 9,
+    "overall": 8
+  },
+  "uncertainties": [
+    "Whether the bottom black band is OS window chrome (taskbar/dock) to be ignored per the capture rules, or part of the slide frame requiring a footer or removal.",
+    "Whether this light-themed slide is an exempt slide asset or in-app chrome breaking the app's documented dark-theme surface rules.",
+    "The exact identity of the small floating icon in the RBF card (pencil, cursor, or artifact) at this resolution.",
+    "Precise contrast ratios and font sizes cannot be computed from the static image alone; all legibility judgments are visual estimates."
+  ],
+  "vocabulary_proposals": []
+}

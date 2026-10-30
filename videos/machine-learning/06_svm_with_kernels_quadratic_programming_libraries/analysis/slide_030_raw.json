@@ -1,0 +1,79 @@
+{
+  "slide_number": 30,
+  "source_image": "slide_030.jpg",
+  "analysis_type": "vision",
+  "model": "images",
+  "round": 1,
+  "attempt": 1,
+  "winner": "images",
+  "layout_map": "1. Outer frame: thin dark border with near-black top and bottom letterbox bars surrounding the slide.\n2. Slide surface: light-gray rounded rectangle with a thin border, centered within the frame.\n3. Header: maroon title \"Radial Basis Function (RBF) Kernel\" centered near the top; slide number \"30\" in a yellow circle at the top-right.\n4. Left derivation panel: large boxed area holding the RBF expansion (top equality row, the e^(-a²/2) series row with φ(a)ᵀ pill, φ(b) pill, the e^(-b²/2) column of bⁿ/√n! terms, and a trailing e^(-b²/2) factor).\n5. Right result panel: \"RBF Kernel\" sub-heading above a boxed final formula e^(-γ(a-b)²).\n6. Bottom black letterbox bar.",
+  "first_glance_test": "Within three seconds a new user understands this is a lecture slide about the RBF kernel, showing a derivation on the left and the final formula on the right. It offers no interactive actions (read-only slide); the only element that looks like a control is the top-right \"30\" badge, which is static. The focal point should be the title (what this is) followed by the boxed final formula (the answer); the maroon title wins the eye first, and the boxed result on the right draws attention second, but the dense left derivation panel competes for visual area and the right panel's emptiness weakens the answer's weight.",
+  "strengths": [
+    "The maroon, large, centered title immediately states the subject (top header).",
+    "The boxed final formula on the right is visually distinct (bordered box) and signals the takeaway (right result panel).",
+    "Color is restrained: maroon title, yellow slide number, blue panel borders — no screaming accents (top header / right result panel).",
+    "Left-to-right derivation flow reads logically from expansion to factored form to the boxed result (left derivation panel)."
+  ],
+  "defects": [
+    {
+      "category": "b",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "left derivation panel — expansion row — series terms such as a/√1! … a⁴/√4! render at or below ~11px — fractions and radicals fall under the legibility floor for non-developer readers — scale up math type."
+    },
+    {
+      "category": "f",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "right result panel — around the boxed formula — large dead air surrounds the single boxed result while the left derivation panel is dense — panes are visually unbalanced — center result block vertically."
+    },
+    {
+      "category": "i",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "left derivation panel / right result panel — sibling boxes — φ(a)ᵀ and φ(b) are fully-rounded pills while the result box is square-cornered and fills shift between tan and light — radius and fill treatments clash across sibling boxes — unify corner radius and border tone."
+    },
+    {
+      "category": "j",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "slide outer frame — inner panels — the outer slide border is maroon while inner panel borders are blue — nested hairline colors clash — unify border tone to one neutral."
+    },
+    {
+      "category": "o",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "right result panel — heading — \"RBF Kernel\" repeats the subject already stated in the page title — redundant copy echo — remove the panel heading."
+    }
+  ],
+  "top_3": [
+    "Formula microtext in the expansion row (§4 (b)) — the hardest-read content on a teaching slide; scale up math type.",
+    "Dead air in the right result panel (§4 (g)) — unbalanced composition makes the slide look unfinished; center the result block vertically.",
+    "Radius and border inconsistency across boxes (§4 (i), §4 (j)) — pills vs square corners and maroon-vs-blue borders break continuity; unify corner radius and border tone."
+  ],
+  "structural_proposal": "Move 1 (high impact): place the boxed final formula at the bottom-right end of the left derivation panel (source: right result panel → destination: bottom-right of left derivation panel) and remove the now-empty right pane; this kills the dead air and makes the answer the derivation's terminus (§4 (g),(i),(o)).\nMove 2 (medium): drop the redundant \"RBF Kernel\" panel heading since the page title already names the subject (source: right panel heading → remove); removes the copy echo (§4 (o)).\nMove 3 (low): relocate the circled slide number \"30\" from the top-right header corner to a bottom-right footer corner so it stops competing with the title for the first glance (source: top-right header → destination: bottom-right footer).\nAll moves use only visible regions and add no functionality.",
+  "verdict_scores": {
+    "theme_dark_mode": 5,
+    "typography": 6,
+    "spacing": 7,
+    "alignment": 7,
+    "crowding_density": 7,
+    "hierarchy": 7,
+    "composition": 5,
+    "completeness": 9,
+    "continuity_consistency": 5,
+    "affordance_states": 7,
+    "first_glance_clarity": 7,
+    "overall": 6
+  },
+  "uncertainties": [
+    "Whether the near-black top/bottom bars are app chrome (implying a light slide in a dark-themed app) or mere video letterbox; this changes the theme verdict but no app chrome is clearly visible.",
+    "Exact rendered pixel sizes of the small math terms (fractions/radicals); microtext severity is estimated, not measured.",
+    "Whether the light slide background is intentional (lecture slides are commonly light) or an un-themed export; no other app UI is visible to compare against.",
+    "Interactivity cannot be verified from a static image (the slide may be a paused video frame); nothing here is clearly interactive anyway."
+  ],
+  "vocabulary_proposals": [
+    "severed-answer-panel: a boxed final result placed in a separate pane from the derivation that produces it, separated by empty surface, forces a cross-pane eye jump and weakens the local cause→effect read.",
+    "header-corner-badge-title-competition: a circled number or badge in the header corner carries near-title visual weight and splits the first-glance focal point between the badge and the page title."
+  ]
+}

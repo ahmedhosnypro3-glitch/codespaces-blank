@@ -1,0 +1,22 @@
+2026-10-28 05:21:25,797 INFO === crop_cascade run: slide_022.jpg ===
+2026-10-28 05:21:25,797 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-28 05:21:34,837 INFO chat call attempt=1 latency=9.0s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-28 05:21:34,837 WARNING chat reply hit the 16-token ceiling — retrying once at 4096
+2026-10-28 05:21:36,050 INFO chat call attempt=1 latency=1.2s url=http://localhost:17844/v1/chat/completions bytes=142
+2026-10-28 05:21:36,051 INFO chat lane probe OK (model=docparsechat)
+2026-10-28 05:21:36,051 INFO chat lane: active
+2026-10-28 05:21:37,657 INFO parse call attempt=1 latency=1.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=60957
+2026-10-28 05:21:37,658 INFO node root parsed: 451 chars, 142 out tokens
+2026-10-28 05:21:37,658 INFO root parsed: 451 chars
+2026-10-28 05:21:37,658 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-28 05:22:26,450 INFO chat call attempt=1 latency=48.8s url=http://localhost:17844/v1/chat/completions bytes=3295
+2026-10-28 05:22:26,451 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-28 05:23:26,509 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-28 05:23:26,509 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.6s
+2026-10-28 05:23:40,678 INFO chat call attempt=2 latency=11.6s url=http://localhost:17844/v1/chat/completions bytes=3296
+2026-10-28 05:23:40,867 INFO level 0 done: 1 nodes -> 1 children
+2026-10-28 05:23:45,474 INFO parse call attempt=1 latency=4.6s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=552835
+2026-10-28 05:23:45,475 INFO node slide_022.crop01__picture parsed: 429 chars, 200 out tokens
+2026-10-28 05:23:45,475 INFO node slide_022.crop01__picture stop: too-small — every candidate is frame-covering or below the 40 px floor
+2026-10-28 05:23:45,475 INFO level 1 done: 1 nodes -> 0 children
+2026-10-28 05:23:45,476 INFO composed -> composed/slide_022_composed.md

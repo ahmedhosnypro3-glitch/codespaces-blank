@@ -1,0 +1,61 @@
+{
+  "slide_title": "Training Vectors / Test Vectors (QP Formulation)",
+  "subtitle_or_header": "Use C=1",
+  "verbatim_text": {
+    "bullets": [
+      "Minimize L_D(α) = 1/2 ∑_{j=1}^N ∑_{i=1}^N α_i α_j y_i y_j [X_i^T X_j + 1]^2 - ∑_{i=1}^N α_i",
+      "Subject to: - [α1+α2+α3+α4]",
+      "∑ α_i y_i = 0",
+      "α1+α2-α3-α4=0",
+      "α1≤1, α2≤1, α3≤1, α4≤1",
+      "α_i ≥ 0, α1≥0, α2≥0, α3≥0, α4≥0"
+    ],
+    "labels": [
+      "Training Vectors",
+      "Test Vectors",
+      "Use C=1",
+      "38",
+      "x1", "x2", "x3", "x4",
+      "T1 T2 T3",
+      "X1 X2 x3 x4",
+      "X1",
+      "Minimize:",
+      "Subject to:"
+    ],
+    "equations": [
+      "L_D(α) = 1/2 ∑_{j=1}^N ∑_{i=1}^N α_i α_j y_i y_j [X_i^T X_j + 1]^2 - ∑_{i=1}^N α_i",
+      "∑ α_i y_i = 0",
+      "α1+α2-α3-α4=0",
+      "α1≤1, α2≤1, α3≤1, α4≤1",
+      "α_i ≥ 0",
+      "Matrix: [4.5, 12.5, -72, -84.5; 12.5, 40.5, -264.5, -312.5; -72, -264.5, 2178, 2664.5; -84.5, -312.5, 2664.5, 3280.5]"
+    ]
+  },
+  "layout": {
+    "arrangement": "Two-column header row with 'Training Vectors' (left) and 'Test Vectors' (right); 'Use C=1' and slide number '38' at top-right; below, a data table/matrix region with x1-x4 labels and numeric values; bottom half contains the QP formulation: 'Minimize' block with expanded Lagrangian in matrix form, then 'Subject to:' block with constraints (sum α_i y_i = 0, α1+α2-α3-α4=0, box constraints 0≤α_i≤1)",
+    "regions": [
+      {"name": "header", "position": "top", "content": "Training Vectors / Test Vectors section titles + Use C=1 / slide 38"},
+      {"name": "data_matrix", "position": "upper middle", "content": "Feature labels x1-x4, T1-T3, X1/X2 and 4x4 numeric matrix"},
+      {"name": "minimize_block", "position": "lower middle left", "content": "L_D(α) expanded polynomial with α1-α4 terms and 4x4 Q matrix coefficients"},
+      {"name": "subject_to_block", "position": "lower middle right", "content": "Constraints: sum α_i y_i=0, α1+α2-α3-α4=0, 0≤α_i≤1, α_i≥0"}
+    ],
+    "hierarchy": "Header titles > data matrix > Minimize equation > Subject to constraints"
+  },
+  "visual_elements": [
+    {"type": "section_header", "description": "Training Vectors / Test Vectors as column headers", "colors": ["#333333"], "position": "top left / top right"},
+    {"type": "parameter_callout", "description": "Use C=1 with slide number 38", "colors": ["#FFF9C4", "#333333"], "position": "top right"},
+    {"type": "data_table", "description": "4x4 matrix with feature labels and numeric entries", "colors": ["#000000"], "position": "upper middle"},
+    {"type": "equation_block", "description": "Minimize L_D(α) with full Q matrix expansion", "colors": ["#000000"], "position": "lower left"},
+    {"type": "constraint_block", "description": "Subject to: equality + inequality constraints", "colors": ["#000000"], "position": "lower right"}
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#333333",
+    "body_text": "#333333",
+    "accents": ["#FFF9C4"]
+  },
+  "typography_notes": "Sans-serif for headers and body; math in serif italic; subscripts and superscripts in equations; matrix coefficients aligned in grid",
+  "animation_state": null,
+  "recreation_brief": "1. Create slide with white background. 2. Add two-column header: 'Training Vectors' (left, bold), 'Test Vectors' (right, bold). 3. Top-right: yellow pill 'Use C=1' with slide number '38'. 4. Below header: data table region with column labels x1-x4, row labels T1-T3, X1, X2, and 4x4 numeric matrix. 5. Bottom left: 'Minimize' section with L_D(α) equation in LaTeX, then expanded 4x4 Q matrix polynomial. 6. Bottom right: 'Subject to:' section listing constraints: ∑ α_i y_i = 0, α1+α2-α3-α4=0, α_i ≤ 1 (i=1..4), α_i ≥ 0 (i=1..4). 7. Use monospace for matrix coefficients; math italic for variables."
+}

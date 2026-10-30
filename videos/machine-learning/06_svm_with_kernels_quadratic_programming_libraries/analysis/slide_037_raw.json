@@ -1,0 +1,218 @@
+{
+  "slide_title": "How to Kernelize SVM",
+  "subtitle_or_header": "Example: Polynomial Kernel",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Example: Polynomial Kernel",
+      "37",
+      "Kernelize using",
+      "Class of vector Z \u21d2 sign(W^T Z + b)",
+      "Class of vector Z is sign([W^T Z + 1]^d + b)"
+    ],
+    "equations": [
+      "\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)",
+      "W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i",
+      "b = \u2212 1/2 [max_{i,y=\u22121} (W_i^T X_i) + min_{i,y=+1} (W_i^T X_i)]",
+      "K(\u03b1,b) = \u03b1^T b\u0302 + 1|^d",
+      "\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j + 1)^d",
+      "W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i",
+      "b = \u2212 1/2 [max_{i,y=\u22121} [W_i^T X_i + 1]^d + min_{i,y=+1} [W_i^T X_i + 1]^d]",
+      "sign(W^T Z + b)",
+      "sign([W^T Z + 1]^d + b)"
+    ]
+  },
+  "layout": {
+    "arrangement": "A single white slide framed by a thin red rectangle. Top row: a small white badge with blue border and blue italic text at top-left ('Example: Polynomial Kernel'), the large red bold title centered at the top ('How to Kernelize SVM'), and a yellow circular slide-number badge ('37') at the top-right. Below, a wide blue-outlined panel (upper panel) holds the original SVM objective, the W definition, the bias b formula, and a peach 'Class of vector Z \u21d2 sign(...)' strip. In the vertical middle, a small white box reading 'Kernelize using' sits left of a red kernel formula, with a red downward block arrow beneath pointing into the lower panel. A second wide blue-outlined panel (lower panel) holds the kernelized objective, W, b, and a peach 'Class of vector Z is sign(...)' strip. A black letterbox bar (video artifact) runs along the very bottom edge.",
+    "regions": [
+      {
+        "name": "Outer red frame",
+        "position": "full slide, inset ~6% left / ~94% right, ~7.5% top / ~93% bottom",
+        "content": "Thin red rectangular outline enclosing all slide content."
+      },
+      {
+        "name": "Kicker badge",
+        "position": "top-left, ~7.5%-32% x, ~9.5%-15% y",
+        "content": "White rectangle with thin blue border containing blue italic text 'Example: Polynomial Kernel' ('Polynomial Kernel' slightly bolder)."
+      },
+      {
+        "name": "Title",
+        "position": "top-center, ~35%-67% x, ~10%-16% y",
+        "content": "Large bold red sans-serif text 'How to Kernelize SVM'."
+      },
+      {
+        "name": "Slide number badge",
+        "position": "top-right, ~89%-93% x, ~10%-16% y",
+        "content": "Yellow filled circle with thin black outline containing black text '37'."
+      },
+      {
+        "name": "Original SVM panel (upper)",
+        "position": "upper-middle, ~7.5%-92% x, ~18%-46% y",
+        "content": "White rectangle with thin blue border. Row 1: objective \u2112_D(\u03b1) with green highlight on (X_i^T X_j). Row 2 left: small blue-bordered white box with W = \u03a3 \u03b1_i y_i X_i. Row 2 right: b = \u22121/2[max...(W_i^T X_i) + min...(W_i^T X_i)] with two green highlights. Row 3: peach strip 'Class of vector Z \u21d2 sign(W^T Z + b)' with green highlight on W^T Z."
+      },
+      {
+        "name": "Kernelization connector (middle)",
+        "position": "center, ~30%-62% x, ~47%-59% y",
+        "content": "Small white box with thin gray/red border, italic serif text 'Kernelize using'; to its right the red formula 'K(\u03b1,b) = \u03b1^T b\u0302 + 1|^d'; a red-outlined downward block arrow below the formula pointing to the lower panel."
+      },
+      {
+        "name": "Kernelized SVM panel (lower)",
+        "position": "lower-middle, ~7.5%-92% x, ~61%-91% y",
+        "content": "White rectangle with thin blue border. Row 1: objective \u2112_D(\u03b1) with green highlight on (X_i^T X_j + 1)^d. Row 2 left: small blue-bordered white box with W = \u03a3 \u03b1_i y_i X_i. Row 2 right: b = \u22121/2[max...[W_i^T X_i + 1]^d + min...[W_i^T X_i + 1]^d] with two green highlights. Row 3: peach strip 'Class of vector Z is sign([W^T Z + 1]^d + b)' with green highlight on [W^T Z + 1]^d."
+      },
+      {
+        "name": "Letterbox bar",
+        "position": "bottom edge, 0%-100% x, ~96%-100% y",
+        "content": "Solid black horizontal bar (video capture artifact, not slide content)."
+      }
+    ],
+    "hierarchy": "The large bold red title dominates. The two large blue-outlined panels are the secondary structure, each containing three tiers of math: a large objective equation on top, medium-size W and b equations in the middle, and a peach 'Class of vector' strip at the bottom. Bright light-green highlight rectangles are the strongest accent, drawing the eye to the kernel terms (X_i^T X_j), (W_i^T X_i), W^T Z and their powered counterparts. The small red 'Kernelize using' formula and red downward arrow form the visual pivot between the two panels."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle highlight behind the term '(X_i^T X_j)' at the end of the upper objective equation \u2112_D(\u03b1) = \u03a3 \u03b1_i \u2212 1/2 \u03a3\u03a3 \u03b1_i \u03b1_j y_i y_j (X_i^T X_j).",
+      "colors": [
+        "#99FF99"
+      ],
+      "position": "upper panel, top row, right end of the objective equation (~41%-48% x, ~21%-27% y)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Two light-green rounded rectangle highlights: one behind '(W_i^T X_i)' inside the max_{i,y=\u22121} term and one behind '(W_i^T X_i)' inside the min_{i,y=+1} term of the upper bias equation b = \u2212 1/2 [max (W_i^T X_i) + min (W_i^T X_i)].",
+      "colors": [
+        "#99FF99"
+      ],
+      "position": "upper panel, middle row, right side (~54%-74% x, ~29%-36% y)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle highlight behind 'W^T Z' inside the peach strip 'Class of vector Z \u21d2 sign(W^T Z + b)'; the '\u21d2' is red and the standalone 'Z' in 'vector Z' is green.",
+      "colors": [
+        "#99FF99",
+        "#CC0000",
+        "#00A000"
+      ],
+      "position": "upper panel, bottom row, center-left (~40%-47% x, ~39%-44% y)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle highlight behind the term '(X_i^T X_j + 1)^d' at the end of the lower (kernelized) objective equation.",
+      "colors": [
+        "#99FF99"
+      ],
+      "position": "lower panel, top row, right end of the objective equation (~42%-56% x, ~64%-70% y)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Two light-green rounded rectangle highlights: one behind '[W_i^T X_i + 1]^d' inside the max_{i,y=\u22121} term and one behind '[W_i^T X_i + 1]^d' inside the min_{i,y=+1} term of the lower bias equation b = \u2212 1/2 [max [W_i^T X_i + 1]^d + min [W_i^T X_i + 1]^d].",
+      "colors": [
+        "#99FF99"
+      ],
+      "position": "lower panel, middle row, right side (~53%-90% x, ~73%-80% y)"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light-green rounded rectangle highlight behind '[W^T Z + 1]^d' inside the peach strip 'Class of vector Z is sign([W^T Z + 1]^d + b)'; the standalone 'Z' in 'vector Z' is green.",
+      "colors": [
+        "#99FF99",
+        "#00A000"
+      ],
+      "position": "lower panel, bottom row, center (~43%-55% x, ~84%-89% y)"
+    },
+    {
+      "type": "other",
+      "description": "Upper panel: white rectangle with thin blue outline containing the original SVM objective, the W definition in its own small blue-outlined white box, the bias b formula, and the peach 'Class of vector' strip.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF",
+        "#FFE0C0"
+      ],
+      "position": "upper-middle of slide (~7.5%-92% x, ~18%-46% y)"
+    },
+    {
+      "type": "other",
+      "description": "Lower panel: white rectangle with thin blue outline containing the kernelized SVM objective, the W definition in its own small blue-outlined white box, the kernelized bias b formula, and the peach 'Class of vector Z is sign(...)' strip.",
+      "colors": [
+        "#FFFFFF",
+        "#0000FF",
+        "#FFE0C0"
+      ],
+      "position": "lower-middle of slide (~7.5%-92% x, ~61%-91% y)"
+    },
+    {
+      "type": "other",
+      "description": "Small white rectangle with thin gray/red outline containing italic serif text 'Kernelize using'.",
+      "colors": [
+        "#FFFFFF",
+        "#808080",
+        "#000000"
+      ],
+      "position": "center of slide, left of the red kernel formula (~30%-43% x, ~50%-55% y)"
+    },
+    {
+      "type": "other",
+      "description": "Red bold formula text 'K(\u03b1,b) = \u03b1^T b\u0302 + 1|^d' (the closing parenthesis renders as a vertical stroke before the superscript d; it is intended as the polynomial kernel (\u03b1^T b\u0302 + 1)^d).",
+      "colors": [
+        "#CC0000"
+      ],
+      "position": "center of slide, right of 'Kernelize using' (~45%-62% x, ~50%-55% y)"
+    },
+    {
+      "type": "arrow",
+      "description": "Vertical downward block arrow with red outline (white/hollow interior), pointing from the red kernel formula down into the top edge of the lower blue panel.",
+      "colors": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "center of slide (~43%-45% x, ~47%-59% y)"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow filled circle with thin black outline containing the black slide number '37'.",
+      "colors": [
+        "#FFFF99",
+        "#000000"
+      ],
+      "position": "top-right corner (~89%-93% x, ~10%-16% y)"
+    },
+    {
+      "type": "other",
+      "description": "Thin red rectangular outline framing the entire slide content area.",
+      "colors": [
+        "#CC0000"
+      ],
+      "position": "inset border around the whole slide (~6%-94% x, ~7.5%-93% y)"
+    }
+  ],
+  "imagery": [
+    "Yellow circular slide-number badge with black '37' (top-right corner)",
+    "Red-outlined downward block arrow connecting the kernel formula to the lower panel (center)",
+    "No photographs or illustrations; the slide is entirely typographic/mathematical with colored highlight shapes."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#CC0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF",
+      "#99FF99",
+      "#FFE0C0",
+      "#FFFF99",
+      "#FF0000",
+      "#0000CC",
+      "#00A000",
+      "#F2F2F2",
+      "#000000"
+    ]
+  },
+  "typography_notes": "Title is a large (~28-32 pt) bold sans-serif (Arial/Helvetica-like) in red, centered. The kicker 'Example: Polynomial Kernel' is smaller (~13-14 pt) blue italic sans-serif inside a thin blue-bordered white box, with 'Polynomial Kernel' in slightly bolder italic. 'Kernelize using' is italic serif (Times-like) in black. All mathematical expressions are set in a serif math face with italic variables, subscripts (i=1, j=1, i,y=\u22121, i,y=+1, D) and superscripts (N, T, d); the red kernel formula is bold serif. The 'Class of vector Z ...' strips use a plain sans-serif (Arial-like) in black with a green 'Z' and, in the upper strip, a red '\u21d2'. Green highlight rectangles are filled behind the emphasized math terms. No bullet glyphs are used anywhere.",
+  "animation_state": "No visible mid-build state; all equations, highlights, the 'Kernelize using' connector and the arrow appear fully revealed. The green highlights are static emphasis, not animation artifacts.",
+  "recreation_brief": "1. Set the slide size to 16:9 (900x506 px reference) with a pure white background; add a thin red (#CC0000) rectangular outline inset about 6% from the left and right edges and 7.5% from the top and bottom edges. 2. Top-left: draw a white rectangle (~7.5%-32% x, ~9.5%-15% y) with a thin blue (#0000FF) border and type 'Example: Polynomial Kernel' in blue (#0000CC) italic sans-serif ~13 pt, with 'Polynomial Kernel' in bold italic. 3. Top-center: type 'How to Kernelize SVM' in bold red (#CC0000) sans-serif ~30 pt, centered around 35%-67% of the slide width. 4. Top-right: insert an oval (~4% wide) filled yellow (#FFFF99) with a thin black outline, containing the black text '37' centered, ~13 pt. 5. Draw the upper panel: white rectangle with thin blue outline spanning ~7.5%-92% x and ~18%-46% y. 6. In the upper panel, top row, type the objective '\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j)' in black serif math ~16 pt; place a light-green (#99FF99) rounded rectangle behind '(X_i^T X_j)' only. 7. Upper panel, middle-left: draw a small white rectangle with thin blue border (~16%-26% x, ~28%-38% y) containing 'W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i' with a bold blue 'W' and black remainder. 8. Upper panel, middle-right: type 'b = \u2212 1/2 [max_{i,y=\u22121} (W_i^T X_i) + min_{i,y=+1} (W_i^T X_i)]' in black serif math ~16 pt; place two light-green rounded rectangles behind each '(W_i^T X_i)'. 9. Upper panel, bottom: draw a peach (#FFE0C0) rectangle (~13%-51% x, ~38%-45% y) with no border and type 'Class of vector Z \u21d2 sign(W^T Z + b)' in black sans-serif ~14 pt, with 'Z' in green (#00A000), '\u21d2' in red (#CC0000), and a light-green rounded rectangle behind 'W^T Z'. 10. Middle of slide: draw a small white rectangle (~30%-43% x, ~50%-55% y) with a thin gray border and type 'Kernelize using' in black italic serif ~13 pt; immediately to its right type 'K(\u03b1,b) = \u03b1^T b\u0302 + 1|^d' in bold red (#CC0000) serif ~14 pt (render the closing parenthesis as a vertical stroke before the superscript d, as in the original). 11. Add a downward block arrow (~2% wide, ~12% tall) centered under the red formula, red (#FF0000) outline with white fill, pointing into the lower panel. 12. Draw the lower panel: white rectangle with thin blue outline spanning ~7.5%-92% x and ~61%-91% y. 13. Lower panel, top row: type '\u2112_D(\u03b1) = \u03a3_{i=1}^{N} \u03b1_i \u2212 1/2 \u03a3_{j=1}^{N} \u03a3_{i=1}^{N} \u03b1_i \u03b1_j y_i y_j (X_i^T X_j + 1)^d' in black serif math ~16 pt; place a light-green rounded rectangle behind '(X_i^T X_j + 1)^d'. 14. Lower panel, middle-left: repeat the small blue-bordered white box with 'W = \u03a3_{i=1}^{N} \u03b1_i y_i X_i'. 15. Lower panel, middle-right: type 'b = \u2212 1/2 [max_{i,y=\u22121} [W_i^T X_i + 1]^d + min_{i,y=+1} [W_i^T X_i + 1]^d]' in black serif math ~16 pt; place two light-green rounded rectangles behind each '[W_i^T X_i + 1]^d'. 16. Lower panel, bottom: draw a peach rectangle (~13%-57% x, ~83%-90% y) and type 'Class of vector Z is sign([W^T Z + 1]^d + b)' in black sans-serif ~14 pt, with 'Z' in green and a light-green rounded rectangle behind '[W^T Z + 1]^d'. 17. Leave the bottom ~4% of the frame black (video letterbox artifact) if reproducing the captured frame; otherwise omit it. 18. Verify no bullet characters are used and that all subscripts/superscripts (N, T, d, i=1, j=1, i,y=\u22121, i,y=+1) are formatted as true sub/superscripts.",
+  "_meta": {
+    "frame": "slide_037.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 401.8
+  }
+}

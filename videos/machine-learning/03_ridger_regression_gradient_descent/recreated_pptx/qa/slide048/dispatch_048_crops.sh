@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+cd /home/codespace/ai_llm_slides
+for r in top_band aug_iter calc_panel; do
+  if grep -q "FINAL VERDICT" "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_judge.txt" 2>/dev/null; then echo "crop $r already banked"; continue; fi
+  timeout 1700 bash scripts/16_vision_gate.sh python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison     "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_render.png" "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_orig.png"     --view "Slide 048 zoomed crop $r — render vs original at matched scale (attempt 17 re-dispatch)"     --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original and upscaled to match IMG1 effective scale; region: $r of slide 048"     --thinking high --max-tokens 65536 --timeout 600 --rounds 1 --tries 1     --transcript "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_judge.txt"     -p "$(cat /home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/payload_B_048.txt)" > "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_judge.log" 2>&1
+  echo "CROP_${r}_DONE rc=$?" >> "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide048/crop_17_${r}_judge.log"
+  sleep 5
+done

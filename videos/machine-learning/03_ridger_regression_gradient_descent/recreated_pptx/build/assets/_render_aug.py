@@ -42,5 +42,5 @@ for i,c in enumerate(COLS):
 # class row
 for i,c in enumerate(CLS):
     cell(c,12,COLS[i],233+5,COLORS[i],bold=True)
-img.save(r'''/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets/aug_043.png''')
-print("WROTE",r'''/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets/aug_043.png''', img.size)
+img.save(r'''/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets/aug_043.png''')
+print("WROTE",r'''/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/assets/aug_043.png''', img.size)

@@ -1,0 +1,29 @@
+2026-10-27 23:12:19,521 INFO === crop_cascade run: slide_017.jpg ===
+2026-10-27 23:12:19,522 INFO models: parse=nemotron-3.5-parse chat=docparsechat(active-pending-probe)
+2026-10-27 23:12:43,700 INFO chat call attempt=1 latency=24.2s url=http://localhost:17844/v1/chat/completions bytes=140
+2026-10-27 23:12:43,700 INFO chat lane probe OK (model=docparsechat)
+2026-10-27 23:12:43,700 INFO chat lane: active
+2026-10-27 23:12:44,747 INFO parse call attempt=1 latency=1.0s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=39843
+2026-10-27 23:12:44,747 INFO node root parsed: 99 chars, 15 out tokens
+2026-10-27 23:12:44,748 INFO root parsed: 99 chars
+2026-10-27 23:12:44,748 INFO pool: 4 workers, caps: crops=16 parse=24 depth=6
+2026-10-27 23:13:21,657 INFO chat call attempt=1 latency=36.9s url=http://localhost:17844/v1/chat/completions bytes=2847
+2026-10-27 23:13:21,657 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:14:21,719 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:14:21,719 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.4s
+2026-10-27 23:15:24,138 INFO chat call attempt=2 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:15:24,138 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.9s
+2026-10-27 23:16:03,817 INFO chat call attempt=3 latency=34.8s url=http://localhost:17844/v1/chat/completions bytes=2848
+2026-10-27 23:16:03,997 INFO level 0 done: 1 nodes -> 1 children
+2026-10-27 23:16:06,703 INFO parse call attempt=1 latency=2.7s url=https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-parse/parse bytes=355121
+2026-10-27 23:16:06,704 INFO node slide_017.crop01__picture parsed: 103 chars, 17 out tokens
+2026-10-27 23:16:53,538 INFO chat call attempt=1 latency=46.8s url=http://localhost:17844/v1/chat/completions bytes=2899
+2026-10-27 23:16:53,539 WARNING chat reply hit the 512-token ceiling — retrying once at 4096
+2026-10-27 23:17:53,610 INFO chat call attempt=1 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:17:53,610 WARNING chat attempt 1/4 failed (TimeoutError: timed out) — retrying in 2.6s
+2026-10-27 23:18:56,227 INFO chat call attempt=2 transport failure latency=60.1s (TimeoutError: timed out)
+2026-10-27 23:18:56,227 WARNING chat attempt 2/4 failed (TimeoutError: timed out) — retrying in 4.6s
+2026-10-27 23:19:09,762 INFO chat call attempt=3 latency=9.0s url=http://localhost:17844/v1/chat/completions bytes=2900
+2026-10-27 23:19:09,766 INFO node slide_017.crop01__picture stop: no-new-information — chat advised STOP: The child only reorders and reformats the parent’s title and page number with no new content, and the picture candidate already has non-sparse extracted text.
+2026-10-27 23:19:09,767 INFO level 1 done: 1 nodes -> 0 children
+2026-10-27 23:19:09,769 INFO composed -> composed/slide_017_composed.md

@@ -1,0 +1,18 @@
+<x_0.2666><y_0.1203>**Bonus Assignment (SVM with Kernels)**<x_0.7539><y_0.1672><class_Title>
+
+<x_0.8916><y_0.0969>39<x_0.9336><y_0.1688><class_Page-header>
+
+<x_0.0996><y_0.243>• Develop your own SVM library (from Scratch)<x_0.5176><y_0.2797><class_List-item>
+
+<x_0.1006><y_0.3234>• You may use any Quadratic Programming solver (e.g. quadprog, CVXOPT, ..) to solve
+the Lagrangian Equation.<x_0.876><y_0.4391><class_List-item>
+
+<x_0.1016><y_0.482>• Make use of Kernel functions (e.g. Quadratic , Polynomial, or RBF)<x_0.7129><y_0.5195><class_List-item>
+
+<x_0.1025><y_0.5602>• For each of the given dataset (2-D):<x_0.4316><y_0.5977><class_List-item>
+
+<x_0.1367><y_0.6422>• Draw the dataset points using color coding (assign same color to points belong to
+same class)<x_0.8848><y_0.7555><class_List-item>
+
+<x_0.1377><y_0.8>• Divide the background into grid, classify each point in the grid, give each point
+same color code of the class it belongs to.<x_0.8457><y_0.9148><class_List-item>

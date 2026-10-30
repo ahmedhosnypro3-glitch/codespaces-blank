@@ -1024,3 +1024,48 @@ strokes under the LABEL X's (IMG2 y153-157 frame) as a possible lecture pen mark
 MINOR, in a leg that PASSED. Render label band y133-153 vs orig y133-157 (dy<=3,
 within 6px tol); the d5685/det0 chain X red ink ends y209 (orig) vs y207-208
 (render). No solid red rule exists in either. No build change.
+
+---
+
+## Rejudge r2 — 2026-10-30 (rejudge_20261027 FAIL adjudication + fixes)
+
+Trigger: rejudge_20261027 FULL leg on slide021 returned FAIL (transcript banked as
+`qa/rejudge_20261027/slide021/judge_full_r1fail.txt`). PIL pre-adjudication of every
+finding vs `unique_slides/slide_021.jpg` (scale 2.0833):
+
+| finding | claim | PIL verdict |
+|---|---|---|
+| D1 (MAJOR) | P2/P3 blue frames collide, gutter 0-3px; P3 ~25px high; P1/P2 ~8-9px high | REFUTED as stated: orig frame-line centers rows 128.96/256.0/289.0/416.5/438.0/528.0 vs r1 render 128.88/257.52/287.76/417.84/436.56/529.68 (max drift 1.7px; gutter 18.2px render vs 19px orig — no collision). CONFIRMED as small systematic drift (~1-2px) + stroke width (orig ~2px core, build was 1pt) -> fixed |
+| D2 (MINOR) | `λ = 3` vs verbatim `λ=3` | CONFIRMED: orig green ink x247..288 (42px) vs render x245.3..288.5 (43.2px); analysis verbatim says `λ=3` -> fixed |
+| D3 (MINOR) | det bars render as serifed "I" glyphs | REFUTED: asset bar is a 16px-wide plain rectangle at 600dpi, uniform top/mid/bottom; orig bar is a thin plain bar too. Cosmetic misread |
+| D4 (MINOR) | hand pen circles on 43/95 dropped | DISMISSED per payload ground rule (d) typed-vs-handwritten = at most MINOR; not a fix trigger |
+| D5 (MINOR) | P2 table ~9px right of heading | HALF-REFUTED: orig P2 table left edge x90 (render 88.8 — aligned); real defect = right edge/width: orig x90..294 (68px cols) vs render 89..279 (63px cols) -> fixed |
+| task 129 | eq_021_invexpr `X^T X` lacks `\underline` underbars | CONFIRMED: orig underbars at rows 487-488 (runs x165-176, x193-203); paren-sweep PIL agrees -> fixed |
+
+### Fixes applied (build/slide_021.js + assets)
+- PANELS rects re-aligned to orig stroke centers (P1 y129.2 h127.0, P2 y289.3 h127.5,
+  P3 y438.3 h90.0, x76.3, w809.0/811.5) and blue stroke width 1pt -> 2pt.
+- Tables: P1 x98 w204, P2 x90 w204 (was x89 w190), P3 x422 w204 — orig gridline census
+  68px columns.
+- `build/assets/eq_021_invexpr.json` segment 2 -> `\underline{X}^T \underline{X}`;
+  PNG regenerated 1140x259 via `qa/slide021/compose_eq_021_r2.py` (prefix-render
+  composer validated to within 1px of the certified composer on 3/4 multi-segment
+  assets); sidecar updated. Placement updated to (155,466,1140,259).
+- `build/assets/eq_021_lambda3.json` mathtext -> `\lambda=3`; PNG regenerated
+  378x131 via scripts/render_eq.py; placement (247,305,378,131).
+- The six eq_021 PNGs were missing from build/assets (only JSONs survived); restored
+  byte-identical from the certified pptx media before rebuilding, then the two
+  changed assets regenerated.
+
+### Verification (qa/slide021/render_r2.png, 150dpi, house_chrome_check PASS)
+- Blue frame-line centers now 128.88/256.08/289.2/416.4/438.0/528.0 vs orig
+  128.96/256.0/289.0/416.5/438.0/528.0 — all within 0.2 frame px; gutter P2bot->P3top
+  20.2px render vs 19px orig; left col 76.04 vs 76.0.
+- Table gridlines: P1 98.2..302, P2 90.2..293.9, P3 421.8..625.8 vs orig 98..302 /
+  90..294 / 422..626.
+- Green lambda label: render x247.2..290.4 (left-aligned at orig 247; residual ~1.5px
+  width is font metric, spaces removed).
+- Underbars present in render P3 eq region (red rule rows ~493-494).
+
+Rejudge r2 legs dispatched via gate (rejudge_slide.sh 021, driver out
+`qa/rejudge_20261027/slide021/r2_driver.out`); verdicts appended below when banked.

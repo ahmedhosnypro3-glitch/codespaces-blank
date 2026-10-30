@@ -1,0 +1,66 @@
+## 1. LAYOUT MAP
+1. Outer stage: wide light-gray canvas filling the full 960Ã540 capture, bordered by a black bottom strip (~bottom 28px) and a faint shadow edge at top/left.
+2. Chart container: centered red-outlined white card occupying roughly the middle 56% width and 72% height of the stage; inner plotting area with axes.
+3. Plot axes: left Y axis labeled 0â30 in increments of 5; bottom X axis labeled 0â50 in increments of 10; light gray gridlines forming a cartesian grid.
+4. Data clusters: four labeled scatter groups â black cluster near (14,20), magenta cluster near (20,20), green ring cluster near (15,10), blue cluster near (33,16); red outlier dots scattered around (28â47, 8â22).
+5. Top-right corner badge: small purple oval with white number "44" sitting outside the chart container, overlapping the light-gray stage.
+6. Apparent scale/quality: raster screenshot at 960Ã540 CSS px; text is legible but small; no visible blur or compression artifacts; crop captures the full visible UI frame.
+
+## 2. FIRST-GLANCE TEST
+Within 3 seconds a new user sees a scatter-plot chart titled only by its axes (no visible title), four colorful data clusters, and a "44" badge top-right. The screen appears to offer: (1) explore/inspect data clusters (visible via the plotted points), (2) identify what "44" means (not visible â badge has no label or context). The focal point should be the chart data, but the top-right badge competes for attention because of its saturated purple fill against neutral gray; nothing on screen explains the page's purpose or what action to take next.
+
+## 3. STRENGTHS
+- The chart container uses a clean white surface inside a red boundary that clearly separates the plotting area from the light-gray stage (region: chart container).
+- Axis scales are legible and use consistent increments (0â30 Y, 0â50 X) with gridlines that aid reading point positions (region: plot axes).
+- The four clusters use distinct hues (black, magenta, green, blue), giving immediate visual separation of groups (region: data clusters).
+
+## 4. DEFECT LIST
+
+- (a) THEME & DARK-MODE PHYSICS: clean â checked, nothing found. (This is a light-themed analytical chart, not the dark app chrome.)
+- (b) TYPOGRAPHY: clean â checked, nothing found. (Axis numerals and tick labels are uniform and legible.)
+- (c) SPACING: minor | med â chart container âº interior â the magenta cluster's rightmost points sit extremely close to the right plot edge with no visible margin â add padding inside the plot area so clusters don't touch the boundary.
+- (d) ALIGNMENT & POSITIONING: clean â checked, nothing found. (Gridlines and axes appear aligned; no sibling drift visible.)
+- (e) CROWDING & DENSITY: clean â checked, nothing found.
+- (f) HIERARCHY: major | high â chart container âº top-left area â no chart title or page heading exists; the eye has no primary anchor and must infer purpose from raw points â add a clear title above the chart stating what the data represents.
+- (g) COMPOSITION: major | high â outer stage âº top-right â the purple "44" badge floats disconnected from the chart with no label, leader line, or container association, reading as stray chrome rather than a meaningful metric â either attach it to the chart as a labeled count or remove it.
+- (h) COMPLETENESS: clean â checked, nothing found. (No clipped text or zero-width elements visible.)
+- (i) CONTINUITY: clean â checked, nothing found. (Only one container style present; no sibling components to compare radii/borders.)
+- (j) LINES & EDGES: clean â checked, nothing found.
+- (k) AFFORDANCE & STATES: critical | high â outer stage âº whole view â no buttons, links, filters, or interactive chrome are visible anywhere; the screen offers zero discoverable actions despite presenting data â add at least one primary action (e.g., "Export", "Filter", or cluster detail drill).
+- (l) ICONOGRAPHY: clean â checked, nothing found. (No icons present.)
+- (m) TABLES & LISTS: clean â checked, nothing found. (No tables or lists present.)
+- (n) ACCESSIBILITY & LEGIBILITY: minor | med â chart container âº axis labels â axis numerals appear near the floor of comfortable reading size (~10â11px) for a non-developer audience; recommend â¥12px â increase axis tick font size.
+- (o) UI COPY QUALITY: major | high â outer stage âº top-right â the "44" badge is unexplained jargon with no label, tooltip, or context; a parent user cannot tell if it counts clusters, points, children, or something else â add a visible label or remove the badge.
+
+## 5. TOP 3
+1. Section 4, finding (k): zero visible interactive controls makes the screen a dead end â most damaging to usability.
+2. Section 4, finding (f): no chart title or page heading destroys first-glance orientation â most damaging to perceived quality.
+3. Section 4, finding (g): the unlabeled "44" badge reads as stray, confusing chrome â cross-references section 4, line (o).
+
+## 6. STRUCTURAL PROPOSAL
+1. Move the top-right "44" badge (region: outer stage âº top-right) into the chart container as a labeled caption or metric chip directly above or below the plot â gives the orphaned number context and removes floating chrome.
+2. Add a page title above the chart container (new region at top of stage) stating what the data represents â anchors the screen's purpose and fixes the hierarchy failure.
+3. Add a single primary action button row beneath the chart container (new region) labeled for the screen's main intent (e.g., "View details" or "Export") â restores affordance on an otherwise static screen.
+No out-of-scope moves; all changes use only visible regions.
+
+## 7. VERDICT
+- Theme & dark-mode: N/A â light theme only; not applicable to this capture.
+- Typography: 8 â uniform, legible axis labels; nothing to criticize.
+- Spacing: 7 â clusters nearly touch plot edge; minor padding fix needed.
+- Alignment: 9 â grid and axes are cleanly aligned.
+- Crowding/density: 8 â sparse but appropriate for a scatter plot; no noise.
+- Hierarchy: 4 â no title or primary anchor; the badge fights the data for attention.
+- Composition: 5 â floating badge and empty stage margins feel unfinished.
+- Completeness: 8 â nothing clipped or missing visually; but functionally empty of actions.
+- Continuity & consistency: 9 â single container style; consistent rendering.
+- Affordance & states: 2 â zero visible controls; the screen fights the user by offering nothing to do.
+- First-glance clarity: 3 â purpose and the "44" badge are opaque within 3 seconds.
+- Overall: 4 â a renderable chart with no title, no actions, and a mystery badge; I would not show this to a user.
+
+## 8. UNCERTAINTIES
+- The capture is a static image; I cannot verify whether any element is hover-armed or whether the chart supports zoom/pan.
+- The "44" badge may be a page counter, notification, or slide number from a deck rather than app data â I treat it as UI chrome because it is visible inside the frame.
+- Axis font sizes are estimated from the raster; I cannot measure exact CSS pixel values.
+
+## 9. VOCABULARY PROPOSALS
+no additions

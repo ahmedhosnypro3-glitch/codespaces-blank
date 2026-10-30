@@ -1,0 +1,180 @@
+{
+  "slide_title": "How to Kernelize SVM",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Mapping Instead of using X_i (of dimension d) use \u03c6(X_i) (with higher dimension )",
+      "X_i^T X_j => \u03c6(X_i)^T \u03c6(X_j)",
+      "Kernelization Instead of using \u03c6(X_i)^T \u03c6(X_j) use K(X_i^T, X_j) (Where K is one of kernel functions)"
+    ],
+    "labels": [
+      "34",
+      "Remember :",
+      "(of dimension d)",
+      "(with higher dimension )",
+      "(Where K is one of kernel functions)",
+      "Class of vector Z => sign(W^T Z + b)"
+    ],
+    "equations": [
+      "\\mathscr{L}_D(\\alpha) = \\sum_{i=1}^N \\alpha_i - \\frac{1}{2} \\sum_{j=1}^N \\sum_{i=1}^N \\alpha_i \\alpha_j y_i y_j X_i^T X_j",
+      "W = \\sum_{i=1}^N \\alpha_i y_i X_i",
+      "b = -\\frac{1}{2} [\\max_{i:y_i=-1} W^T X_i + \\min_{i:y_i=+1} W^T X_i]",
+      "sign(W^T Z + b)",
+      "X_i^T X_j \\Rightarrow \\phi(X_i)^T \\phi(X_j)",
+      "K(X_i^T, X_j)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title 'How to Kernelize SVM' centered at top in red; slide number '34' in yellow circle at top right; large cream rectangular content area below title; inside content area: Lagrangian equation at top, followed by side-by-side W and b formula boxes, then orange classification box; below that a full-width 'Remember' section with blue header and three rows of text/math; bottom portion mostly empty with small cursor icon; black strip at very bottom edge",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center",
+        "content": "How to Kernelize SVM"
+      },
+      {
+        "name": "slide number",
+        "position": "top right",
+        "content": "34 in yellow circle"
+      },
+      {
+        "name": "main formulas",
+        "position": "upper middle (inside cream box)",
+        "content": "Lagrangian, W, and b equations"
+      },
+      {
+        "name": "classification rule",
+        "position": "center (inside cream box, below formulas)",
+        "content": "Class of vector Z => sign(W^T Z + b) in orange box"
+      },
+      {
+        "name": "remember section",
+        "position": "middle to lower middle (full width, below cream box)",
+        "content": "Remember : section with Mapping and Kernelization rows"
+      },
+      {
+        "name": "empty bottom",
+        "position": "bottom (above black strip)",
+        "content": "mostly empty with cursor icon in lower left"
+      },
+      {
+        "name": "bottom black strip",
+        "position": "very bottom edge, full width",
+        "content": "thin solid black decorative strip"
+      }
+    ],
+    "hierarchy": "Title is most prominent (red, centered); main equation box is largest visual container; Remember section is secondary; slide number is small accent"
+  },
+  "visual_elements": [
+    {
+      "type": "equation",
+      "description": "SVM dual Lagrangian formula in blue math font, no container box",
+      "colors": [
+        "#0000ff"
+      ],
+      "position": "top of cream box"
+    },
+    {
+      "type": "equation",
+      "description": "Weight vector W formula in white-filled box with blue math text",
+      "colors": [
+        "#ffffff",
+        "#0000ff"
+      ],
+      "position": "middle left of cream box"
+    },
+    {
+      "type": "equation",
+      "description": "Bias b formula in white-filled box with blue math text",
+      "colors": [
+        "#ffffff",
+        "#0000ff"
+      ],
+      "position": "middle right of cream box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Orange box with classification rule text 'Class of vector Z => sign(W^T Z + b)' in dark red",
+      "colors": [
+        "#ffcc99",
+        "#c00000"
+      ],
+      "position": "center below formulas, inside cream box"
+    },
+    {
+      "type": "text-section",
+      "description": "Remember section with blue border, blue 'Remember :' header, red 'Mapping'/'Kernelization' labels, black body text, blue math, red italic parentheticals",
+      "colors": [
+        "#0000ff",
+        "#ff0000",
+        "#000000"
+      ],
+      "position": "lower middle, full width below cream box"
+    },
+    {
+      "type": "circle",
+      "description": "Yellow circle containing slide number 34 in black text",
+      "colors": [
+        "#ffd700",
+        "#000000"
+      ],
+      "position": "top right"
+    },
+    {
+      "type": "decorative-strip",
+      "description": "Thin solid black strip along the very bottom edge of the slide",
+      "colors": [
+        "#000000"
+      ],
+      "position": "bottom edge, full width"
+    }
+  ],
+  "imagery": [
+    "Small black mouse cursor/arrow icon in lower left empty area"
+  ],
+  "colors": {
+    "background": "#f5f5f5",
+    "title_text": "#c00000",
+    "body_text": "#000000",
+    "accents": [
+      "#ffffe0",
+      "#ffd700",
+      "#ffcc99",
+      "#0000ff",
+      "#ff0000"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout; title in bold red (#c00000); body text in black; mathematical notation in blue; 'Remember :' header in bold blue; 'Mapping' and 'Kernelization' in bold red; parenthetical notes in red italic; arrows in red; slide number '34' in black inside yellow circle",
+  "animation_state": "Static slide, no animation visible",
+  "recreation_brief": "1. Set the slide background to light gray #f5f5f5 on a blank layout.\n2. Draw a thin black (#000000) strip as a full-width rectangle flush with the very bottom edge of the slide (approx. 0.2 in / ~4% of slide height tall).\n3. Add the title 'How to Kernelize SVM' centered at the top: bold sans-serif, dark red #c00000, approx. 36-40 pt.\n4. Top-right corner: draw a yellow circle (#ffd700 fill, no outline), approx. 0.6 in diameter, with the slide number '34' centered inside in black (#000000).\n5. Below the title, draw one large cream rectangle (#ffffe0 fill, no border) spanning ~90% of the slide width, from just under the title down to ~60% of the slide height; steps 6-8 are placed inside it.\n6. At the top inside the cream rectangle, add the dual Lagrangian equation in blue (#0000ff) math font: \\mathscr{L}_D(\\alpha) = \\sum_{i=1}^N \\alpha_i - \\frac{1}{2} \\sum_{j=1}^N \\sum_{i=1}^N \\alpha_i \\alpha_j y_i y_j X_i^T X_j.\n7. Below the Lagrangian, add two side-by-side rectangles with white (#ffffff) fill and blue (#0000ff) math text: LEFT box 'W = \\sum_{i=1}^N \\alpha_i y_i X_i'; RIGHT box 'b = -\\frac{1}{2} [\\max_{i:y_i=-1} W^T X_i + \\min_{i:y_i=+1} W^T X_i]'.\n8. Still inside the cream rectangle, centered below the two formula boxes, add an orange/salmon rectangle (#ffcc99 fill) containing the text 'Class of vector Z => sign(W^T Z + b)' in dark red #c00000.\n9. Below the cream rectangle, draw a full-width rectangle with a blue (#0000ff) outline and no fill to frame the 'Remember' section.\n10. Top-left inside that frame, add the header 'Remember :' in bold blue (#0000ff).\n11. Remember row 1: bold red (#ff0000) label 'Mapping', then black (#000000) text 'Instead of using X_i (of dimension d) use \u03c6(X_i) (with higher dimension )', with the two parentheticals '(of dimension d)' and '(with higher dimension )' in red (#ff0000) italic.\n12. Remember row 2: the math line 'X_i^T X_j => \u03c6(X_i)^T \u03c6(X_j)' in blue (#0000ff) math font, with the arrow '=>' in red (#ff0000).\n13. Remember row 3: bold red (#ff0000) label 'Kernelization', then 'Instead of using \u03c6(X_i)^T \u03c6(X_j) use K(X_i^T, X_j)' with the math expressions in blue (#0000ff), the connecting words in black (#000000), and the parenthetical '(Where K is one of kernel functions)' in red (#ff0000) italic.\n14. In the empty lower-left area below the Remember frame, place one small black mouse-cursor (arrow) icon.\n15. Leave the rest of the bottom area empty; the only bottom-edge elements are the cursor icon (step 14) and the black strip (step 2).",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Added missing 'bottom black strip' to visual_elements and layout.regions (it was described in arrangement and recreation_brief but absent from both element lists).",
+      "Specified dark red #c00000 as the text color inside the orange classification box, derived from its colors array, in visual_elements and recreation_brief.",
+      "Clarified W and b containers as white-filled boxes with blue math text, reconciling the 'blue box' description with the #ffffff/#0000ff colors array.",
+      "Reconciled Remember-section colors: 'Remember :' header blue (per arrangement and original brief), 'Mapping'/'Kernelization' labels red (per typography_notes and visual_elements).",
+      "Added the blue border around the Remember section to the recreation_brief (present in visual_elements but missing from original steps 8-9).",
+      "Positioned the orange classification box explicitly inside the cream content area, per layout.arrangement.",
+      "Rewrote recreation_brief as a 15-step ordered checklist with exact text, hex colors, positions, and shape types for every element.",
+      "Confirmed subtitle_or_header is genuinely absent on the slide; field intentionally null (no subtitle text exists in the source)."
+    ],
+    "uncertain_items": [
+      "No [?] markers present in the source JSON.",
+      "W/b box styling ambiguous ('blue box' phrasing vs colors #ffffff+#0000ff); interpreted as white fill with blue text/border.",
+      "Exact font sizes not recorded in source; title ~36-40 pt and circle diameter ~0.6 in are approximations.",
+      "Black strip height not recorded; approximated at ~4% of slide height.",
+      "Cursor icon design approximated as a standard black arrow pointer; exact glyph unknown.",
+      "Verbatim quirks preserved as extracted: trailing space in '(with higher dimension )' and unusual kernel notation 'K(X_i^T, X_j)'."
+    ],
+    "recreatability_score_1_to_10": 8
+  },
+  "_meta": {
+    "frame": "slide_034.jpg",
+    "model": "images",
+    "source_timestamps": {},
+    "elapsed_s": 173.2,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 321.6
+  }
+}

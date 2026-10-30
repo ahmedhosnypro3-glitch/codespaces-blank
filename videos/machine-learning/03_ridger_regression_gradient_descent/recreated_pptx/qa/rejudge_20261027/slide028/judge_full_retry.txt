@@ -1,0 +1,24 @@
+ELEMENT-BY-ELEMENT FIDELITY CHECK
+
+Settled house chrome (not raised as defects): gray E9E9E7 panel with C00000 strokes on left/right/bottom only (no top stroke â correct), yellow "28" badge at (876,73). Image-2 cursor near the left plot floor is a capture artifact and is correctly absent from Image 1. No equations/tables/legends/delimiters exist on this slide, so those rules do not engage.
+
+| Element | Original (IMG2) | Recreation (IMG1) | Verdict |
+|---|---|---|---|
+| Title | "Effect of small and large Learning Rate", red | Verbatim, dark-red C00000 | MATCH |
+| Slide number | "28" in yellow badge | Same | MATCH |
+| Subplot titles | "Small Learning Rate" / "Large Learning Rate", dark sans | Verbatim, same style/placement | MATCH |
+| Axis labels | "Loss" (rotated) + "Value of weight" Ã2, red arrow axes | Verbatim; red arrowheads on all four axes | MATCH |
+| Left subplot (small LR) | Teal basin curve; staircase of small open-circle descent steps converging to the minimum; smooth right rise | Same type/behavior; point count and step density equivalent | MATCH (content) |
+| Right subplot (large LR) | Teal curve; **5 filled cyan nodes** zig-zagging across the basin (overshoot pattern) with thin connector lines | Same **5**-node overshoot pattern, same colors, same connectors | MATCH (content) |
+| Enclosing frame | One blue rectangle around the whole two-plot region | One blue rectangle around the whole region | MATCH |
+| Containment | All ink inside the blue frame; rising tips and lowest steps keep visible clearance from the border | All ink inside the blue frame; lowest small-LR steps sit close to (but above) the bottom border; right rise tip clears the right edge | No frame crossing (closest approaches: large-LR right-rise tip â right edge with clearance; small-LR lowest circles â bottom border with a thin gap) |
+
+DISCREPANCIES
+1. MAJOR â Plot-region proportions/alignment (confidence: medium-high). The two inner plot regions are proportioned differently. In the original the right (large-LR) region is the wider one and the pair is asymmetric/tighter â the two "Value of weight" axis termini sit close together near the slide center. In the recreation the two regions are made approximately equal width, pushing the "Value of weight" labels farther apart (larger central gap) and diminishing the dominant right region. This changes chart aspect and label-to-axis alignment. Per founder directive 2026-10-10, a visible alignment/layout deviation is MAJOR even with verbatim text.
+2. MINOR â Small-LR descent floor clearance (confidence: medium). The lower staircase steps in the recreation sit marginally closer to the red x-axis/bottom border than in the original, which preserves a slightly larger visible gap above the floor. Cosmetic only.
+
+NO BLOCKER conditions are present: nothing is omitted (both charts, all labels, the 5-node zig-zag and the staircase all render), no equation region is empty, there is no table, and there are no multi-line parentheses/brackets to mis-span. Typed-vs-medium and equation-format rules are not triggered.
+
+Visual-quality defects in the recreation: none material â no text clipping/overflow, no wrong wrapping, no collisions, curves/axes/dots legible; colors approximate the original (red C00000 axes/title, teal curve, cyan nodes, blue frame).
+
+FINAL VERDICT: FAIL for "faithful, usable recreation" â driven solely by the MAJOR plot-proportion/alignment deviation (item 1); all renderable content is otherwise present and verbatim, and the slide remains usable.

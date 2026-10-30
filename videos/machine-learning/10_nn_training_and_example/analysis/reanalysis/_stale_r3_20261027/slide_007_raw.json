@@ -1,0 +1,197 @@
+{
+  "slide_title": "Neural Network Model",
+  "subtitle_or_header": "(Weights of Output Layer AFFECTS Calculated Error)",
+  "verbatim_text": {
+    "bullets": [
+      "Input Sample",
+      "Target Label",
+      "Node Bias",
+      "For Layer \"j\"",
+      "Previous Layer Layer (i)",
+      "Current Layer is Output Layer (You are here)",
+      "If Layer \"j\" is Output Layer:",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error Error"
+    ],
+    "labels": [
+      "7",
+      "Net_i",
+      "Net_j",
+      "O_i",
+      "O_j",
+      "W_ji",
+      "W_ij"
+    ],
+    "equations": [
+      "Net_j = \\sum_i (w_{ji} O_i)",
+      "O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}",
+      "E = \\frac{1}{2} \\sum_j (t_j - O_j)^2"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-center with subtitle directly below. Yellow slide-number circle at extreme top-right. Main neural network diagram spans the full width of the slide center. 'Input Sample' purple box sits at top-left; 'Target Label' purple box at top-right. A red vertical 'Error Error' box runs along the right edge. Class labels (Class 1, Class 2, Class m) align at the far right. Bottom band contains green layer-indicator boxes, the 'Node Bias' callout, and three equation areas.",
+    "regions": [
+      {
+        "name": "Title",
+        "position": "top-center",
+        "content": "'Neural Network Model' in dark red bold text"
+      },
+      {
+        "name": "Subtitle",
+        "position": "top-center below title",
+        "content": "'(Weights of Output Layer AFFECTS Calculated Error)' in blue bold text"
+      },
+      {
+        "name": "Slide number",
+        "position": "top-right corner",
+        "content": "Yellow circle containing the number 7"
+      },
+      {
+        "name": "Input label",
+        "position": "top-left",
+        "content": "Purple/pink rounded box labeled 'Input Sample'"
+      },
+      {
+        "name": "Target label",
+        "position": "top-right",
+        "content": "Purple/pink rounded box labeled 'Target Label'"
+      },
+      {
+        "name": "Neural network diagram",
+        "position": "center, full width",
+        "content": "Three columns of computational nodes with summation circles, activation squares, connecting lines, and weight labels"
+      },
+      {
+        "name": "Error box",
+        "position": "right edge, vertical",
+        "content": "Red vertical box labeled 'Error Error'"
+      },
+      {
+        "name": "Class labels",
+        "position": "far right",
+        "content": "Class 1, Class 2, Class m aligned with output nodes"
+      },
+      {
+        "name": "Layer indicators",
+        "position": "bottom-center",
+        "content": "Green boxes: 'Previous Layer Layer (i)' and 'Current Layer is Output Layer (You are here)'"
+      },
+      {
+        "name": "Bias callout",
+        "position": "bottom-left",
+        "content": "'Node Bias' label with pink circle containing '1'"
+      },
+      {
+        "name": "Equations",
+        "position": "bottom",
+        "content": "Left: Net_j and O_j equations. Right: Error equation E"
+      }
+    ],
+    "hierarchy": "Title dominates at top in large dark-red bold. Subtitle is secondary in blue. The neural network diagram is the visual focal point in the center. Equations at the bottom are smaller supporting text. Colored boxes (purple, green, red) act as annotations drawing attention to specific concepts."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Feed-forward neural network with three columns. Left column: 4 blue circles containing \u03a3, each followed by a pale-yellow square containing \u222b, then an open circle. Middle column: 3 blue circles containing \u03a3, each followed by a pale-yellow square containing \u222b, then an open circle; labeled 'Net_i' above and 'O_i' after. Right column: 3 green circles containing \u03a3, each followed by a pale-yellow square containing \u222b, then 'O_j'; labeled 'Net_j' above. Lines connect every left node to every middle node, and every middle node to every right node. Weight labels 'W_ji' and 'W_ij' appear on middle-to-right connections. A pink circle containing '1' at bottom-left represents the bias node and connects to the right-column nodes.",
+      "colors": [
+        "#4169E1",
+        "#32CD32",
+        "#FFFACD",
+        "#FF69B4",
+        "#000000"
+      ],
+      "position": "center of slide"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple/pink rounded rectangle at top-left containing text 'Input Sample'",
+      "colors": [
+        "#DDA0DD",
+        "#000000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple/pink rounded rectangle at top-right containing text 'Target Label'",
+      "colors": [
+        "#DDA0DD",
+        "#000000"
+      ],
+      "position": "top-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Red vertical rectangle along right edge containing text 'Error Error' oriented vertically",
+      "colors": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "right edge"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green rectangle labeled 'Previous Layer Layer (i)' with an arrow/indicator pointing to the middle column",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "bottom-center-left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green rectangle labeled 'Current Layer is Output Layer (You are here)' with an arrow/indicator pointing to the right column",
+      "colors": [
+        "#90EE90",
+        "#000000"
+      ],
+      "position": "bottom-center"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow circle at top-right containing the number 7",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [
+    "No photographs or illustrations; the slide is entirely diagrammatic with text, shapes, and mathematical notation."
+  ],
+  "colors": {
+    "background": "#F5F5F5",
+    "title_text": "#8B0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF",
+      "#DDA0DD",
+      "#90EE90",
+      "#FF0000",
+      "#FFFF00",
+      "#4169E1",
+      "#32CD32",
+      "#FFFACD",
+      "#FF69B4"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout. Title is large, bold, dark red. Subtitle is medium, bold, blue, with 'AFFECTS' in all-caps. Body labels are small black sans-serif. Equations use mathematical notation with italic variables and subscripts. Layer indicator boxes use bold black text on green. The 'Error Error' text is white on red.",
+  "animation_state": "Static; no build or reveal state apparent. All elements appear fully rendered.",
+  "recreation_brief": "1. Create a slide with a light gray (#F5F5F5) background. 2. Add the title 'Neural Network Model' centered at the top in large bold dark-red (#8B0000) sans-serif. 3. Directly below, add the subtitle '(Weights of Output Layer AFFECTS Calculated Error)' in bold blue (#0000FF), keeping 'AFFECTS' capitalized. 4. Place a yellow (#FFFF00) circle at the extreme top-right with the number '7' in black. 5. Add a purple (#DDA0DD) rounded rectangle at the top-left labeled 'Input Sample'. 6. Add a purple (#DDA0DD) rounded rectangle at the top-right labeled 'Target Label'. 7. Draw the neural network: create three vertical columns of nodes. Column 1 (left): 4 blue (#4169E1) circles with white \u03a3, each followed by a pale-yellow (#FFFACD) square with \u222b, then a small open circle. Column 2 (middle): 3 blue circles with \u03a3, each followed by a pale-yellow square with \u222b, then an open circle; label 'Net_i' above and 'O_i' after. Column 3 (right): 3 green (#32CD32) circles with \u03a3, each followed by a pale-yellow square with \u222b, then 'O_j'; label 'Net_j' above. 8. Connect every node in column 1 to every node in column 2 with thin black lines. Connect every node in column 2 to every node in column 3 with thin black lines; place small labels 'W_ji' and 'W_ij' on these connections. 9. Add a pink (#FF69B4) circle containing '1' at the bottom-left with the label 'Node Bias'; draw lines from it to the column-3 nodes. 10. Add a red (#FF0000) vertical box along the right edge with white text 'Error Error'. 11. At the far right, add labels 'Output 1', 'Output 2', 'Output m' next to the column-3 nodes, and 'Class 1', 'Class 2', 'Class m' further right. 12. At the bottom, add a green (#90EE90) box labeled 'Previous Layer Layer (i)' pointing to column 2, and another green box labeled 'Current Layer is Output Layer (You are here)' pointing to column 3. 13. Add the label 'For Layer \"j\"' at the bottom-left. 14. Add the label 'If Layer \"j\" is Output Layer:' at the bottom-right. 15. At the very bottom, place three equation blocks: left block with 'Net_j = \u03a3_i (w_ji O_i)' and 'O_j = f(Net_j) = 1/(1+e^{-Net_j})'; right block with 'E = 1/2 \u03a3_j (t_j - O_j)^2'. Use black text with proper subscripts.",
+  "_meta": {
+    "frame": "slide_007.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 7,
+      "image": "slide_007.jpg",
+      "badge": "7"
+    },
+    "elapsed_s": 398.4
+  }
+}

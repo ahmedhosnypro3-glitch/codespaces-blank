@@ -5,9 +5,9 @@ from segments, supporting inline mathtext runs and stacked column vectors.
 Segment spec (JSON on argv[1]):
   {"segments": [
      {"t": "d(x_1) = "},
-     {"row": ["1","1","1"]},                # inline row vector  [1 1 1]
+     {"row": ["1","1","1"], "colors": ["000000","FF0000","000000"]},  # inline row vector
      {"t": " \\cdot "},
-     {"col": ["4","-2","-2"]},              # stacked column vector [4; -2; -2]
+     {"col": ["4","-2","-2"], "colors": ["000000","FF0000","FF0000"]},  # stacked column
      {"t": " = 0"}],
    "fontsize": 14, "color": "000000"}
 
@@ -53,11 +53,16 @@ def render_text(latex, fontsize, color):
     return crop, baseline_row - y0, (x1 - x0), (y1 - y0)
 
 
-def render_entries(entries, fontsize, color, gap_frac=0.42):
-    """Stacked column vector entries (no brackets) -> (array, baseline_row, w, h)."""
+def render_entries(entries, fontsize, color, colors=None, gap_frac=0.42):
+    """Stacked column vector entries -> (array, baseline_row, w, h).
+    If colors list provided, color each entry individually."""
     runs = []
-    for e in entries:
-        a, bl, w, h = render_text(e, fontsize, color)
+    for i, e in enumerate(entries):
+        c = colors[i] if colors and i < len(colors) else color
+        # Ensure # prefix for matplotlib
+        if not c.startswith('#'):
+            c = '#' + c
+        a, bl, w, h = render_text(e, fontsize, c)
         runs.append((a, bl, w, h))
     gap = int(round(max(r[3] for r in runs) * gap_frac))
     wmax = max(r[2] for r in runs)
@@ -71,6 +76,57 @@ def render_entries(entries, fontsize, color, gap_frac=0.42):
         baselines.append(y + bl)
         y += h + gap
     return out, baselines, wmax, total_h
+
+
+def render_row(entries, fontsize, color, colors=None):
+    """Inline row vector as single mathtext run with per-entry coloring.
+    Renders each entry as separate text, composes horizontally with spacing."""
+    import numpy as _np
+    entry_runs = []
+    for i, e in enumerate(entries):
+        c = colors[i] if colors and i < len(colors) else color
+        if not c.startswith('#'):
+            c = '#' + c
+        a, bl, w, h = render_text(e, fontsize, c)
+        entry_runs.append((a, bl, w, h))
+    gap = int(round(max(r[3] for r in entry_runs) * 0.55))
+    wmax = max(r[2] for r in entry_runs)
+    total_h = max(r[3] for r in entry_runs)
+    # Width: parens + entries + gaps
+    paren_w = max(int(round(fontsize * 1.6)), 4)
+    total_w = paren_w * 2 + sum(r[2] for r in entry_runs) + gap * (len(entry_runs) - 1) + 12
+    out = _np.zeros((total_h, total_w, 4), dtype=_np.uint8)
+    baselines = []
+    x = paren_w + 6
+    for a, bl, w, h in entry_runs:
+        yoff = (total_h - h) // 2
+        out[yoff:yoff + h, x:x + w] = a
+        baselines.append(yoff + bl)
+        x += w + gap
+    # Draw parens: left and right as tall curved strokes
+    mid_bl = baselines[len(baselines) // 2]
+    ytop = min(r[0] for r in [(rr[3], 0) for rr in entry_runs])
+    y0, y1 = 0, total_h
+    bw = max(int(round(fontsize * 0.6)), 3)
+    serif = max(int(round(fontsize * 0.5)), 3)
+    y_span_top = 2
+    y_span_bot = total_h - 2
+    # left paren strokes
+    out[y_span_top:y_span_bot, 0:bw, 3] = 255
+    out[y_span_top:y_span_top + bw, 0:serif, 3] = 255
+    out[y_span_bot - bw:y_span_bot, 0:serif, 3] = 255
+    out[y_span_top:y_span_bot, 0:bw, 0:3] = 0
+    out[y_span_top:y_span_top + bw, 0:serif, 0:3] = 0
+    out[y_span_bot - bw:y_span_bot, 0:serif, 0:3] = 0
+    # right paren
+    rx = total_w - bw
+    out[y_span_top:y_span_bot, rx:rx + bw, 3] = 255
+    out[y_span_top:y_span_top + bw, rx + bw - serif:rx + bw, 3] = 255
+    out[y_span_bot - bw:y_span_bot, rx + bw - serif:rx + bw, 3] = 255
+    out[y_span_top:y_span_bot, rx:rx + bw, 0:3] = 0
+    out[y_span_top:y_span_top + bw, rx + bw - serif:rx + bw, 0:3] = 0
+    out[y_span_bot - bw:y_span_bot, rx + bw - serif:rx + bw, 0:3] = 0
+    return out, baselines[len(baselines) // 2], total_w, total_h
 
 
 def main():
@@ -90,13 +146,12 @@ def main():
             rendered.append({"kind": "text", "arr": a, "baseline": bl,
                              "w": w, "h": h, "gap_frac": None})
         elif "row" in seg:
-            # inline row vector: one mathtext run "[1 1 1]"
-            body = "\\;\\;".join(seg["row"])
-            a, bl, w, h = render_text(f"[{body}]", fs, color)
+            # inline row vector with per-entry coloring
+            a, bl, w, h = render_row(seg["row"], fs, color, seg.get("colors"))
             rendered.append({"kind": "text", "arr": a, "baseline": bl,
                              "w": w, "h": h, "gap_frac": None})
         elif "col" in seg:
-            a, bls, w, h = render_entries(seg["col"], efs, color)
+            a, bls, w, h = render_entries(seg["col"], efs, color, seg.get("colors"))
             rendered.append({"kind": "col", "arr": a, "baseline": bls,
                              "w": w, "h": h, "gap_frac": 0.42})
         else:
@@ -152,17 +207,21 @@ def main():
             mid = r["baseline"][len(r["baseline"]) // 2]
             y_entries = line_y - mid
             paste(r["arr"], bx_l + bw + 2 + PAD_PX, y_entries)
-            # brackets span the full entry stack
+            # PARENTHESES span the full entry stack (per original slide)
             top = y_entries
             bot = y_entries + r["h"]
             lx = bx_l + PAD_PX
             rx = bx_r + PAD_PX
-            strokes = [(slice(top, bot), slice(lx, lx + bw)),
-                       (slice(top, bot), slice(rx, rx + bw)),
-                       (slice(top, top + bw), slice(lx, lx + serif)),
-                       (slice(bot - bw, bot), slice(lx, lx + serif)),
-                       (slice(top, top + bw), slice(rx + bw - serif, rx + bw)),
-                       (slice(bot - bw, bot), slice(rx + bw - serif, rx + bw))]
+            # Left parenthesis: vertical stroke + top/bottom serifs curving right
+            strokes = [
+                (slice(top, bot), slice(lx, lx + bw)),  # vertical
+                (slice(top, top + bw), slice(lx, lx + serif)),  # top serif
+                (slice(bot - bw, bot), slice(lx, lx + serif)),  # bottom serif
+                # Right parenthesis: vertical stroke + top/bottom serifs curving left
+                (slice(top, bot), slice(rx, rx + bw)),  # vertical
+                (slice(top, top + bw), slice(rx + bw - serif, rx + bw)),  # top serif
+                (slice(bot - bw, bot), slice(rx + bw - serif, rx + bw)),  # bottom serif
+            ]
             for sy, sx in strokes:
                 canvas[sy, sx, 0:3] = 0
                 canvas[sy, sx, 3] = 255

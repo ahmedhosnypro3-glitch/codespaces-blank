@@ -1,0 +1,81 @@
+{
+  "slide": "probe_crop",
+  "source_frame": "probe_crop.png",
+  "source_md5": "3060ba597c790e36200a5bc78906292c",
+  "frame_dims": [
+    480,
+    270
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 2,
+    "max_parallel": 2,
+    "max_crops": 3,
+    "max_parse_calls": 6,
+    "max_depth": 2,
+    "max_output_tokens": 600
+  },
+  "parse_calls_spent": 1,
+  "crops_spent": 0,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      480,
+      270
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/_probe_self/probe_crop.png",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/probe_crop.parse.md",
+      "json": "full/probe_crop.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      480,
+      270
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": "too-small",
+    "stop_note": "every candidate is frame-covering or below the 40 px floor",
+    "decision_source": "deterministic",
+    "children": [],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [],
+  "recursion": {
+    "levels_processed": 1,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 1,
+    "chat_calls": 0,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 1
+  }
+}

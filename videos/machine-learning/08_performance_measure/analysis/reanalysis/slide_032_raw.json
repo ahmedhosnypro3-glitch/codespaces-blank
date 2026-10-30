@@ -1,0 +1,186 @@
+{
+  "slide_title": null,
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Threshold=0.0",
+      "Threshold=0.1",
+      "Threshold=0.3",
+      "Threshold=0.4",
+      "Predicted as",
+      "P",
+      "N",
+      "Actual",
+      "ROC Curve for Same Model -different thresholds",
+      "TPR",
+      "FPR",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "32"
+    ],
+    "equations": [
+      "TPR=5/(5+0)=1",
+      "FPR=6/(6+0)=1",
+      "TPR=5/(5+0)=1",
+      "FPR=4/(4+2)=.66",
+      "TPR=5/(5+0)=1",
+      "FPR=2/(2+4)=.33",
+      "TPR=4/(4+1)=4/5",
+      "FPR=1/(1+5)=.16",
+      "TPR = TP/(TP+FN)",
+      "FPR = FP/(FP+TN)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Left column contains four stacked red-bordered confusion matrix panels (Threshold=0.0, 0.1, 0.3, 0.4) with TPR/FPR calculation text to their right. Center-bottom has a red-bordered title box. Right side is split: top-right ROC curve graph, bottom-right formula definitions and legend matrix. Slide number '32' sits in a yellow circle at the extreme top-right corner.",
+    "regions": [
+      {
+        "name": "Confusion Matrix Panels",
+        "position": "left, top to bottom, approx 0-45% width, 5-90% height",
+        "content": "Four vertically stacked panels, each with a red border and a threshold label. Each contains a 2x2 confusion matrix with 'Predicted as' header (columns P, N) and 'Actual' row labels (rows P, N), plus numeric cell values."
+      },
+      {
+        "name": "TPR/FPR Calculations",
+        "position": "center-left, adjacent to each matrix panel, approx 30-55% width",
+        "content": "For each threshold, two lines of calculation text showing TPR and FPR computed from the matrix values."
+      },
+      {
+        "name": "ROC Curve Title Box",
+        "position": "center-bottom, approx 35-65% width, 80-90% height",
+        "content": "Red-bordered box containing the text 'ROC Curve for Same Model -different thresholds'."
+      },
+      {
+        "name": "ROC Curve Graph",
+        "position": "right-top, approx 68-98% width, 8-65% height",
+        "content": "A square plot with grid lines. Y-axis labeled 'TPR' with upward arrow. X-axis labeled 'FPR' with rightward arrow. Four red circular data points connected by a red line, each labeled with its threshold value (0.3, 0.1, 0.0, 0.4)."
+      },
+      {
+        "name": "Formulas and Legend",
+        "position": "right-bottom, approx 68-98% width, 68-95% height",
+        "content": "Two fractional formulas for TPR and FPR, and a 2x2 legend confusion matrix with cells TP, FN, FP, TN. TP and TN cells are highlighted green."
+      },
+      {
+        "name": "Slide Number",
+        "position": "top-right corner, approx 88-97% width, 2-8% height",
+        "content": "Yellow circle containing the number '32'."
+      }
+    ],
+    "hierarchy": "The four confusion matrix panels dominate the left side by repetition and red borders. The ROC curve graph is the visual focal point on the right due to its red plot line and axis arrows. The yellow slide-number circle is small but high-contrast. Text is uniformly small and dense."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Confusion matrix for Threshold=0.0. Header row: 'Predicted as' spanning columns P and N. Row labels: Actual P, Actual N. Cells: (P,P)=5, (P,N)=0, (N,P)=6, (N,N)=0.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "top-left panel"
+    },
+    {
+      "type": "table",
+      "description": "Confusion matrix for Threshold=0.1. Header row: 'Predicted as' spanning columns P and N. Row labels: Actual P, Actual N. Cells: (P,P)=5, (P,N)=0, (N,P)=4, (N,N)=2.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "second-left panel"
+    },
+    {
+      "type": "table",
+      "description": "Confusion matrix for Threshold=0.3. Header row: 'Predicted as' spanning columns P and N. Row labels: Actual P, Actual N. Cells: (P,P)=5, (P,N)=0, (N,P)=2, (N,N)=4.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "third-left panel"
+    },
+    {
+      "type": "table",
+      "description": "Confusion matrix for Threshold=0.4. Header row: 'Predicted as' spanning columns P and N. Row labels: Actual P, Actual N. Cells: (P,P)=4, (P,N)=1, (N,P)=1, (N,N)=5.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "bottom-left panel"
+    },
+    {
+      "type": "graph",
+      "description": "ROC curve scatter/line plot. Y-axis 'TPR' ranges 0 to 1 with upward arrow. X-axis 'FPR' ranges 0 to 1 with rightward arrow. Background grid. Four red data points connected by red line: (0.33,1.0) labeled '0.3', (0.66,1.0) labeled '0.1', (1.0,1.0) labeled '0.0', (0.16,0.8) labeled '0.4'.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#EEEEEE"
+      ],
+      "position": "right-top"
+    },
+    {
+      "type": "table",
+      "description": "Legend confusion matrix. Header: 'Predicted as' with columns P, N. Row label: 'Actual' with rows P, N. Cells: TP (green highlight), FN, FP, TN (green highlight).",
+      "colors": [
+        "#90EE90",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "bottom-right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Red-bordered rectangular box containing centered text 'ROC Curve for Same Model -different thresholds'.",
+      "colors": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "position": "center-bottom"
+    },
+    {
+      "type": "other",
+      "description": "Yellow filled circle with black text '32'.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    },
+    {
+      "type": "other",
+      "description": "White mouse cursor arrow visible near center of slide, pointing up-right toward the ROC curve area.",
+      "colors": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "center, approx 50% width, 55% height"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#FF0000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#FFFF00",
+      "#90EE90"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Threshold labels and box titles are red and bold. Matrix headers ('Predicted as', 'Actual') are smaller black text. Numeric cell values are black. Formula text at bottom-right uses a larger size with fractional layout. Axis labels 'TPR' and 'FPR' are black. Slide number '32' is black inside a yellow circle. No italics or all-caps observed.",
+  "animation_state": "No build animation apparent. A mouse cursor is visible mid-slide, suggesting a screen recording rather than a static build state.",
+  "recreation_brief": "1. Set slide background to white. 2. Place a yellow oval at the top-right corner with the text '32' in black. 3. On the left side, create four rectangular boxes with red outlines stacked vertically with small gaps. Label them 'Threshold=0.0', 'Threshold=0.1', 'Threshold=0.3', 'Threshold=0.4' in red text at the top of each box. 4. Inside each box, draw a 2x2 table. Add 'Predicted as' above the columns with headers 'P' and 'N'. Add 'Actual' to the left of the rows with labels 'P' and 'N'. Fill cells: Threshold 0.0 -> 5,0 / 6,0; Threshold 0.1 -> 5,0 / 4,2; Threshold 0.3 -> 5,0 / 2,4; Threshold 0.4 -> 4,1 / 1,5. 5. To the right of each matrix, add two lines of black text: for 0.0 'TPR=5/(5+0)=1' and 'FPR=6/(6+0)=1'; for 0.1 'TPR=5/(5+0)=1' and 'FPR=4/(4+2)=.66'; for 0.3 'TPR=5/(5+0)=1' and 'FPR=2/(2+4)=.33'; for 0.4 'TPR=4/(4+1)=4/5' and 'FPR=1/(1+5)=.16'. 6. In the center-bottom area, add a red-outlined rectangle with centered black text 'ROC Curve for Same Model -different thresholds'. 7. On the right-top, draw a square plot area with light gray grid lines. Add a vertical y-axis labeled 'TPR' with an upward arrow and a horizontal x-axis labeled 'FPR' with a rightward arrow. Plot four red circles at coordinates (0.33,1.0), (0.66,1.0), (1.0,1.0), and (0.16,0.8). Connect them with a red line in order from lower-left to upper-right. Label each point with its threshold value: '0.3', '0.1', '0.0', '0.4'. 8. On the right-bottom, add the formula 'TPR = TP/(TP+FN)' with TP over TP+FN as a fraction, and 'FPR = FP/(FP+TN)' with FP over FP+TN as a fraction. Below the formulas, draw a 2x2 legend table with 'Predicted as' header (P, N), 'Actual' row labels (P, N), and cells TP, FN, FP, TN. Fill the TP and TN cells with light green.",
+  "_meta": {
+    "frame": "slide_032.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 32,
+      "image": "slide_032.jpg"
+    },
+    "elapsed_s": 581.7
+  }
+}

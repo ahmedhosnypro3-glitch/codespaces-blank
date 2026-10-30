@@ -1,0 +1,50 @@
+{
+  "slide_number": 26,
+  "source_image": "slide_026.jpg",
+  "analysis_type": "vision",
+  "model": "images",
+  "round": 1,
+  "attempt": 1,
+  "winner": "images",
+  "layout_map": "1. Header strip: solid purple band across the top containing the slide title (\"Quadratic Kernel Mapping and Kernel Trick\") left-of-center and a yellow circular slide-number chip (\"26\") at the top-right corner.\n2. Top formula band: light cream panel with vector definitions (a = [a₁; a₂], b = [b₁; b₂]) and the boxed expansion of (aᵀb)².\n3. Middle formula band: feature-map derivation φ(a)ᵀφ(b) with the column vector φ(x), a right-side target column vector, and the red \"2D → 3D\" annotation beneath.\n4. Bottom formula band: numeric instantiation with a = [1; 2], b = [3; 4], the expanded dot product, intermediate vectors, the sum \"9 + 64 + 48 = 121\", and the final equality \"[aᵀb]² = (1·3 + 2·4)² = 11² = 121\" with a right-pointing red arrow and return glyph.\n5. Right annotation edge: red callout arrows and equality markers running along the right side of the formula bands.\n6. Outer frame: thin gray border enclosing the full slide with rounded corners on a cream background fill.",
+  "first_glance_test": "Within 3 seconds a viewer understands this is a math lecture slide about kernel mapping; the saturated purple title header wins the eye immediately. Apparent actions are passive consumption only: read the derivation, follow the 2D → 3D feature mapping, and verify the numeric example — all three stages are visible at first glance with nothing hidden behind hover or collapse. Given the VIEW purpose (lecture frame), the focal point should be the central derivation; it commands attention by central placement and scale, though the bold header competes nearly equally.",
+  "strengths": [
+    "Saturated purple header establishes document identity and slide number instantly (top header strip).",
+    "Three-band vertical stack cleanly separates theory, feature-space mapping, and numeric verification, guiding the eye downward (full composition).",
+    "Color-coded mathematical symbols (red/blue/green) make variable tracking easy across the derivation (all formula bands)."
+  ],
+  "defects": [
+    {
+      "category": "b",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "bottom formula band — final equality line — the \"↵\" return-glyph chip beside \"121\" reads as keyboard/UI residue rather than mathematical notation — replace with a standard math marker or remove."
+    }
+  ],
+  "top_3": [
+    "[minor|med] bottom formula band — final equality line — return-glyph residue reads as keyboard artifact in a math derivation — see §4 (b).",
+    "— no second defect found.",
+    "— no third defect found."
+  ],
+  "structural_proposal": "1. Move the red \"2D → 3D\" label into the middle formula band as a run-in section header so the dimensionality claim is anchored to the φ(x) definition rather than floating between bands (source: middle band, below vector equation → destination: middle band, above vector equation).\n2. [out-of-scope] dock this slide into the dark app shell as a help/reference pane; no app navigation or shell is visible on screen to integrate against.",
+  "verdict_scores": {
+    "theme_dark_mode": 7,
+    "typography": 8,
+    "spacing": 9,
+    "alignment": 9,
+    "crowding_density": 8,
+    "hierarchy": 8,
+    "composition": 8,
+    "completeness": 10,
+    "continuity_consistency": 9,
+    "affordance_states": 10,
+    "first_glance_clarity": 8,
+    "overall": 8
+  },
+  "uncertainties": [
+    "The injected context describes a dark-themed parent app, but the capture is a light-themed lecture slide; I judged the slide on its own merits and cannot determine if it lives inside an app shell.",
+    "Subscript glyphs (a₁, b₂, x₁, etc.) sit near the legibility floor at 1× capture but appear readable; I did not guess at any content.",
+    "Whether the red return glyph (↵) is intentional notation or an artifact cannot be verified from a static image; flagged as a low-confidence suspicion."
+  ],
+  "vocabulary_proposals": []
+}

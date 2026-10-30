@@ -31,7 +31,7 @@ import sys
 import zipfile
 from pathlib import Path
 
-NS = Path("/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent")
+NS = Path("/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent")
 PPTX_DIR = NS / "recreated_pptx"
 DECK = PPTX_DIR / "03_ridger_regression_gradient_descent_final.pptx"
 LEDGER = PPTX_DIR / "final_deck_state.json"

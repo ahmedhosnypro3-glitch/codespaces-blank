@@ -1,0 +1,12 @@
+# Sources — Slide 017 — F-Score for different Precision and Recall values
+
+Method: mandated web-source verification. Tool: `mcp__agy-cli-mcp__agy_web_search`, 1 new query (F-beta direction, deck-level); curve family re-derived locally in Python against the confirmed formula. Spec consumed: `analysis/slide_017_final.json`. Original frame: `unique_slides/slide_017.jpg`.
+
+- Chart plots F1 against recall for ten fixed precision values (legend "precision = 0.1" ... "precision = 1") on both axes 0.0-1.0: CONFIRMED — Wikipedia, "F-score" (https://en.wikipedia.org/wiki/F-score) — F1 is a function of P and R alone, so a fixed-precision sweep is a valid and conventional way to plot it.
+- Every curve must be monotonically increasing in recall and cap out at 2p/(1+p) (so the p=1 curve tops out at exactly 1.0): CONFIRMED — local numeric re-derivation of F1 = 2PR/(P+R) — Verified for precision 0.1 through 1.0 over recall 0.0-1.0: strictly increasing at every sampled point, F1(1.0) = 2p/(1+p), giving 1.000 for p=1.0 and 0.182 for p=0.1.
+- The harmonic-mean curve never exceeds the arithmetic mean (each curve sits below the straight (p+R)/2 line): CONFIRMED — local numeric re-derivation; also APXML, "F1-score metric" (https://apxml.com/courses/basics-model-evaluation-metrics/chapter-2-metrics-for-classification/f1-score-metric) — Verified at all 60 sample points; the widest gap is p=0.1, R=1.0 where harmonic = 0.182 vs arithmetic = 0.55.
+- Spec's annotation "vertical dashed red line at recall ~0.97-1.0 terminating near F1 ~0.97-1.0" is consistent with the plotted family: CONFIRMED — local numeric re-derivation — That marker sits on the p=1.0 curve, where F1(0.98) = 0.9892 and F1(1.0) = 1.0000, matching the reported endpoints.
+- F-beta direction (the parent's deck-wide check): CONFIRMED — scikit-learn, "sklearn.metrics.fbeta_score" (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.fbeta_score.html) — beta > 1 weights recall more (F2 makes recall twice as important), beta < 1 weights precision more (F0.5). NOTE: this slide itself plots only the beta=1 family; no F-beta curve appears on the frame, so nothing on this slide needs changing.
+- Chart-only slide carries no bullet text: CONFIRMED by the spec's own note — all verbatim text lives in labels (axis titles, ticks, ten legend entries, one "+" marker). The lone "+" entry is a chart-generator marker artifact, not data; no source claim applies.
+
+Query budget: 1 of 3-6.

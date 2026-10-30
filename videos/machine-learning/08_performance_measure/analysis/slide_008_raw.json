@@ -1,0 +1,201 @@
+{
+  "slide_title": "Precision",
+  "subtitle_or_header": "Correctly Classified (as Positive)\nTotal Classified as Positive (either Correct and Erroneous)",
+  "verbatim_text": {
+    "bullets": [
+      "Correctly Classified (as Positive)",
+      "Total Classified as Positive (either Correct and Erroneous)",
+      "% of what you Predicted as POSITIVE is Actually Positive",
+      "Positive Classified as +ive",
+      "Negative Classified as +ive",
+      "All Samples classified as Positive",
+      "Higher Precision value DOES NOT mean you correctly retrieved more Positive samples.",
+      "It means I HIGHLY trust you if you said this sample is Positive"
+    ],
+    "labels": [
+      "Meaning",
+      "Positive",
+      "Negative",
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "8",
+      "30",
+      "10",
+      "20",
+      "70",
+      "68",
+      "2"
+    ],
+    "equations": [
+      "Precision = TP/(TP + FP)",
+      "Precision= 10/(10+2) = 83.3%"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-center. Below the title is a red-outlined fraction/definition box. The left side stacks the Meaning callout, the Precision formula with explanatory callouts, and a blue note box. The right side stacks two confusion-matrix tables at the top and a Positive/Negative branch diagram below. A small yellow circular badge with '8' sits at the top-right corner.",
+    "regions": [
+      {
+        "name": "Title",
+        "position": "top-center, roughly x 35-65%, y 4-15%",
+        "content": "Large red title 'Precision'"
+      },
+      {
+        "name": "Definition box",
+        "position": "top-left/center, roughly x 4-67%, y 17-28%",
+        "content": "Two-line numerator/denominator style box: 'Correctly Classified (as Positive)' over 'Total Classified as Positive (either Correct and Erroneous)'"
+      },
+      {
+        "name": "Meaning callout",
+        "position": "left upper-middle, roughly x 4-46%, y 31-42%",
+        "content": "Yellow box with red header 'Meaning' and the sentence '% of what you Predicted as POSITIVE is Actually Positive'"
+      },
+      {
+        "name": "Precision formula area",
+        "position": "left middle, roughly x 4-40%, y 45-72%",
+        "content": "'Precision =' label, stacked fraction TP/(TP+FP), callouts 'Positive Classified as +ive' and 'Negative Classified as +ive', green bracket labeled 'All Samples classified as Positive', and example calculation 'Precision= 10/(10+2) = 83.3%'"
+      },
+      {
+        "name": "Blue note",
+        "position": "bottom-left, roughly x 4-56%, y 77-92%",
+        "content": "Blue-filled box with two explanatory sentences about precision not meaning more retrieved positives"
+      },
+      {
+        "name": "Confusion matrix template",
+        "position": "top-right, roughly x 63-89%, y 5-24%",
+        "content": "2x2 matrix with 'Predicted as' header, 'Actual' row header, and cells TP, FN, FP, TN"
+      },
+      {
+        "name": "Example confusion matrix",
+        "position": "right upper-middle, roughly x 63-89%, y 27-45%",
+        "content": "2x2 matrix with values 10, 20, 2, 68"
+      },
+      {
+        "name": "Positive/Negative diagram",
+        "position": "right lower, roughly x 55-95%, y 50-90%",
+        "content": "Two branch diagrams headed 'Positive' and 'Negative' with airplane icons, numbered circles, arrows, and TP/FN/TN/FP labels"
+      },
+      {
+        "name": "Slide badge",
+        "position": "top-right corner, roughly x 90-94%, y 2-6%",
+        "content": "Yellow circle containing black number '8'"
+      }
+    ],
+    "hierarchy": "The large red title dominates. On the right, the green/red confusion matrices and branch diagram form the secondary visual focus. On the left, the formula and blue explanatory note support the definition."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Red-outlined definition/fraction box under the title. It contains two text lines separated by a horizontal rule: 'Correctly Classified (as Positive)' above and 'Total Classified as Positive (either Correct and Erroneous)' below.",
+      "colors": [
+        "#EE0000",
+        "#F2F2F2",
+        "#000000"
+      ],
+      "position": "top-center/left below title"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Yellow-filled Meaning callout with red bold header 'Meaning' and black sentence '% of what you Predicted as POSITIVE is Actually Positive'.",
+      "colors": [
+        "#FFFF00",
+        "#EE0000",
+        "#000000"
+      ],
+      "position": "left upper-middle"
+    },
+    {
+      "type": "other",
+      "description": "Precision formula block: red bold label 'Precision =' beside a stacked fraction with numerator 'TP' and denominator 'TP + FP'. Small callouts read 'Positive Classified as +ive' under TP and 'Negative Classified as +ive' under FP. A green bracket under both callouts is labeled in red italic 'All Samples classified as Positive'. To the right, the worked example reads 'Precision= 10/(10+2) = 83.3%'.",
+      "colors": [
+        "#EE0000",
+        "#00B050",
+        "#000000"
+      ],
+      "position": "left middle"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Light blue note box with two lines: 'Higher Precision value DOES NOT mean you correctly retrieved more Positive samples.' and 'It means I HIGHLY trust you if you said this sample is Positive'. Emphasis is shown with bold/caps on DOES NOT, more, and HIGHLY.",
+      "colors": [
+        "#DDEBF7",
+        "#000000"
+      ],
+      "position": "bottom-left"
+    },
+    {
+      "type": "table",
+      "description": "Confusion-matrix template. Column header 'Predicted as' spans P and N; row header 'Actual' is vertical on the left. Cells: Actual/Predicted P = TP, Actual/Predicted N = FN, Actual N/Predicted P = FP, Actual N/Predicted N = TN. TP and TN are green-filled; FN and FP are light/white with red text.",
+      "colors": [
+        "#00B050",
+        "#FF0000",
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "top-right"
+    },
+    {
+      "type": "table",
+      "description": "Example confusion matrix with the same 'Predicted as' P/N columns and vertical 'Actual' row header. Cells: Actual P row = 10 and 20; Actual N row = 2 and 68. The 10 is highlighted in a blue circle, 68 is green-filled, and 20 and 2 are plain.",
+      "colors": [
+        "#0070C0",
+        "#00B050",
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "right upper-middle"
+    },
+    {
+      "type": "diagram",
+      "description": "Two side-by-side branch diagrams. Left header 'Positive' in red; right header 'Negative' in green. Each has a small airplane icon. Positive branch: red circle 30 branches down to red circle 10 labeled TP and green circle 20 labeled FN. Negative branch: green circle 70 branches down to green circle 68 labeled TN and red circle 2 labeled FP. Red arrows show the branching/flow.",
+      "colors": [
+        "#FF0000",
+        "#00B050",
+        "#000000",
+        "#808080"
+      ],
+      "position": "right lower"
+    },
+    {
+      "type": "other",
+      "description": "Small yellow circular badge at the top-right corner containing the black number 8.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top-right corner"
+    }
+  ],
+  "imagery": [
+    "Two small gray airplane icons, one beneath the red 'Positive' header and one beneath the green 'Negative' header, simple flat illustration style, in the right-lower diagram."
+  ],
+  "colors": {
+    "background": "#F2F2F2",
+    "title_text": "#EE0000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#00B050",
+      "#0070C0",
+      "#FFFF00",
+      "#DDEBF7"
+    ]
+  },
+  "typography_notes": "Sans-serif, Arial-like. Title is very large, bold, red. Section headers such as 'Meaning', 'Positive', and 'Negative' are bold; 'Positive' is red and 'Negative' is green. Body text is black. The precision formula uses a stacked fraction. Short matrix labels are all caps. 'All Samples classified as Positive' is red italic. The blue note uses black text with bold/caps emphasis.",
+  "animation_state": "No animation or partial build is indicated; all elements appear fully revealed.",
+  "recreation_brief": "1. Set the slide background to light gray #F2F2F2. 2. Add the title 'Precision' top-center in large bold red #EE0000. 3. Under the title, place a red-outlined box from about 4% to 67% width. Put 'Correctly Classified (as Positive)' on the first line and 'Total Classified as Positive (either Correct and Erroneous)' on the second line, with a horizontal rule between them. 4. Add a yellow #FFFF00 Meaning box on the left with red bold 'Meaning' and the sentence '% of what you Predicted as POSITIVE is Actually Positive'; bold/color the words Predicted, POSITIVE, and Actually Positive as shown. 5. Add the formula area: red bold 'Precision =' with a stacked fraction TP over TP + FP. Under TP add 'Positive Classified as +ive'; under FP add 'Negative Classified as +ive'. Add a green bracket beneath both callouts labeled in red italic 'All Samples classified as Positive'. 6. To the right of the formula, add the black text 'Precision= 10/(10+2) = 83.3%'. 7. Add a light blue #DDEBF7 note box at bottom-left with the two exact sentences about higher precision not meaning more retrieved positive samples. 8. Build the top-right confusion matrix: header 'Predicted as' over P and N, vertical row header 'Actual', cells TP, FN, FP, TN; fill TP and TN green #00B050 and keep FN/FP light with red text. 9. Build the second matrix below it with the same headers and cells 10, 20, 2, 68; highlight 10 in blue #0070C0 and fill 68 green #00B050. 10. Add the right-lower diagram with red header 'Positive' and green header 'Negative', a small airplane icon under each, circles 30/10/20 and 70/68/2, red arrows, and labels TP, FN, TN, FP. 11. Add a small yellow circle with black '8' at the top-right corner.",
+  "_meta": {
+    "frame": "slide_008.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 8,
+      "image": "slide_008.jpg"
+    },
+    "elapsed_s": 731.5
+  }
+}

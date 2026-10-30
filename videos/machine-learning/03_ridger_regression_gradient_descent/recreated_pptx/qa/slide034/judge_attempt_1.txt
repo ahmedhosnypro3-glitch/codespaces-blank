@@ -1,0 +1,40 @@
+## Elementâbyâelement comparison
+
+**House chrome (badge â34â, red strokes, panel):** per the founderâmandated ground rules, treated as intentional and *not* scored.
+
+| Element | Original (IMG2) | Recreation (IMG1) | Match? |
+|---|---|---|---|
+| Title âNonâConvex Functionâ | ~y 58â83, bold serif red, centered over left block | same wording/style, ~y 55â80 | â (3 px up) |
+| Subâhead âMay reach different minimum value based on:â | y ~88â103, red bold | y ~85â99 | â |
+| 3rd line âinitial point / and / learning rateâ | blue / red / red, y ~110â124 | blue / **blue?** / red, y ~107â121 | â  color of âandâ (low conf.) |
+| Redâbordered formula box | x 433â560, y 156â200, f(x) = xÂ²cos(x)âx over 10 | x 435â560, y 145â187, stacked fraction | â (rule (e) exempts format; box ~11 px high) |
+| Green callâout box (X / f(x) statements) | x 252â550, y 233â278; 2 lines, ~23 px apart | x 252â554, y 218â261; 2 lines, ~20 px apart | â  spacing/position |
+| Small âstep / initial X / deltaâ table + red arrow | x 72â157, y 225â277; arrow 152â178/278â300 | x 70â160, y 213â264; arrow 150â175/265â287 | â contents; ~12 px up |
+| Chart (red frame) | x 566â784, y 55â289 (234 px tall) | x 566â784, y 52â272 (220 px tall) | â  height â6 % |
+| Main data table (blue frame) | x 63â820, y 295â478 (183 px) | x 68â820, y 279â455 (176 px) | â data, â  height/position |
+| Dashed teal rounded rect around 9.6/9.8 columns, green highlight cells, magenta âReach global Minimaâ box, orange arrow, green ellipse | all present | all present | â presence |
+
+**Table data audit (both tables):** row labels (âxâ, âf(x)â, âxâdeltaâ, âf(xâdelta)â, âvâdeltaâ, âf(vâdelta)â, âslopeâ, ânext xâ), all 17â18 column values, the green highlighted 9.6/9.8 columns (â10.03, â9.92), the green â3.2â slope cells, and the final red ânext xâ row all **match verbatim**. No missing rows/columns/values found.
+
+## Discrepancies
+
+1. **Chart curve color â MAJOR, HIGH.** Recreation plots a pureâblue curve (#0000FF); original curve is cyan/teal (â#12A6C8â#2FB6D8). This is a renderableâcontent color deviation, not chrome.
+2. **Chart axis system replaced â MAJOR, HIGH.** Original uses originâcrossing axes with arrowheads (vertical âyâ label above the axis, âxâ label at the right arrow, x ticks â10/â6/â2/2/6/10, integer y ticks â12â¦12). Recreation uses matplotlibâstyle left/bottom spines with a light grid, decimal y ticks (7.5, 5.0, 2.5, 0.0 â¦ â10.0), x ticks â10/â5/5/10, a rotated âyâ on the left and âxâ centered below. Chart type (XY line) is right, but the axis construction, tick scheme and label placement are different.
+3. **Chart curve extent / clipping â MAJOR, MEDIUMâHIGH.** The original shows the full oscillatory branch, with tall peaks to â +11 near x â Â±11 and the curve rising steeply after the global minimum (x â 9.8). The recreationâs plot window (yâlimit â +7.5, x â Â±10) cuts both peaks and truncates the rightâhand rising branch, so the plotted function does not match the original over the displayed domain.
+4. **âReach global Minimaâ callout relocated â MAJOR, HIGH.** Original: magenta italic box at x 688â778, y 262â290, i.e. at the bottom of the chart frame, below the xâaxis. Recreation: same box at x 688â778, y 235â268, sitting up inside the plot area beside the curve. Region/alignment relative to the axis and curve is wrong.
+5. **Chart yâaxis label outside the chart frame â MAJOR (containment), MEDIUMâHIGH.** The rotated âyâ glyph in the recreation sits at â x 545, y 140â155, i.e. **outside the chartâs red frame (left edge x = 566)**, in the white gutter between the formula box and the chart. Per rule (5), ink belonging to a frame that lies outside that frame is an overflow. The originalâs âyâ is inside the frame at the top of the axis.
+6. **Sampled red point markers differ â MINOR, MEDIUM.** Recreation adds red dots at â x 0 and x 10 (right edge) in addition to the cluster; original shows a tight cluster of markers around x â 5â7 only. The orange arrow target corresponds in both.
+7. **Cumulative vertical drift of mid/lower content â MINOR, HIGH (measured).** Everything below the title marches upward: formula box â11 px, small table â12 px, main table â16 px, chart bottom â17 px; the chart is 220 px vs 234 px tall (â6 %) and the table 176 px vs 183 px (â4 %). Regions are preserved, so not a blocker, but block heights/gaps do not match.
+8. **Green callâout box internal spacing â MINOR, MEDIUM.** Recreation line spacing â 20 px vs â 23 px original; box 302Ã43 vs 298Ã45.
+9. **Color of the word âandâ in line 3 â MINOR, LOW.** It reads blue in the recreation vs red in the original (blue âinitial pointâ / red âlearning rateâ is correct in both).
+10. **Equation typeface â MINOR, LOW.** Original equation is an italic serif rendering; recreation is upright/cleaner serifâsans. (The stackedâfraction/2âD format itself is exempt per rule (e) and is not counted.)
+
+## Visualâquality defects in the recreation
+- Chart âyâ label overflows outside the chartâs red border (item 5) â the only true containment/clipping problem.
+- No text overflow, collision or illegibility in the two tables, the callâouts, the small step table or the formula box; all table values remain legible and fully inside the blue frame.
+- Chart curve clipped by the plot window (item 3), so the originalâs full function shape is not reproduced.
+- No missing elements: every element present in IMG2 (title block, both callâouts, formula, small table, arrow, chart with axes/curve/markers/arrow/ellipse/magenta label, main table with all rows, teal dashed highlight, green/yellow/pink/red cell fills) exists in IMG1, and all table data is verbatim.
+
+## FINAL VERDICT: FAIL
+
+The slide is usable and all textual/tabular content is faithful, but the recreated chart diverges materially from the original (curve color, axis construction and tick scheme, clipped function extent, relocated âReach global Minimaâ callout) and the chartâs yâaxis label escapes the chart frame â all MAJOR defects under the fidelity directives.

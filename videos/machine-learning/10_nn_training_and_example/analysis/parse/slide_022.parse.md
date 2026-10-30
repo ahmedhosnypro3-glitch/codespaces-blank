@@ -1,0 +1,1 @@
+<x_0.04><y_0.0789>**Back Propagation Training Algorithm 22**<x_0.958><y_0.9914><class_Picture>

@@ -1,0 +1,10 @@
+# Sources — Slide 6 — Accuracy
+
+Spec: analysis/slide_006_final.json.
+
+- Accuracy = (TP + TN) / (TP + FP + TN + FN): CONFIRMED — Han & Kamber ch. 6, https://www3.cs.stonybrook.edu/~cse521/ch6book.pdf — the textbook definition, with TP+TN the correct predictions and the full sum the total number of test tuples; identical wording appears in the slide's formula box.
+- "Correctly Classified (Positive & Negative)" over "Total Number of Samples" (the meaning strip): CONFIRMED — Wikipedia, Confusion matrix, https://en.wikipedia.org/wiki/Confusion_matrix — accuracy = total correct predictions / total predictions, i.e. TP+TN over all four cells, exactly the numerator/denominator gloss the slide places either side of the fraction.
+- Accuracy= (18+60)/(18+12+60+10) = 78/100 = 78%: CONFIRMED — Han & Kamber ch. 6, https://www3.cs.stonybrook.edu/~cse521/ch6book.pdf — substituting the slide-5 row sums (TP=18, FN=12, TN=60, FP=10) gives 78/100 = 0.78; the arithmetic checks out (18+60 = 78; 18+12+60+10 = 100).
+- Accuracy as a fraction of ALL classes/samples: CONFIRMED — sklearn accuracy_score docs, https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html — with normalize=True sklearn's accuracy_score returns exactly the fraction of correctly classified samples across all classes, matching the slide's "Accuracy of ALL Classes" note.
+- "Conclusion: Accuracy is Good but Not Sufficient": CONFIRMED — accuracy limitations / accuracy paradox (apxml), https://apxml.com/courses/basics-model-evaluation-metrics/chapter-2-metrics-for-classification/accuracy-limitations — accuracy alone hides class-imbalance traps and unequal error costs, which is why precision/recall/F-measure follow; the slide's closing claim is the standard textbook caveat.
+- The follow-up questions "What About Precision of Positive Class ONLY Results?" / "Recall % of Positive Samples?": CONFIRMED — Han & Kamber ch. 6, https://www3.cs.stonybrook.edu/~cse521/ch6book.pdf — Precision = TP/(TP+FP) and Recall = TP/(TP+FN) are the standard per-class companions to accuracy, the metrics the slide previews (developed in later slides of this lecture).

@@ -1,0 +1,184 @@
+{
+  "slide_title": "SVM/kernels/QP lecture frame",
+  "subtitle_or_header": "Three Variables Example (confirmed on-slide header of the bottom section). Note: 'Matrix Expansion' and 'Coefficient Definitions' appear to be analyst-generated section labels, not confirmed on-slide text [?].",
+  "verbatim_text": {
+    "bullets": [
+      "Quadratic form \u2014 label at the end of the top expansion chain, pointed to by a green arrow",
+      "Three Variables Example \u2014 header of the bottom section",
+      "coef of X\u2081\u00b2 \u2014 diagonal cell (1,1) of the right-hand coefficient matrix",
+      "coef of X\u2082\u00b2 \u2014 diagonal cell (2,2) of the right-hand coefficient matrix",
+      "coef of X\u2083\u00b2 \u2014 diagonal cell (3,3) of the right-hand coefficient matrix",
+      "0.5 coef of X\u2081X\u2082 \u2014 off-diagonal label (confirmed)",
+      "0.5 coef of X\u2081X\u2083 \u2014 off-diagonal label (confirmed)",
+      "0.5 coef of X\u2082X\u2083 \u2014 off-diagonal label [?] inferred from the source's 'etc.' and the stated symmetry",
+      "Diagonal elements a\u2081\u2081, a\u2082\u2082, a\u2083\u2083 are the coefficients of the squared terms X\u2081\u00b2, X\u2082\u00b2, X\u2083\u00b2 [paraphrase of a middle-box line]",
+      "Off-diagonal sums (e.g., a\u2082\u2081 + a\u2081\u2082) are the coefficients of the cross terms (X\u2081X\u2082) [paraphrase]",
+      "If a\u2081\u2082 = a\u2082\u2081, each is \u00bd the coefficient of the cross term [paraphrase]",
+      "The same rule is repeated for pairs (1,3) and (2,3) [paraphrase]"
+    ],
+    "equations": [
+      "[a\u2081\u2081 a\u2081\u2082 a\u2081\u2083; a\u2082\u2081 a\u2082\u2082 a\u2082\u2083; a\u2083\u2081 a\u2083\u2082 a\u2083\u2083] \u00d7 (X\u2081, X\u2082, X\u2083)\u1d40",
+      "product expanded into its three scalar components (step confirmed in source; exact transcription not captured [?])",
+      "(row\u2081 \u00b7 X)X\u2081 + (row\u2082 \u00b7 X)X\u2082 + (row\u2083 \u00b7 X)X\u2083",
+      "a\u2081\u2081X\u2081\u00b2 + a\u2082\u2082X\u2082\u00b2 + a\u2083\u2083X\u2083\u00b2 + (a\u2082\u2081 + a\u2081\u2082)X\u2081X\u2082 + \u2026 (ellipsis = remaining (1,3) and (2,3) cross terms per the middle-box rule)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Single static slide with three horizontal bands stacked top-to-bottom beneath the title: (1) top band \u2014 a left-to-right chain of four mathematical expressions (matrix\u2013vector product \u2192 scalar components \u2192 dot-product form \u2192 expanded polynomial) ending in a green arrow and the label 'Quadratic form'; (2) middle band \u2014 one bordered box containing the coefficient-definition points; (3) bottom band \u2014 the header 'Three Variables Example' above two side-by-side 3\u00d73 matrices (left: generic a-matrix with red-boxed cells; right: coefficient matrix with text labels) joined by a rightward arrow.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top of slide (position not stated in source \u2014 standard top placement assumed [?])",
+        "contents": [
+          "SVM/kernels/QP lecture frame"
+        ]
+      },
+      {
+        "name": "top_expansion_chain",
+        "position": "upper band, full width, expressions read left to right",
+        "contents": [
+          "3\u00d73 bracketed matrix (entries a\u2081\u2081\u2013a\u2083\u2083) \u00d7 column vector (X\u2081, X\u2082, X\u2083)\u1d40",
+          "product expanded into three scalar components [content reconstructed \u2014 see uncertain_items]",
+          "(row\u2081 \u00b7 X)X\u2081 + (row\u2082 \u00b7 X)X\u2082 + (row\u2083 \u00b7 X)X\u2083",
+          "a\u2081\u2081X\u2081\u00b2 + a\u2082\u2082X\u2082\u00b2 + a\u2083\u2083X\u2083\u00b2 + (a\u2082\u2081 + a\u2081\u2082)X\u2081X\u2082 + \u2026",
+          "green arrow",
+          "label 'Quadratic form'"
+        ]
+      },
+      {
+        "name": "coefficient_definitions_box",
+        "position": "middle band, one rectangle spanning most of the slide width",
+        "contents": [
+          "point 1: diagonal elements a\u2081\u2081, a\u2082\u2082, a\u2083\u2083 = coefficients of X\u2081\u00b2, X\u2082\u00b2, X\u2083\u00b2",
+          "point 2: off-diagonal sums (e.g., a\u2082\u2081 + a\u2081\u2082) = coefficients of cross terms (X\u2081X\u2082)",
+          "point 3: if a\u2081\u2082 = a\u2082\u2081, each is \u00bd the coefficient of the cross term",
+          "point 4: same rule for pairs (1,3) and (2,3)"
+        ]
+      },
+      {
+        "name": "three_variables_example",
+        "position": "lower band",
+        "contents": [
+          "header 'Three Variables Example'",
+          "left 3\u00d73 matrix, entries a\u2081\u2081\u2013a\u2083\u2083, red outline boxes on cells a\u2081\u2081, a\u2081\u2082, a\u2082\u2083 (\u22653 cells confirmed; exact total count [?])",
+          "rightward arrow from left matrix to right matrix",
+          "right 3\u00d73 coefficient matrix: diagonal cells 'coef of X\u2081\u00b2' / 'coef of X\u2082\u00b2' / 'coef of X\u2083\u00b2'; off-diagonal cells '0.5 coef of X\u2081X\u2082' and '0.5 coef of X\u2081X\u2083' (confirmed) plus '0.5 coef of X\u2082X\u2083' [?]"
+        ]
+      }
+    ]
+  },
+  "visual_elements": [
+    {
+      "type": "math_matrix",
+      "count": 1,
+      "description": "bracketed 3\u00d73 matrix with subscripted entries a\u2081\u2081\u2013a\u2083\u2083 multiplied by bracketed column vector (X\u2081, X\u2082, X\u2083)\u1d40",
+      "location": "top band, first expression"
+    },
+    {
+      "type": "math_matrix",
+      "count": 1,
+      "description": "bracketed 3\u00d73 generic matrix, entries a\u2081\u2081\u2013a\u2083\u2083, with red outline rectangles on selected cells",
+      "location": "bottom band, left"
+    },
+    {
+      "type": "math_matrix",
+      "count": 1,
+      "description": "bracketed 3\u00d73 coefficient matrix whose cells contain text labels instead of symbols",
+      "location": "bottom band, right"
+    },
+    {
+      "type": "arrow",
+      "count": 1,
+      "color": "green (confirmed)",
+      "description": "arrow from the final expanded polynomial pointing to the label 'Quadratic form'",
+      "location": "top band, right end"
+    },
+    {
+      "type": "highlight_boxes",
+      "count": "\u22653 [?]",
+      "color": "red (confirmed)",
+      "description": "red outline rectangles (no fill) around matrix cells; a\u2081\u2081, a\u2081\u2082, a\u2082\u2083 confirmed, exact set unspecified",
+      "location": "bottom-left matrix"
+    },
+    {
+      "type": "arrow",
+      "count": 1,
+      "color": "unspecified [?]",
+      "description": "connector arrow from bottom-left matrix to bottom-right coefficient matrix",
+      "location": "bottom band"
+    },
+    {
+      "type": "rectangle_box",
+      "count": 1,
+      "color": "border unspecified [?]",
+      "description": "rectangle grouping the coefficient-definition points",
+      "location": "middle band"
+    }
+  ],
+  "imagery": "None. The slide contains no photographs, icons, illustrations, or charts \u2014 only mathematical notation, text labels, arrows, highlight boxes, and one rectangle box.",
+  "colors": {
+    "confirmed": [
+      {
+        "color": "green",
+        "used_for": "arrow pointing to the label 'Quadratic form'"
+      },
+      {
+        "color": "red",
+        "used_for": "outline rectangles highlighting cells (a\u2081\u2081, a\u2081\u2082, a\u2082\u2083 confirmed) in the bottom-left matrix"
+      }
+    ],
+    "unspecified_assumed_defaults": [
+      {
+        "element": "slide background",
+        "assumed": "white"
+      },
+      {
+        "element": "all body/equation text",
+        "assumed": "dark (black)"
+      },
+      {
+        "element": "'Quadratic form' label text",
+        "assumed": "green to match the arrow [?]"
+      },
+      {
+        "element": "middle definitions box border",
+        "assumed": "thin gray"
+      },
+      {
+        "element": "bottom connector arrow",
+        "assumed": "dark gray/black"
+      }
+    ]
+  },
+  "typography_notes": "All mathematics is transcribed in LaTeX-style notation: italic serif variables with numeric subscripts (a\u2081\u2081, X\u2081) and superscripts (X\u2081\u00b2); build with an equation editor. 'SVM/kernels/QP lecture frame' and 'Three Variables Example' read as headers (bold assumed). No font families, sizes, or weights are specified in the source [?].",
+  "animation_state": "Not specified in the source. Treat as a single static slide with all elements visible simultaneously; no builds or transitions assumed.",
+  "recreation_brief": "1) SLIDE SETUP: create a blank 16:9 slide with a white background (background color not specified in source \u2014 default assumed).\n2) TITLE: place the text 'SVM/kernels/QP lecture frame' at the top of the slide (top-left assumed; alignment unspecified), bold, dark text, approx. 28 pt (size unspecified).\n3) TOP BAND \u2014 EXPRESSION 1 (upper-left): insert an equation object showing a bracketed 3\u00d73 matrix with rows [a\u2081\u2081 a\u2081\u2082 a\u2081\u2083 / a\u2082\u2081 a\u2082\u2082 a\u2082\u2083 / a\u2083\u2081 a\u2083\u2082 a\u2083\u2083] (subscripted entries) multiplied by a bracketed column vector (X\u2081, X\u2082, X\u2083)\u1d40; dark italic serif math font.\n4) TOP BAND \u2014 EXPRESSION 2 (right of expression 1): the product expanded into its three scalar components: (a\u2081\u2081X\u2081 + a\u2081\u2082X\u2082 + a\u2081\u2083X\u2083), (a\u2082\u2081X\u2081 + a\u2082\u2082X\u2082 + a\u2082\u2083X\u2083), (a\u2083\u2081X\u2081 + a\u2083\u2082X\u2082 + a\u2083\u2083X\u2083). NOTE: the source confirms a components step exists but does not transcribe it; this rendering is reconstructed \u2014 verify against the source image.\n5) TOP BAND \u2014 EXPRESSION 3 (right of expression 2): the dot-product form '(row\u2081 \u00b7 X)X\u2081 + (row\u2082 \u00b7 X)X\u2082 + (row\u2083 \u00b7 X)X\u2083'.\n6) TOP BAND \u2014 EXPRESSION 4 (right end of chain): the polynomial 'a\u2081\u2081X\u2081\u00b2 + a\u2082\u2082X\u2082\u00b2 + a\u2083\u2083X\u2083\u00b2 + (a\u2082\u2081 + a\u2081\u2082)X\u2081X\u2082 + \u2026'; the ellipsis stands for the remaining (1,3) and (2,3) cross terms per the middle box's rule.\n7) GREEN ARROW + LABEL: draw a GREEN arrow (color confirmed) from expression 4 pointing to the adjacent label 'Quadratic form'; render the label text in green to match (label color unspecified [?]).\n8) MIDDLE BAND \u2014 DEFINITIONS BOX: draw one rectangle spanning most of the slide width (thin gray border, no fill \u2014 border color unspecified [?]) containing four left-aligned lines: (i) 'Diagonal elements a\u2081\u2081, a\u2082\u2082, a\u2083\u2083 = coefficients of X\u2081\u00b2, X\u2082\u00b2, X\u2083\u00b2'; (ii) 'Off-diagonal sums, e.g. a\u2082\u2081 + a\u2081\u2082 = coefficient of the cross term X\u2081X\u2082'; (iii) 'If a\u2081\u2082 = a\u2082\u2081, each is \u00bd the coefficient of the cross term'; (iv) 'Same rule for pairs (1,3) and (2,3).' NOTE: wording paraphrased from the source summary \u2014 verify verbatim text and line count.\n9) BOTTOM BAND \u2014 HEADER: place the text 'Three Variables Example' above the two bottom matrices, bold, left-aligned (alignment assumed).\n10) BOTTOM-LEFT MATRIX: insert a bracketed 3\u00d73 matrix with subscripted entries a\u2081\u2081\u2013a\u2083\u2083; overlay RED outline rectangles (no fill, red stroke \u2014 color confirmed) on cells a\u2081\u2081, a\u2081\u2082 and a\u2082\u2083; the source's 'e.g.' implies there may be additional red-boxed cells [?] \u2014 verify the exact set.\n11) CONNECTOR ARROW: draw a dark arrow (color unspecified \u2014 black assumed [?]) from the right edge of the bottom-left matrix to the left edge of the bottom-right matrix.\n12) BOTTOM-RIGHT MATRIX: insert a bracketed 3\u00d73 matrix of the same visual size whose cells contain text labels instead of symbols \u2014 diagonal (top-left to bottom-right): 'coef of X\u2081\u00b2', 'coef of X\u2082\u00b2', 'coef of X\u2083\u00b2'; off-diagonals: '0.5 coef of X\u2081X\u2082' in cells (1,2) and (2,1), '0.5 coef of X\u2081X\u2083' in cells (1,3) and (3,1) (both confirmed), '0.5 coef of X\u2082X\u2083' in cells (2,3) and (3,2) [inferred from the source's 'etc.' and the stated symmetry \u2014 verify].\n13) FINAL QA: confirm there are no photos, icons, or charts anywhere on the slide; the only source-confirmed colors are the green arrow and the red cell highlights; all mathematics uses subscripts/superscripts via the equation editor.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Source JSON contained no schema fields \u2014 all required fields (slide_title, verbatim_text.bullets, layout.arrangement, layout.regions, visual_elements, colors, recreation_brief) were reconstructed from the prose in vision_analysis.content.",
+      "Replaced vague quantifiers: 'certain cells ... (e.g., a\u2081\u2081, a\u2081\u2082, a\u2082\u2083)' \u2192 '\u22653 red-boxed cells with a\u2081\u2081/a\u2081\u2082/a\u2082\u2083 confirmed, exact count flagged [?]'; off-diagonal 'etc.' \u2192 enumerated per-cell labels with the X\u2082X\u2083 label flagged as inferred.",
+      "Separated confirmed on-slide strings ('Quadratic form', 'Three Variables Example', 'coef of X\u2081\u00b2/X\u2082\u00b2/X\u2083\u00b2', '0.5 coef of X\u2081X\u2082/X\u2081X\u2083') from analyst paraphrase (middle-box lines; section labels 'Matrix Expansion' and 'Coefficient Definitions' treated as analyst labels, not on-slide text).",
+      "Demoted the interpretive claim 'likely the Hessian matrix Q in \u00bdx\u1d40Qx' to validation.uncertain_items instead of presenting it as slide content.",
+      "Reconstructed the untranscribed 'expanded components' step of the top chain as the standard scalar components of the matrix\u2013vector product and flagged it for verification.",
+      "Assigned explicit default colors/positions where the source was silent (white background, dark text, gray box border, dark connector arrow, top title placement) and flagged each as an assumption.",
+      "Rewrote recreation_brief as a 13-step ordered checklist with per-step exact text, position, color, and shape."
+    ],
+    "uncertain_items": [
+      "Exact number and full set of red-boxed cells in the bottom-left matrix \u2014 only a\u2081\u2081, a\u2081\u2082, a\u2082\u2083 are confirmed (source used 'e.g.').",
+      "Verbatim wording and line count of the middle coefficient-definitions box \u2014 source provides a summary only.",
+      "Off-diagonal label '0.5 coef of X\u2082X\u2083' \u2014 inferred from the source's 'etc.' and the stated (2,3) symmetry; not explicitly transcribed.",
+      "Exact rendering of the intermediate 'expanded components' expression in the top chain \u2014 step confirmed, content reconstructed.",
+      "Whether 'Matrix Expansion' and 'Coefficient Definitions' appear as on-slide headers or are analyst-generated section labels.",
+      "Title position/alignment and all font families/sizes \u2014 not specified; defaults assumed.",
+      "Colors other than the green arrow and red highlight boxes (background, body text, 'Quadratic form' label text, box border, connector arrow) \u2014 not specified; defaults assumed.",
+      "'Likely the Hessian matrix Q in \u00bdx\u1d40Qx' \u2014 vision-model interpretation, not confirmed on-slide text.",
+      "Animation state \u2014 no information in source; static single slide assumed."
+    ],
+    "recreatability_score_1_to_10": 7
+  },
+  "_meta": {
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 503.5
+  }
+}

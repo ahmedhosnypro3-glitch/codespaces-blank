@@ -1,0 +1,62 @@
+{
+  "slide_number": 33,
+  "source_image": "slide_033.jpg",
+  "analysis_type": "vision",
+  "model": "images",
+  "round": 1,
+  "attempt": 1,
+  "winner": "images",
+  "layout_map": "1. Slide canvas — full-frame light gray field occupying nearly the entire 960×540 viewport\n2. Frame border — thin dark hairline rectangle inset slightly from the canvas edges\n3. Slide number badge — top-right corner, yellow circle with black \"33\"\n4. Title — center of canvas, large red text \"How to Kernelize SVM\"\n5. Cursor glyph — lower-left quadrant, small black arrow/pointer icon\n6. Bottom strip — solid black horizontal bar along the bottom edge, roughly 8–10% of height",
+  "first_glance_test": "Within 3 seconds a new user sees a title slide about SVM kernelization; the only readable content is the centered title and the small \"33\" slide counter. Actions offered: none visibly — no buttons, nav arrows, or interactive chrome; the screen is purely presentational. Focal point: the red centered title wins the eye immediately and correctly — it is the sole high-contrast element. Given the injected VIEW purpose (SVM/kernels/QP lecture frame), the title is the intended focal point and it does win the eye.",
+  "strengths": [
+    "Title legibility: large centered red type on the light field is highly readable and instantly establishes the slide's subject.",
+    "Minimal composition: no visual noise competes with the title; the page is uncluttered.",
+    "Slide number placement: the top-right badge is visible but does not encroach on the title."
+  ],
+  "defects": [
+    {
+      "category": "a",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "slide canvas — full field — light-themed near-white canvas inside a dark-themed app context — breaks dark-mode surface elevation and reads as a jarring inversion — move embedded light content into a dark container or adopt a dark slide theme"
+    },
+    {
+      "category": "g",
+      "severity": "minor",
+      "confidence": "high",
+      "description": "bottom strip — bottom edge — heavy black horizontal bar along the bottom edge — unbalances the light canvas and reads like stray or clipped chrome rather than intentional slide design — remove or re-style the strip so it belongs to the canvas"
+    },
+    {
+      "category": "j",
+      "severity": "minor",
+      "confidence": "medium",
+      "description": "frame border — bottom-right corner where it meets the bottom strip — unclear corner junction between the thin frame hairline and the black strip — reads as a broken or overlapping edge rather than a deliberate miter — verify the border-to-strip corner treatment"
+    }
+  ],
+  "top_3": [
+    "Section 4(g) — bottom black strip unbalances composition and reads as stray chrome.",
+    "Section 4(j) — frame-to-bottom-strip corner junction is unclear/possibly broken.",
+    "Section 4(a) — light-themed canvas inside a dark-themed app context risks a jarring surface inversion."
+  ],
+  "structural_proposal": "1. Move the bottom strip region out of the slide canvas into app shell chrome, or remove it entirely if it is not part of the slide design — source: bottom strip; destination: shell chrome or deletion.\nThat is the only visible reorganization warranted; no further moves are possible without inventing content not on screen.",
+  "verdict_scores": {
+    "theme_dark_mode": 4,
+    "typography": 8,
+    "spacing": 8,
+    "alignment": 8,
+    "crowding_density": 6,
+    "hierarchy": 8,
+    "composition": 5,
+    "completeness": 9,
+    "continuity_consistency": 8,
+    "affordance_states": 8,
+    "first_glance_clarity": 8,
+    "overall": 6
+  },
+  "uncertainties": [
+    "Whether the bottom black strip is app shell, video-player chrome, or intentional slide design; this determines if section 4(g) is a real defect or shell furniture.",
+    "Whether this slide runs inside the dark-themed app or is a standalone capture; if standalone, section 4(a) theme mismatch may not apply.",
+    "The purpose of the small cursor glyph (presentation remote indicator vs actual UI cursor) cannot be verified from a static image."
+  ],
+  "vocabulary_proposals": []
+}
