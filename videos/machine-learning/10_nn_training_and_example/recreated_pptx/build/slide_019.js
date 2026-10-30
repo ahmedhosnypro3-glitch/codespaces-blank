@@ -37,12 +37,6 @@ s.addText("19", {
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
 
-// Thin dark-red frame inset from slide edges (from original)
-s.addShape(pptx.ShapeType.rect, {
-  x: 0.5, y: 0.5, w: 12.33, h: 6.5,
-  fill: { type: "none" }, line: { color: RED, width: 1 },
-});
-
 // Top-left: cyan box with four implication statements
 s.addShape(pptx.ShapeType.rect, {
   x: 0.53, y: 0.75, w: 4.8, h: 2.1,

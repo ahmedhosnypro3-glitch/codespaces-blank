@@ -42,6 +42,10 @@ while IFS='|' read -r scope_name agent_name updated_at; do
     age_min=$(( (now_epoch - last_epoch) / 60 ))
     
     if [[ $age_min -ge $STALE_MIN ]]; then
+        if [[ -f "$PIN" ]] && grep -qxF "$scope_name" "$PIN"; then
+            log "Scope $scope_name: DB stale (${age_min}min) but PINNED (live worker) — skipping"
+            continue
+        fi
         # Additional check: file activity in slide dirs for this scope
         # Get slide numbers from scope items
         items=$(sqlite3 "$DB" "SELECT items FROM scopes WHERE name='$scope_name';")
