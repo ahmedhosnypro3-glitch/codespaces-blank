@@ -1,0 +1,53 @@
+
+== 1. build probe variants from the REFRESHED component ==
+build: wrote /workspaces/codespaces-blank/ai_llm_slides/scratch/tmp/probe_009_component.pptx (full)
+build smoke_only_chrome            rc=0 wrote /workspaces/codespaces-blank/ai_llm_slides/scratch/tmp/probe_009_smoke_only_chrome.pptx (smoke_only_chrome)
+build smoke_skip_captions          rc=0 wrote /workspaces/codespaces-blank/ai_llm_slides/scratch/tmp/probe_009_smoke_skip_captions.pptx (smoke_skip_captions)
+build smoke_only_chrome_charts     rc=0 wrote /workspaces/codespaces-blank/ai_llm_slides/scratch/tmp/probe_009_smoke_only_chrome_charts.pptx (smoke_only_chrome_charts)
+build smoke_numeral_override       rc=0 wrote /workspaces/codespaces-blank/ai_llm_slides/scratch/tmp/probe_009_smoke_numeral_override.pptx (smoke_numeral_override)
+
+== 2. fresh equal-command renders ==
+cert render  (1280, 720)
+probe render (1280, 720)
+
+== 3. pixel diff (identical command, identical raster path) ==
+same geometry: True
+pixels differing        : 0 of 921600
+pixels differing >8     : 0
+max channel delta        : 0
+PIXEL-IDENTICAL: True
+
+== 4. container member diff ==
+members 41 / 41, same names: True
+  differs: docProps/core.xml (first divergence at char 621)
+    A: 	<cp:revision>1</cp:revision>
+		<dcterms:created xsi:type="dcterms:W3CDTF">2026-10-24T02:11:01Z</dcterms:created>
+		<dcterms:modified xsi:type="dcterms:W3CDTF">2026-10-24T02:11:01Z</dcterms:modified>
+	</cp:coreProperties
+    B: 	<cp:revision>1</cp:revision>
+		<dcterms:created xsi:type="dcterms:W3CDTF">2026-10-24T02:19:52Z</dcterms:created>
+		<dcterms:modified xsi:type="dcterms:W3CDTF">2026-10-24T02:19:52Z</dcterms:modified>
+	</cp:coreProperties
+  differs: ppt/slides/slide1.xml (first divergence at char 14082)
+    A:  id="41" name="Shape 39"></p:cNvPr><p:cNvSpPr/><p:nvPr></p:nvPr></p:nvSpPr><p:spPr><a:xfrm flipV="1"><a:off x="1790700" y="2552700"/><a:ext cx="3708400" cy="1905000"/></a:xfrm><a:prstGeom prst="line"><a:avLst></a:avLst><
+    B:  id="41" name="Shape 39"></p:cNvPr><p:cNvSpPr/><p:nvPr></p:nvPr></p:nvSpPr><p:spPr><a:xfrm><a:off x="1206500" y="1358900"/><a:ext cx="4711700" cy="4660900"/></a:xfrm><a:prstGeom prst="rect"><a:avLst></a:avLst></a:prstGeo
+container diff limited to metadata + shape ORDER (geometry/content equal): True
+
+== 5. shape-order invariant (why order-only is safe) ==
+cert   sp=131 pic=2
+probe  sp=131 pic=2
+xfrm multiset equal (same shapes, same boxes, only sequence differs): True
+  cert xfrms=132 probe xfrms=132
+
+== 6. skip / only / numeral hooks (the contract child 010 uses) ==
+  only:{chrome}                  sp=  6 pic=0  (want 6/0)
+  skip:{captions}                sp=127 pic=2  (want 127/2)
+  only:{chrome,panels,axes}      sp= 82 pic=0  (want 82/0)
+  numeral override 42            sp=131 pic=2  (want 131/2)
+
+== VERDICT ==
+pixel-identical to certified deliverable : True
+container diff = metadata + shape order  : True
+same xfrm multiset (order-only)          : True
+skip/only/numeral hooks gate correctly   : True
+COMPONENT FIDELITY: PASS

@@ -1,0 +1,30 @@
+# Zoomed Crop Comparison â Slide 042, right computation stack (6 rows)
+
+## Row-by-row content audit (crop-relative)
+
+**Row 1 (top, ~y 0â120):** `(1 1 1|Â·(4,â2,â2)) = 0 â Update Weight, W = (4,â2,â2) + 2*(1,1,1) = (6,0,0) â`
+- All values match cell-for-cell: red classifier (1,1,1); black vector (4,â2,â2); green result (6,0,0); "Update Weight"; red â at far right. Math checks: 1Â·4+1Â·(â2)+1Â·(â2)=0; (4,â2,â2)+2(1,1,1)=(6,0,0). â
+
+**Row 2 (~y 160â260):** `|1 2 1|(6,0,0) = 6 â Keep same Weight, W = (6,0,0)` â digits red in both, vector green, all values match. â
+
+**Row 3 (~y 290â390):** `|1 1 2|(6,0,0) = 6 â Keep same Weight, W = (6,0,0)` â digits red in both, values match. â
+
+**Row 4 (~y 430â540):** `|1 5 4|(6,0,0) = 6 â Update Weight, W = (6,0,0) â 2*(1,5,4) = (4,â10,â8) â` â blue digits, black vector, green result, red â present in both. Math checks: (1,5,4)Â·(6,0,0)=6; (6,0,0)â2(1,5,4)=(4,â10,â8). â
+
+**Row 5 (~y 570â670):** `|1 6 5|(4,â10,â8) = â96 â Keep same Weight, W = (4,â10,â8)` â blue digits, green vector, black result, all values match. Math: 4â60â40=â96. â
+
+**Row 6 (~y 700â800):** `|1 6 6|(4,â10,â8) = â104 â Keep same Weight, W = (4,â10,â8)` â blue digits, green vector, values match. Math: 4â60â48=â104. â
+
+Every delimiter (black, green, and colored bars) spans its full 3-line column height without touching glyphs in both images. W is bold+underlined in both. No missing rows, no swapped values, no garbled glyphs, no truncated subscripts. Left-edge "=" fragment is truncated identically in both crops (crop artifact, not a defect).
+
+## Discrepancy list
+
+1. **MINOR (high confidence):** Minus signs in the recreation (rows 1, 4, 5, 6: "â2", "â10", "â8", "â96", "â104") are rendered as hyphen-minus rather than the longer typographic minus "â" seen in IMG2. Same character semantics; purely glyph-level.
+2. **MINOR (high confidence):** Font family differs â recreation uses a sans-serif face; original is a serif (Times-like) face. Inherent typed-medium difference per ground rule (c).
+3. **MINOR (medium confidence):** Slight inter-column spacing differences in the "W = (...) op 2*(...)" expressions (recreation slightly tighter around the "+" / "â 2 *"); no effect on structure or values.
+4. **MINOR (high confidence):** The red "â" arrows in IMG2 appear slightly heavier/bolder than the recreation's; stroke weight only, same glyph, same position, same color.
+5. **Non-defect:** Faint cursor artifact between rows 3â4 in IMG2 (~x 540, y 400) is a screen-capture pointer, not slide content. JPEG softness in IMG2 ignored per ground rule (e).
+
+No MAJOR or BLOCKER defects found.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

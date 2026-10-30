@@ -1,0 +1,68 @@
+# Slide 048 — LEGS STATUS (worker w048-legs3-20261024), 2026-10-24
+
+## LEGS OUTCOME
+
+1. Template A (full-slide judge) — LANDED, FINAL VERDICT: PASS
+   transcript: recreated_pptx/qa/slide048/judge_attempt_4.txt
+   stdout:    recreated_pptx/qa/slide048/judge_attempt_4_stdout2.txt
+   Dispatched with the sanctioned --timeout 1200 wall extension; payload byte-for-byte
+   from shared_patterns/judge_protocol_03.md (NNN->048).
+
+2. Procedure B aug_iter — LANDED, FINAL VERDICT: FAIL
+   transcript: recreated_pptx/qa/slide048/crop_4_aug_iter_judge.txt
+
+3. Procedure B calc_panel — LANDED, FINAL VERDICT: FAIL
+   transcript: recreated_pptx/qa/slide048/crop_4_calc_panel_judge.txt
+
+4. Procedure B top_band — NO VERDICT (2x upstream HTTP 504, retry budget spent)
+   logs: recreated_pptx/qa/slide048/crop_legs_top_band.log
+         recreated_pptx/qa/slide048/crop_legs_top_band_retry.log
+   Evidence in each: "[error] every model failed: images: attempt 1: HTTP 504 ...
+   the upstream provider timed out", exit 1. NOT a hang — the upstream died.
+
+## ADJUDICATION
+
+PIL-first against BOTH images. ALL 4 MAJOR claims REFUTED
+(recreated_pptx/qa/slide048/adjudication_attempt_4.md, sections A1-A4):
+  * "Ugmented" vs "Augmented"   -> original glyph is a U (two uprights joined at the bottom,
+                                   no apex, no crossbar). Build is right.
+  * 18 per-cell parens          -> delimiters span the WHOLE matrix body (rows 179-225) in
+                                   BOTH images = one outer enclosure per column. Stroke
+                                   excursion 1.0-1.5 px, not a 8-15 px paren bulge.
+  * spurious "x" column/vector  -> exactly ONE glyph per line inside the brackets; the only
+                                   constant-position ink is the bracket itself. Selfcheck
+                                   counts 6 tall strokes for 3 vectors = 2 brackets each.
+  * "bars instead of parens"    -> banked attempt-2 MINOR-6 numbers hold; rule-(e) exempt.
+
+The banked attempt-2 MAJOR refutations (Z3 = 3 not 6; Initial W = (4,-2,-2)) were
+RE-VERIFIED this run against render_3.png and BOTH HOLD.
+
+## ONE REAL DEFECT — HANDED BACK, NOT FIXED
+
+B1/C3 — the six calc-row action phrases wrap to TWO lines in the render while the original
+keeps each on ONE line. Original bands: 13-14 px tall, one line, ink cols 517..611 (95 px).
+Build cause: build/slide_048.js:330-334 uses `w: fw(80)` at `fontSize: 13`; the strings
+need 84 px ("Update Weight") / 110 px ("Keep same Weight") at that size. All six wrap, and
+the wrap also breaks the rows' vertical centering (render block ages to 23 px vs 14).
+Same failure class the prior lane already fixed for the REPEAT banner; its recipe is
+documented at build/slide_048.js:156-159 (widen the box + drop to 12 pt).
+Full fix parameters: adjudication_attempt_4.md, section B1.
+
+Per standing law a REAL new defect is handed back, NOT fixed in place. The build was NOT
+edited.
+
+## DB / CERTIFICATION
+
+NOT CERTIFIED. No record-visual, no gen_status=passed, no visual_check=PASS written;
+visual_attempts and visual_transcript unchanged.
+Claim w048-legs3-20261024 RELEASED.
+
+Row 48 remains gen_status=building, visual_check=null.
+
+## RESUME (after the line-wrap fix + rebuild + re-render)
+
+Full commands in worker_report.md ("Run 3" section, "Exact resume commands" block).
+Harness note: dispatch each vision leg as its OWN tool call with `timeout 1700` explicit —
+a leg nested in a background subshell gets SIGTERM'd by the task's 600 s cap (that killed
+the first top_band dispatch, exit 143); a directly-invoked leg survives its parent's
+timeout and still lands its transcript.

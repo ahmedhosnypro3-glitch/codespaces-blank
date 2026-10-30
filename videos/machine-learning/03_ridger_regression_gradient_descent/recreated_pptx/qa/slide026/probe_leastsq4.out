@@ -1,0 +1,17 @@
+=== fixed per-image windows: 'Least Squares' and 'Linear regression...' (x-height band, thr 430) ===
+  SIM_REG(L1)  LS d=0.3922  Lin d=0.3775  RegSpan d=0.3833
+  SIM_BOLD(L2) LS d=0.5048  Lin d=0.3826  RegSpan d=0.3853
+  SIM_REG2(L3) LS d=0.3922  Lin d=0.3775  RegSpan d=0.3833
+  ORIG         LS d=0.3845  Lin d=0.2713  RegSpan d=0.2582
+
+=== within-image LS/Linear ratio (weight ruler: regular=1.00, bold=+0.04 measured on the sims) ===
+  SIM_REG(L1)  ratio=1.039
+  SIM_BOLD(L2) ratio=1.319
+  SIM_REG2(L3) ratio=1.039
+  ORIG         ratio=1.418
+
+=== ORIG/sim bias factor for spans of KNOWN weight (regular & bold) ===
+  LS(orig)/REG-sim(LS) = 0.98     LS(orig)/BOLD-sim(LS) = 0.76
+  Lin(orig)/REG-sim(Lin) = 0.72   (regular-in-both anchor)
+  => If LS(orig) is REGULAR, its bias should track the Lin anchor (0.72).
+  => If LS(orig) is BOLD,   its bias should be ~0.92 x the anchor (bold sims are 1.29x denser than regular).

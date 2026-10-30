@@ -1,0 +1,46 @@
+# Fidelity Check â Slide 045 Recreation vs Original Frame
+
+## Element-by-element comparison
+
+**House chrome (per ground rules, excluded from verdict):** gray panel, red left/right/bottom strokes, no top stroke, yellow "45" badge â all present and correct in the recreation. Noted, not scored. Image 2 is a real content slide (not a placeholder), so content fidelity is fully assessable. The cursor artifact in IMG2 is correctly omitted.
+
+**Top banner (blue-bordered box):**
+- Vector columns xââ¦xâ with stacked parenthesized values (1,1,1)(2,1,1)(1,2,1)(5,4,4)(6,5,5)(6,6,6) â values match â
+- "Initial W" with underlined W â; values 4, â2, â2 â â **but delimiter shape differs (see D1)**
+- "Step n = 2" in red, right of Initial W, position â â character/boldness differs (D5)
+- "Check classes" + Zâ Zâ Zâ with columns (0)(7)(3)/(0)(6)(2) â; the bar-and-"1" mark under the third column is present in both â
+- Line break of "Check classes / of" differs (D4)
+
+**Left column:** "Ugmented Vectors (from Top)" italic blue header â (typo faithfully preserved); augmented matrix rows (1,1,1,1,1,1 / 1,2,1,5,6,6 / 1,1,2,4,5,6 / 1,1,1,4,5,6) match the original's 4-row structure â; "Iteration 4" red box â; "No change in W / Stop Iterations" pink box â **wrapping defect (D3)**.
+
+**Six d(x) rows:** all computed values, colors (blue row vector, green column vector, black result), â arrows, "Keep same Weight" with underlined W, underlined "W =" and (14, â4, 0) columns â all values verbatim and correctly aligned: 10, 6, 10, â6, â10, â112 ââ. Results sit vertically centered against the 3-row columns â. **But delimiter geometry differs (D1, D2).**
+
+## Discrepancy list
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| D1 | **Delimiter shape on all column vectors:** original renders Initial W=(4,â2,â2) and every W=(14,â4,0) with tall **parentheses** spanning all three rows; recreation renders them with **vertical bars** `\|14\|-4\|0\|`. Rule 7(iii) requires matching delimiter shape. Affects banner + all 6 rows + 6 right-side W's. | **MAJOR** | High |
+| D2 | **Missing delimiters around the row vector in each d(x) row:** original shows d(xáµ¢) = **(**1 1 1**)** Â· (14,â4,0); recreation shows bare "1 1 1" with no enclosing parentheses. | **MAJOR** | Medium-high |
+| D3 | **"No change in W" wrapping:** original is a single line "No change in **W**" (underlined W inline); recreation wraps to "No change" / "in" with the underlined W floating detached on the first line's right â wrong line breaks and awkward W placement. | **MAJOR** | High |
+| D4 | **"Check classes of" wrapping:** original is one line ("Check classes of"); recreation breaks to "Check classes" / "of" on two lines. | **MAJOR** | Medium-high |
+| D5 | **"Step Î· = 2" vs "Step n = 2":** original uses bold italic **Î·** (eta); recreation uses plain "n", non-bold. Wrong character + lost emphasis. | MINOR | Medium |
+| D6 | **"Zero is unaccepted" color:** original renders "**Zero**" in bold green; recreation renders it in plain black. | MINOR | Medium-high |
+| D7 | **Class-label coloring/pattern:** original's C-labels under the banner and in the augmented box read Câ Câ Câ Câ Câ Câ; recreation appears to read Câ Câ Câ Câ Câ Câ (xâ tagged Câ in blue), which also contradicts the slide's own "keep same weight" logic (d(xâ)=+6 â class 1). Verify at full resolution. | MAJOR (if confirmed) | Medium |
+| D8 | **Row separation styling:** original shows each d(x) row as an individually thin-bordered white box; recreation uses open white bands separated by gray double rules with no side/top borders. | MINOR | Medium |
+| D9 | "Ugmented Vectors ( from Top )" â original has spaces inside the parentheses; recreation "(from Top)". | MINOR | High |
+| D10 | Minus glyphs: original uses true minus "â6", "â10", "â112"; recreation uses hyphen "-6" etc. | MINOR | High |
+
+**Non-defects (per ground rules, not scored):** gray panel vs cream original background; no top stroke; badge style; professional 2D equation layout vs original's typed layout; typed-vs-handwritten ink; omitted cursor.
+
+## Visual-quality defects in the recreation
+
+- The floating underlined "W" in the "No change" box sits far from "in", reading as an orphaned glyph (part of D3).
+- The bar-delimited columns make the vertical strokes visually collide with the digit edge spacing (tight but not overlapping) â consequence of D1.
+- No text clipping, no frame-containment overflow detected: banner, boxes, and all six row blocks sit fully inside the gray panel and clear of the red strokes; bottom row box clears the bottom stroke.
+- All result values ("= 10", "= 6", etc.) are correctly vertically centered on the middle row of their column vectors â.
+
+## Final assessment
+
+All numeric content, text content, colors of the math, layout regions, and structure match the original faithfully, and the mandated house chrome is correctly applied. However, the systematic parenthesisâvertical-bar substitution on every vector (D1), the missing row-vector parentheses (D2), and two verbatim line-break violations (D3, D4) are MAJOR defects under the founder's delimiter-geometry and line-break directives, and D7 is a potential data-label error.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation."

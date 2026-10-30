@@ -1,0 +1,31 @@
+# Judge transcript — slide 046, attempt 4, region caption (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 07:01
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_caption_orig.png    md5=96cf11afcbe839096fffc949c0966031
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_caption_render.png  md5=5c578c911e341fedb05f4c7657450f6e
+- region (frame px, +padding): x240..520, y102..130 — the class-legend caption beneath the top matrix
+- scale audit: render crop 584x58 px for 280x28 frame px = 2.0857 / 2.0714; original resized LANCZOS to 584x58 = 2.0857 / 2.0714 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes; crop bytes unchanged since the previous render)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR, same region/effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten at most MINOR.
+(d) Professional 2D equation rendering is mandatory.
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison (crop-relative)
+- Words: "C1 positive  C2negative   Zero  is unaccepted" — same words, same order, same punctuation-free phrasing in BOTH; the frame's tight "C2negative" spacing is reproduced (no extra word inserted). MATCH.
+- Colours, word by word: "C1" = red/crimson in BOTH; "positive" = black in BOTH; "C2" = blue in BOTH; "negative" = black in BOTH; "Zero" = green in BOTH; "is unaccepted" = black in BOTH. This follows the FRAME (C1 red / C2 blue), which is the opposite of the analysis JSON's claim — the frame wins and is what the render shows. MATCH.
+- Subscripts: the 1 and 2 under C1/C2 are present, lowered and smaller in BOTH. MATCH.
+- Position/size: render ink 245.6..505.7 x 109.9..122.9 frame px vs frame 245..508 x 110..123 (Δ≤2.3 px on the right edge, ≤0.1 px top). Same baseline, same band as the matrix class row. MATCH.
+- Group gaps: the wide gap before "C2" and before "Zero" are reproduced; relative gaps agree within ~2 px.
+- No garbled/missing glyph, no clipped descender.
+
+## Discrepancies
+1. MINOR (font style) serif italic original vs the deck's Arial italic render; identical words, colours, sizes (±2 px) and positions. Deck-consistent mechanism. DISMISSED (deck precedent + measurement).
+2. MINOR (tracking) the render's last word ends ~2 px earlier than the frame's; individual glyph advances agree within 1 px. DISMISSED (measurement).
+
+No BLOCKER, no MAJOR: every word, colour and subscript of the caption matches the frame.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

@@ -1,0 +1,35 @@
+# Region Comparison â Main Density Table (8 rows Ã 1 label col + 18 data cols)
+
+I compared the table cell-by-cell, column-by-column, row-by-row.
+
+## Cell-by-cell value check (all 18 data columns)
+
+- **x row:** 3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1 â **MATCH** in both images, all 18 cells.
+- **f(x) row:** 3.89, 2.96, 2.21, 1.64, 1.25, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01 â match. **BUT the first data cell differs: IMG1 = "9", IMG2 = "5".** (Sanity check: the function is clearly f(x)=1+(xâ5)Â² â f(3.3)=3.89, f(5.1)=1.01 all confirm â so f(3)=5. IMG2 is correct; IMG1 has a wrong digit.)
+- **x-delta row:** 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5, 4.7, 5, 4.7, 5, 4.7, 5, 4.7, 5, 4.7, 5 â **MATCH**.
+- **f(x-delta) row:** 5.41, 4.24, 3.25, 2.44, 1.81, 1.36, 1.09, 1, 1.09, 1, â¦ (repeating) â **MATCH**.
+- **x+delta row:** 3.1, 3.4, 3.7, 4, 4.3, 4.6, 4.9, 5.2, 4.9, 5.2, â¦ â **MATCH**.
+- **f(x+delta) row:** 4.61, 3.56, 2.69, 2, 1.49, 1.16, 1.01, 1.04, 1.01, 1.04, â¦ â **MATCH**.
+- **slope row:** â8, â6.8, â5.6, â4.4, â3.2, â2, â0.8, 0.4, â0.8, 0.4, â¦ â **MATCH** (signs and values all correct).
+- **next x row:** 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8 â **MATCH**.
+- **Row labels:** x, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x â all present, correctly spelled, no truncation/garbling in either image.
+
+## Discrepancy list
+
+1. **BLOCKER â Wrong digit in f(x), first data cell** (crop-relative ~x=150, y=90; column 1 of the f(x) row). IMG1 shows **9**; IMG2 (original) shows **5**. Verified against the function implied by every other cell in the table (f(x)=1+(xâ5)Â² â f(3)=5). A wrong table value is explicitly a MAJOR-to-BLOCKER defect. Confidence: **high**.
+
+2. **MAJOR â Data-row fill colors don't match the original's row-pair shading.** In IMG2, each data row shares the fill of its label row: f(x) row is yellow-green like the x row; f(x-delta) row is lavender like x-delta; f(x+delta) row is peach like x+delta. In IMG1 these three data rows are white / white / light-gray respectively (crop-relative y â 90, 180, 270). Systematic across the whole table. Confidence: **high**.
+
+3. **MAJOR â Gridline/border styling differs.** IMG2 uses thick colored borders: dark blue outlines around the top two row-pairs, thick green cell borders on the slope row (with light fill), thick red cell borders on the next x row. IMG1 uses a uniform thin dark gridline with solid fills (slope row is solid green, next x row solid pink with no colored bordering). Visible across the entire region; most obvious at the slope and next-x rows (y â 320 and 365). Confidence: **high**.
+
+4. **MINOR â Label-column alignment.** IMG2 row labels are right-aligned against the data column; IMG1 labels are centered in the label column (x â 40â140). Cosmetic only. Confidence: **medium-high**.
+
+5. **MINOR â Label font weight.** IMG1 renders labels in bold; IMG2 labels appear regular weight (conistent with typed-vs-medium norms, but noticeable at this zoom). Confidence: **medium**.
+
+Not counted as discrepancies per ground rules: template chrome (left/bottom red strokes, gray panel), JPEG halos/soft edges in IMG2, the cropped arrow/badge fragments at the top edge of both crops, and any typed-vs-handwritten ink texture.
+
+## Summary
+
+Every numeric value matches except one: the f(3) cell, where the recreation shows **9** instead of the original's **5** â a wrong table value, which under these rules is a blocker-grade defect even though it is a single glyph. Secondary systematic differences in row fills and border colors push the region further from faithful.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

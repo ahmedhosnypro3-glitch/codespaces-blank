@@ -1,0 +1,41 @@
+=== FINDING 1+3: marker positions (judge's coords -> absolute) ===
+  judge's IMG1 (recreation) markers -> absolute slide px:
+    #1: 520,322
+    #2: 554,334
+    #3: 596,398
+    #4: 790,383
+  judge's IMG2 (original) markers -> absolute slide px:
+    #1: 527,351
+    #2: 569,435
+    #3: 683,383
+    #4: 721,348
+
+  build's actual right-panel dots (build_attempt_4.js): [(536,300),(563,313),(647,345),(590,394),(706,322)]  (5 dots, not 4)
+
+  ORIGINAL measured marker positions (from adjudication_attempt_4.py):
+    x557-564 y309-322 centre=(560,316)
+    x589-596 y197-401 centre=(592,299)
+    x612-612 y197-430 centre=(612,314)
+    x679-687 y198-359 centre=(683,278)
+    x706-714 y195-456 centre=(710,326)
+  -> normalized: #1 (560-478)/380=0.22 (316-180)/290=0.47 ; #2 (592-478)/380=0.30 (299-180)/290=0.41 ; #3 (612-478)/380=0.35 (314-180)/290=0.46 ; #4 (683-478)/380=0.54 (278-180)/290=0.34 ; #5 (710-478)/380=0.61 (326-180)/290=0.50
+  -> the judge's own IMG2 coords (0.13,0.24,0.54,0.64) vs measured (0.22,0.30,0.35,0.61): the judge's IMG2 set does NOT match the measured original either,
+     so the judge's IMG1/IMG2 delta is partly a measurement artefact of its own.
+
+=== independent re-measurement of the SAME two crop files ===
+  ORIGINAL crop markers (x_lo,y_lo,y_hi in crop px): [(23.0, np.float64(85.0), np.float64(96.0)), (168.0, np.float64(264.0), np.float64(310.0)), (238.0, np.float64(17.0), np.float64(475.0)), (263.0, np.float64(28.0), np.float64(502.0)), (276.0, np.float64(24.0), np.float64(522.0)), (313.0, np.float64(19.0), np.float64(34.0)), (334.0, np.float64(30.0), np.float64(530.0)), (345.0, np.float64(29.0), np.float64(520.0)), (354.0, np.float64(22.0), np.float64(509.0)), (392.0, np.float64(17.0), np.float64(429.0)), (424.0, np.float64(22.0), np.float64(374.0)), (478.0, np.float64(22.0), np.float64(580.0)), (500.0, np.float64(22.0), np.float64(576.0)), (512.0, np.float64(150.0), np.float64(581.0)), (518.0, np.float64(146.0), np.float64(574.0)), (556.0, np.float64(571.0), np.float64(581.0)), (614.0, np.float64(571.0), np.float64(577.0)), (663.0, np.float64(573.0), np.float64(579.0)), (788.0, np.float64(0.0), np.float64(603.0))]
+  RENDER   crop markers (x_lo,y_lo,y_hi in crop px): [(60.0, np.float64(69.0), np.float64(126.0)), (145.0, np.float64(4.0), np.float64(277.0)), (227.0, np.float64(8.0), np.float64(146.0)), (378.0, np.float64(0.0), np.float64(289.0))]
+
+=== FINDING 2: curve geometry / valley floor ===
+  ORIGINAL crop: x 14-660  y 21-581 (crop px)
+  RENDER   crop: x 35-378  y 5-210 (crop px, normalised from render)
+  ORIGINAL normalised x 0.04-1.74  y 0.07-2.00
+  RENDER   normalised x 0.09-1.00  y 0.02-0.72
+
+=== FINDING 4: curve stroke colour (MINOR) ===
+  render curve colour = exact #2E75B6 (46,117,182), the analysis JSON's declared colour
+Traceback (most recent call last):
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide028/adjudication_attempt_5.py", line 96, in <module>
+    c_o = o[(np.abs(o[:, :, 0] - 46) < 70) & (np.abs(o[:, :, :] - 117) < 70) & (np.abs(o[:, :, 2] - 182) < 70)]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (540,960) (540,960,3) 

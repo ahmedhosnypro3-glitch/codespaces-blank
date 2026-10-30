@@ -1,0 +1,50 @@
+## Setâup / exclusions (per ground rules)
+
+- House chrome (gray E9E9E7 panel, left/right/bottom C00000 strokes with **no top stroke**, yellow FDFD96 badge with 6A5ACD ring and bold "41") is present in the recreation and is **not** counted as a discrepancy.
+- No contentlessâplaceholder issue: the original frame is a full content slide, so its elements must be matched.
+- No mouseâcursor artifact in the original that needs omitting.
+- Typed/sansâvsâserif ink differences are treated as styling, not content.
+- Rendered 2âD equation formatting (tall stacked vectors with spanning parentheses) is treated as a mandated upgrade.
+
+## Elementâbyâelement check (content fidelity)
+
+| Element | Original | Recreation | Result |
+|---|---|---|---|
+| Blueâbordered header frame | present | present, same position/size (within ~1% of panel width) | match |
+| Training vectors xââ¦xâ, row 1 | (1)(1)(2)(4)(5)(6) | identical | match |
+| Row 2 values | 2 under xâ, 3 under xâ | same | match |
+| Class row | Câ Câ Câ Câ Câ Câ, Câ red / Câ blue | same, same colors | match |
+| "Initial W =" + (4, â2, â2)áµ | present, tall paren spanning 3 entries | present, paren spans all 3 | match |
+| "Step Î· = 2" | red italic, clear gap after the wâvector | red italic, but gap to the ")" is much smaller (crowded left) | see #2 |
+| "Check classes of" | present, left of Z block | present, aligned within ~0.5% of panel width | match |
+| Zâ=(0,0), Zâ=(0,6), Zâ=(3,2)áµ | present, tall parens | identical values, tall parens | match |
+| Legend line | Câ positive / Câ negative / Zero is unaccepted (Zero green) | same colors, but commas inserted | see #1 |
+| Chart frame | thin red rectangle | thin red rectangle | match |
+| Chart type | scatter, no connecting lines | same | match |
+| Data points | blue squares (1,1),(1,2),(2,1); magenta diamonds (5,4),(6,5),(6,6); red â¼ (0,0),(3,2),(7,6) | identical set, identical colors/shapes, all on correct grid intersections | match |
+| Axes | x 0â8, y 0â7, gray gridlines | same ranges, same gridline structure | match (see #4) |
+| Slide badge "41" | present | present | chrome |
+
+**No element present in the original is absent from the recreation** (no missing equation, matrix, table cell, data point, label, axis or legend entry), and **no plotted value is wrong**.
+
+## Discrepancies (all renderableâcontent, with severity + confidence)
+
+1. **MINOR â Legend punctuation not verbatim.** Original: "Câ positive  Câ negative  Zero is unaccepted" (no comma glyphs). Recreation inserts commas: "Câ positive, Câ negative, Zero is unaccepted". Text content otherwise identical, colors correct. Confidence: mediumâhigh.
+2. **MINOR â Gap/crowding before "Step Î· = 2".** In the original there is a visible ~30 px gap between the closing parenthesis of (4,â2,â2)áµ and the red "Step Î· = 2"; in the recreation the label is set ~15â20 px (recreation space) tighter and nearly abuts the parenthesis. It does not actually overlap/collide, so it is a spacing deviation, not an overlap. All other header items ("Initial W =", "Check classes of", Z block, legend start) align to within â1% of panel width. Confidence: medium.
+3. **MINOR â Typeface mix.** The original header is uniformly serif/Times with italic math labels (xáµ¢, Câ, Câ, Î·, Z). The recreation mixes serif (Initial W, Step Î·, Check classes of) with sansâserif (xâheaders, class row, legend line), so the header's typographic texture differs. Mediumâhigh.
+4. **MINOR â Plotâarea top edge.** The original's plot area top coincides with the y = 7 gridline (axis range 0â7). In the recreation the grid/plot box appears to start one grid interval above the "7" line, leaving a thin unlabeled band at the top of the plot region. No data point is misâaligned to its gridline. Confidence: lowâmedium.
+5. **MINOR â Marker size.** Recreation's red â¼ and magenta diamonds are ~15â25% larger than the original's; blue squares marginally larger too. Color/hue (pure red, magenta, dark blue) and shape type match. Confidence: medium.
+6. **MINOR â Chart region vertical placement.** The recreation's red chart frame is slightly shorter and sits a little higher, so the gray band below the frame inside the panel is visibly larger than in the original (original gap â8% of frame height vs recreation â12â15%). The frame itself is fully inside the panel; no overflow. Confidence: medium.
+7. **MINOR / verify (LOW confidence)** â **Parenthesization of the twoâline vectors** xâ=(1,2)áµ, xâ=(2,3)áµ: in the original each is enclosed by a *single* tall parenthesis spanning both rows; in the recreation the rowâ2 entries appear to carry their own short perârow parentheses. If confirmed by inspecting the PPTX at 100%, this escalates to **MAJOR** under delimiterâgeometry rule (7); I could not confirm it at the available resolution, so I do not score it as a confirmed MAJOR. Confidence: low.
+
+## Visualâquality defects in the recreation
+
+- No text overflow, no clipping, no truncated matrix entries, no illegible content.
+- No collisions between content and the panel strokes, and all content (header frame, matrices, legend, chart frame, axes, badge) is fully contained inside the gray panel.
+- Only crowding issue: "Step Î· = 2" sitting tight against the weightâvector parenthesis (#2).
+
+## Summary
+
+Content is complete and accurate: all matrices, the weight vector, the step label, the classâcheck Z values, the legend wording/colors, the class assignments, the chart type, all 9 data points at correct coordinates, and both axis scales all match the original. The remaining differences are punctuation added to the legend, tighter spacing around "Step Î· = 2", a mixed typeface, slightly larger plot markers, a small plotâarea topâedge difference, and a modest vertical offset of the chart frame. No confirmed BLOCKER or MAJOR defect (and no missing element of any kind).
+
+FINAL VERDICT: **PASS** for "faithful, usable recreation" (with the MINOR polish items above, and item 7 to be verified at full resolution â it would flip to FAIL if the twoâline vectors are confirmed to use split, perârow parentheses).

@@ -1,0 +1,29 @@
+ATTEMPT-8 SHAPE VERIFICATION — render_8 arcs vs built geometry
+worker w10-s027-a7-20261021T1945; ink mask = non-background minus red border,
+minus disc/curve cores; stations every 1.5 fpx along the BUILT polyline;
+normal scan +/-6 fpx. dev = |ink centroid - nominal centre-line| (fpx).
+sag = bow of the arc away from its own chord (signed, fpx).
+
+    arc         ORIGINAL-free? RENDER_7 | RENDER_8           | RENDER_8 sag      
+    -----------------------------------------------------------------------------------------------
+    dot1->2     ink 23/23 dev 4.43 | ink 23/23 dev 0.18 | measured -4.43 vs built -4.56
+    dot2->3     ink 15/15 dev 4.60 | ink 15/15 dev 0.11 | measured -4.51 vs built -4.51
+    dot3->4     ink 14/15 dev 1.39 | ink 15/15 dev 0.12 | measured -3.26 vs built -3.14
+    dot4->5     ink 10/10 dev 2.12 | ink 10/10 dev 0.19 | measured -5.16 vs built -5.16
+    dot5->6     ink 6/9 dev 4.59   | ink 9/9 dev 0.22   | measured -5.00 vs built -4.63
+    dot6->7     ink 6/7 dev 3.81   | ink 7/7 dev 0.23   | measured -3.16 vs built -2.79
+    dot7->8     ink 7/7 dev 3.14   | ink 7/7 dev 0.29   | measured -1.25 vs built -1.00
+    dot8->9     ink 4/7 dev 1.97   | ink 7/7 dev 0.23   | measured -1.82 vs built -1.45
+    dot9->min   ink 7/7 dev 3.30   | ink 7/7 dev 0.27   | measured -1.82 vs built -1.45
+
+    arcs with ink present on >=80% of stations and dev<2.0 fpx: 9 of 9
+    arcs whose rendered bow matches the built bow within 1.6 fpx: 9 of 9
+      dot1->2     rendered bow  -4.43  built bow  -4.56  delta  +0.12  (a straight chord would read +0.00)
+      dot2->3     rendered bow  -4.51  built bow  -4.51  delta  +0.00  (a straight chord would read +0.00)
+      dot3->4     rendered bow  -3.26  built bow  -3.14  delta  -0.13  (a straight chord would read +0.00)
+      dot4->5     rendered bow  -5.16  built bow  -5.16  delta  +0.00  (a straight chord would read +0.00)
+      dot5->6     rendered bow  -5.00  built bow  -4.63  delta  -0.37  (a straight chord would read +0.00)
+      dot6->7     rendered bow  -3.16  built bow  -2.79  delta  -0.37  (a straight chord would read +0.00)
+      dot7->8     rendered bow  -1.25  built bow  -1.00  delta  -0.25  (a straight chord would read +0.00)
+      dot8->9     rendered bow  -1.82  built bow  -1.45  delta  -0.37  (a straight chord would read +0.00)
+      dot9->min   rendered bow  -1.82  built bow  -1.45  delta  -0.37  (a straight chord would read +0.00)

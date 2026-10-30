@@ -1,0 +1,26 @@
+## Discrepancy Report â Slide 019, crop: outlier column + NO Regularizer column (rows 1â2, highlight band A)
+
+**Table values (cell-by-cell check):**
+- Row group 1: xâ = 30 / 40 / 50; xâ = 15 / 20 / 25; y = 60 / 80 / 100 â all match, and the red/blue/red column coloring matches. â
+- W vector (0, 2, 0); âWâÂ² = 4; Ridge W (0.1, 1.95, 0.03); âWâÂ² = 3.8 â all match. â
+- Row group 2: W (2.7, 0.67, â¦) and xâ = 30 / 40 / 50 â match. â
+- Outlier column: 11, 3, highlighted 22, 30, 3 â all present, correct colors (blue/blue/green/red/red). â
+- Testâ/Testâ/Testâ subscripts render correctly in both. â
+
+**Discrepancies:**
+
+1. **MAJOR â y-row highlight does not cover the row's cells** (center of crop, y-row, ~60% down). In IMG2 the entire y row â label cell and the 60/80/100 cells â is filled with the highlight tint. In IMG1 the yellow band is drawn *behind* the table, so the opaque white cells hide it: 60/80/100 sit on white, and the yellow is visible only in the gaps outside/below the table grid. The highlight band is content here (it marks the y-row "before/after" comparison), so losing it inside the cells is a visible defect at this zoom. Confidence: high.
+
+2. **MAJOR â outlier-vector delimiter shape/weight mismatch** (left edge, spanning the 11/3 pair, and again at the 30/3 pair, bottom-left). The original uses large, thin parentheses ( ) spanning the stacked values; the recreation uses a very heavy, thick black square bracket [. Different glyph and dramatically different stroke weight. Confidence: medium-high (it is clearly a different delimiter form, though it does span its lines).
+
+3. **MINOR â highlight fill hue.** IMG2's band (y-row and Ridge âWâÂ²=3.8 band) is a greenish yellow; IMG1 uses a flatter pure yellow. Confidence: medium (some of this could be video-capture color shift, per ground rule (e)).
+
+4. **MINOR â header parenthesis scale.** "NO Regularizer with ( as if Î»=0 )": the original enlarges the parentheses to span the full phrase height; the recreation uses small inline parens. Content identical. Confidence: high, but cosmetic.
+
+5. **MINOR â connector arrow.** Outline color reads dark maroon in IMG1 vs a darker/bluer outline in IMG2, and the arrow sits slightly lower (xâ-row level vs between xâ/xâ). Confidence: medium.
+
+6. **MINOR â typeface.** Original header/table text is italic-serif; recreation is upright sans. Typed-vs-typed font difference, at most minor per the ground rules.
+
+**What checked out clean:** every numeric value, all subscripts (xâ, xâ, Testâââ, Xâ, âWâÂ²), the Î»=0 content, vector entries, norm values, column color coding, row structure, and vertical placement of vectors inside their boxes â no wrong, missing, or garbled characters anywhere.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â the y-row highlight not showing inside the table cells (item 1) is a MAJOR content defect at this zoom, compounded by the delimiter-shape mismatch (item 2). Fix the highlight z-order/fill and the outlier brackets and this region passes.

@@ -1,0 +1,55 @@
+# Element-by-Element Fidelity Check â Slide 012
+
+## House chrome (per ground rules, NOT discrepancies)
+- Gray E9E9E7 panel with dark-red strokes on left/right/bottom only, no top stroke: â present, correct.
+- Yellow badge "12" at top-right with purple ring: â present, correct position/size.
+- Professional 2D vs linear equation formatting: N/A (no equations on this slide).
+
+## Content comparison
+
+**Title**
+- "Effect of Overfitting on model parameter "W"" â verbatim match, same position. Color: original is dark crimson (~#C00000); recreation is brighter pure red (~#FF0000). **MINOR** (confidence: high).
+
+**Left callout labels**
+- "Training Data" blue box, white text: â match.
+- "Perfect Data / Y follows x1" red box: text matches, but in the original "Y follows xâ" is rendered in **yellow italic** with a subscript; recreation renders it all-white, no subscript. **MINOR** (high).
+- **"X5 is Outlier" (recreation, both instances) vs "Xâ is Outlier" (original, both instances)** â the label text is WRONG. The original explicitly identifies column X8 as the outlier (consistent with the yellow-highlighted cells in the X8 column: 30 and 60); the recreation names X5. This changes the semantic content of the slide. **MAJOR** (confidence: very high â clearly legible in both images).
+
+**Training tables (Ã3)**
+- Structure 4 rows Ã 9 cols, headers X1âX8 alternating blue/red: â match.
+- Table 1 values (1,2,3,4,8,9,10,11 / 1,3,5,6,16,7,5,3 / 2,4,6,8,16,18,20,22): â exact match, row/column order correct.
+- Table 2: X8 cell = 30 with yellow highlight: â match.
+- Table 3: X8 cell = 60 with yellow highlight: â match.
+- Row-label subscripting (Xâ, Xâ, y with formatting) rendered as plain "X1/X2/y": **MINOR** (typed-vs-formatted styling).
+- Cell text vertically centered, no overflow, tables fully inside panel: â.
+
+**Test Data block**
+- "Test Data" blue box top-right: â.
+- Table Test1/Test2/Test3; X1: 30/40/50; X2: 15/20/25; y: 60/80/100 with light-green highlight row: â exact match including highlight color/placement.
+- Small red left-pointing arrow beneath the y row: â present in both.
+- Frame containment: â.
+
+**"Again / Y follows x1" box**
+- Text matches; again "Y follows xâ" is yellow-italic in the original, plain white in the recreation. **MINOR** (high).
+
+**Question box**
+- "What will be the effect of X8 Outlier values on the trained model ???" â verbatim match (original uses subscript Xâ; recreation plain "X8": MINOR). Line break after "on the" matches. However, the original box has a **pale-yellow fill**; the recreation is **white**. **MINOR** (high). Blue border present in recreation; original border is faint/thin â acceptable.
+
+**Artifacts**
+- Mouse cursor over the second table's X6/X7 area in image 2: video artifact, correctly omitted per rule (c).
+
+**Missing elements:** none â every region of the original is represented.
+
+**Geometry:** line heights in tables, legend/label alignment, gaps between the three tables, and vertical centering of cell contents all match closely. No overflow, clipping, collisions, or delimiter issues (no multi-line delimiters on this slide).
+
+## Summary of discrepancies
+1. **MAJOR** â Both callout labels read "X5 is Outlier" instead of the original's "Xâ is Outlier"; misidentifies the outlier column and contradicts the highlighted X8 cells (confidence: very high).
+2. MINOR â Title color bright red vs original dark crimson (high).
+3. MINOR â "Y follows xâ" styling: yellow italic w/ subscript in original vs plain white in recreation, in both the "Perfect Data" and "Again" boxes (high).
+4. MINOR â Question box fill white vs original pale yellow (high).
+5. MINOR â Subscript formatting (Xââ¦Xâ, xâ) flattened to plain digits throughout (high, medium impact).
+
+## Visual-quality defects in the recreation
+None beyond the above â no clipping, overflow, misalignment, or illegible text.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation' â a single MAJOR defect: the outlier label is factually wrong ("X5" vs the original's "Xâ") in two places, misrepresenting the slide's core teaching point. Fixing the two label strings (and optionally the minor color/styling items) would bring this to a clear PASS; everything else is verbatim and geometrically faithful.

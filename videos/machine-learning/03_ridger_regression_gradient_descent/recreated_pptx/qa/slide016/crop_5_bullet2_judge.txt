@@ -1,0 +1,18 @@
+Scope honored: this is the bulletâ2 cropâpair only. Important preliminary note for the "be exact" checks: this bullet is prose â there are **no equations, stacked fractions, â limits, subscripted variables, tables, or multiâline bracket/paren enclosures** anywhere in the region. So the equationâstructure, delimiterâspan, cellâvalue, and cellâcentering checks are **N/A** here; the relevant checks are glyph shapes/wording, the annotation styling, and stroke geometry.
+
+Transcription check (IMG1, recreation) against the intended line text:
+- L1: "â¢ Since there is a contradiction between model training (using training dataset) and model"
+- L2: "generalization, the regularization term is added to the objective loss function with a"
+- L3: "customized weigh factor (do regularization to what extent)"
+
+The recreation reproduces the text faithfully, **including the original's quirks** rather than silently "fixing" them: the nonstandard **"weigh factor"** (vs "weight"), the American **"customized"**, the comma placement after "generalization" on L2, and the line break "â¦and model / generalizationâ¦" with a consistent hanging indent on L2âL3. I specifically reâchecked the L2 word after "the" â IMG1 reads **"regularization term"**, which matches both the region spec and the correct ML phrasing; IMG2 is JPEGâsoft at that word but is consistent with that intended wording, so I am **not** raising it as a recreation error. No wrong, missing, or garbled characters; no wrong digits.
+
+Discrepancies (cropârelative locations):
+
+1. **Missing yellow highlight behind "customized weigh factor" â MINOR.** The region is defined to include the **yellow highlight and the red underline**. In IMG1 the phrase sits on plain white with only a thin darkâred underline; the **yellow fill is absent**. IMG2 shows the phrase in a warm/light highlighted band (faint in this 150 dpi/JPEG crop) under the same red underline. Location: L3, spanning roughly from the start of "customized" to just before "(doâ¦". Confidence: mediumâhigh on the underline being present in both; **medium** that the original highlight is substantive (it is lowâcontrast here â if the source footage shows a strong yellow band, this item should be upgraded toward MAJOR for exactness).
+
+2. **Phrase text tint vs. body â MINOR (fold into #1 unless confirmed).** IMG1 renders "customized weigh factor" in the same body black as the rest; IMG2 reads slightly warm where the highlight/underline sit. Per the founder spec this is highlight + underline (not red text), so I am treating it under item 1. Note only: if the original actually colors the phrase letters red (beyond the underline), that is an additional small textâcolor difference to fix. Confidence: low that it is true red text.
+
+Stroke/annotation geometry (checked, no defect): the red underline in IMG1 is thin, continuous, dark red (consistent with the C00000 family), sits below the baseline without touching the glyphs, and spans **exactly** "customized weigh factor" â it does not extend into "(do regularizationâ¦)" nor start early. Extent and weight match the original. The left/right template strokes visible at the crop edges are the intentional house chrome (not counted). Line separation and hangingâindent alignment of L2/L3 are consistent between the two crops.
+
+FINAL VERDICT: PASS

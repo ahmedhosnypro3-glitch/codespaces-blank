@@ -1,0 +1,31 @@
+# Template A full-slide leg — slide 026 attempt 8 (resume worker w26-r3-20261021T0538)
+# render: render_8.png  (md5 c837fee8a8a6455eaa4a69fed55f8bb5)
+# original: unique_slides/slide_026.jpg (md5 d31f40f3b6f270c537f41c995091e8ac)
+# payload: judge_prompt_6.txt byte-exact (md5 8fc119623b1f020c6d135c834969bf75)
+# cmd: bash scripts/16_vision_gate.sh python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison REN ORG -p "$(cat judge_prompt_6.txt)" --thinking high --max-tokens 65536 --timeout 600   [inside timeout 1700]
+# date: 2026-10-21T08:10:25+03:00
+
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1147335
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/render_8.png, videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/../../../unique_slides/slide_026.jpg ===
+[winner] images (round 1, attempt 1)
+**Comparison notes (image 1 = recreation, image 2 = original)**
+
+Text fidelity: all body text is verbatim in the recreation â title, the GD Algorithm heading, items [1]â[3], the âNotes:â heading, both bullets (including the originalâs quirks: âapproximatlyâ, the space in â(good news ).â). Line-break points also match (e.g., item [2] breaks before â(w.r.t. W)â; bullet 1 breaks after â(even withâ). Color scheme matches: darkâred C00000 headings, blue hyperlinkâstyled phrases (âmoving along the direction ofâ, ânegative gradientâ, âgradientâ), darkâred âAKA Learning Rateâ, black body. No missing element, no empty equation/graph region, no table. So nothing rises to BLOCKER.
+
+**Discrepancies**
+
+1. **MAJOR â inner blue algorithm/Notes frame: vertical size & enclosedâblock placement (confidence: high).** In the original the blueâbordered box stops shortly after the last line (âthe used Learning Rateâ), with gray panel visible beneath it. In the recreation the box is stretched downward to nearly reach the slideâs lower red stroke, enclosing a large empty lower interior (~60â80 px of extra framed white space, â13â16 % of panel height). This is a visible deviation in region size and in the vertical placement/centering of the enclosed content vs the the original. (Knockâon minor: the titleâtoâframe gap and the overall height at which the text block sits inside the panel also differ, the content sitting lower in the recreation.)
+
+2. **MINOR â title underline (confidence: high).** The original title âGradient Descent Solutionâ is underlined; the recreation title is not. Text is verbatim; styling only.
+
+3. **MINOR â underline scope on item [1] (confidence: low).** The original appears to underline âRandom Weights (W)â (the underline reaching through â(W)â); in the recreation the underline looks like it may stop at âWeightsâ. Flagged with low confidence only.
+
+**Visualâquality defects in the recreation**
+
+- No text overflow, clipping, collision, or illegibility detected; wrapping matches the original; labels/values align.
+- The only quality issue is the oversized/overâextended inner frame with an empty lower region (already counted as the MAJOR geometry deviation). The yellow â26â badge, gray panel, and red strokes are correct house chrome and are not defects.
+
+FINAL VERDICT: FAIL
+

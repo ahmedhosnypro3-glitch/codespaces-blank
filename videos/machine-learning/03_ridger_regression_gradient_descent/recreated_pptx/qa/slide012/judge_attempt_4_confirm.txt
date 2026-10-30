@@ -1,0 +1,38 @@
+## Element-by-element comparison (IMG1 recreation vs IMG2 original)
+
+**Frame/chrome (not judged, per ground rules):** white canvas, E9E9E7 panel, red left/right/bottom strokes (no top stroke â correct), yellow "12" badge â all present and correct.
+
+### Verbatim text checks
+
+| Element | Original (IMG2) | Recreation (IMG1) | Status |
+|---|---|---|---|
+| Title | Effect of Overfitting on model parameter âWâ | identical wording | â text |
+| âTraining Dataâ | present, white italic serif | present, white bold upright sans | wording â |
+| âTest Dataâ | present | present | â |
+| Red label 1 | âPerfect Data / Y follows xââ | âPerfect Data / Y follows x1â | wording â (no subscript) |
+| Red labels 2 & 3 | **âXâ is Outlierâ** | **âX5 is Outlierâ** | â wrong character |
+| âAgain / Y follows xââ | present | present | wording â |
+| Question box | âWhat will be the effect of Xâ Outlier values on the trained model ???â | same words | wording â, break differs |
+| Test-table row labels | **xâ, xâ, y** (left column) | **absent entirely** | â missing |
+| Table numeric data (all 3 training tables, test table) | 1,2,3,4,8,9,10,11 / 1,3,5,6,16,7,5,3 / 2,4,6,8,16,18,20,22; outliers 30 and 60; test 30,40,50 / 15,20,25 / 60,80,100 | identical values, identical yellow highlights (30, 60 in the Xâ column), identical green shading on the 60/80/100 row | â |
+
+### Discrepancies
+
+1. **MAJOR â confidence HIGH â wrong feature name in two red callout labels.** Both âis Outlierâ labels read **âX5 is Outlierâ** in the recreation but **âXâ is Outlierâ** in the original. The highlighted yellow cells (30, 60) sit in the **Xâ** column in both slides, and the question box correctly says âXââ, so the recreationâs labels are internally contradictory as well as non-verbatim.
+2. **MAJOR â confidence HIGH â missing table column in the Test Data table.** The original test table has **four columns**: an empty header cell plus **xâ / xâ / y** row labels, then Test1âTest3. The recreation omits the whole label column (3 columns only), so âTest1â occupies the first column. Consequently the table is narrowed (~144 px vs ~188 px) and shifted right (~x666 vs ~x622), and the green shading of the last row no longer covers a label cell.
+3. **MINORâMAJOR â confidence MEDIUM-HIGH â question box wrap + fill + placement.** Original breaks as âWhat will be the effect of Xâ Outlier / values on the trained model ???â on a **pale-yellow/cream fill**; recreation breaks as ââ¦X8 Outlier values on the / trained model ???â on a **white fill**, and the box sits ~17 px higher (top â321 vs â338) and is ~10 px narrower.
+4. **MINOR â confidence MEDIUM â typeface/italic substitution.** Original title and all red-box labels use a Times-like **serif, italic, bold** face; the recreation uses upright Arial bold, and the title is bright red (FF0000) versus the originalâs dark crimson (~C00000/B01E23). Wording and sizes are comparable.
+5. **MINOR â confidence MEDIUM-HIGH â lost subscripts.** Original renders Xâ, Xâ, xâ, xâ (and Xâ in labels/question) with true subscripts; recreation uses baseline âX1/X2/x1/x8â. Content is correct, typographic fidelity is reduced.
+6. **MINOR â confidence MEDIUM â added element.** The recreation contains a red left-pointing arrow (âx620â655, y220) in the gray gutter between the training tables and the test table; no such arrow is present in the original frame (the only arrow-like mark there is the video mouse cursor near the tableâ2 Xâ header, which is correctly omitted per rule (c)).
+7. **MINOR â confidence MEDIUM â vertical rhythm.** The âAgain / Y follows x1â box is ~14 px higher than in the original, and the three-table stack is compressed (table 2 top â232 vs â245; table 3 bottom â462 vs â487). Internal alignments (label boxes against their tables, headers against values) remain coherent.
+8. **MINOR â confidence LOW â header column tinting.** The recreation alternates header tints strictly by column (X2 red, X3 blue, â¦) consistent with the data rows; the originalâs header tints are small and slightly ambiguous at this resolution, so this could not be verified as a real deviation.
+
+### Visual-quality check of the recreation
+
+- No text overflow, clipping, or collisions; all tables, boxes, and the question frame sit fully inside the house panel and clear of the red strokes (the nearest items â test table right edge âx810 and question box right edge âx806 â remain well inside the right stroke/badge).
+- Gridlines, yellow outlier highlights, and the green final-row shading render cleanly; text is legible at 150 dpi.
+- Weaknesses are editorial (wrong X index, dropped test-table label column) rather than rendering artifacts.
+
+## FINAL VERDICT: FAIL for 'faithful, usable recreation'
+
+Two MAJOR content defects â the âX5 is Outlierâ label error (should be Xâ) and the omission of the Test Data tableâs xâ/xâ/y row-label column â plus the question-box wrap/fill drift mean the slide is not a faithful reproduction of the original lecture frame.

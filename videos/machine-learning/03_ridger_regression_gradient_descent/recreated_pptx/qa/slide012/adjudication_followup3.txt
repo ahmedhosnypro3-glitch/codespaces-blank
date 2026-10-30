@@ -1,0 +1,68 @@
+==========================================================================
+FINDING 3 — test-table colour phase (ORIGINAL vs RENDER)
+==========================================================================
+Classified per cell: (red px, blue px). 'phase' = which dominates.
+
+ORIGINAL:
+    Test1: r  239 b    0 -> RED |  Test2: r    0 b  264 -> BLUE |  Test3: r  264 b    0 -> RED
+       30: r  190 b    0 -> RED |     40: r    0 b  192 -> BLUE |     50: r  180 b    0 -> RED
+       15: r  153 b    0 -> RED |     20: r    0 b  186 -> BLUE |     25: r  170 b    0 -> RED
+       60: r  136 b    0 -> RED |     80: r    0 b  192 -> BLUE |    100: r  186 b    0 -> RED
+
+RENDER  :
+    Test1: r    0 b  473 -> BLUE |  Test2: r  507 b    0 -> RED |  Test3: r    0 b  510 -> BLUE
+       30: r    0 b  203 -> BLUE |     40: r  199 b    0 -> RED |     50: r    0 b  202 -> BLUE
+       15: r    0 b  173 -> BLUE |     20: r  195 b    0 -> RED |     25: r    0 b  187 -> BLUE
+       60: r    0 b  190 -> BLUE |     80: r  231 b    0 -> RED |    100: r    0 b  241 -> BLUE
+
+==========================================================================
+Same test on the TRAINING tables (known-good reference phase)
+==========================================================================
+ORIGINAL T1 row1: X1>=tie 1>=B 2>=R 3>=B 4>=R 8>=B 9>=R 10>=B 11>=R
+RENDER   T1 row1: X1>=B 1>=B 2>=R 3>=B 4>=R 8>=B 9>=R 10>=B 11>=R
+
+==========================================================================
+FINDING 5 — whole-frame red-ink census of the ORIGINAL
+==========================================================================
+total red px in frame: 19667
+components with >=8 px: 78
+   n= 5295  bbox x707..835 y270..316  (w=129 h=47)
+   n= 4936  bbox x69..196 y175..221  (w=128 h=47)
+   n= 2879  bbox x70..196 y323..349  (w=127 h=27)
+   n= 2875  bbox x69..196 y445..471  (w=128 h=27)
+   n=  143  bbox x282..301 y70..90  (w=20 h=21)
+   n=  129  bbox x156..170 y70..90  (w=15 h=21)
+   n=  106  bbox x758..773 y70..90  (w=16 h=21)
+   n=   96  bbox x512..526 y75..90  (w=15 h=16)
+   n=   94  bbox x418..428 y75..96  (w=11 h=22)
+   n=   74  bbox x176..180 y69..90  (w=5 h=22)
+   n=   70  bbox x748..758 y70..90  (w=11 h=21)
+   n=   68  bbox x688..694 y72..90  (w=7 h=19)
+   n=   64  bbox x583..588 y76..95  (w=6 h=20)
+   n=   63  bbox x195..207 y75..90  (w=13 h=16)
+   n=   62  bbox x305..318 y76..90  (w=14 h=15)
+   n=   62  bbox x265..270 y69..88  (w=6 h=20)
+   n=   59  bbox x468..473 y75..90  (w=6 h=16)
+   n=   58  bbox x369..375 y73..90  (w=7 h=18)
+
+Red-ink census done. Any narrow tall component far from the known boxes
+(title, 4 label boxes, Again callout) is a candidate arrow/leader.
+
+==========================================================================
+Same census for the RENDER
+==========================================================================
+total red px: 101348
+   n=23935  bbox x707..835 y270..316 (frame px)
+   n=23007  bbox x69..196 y175..221 (frame px)
+   n=13674  bbox x69..196 y445..471 (frame px)
+   n=13674  bbox x69..196 y323..349 (frame px)
+   n= 5216  bbox x58..901 y46..539 (frame px)
+   n= 1157  bbox x571..706 y290..295 (frame px)
+   n=  811  bbox x633..654 y74..91 (frame px)
+   n=  601  bbox x550..568 y78..91 (frame px)
+   n=  601  bbox x422..440 y78..91 (frame px)
+   n=  589  bbox x258..273 y74..91 (frame px)
+   n=  559  bbox x364..376 y78..95 (frame px)
+   n=  548  bbox x155..168 y74..91 (frame px)
+   n=  515  bbox x499..511 y78..95 (frame px)
+   n=  478  bbox x458..469 y74..91 (frame px)

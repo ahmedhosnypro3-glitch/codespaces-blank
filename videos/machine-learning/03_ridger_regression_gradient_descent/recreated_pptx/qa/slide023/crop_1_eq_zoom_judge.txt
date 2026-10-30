@@ -1,0 +1,13 @@
+Reviewed crop-by-crop at matched scale.
+
+**Discrepancies**
+
+| # | Location / description | Severity | Confidence |
+|---|---|---|---|
+| 1 | **Missing underline on the final vector `Y`.** In the original (IMG2) the closing `Y` clearly carries an underline, matching the underlined `W` vector notation. In the recreation (IMG1) the identical `Y` has no underline. This is a semantic notation omission, not just a faint stroke issue. | **MAJOR** | High |
+| 2 | **Variable glyph weight/typeface mismatch.** The original sets `W`, `X`, `Y`, parentheses, `+`, and `=` in a heavier/bold math typeface; the recreation uses a lighter/normal-weight typeface. All characters are still mathematically correct, but glyph shapes and stroke weights are not matched. | MINOR | High |
+| 3 | **Delimiter and operator stroke weight.** Parentheses, `+`, and `=` are visibly lighter in the recreation than in the original. Geometry still spans the full enclosure correctly, so this is weight-only, not enclosure error. | MINOR | High |
+
+**Confirmed correct:** equation structure `(X^T X + Î»I)^{-1} X^T Y`; exponent `-1` present and correctly placed outside the closing parenthesis; green `Î»` present; red `-1` present; parentheses fully enclose `X^T X + Î»I`; no missing/garbled characters; no truncated superscripts; `W` underline present and continuous.
+
+FINAL VERDICT: **FAIL** for âfaithful, usable recreation of this regionâ due to the MAJOR missing underline on the final `Y`.

@@ -1,0 +1,151 @@
+# 1. LAYOUT MAP
+
+The crop contains a left edge artifact (a dark-red vertical line, likely the edge of an enclosing element from the slide), then one large cream-filled rectangle with a dark-blue border that holds all content. Inside the box there are four content groups:
+
+- **LEFT-VECTOR STACK**: six labeled 2Ã1 column vectors xââ¦xâ, each with a class label Câ/Câ underneath.
+- **CENTER-EQUATION GROUP**: "Initial W = (4, â2, â2)áµ" with a bold red "Step Î· = 2" to its right.
+- **BOTTOM-LEGEND LINE**: "Câ positive  Câ negative  Zero is unaccepted".
+- **RIGHT-CHECK GROUP**: "Check classes of" followed by three labeled 2Ã1 column vectors Zâ Zâ Zâ.
+
+Bounding boxes (image px are in the 4Ã upscaled crop; slide-space = 50 + img_x/4, 44 + img_y/4):
+
+| Region | Image px (x0,y0 â x1,y1) | Slide-space px (x0,y0 â x1,y1) |
+|---|---|---|
+| Left red edge line | 0,0 â 12,376 | 50.0,44.0 â 53.0,138.0 |
+| Cream box (incl. blue border) | 62,38 â 2778,342 | 65.5,53.5 â 744.5,129.5 |
+| Blue border stroke | ~62â70 and ~2770â2778 vertical; ~38â46 and ~334â342 horizontal | ~65.5â67.5 / 742.5â744.5 vertical; 53.5â55.5 / 127.5â129.5 horizontal |
+| LEFT-VECTOR STACK (labels xââ¦xâ) | 145,68 â 790,118 | 86.3,61.0 â 247.5,73.5 |
+| LEFT-VECTOR STACK (vector bodies) | 145,125 â 795,275 | 86.3,75.3 â 248.8,112.8 |
+| LEFT class-label row (Câ/Câ) | 145,282 â 800,330 | 86.3,114.5 â 250.0,126.5 |
+| CENTER-EQUATION "Initial W = (Â·)" | 915,140 â 1265,260 | 278.8,79.0 â 366.3,109.0 |
+| "Step Î· = 2" | 1305,95 â 1615,150 | 376.3,67.8 â 453.8,81.5 |
+| BOTTOM-LEGEND LINE | 755,282 â 1815,332 | 238.8,114.5 â 503.8,127.0 |
+| "Check classes of" | 1865,152 â 2235,202 | 516.3,82.0 â 608.8,94.5 |
+| RIGHT-CHECK vectors (Z labels + bodies) | 2300,80 â 2650,295 | 625.0,64.0 â 712.5,117.8 |
+
+ASCII sketch (not to scale):
+
+```
++--------------------------------------------------------------------------+
+| x1   x2   x3   x4   x5   x6        4                                     |
+| (1)  (2)  (1)  (5)  (6)  (6)     (            Initial W    Step eta = 2  |
+| (1)  (1)  (2)  (4)  (5)  (6)     (-2                 |LEFT-VECTOR|        |
+|                                  (-2 )               |  STACK    |        |
+| C1   C1   C1   C2   C2   C2                                           Z1  Z1  Z1
+|                                  C1 positive C2 negative  Zero is unaccepted
+|                                          |BOTTOM-LEGEND|  Check classes of
+|                                  CENTER-EQUATION       (0) (7) (3)  |RIGHT-CHECK|
+|                                                        (0) (6) (2) |
++--------------------------------------------------------------------------+
+```
+
+# 2. VERBATIM TEXT
+
+Reading order: left group top-to-bottom, center group, bottom legend, right group.
+
+**LEFT-VECTOR STACK â vector headers** (all [black], italic serif):
+- `x` with subscript `1` â slide (91, 63)
+- `x` with subscript `2` â slide (119, 63)
+- `x` with subscript `3` â slide (148, 63)
+- `x` with subscript `4` â slide (178, 63)
+- `x` with subscript `5` â slide (206, 63)
+- `x` with subscript `6` â slide (234, 63)
+
+**LEFT-VECTOR STACK â vector bodies** (all [black]; each digit inside tall thin parentheses):
+- Column 1: `(` `1` `1` `)` â slide xâ92, digits at yâ85 and yâ100
+- Column 2: `(` `2` `1` `)` â slide xâ120
+- Column 3: `(` `1` `2` `)` â slide xâ149
+- Column 4: `(` `5` `4` `)` â slide xâ179
+- Column 5: `(` `6` `5` `)` â slide xâ207
+- Column 6: `(` `6` `6` `)` â slide xâ235
+
+**LEFT class labels**:
+- `C` with subscript `1` [red] â slide (91, 117)
+- `C` with subscript `1` [red] â slide (119, 117)
+- `C` with subscript `1` [red] â slide (148, 117)
+- `C` with subscript `2` [blue] â slide (178, 117)
+- `C` with subscript `2` [blue] â slide (206, 117)
+- `C` with subscript `2` [blue] â slide (234, 117)
+
+**CENTER-EQUATION GROUP**:
+- `Initial` [black] â slide (280, 84)
+- `W` [black, with underline bar beneath the W] â slide (321, 84)
+- `=` [black] â slide (333, 84)
+- Big parentheses enclosing a 3-entry column [black]: `(` at slide xâ338, `)` at slide xâ360, spanning slide yâ63â108
+- Inside, top to bottom: `4` [black] slide (349, 66); `â2` [black] slide (348, 81); `â2` [black] slide (348, 97) (minus signs are explicit: `â` `2` and `â` `2`)
+- `Step` [red, bold] â slide (377, 72)
+- `Î·` [red, bold] â slide (429, 71)
+- `=` [red, bold] â slide (441, 71)
+- `2` [red, bold] â slide (448, 71)
+
+**BOTTOM-LEGEND LINE**:
+- `C` [red, bold] with subscript `1` [red] â slide (239, 117)
+- `positive` [black, italic] â slide (248, 118)
+- `C` [blue, bold] with subscript `2` [blue] â slide (315, 117)
+- `negative` [black, italic] â slide (325, 118)
+- `Zero` [green, bold] â slide (398, 118)
+- `is unaccepted` [black] â slide (435, 119)
+
+**RIGHT-CHECK GROUP**:
+- `Check classes of` [black] â slide (516, 85)
+- Vector headers: `Z` with subscript `1` [black, italic] â slide (636, 68); `Z` with subscript `1` [black, italic] â slide (665, 68) [?]; `Z` with subscript `1` [black, italic] â slide (695, 68) [?]
+- Vector bodies [black] with tall thin parentheses:
+  - Column 1: `(` `0` `0` `)` â slide xâ637, digits at yâ93 and yâ107
+  - Column 2: `(` `7` `6` `)` â slide xâ666
+  - Column 3: `(` `3` `2` `)` â slide xâ695
+
+No arrows, brackets, or bars other than the underline bar beneath `W` are present.
+
+# 3. COLORS
+
+| Element | Color |
+|---|---|
+| Left edge vertical line | dark red, â #A03A3A |
+| Box border | dark blue / navy, â #1A1ACC (pure blue tone) |
+| Box fill | cream / ivory, â #FFFFE6 |
+| All digits and parentheses (vectors, W vector, Z vectors) | black â #000000 |
+| `xââ¦xâ`, `Initial`, `W`, `=`, `Check classes of`, `positive`, `negative`, `is unaccepted` | black â #000000 |
+| `Step Î· = 2` | red â #D40000 |
+| `Câ` class labels (3Ã) and legend `Câ` | red â #CC0000 |
+| `Câ` class labels (3Ã) and legend `Câ` | blue â #0000CC |
+| `Zero` | green â #009900 |
+| Underline bar under `W` | black â #000000 |
+
+# 4. MEASURED GEOMETRY
+
+**Column centres (image px â slide-space px):**
+- xâ..xâ label centres: â 175, 290, 405, 522, 633, 748 â 93.8, 122.5, 151.3, 180.5, 208.3, 237.0
+- x-vector column centres (same x as labels, Â±3 img px)
+- Z-vector label centres: â 2348, 2462, 2582 â 637.0, 665.5, 695.5
+- W-vector entry centre: â 1396 â 349.0
+
+**Row bands (image px, topâbottom of ink):**
+- `xââ¦xâ` header line: y â 68â118 (x-height â 30 img px, full glyph with subscript â 50) â slide 61â73.5
+- Vector row 1 digits (1,2,1,5,6,6 / 4 / 0,7,3): y â 155â198 â slide 82.8â93.5; digit height â 40 img px = 10 slide px
+- Vector row 2 digits (1,1,2,4,5,6 / â2 / 0,6,2): y â 213â256 â slide 97.3â108.0
+- Row 3 of W vector (â2): y â 213â256 (same band as other vectors' row 2); W-vector row 1 (`4`) sits higher: y â 85â128 â slide 65.3â76.0
+- `Câ/Câ` class-label line: y â 285â328 â slide 115.3â126.0; glyph height â 43 img px
+- `Initial W =` baseline band: y â 148â190 â slide 81â91.5
+- `Step Î· = 2`: y â 95â148 â slide 67.8â81.0; cap height â 45 img px = 11 slide px
+- `Check classes of`: y â 155â198 â slide 82.8â93.5
+- `Zâ` header line: y â 85â135 â slide 65.3â77.8
+
+**Parenthesis spans:**
+- x-vector parentheses: img y â 128â272 (span â 144 img px = 36 slide px), width of each â 18 img px
+- W-vector parentheses: img y â 72â258 (span â 186 img px = 46.5 slide px) â spans all three rows
+- Z-vector parentheses: img y â 148â292 (span â 144 img px = 36 slide px)
+
+**Box border:** outer rect img (62,38)â(2778,342); stroke thickness â 8 img px = 2 slide px.
+
+**Underline bar under W:** img x â 1078â1120, y â 190â196 (slide x 319.5â330, y 91.5â93).
+
+**Spacing:** gap between xâ vector column (right edge â img 795) and `Initial` (left â img 915) â 120 img px = 30 slide px; gap between W-vector closing paren (â img 1252) and `Step` (â img 1305) â 53 img px â 13 slide px; gap between `Check classes of` (right â img 2235) and first Z label (â img 2330) â 95 img px â 24 slide px.
+
+# 5. AMBIGUITIES
+
+1. **Z-vector subscripts, 2nd and 3rd columns** [?] at slide (665, 68) and (695, 68): both subscripts render as tiny marks most consistent with `1`, so all three read `Zâ`. Candidates: `Zâ` vs `Zâ` (col 2) and `Zâ` vs `Zâ` (col 3). The glyphs are heavily pixelated at this resolution.
+2. **Subscripts of `Câ`/`Câ`** (slide xâ91â234, yâ117 and xâ239/315, yâ117): small; `1` vs `2` is resolvable by the red/blue color coding (red = 1, blue = 2), but the raw glyphs themselves are at the edge of legibility. Flagged as low-confidence glyph shapes, high-confidence via color.
+3. **Minus signs in the W vector** (slide (348, 81) and (348, 97)): printed as short dashes before `2`; consistent with `â2` (minus two), not hyphen artifacts. Confidence moderate-high; flagged because dash length â 10 img px could also be an en-dash `â2`.
+4. **`x** (slide (206, 63)): pixelated; reads `5`, candidates `5` vs `6`. Vector body beneath clearly reads `6`/`5` (top/bottom).
+5. **x-vector row-2 digits in columns 1â3** (slide xâ92/120/149, yâ100): read as `1`, `1`, `2`; the `1` glyphs carry small serif flags that could be mistaken for other digits at this scale, but `1` is the best reading.
+6. **Left red edge line** (slide xâ50â53): partially cut by the crop; it is a thin vertical rule of uncertain full extent â could be a slide-border decoration or the edge of an outer frame. Not text.

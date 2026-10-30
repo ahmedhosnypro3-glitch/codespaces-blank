@@ -1,0 +1,135 @@
+# 1. LAYOUT MAP
+
+The crop contains a thin **red rule across the very top**, a short **red vertical bar at the far left edge**, and one large **cream-filled box with a dark-blue rounded border** holding all slide content. Inside the box there are four sub-regions:
+
+| Region | Image px (x, y) | Slide-space px (x, y) |
+|---|---|---|
+| R1 â Red top rule | (0, 0)â(2800, 10) | (50, 44)â(750, 46.5) |
+| R2 â Red left bar | (0, 0)â(12, ~340) | (50, 44)â(53, ~129) |
+| R3 â Blue-bordered cream box | (75, 40)â(2760, 330) | (69, 54)â(740, 126.5) |
+| R4 â Six column vectors + class labels (left) | (130, 70)â(960, 335) | (82, 61)â(290, 128) |
+| R5 â "Initial W" equation + "Step Î· = 2" (centre) | (830, 50)â(1560, 260) | (257, 56)â(440, 109) |
+| R6 â Legend line "Câ positive Câ negative Zero is unaccepted" (bottom centre) | (695, 255)â(1800, 335) | (224, 108)â(500, 128) |
+| R7 â "Check classes of" + three z-vectors (right) | (1830, 70)â(2640, 275) | (507, 61)â(710, 113) |
+
+ASCII sketch (not to scale):
+
+```
+====================================================================  R1 red rule
+||
+||+-----------------------------------------------------------------------------+ R3 blue border
+|||| x1   x2   x3   x4   x5   x6       Initial W = ( 4 )   Step Î· = 2          ||
+|||| (1)  (2)  (1)  (5)  (6)  (6)              (-2)                             ||  R4   R5      R7
+|||| (1)  (1)  (2)  (4)  (5)  (6)              (-2)      Check classes of       ||
+||||                                                                              ||         z1  z1  z1
+|||| C1   C1   C1   C2   C2   C2   C1 positive C2 negative  Zero is unaccepted   ||         (0) (7) (3)
+||+-----------------------------------------------------------------------------+         (0) (6) (2)
+^ R2 red bar
+```
+
+# 2. VERBATIM TEXT
+
+Reading order: left column block â centre equation â step annotation â bottom legend â right block.
+
+**R4 â column-vector labels (top row of left block):**
+- "x" with subscript "1" â `xâ` [black] â slide â (89, 63)
+- `xâ` [black] â slide â (128, 63)
+- `xâ` [black] â slide â (167, 63)
+- `xâ` [black] â slide â (206, 63)
+- `x] â slide â (245, 63)
+- `xâ` [black] â slide â (283, 63)
+
+**R4 â column-vector contents (each a 2Ã1 column, digits topâbottom):**
+- column 1: `(` `1` `1` `)` [black] â slide x â 85â97
+- column 2: `(` `2` `1` `)` [black] â slide x â 124â136
+- column 3: `(` `1` `2` `)` [black] â slide x â 163â175
+- column 4: `(` `5` `4` `)` [black] â slide x â 202â214
+- column 5: `(` `6` `5` `)` [black] â slide x â 241â253
+- column 6: `(` `6` `6` `)` [black] â slide x â 279â291
+
+**R4 â class labels (bottom row of left block):**
+- `Câ` [red] â slide â (89, 118)
+- `Câ` [red] â slide â (128, 118)
+- `Câ` [red] â slide â (167, 118)
+- `Câ` [blue] â slide â (206, 118)
+- `Câ` [blue] â slide â (245, 118)
+- `Câ` [blue] â slide â (283, 118)
+
+**R5 â equation:**
+- `Initial` [black, italic serif] â slide â (259, 75)
+- `W` [black, bold italic, underlined] â slide â (299, 75)
+- `=` [black] â slide â (310, 75)
+- column vector: `(` `4` `â2` `â2` `)` [black; minus signs are true minus glyphs "â"] â slide x â 318â334, y â 56â106
+
+**R5 â step annotation:**
+- `Step` [red, bold italic] â slide â (361, 68)
+- `Î·` [red, bold italic] â slide â (399, 68)
+- `=` [red] â slide â (413, 68)
+- `2` [red] â slide â (427, 68)
+
+**R6 â legend:**
+- `Câ` [red] â slide â (228, 118)
+- `positive` [black, italic] â slide â (240, 118)
+- `Câ` [blue] â slide â (296, 118)
+- `negative` [black, italic] â slide â (309, 118)
+- `Zero` [green, bold italic] â slide â (364, 118)
+- `is unaccepted` [black, roman] â slide â (390, 118)
+
+**R7 â right block:**
+- `Check classes of` [black, roman] â slide â (510, 80)
+- `zâ` [black] â slide â (613, 63)  *(see Ambiguities)*
+- `zâ` [black] â slide â (651, 63)  *(see Ambiguities)*
+- `zâ` [black] â slide â (690, 63)  *(see Ambiguities)*
+- column 1: `(` `0` `0` `)` [black] â slide x â 610â622
+- column 2: `(` `7` `6` `)` [black] â slide x â 649â661
+- column 3: `(` `3` `2` `)` [black] â slide x â 687â699
+
+# 3. COLORS
+
+| Element | Ink/Fill |
+|---|---|
+| Top rule + left bar | crimson red â #C02040 (200, 32, 64) |
+| Outer background (outside cream box) | very light grey/white â #F7F7F7 |
+| Box border | strong blue â #1B1BB0 (27, 27, 176) |
+| Box fill | cream / pale yellow â #FFFDE8 (255, 253, 232) |
+| All vectors, x-labels, "Initial", "positive", "negative", "is unaccepted", "Check classes of", z-labels | black #000000 |
+| `W` | black, bold, underlined |
+| `Câ`, `Step Î· = 2` | red â #CC0033 (204, 0, 51) |
+| `Câ` | blue â #2222AA (34, 34, 170) |
+| `Zero` | green â #009933 (0, 153, 51) |
+
+# 4. MEASURED GEOMETRY
+
+**Column centres (left block, image px â slide px):**
+- xâ: â175 â 93.8; xâ: â330 â 132.5; xâ: â480 â 170; xâ: â635 â 208.8; x â790 â 247.5; xâ: â940 â 285. Column pitch â 152â156 img px â 38â39 slide px.
+
+**Row bands (image px):**
+- x-labels: y â 75â120 (glyph height â 40 img px incl. subscript) â slide y 62.8â74
+- left vector digits: y â 135â265; digit glyph height â 45 img px (â11 slide pt); top digit row â 135â195, bottom digit row â 205â265 â slide y 77.8â110.3
+- C-labels: y â 280â335 â slide y 114â127.8
+- "Initial": y â 125â170 (x-height â 30, cap â 45 img px) â slide y 75.3â86.5
+- W-vector digits: `4` y â 60â110; `â2` y â 135â185; `â2` y â 200â250 â slide y 59â106.5
+- "Step Î· = 2": y â 85â155 (cap height â 55 img px, bold) â slide y 65.3â82.8
+- "Check classes of": y â 135â185 â slide y 77.8â90.3
+- z-labels: y â 75â120; z-vectors: y â 140â270 â slide y 62.8â111.5
+- Legend line: y â 258â335 â slide y 108.5â127.8
+
+**Parenthesis spans:**
+- Left 2Ã1 columns: parens span y â 130â265 img px (height â 135 img px â 34 slide px); each paren width â 25 img px.
+- W vector: parens span y â 50â255 img px (height â 205 img px â 51 slide px), x â 1075â1205 img px.
+- z columns: parens span y â 140â270 img px (height â 130 img px â 33 slide px).
+
+**W underline:** horizontal bar under "W" at y â 172 img px, x â 998â1042 img px.
+
+**Box border:** stroke thickness â 5â6 img px (â1.4 slide px); corners slightly rounded; box interior padding â 55 img px from border to first ink.
+
+**z-vector column centres:** â 2287, 2437, 2587 img px â 621.8, 659.3, 696.8 slide px; pitch â 150 img px â 37.5 slide px.
+
+# 5. AMBIGUITIES
+
+1. **[?] z-vector subscripts (slide â x 613, 651, 690; y â 63):** all three labels appear to read `z` with subscript `1`. Given the context (three distinct vectors), the intended labels are plausibly `zâ, zâ, zâ`, but the printed subscript glyph in each case is small and reads most like "1". Candidates per label: `1` vs `2` vs `3`. Flagged rather than normalized.
+2. **[?] x-label subscripts (slide y â 63):** subscripts are small; `xâ` subscript could be read `2` vs `3` at low confidence, but `2` is the best reading given sequence context;` subscript `5` vs `6` â best reading `5`.
+3. **[?] C-label subscripts:** subscript of `Câ`/`Câ` (slide y â 118â126) is very small; `1` vs `2` distinguished mainly by color coding (red = 1, blue = 2). Glyphs themselves are near the resolution limit.
+4. **[?] "Î·" glyph (slide â 399, 68):** red bold italic character; reads as Greek eta `Î·`; alternatively could be a stylized `n`, but eta is the better match given the looped descender.
+5. **[?] minus signs in W vector (slide â 328, 89 and 328, 103):** printed as short dashes; read as minus signs `â2`, `â2` (not hyphens in a text run), consistent with a numeric column vector. No ambiguity in the digits themselves.
+6. **[?] `Zero` vs `2ero`:** first glyph of the green word is `Z` (no crossbar confusion observed), but at this size `Z` vs `2` is flagged for completeness; best reading `Zero`.

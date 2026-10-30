@@ -1,0 +1,33 @@
+# Judge transcript — slide 047, attempt 5 — crop BUTTON
+- date: 2026-10-24 07:04
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): recreated_pptx/qa/slide047/crop_5_button_render.png  (cut from render_9.png md5=1e73a453ca54f0d45455780b109857af)
+- IMG2 (original crop): recreated_pptx/qa/slide047/crop_5_button_orig.png (frame bbox 71,270,246,312 upscaled to the identical pixel size)
+- scale: identical per axis by construction (audit: crop_5_scale_audit.txt); region = the red "Check Classes" action button.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region at matched effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten ink at most MINOR.
+(d) Professional 2D math formatting is the mandated rendering.
+(e) JPEG halos/soft edges in IMG2 are capture artifacts.
+Exactness required on: glyph shapes, wording, fill colour, text colour, geometry, alignment.
+
+## Comparison
+- Wording: "Check Classes" on both — capital C on both words, same spelling.
+- Fill: solid red rectangle on both; the original's flat interior samples (198,0,16) and the
+  render uses C00000 (192,0,0) — a JPEG-measurement-level match.
+- Text: white bold, centred on both; ink width 137 px vs 139 px, cap height 15 px vs 16 px.
+- Geometry: render rect x79..238 y278..304 vs original x79..238 y278..304 — identical.
+- No border, no shadow, no rounded corners on either.
+
+## Discrepancies
+1. [MINOR] Button text ~2 px narrower and 1 px shorter than the original (23 pt Liberation
+   Serif bold vs the original's ~23 pt Times bold) — typeface metric difference, centred and
+   fully inside the button on both.
+
+## Checked as matching
+Wording, capitalisation, text colour (white), fill colour (red), rectangle geometry, centring,
+absence of border/shadow — no wrong word, no clipped glyph, no text outside the button.
+
+FINAL VERDICT: PASS

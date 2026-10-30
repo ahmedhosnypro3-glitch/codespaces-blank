@@ -1,0 +1,39 @@
+# Fidelity Check â Slide 025 (Recreation attempt 4)
+
+## Grounding
+Ground rules acknowledged: house chrome (gray panel, red left/right/bottom-only strokes, yellow/purple badge "25") is intentional and excluded from the discrepancy list. Badge numeral "25" matches the original â correct.
+
+## Element-by-element comparison
+
+**Title**
+- "Types of Loss function shapes" â verbatim match, red bold, position and scale comparable. badge**
+- "25" in yellow circle with purple ring â matches## Discrepancies
+
+1. **MAJOR (confidence 0.95) â Label text/line-break error, both upper labels.** Original: "Concave Function" / "One Maxima" and "Convex Function" / "One Minima" (space between "Function" and "One"). Recreation renders "Concave FunctionOne" / "Maxima" and "Convex FunctionOne" / "Minima" â the space is collapsed and the line break moved. Not verbatim; also changes label box proportions.
+
+2. **MAJOR (confidence 0.9) â FRAME CONTAINMENT, top-left panel.** The three red horizontal reference lines start inside the panel but extend rightward **through and past the red panel border** (to ~x575px while the frame ends ~x550px). Ink crosses the enclosing frame â overflow per rule (5).
+
+3. **MAJOR (confidence 0.85) â FRAME CONTAINMENT, bottom-left panel.** The long red horizontal line extends past the panel's right border (~x790px vs frame ~x780px). Same overflow defect.
+
+4. **MAJOR (confidence 0.8) â Wrong plot content, top-right panel.** Original shows a **convex bowl** (curved 3D surface, z-axis Ã10â´ with ticks 0.5/1/1.5/2, red secant lines crossing the bowl). Recreation shows a **nearly flat checkered plane** with no bowl curvature â the convex-function geometry is not rendered. This is a wrong chart, not a styling difference.
+
+5. **MAJOR (confidence 0.75) â Wrong plot content, bottom-right panel.** Original shows an irregular wavy/saddled surface with a winding black gradient-descent path. Recreation shows a clean symmetric paraboloid. Conceptually related, but the rendered surface type does not match the original's chart.
+
+6. **MAJOR (confidence 0.7) â Missing annotation marks, bottom-left panel.** Original places **red "X" markers** at the minima and labeled pointer arrows (Global Maxima â peak, Local Maxima, Local Minima, Global Minima). Recreation omits the X markers and repositions the labels: "Global Minima" sits at the top near the peak (original puts Global Minima at bottom-right) and "Global Maxima" at bottom (original at top). Labels are attached to the wrong features â annotation semantics are inverted in two cases.
+
+7. **MINOR (confidence 0.85) â Missing axis ticks/labels, top-left and bottom-left panels.** Original shows numeric ticks (0, â5, 2, â2, 0; â8â¦8, X/Y axis labels). Recreation panels have no readable axis numbers.
+
+8. **MINOR (confidence 0.6) â Top-left surface touches/clips at the panel bottom border**; original leaves clearance between the surface base and the frame.
+
+9. **MINOR (confidence 0.7) â Bottom-left label leader lines** in the recreation are plain long diagonal strokes rather than the original's short pointer arrows; "Local Maxima"/"Local Minima" labels partially collide with the surface mesh, slightly reducing legibility.
+
+## Visual-quality defects in the recreation
+- Red reference lines overflowing panel borders (items 2, 3) â the most visually jarring defect.
+- "FunctionOne" crowding in both blue callout boxes.
+- Rotated tick text ("100", "-100", "0") in the top-right panel sits awkwardly against the frame edge.
+- No text clipping inside the blue callout boxes; those are vertically centered correctly.
+
+## Summary
+Chrome, title, layout grid, and four-quadrant structure match, but the recreation has frame-overflow defects, a collapsed-space text error in two labels, one panel rendering the wrong surface geometry outright (top-right), misplaced/missing annotations, and stripped axis ticks.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation."

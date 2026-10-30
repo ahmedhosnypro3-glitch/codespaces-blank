@@ -1,0 +1,30 @@
+# Slide 049 â calc_rows region, zoomed crop-pair comparison (attempt 15)
+
+## Cell-by-cell value audit (all six rows)
+
+| Row | Triple (IMG1) | Triple (IMG2) | Result (IMG1) | Result (IMG2) | W vector | Verdict text |
+|---|---|---|---|---|---|---|
+| 1 | 1 1 1 (red) | 1 1 1 (red) | 3 | 3 | (5, â1, â1) | Keep same Weight â |
+| 2 | 1 2 1 (red) | 1 2 1 (red) | 2 | 2 | (5, â1, â1) | â |
+| 3 | 1 1 2 (red) | 1 1 2 (red) | 2 | 2 | (5, â1, â1) | â |
+| 4 | 1 5 4 (blue) | 1 5 4 (blue) | â4 | â4 | (5, â1, â1) | â |
+| 5 | 1 6 5 (blue) | 1 6 5 (blue) | â6 | â6 | (5, â1, â1) | â |
+| 6 | 1 6 6 (blue) | 1 6 6 (blue) | â7 | â7 | (5, â1, â1) | â |
+
+All numerals, all results, the red/blue color split (rows 1â3 red, rows 4â6 blue), the â arrows, the underlined bold **W**, and all six W-column vectors (5, â1, â1) match exactly. Bracket delimiters in both images span all three column values without touching glyphs.
+
+## Discrepancies found
+
+1. **MINOR â Row 6 row label subscript.** Original (IMG2, bottom-left of region, row 6) appears to read *)* rather than *d(xâ)*; the recreation shows *d(xâ)*, which is the mathematically consistent label given the 1-6-6 triple. Confidence lowâmedium: the original glyph is heavily JPEG-blurred at this scale and could be a deformed 6. If the original truly carries the x the recreation silently corrected it â a content deviation, but a defensible one. (If the recreation had introduced x the original has xâ, this would be MAJOR; the direction here is correction, so MINOR.)
+
+2. **MINOR â Color of the bracketed column-vector values.** In the original, the (5, â1, â1) entries inside the tall brackets appear greenish/teal (most visible in rows 2â6, e.g. the â1 glyphs at mid-row left of "="); the recreation renders them uniformly black. Confidence lowâmedium â JPEG chroma bleed on thin strokes can fake a green cast, but the tint is consistent across all six rows in IMG2, suggesting it is real. Content is identical; only ink color differs.
+
+3. **MINOR â Row container styling.** The original renders each calculation row inside a thin light-bordered rectangle (full box, visible left/right edges at the region borders); the recreation uses only thin gray horizontal separator lines between rows, with no side/bottom box edges per row. Layout and separation of the six rows is otherwise faithful and cleanly divided. Confidence medium.
+
+4. **MINOR â Typography of labels.** Original uses an italic serif face for *d(xáµ¢)*, **W**, and the vector digits; recreation uses an upright sans-serif. Typed-vs-rendered medium difference per ground rule (c)/(d); glyph shapes and subscripts (xââ¦xâ) are all legible and correct in the recreation.
+
+5. **Negligible â Spacing around "=".** Original shows "= 3" / "= â 4" with a space; recreation shows "=3" / "=â4". No content impact; listed only for exactness.
+
+No wrong digits, no missing rows, no swapped table values, no truncated subscripts, no delimiter-geometry failures. The mouse cursor artifact in IMG2 row 1 near the W column is a capture artifact, not content (rule (e)).
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

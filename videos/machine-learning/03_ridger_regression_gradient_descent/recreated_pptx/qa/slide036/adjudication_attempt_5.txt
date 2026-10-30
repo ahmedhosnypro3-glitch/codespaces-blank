@@ -1,0 +1,76 @@
+# PIL adjudication — judge_attempt_5 (Template A, render_5): FINAL VERDICT: FAIL
+
+One MAJOR: "Error-function equation — Image 1 renders this region with
+duplicated/mis-grouped parenthesized terms and a dangling token
+- approximately `... (W^T X_i)(W^T X_i) ... X_i) take positive and negative
+values`. Net effect: an extra/incorrectly attached `(W^T X_i)` grouping and a
+stray unmatched `X_i)`."
+
+Adjudicated against BOTH images (frame 960x540, 1px=1pt; render_5 150dpi,
+scale 2.0833; render_7 hi-res s240-7.png at 240dpi for the fix verification).
+Scripts/output: probe_eqstack_super.txt, probe_eqstack_arrow.txt,
+readjudicate_eqstack_5.txt, and the run census quoted below.
+
+## Adjudication: CORRECT — a real defect (not a vision misread)
+
+My earlier banked adjudication (adjudication_crop_eq_stack_2.txt, on render_2)
+refuted the same claim. That refutation was WRONG, and I now have the pixel
+evidence to overturn it. What I had mistaken for group 2 of the equation was in
+fact group 2's GREEN `X` glyph; the real group 2 sat between it and the arrow.
+
+Run census, main row y372..397, x290..530:
+  ORIG : (304,322) (326,329) (338,350) (354,356) | (396,410) | (445,446)
+         (451,465) (468,473) (478,487) (491,492) (496,498) | (507,518)
+         i.e. (W^T X_i)  =>  (W^T X_i)  take...
+  REND5: (304,309) (310,330) (335,359) (361,363) | (378,383) (385,411) |
+         (472,497) (498,500) (501,510) | (511,519)
+         i.e. (W^T X_i)(W  =>  X_i) take...
+
+Two genuine defects, both confirmed against the original:
+
+1. **The double arrow OVERLAPPED group 2's "(W".** The generator drew
+   `T(349, MAIN_BASE, "_i) (W")` — group 2's "(W" at x349-385 — and the arrow at
+   `T(396, ...)`, whose ink starts at x385 and runs to x411. The arrow therefore
+   struck through group 2's paren+W. That is exactly the duplicated/mis-grouped
+   look the judge reported, and the ASCII read shows the arrow's `##############`
+   bars sitting directly on the W column.
+
+2. **Group 2's raised `^T` was never drawn.** The generator draws a superscript T
+   only for group 1 (`T(324, MAIN_BASE-8, "T", ...)`); group 2's `X` runs were
+   drawn with no `^T` at all, so group 2 rendered as plain `(W X_i)`.
+   Superscript-band census (y364..374) confirms: REND had ONE cluster (group 1's
+   T at 323..330); the original has its group-2 T at ~468..473.
+
+3. **First-term closing paren.** Separately, the frame has NO closing paren on
+   the first term (ink-run census shows nothing between its subscript i at
+   354..356 and the arrow at 396..410) while `analysis/slide_036_final.json`
+   `verbatim_text` records the balanced form
+   `Error = Σ_{all misclassified vectors(i)} (W^T X_i) ⇒ (W^T X_i) take ...`.
+   For a VISUAL recreation the frame governs, so the paren was dropped; the
+   spec's transcription error is recorded here for the founder and is not a
+   build choice I would have made from the text alone.
+
+## Fix applied (build_attempt_6/7 + scratch/tmp/eq036_v4.py)
+
+- first term now renders `(W^T X_i` (no trailing paren), matching the frame
+- group 2 repositioned AFTER the arrow: "(W" at x440, its own raised `^T` at
+  x467 (0.62 scale, 8px above the main row), `X` at 473, `_i)` at 486
+- equation ink bbox and EQ_W/EQ_H unchanged (5398x369 px at 600dpi)
+
+## Verification (s240-7.png, 240dpi) — census now matches the original
+
+Main row: REND (304,309)(310,330)(335,360)(361,363) | (396,411) |
+          (440,445)(446,466)(466,497)(498,500)(502,510) | (511,519)
+Superscript band y364..374: REND has TWO raised-T clusters, (323,330) and
+          (466,473); the original has group 1's at (326,332) and group 2's just
+          below the band at 468..473.
+Term order, both terms' parens, both `^T`'s and both subscripts are now present
+and the arrow no longer overlaps anything. `EQUATION INK BAND alignment
+dx=0 dy=0 dw=-2 dh=-1`; selfcheck_attempt_7 RESULT: PASS; house chrome PASS.
+
+## MINOR #2 (emphasis underlines) — CONFIRMED AS STATED, NO ACTION
+Handwritten ink (also in typography_notes). Medium difference per GROUND RULES
+(d); same family as the already-adjudicated underline findings. Not reproduced.
+
+OUTCOME: the FAIL was NOT a vision misread. The build had a real equation defect
+and it has been fixed; re-judged in judge_attempt_7.

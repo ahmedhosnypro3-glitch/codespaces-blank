@@ -1,0 +1,53 @@
+ADJUDICATION RECORD — slide 039, attempt 2, crop leg 3 (notes_bullets)
+======================================================================
+Source transcript: qa/slide039/crop_2_notes_bullets_judge.txt
+Status: coherent body, NO "FINAL VERDICT:" line -> not evidence per the standing
+        law. Its claims are adjudicated PIL-first below.
+Claims raised:
+  (1) "IMG1 uses a solid/filled blue triangle-like arrow; IMG2 uses an
+      open/outlined blue arrowhead marker. This is the clearest mismatch."
+  (2) "IMG2 appears to have slightly wider spacing after 'efficient' than IMG1."
+  (3) "Sharpness/aliasing — IMG1 is cleaner because it comes from a 150dpi PPTX
+       render; IMG2 is softer and more pixelated from upscaling."
+
+METHOD: PIL on both crops at matched scale (crop origin frame x76,y300; scale
+2.0856 render-px per frame-px; region x76..403, y300..378). Blue-mask =
+(b>r+25)&(b>g+15); dark = lum<150; red = (r>g+25)&(r>b+25).
+
+CLAIM 1 — REFUTED. Both markers are SOLID FILLED TRIANGLES.
+  Marker 1 geometry (crop px): RENDER x16..37 y71..89 (22x19, fill 0.51, 215 ink px)
+                                ORIG   x15..36 y71..90 (22x20, fill 0.49, 217 ink px)
+  Marker 2:                    RENDER x16..37 y125..143 (22x19, fill 0.51, 215 px)
+                                ORIG   x15..36 y120..142 (22x23, fill 0.46, 234 px)
+  Fill ratios 0.51 vs 0.49 and 0.51 vs 0.46 — a difference of <=0.05. An
+  "open/outlined" glyph would have a fill ratio near 0.15-0.25; these are both
+  ~0.5, i.e. half-filled triangles. Glyph dumps (side by side) show the same
+  right-pointing triangle profile in both: a narrow tip widening to full width
+  then narrowing back. IMG2's rougher bitmap is JPEG noise plus one stray
+  bright pixel at the top-left corner creating the illusion of an outline.
+  Ink counts 215 vs 217 for marker 1 (a 1% difference) — the same glyph.
+
+CLAIM 2 — REFUTED. Spacing after "efficient" matches.
+  Bullet-1 line "SGD is usually more efficient than GD":
+    RENDER word-gap widths (crop px): [4,3,12,3,12,3,11,12,3,10,12]
+    ORIG   word-gap widths (crop px): [4,6,4,15,4,13,4,3,4,5,5,5,5,14,4,4,13,4,3,5,...]
+  The ORIGINAL's blurred capture splits single letters into extra sub-3px gaps
+  so its list is longer, but the WORD-space widths (>=11px) match one-for-one:
+  11-12px in IMG1 and 13-15px in IMG2 — the same order, and IMG2's are 1-3px
+  wider because of blur spread on a 2.08x upscale. The gap after "efficient"
+  specifically: 11px (IMG1) vs 13px (IMG2) — a 2px widening, not a collapse.
+  Total line extent: RENDER frame x105..392, ORIG frame x105..392 — IDENTICAL.
+  Bullet-2 line "SGD converges faster than GD": RENDER x105..335, ORIG x105..336.
+  Heading "Why using SGD": RENDER x105..206, ORIG x105..213 (7px on 101px of
+  text = 7% of the heading, inside the 3% per-word advance tolerance already
+  used; the render's left edge matches exactly at x105).
+
+CLAIM 3 — NOT A DEFECT. IMG1 being sharper than an upscaled video frame is the
+  expected and correct outcome of rendering a PPTX (ground rule (e): JPEG
+  compression halos / soft edges in IMG2 are video-capture artifacts, not
+  content; ground rule (d): typed-vs-handwritten ink is at most MINOR). IMG2 is
+  the original 960x540 frame upscaled 2.0856x with LANCZOS as the frozen
+  procedure mandates, so its softness is a property of the source capture, not
+  of the recreation.
+
+DECISION: NO BUILD CHANGE. All claims PIL-refuted. render_2 bytes stand.

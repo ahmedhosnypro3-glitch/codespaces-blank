@@ -1,0 +1,45 @@
+# Fidelity Check â Slide 025 "Types of Loss function shapes"
+
+## House chrome (per ground rules, NOT discrepancies)
+White canvas, gray E9E9E7 panel with dark-red left/right/bottom strokes only (no top stroke â correct), yellow badge at (~876, 73) with purple ring and bold "25" â all present and correct in the recreation. Noted and set aside.
+
+## Element-by-element comparison
+
+**Title:** "Types of Loss function shapes" â verbatim match, red bold, similar relative position/size. â
+
+**Label boxes (4):** "Concave Function / One Maxima" (Concave yellow), "Convex Function / One Minima" (Convex yellow), "Gradient Descent Path to reach Minima" (all white), "Non-Convex Multiple Minima" (all white) â all verbatim, two-line, navy fill, correct positions relative to their panels. Line spacing inside boxes matches. â
+
+**Badge:** "25" matches. â
+
+**Top-left panel (concave surface):** Surface with red horizontal slice lines present; base contour projection present.
+- **MAJOR (high conf):** The three red slice lines overflow the figure's red border frame â the first two extend past the right border (~x585 vs border ~x548) and the third crosses both toward the right edge, spilling into the gray panel area. In the original the slice lines stay essentially within the plot region. Frame-containment violation (rule 5).
+- **MINOR (medium conf):** Axis tick values differ â original shows 0/â5 left and 2/0/â2/â2/0/2 bottom; recreation shows 0/â5/â2 left and 0/0/â2 bottom.
+
+**Top-right panel (convex bowl):** Ã10â´ header, z-ticks 2/1.5/1/0.5/0, xy-ticks 100/50/0/â50/â100, contour rings, red slice lines â all present and contained. Good match. â
+
+**Bottom-left panel (non-convex):** Surface, red X markers, red slice line, axis ticks 8â¦â6, X/Y labels present.
+- **MAJOR (medium conf):** Minima labels appear swapped vs original. Original: "Local Minima" at LEFT basin, "Global Minima" at RIGHT/deep basin. Recreation: "Global Minima" at left, "Local Minima" at right. If the underlying surface data matches the original, this is a label-content error.
+- **MINOR (high conf):** "Local Maxima" text sits directly ON the mesh surface (collides with the plot ink); in the original it is offset outside the surface with a pointer. Legibility/collision defect.
+- **MINOR (medium conf):** A stray "3" tick appears near the bottom-right axis where the original shows the â8/â3 sequence; z-axis appears to lose its lowest tick.
+- **MINOR (medium conf):** The red slice line extends past the figure's right border (~x790 vs border ~x778) into the gray area â milder than the top-left overflow but still a containment issue.
+
+**Bottom-right panel (gradient descent path):**
+- **MAJOR (medium conf):** Different imagery. Original shows a multi-peak warm-colored surface (yellow/red ridges, broad valleys) with a long curved black descent path; recreation shows a mostly flat teal plane with one dominant central spike and a shorter black arrow path. Concept matches, but the rendered figure is not the same image/data.
+- **MINOR (medium conf):** Recreation adds a red border frame around this panel; the original's bottom-right figure appears unframed.
+
+## Visual-quality defects in the recreation
+- Red slice-line overflow across figure borders (top-left, mildly bottom-left) â worst defect visually.
+- "Local Maxima" label collides with mesh.
+- Stray/missing axis tick ("3", missing â8).
+- No text clipping in title or label boxes; badge and panel strokes clean.
+
+## Summary of discrepancies
+1. MAJOR â Red slice lines cross figure frame borders (top-left panel). Confidence: high.
+2. MAJOR â Global/Local Minima labels swapped vs original. Confidence: medium.
+3. MAJOR â Bottom-right gradient-descent figure is a different surface/path than the original. Confidence: medium.
+4. MINOR â Axis tick values differ on concave panel. Confidence: medium.
+5. MINOR â "Local Maxima" label overlaps mesh. Confidence: high.
+6. MINOR â Stray "3" tick / missing lowest z-tick on non-convex panel. Confidence: medium.
+7. MINOR â Extra red frame on bottom-right panel absent in original. Confidence: medium.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation'

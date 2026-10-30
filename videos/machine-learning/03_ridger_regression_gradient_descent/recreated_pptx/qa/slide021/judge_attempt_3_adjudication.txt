@@ -1,0 +1,42 @@
+=== ADJUDICATION: judge_attempt_3.txt (slide 021, render_3) ===
+All claims tested against the ORIGINAL frame (960x540) + render_3.png (150dpi).
+
+--- ORIGINAL red-ink extents (frame px) ---
+  title_band (y60..115): red x 58..708  y 60..115  n=3930
+  P1 band (y125..260): red x 98..794  y 134..207  n=961
+  P2 band (y285..420): red x 100..876  y 301..376  n=1124
+  P3 band (y435..535): red x 165..287  y 466..488  n=314
+
+--- ORIGINAL: is there red ink ABOVE the title (y<77)? ---
+  title is red ink at x290..708 y77..101, so anything red in y46..76 would be a separate element above it.
+  RED FOUND in y0..76: x 58..59 y 49..75 n=54  <-- judge's 'det=0 above title' claim
+
+--- ORIGINAL: which band holds |X^T X| = 0 vs = 5685? (red equation ink) ---
+  P1: red ink y 134..207 x 98..794 n=961
+    red x-groups (merged, 12px): [(98, 139), (346, 387), (704, 794)]
+  P2: red ink y 301..376 x 100..876 n=1124
+    red x-groups (merged, 12px): [(100, 140), (343, 383), (761, 876)]
+
+--- ORIGINAL: exact red ink row profile inside P1 (is it the label or the chain?) ---
+  P1 red rows: 134..207 (n rows=40)
+  P2 red rows: 301..376 (n rows=44)
+
+--- ORIGINAL: green ink (lambda=3) location ---
+  GREEN ink: x 246..288 y 304..320 n=302
+  -> judges claim 3: 'lambda=3 belongs to Box 2 beside the highlighted diagonal'
+  -> measured: green is INSIDE P2 band (y304..320)
+
+--- ORIGINAL: blue ink (equations/arrows) extents per band ---
+  P1 blue: x 75..886 y 128..257 n=5564
+  P2 blue: x 75..889 y 288..417 n=4944
+  P3 blue: x 75..888 y 437..529 n=5181
+
+--- RENDER_3: same measurements for comparison ---
+  P1 blue: x 75..886 y 129..258 n=9577
+  P1 green: x 233..266 y 214..225 n=328
+  P2 blue: x 75..889 y 288..418 n=9795
+  P3 blue: x 75..889 y 436..530 n=7552
+
+--- RENDER_3: any equation/ink above the title (y<77)? ---
+  ink found above y77: y 45.1..76.3 x 53.8..903.4 n=116886
+  (check whether it is the title itself or a separate element)

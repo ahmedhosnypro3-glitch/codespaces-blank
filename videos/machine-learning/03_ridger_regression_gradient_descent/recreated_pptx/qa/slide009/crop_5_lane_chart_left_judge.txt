@@ -1,0 +1,63 @@
+# Judge transcript — slide 009, attempt 5 (zoomed crop-pair: chart_left)
+- date: 2026-10-24 07:03
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide009/crop_5_chart_left_render.png
+- IMG2 (original crop): qa/slide009/crop_5_chart_left_orig.png
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- region: frame px 87..473 x 102..480 (whole LEFT scatter chart incl. its annotation group);
+  both crops 805x787 px — identical effective scale (cut_crops_5.txt VERDICT PASS). Render
+  bytes: render_5.png md5=84c8bf3179992d74717fa070f5f8c607.
+- NOTE: this crop FAILED at attempt 3 (missing dimension label/arrowheads, missing residual
+  connectors, stray diamond/thick strokes). Those findings are the fix targets this round.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair, same region/effective scale. (b) House chrome intentional.
+(c) Typed-vs-handwritten ink at most MINOR. (d) Equation clause N/A (box corner only).
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison
+- Panel frame/grid: navy 1pt border, white F5F5F5 interior, 16x16 light-gray grid; border
+  positions x95..466 y107..474 match; grid pitch matches.
+- Axes: red y-axis shaft at x126.5 with triangular head at ~ (126.5,143..151); red x-axis at
+  y434 with head tip x435. Both match (same measured tips).
+- Blue fitted line: (141,351)->(433,201), 2pt, same angle/intercepts as the original
+  (fit slope -0.5213 vs render -0.5137 measured; endpoints within 1px).
+- Orange points: 12 in both, identical centroids to the original's measured blobs: (197,144),
+  (397,249), (421,255), (324,290), (381,302), (242,327), (328,332), (260,333), (294,333),
+  (188,355), (234,362), (176,380). No missing/extra/duplicated point.
+- Large red disc: solid, d~24 centred (232.5,241) — the frame's (232.9,241.3) d~23; sits on the
+  dimension line. Match.
+- Dimension line + arrowhead: pale-rose 1pt line from the top outlier down to the fitted line,
+  ending in a solid red head; render tip (249,292) vs frame (249,292); the line passes behind
+  the disc in both. PRESENT (was missing at attempt 3). Match.
+- Rotated label '50.85 mm': red, rotated ~-69 deg, reading bottom-to-top along the dimension
+  line; render ink bbox (198.1,189.1)-(223.0,235.2) vs frame (196,188)-(222,238). PRESENT
+  (was missing at attempt 3). Match.
+- Callout arrow at the outlier: pale-rose leader + solid red head below-left of the point;
+  render head (183.3,150.2)-(190.0,157.4) vs frame (184,151)-(190,159). PRESENT (attempt-3
+  diamond/thick strokes are gone). Match.
+- Residual connectors: light-periwinkle dashed lines from every point to its perpendicular foot
+  on the fitted line (none where the distance is <9px); positions/angles match the frame's fine
+  periwinkle dashes (10/10 sampled paths bear dash ink). PRESENT (was missing at attempt 3).
+- Equation box corner: pale-cyan fill, navy border, text fully inside (eq_left crop PASS).
+- Frame containment: every element inside the navy frame; the rightmost points (421,255) keep
+  their measured ~40px margin to the border; nothing crosses the panel or the house frame.
+
+## Discrepancies
+1. [MINOR] Residual-connector dash pitch: frame = 1px dashes/dots, render = coarser 0.75pt dash.
+   Confidence high it is a medium/pitch artifact. PIL adjudication: same paths, same endpoints,
+   same periwinkle family; dash pitch is below the fidelity floor (selfcheck §3: 10/10 paths).
+   MATCHING.
+2. [MINOR] Rotated-label weight: render bold Arial is a touch heavier/brighter than the frame's
+   hand-set red; ink bbox within 2.5px per edge, same string/rotation. MATCHING.
+3. [MINOR] Dimension-line saturation: frame's pale line cores (240,190,200), render ECBA C4 —
+   same rose family, thin-stroke JPEG desaturation on the frame. MATCHING.
+4. [MINOR] '=' sidebearing in the equation box (frame tight, render balanced) — measured same
+   ink width (82px), same glyph inventory; text is fully inside the box (see eq_left leg).
+   MATCHING.
+
+## Visual-quality defects
+- None: no stray marks, no collisions (the disc sits on the dimension line as on the frame),
+  no clipping, no illegible text. The attempt-3 "diamond + crossed red strokes" are removed.
+
+FINAL VERDICT: PASS

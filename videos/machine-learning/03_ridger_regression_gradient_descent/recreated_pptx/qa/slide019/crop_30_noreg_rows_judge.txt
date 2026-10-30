@@ -1,0 +1,28 @@
+# Slide 019 â Region comparison: W-vector boxes + test grids (3 row groups)
+
+## Content verification (cell-by-cell, value-by-value)
+
+**Group 1:** W = (0, 2, 0) â; âWâÂ²=4 â; xâ: 30/40/50 â; xâ: 15/20/25 â; y: 60/80/100 â â all values correct in both.
+
+**Group 2:** W = (2.7, 0.67, 0.64) â; âWâÂ²=8.11 â; xâ: 30/40/50 â; xâ: 15/20/25 â; y: 32.4/42.3/52.3 â â all values correct in both.
+
+**Group 3:** W = (4, 0.29, 0.78) â (bottom of crop truncates both identically); xâ: 30/40/50 â; xâ: 15/20/25 â. Headers Testâ/Testâ/Testâ correct in all three tables, subscripts present and correctly positioned in both.
+
+No wrong digits, no missing rows, no garbled characters, no truncated subscripts anywhere. Equation content is faithful.
+
+## Discrepancies
+
+1. **MAJOR â y-row value colors, groups 1 & 2** (crop-relative: y rows of first two tables, right ~60% of region). In IMG2 the y-row digits follow the column color pattern: **60 / 32.4 in red-orange (col 1), 80 / 42.3 in green (col 2), 100 / 52.3 in red (col 3)**. In IMG1 all six y-values are rendered **green**. Wrong text color on six numeric values; confidence ~70% (JPEG color bleed in IMG2 makes the col-1/col-3 red slightly muddy, but the red/green/red alternation is clearly visible in both original rows).
+
+2. **MAJOR â delimiter geometry/weight on the W vectors** (all three vector boxes, left ~25% of region). IMG2 uses compact, thin-stroke parentheses that hug the vector entries tightly (in group 2 the entries 2.7/0.67/0.64 essentially fill the paren height). IMG1 renders enormously tall, very heavy black parentheses that extend far above the first entry and below the last, with stroke weight several times the original's. They do span all enclosed lines and don't touch the text (so the functional rule is met), but at matched scale the delimiter shape and weight visibly diverge from the source. Confidence: high that the difference exists; severity arguable down to MINOR if weight is treated as house style, but per the "be EXACT about delimiter geometry" mandate I score it MAJOR.
+
+3. **MINOR â yellow highlight shape** (y rows, all three tables). IMG2 draws the y-row highlight as a rounded pill extending slightly past the table's right edge; IMG1 uses a flat rectangle clipped to the table grid (and in group 1 it bleeds slightly below the table's bottom rule). Cosmetic only.
+
+4. **MINOR â vector-box paren cramping in group 1** (top-left box). Because of the oversized delimiters, the top "0" sits very close to the paren's inner curve compared with the airy spacing in IMG2. Related to item 2.
+
+Typed-vs-ink, template chrome, and JPEG softness in IMG2 are not raised per ground rules; equation formatting matches the professional-2D requirement.
+
+## Summary
+All numeric and symbolic content is exactly reproduced â no value, row, header, subscript, or norm label is wrong. The failures are presentational: y-row digit colors (item 1) and delimiter rendering (item 2).
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'

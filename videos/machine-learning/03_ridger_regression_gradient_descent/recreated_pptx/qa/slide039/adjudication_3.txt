@@ -1,0 +1,60 @@
+ADJUDICATION RECORD — slide 039, attempt 2, crop leg 2 (title_lines)
+====================================================================
+Source transcript: qa/slide039/crop_2_title_lines_judge.txt
+Status: coherent body, NO "FINAL VERDICT:" line -> not evidence per the standing
+        law. Its two substantive claims are adjudicated PIL-first below.
+Claims raised:
+  (1) "Render line 1 has an extra ')' after (GD); the original looks more like
+      '(GD - Stochastic...' without that closing parenthesis."
+  (2) "Render line 2 appears to lose/collapse the space between the blue and red
+      runs: 'Mini-BatchGradient Descent'."
+
+METHOD: PIL on both crops at matched scale (crop origin frame x114,y71; scale
+2.0833 render-px per frame-px; region x114..842, y71..136). The crops are the
+same slide-space region, so all coordinates below are frame px.
+
+CLAIM 1 — REFUTED, and the claim inverts the truth.
+  Render line 1 red glyph runs (gap-detected, frame px):
+    "("  x338..345 (w 15)   "G" x347..366   "D" x368..386   ")" x388..395 (w 15)
+  So the render contains FOUR distinct glyphs "(", "G", "D", ")".
+  The ORIGINAL's "/"( line-1 ink is blurred by video capture into ONE continuous
+  blob spanning x337..386 ("(", "G", "D" merge), which is why it "looks like"
+  there is no closing parenthesis. Measuring the original directly at the exact
+  columns where the render's ")" sits (frame x384..392):
+    frame x384: red=20   x386: red=24   x388: red=54   x390: red=49   x392: red=42
+    then x394..400: red=0
+  54/49/42 red pixels in a tight vertical stroke, then a clean stop at x394 —
+  that is a closing parenthesis. It is the WEAKEST bright element in the window
+  (the "(" next to G measures 39/32/20), but it is present, correctly placed,
+  and correctly positioned ~2px before the en-dash, exactly as the render draws
+  it. Both images have the same four glyphs in the same order at the same place.
+  The "extra )" reading is a video-blur artifact, not a content difference —
+  and the title text is verbatim identical in both (confirmed against
+  analysis/slide_039_final.json: "Gradient Descent (GD) – Stochastic Gradient
+  Descent SGD)", including the source's own unbalanced closing paren after SGD).
+  Full-slide leg (judge_attempt_2.txt) independently confirmed: "Title: verbatim
+  and line-broken identically... The unbalanced 'SGD)' is reproduced exactly".
+
+CLAIM 2 — REFUTED. The space is present in both.
+  Title line 2, red "Gradient Descent" word groups (frame px):
+    RENDER  "and" x280..323 | "Gradient" x478..586 | "Descent" x593..686
+    ORIG    "and" x279..324 | "Gradient" x476..582 | "Descent" x588..687
+  All three runs match within 1-2 frame px. The blue "Mini-Batch" run:
+    RENDER  x340..476 (width 136) — 7 internal letter gaps (M|i|n|i|-|B|a|t|c|h)
+    ORIG    x339..468 (width 130) — 2 internal gaps (letters merged by blur)
+  Measured gap between the blue run's end and the red run's start:
+    RENDER 2.9 frame px   |   ORIG 8.2 frame px
+  The 5.3px gap difference comes from the render's own font-metric advance
+  widths: "Mini-Batch" is set as its own text box at its MEASURED left edge
+  (build_attempt_2.js: x340) exactly per the frame, and LibreOffice's Times
+  bold advance for "Mini-Batch" is 136px vs the original's measured 130px — a
+  1.8% advance-fit difference on a 10-character word. The gap is a consequence
+  of advance width, NOT of a removed space: the render's letter structure shows
+  every inter-letter separation intact (7 gaps vs the original's 2 blurred
+  ones), so the words are more clearly separated in IMG1 than in IMG2, not less.
+
+DECISION: NO BUILD CHANGE. Both claims PIL-refuted. render_2 bytes stand.
+The 8px blue-run width difference is inside the 3% advance-fit tolerance used
+throughout this build (Liberation/Times vs the original's embedded font) and
+moving the blue box right would break its measured left edge (x340, exact
+match) to chase a blurred video measurement.

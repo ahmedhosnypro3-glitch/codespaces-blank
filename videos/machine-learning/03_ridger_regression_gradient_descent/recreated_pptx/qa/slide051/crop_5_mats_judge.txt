@@ -1,0 +1,31 @@
+# Zoomed Crop-Pair Analysis â Slide 051, top band (attempt 5)
+
+## Cell-by-cell / value-by-value verification
+
+**Left sample matrix block (left ~0â22% of crop):**
+- Column headers xââ¦xâ (bold italic with subscripts): present and identical in both. â
+- Six 2Ã1 column vectors, value by value:
+  - xâ = (1, 1) â | xâ = (2, 1) â | xâ = (1, 2) â | xâ = (5, 4) â | (6, 5) â | xâ = (6, 6) â
+- Class row beneath: Câ Câ Câ (red), Câ Câ Câ (blue) â all six present, correct colors and subscripts in both. â
+- Parentheses span both rows of each vector without touching the digits in both images. â
+
+**Centre block (~28â60%):**
+- "Initial **W** =" followed by 3Ã1 vector (4, â2, â2) â values match exactly, parentheses span all three rows cleanly. â
+- "**Step** *Î·* = 1" in red â present in both, same color family, italic Î·. â
+- Legend row: **Câ** positive / **Câ** negative / **Zero** is unaccepted â red Câ, blue Câ, green "Zero", black remainder. All present and correctly colored in both. â
+
+**Right Z-test block (~72â100%):**
+- "Check classes of" â present in both. â
+- Zâ Zâ Zâ headers with subscripts. â
+- Vectors: Zâ = (0, 0) â | Zâ = (7, 6) â | Zâ = (3, 2) â â no swapped or wrong digits; delimiters span both rows properly. â
+
+## Discrepancies found
+
+1. **MINOR** â Vector notation on **W** (~38% across, mid-height): in IMG2 the **W** carries an underline (explicit vector convention); IMG1 renders it as bold italic without the underline. Semantically equivalent, cosmetic only. Confidence: high.
+2. **MINOR** â Typeface flavor: IMG2 uses a serif italic for words like "positive", "negative", "Check classes of"; IMG1 uses a cleaner sans/serif mix with slightly different italic slant. Legible and correctly spelled in both; inherent styling drift. Confidence: high.
+3. **MINOR** â Horizontal spacing in the legend row (~25â70% across, bottom line): IMG2 packs "Câ positive Câ negative" slightly tighter than IMG1's more evenly distributed legend. No content impact. Confidence: medium.
+4. **MINOR** â Slight vertical offset: IMG1's legend baseline sits a touch lower relative to the vector block than in IMG2. No overlap or collision. Confidence: medium.
+
+No wrong digits, no missing/garbled characters, no swapped table values, no truncated subscripts, no delimiter-span failures, no stroke breaks. JPEG softness in IMG2 is capture artifact per ground rule (e).
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

@@ -1,0 +1,24 @@
+# Region Comparison: Slide 019 â Ridge Î»=3 / Î»=10 table columns (zoom crop pair)
+
+## Cell-by-cell value audit (all six sub-blocks)
+
+**Î»=3, block 1:** W = (0.1, 1.95, 0.03); âWâÂ²=3.8; row xâ: 30/40/50; row xâ: 15/20/25; row y: 59/78.7/98.4 â **all match** IMG2 exactly.
+**Î»=3, block 2:** W = (1.2, 0.72, 0.77); âWâÂ²=2.45; 30/40/50; 15/20/25; y: 34.1/45.1/56.1 â **all match**.
+**Î»=3, block 3:** W = (1.77, 0.32, 0.99); âWâÂ²=4.2; 30/40/50; 15/20/25; y: 26.2/34.4/42.5 â **all match**.
+**Î»=10, block 1:** W = (0.13, 1.87, 0.09); âWâÂ²=3.5; 30/40/50; 15/20/25; y: 57.4/76.5/95.6 â **all match**.
+**Î»=10, block 2:** W = (0.54, 0.73, 0.81); âWâÂ²=1.48; 30/40/50; 15/20/25; y: 34.6/46/57.4 â **all match** ("46" correctly has no trailing .0).
+**Î»=10, block 3:** W = (0.82, 0.33, 1.1); âWâÂ²=1.92; 30/40/50; 15/20/25; y: 26.8/35.4/44.1 â **all match**.
+
+Headers: "Ridge Regularizer with Î»" blue + "=3"/"=10" red in both; Testâ red / Testâ blue / Testâ red in both; column color pattern (30,40 blue / 50 red; 15,20 blue / 25 red) matches; underlined red **W** in both; green "y" label in both. Subscript âââ rendering on Test and x matches. No missing rows, no swapped digits, no garbled glyphs anywhere.
+
+## Discrepancy list
+
+1. **MINOR** â Font family/style: original headers and cell text are italic serif (Times-like); recreation uses upright bold sans-serif. Medium confidence. Consistent medium/typography difference, not content.
+2. **MINOR** â y-row text colors: a few cells appear to swap blue/green relative to IMG2 (e.g., 78.7 and 26.2/34.4 look bluer in IMG1, greener in IMG2; ~mid-region of blocks 1 and 3). Low-moderate confidence â JPEG chroma bleed in IMG2 makes exact hue calls unreliable at this scale.
+3. **MINOR** â âWâÂ²=â¦ label color: reads as lighter gray-blue in IMG2 (left edge of each block, on the yellow strip) vs. clearer blue in IMG1. Low confidence; likely video-capture desaturation per ground rule (e).
+
+**Not discrepancies (per ground rules):** larger parentheses in IMG1 spanning all three vector components without touching text (mandated professional 2D format â delimiters span correctly in all six blocks); house template strokes (dark-red box outlines, green outer frame on right column, yellow badge fragment top-left, no top stroke); cursor arrow visible in IMG2 block 2 (capture artifact); JPEG halos on IMG2 red lines.
+
+**Structure:** row grouping, empty header cell before Testâ, red grid lines, yellow highlight strips on y-rows and bottom tint band, block arrows, and panel boundaries all correspond 1:1 across the region. Vertical centering inside cells is correct; no text touches any delimiter or gridline.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

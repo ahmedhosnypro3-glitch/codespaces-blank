@@ -1,0 +1,36 @@
+House chrome, the intentionally absent top panel stroke, slide-number badge, equation formatting upgrade, typed-vs-handwritten medium differences, and video-capture artifacts were excluded per the rules.
+
+## Discrepancies
+
+1. **Bottom-table row background colors for `x-delta` / `f(x-delta)` â MAJOR, high confidence**  
+   In the original, these two row bands are pale green/olive, approximately `#D3EFC8`â`#D9F2D0`.  
+   In the recreation, the same row bands are lavender/purple, approximately `#C8B6E6`â`#D2C6EE`.  
+   This is a visible color-family change across two full-width row bands of the main table, not a small anti-aliasing or video-render artifact.
+
+2. **Outer frame color of the large bottom table â MAJOR, medium-high confidence**  
+   The original large tableâs outer frame, especially along the top/left edge above the `x` row, reads dark red, approximately `#B00000`/`#C00000`.  
+   The recreation uses a dark blue/purple frame line, approximately `#3D478C`.  
+   This is separate from the house panel strokes; it concerns the table box itself.
+
+## Matches / non-discrepancies checked
+
+- Title text, colors, wording, ordering, and approximate sizing match.
+- Left parameter table contents, row order, values, and colors match: `step 0.3`, `initial X 3`, `delta 0.1`.
+- Equation `f(x) = (x - 5)^2 + 1` is present and visually correct.
+- Green explanation block text matches, including the `4.8`, `5.1`, `1.04`, and `1.01` emphasis.
+- `Bouncing` label and the downward bouncing arrows are present in the same conceptual positions.
+- Large table has the correct number of columns and all cell values match the original.
+- Graph type, axis range/grid, blue parabola, red dashed vertical line, red/green points, horizontal line, and plotted labels are present.
+- No BLOCKER omissions were found: no equation region is empty, no major graph/table row is missing.
+
+## Recreation visual-quality defects
+
+- No significant text clipping, overflow, or bad wrapping found.
+- No significant collisions or illegibility found.
+- Row text/numbers appear readable and vertically seated acceptably within the table bands.
+
+## Verdict impact
+
+The content is almost entirely faithful, but the two color/frame deviations above are MAJOR under the stated fidelity rules, especially because they affect the main tableâs visual structure.
+
+FINAL VERDICT: FAIL

@@ -1,0 +1,124 @@
+################################################################################
+M1  MINOR — 'Original blue paragraph is italic; recreation is upright roman'
+################################################################################
+  blue L1 (The standard matrix inversion...): orig 20 stems lean -0.137 px/row (-7.8 deg) | render 8 stems lean -0.000 (-0.0 deg)
+  blue L2 (which means that the...): orig 26 stems lean -0.131 px/row (-7.5 deg) | render 8 stems lean -0.000 (-0.0 deg)
+  EX1 (For Example: if Features vector...): orig 11 stems lean -0.148 px/row (-8.4 deg) | render 9 stems lean -0.000 (-0.0 deg)
+  SOL1 (Instead of using Least Squares...): orig 12 stems lean -0.129 px/row (-7.3 deg) | render 6 stems lean -0.000 (-0.0 deg)
+  Frame reference values (banked in qa/slide023/minor_adjudication.md §MINOR #1):
+    blue L1 -0.141, L2 -0.129, L3 -0.136, EX1 -0.146, EX2 -0.132, SOL1 -0.128, SOL2 -0.141
+    title (control) 0.000, 'Solution:' (control) +0.002, render title +0.002.
+  The frame's body ink measures ~-7.5..-8.3 deg in EVERY re-derivation. The banked
+  font forensics proved no installed face reproduces slant (Carlito Italic, -7 deg)
+  AND single-storey 'a' AND advance at once: Carlito's advance is +15.9% wide, Arial
+  Italic's advance is identical to Arial Regular (+2.2%) but its glyphs are double-
+  storey where the frame is single-storey and its slant is -12 deg vs the frame's -8.
+  DECISION (unchanged from the bank): keep Arial Regular. The residual is a font-
+  availability limitation, not a build error. ACCEPTED MINOR — no build change.
+
+################################################################################
+M2  MINOR — 'Original emphasises Least Squares / Gradient Descent in Solution box'
+################################################################################
+  RENDER solution-box interior (x90..872 y436..528): red ink px = 0
+  ORIGINAL solution-box interior (x90..872 y436..528): red ink px = 0
+  Bold-vs-regular evidence (ink px at matched bands, same window/predicate):
+    SOL1 whole line  orig  1787 px | render  8035 px
+    SOL2 whole line  orig  1419 px | render  5983 px
+  'Solution:' label is BOLD in the build (slide_023.js:244-245) and its measured cap
+  height/advance already matched in selfcheck (x96..184 vs orig x97..176).
+  DECISION: ACCEPTED MINOR. The render's solution box is uniformly navy 000080 with
+  no emphasis break, exactly like the frame (which is uniformly navy too: red px = 0
+  in BOTH images). No build change.
+
+################################################################################
+M3  MINOR — 'Original 1000 / 1,000,000,000 appear heavier (bold-red)'
+################################################################################
+  1000: orig total(px) 356 core(<100) 266 mid(<180) 435 | render total 1236 core 1039 mid 1319
+  1,000,000,000: orig total(px) 999 core(<100) 762 mid(<180) 1217 | render total 3273 core 2878 mid 3556
+  No emphasis/underline ink exists under either run (qa/slide023/
+  adjudication_attempt_1_redscan.txt: the only rows below the glyph baselines are
+  the glyphs' own bottom rows, identical in both images).
+  DECISION: ACCEPTED MINOR as a weight-only reading; the frame's red runs and the
+  build's red runs carry the same colour (C00000 family) and the same ink position
+  (selfcheck red 1000 / red 1e9 within 5px). No build change.
+
+################################################################################
+M4  MINOR — dim-note '(X^T X)' is '(set smaller and raised)' in the original
+################################################################################
+  dim part2 = '(X^T X) is of size d+1 x d+1' — measured ink x505..754 in the frame.
+  If the parenthetical were 'smaller and raised', its glyph ink height and its
+  baseline would differ from the rest of the line:
+    original:
+      '(' of (X^T X): ink x505.0..529.0 y192.0..215.0 (h 24.0)
+      Xi interior  : ink x530.0..559.0 y192.0..213.0 (h 22.0)
+      'size' word  : ink x690.0..709.0 y197.0..210.0 (h 14.0)
+      red 'd+1'    : ink x714.0..746.0 y196.0..211.0 (h 16.0)
+    render  :
+      '(' of (X^T X): ink x505.5..529.5 y196.2..214.5 (h 19.2)
+      Xi interior  : ink x530.0..559.3 y196.7..210.1 (h 14.4)
+      'size' word  : ink x690.0..709.7 y196.7..210.1 (h 14.4)
+      red 'd+1'    : ink x714.5..746.1 y196.2..210.1 (h 14.9)
+  The whole line sits on ONE baseline with ONE cap height (banked: baseline 211,
+  ink y196..215 for part2). DECISION: ACCEPTED MINOR / effectively REFUTED — the
+  frame's dim-part2 is a single-styled run (selfcheck 'dim part2' ok within 5px).
+  No build change.
+
+################################################################################
+M5  MINOR — 'Possible underline beneath part of the For Example line' (LOW conf)
+################################################################################
+  EX1 under original: longest horizontal dark run = 6 px at y399.0
+  EX1 under render  : longest horizontal dark run = 13 px at y399.832083958021
+  EX2 under original: longest horizontal dark run = 3 px at y420.0
+  EX2 under render  : longest horizontal dark run = 4 px at y420.0
+  An underline bar would be >=150px. DECISION: REFUTED — no such bar in either image.
+  (The judge itself marked this 'low-res artifact possible'.) No build change.
+
+################################################################################
+M6  MINOR — 'Blue paragraph line spacing looks looser (~1.5) in the original'
+################################################################################
+  Measure each line's ink top/bottom directly in both images:
+    blue L1: orig y242..266 | render y243..264
+    blue L2: orig y276..300 | render y277..298
+    blue L3: orig y310..333 | render y310..331
+  Derive pitch between consecutive baselines:
+    original: line tops y242,276,310 -> pitch 34, 34 px
+    render  : line tops y243,277,310 -> pitch 34, 33 px
+  The banked baselines are 260/294/327 (pitch 34/33) in the FRAME; selfcheck measured
+  the render's tops within 3px of the frame's on every line (blue L1/L2/L3 'ok').
+  Pitch is therefore IDENTICAL (33-34px, ~1.4em) in both images.
+  DECISION: REFUTED numerically — no spacing deviation. No build change.
+
+################################################################################
+M7  MINOR — 'Recreation leaves a visible gray gap under the Solution box'
+################################################################################
+  original: yellow-box bottom stroke rows y425.0..539.0
+  render  : yellow-box bottom stroke rows y424.5..538.2
+  House bottom stroke is at y538.5 in BOTH (house_chrome_check: 'panel ... bottom').
+  The bank: yellow box strokes B y530 (orig 530.0 / render 529.2, d-0.8). The gap from
+  the box bottom to the bottom stroke is 8.5-9.5px in BOTH images — identical.
+  DECISION: REFUTED — the 'gap' is the original's own geometry, reproduced.
+  No build change.
+
+################################################################################
+M8  MINOR — 'X in the equation may be slightly bolder in the recreation' (LOW conf)
+################################################################################
+  eq asset: X#1 (x191..210 y157..178) ink px = 6253
+  eq asset: X#2 (x230..251 y157..178) ink px = 6903
+  (mathtext renders every symbol at ONE weight from the same mathtext string;
+  build_eq_023_ws.py composites colour only, never weight. The frame's own JPEG makes
+  glyph cores vary with local compression.)
+  DECISION: REFUTED by construction — the equation is a single mathtext rendering at
+  one weight; colour is composited post-hoc. No build change.
+
+################################################################################
+ADJUDICATION SUMMARY (Template A attempt 1 = PASS leg)
+################################################################################
+  M1 body italic       : ACCEPTED MINOR (font-availability limitation, banked).
+  M2 solution emphasis : REFUTED (uniform navy in BOTH; red px = 0 in both).
+  M3 red-number weight : ACCEPTED MINOR (weight-only; ink position/colour match).
+  M4 (X^T X) raised    : REFUTED (single baseline + single cap height, both images).
+  M5 EX underline      : REFUTED (no long dark run in either image).
+  M6 line spacing      : REFUTED (pitch 34/33px orig == render).
+  M7 gray gap          : REFUTED (8.5px gap present in the original frame too).
+  M8 equation X weight : REFUTED (single-weight mathtext by construction).
+  => No build change is warranted from the PASS leg's MINORs.

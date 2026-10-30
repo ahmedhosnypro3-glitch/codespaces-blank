@@ -1,0 +1,34 @@
+## Region Comparison: plot box of f(x)=(x-5)Â²+1
+
+Comparing IMG1 (recreation crop) vs IMG2 (original crop), same slide-space region, same effective scale.
+
+### Discrepancies
+
+1. **MAJOR â Missing point/segment labels (text content absent).**
+IMG2 carries five text annotations: "(2, 10)" left of the chord's left endpoint (~x=140,y=200 crop-rel), "(?, ?)" right of the right endpoint (~x=345,y=185), the two blue "3" segment labels above the chord halves (~x=215 and ~x=290, y=160), and "(5, 1)" beside the vertex dots (~x=290,y=405). **None of these appear anywhere in IMG1.** Five pieces of labeled mathematical content are simply gone. Confidence: very high â the areas where they sit in IMG2 are empty white/grid in IMG1.
+
+2. **MAJOR â Green vertex point misplaced vertically.**
+In IMG2 the green dots sit at (5, 1), one grid unit above the x-axis, tangent to the parabola vertex. In IMG1 the green dot (~x=263, y=407 crop-rel) sits essentially **on y = 0**, below the parabola's visible vertex, not tangent to it. The parabola itself is also clipped before its vertex is reached, so the (5,1) tangency relationship is lost. Confidence: high (measured against the 15/10/5 tick spacing in IMG1: ~114 px per 5 units puts y=0 at ~y=404, exactly where the dot is).
+
+3. **MINOR â Missing midpoint dot at (5, 10).**
+IMG2 has a distinct black round dot where the chord crosses the dashed axis of symmetry. IMG1 shows only the dashed red line passing through the chord with a small tick-like artifact â no round midpoint marker. Confidence: high.
+
+4. **MINOR â Chord endpoint markers differ in shape.**
+IMG2: solid round black dots at (2,10) and (8,10). IMG1: short vertical bar/tick strokes instead of dots. Same locations, different glyph geometry. Confidence: high.
+
+5. **MINOR â Parabola stroke weight and hue.**
+IMG2: thin (~2 px) grayish/steel-blue curve. IMG1: much heavier (~5â6 px) saturated pure blue. Some of the lightness in IMG2 is JPEG washout, but the weight difference is real and changes the visual character of the plot. Confidence: medium-high.
+
+6. **MINOR â Missing fine unit grid.**
+IMG2 shows a dense light-gray grid at every integer unit inside the plot box. IMG1 shows only sparse gridlines at the major (5-unit) tick positions. Confidence: high.
+
+7. **MINOR â x-axis line at y = 0 not visible in IMG1.**
+IMG2 shows a black horizontal axis line at y=0 with the label row below it; in IMG1 that horizontal black stroke appears absent (only the frame bottom and cut-off tick digits). Confidence: medium (bottom edge cropping makes this partly ambiguous).
+
+### What matches
+Red point at â(3, 5): correct position in both. Dashed red axis of symmetry at x=5: present both. Chord at y=10 spanning xâ2â8: correct span and height both. Y tick labels 15/10/5: present and correctly placed. Frame chrome: per Ground Rule (b), intentional.
+
+### Assessment
+The geometric skeleton (parabola, chord, symmetry line, red point) is right, but five text labels are entirely missing and the vertex point is at the wrong y-value. Under the stated rules, missing characters/labels are MAJOR; the mispositioned point is MAJOR.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

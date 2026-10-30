@@ -1,0 +1,98 @@
+=== b2b line (y256..274): disputed word 'regularization'/'generalization' ===
+  original: 29 clusters in x100..520
+    110-126(16) 128-135(7) 137-144(7) 146-159(13) 161-164(3) 166-187(21) 189-197(8) 199-207(8) 209-217(8) 219-221(2) 228-241(13) 243-250(7) 256-273(17) 275-282(7) 284-291(7) 293-311(18) 313-344(31) 346-354(8) 356-363(7) 370-382(12) 384-403(19) 410-413(3) 415-421(6) 427-434(7) 436-444(8) 446-472(26) 478-491(13) 498-511(13) 513-519(6)
+    word gaps>=4px: 221->228(6) 250->256(5) 363->370(6) 403->410(6) 421->427(5) 472->478(5) 491->498(6)
+  render_6: 45 clusters in x100..520
+    111-119(8) 121-129(8) 131-138(7) 141-149(8) 151-155(4) 157-166(9) 167-169(1) 171-172(1) 174-182(7) 184-197(14) 199-200(1) 203-211(8) 213-220(7) 223-225(1) 232-236(4) 238-245(7) 248-256(8) 263-268(4) 268-277(8) 279-286(8) 289-296(7) 299-300(1) 303-312(9) 313-317(4) 319-320(1) 322-329(7) 331-345(14) 347-348(1) 351-359(8) 361-368(7) 375-379(4) 380-388(8) 391-395(4) 397-409(12) 417-418(1) 420-428(8) 435-444(9) 445-452(8) 454-462(8) 464-472(8) 474-482(8) 489-493(4) 495-503(8) 509-513(4) 515-520(5)
+    word gaps>=4px: 225->232(6) 256->263(6) 368->375(6) 409->417(7) 428->435(6) 482->489(6) 503->509(5)
+
+=== b2a line (y230..248) tail: 'model' vs 'and' ===
+  original: last 6 clusters x95..520: 459-477(18) 479-482(3) 485-492(7) 494-497(3) 500-507(7) 509-517(8)
+  render_6: last 6 clusters x95..520: 481-490(9) 491-493(1) 495-503(8) 505-507(1) 509-517(8) 519-520(1)
+
+=== b3b disputed word 'know' vs 'known' (original carries the typo) ===
+  original: clusters x430..500: 430-438(8) 444-452(8) 454-461(7) 463-485(22) 491-498(7)
+  render_6: clusters x430..500: 435-442(7) 444-452(7) 454-462(8) 463-476(13) 482-499(17)
+
+=== PRECISE: b2b disputed word width (the word between 'the' and 'term') ===
+  original: 'the' ends 250 | disputed word x251..369 WIDTH 118 | 'term' starts 371
+  render_6: 'the' ends 256 | disputed word x257..374 WIDTH 117 | 'term' starts 376
+  synthesis @18px Liberation Sans: 'regularization'=106  'generalization'=111
+  => both images match 'regularization' (105-107), NOT 'generalization' (111)
+
+=== PRECISE: b2a FINAL word ('model' vs 'and') ===
+  original: final word x518..559 WIDTH 41  (end of line x559)
+  render_6: final word x528..560 WIDTH 32  (end of line x560)
+  synthesis @18px: 'model'=47  'and'=29  => both images carry 'model'
+
+=== PRECISE: b3b 'know' (frame carries the typo) vs 'known' ===
+  original: clusters 430-438 444-452 454-461 463-485 491-498 500-506 512-519
+        word gaps>=4: 438->444(5) 485->491(5) 506->512(5)
+        disputed word x439..490 WIDTH 51; next word starts 492
+  render_6: clusters 435-442 444-452 454-462 463-476 482-499 507-517 519-520
+        word gaps>=4: 476->482(5) 499->507(7)
+        disputed word x477..506 WIDTH 29; next word starts 508
+  synthesis @18px: 'know'=42 (4 letters) 'known'=52 (5 letters)
+
+=== b2b disputed word width (word between 'the' and 'term'), threshold sweep ===
+  thr=200 original : disputed word x256..363 WIDTH 107
+  thr=200 render_6 : disputed word x263..368 WIDTH 105
+  thr=170 original : disputed word x257..363 WIDTH 106
+  thr=170 render_6 : disputed word x263..368 WIDTH 105
+  thr=140 original : disputed word x257..363 WIDTH 106
+  thr=140 render_6 : disputed word x263..368 WIDTH 105
+  synth @18px Liberation Sans: 'regularization'=106  'generalization'=111
+
+=== b2a final word width (should be 'model'), threshold sweep ===
+  thr=200 original : final word x576..599 WIDTH 23
+  thr=200 render_6 : final word x587..600 WIDTH 12
+  thr=170 original : final word x576..599 WIDTH 23
+  thr=170 render_6 : final word x587..600 WIDTH 12
+  thr=140 original : final word x577..599 WIDTH 22
+  thr=140 render_6 : final word x587..600 WIDTH 12
+  synth @18px: 'model'=47  'and'=29
+
+=== b3b disputed word ('know' typo in the FRAME), threshold sweep ===
+  thr=200 original : word x430..438 WIDTH 8 | next word starts 444
+  thr=200 render_6 : word x430..476 WIDTH 46 | next word starts 482
+  thr=170 original : word x430..437 WIDTH 7 | next word starts 445
+  thr=170 render_6 : word x430..476 WIDTH 46 | next word starts 482
+  thr=140 original : word x430..437 WIDTH 7 | next word starts 445
+  thr=140 render_6 : word x430..476 WIDTH 46 | next word starts 482
+  synth @18px: 'know'=42 (4 letters)  'known'=52 (5 letters)
+
+=== b3b disputed word 'know' (frame typo) — measured as the 4-glyph run ===
+  original: 4-glyph run x445..485 WIDTH 40  (glyph widths 12 for the last)
+        clusters: 445-452(7) 454-461(7) 463-471(8) 473-485(12)
+        next word starts 492
+  render_6: 4-glyph run x435..475 WIDTH 40  (glyph widths 12 for the last)
+        clusters: 435-442(7) 444-451(7) 454-462(8) 463-475(12)
+        next word starts 481
+  render_6: 4-glyph run x444..499 WIDTH 55  (glyph widths 17 for the last)
+        clusters: 444-451(7) 454-462(8) 463-475(12) 481-499(17)
+Traceback (most recent call last):
+  File "<stdin>", line 29, in <module>
+IndexError: list index out of range
+
+=== b2a FINAL word — trailing-word width (walk back while gap < 4px) ===
+  original: trailing word x576..634 WIDTH 58  (n glyph clusters 7)
+        last 14 clusters: 509-517(8) 524-528(4) 530-537(7) 540-545(5) 548-550(2) 553-560(7) 562-570(8) 576-580(4) 582-594(12) 597-599(2) 602-609(7) 612-614(2) 617-624(7) 627-634(7)
+  render_6: trailing word x587..640 WIDTH 52  (n glyph clusters 8)
+        last 14 clusters: 534-539(4) 540-548(7) 550-557(7) 560-561(1) 563-571(7) 573-581(8) 587-592(4) 593-598(4) 599-608(9) 610-611(1) 613-621(7) 623-624(1) 627-635(7) 637-640(3)
+  synth @18px: 'model'=47 (5 glyphs)  'and'=29 (3 glyphs)
+
+=== b2a END-OF-LINE x position (line-break fidelity) ===
+  original: b2a line ends at x698
+  render_6: b2a line ends at x700
+
+=== ORIGINAL b2a tail x635..710 (is it the mouse cursor artifact?) ===
+  clusters: 602-609(7) 612-614(2) 617-624(7) 627-634(7) 641-648(7) 650-657(7) 659-662(3) 664-671(7) 673-678(5) 680-687(7) 689-692(3) 694-698(4) 705-711(6) 714-719(5)
+  y-extent of ink at x660..700:
+    rows 231..259  cols 655..698  -> a blob 44x29 px
+  (an isolated arrow/blob below/right of the text baseline = the video mouse-cursor artifact,
+   correctly omitted from the recreation per GROUND RULE (c))
+
+=== b2a final WORD, original, excluding x>=650, gap threshold 5 ===
+  original: text-final word x641..644 WIDTH 3 (glyph clusters: 3)
+  render_6: text-final word x587..645 WIDTH 57 (glyph clusters: 4 4 9 1 7 1 7 8)
+  synth @18px: 'model'=47  'and'=29

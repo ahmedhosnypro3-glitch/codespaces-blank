@@ -1,0 +1,141 @@
+===============================================================================
+SLIDE 009 — VISUAL JUDGE DISPATCH PACK, ATTEMPT 7 (crop set 6), 2026-10-25
+===============================================================================
+Frozen-law payloads extracted PROGRAMMATICALLY from shared_patterns/judge_protocol_03.md
+(probe74_judgepack_7.py) — byte-for-byte, length-asserted; only NNN=009 substituted in
+Template B. Vision route: DEFAULT (no --models flag). Thinking high, --max-tokens 65536.
+Outer wall timeout 1700, inner --timeout 600. Never wrap analyze_image.py in a retry loop.
+
+RENDER BEING JUDGED: videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_7.png
+  (attempt 7 = founder-annotation fix + house-chrome module restored to the pre-drift,
+   AGENTS.md-conformant version; probe71 PASS, house_chrome_7 PASS, probe72/72c region diff
+   PASS — every eq-region delta is annotation mechanics, equation glyphs unchanged.)
+
+CERTIFICATION NEEDS BOTH LEGS (founder directive 2026-10-19, ALL slides zoomed):
+  LEG A  Template A — full-slide comparison
+  LEG B  Template B — zoomed crop-pairs: eq_left, eq_right, chart_left, chart_right, annotation_left, annotation_right
+cap_left/cap_right are NOT re-judged: probe72 measured 0 changed px vs the certified
+attempt-5 pixels, so their attempt-5 crop certificates remain valid under the
+protocol's pixel-identical rule.
+
+-------------------------------------------------------------------------------
+PROBE FIRST (opens the gateway window; a valid body opens it, a hang means
+sleep 300 and re-probe ONCE — a probe is NOT a judge attempt):
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 150 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py analysis \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_7.png \
+  --view "Slide 009 recreation attempt 7 — probe" \
+  --capture "150dpi PNG render of a 13.33x7.5in PPTX" \
+  --timeout 120 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/probe_7.txt
+
+LEG A — TEMPLATE A, FULL-SLIDE COMPARISON (attempt 7)
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_7.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_009.jpg \
+  --view "Slide 009 recreation — fidelity check vs original lecture frame. FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/judge_attempt_7.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_A_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'eq_left' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x208..325 y140..183  — LEFT chart annotation box holding the black equation 50.85^2 = 2585; the founder-corrected red dimension shaft clips this box's lower-left corner
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_left_orig.png \
+  --view "Slide 009 zoomed crop eq_left — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT chart annotation box holding the black equation 50.85^2 = 2585; the founder-corrected red dimension shaft clips this box's lower-left corner" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'eq_right' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x625..742 y140..183  — RIGHT chart annotation box holding the black equation 63.64^2 = 4050; the founder-corrected red dimension shaft clips this box's lower-left corner
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_orig.png \
+  --view "Slide 009 zoomed crop eq_right — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT chart annotation box holding the black equation 63.64^2 = 4050; the founder-corrected red dimension shaft clips this box's lower-left corner" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'chart_left' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x87..473 y102..480  — LEFT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_left_orig.png \
+  --view "Slide 009 zoomed crop chart_left — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'chart_right' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x478..878 y102..480  — RIGHT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_right_orig.png \
+  --view "Slide 009 zoomed crop chart_right — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_chart_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'annotation_left' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x150..340 y125..330  — LEFT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '50.85 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_left_orig.png \
+  --view "Slide 009 zoomed crop annotation_left — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '50.85 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'annotation_right' (crop set 6, render attempt 7)
+-------------------------------------------------------------------------------
+region (frame px): x555..765 y125..390  — RIGHT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '63.64 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_right_orig.png \
+  --view "Slide 009 zoomed crop annotation_right — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec." \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '63.64 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_annotation_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B_7.txt)"
+

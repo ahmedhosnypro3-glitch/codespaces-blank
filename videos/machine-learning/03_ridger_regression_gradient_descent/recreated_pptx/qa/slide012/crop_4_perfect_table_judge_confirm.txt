@@ -1,0 +1,33 @@
+# Zoomed Crop-Pair Analysis â Slide 012, "Perfect Data" table region
+
+## Cell-by-cell content check (header + 3 data rows Ã 8 columns)
+
+**Header row:** X1(blue) X2(red) X3(blue) X4(red) X5(blue) X6(red) X7(blue) X8(red) â IMG1 matches IMG2 value-for-value and color-for-color. â
+
+**Row X1:** 1(blue), 2(red), 3(blue), 4(red), 8(blue), 9(red), 10(blue), 11(red) â all values and alternating ink colors match. â
+
+**Row X2:** 1(blue), 3(red), 5(blue), 6(red), 16(blue), 7(red), 5(blue), 3(red) â matches. â (The non-sequential values 16, 7, 5, 3 are correctly reproduced, not "corrected" to a pattern.)
+
+**Row y:** 2(blue), 4(red), 6(blue), 8(red), 16(blue), 18(red), 20(blue), 22(red) â matches. â
+
+No missing rows, no swapped digits, no garbled characters anywhere in the 32 data cells + 8 header cells.
+
+## Discrepancies found
+
+1. **MINOR (high confidence)** â Header glyphs: IMG1 renders "X1", "X2"â¦ with the digit on the baseline (typed style), while IMG2 shows true subscripts "Xâ", "Xâ"â¦ (digit dropped, smaller). Same characters, same order, nothing truncated or missing â a glyph-styling difference consistent with the typed-ink allowance, but at this zoom it is visible. Same applies to row labels "X1"/"X2" vs "Xâ"/"Xâ". Crop-relative: top-right band (headers) and left column, rows 2â3.
+
+2. **MINOR (high confidence)** â Row-label ink color: IMG1's "X1", "X2", "y" labels are bold blue; IMG2's "Xâ", "Xâ", "y" labels are black/dark gray. All 8 data-column values are correctly blue/red alternating in both, so this affects only the three left-column labels (left edge, ~y-center of each row).
+
+3. **MINOR (high confidence)** â Typeface: IMG1 uses a sans-serif (Calibri-like) face; IMG2 shows a serif math face (Cambria/Times-like) for all table ink. Inherent medium/template difference, per ground rule (c).
+
+4. **MINOR (high confidence)** â Grid weight/chrome: IMG1 has heavier black rules (thick outer border and heavier left-column separators); IMG2 shows thinner, lighter gray rules with a soft outer edge (partly video-capture softness per rule (e)). Structure â 4 rows Ã 9 columns, empty top-left cell â is identical.
+
+## Not discrepancies (per ground rules)
+- Sans-serif vs serif table ink â rule (c).
+- Soft JPEG halo around glyphs in IMG2 â rule (e).
+- No top stroke / template chrome â not visible in this crop; n/a.
+
+## Summary
+All 40 cells contain the correct value in the correct color. The only differences are glyph styling (baseline digits vs subscripts), row-label ink color, typeface, and rule weight â all zoom-level-only, none affecting content or legibility.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

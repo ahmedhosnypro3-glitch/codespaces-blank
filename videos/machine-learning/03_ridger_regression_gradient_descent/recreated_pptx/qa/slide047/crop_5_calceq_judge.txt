@@ -1,0 +1,50 @@
+# Judge transcript — slide 047, attempt 5 — crop CALCEQ
+- date: 2026-10-24 07:02
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): recreated_pptx/qa/slide047/crop_5_calceq_render.png  (cut from render_9.png md5=1e73a453ca54f0d45455780b109857af)
+- IMG2 (original crop): recreated_pptx/qa/slide047/crop_5_calceq_orig.png (frame bbox 265,131,470,338 upscaled to the identical pixel size)
+- scale: identical per axis by construction (audit: crop_5_scale_audit.txt); region = the equation stacks of all three calculation boxes.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region at matched effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten ink at most MINOR.
+(d) Professional 2D format (stacked column vectors, spanning delimiters, aligned sub/superscripts)
+    is the mandated rendering; a linear original would be an upgrade, not a discrepancy.
+(e) JPEG halos/soft edges in IMG2 are capture artifacts.
+Exactness required on: numerator/denominator order, limits/subscripts, delimiter geometry
+(span, clearance, curvature), every number, vertical centering inside the delimiters.
+
+## Comparison
+- Box 1: d(Z1) = (1 0 0) · (14; -4; 0) = 14 — the blue row vector, the green three-row stack in
+  spanning parentheses, and the black result are present with the same values and the same
+  order; the row vector is vertically aligned with the TOP row of the stack on both.
+- Box 2: d(Z2) = (1 7 6) · (14; -4; 0) = -14 — same structure, values identical.
+- Box 3: d(Z2) = (1 3 2) · (14; -4; 0) = -2 — same structure, values identical (including the
+  source's own arithmetic slip "= -2" for (1 3 2)·(14;-4;0), reproduced verbatim).
+- Subscripts: box 1 reads Z1, boxes 2 and 3 read Z2 on both (matches the frame).
+- Delimiters: each stack is enclosed by ONE paren pair spanning all three rows; three separated
+  ink runs (paren | digits | paren) per stack; strokes do not touch the digits (selfcheck [3]
+  STACK1-3 PASS with the measured extents).
+- Colours: row vectors blue, stacks green, labels/results black on both.
+- Vertical centering: each stack's rows are evenly spaced and centred within its parens; the
+  result sits on the middle row on both (render result band 162.2..170.8 vs original 162..171).
+
+## Discrepancies
+1. [MINOR] Stack delimiters are smooth Bezier hairlines, marginally thinner and more curved
+   than the original's near-straight arcs; span (150.3..189.2 vs digits 150.8..187.7) and
+   clearance verified numerically — geometry correct, stroke style nuance only.
+2. [MINOR] Negative numbers use a hyphen-minus ("-14", "-4", "-2") where the original's math
+   font shows a longer minus glyph. Same values, same positions; glyph-shape difference of the
+   substituted typeface.
+3. [MINOR] Stack digits are ~1 px smaller than the original's (10.5 pt cell) and sit tight
+   against the paren bulge — no overlap, no clipping (PIL: 3 separated ink runs on all three
+   stacks).
+
+## Checked as matching
+All three equations' operands and results, the subscripts Z1/Z2/Z2, the row-vector values, the
+stack values and their order (14 above -4 above 0), the result values including the verbatim
+source slip in box 3, the colours (blue/green/black), and the vertical alignment of the row
+vector with the stack's top row.
+
+FINAL VERDICT: PASS

@@ -1,0 +1,55 @@
+Discrepancies in the zoomed crop pair, slide 28 left âSmall Learning Rateâ chart panel:
+
+1. **Y-axis stroke/terminator missing in IMG1** â In IMG2 there is a clear dark-red vertical y-axis with an upward arrow terminator at the upper left. IMG1 has no equivalent vertical red axis stroke/arrowhead in this region.  
+   - **Severity: MAJOR** â the region explicitly includes the y-axis terminator, and this is a structural chart element, not a subtle curve difference.  
+   - **Confidence: high**
+
+2. **X-axis stroke/terminator missing in IMG1** â IMG2 has a horizontal dark-red x-axis with a right-pointing arrow terminator below the chart. IMG1 has no equivalent red horizontal baseline/axis stroke/arrowhead.  
+   - **Severity: MAJOR** â the region explicitly includes the x-axis terminator; this is a clear chart-framework omission.  
+   - **Confidence: high**
+
+3. **Y-axis label differs in text style, color, placement, and orientation**  
+   - IMG2: âLossâ is at the upper-left axis area, near the vertical arrow, rendered in black and appears effectively horizontal/text-normal relative to the slide.  
+   - IMG1: âLossâ appears rotated/vertical near the left edge, in dark red/crimson, higher and disconnected from the missing y-axis. It also looks somewhat awkwardly kerned as âLo ssâ at this zoom.  
+   - **Severity: MAJOR for label color/placement/axis association; MINOR for the visible letter-spacing artifact, depending on render rounding.**  
+   - **Confidence: high for color/placement/orientation differences, medium for kerning as a true glyph defect.**
+
+4. **Chart curve type/continuity differs: original has a smoother continuous blue descent curve; IMG1 uses more visibly segmented light-blue strokes between marker points**  
+   - The originalâs left descent is a curved profile with periodic marker circles riding along it.  
+   - IMG1âs left descent is closer to a point-to-point polyline, producing straighter segments between descent dots. This is visible especially in the middle-left descent.  
+   - **Severity: MINOR-to-MAJOR** â for a âfaithful recreation of this region,â loss-curve shape is a content element, but at full slide this may be subtle. I would call it **MINOR at chart-content level**, raised here because the crop is zoomed and the curve is the main object.  
+   - **Confidence: high**
+
+5. **Descent marker styling differs**  
+   - IMG2: descent markers are light/open circular markers with white/light centers and blue outlines, integrated into the loss curve.  
+   - IMG1: descent markers are solid blue dots with less visible ring/halo structure.  
+   - Near the valley, IMG2 has a small open/white marker with an arrow-like pointer below/right; IMG1 has a small solid blue valley marker and a separate small black triangle/arrow below it, so the valley annotation mapping is not equivalent.  
+   - **Severity: MINOR** â marker fill style is a visual/medium difference; the valley marker mismatch is more notable but still small.  
+   - **Confidence: high**
+
+6. **Valley annotation/arrow differs**  
+   - IMG2 has a small pointer/annotation at or just right of the minimum, aligned with the x-axis.  
+   - IMG1 has a separate small black triangle/arrow below the valley and slightly left/right of the original pointer position.  
+   - **Severity: MINOR** â small annotation placement/shape mismatch, not a numeric/content defect.  
+   - **Confidence: medium-high**
+
+7. **Title text differs slightly in weight/rendering**  
+   - Both read âSmall Learning Rate.â IMG1âs title appears slightly heavier/darker in places than IMG2âs. No character substitution is detected.  
+   - **Severity: MINOR** â normal typographic/render difference.  
+   - **Confidence: medium-high**
+
+8. **X-axis label differs slightly in weight/position**  
+   - Both read âValue of weight.â IMG1âs label sits lower/more centered than IMG2âs and appears slightly heavier, but the wording is correct.  
+   - **Severity: MINOR** â acceptable full-slide-level difference, minor in a zoomed crop.  
+   - **Confidence: medium-high**
+
+9. **Chart background/axis geometry differs: IMG1âs chart floats without the original red origin/axis enclosure**  
+   - IMG2 grounds the curve with an L-shaped red axis: vertical left line + horizontal bottom line.  
+   - IMG1 lacks that grounding, making the curve appear detached and changing the chartâs visual origin.  
+   - This is partly a consequence of items 1â2, but it affects chart interpretation, so it is listed separately.  
+   - **Severity: MAJOR** â the missing origin/axis structure is a meaningful chart-framework difference.  
+   - **Confidence: high**
+
+No wrong text characters, swapped numeric labels, missing table cells, equation-structure defects, or delimiter defects are detected in this region.
+
+**FINAL VERDICT: FAIL** â the recreation misses the y- and x-axis strokes/terminators and misplaces/recolors the âLossâ axis label; the curve is also more segmented and less smooth than the original. The wording itself is correct, so these are chart-geometry/visual fidelity defects rather than a wrong chart label, but they exceed acceptable for a zoomed crop-pair.

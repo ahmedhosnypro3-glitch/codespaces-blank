@@ -1,0 +1,21 @@
+# slide 025 judge payload byte-for-byte verification (attempt K=4)
+
+Source: shared_patterns/judge_protocol_03.md (frozen Template A / Template B).
+Substitutions applied: NNN->025 inside Template B payload ('slide NNN' -> 'slide 025');
+no K/NAME placeholders exist inside either payload body (they live only in CLI args).
+
+Template A len 4115 chars; Template B len 1914 chars (after NNN->025: 1914).
+judge_prompt_4.txt == Template A payload VERBATIM        : True
+crop_prompt_4_<name>.txt == Template B with NNN->025 only : True
+residual 'NNN' in any payload                            : False
+FINAL VERDICT line present in both                      : True
+BLOCKER clauses intact (A miss=BLOCKER, B glyph=BLOCKER) : True
+
+Region descriptions used in --capture for each crop pair:
+  title      the red title text 'Types of Loss function shapes'
+  lbl_upper  the top-gutter blue caption boxes beside the TL and TR figure boxes
+  lbl_lower  the bottom-gutter blue caption boxes beside the BL and BR figure boxes
+  tl         the top-left white figure: thin red border, concave dome jet surface, two red horizontal reference lines
+  tr         the top-right white figure: thin red border, convex bowl jet surface, axis ticks with x10^4 scale, two red reference lines
+  bl         the bottom-left white figure: thin red border, non-convex multi-extremum surface, red reference line, two red annotation arrows, four black Global/Local annotations
+  br         the bottom-right white figure: thin red border, valley jet surface, black gradient-descent path with arrowheads

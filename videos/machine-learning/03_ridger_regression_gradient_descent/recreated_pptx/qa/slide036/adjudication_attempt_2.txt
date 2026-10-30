@@ -1,0 +1,86 @@
+# PIL adjudication — Template A judge_attempt_2 (slide 036, render_2)
+
+Template A verdict: FINAL VERDICT: PASS (8 discrepancies listed, all MINOR).
+Below: PIL measurement against the original frame (unique_slides/slide_036.jpg,
+960x540, 1px = 1pt) and render_2 (150dpi, 2001x1125). Every finding adjudicated
+before any build change; no build change was made after the PASS.
+
+## #1 Missing underlines under "misclassified" (4x) — CONFIRMED AS STATED, NO ACTION
+Handwritten emphasis ink. Per judge GROUND RULES (d) typed-vs-handwritten is an
+inherent medium difference (at most MINOR). Already adjudicated in
+adjudication_attempt_1.txt: the frame's underline AA is below the ink threshold;
+reproducing it is not required and was not done.
+
+## #2 Red X re-created smaller — REFUTED (size matches)
+Measured ink: orig (763,367)-(785,389) = 23x23 px; render_2 (766,365)-(786,387)
+= 21x23 px (selfcheck_attempt_2.py "RED X MARK present"). Delta 2px in width,
+0px in height — inside the checker's <=8px tolerance. "Much smaller" is not
+supported; the perceived difference is handwritten-vs-typed stroke weight.
+
+## #3 "W^T X" in box1 line2 claimed dark-red in original — REFUTED
+Run scan of box1 line2 (ink y161..184 window, tight thr<130):
+  x103-112,119-122,128-139,146-149 = GRN (72,148,69)  -> "d(X)"
+  x155-296, x302-364, x374-415      = blk             -> "let ... function = W^T"
+  x424-435                          = GRN (73,153,71) -> the final "X"
+So "W^T" is BLACK and the trailing "X" is GREEN — exactly what the build emits
+(["W",K,italic] ["T",superscript] ... ["X",G,italic]). No change.
+
+## #4 Box1 line3/line4 terminal comparator claimed blue — REFUTED
+  line3 "…d(X) > 0" tail runs: x312-319 RED (173,71,88), x328-335 RED (178,29,48)
+  line4 "…d(X) < 0" tail runs: x318-326 BLUE (74,61,164), x335-343 BLUE (43,32,177)
+Build emits ["> 0", R] on line 3 and ["< 0", B] on line 4. Both correct.
+
+## #5 "W^T X_i" / "(W^T X_i)" terms claimed red in the original — REFUTED
+Error-line colour probe (tight thr, y374..392):
+  group1: paren (40,42,39) blk | W (72,74,71) blk | T (84,86,83) blk
+          X (72,159,69) GRN | i (182,98,113) RED-ish
+  group2: paren (128,130,127) blk | W (93,95,92) blk | T (99,101,98) blk
+          X (75,152,76) GRN | i (166,101,109) RED-ish | ")" (138,140,137) blk
+  phrase "take … values": all blk (88,90,87) / (129,131,128) / (97,99,96)
+The main-row terms are black with a green italic X — as built. Two residual
+deviations the judge did not raise are recorded below.
+
+## #6 Original reads "Sum W^T X_i => …" without parens on the first term — REFUTED
+Ink-run comparison of the first term (thr<170, y372..397):
+  ORIGINAL runs x290..420: (305,322) (326,329) (338,350) (354,356) (396,410)
+    - (396,410) is the double arrow; there is NO closing-paren run between the
+      first term's subscript and the arrow at any threshold (<150/<205 scans of
+      x352..400 show only a faint descender curve), so the original really does
+      omit the first term's closing ")".
+  RENDER_2 runs: (304-330) (334-360) (361-363) (365-370) (378-411)
+    - renders "(W" + raised T + X + "_i)" incl. a closing ")", then "(W".
+So the judge's reading is arithmetically right, but the spec's verbatim equation
+is "Error = \sum_{...} (W^T X_i) \Rightarrow (W^T X_i) take positive and negative
+values" — the balanced form. The unbalanced original is a typo in the source
+slide; verbatim-per-spec wins (AGENTS.md output contract: verbatim_text is
+authoritative, never "corrected" toward the source). Superseded by the
+verbatim-text law; no change.
+
+## #7 Missing space after the second ")" — REFUTED
+Frame px of the phrase start: original "take" ink begins x=507. render_2's
+phrase is ink-positioned at frame x=507 by eq036_v2.py (auto-fitted 18.7pt
+Liberation Sans Narrow, ink span 226.2px vs the original's measured 226px).
+The gap between group-2's ")" and "take" is therefore reproduced, not missing.
+(At 150dpi the 2px checker tolerance makes a real gap hard to see; the ASCII
+glyph read of x715..742 shows "u e s" complete and spaced as in the original.)
+
+## #8 Ambiguous connector glyph (possible left-double-arrow) — REFUTED
+Build uses U+21D2 (⇒RIGHTWARDS DOUBLE ARROW) in both the box-3 equation PNG
+(T(396, MAIN_BASE+3.5, "\u21d2")) and the box-4 text runs. The judge itself
+rates this "confidence Low / conditional escalate" and the final verdict did not
+escalate. Glyph shape in render_2 matches the original's arrow ink (x396..410,
+y380..387 = 15x8px, centred on the row).
+
+## Residual deviations NOT raised by the judge (measured, not fixed)
+1. The subscript "i" of BOTH "(W^T X_i)" groups is RED in the original
+   (darkest core (148,36,58) and (134,52,66)); the build renders it black as
+   part of the literal "_i)" string.
+2. A soft-edged pink marker band sits behind the Σ subscript
+   "…misclassified vectors(i)": light-pixel mean RGB (252,229,231) vs the
+   neutral box fill (252,252,252), i.e. R-G ≈ +20, spanning x≈177..300,
+   y≈401..413, ramping in/out over ~3px. The build omits it.
+
+Classified as MINOR (typed-ink colour at 3-4px subscript scale; soft-edged
+hand/marker-class artifact of the same family as finding #1, which the judge
+itself ruled non-reproducible under GROUND RULES (d)). Both are recorded here
+as known residual deviations; neither blocks the PASS.

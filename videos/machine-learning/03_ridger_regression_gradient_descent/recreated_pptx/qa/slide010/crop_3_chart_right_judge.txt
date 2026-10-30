@@ -1,0 +1,33 @@
+## Comparison basis
+Both crops show the same right-hand scatter/regression chart: white plot field with a light gray rectangular grid, red L-shaped axes (upâarrow on y, rightâarrow on x), a blue fitted line, 12 orange circular data points, faint periwinkle perpendicular residual connectors, a green dashed crosshair (green leftâpointing triangle on the yâaxis at the Å· level, brightâgreen dot on the xâaxis), a paleârose dashâdot horizontal at the lower level with two paleârose dashed verticals at the points near xâ428 and xâ520, plus small red triangles (one leftâpointing on the rose line at the yâaxis, one upâpointing under the point at (520,332)). The darkâblue rectangle framing both crops is slide chrome (rule b), not a discrepancy.
+
+## Discrepancies (cropârelative coordinates, IMG1 = recreation, IMG2 = original)
+
+1. **Fitted blue line sits ~4â5 px too high in the recreation.** MINOR â confidence MEDIUMâHIGH.
+   - IMG1 line runs â(127,473)â(610,240); IMG2 â(127,478)â(610,243).
+   - The 12 orange points, grid, and axes align essentially pixelâforâpixel between the two crops (e.g., top point (219,70) in both; (428,313), (520,332), (588,255) match), so this is a genuine translation of the fitted line, not crop misalignment.
+   - Visible consequence: in IMG1 the point at â(322,386) falls clearly *below* the blue line, while in IMG2 that point lies essentially *on* the line; residuals at (428,313) and (520,332) also read slightly larger in IMG1. The line's slope and endpoints (xâ127 and xâ610) otherwise match.
+
+2. **Filled green node at the greenâcross / fittedâline intersection is not rendered in the recreation.** MINOR (would be MAJOR if confirmed as dataâbearing marker) â confidence MEDIUM.
+   - IMG2, at â(477,307) (where the green horizontal dash meets the green vertical dash and the blue line): a distinct filled green circular node with a light core, drawn over the blue stroke.
+   - IMG1, same location (â(475â478,305â310)): only the blue stroke and the dash convergence; no comparable green node is discernible, so the green horizontal appears to terminate as a bare dash rather than as a marked point.
+   - Impact is limited to one small annotation dot; the crosshair itself (horizontal level, vertical drop, brightâgreen xâaxis dot) is present, so the chart remains readable. The original's bottom dot (â477,551) *is* reproduced in IMG1 at â(475,551).
+
+3. **Brightâgreen xâaxis dot is ~2â3 px left of the green vertical dashed line in the recreation.** MINOR â confidence MEDIUM.
+   - IMG1: vertical green dashes centered at xâ478, bottom dot centered at xâ475 (â3 px offset, dot not concentric with the drop line).
+   - IMG2: vertical dashes and bottom dot both at xâ477 (concentric).
+
+4. **Dataâpoint fill reads slightly more yellow/gold in the recreation versus a deeper orange in the original.** MINOR â confidence LOW.
+   - All 12 markers (e.g., (219,70), (548,243), (588,255), (293,375), (184,462)); marker diameter (~13â14 px) and spacing match. Some of the hue difference may be capture/JPEG tinting, so this is flagged only as a possible minor fill difference.
+
+## Checked and found matching (not discrepancies)
+- Count and positions of all 12 orange points; blue line endpoints and slope (modulo item 1).
+- Grid layout (vertical/horizontal spacing), white plot field, darkâblue outer border (chrome).
+- Red axes, both arrowheads, the red upâtriangle under (520,332), the rose leftâtriangle at (â108,331), the green leftâtriangle at (â108,307).
+- Green horizontal dash level (yâ307), rose dashâdot level (yâ331), rose dashed verticals at xâ428 and xâ520, and the brightâgreen xâaxis dot's presence.
+- Faint periwinkle perpendicular residual connectors from the top point (219,70), (548,243), (520,332), (293,375), and (279,431) in both.
+- No text, numbers, or table cells occur in this region, so no glyph/value or delimiterâgeometry checks apply; the "navy panel" named in the region description is not present in either crop (both show a white/gray plot field), so there is nothing to flag there.
+
+Overall the recreation reproduces this chart region faithfully in structure, data geometry, annotation layout, and color family; the deviations are a small fittedâline offset (~1% of plot height), one absent small green intersection node, and a couple of subâpixelâscale alignment/hue items.
+
+**FINAL VERDICT: PASS**

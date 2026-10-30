@@ -1,0 +1,83 @@
+render 2001x1125   scale x 2.08438 y 2.08333
+
+== A. NAVY CHART-PANEL BORDERS (frame px) ==
+  [OK ] LEFT navy span x                   got 95.0..464.4 want 95.0..465.0
+  [OK ] LEFT navy span y                   got 109.9..472.3 want 110..471
+  [OK ] RIGHT navy span x                  got 486.5..868.8 want 486.5..869.5
+  [OK ] RIGHT navy span y                  got 109.9..472.3 want 110..471
+
+== B. GRID LINE POSITIONS (sampled, frame px) ==
+  [OK ] LEFT grid cols                     centres [np.float64(102.7), np.float64(147.3), np.float64(216.4), np.float64(285.5), np.float64(354.5), np.float64(423.6)] vs want [104, 150, 218, 288, 356, 426]
+  [OK ] RIGHT grid cols                    centres [np.float64(516.7), np.float64(561.3), np.float64(630.4), np.float64(699.5), np.float64(768.6), np.float64(837.7)] vs want [518, 564, 632, 702, 770, 840]
+  [OK ] grid row k=0                       got y 120.0..122.4 want 120.5
+  [OK ] grid row k=3                       got y 185.8..189.6 want 187.7
+  [OK ] grid row k=6                       got y 253.0..256.8 want 254.9
+  [OK ] grid row k=9                       got y 320.2..324.0 want 322.1
+  [OK ] grid row k=12                      got y 387.4..391.2 want 389.3
+  [OK ] grid row k=15                      got y 454.6..456.5 want 456.5
+
+== C. RED AXES: SHAFTS + ARROWHEAD APEXES ==
+  [OK ] LEFT y-axis shaft                  got x 123.3..129.5 y 149.8..433.9 want cx 126.5, base y 434
+  [FIX] LEFT x-axis shaft                  got x 200.1..848.7 y 431.0..436.3 want cy 434.0, apex x 127
+  [FIX] RIGHT y-axis shaft                 got x 536.9..543.1 y 149.8..433.9 want cx 540.0, base y 437
+  [FIX] RIGHT x-axis shaft                 got x 600.2..848.7 y 431.0..436.3 want cy 434.0, apex x 540
+  [OK ] LEFT up-head apex                  got y 142.1..152.2 want apex y 142.0
+  [OK ] RIGHT up-head apex                 got y 142.1..152.2 want apex y 142.0
+  [OK ] LEFT right-head apex               got x 427.9..435.6 want apex x 436.0
+  [OK ] RIGHT right-head apex              got x 841.0..848.7 want apex x 849.0
+
+== D. BLUE FITTED LINES (span + LSQ endpoints) ==
+  [FIX] LEFT fitted line                   span x 140.6..869.8 (want 141.0..433.0); LSQ y=-0.000x+286.1 -> (141.0,286.1),(433.0,286.0) want (141.0,352.0),(433.0,199.0)
+  [FIX] RIGHT fitted line                  span x 554.6..869.8 (want 555.0..849.0); LSQ y=-0.386x+592.9 -> (555.0,379.0),(849.0,265.6) want (555.0,389.0),(849.0,247.0)
+
+== E. ORANGE DATA POINTS (24 centroids, d=7.5) ==
+  [OK ] LEFT 12 orange points              all within 3 frame px
+  [OK ] RIGHT 12 orange points             all within 3 frame px
+
+== F. RED MARKS ==
+  [OK ] L disc1                            centre 186.1,154.8 (want 186.5,155.0) d 9.6 (want 10.0)
+  [OK ] L disc2                            centre 246.8,288.7 (want 247.0,289.0) d 8.2 (want 9.0)
+  [OK ] R disc1                            centre 602.8,149.8 (want 603.0,150.0) d 8.6 (want 9.0)
+  [OK ] R disc2                            centre 678.6,320.2 (want 679.0,320.5) d 9.1 (want 9.5)
+  [FIX] L BIG disc                         centre 228.1,234.5 (want 232.5,241.0) d 36.0 (want 24.5)
+  [FIX] L diagonal                         got x 198.6..235.1 y 197.8..243.8 want 199..232 / 198..241
+  [OK ] R diagonal                         got x 625.6..646.7 y 207.8..264.0 want 626..646 / 208..264
+
+== G. ANNOTATION BOXES (border edges, frame px) ==
+  [OK ] LEFT box fill present              interior measured
+  [OK ] LEFT box 4 border edges            L True R True T True B True
+  [OK ] RIGHT box fill present             interior measured
+  [OK ] RIGHT box 4 border edges           L True R True T True B True
+
+== H. EQUATION INK (STIX, fs=14.5) vs measured ==
+  [OK ] LEFT eq                            d  -0.0  +0.5  +0.0  +0.5 got x 226.0..307.5 y 155.0..167.5
+  [OK ] RIGHT eq                           d  -0.1  +2.4  +0.0  +0.5 got x 642.9..725.4 y 155.0..167.5
+
+== I. CAPTIONS (ink bbox per line + red keyword split) ==
+  [OK ] LCAP1 red keyword                  got x 107.9..159.8 y 488.2..499.7 want x 109..160 in y 483..508
+  [OK ] LCAP1 black remainder              got x 165.0..419.3 y 488.6..507.8 want x 165..419 in y 483..508
+  [FIX] LCAP2 whole line                   got x 167.9..416.9 y 502.1..518.4 want x 178..350 in y 502..524
+  [OK ] RCAP1 red keyword                  got x 522.5..608.8 y 488.2..499.7 want x 523..610 in y 483..508
+  [OK ] RCAP1 black remainder              got x 615.1..819.0 y 488.6..507.8 want x 615..819 in y 483..508
+  [OK ] RCAP2 whole line                   got x 568.0..773.9 y 502.1..518.9 want x 568..774 in y 502..524
+
+== J. FRAME CONTAINMENT ==
+  [OK ] no stray ink above panel top       ink px above y45 = 0 ; badge zone = 10208
+  [OK ] no ink left of panel               0 px
+  [OK ] no ink right of panel              0 px
+  [OK ] caption row ink inside panel       221375 px of caption ink below y480
+  [OK ] NO top stroke (deck law)           0 red px in the top strip
+  [FIX] inter-panel gap clean              28082 ink px in the x467..485 gap
+
+== SUMMARY: 40/49 checks OK ==
+FAILURES:
+   - LEFT x-axis shaft
+   - RIGHT y-axis shaft
+   - RIGHT x-axis shaft
+   - LEFT fitted line
+   - RIGHT fitted line
+   - L BIG disc
+   - L diagonal
+   - LCAP2 whole line
+   - inter-panel gap clean
+VERDICT: FIX NEEDED

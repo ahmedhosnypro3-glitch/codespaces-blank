@@ -1,0 +1,37 @@
+# Fidelity Check â Slide 049 (Iteration 2, no-change termination)
+
+## Element-by-element comparison
+
+**House chrome (per ground rules, not scored):** gray panel, red left/right/bottom strokes, no top stroke, yellow "49" badge â all present and correct. Not listed below.
+
+## Discrepancies
+
+1. **MAJOR (confidence 0.9) â Initial W value truncated.** Original top panel shows Initial **W** as a stacked column of **three** values (4, â2, â2). The recreation shows "Initial W = [4, â2]" â only two components; the second "â2" is missing. Per directive (e), linear-vs-stacked notation alone would be acceptable, but the *value set* differs â this is a data error, not a format difference.
+
+2. **MAJOR (confidence 0.9) â dot-product equation structure misrendered in all six rows.** Original rows read: d(xáµ¢) = |a b c| Â· (5; â1; â1) = r, with the result (3, 2, 2, â4, â6, â7) *after* the equals sign and the W column fully shown (three elements). The recreation collapses this into a single 2-row bracket, e.g. d(x1) = [1, 1, 1, 5 / â1, 3]: the "5" from the W column is merged into the top row, only one "â1" survives (the second "â1" is dropped), and the result "3" sits *inside* the bracket as if it were a vector component. All six rows share this scrambling (d(x4): [1, 5, 4, 5 / â1, â4], etc.). The numeric values are all nominally present, so not a BLOCKER, but the equation semantics are wrong.
+
+3. **MAJOR (confidence 0.85) â missing spanning delimiters in the data tables.** In the original, every column of the top-left data table (xââ¦xâ), the Zâ columns, Initial W, and every column of the "Ugmented Vectors" table is enclosed by a single tall parenthesis spanning all 3â4 stacked values. The recreation renders only per-number parentheses "(1) (2) â¦" with no column-spanning delimiters anywhere. Per rule (7)(i), multi-line delimiters are absent entirely â a missing-element defect.
+
+4. **MAJOR (confidence 0.95) â stray garbled text collision.** The recreation contains orphaned red text "Initia" with a wrapped "l" beneath it, colliding with the left edge of the "Initial W = [4, â2]" text. No such artifact exists in the original; this is a rendering/text-box defect.
+
+5. **MINOR (confidence 0.8) â bad line wrap in header.** "REPEAT using Step Î· = 1" fits on one line in the original; the recreation wraps "= 1" onto a second line.
+
+6. **MINOR (confidence 0.7) â "Zero" color.** Original renders "Zero" in green; recreation renders it black ("C1" red and "C2" blue are correct).
+
+7. **MINOR (confidence 0.6) â row containers.** Original encloses each d(xáµ¢) row in a full rectangular box; the recreation uses only horizontal separator lines (no side borders). Layout approximation only.
+
+8. **MINOR (confidence 0.6) â subscripts.** Original uses true subscripts (xâ, Câ, zâ, italic bold W); recreation uses baseline digits (x1, C1, Z1). legible and positionally correct.
+
+**Verified as matching:** slide number 49; top-left data table values (three rows, six columns, all correct); "Ugmented Vectors (from Top)" heading including the original's "Ugmented" spelling; augmented-vector table values and the C1 C1 C1 / C2 C2 C2 color-coded class row; "Iteration 2" red badge; "No change in W / Stop Iterations" with correct red/black split and W underline; "Check classes of" Z-columns values (0/7/3, 0/6/2); all six "â Keep same Weight" labels; all six W = (5, â1, â1) result columns; "C1 positive / C2 negative / Zero is unaccepted" legend text.
+
+## Visual-quality defects in the recreation
+
+- Stray "Initia / l" red fragment overlapping the Initial W text (see #4).
+- Bracket contents left-aligned rather than centered/right-aligned within delimiters; second bracket rows hug the left while the bracket's lower right wraps empty space (vertical-centering rule 2 marginally violated).
+- The "= 1" wrap leaves an awkward orphaned fragment under the REPEAT heading.
+
+## Summary
+
+Two content/data defects (truncated Initial W; scrambled dot-product structure with a dropped â1 and result embedded in the vector), one missing-delimiter defect across both data tables, and one text-collision artifact. All text that *is* rendered is verbatim-correct, but the equation rows and table delimiters do not faithfully represent the original's structure.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation'.

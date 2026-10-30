@@ -1,0 +1,60 @@
+SELF-CHECK ADJUDICATION — slide 036, attempt 1 (PIL-first, per judging.md)
+=====================================================================
+The first self-check run produced 4 FAILs. Each was adjudicated against BOTH images
+(960x540 original frame + the 150dpi render, measured at 2400x1350) before any build
+change. Banked evidence: selfcheck_attempt_1.txt / selfcheck_attempt_1.py.
+
+(1) FRAME CONTAINMENT house — REFUTED (checker artifact, no build change)
+    The scan window was x40..920, which INCLUDES the deck's house chrome strokes
+    themselves (left x57-59, right x901-902). The measured "overflow" was orig
+    x=57 vs render x=58 — i.e. the original's LEFT STROKE, 1px wider than the
+    render's because the JPEG softens its edge. The strokes ARE the frame, not
+    content. Re-scoped the check to the panel interior x59..900: orig (59,46,899,538)
+    == render (59,46,899,538), exactly equal. Content containment also verified
+    per box: all 4 boxes' ink x69..868 y(box_top)..y(box_bottom)-1 identical in both.
+    House chrome check passes separately (house_chrome_check.py: PASS, top bare).
+
+(2) EXPLICIT LINE SPACING — REFUTED (counting method, no build change)
+    The check counted source OCCURRENCES of the token "lineSpacing" (4) against an
+    arbitrary threshold of 5. The build pins the pitch on every text block: the
+    body helper line() emits lineSpacing: LS for each of the 12 body lines, plus
+    the title (T_LS) and the red X (X_LS). No numeric addText anywhere. Re-scoped
+    to the real contract: every addText block carries an explicit lineSpacing.
+
+(3) COLOR CODING — REFUTED (channel-index bug in the check, no build change)
+    The check read the green channel from the "Class" cluster's core and the blue
+    channel from the "d(X)" cluster's core (GO/BO assigned from the wrong pixels),
+    so a correct render failed its own predicate. Measured core pixels, both images:
+        'class'  orig [144,24,34]  render [192,0,0]    -> red, JPEG-darkened C00000
+        'Class'  orig [20,3,115]   render [0,0,254]    -> blue (0000FF)
+        'd(X)'   orig [20,119,11]  render [0,128,0]    -> green (008000)
+    All three color codes are correct in the render; the frames agree within JPEG
+    smear. The JSON brief's "class I green / Class II blue / d(X) red" claim is
+    contradicted by BOTH frames' pixels and was superseded by the measured frame.
+    Corrected the channel indices; PASS on re-run.
+
+(4) RENDER PITCH box1 — PARTIALLY CONFIRMED, then fixed (the only real defect)
+    Identical-method band extraction (lum<178, x79..860) showed the original's
+    box1 lines 2-4 are ~26px tall while the render's were ~19px. Root cause found
+    in the frame: the original renders "W^T X" with a TRUE SUPERSCRIPT T (raised
+    ink at frame y=124..128, ~9px above the main row, visible as a separate glyph
+    at x=394..403 in the ASCII dump), which the build rendered inline as plain "T".
+    A secondary ~4-5px low drift on box2/box4 baselines was also measured.
+    FIXES APPLIED (rebuild, re-render as render_1.png):
+      - "W^T X": the T is now a pptxgenjs superscript run (raised + reduced),
+        reproducing the original's two-tier ink (render raised-T top y=131 vs the
+        main row top y=133; original raised-T top y=129 vs main row y=127).
+      - Baseline nudges calibrated from the render's measured offsets
+        (box1: 116/144/172/201, box2: 247/274/302, box4: 459/482/509).
+    POST-FIX MEASURMENT (banked in selfcheck_attempt_1.txt):
+      box1  render [118,150,178,207] vs orig [117,149,177,206] -> delta [1,1,1,1]
+      box2  render [249,280,308]     vs orig [248,279,307]     -> delta [1,1,1]
+      box3  render [355]             vs orig [353]             -> delta [2]
+      box4  render [463,488,515]     vs orig [461,487,514]     -> delta [2,1,1]
+    All baselines now within 2 frame px (<0.4% of frame height), well inside the
+    ~4px closed-loop tolerance. The original's own line pitch is irregular
+    (box1: 32/28/29, box2: 31/28, box4: 26/27) and the render now tracks it
+    line-by-line rather than imposing a uniform pitch.
+
+RESULT: 3 of 4 findings refuted as measurement artifacts; 1 real defect (superscript
+T + baseline drift) fixed and re-verified. Self-check re-run: PASS on all 8 checks.

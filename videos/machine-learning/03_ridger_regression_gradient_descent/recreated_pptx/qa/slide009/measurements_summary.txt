@@ -1,0 +1,147 @@
+# SLIDE 009 — PIL MEASUREMENT RECORD (banked)
+# Source frame: unique_slides/slide_009.jpg  (960x540, 1 px = 1 pt = 1/72 in)
+# Probes: probe1..probe45 (.py + .txt) in this directory.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# A. HOUSE CHROME (deck AGENTS.md; verified on this frame by probe1/probe4)
+# ══════════════════════════════════════════════════════════════════════════
+# canvas FFFFFF; panel E9E9E7 (measured 231,233,230) x54..906 y45..539
+# C00000 1pt strokes: LEFT x58, RIGHT x901, BOTTOM y537..539. NO TOP STROKE
+#   (probe1: 0 red px in rows 0..45) — confirmed.
+# badge centroid (876,73) d35 fill FDFD9C ring 6A5ACD; numeral '9' 18pt Arial 333333
+#   ink x868..874 y72..76. Drawn by shared_patterns/house_chrome.js.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# B. CHART PANELS (two, side by side) — probe40/probe41
+# ══════════════════════════════════════════════════════════════════════════
+# LEFT  navy outer rect x 94..466  y107..474  (border cols 94..96 / 465..466,
+#                                          rows 108..110 / 470..473)  000080
+#       white interior  x 98..463  y111..470  fill F5F5F5 (measured 248,248,248)
+# RIGHT navy outer rect x485..871  y107..474  (cols 486..487 / 869..871)
+#       white interior  x489..867  y111..470
+# NOTE: the RIGHT panel is genuinely ~14px wider than the LEFT (measured, not
+# an artifact). Both share the same top/bottom rows. Frame wins over symmetry.
+#
+# ── GRID (light gray) ── probe41, measured cores (207,209,206)…(237,239,236)
+# LEFT  cols x = 103.5 + 23*k  k=0..15   (k=1 @126.5 hidden under the y-axis)
+#       rows y = 120.5 + 22.4*k k=0..15   (k=14 @434 hidden under the x-axis)
+# RIGHT cols x = 517.5 + 23*k  k=0..15   (k=1 @540.5 hidden under the y-axis)
+#       rows y = same absolute rows as LEFT
+# Grid colour drawn: D8DAD7 (measured dark core 216,218,215); spec #CCCCCC.
+#
+# ── RED AXES (C00000; measured core 119,23,34) ── probe40
+# LEFT  y-axis shaft x125..127 (centre 126) y152..437
+#       y-axis arrowhead: apex (126,143) → base y151..152, x123..130 (w 8)
+#       x-axis shaft y433..435 (centre 434) x124..428
+#       x-axis arrowhead: apex (435,434) → base x428..431, y431..438 (h 8)
+# RIGHT y-axis shaft x539..541 (centre 540) y152..437
+#       y-axis arrowhead: apex (540,143) → base y151..152, x537..543 (w 7)
+#       x-axis shaft y433..435 x538..841
+#       x-axis arrowhead: apex (848,434) → base x841..846, y431..438 (h 8)
+#
+# ── BLUE FITTED LINES (0000FF; measured darkest core 0,0,132) ── probe41
+# LEFT  (141,351) → (433,201)     stroke ≈3px
+# RIGHT (555,387) → (849,247)
+#
+# ── ORANGE DATA POINTS (fill FFA500; measured centre core 239,120,0) ── probe41
+# LEFT (12):  (175.5,380.0) (187.5,355.0) (197.5,144.5) (233.0,361.5)
+#             (242.0,326.5) (260.5,333.0) (293.5,333.0) (323.5,289.0)
+#             (327.5,331.5) (380.5,301.5) (396.5,248.5) (421.0,254.5)
+# RIGHT(12):  (589.0,380.5) (601.5,355.0) (610.5,144.5) (646.5,361.5)
+#             (655.5,326.5) (673.5,332.5) (707.0,333.0) (737.0,289.5)
+#             (740.5,331.5) (793.5,301.5) (809.5,248.5) (833.5,254.5)
+# diameter ≈ 8–9 px (measured blobs 7..9 px wide, n≈41..52)
+# ⚠ IMPORTANT: the orange fill ALSO passes a naive red mask
+#   (r>90 & r-g>40 & r-b>10), so probe38's "red circle at (197.5,145)" and
+#   the per-point "red markers" ARE these orange points — NOT separate red
+#   markers. Genuine separate red marks are listed in §D below only.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# C. ANNOTATION BOXES (pale blue + navy border) — probe26/27/42
+# ══════════════════════════════════════════════════════════════════════════
+# LEFT  box x216..317 y147..175 (w102 h29); fill measured (240,253,253)
+#       pale cyan; border measured (129,132,173)…(186,192,216) blue family
+#       equation ink x226..307 y156..166 (w82 h11)
+# RIGHT box x631..734 y147..175 (w104 h29); fill measured (240,253,253)
+#       equation ink x643..723 y155..166 (w81 h12)
+# Colours drawn: fill E0F0FF (spec-documented; frame's pale cyan is within
+# JPEG tolerance for a low-saturation fill), border 000080 (the same navy as
+# the chart-panel border — a 1px navy line blurred against the pale fill
+# reproduces the measured (144,152,177) exactly).
+#
+# ── EQUATION GLYPH STRUCTURE (probe31/32/33/34/35b/35c) ──
+# LEFT  '50.85² = 2585':  '5' x226..232  '0' x234..240  '.' x242..243
+#        '8' x246..251  '5' x253..259  superscript '2' x261..264 y154..161
+#        '=' x266..271 y159..165  '2' x278..283 '5' x286..291 '8' x293..299
+#        '5' x301..307.   Main line baseline ≈ y166, superscript apex y154.
+# RIGHT '63.64² = 4050': same structure, shifted +417 in x.
+# Both are SINGLE-LINE equations with a raised superscript 2 — NOT stacked
+# fractions. mathtext '$50.85^2 = 2585$' reproduces this exactly.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# D. GENUINE RED RESIDUAL MARKS (probe36b/38/39) — C00000
+# ══════════════════════════════════════════════════════════════════════════
+# LEFT   diamond marker  centre (187,155)  x183..191 y150..160  d≈9
+#        arrow shaft     (204,199) → (218,233)  w≈3
+#        arrow head      x211..245 y221..255 (widest y234..244, 34 px)
+# RIGHT  diamond marker  centre (602.5,149.5)  x599..606 y144..154  d≈8
+#        arrow shaft     (627,212) → (636,232)  w≈3
+#        arrow head      x632..650 y233..265 (widest, 19 px)
+# NOTE: the brief asks for a *vertical double-headed* '50.85 mm' arrow (step
+# 11) and a *vertical* '63.64 mm' arrow (step 17). The frame shows NEITHER —
+# probe28/29/30/44 find no vertical double-arrow and NO dark 'mm' text anywhere
+# on the 960x540 frame. What IS present is the diamond + diagonal arrow above.
+# → FRAME-WINS-OVER-SPEC DEVIATION, documented in the build header.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# E. CAPTIONS (probe13/15/16/17/18/19/43/44/45)
+# ══════════════════════════════════════════════════════════════════════════
+# Structure: each caption is TWO lines. Line 1 = a RED keyword followed by a
+# NEAR-BLACK remainder (all in one visual line). Line 2 is entirely near-black.
+#   red keyword core measured (129,37,41)  → C00000
+#   black remainder core measured (49,51,37) → 333333
+# ⚠ SPEC DEVIATION: the spec's typography_notes says the captions are "bold
+#   red" throughout. Measurement shows ONLY the leading keyword is red; the
+#   remainder of line 1 and all of line 2 are near-black. Frame wins.
+#
+# Measured ink boxes (frame px):
+#   LCAP1_RED  'Overfit'                              x109..160  y488..504 (w52)
+#   LCAP1_BLK  '(try to minimize the residuals ONLY)' x165..419  y488..504 (w255)
+#   LCAP2      'Fails to detect the Pattern'          x178..350  y507..520 (w173)
+#   RCAP1_RED  'Generalized'                          x523..610  y488..504 (w88)
+#   RCAP1_BLK  '(Residuals are not minimized)'        x615..819  y488..504 (w205)
+#   RCAP2      'Successes to detect the Pattern'      x568..774  y507..520 (w207)
+# ('Successes…' sic — source grammar preserved per the validation notes.)
+#
+# ── FONT FIT (probe45, Liberation Serif = Times metrics, ink-width anchored) ──
+#   keyword runs  : Serif BOLD   16.9–17.2 pt  → drawn 17 pt bold
+#   remainder runs: Serif REGULAR 16.9 pt (all four) → drawn 17 pt regular
+#   (SerifReg 17pt reproduces every remainder width to within ±1 px; the
+#    keyword widths need BOLD at 17pt, regular would need 18.2–18.4pt and then
+#    the remainders would be 16 px too wide.)
+#
+# ══════════════════════════════════════════════════════════════════════════
+# F. EXPLICITLY ABSENT FROM THE FRAME (do NOT draw)
+# ══════════════════════════════════════════════════════════════════════════
+# 1. Any title / subtitle text — the spec's slide_title 'Overfit vs.
+#    Generalized' is metadata-only (validation.uncertain_items[0]).
+# 2. '50.85 mm' and '63.64 mm' labels — probe28 (windowed scan) and probe29
+#    (whole-panel dark-ink component census) found 0 dark components in the
+#    LEFT panel and only the red y-axis column in the RIGHT; probe30's
+#    whole-frame dark-ink census (139 clusters) contains no 'mm' glyph.
+# 3. Vertical double-headed red arrows (brief steps 11 / 17) — not found.
+# 4. A top stroke on the house panel (probe1) — confirmed absent.
+# 5. The dark horizontal band at y528..529 x501..780 seen by a loose mask is
+#    PANEL-GRAY JPEG NOISE (measured 220–240 range, E9E9E7 family), not content.
+#
+# ══════════════════════════════════════════════════════════════════════════
+# G. SPEC-vs-FRAME COLOUR RECONCILIATION
+# ══════════════════════════════════════════════════════════════════════════
+# spec #F5F5F5 panel  → measured 248,248,248 ✓ drawn F5F5F5
+# spec #CCCCCC grid   → measured 207..237    ✓ drawn D8DAD7
+# spec #FF0000 red    → measured 119,23,34   ✓ drawn C00000 (house family)
+# spec #0000FF line   → measured 0,0,132     ✓ drawn 0000FF
+# spec #FFA500 points → measured 239,120,0   ✓ drawn FFA500
+# spec #E0F0FF box    → measured 240,253,253 ✓ drawn E0F0FF
+# spec #000000 black  → measured 49,51,37    ✓ drawn 333333
+# panel border 000080 → measured 0,0,108     ✓ drawn 000080

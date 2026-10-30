@@ -1,0 +1,59 @@
+# Region Comparison: NO Regularizer column, all three row groups (Slide 019)
+
+## Cell-by-cell / value-by-value audit
+
+### Row group 1 (top)
+| Item | IMG1 (recreation) | IMG2 (original) | Status |
+|---|---|---|---|
+| W vector | (0, 2, **0**) | (0, 2, **0**) | â match |
+| âWâÂ² | 4 | 4 | â match |
+| xâ row | 30 / 40 / 50 | 30 / 40 / 50 | â match |
+| xâ row | 15 / 20 / 25 | 15 / 20 / 25 | â match |
+| y row (yellow band) | 60 / 80 / 100, green ink | 60 / 80 / 100, green ink | â match |
+| Headers | Test1 Test2 Test3, red | Test1 Test2 Test3, red | â match |
+
+### Row group 2 (middle) â **DISCREPANCY**
+| Item | IMG1 | IMG2 | Status |
+|---|---|---|---|
+| W vector | 2.7, 0.67, **0.61** | 2.7, 0.67, **0.64** | â **WRONG DIGIT** |
+| âWâÂ² | 8.11 | 8.11 | â match |
+| xâ / xâ rows | 30/40/50, 15/20/25 | same | â match |
+| y row | 32.4 / 42.3 / 52.3 | 32.4 / 42.3 / 52.3 | â match |
+
+- **BLOCKER â wrong vector component.** Crop-relative: middle row group, third matrix element, bottom-left quadrant (~xâ105, yâ345 in IMG1). IMG1 reads **0.61**, IMG2 clearly reads **0.64** (last glyph is unambiguously a 4 with a closed triangle top in the original, vs. a 1 in the recreation). Confidence: high. Note the recreation's 0.61 is self-consistent with âWâÂ²=8.11 (7.29+0.4489+0.3721â8.11), but the ground truth on the slide is 0.64, and the founder rules say match the original value for value.
+
+### Row group 3 (bottom)
+| Item | IMG1 | IMG2 | Status |
+|---|---|---|---|
+| W vector | 4, 0.29, 0.78 | 4, 0.29, 0.78 | â match |
+| âWâÂ² | partially cropped ("â¦=10.7" visible) | cropped out | cannot verify |
+| xâ / xâ rows | 30/40/50, 15/20/25 | same | â match |
+| y row | cropped out | cropped out | n/a |
+
+## Structural / geometry defects (IMG1)
+
+1. **MAJOR â delimiters do not span all three vector lines.** In all three row groups of IMG1, the third vector element (the "0" in group 1, "0.61" in group 2, "0.78" in group 3) is rendered **below the closing parenthesis**, outside the enclosure entirely â the parens only span the first two components. In IMG2 the parentheses correctly enclose all three stacked elements (crop-relative: e.g. group 2, ~xâ95â120, yâ300â360 in IMG1 vs ~xâ95â130, yâ255â330 in IMG2). This is exactly the "delimiter that does not span its lines" defect class flagged in the rules. Confidence: high.
+
+2. **MINOR â vertical centering of the matrix block.** In IMG1 the W = sign and parenthesis sit high relative to the full 3-element column (because the third element hangs below); in IMG2 the whole expression is vertically balanced. Confidence: high (consequence of defect 1).
+
+3. **MINOR â xâ/xâ label color.** IMG2 renders xâ and xâ in dark blue/navy; IMG1 renders them in black (e.g. ~xâ170, yâ70 and yâ115 in IMG1). Small but visible at this zoom. Confidence: medium-high.
+
+4. **MINOR â arrow size/weight.** The blue block arrow between the W box and the table is noticeably larger and thicker in IMG1 than IMG2's compact arrow. Medium confidence, cosmetic only.
+
+5. **MINOR â âWâÂ²=4 placement.** In IMG1 the norm caption sits left-aligned under the box; in IMG2 it's roughly centered under the matrix. Cosmetic. Confidence: medium.
+
+## Not discrepancies (per ground rules)
+- Large professional parens vs. small typed parens: format upgrade, allowed.
+- IMG2 JPEG halo/softness on red/yellow edges: capture artifact.
+- Yellow row band, red table strokes, white/gray panel chrome: template, intentional.
+
+## Discrepancy list (summary)
+1. **BLOCKER** â Group 2 third vector component: 0.61 (recreation) vs 0.64 (original). High confidence.
+2. **MAJOR** â Parentheses fail to enclose the third vector element in all three row groups. High confidence.
+3. **MINOR** â xâ/xâ label color black vs navy. Medium-high confidence.
+4. **MINOR** â Arrow proportionally oversized. Medium confidence.
+5. **MINOR** â Norm caption alignment. Medium confidence.
+
+(Could not verify group 3's âWâÂ² value due to crop cutoffs in both images â not counted as a discrepancy.)
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â the 0.61-vs-0.64 wrong digit in the disputed middle row group is a BLOCKER, compounded by the MAJOR delimiter-enclosure defect repeated in all three matrices.

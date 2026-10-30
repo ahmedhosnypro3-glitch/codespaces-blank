@@ -1,0 +1,39 @@
+# Slide 049 â hb_col zoomed crop comparison (attempt 15)
+
+## Region reviewed
+Left column of the six update-rule rows: a partially visible colored row-label digit at the left edge, followed by a tall delimited 3-line column vector (5 / â1 / â1) in each row. Six rows stacked vertically in both crops.
+
+## Discrepancies
+
+1. **Vector digit color â black vs green** â **MAJOR** (confidence: high)
+   - IMG1 (recreation): all vector entries (the "5" and both "â1"s, in all six rows) are rendered in **black**.
+   - IMG2 (original): the same digits are rendered in a distinct **green** (roughly RGB â (0,150,60)) in every row.
+   - This is a systematic fill/text color difference across the entire region, ~30â40% hue shift, plainly visible at this zoom. Not explainable by JPEG artifacts (the label digits at the left edge retain their red/blue hues correctly in IMG2, so the green is genuine content color, not compression bleed).
+
+2. **Bottom row label digit â "3" vs "6"** â **BLOCKER** (confidence: medium-high)
+   - IMG1: the sixth (bottom) row's partially cropped label digit reads **"3"** (blue).
+   - IMG2: the same position reads **"6"** (blue).
+   - If the six rows are update rules indexed 1,1,2,4,5,6 (as IMG2 shows), a "3" in the recreation is a **wrong character** â exactly the class of defect flagged as major-to-blocker even at crop scale. (Caveat: the digit is partially cropped at the left edge in both images, but the surviving strokes in IMG1 are consistent with "3" and inconsistent with "6".)
+
+3. **Minus-sign glyph** â **MINOR** (confidence: medium)
+   - IMG1 uses a short hyphen-style "-" for the â1 entries; IMG2 uses a longer, properly weighted mathematical minus "â". Cosmetic at this scale but noticeable in the zoom.
+
+4. **Vertical rhythm / line spacing inside vectors** â **MINOR** (confidence: medium)
+   - IMG1's three stacked lines are slightly more tightly packed and the delimiters sit a bit closer to the digits; IMG2 has slightly looser leading with the delimiters spanning with a touch more clearance. Both delimiters do span all three lines and do not touch the text, so this is spacing polish, not a geometry failure.
+
+5. **Stroke weight of digits** â **MINOR** (confidence: low)
+   - IMG1's digits are slightly lighter/thinner than IMG2's (which are also softened by video upscaling). Largely attributable to medium differences per ground rule (c)/(e); noted only because at matched zoom IMG2's green digits read slightly bolder.
+
+## Checked and matching
+- Row count: six rows in both. â
+- Vector values: 5 / â1 / â1 in every row, correct order, no swapped or missing digits. â
+- Delimiter type (tall parentheses, not square brackets) matches in both crops, and spans all three enclosed lines without touching glyphs. â
+- Label colors: rows 1â2 red, row 3 red, rows 4â5 blue in both; blue for the last row in both. â
+- No garbled characters in the vector bodies; no truncated subscripts within the visible area. â
+
+## Severity summary
+- BLOCKER Ã1 (wrong label digit, row 6)
+- MAJOR Ã1 (black vs green vector digits)
+- MINOR Ã3 (minus glyph, line spacing, stroke weight)
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â the systematic black-vs-green digit coloring is a clear content-color error across all six vectors, and the apparently wrong "3" vs "6" row label is a wrong-character defect that must be corrected regardless of crop truncation.

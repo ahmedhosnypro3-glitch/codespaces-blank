@@ -1,0 +1,28 @@
+## Pixel-exact inspection (crop-relative)
+
+**Glyph-by-glyph / content check**
+
+- Label block, left side (crop x â 20â140, y â 25â60): both read **âSolution:â** with a proper colon, bold weight, navy-blue ink. No dropped or garbled letters.
+- Line 1, centered (crop x â 240â900, y â 90â130): both read **âInstead of using Least Squares with Matrix inversion,â** â every letter matches (including the two-word phrase *Least Squares*, capitalization, and the terminal comma).
+- Line 2, centered (crop x â 300â880, y â 155â205): both read **âuse Gradient Descent iterative solutionâ** â all letters match, including âiterativeâ (i-t-e-r-a-t-i-v-e) and âsolution.â No truncation of subscripts (none needed here), no swapped words.
+
+**Emphasis / weight / color**
+
+- Both crops show the same emphasis pattern: the key phrases *Least Squares* and *Gradient Descent* are rendered in heavier strokes than the surrounding words. No emphasis loss.
+- Ink color is navy in both; any apparent small desaturation/softening in IMG2 is JPEG/video capture haloing (excluded by ground rule).
+
+**Geometry / spacing**
+
+- Two body lines are vertically centered in the yellow solution box in both images, with consistent line separation. No line overlap or crowding.
+- Box fills match the mandated template colors (light-yellow solution cell). Border strokes are left/right/bottom only â no top stroke discrepancy.
+
+## Discrepancies
+
+- **IMG2 contains a mouse-pointer/cursor arrow glyph hovering just after âDescentâ before âiterativeâ** (crop-relative â x 520â560, y â 80 region of line 2), plus a faint smudge/underline smear beneath âLeast Squaresâ on line 1 (â x 310â360, y â 55). These are lecturer-UI/capture artifacts visible in the original frame, **not a recreation defect** (excluded per ground rules). Severity if counted at all: **MINOR, high confidence**, artifact-only.
+- No wrong digits, no missing/garbled glyphs, no swapped table values, no bracket/delimiter issue, no content-loss or stroke-continuity defect.
+
+## Assessment
+
+The recreation reproduces every character and the emphasis/spacing/centering of this region faithfully. The only visible extra in the original is a cursor/gesture artifact, which the recreation correctly does not contain.
+
+FINAL VERDICT: **PASS**

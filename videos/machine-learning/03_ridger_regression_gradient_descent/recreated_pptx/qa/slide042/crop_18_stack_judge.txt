@@ -1,0 +1,42 @@
+## Discrepancy Report â Slide 042, right computation stack (zoom crop-pair)
+
+**Note on alignment:** IMG2 shows the original's five boxes for steps **1, 2, 4, 5, 6** (blue step numbers at left edge of each box). IMG1's five boxes do **not** carry step numbers, and their contents do not correspond one-to-one to the original's boxes in this region.
+
+---
+
+### BLOCKER
+
+1. **Vector dimensionality changed â third component missing everywhere.** Original renders 3-element column vectors: (6, 0, 0) in boxes 1/2, (1, 5, 4) in box 4, (4, â10, â8) in boxes 5/6 (tall green parens spanning 3 lines, center-left of each box). Recreation renders only **2-element** pairs: "(6 0)", "(1 5)", "(4 â10)" (e.g., box 1 W-line at (~60â560, ~100); box 4 W-line at (~85â550, ~505)). The third component (0 / 4 / â8) is absent from every vector in every box. This is a wrong/missing data value, not a format choice. Confidence: very high.
+
+2. **Result values wrong / sequence shifted.** Original results: box 1 = 6, box 2 = 6, box 4 = 6, box 5 = â96, box 6 = **â104**. Recreation results: box 1 = **0** (top center, ~(480, 65)), boxes 2/3 = 6, box 4 = 6, box 5 = **â96**. Box 1 shows " = 0" instead of " = 6"; the last box shows " = â96" instead of " = â104". Wrong digits in computed results. Confidence: very high.
+
+3. **Action phrase wrong in first box.** Original box 1: "â **Keep same Weight**" (black). Recreation box 1: "â **Update Weight**" in red (~(645â865, 65)). Semantic mismatch in the decision label. Confidence: high.
+
+### MAJOR
+
+4. **Box 1 W-equation content mismatch.** Recreation box 1 contains "W = (4 â 2) + 2 Â· (1 1) = (6 0)" (~(85â560, 100)) â an update equation that does not appear in the original's box 1; original box 1 instead shows the (missing) "W = (6,0,0)" column-vector line. The recreation's box 1 also omits the d(xáµ¢)-vector line structure present in the original. Confidence: high.
+
+5. **Step-number labels missing.** Original has blue "1)", "2)", "4)", "5)", "6)" at the left edge of each box (~(0â25, each box's mid-height)). Recreation has no step numbers; the left edge shows an unrelated green "â" arrow and a struck-through "x" glyph. Missing text elements. Confidence: very high.
+
+6. **Delimiter geometry â column-vector parentheses absent.** Original encloses every column vector in tall parentheses spanning all 3 component lines. Recreation's stacked digit pairs (e.g., "1/0", "5/0" at ~(285/335, 460â485)) have **no delimiters at all**. Per the ground rules, a delimiter that doesn't span its lines is major; here it's missing entirely. Confidence: very high.
+
+7. **Red "â" marker missing.** Original box 4 has a bold red left-pointing double arrow at the right end (~(830â865, 330)) highlighting the update result. Recreation box 4 has nothing there. Missing graphic element. Confidence: very high.
+
+8. **Green arrow collides with text.** In recreation boxes 1 and 4, a green "â" is rendered *on top of* the phrase, producing "UpdateâWeight" with the arrow overlapping the glyphs between "Update" and "Weight" (~(745, 65) and ~(790, 472)). Overlapping text/graphics is a layout defect. Confidence: very high.
+
+9. **Cramped/overlapping stacked digits in box 5.** The pairs "â1 / â10" and "6 / â98" are rendered so tightly that the superscript-like digits and signs collide/interleave ("â1â  over "â10 â98") at ~(270â345, 610â630). Legibility defect at matched scale. Confidence: high.
+
+### MINOR
+
+10. **Color of numeric content.** Original renders vector components in green and step numbers in blue; recreation renders all math ink in black (green used only for arrows). Small fill/text color difference. Confidence: high.
+
+11. **W typography.** Original uses bold, underlined serif "**W**" with underline (~(770, 95) etc.); recreation uses plain italic "W". Typography-level difference only. Confidence: high.
+
+12. **Left-edge "x" glyph with green strike.** The recreation shows a small struck-through "x" at the start of each W-line (~(45, 100/230/370/505/645)); no corresponding element exists in the original crop. Reads as a garbled/stray marker. Confidence: medium.
+
+---
+
+### Summary
+The recreation preserves the *layout concept* (five white boxes, action phrase, â, red "Update Weight") but the **mathematical content is wrong**: vectors lost their third component, computed results differ (0 vs 6; â96 vs â104), the first box's decision and equation don't match the original, step numbers and the red â are missing, and vector delimiters are absent. Multiple independent BLOCKER-level content errors.
+
+**FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'.**

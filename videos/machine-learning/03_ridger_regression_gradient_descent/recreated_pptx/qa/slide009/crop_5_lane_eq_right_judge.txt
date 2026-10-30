@@ -1,0 +1,43 @@
+# Judge transcript — slide 009, attempt 5 (zoomed crop-pair: eq_right)
+- date: 2026-10-24 06:59
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide009/crop_5_eq_right_render.png
+- IMG2 (original crop): qa/slide009/crop_5_eq_right_orig.png
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- region: frame px 625..742 x 140..183 (RIGHT chart annotation box + equation); both crops
+  244x89 px — identical effective scale (cut_crops_5.txt VERDICT PASS). Render bytes:
+  render_5.png md5=84c8bf3179992d74717fa070f5f8c607.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region, same slide-space bbox/effective scale.
+(b) House template elements are intentional chrome.
+(c) Typed-vs-handwritten ink: at most MINOR.
+(d) Raised superscript is the mandated 2D format.
+(e) JPEG halos/soft edges in IMG2 are capture artifacts.
+
+## Comparison
+- Glyph string: '6' '3' '.' '6' '4' ² '=' '4' '0' '5' '0' — every digit present and correctly
+  formed in both (both '0's closed ovals, '4' open counter, '5' intact top bar + bowl); no wrong
+  or missing character; no truncated superscript. The '2' is raised on the shoulder of '4' in
+  both at the same relative height.
+- Containment: render ink x645.0..729.0 y157.7..168.2 (frame px) vs original x643..723,
+  y155..167, inside box x631..734 y148..175 — clear padding on all four sides; the last '0'
+  does not touch the border.
+- Delimiter geometry: closed navy 1pt rectangle, continuous in both; no stroke crosses glyphs;
+  pale-cyan fill in both (render ECFDF9 vs original median 238,251,248).
+- Vertical centering: same relation of the glyph band to the box (seated slightly below the
+  box's mid-line in both).
+- Ink color: black in both (IMG2's superscript casts warm from JPEG compression — artifact).
+
+## Discrepancies
+1. [MINOR] '=' sidebearing: IMG2 '63.64²= 4050' (tight before '='), IMG1 '63.64² = 4050'
+   (balanced). Confidence high. PIL adjudication: total ink width 82px in both (81 vs 84 at the
+   AA envelope), identical glyph inventory — sidebearing redistribution only, no content or
+   containment difference. MATCHING.
+2. [MINOR] Stroke/fill tonal nuance at the box border (IMG1 crisper/more saturated navy, IMG2
+   lighter with soft corners) — JPEG upscale halo per ground rule (e). MATCHING.
+
+## Visual-quality defects
+- None: no clipping, no border contact, no garbled glyphs.
+
+FINAL VERDICT: PASS

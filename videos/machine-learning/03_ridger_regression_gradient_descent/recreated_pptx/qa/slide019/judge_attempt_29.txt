@@ -1,0 +1,46 @@
+# Fidelity Check â Slide 019 (Ridge Regularization / Outlier test-data grid)
+
+## Element-by-element comparison
+
+**Title / Test Data box (both images)**
+- "Test Data" in blue italic bold inside a blue-bordered rectangle: present in both. â
+- zâ=(30,15), zâ=(40,20), zâ=(50,25) with underlined red z labels and y=60 / y=80 / y=100 beneath: present in both, correct pairing of y-labels under their vectors. â
+- Recreation renders the vectors in large professional 2D parentheses â mandated format upgrade per rule (e), not a discrepancy. However, in the recreation the top values ("30", "40", "50") visually **touch the upper curve of the parenthesis strokes** â a tightness/collision issue (see defects).
+
+**Column headers**
+- "NO Regularizer with (as if Î»=0)" (blue), "Ridge Regularizer with Î»=3" (red), "Ridge Regularizer with Î»=10" (red on green strip): all present, verbatim, correct colors. â
+- Ridge Î»=3 header background in the recreation is a beige/tan wash vs the original's salmon-pink tint â **MINOR** (confidence 0.6).
+
+**Outlier column**
+- "Outlier" blue italic, Xâ vector column, three yellow-highlighted "22" badges: all present. â
+- Subscript renders as capital "S" vs original lowercase "â" â **MINOR** (confidence 0.5, small glyph).
+
+**Data â every cell verified against the original:**
+- Row 1: W=(0,2,0), âWâÂ²=4, y 60/80/100 â â; W=(0.1,1.95,0.03), âWâÂ²=3.8, y 59/78.7/98.4 â â; W=(0.13,1.87,0.09), âWâÂ²=3.5, y 57.4/76.5/95.6 â â
+- Row 2: W=(2.7,0.67,0.64), âWâÂ²=8.11, y 32.4/42.3/52.3 â â; W=(1.2,0.72,0.77), âWâÂ²=2.45, y 34.1/45.1/56.1 â â; W=(0.54,0.73,0.81), âWâÂ²=1.48, y 34.6/46/57.4 â â
+- Row 3: W=(4,0.29,0.78), âWâÂ²=16.7, y 24.4/31.2/38 â â; W=(1.77,0.32,0.99), âWâÂ²=4.2, y 26.2/34.4/42.5 â â; W=(0.82,0.33,1.1), âWâÂ²=1.92, y 26.8/35.4/44.1 â â
+- All xâ (30/40/50) and xâ (15/20/25) rows, Testâ/â/â headers, red/blue/green value coloring, yellow y-row highlights, blue block arrows: match. **No missing elements, no table-data errors.** â
+
+## Discrepancy list
+
+1. **MAJOR â Column frame geometry.** The original encloses each column in a **separate closed colored rectangle** (dark-blue around NO Regularizer, red around Ridge Î»=3, green around Ridge Î»=10) with visible gaps between the three boxes, plus a blue rounded rectangle around the Outlier column. The recreation renders these as a **continuous line grid** â long horizontal top/bottom rules and vertical blue/green dividers â rather than three (four) closed, gapped colored rectangles. The framing structure of the diagram region is visibly different. (Confidence 0.7.)
+2. **MAJOR â Table row-label structure.** In the original, the xâ / xâ / y labels sit **outside the ruled cell grid** (no bordered label column; the grid contains only TestââTestâ value cells). The recreation adds a **bordered first column** with an empty header cell enclosing the labels, changing table structure, column alignment, and the header row's geometry. (Confidence 0.6.)
+3. **MINOR â Delimiter tightness.** In the recreation's large vector delimiters, the bottom entries (0.03, 0.09, 0.99, 1.1, etc.) sit at the parenthesis terminal and the top entries (30, 40, 0.1) brush the upper curve; the original has looser padding. Delimiters do span all enclosed lines, so no rule-(7) violation, but centering is tight. (Confidence 0.55.)
+4. **MINOR â Vertical centering, W box row 1 Î»=3:** "0.1" hugs the top edge of its W box rather than sitting centered like the original. (Confidence 0.6.)
+5. **MINOR â Header background tint** on the Î»=3 column (tan vs salmon), noted above. (Confidence 0.6.)
+6. **MINOR â Subscript case** Xâ vs X_S, noted above. (Confidence 0.5.)
+
+## Not counted (per ground rules)
+- No top stroke on the house panel â correct house chrome.
+- Yellow badge "19" â house chrome, correct file number.
+- I-beam cursor in IMG2 near row-2 Î»=10 â video artifact, correctly omitted.
+- Large professional 2D equation rendering vs original's compact typed vectors â mandated format upgrade.
+
+## Visual-quality defects in the recreation
+- Vector top/bottom values touching delimiter strokes (see #3).
+- "0.1" top-hugging in its box (see #4).
+- No text clipping, no overflow past the panel strokes, no illegible text observed; all yellow highlight rows sit inside their tables; rightmost column (95.6, 57.4, 44.1) fully contained.
+
+**Summary:** Content and data fidelity are 100% â every value, label, color coding, and highlight matches. The failures are structural: the column-framing rectangles were flattened into a divider grid, and the table label column was absorbed into the grid with an added bordered cell â both visible layout deviations under the founder directives.
+
+FINAL VERDICT: **FAIL** for "faithful, usable recreation" (content-complete, but two MAJOR structural/layout deviations vs the original's column rectangles and table grid geometry).

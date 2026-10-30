@@ -1,0 +1,19 @@
+PIL ADJUDICATION — subtitle initial-letter case (banked crop_1_subtitle_judge.txt MINOR)
+Claim: IMG1 (recreation) reads "(With ..." capital W; IMG2 (original) reads "(with ..." lowercase w.
+
+Measurement on unique_slides/slide_006.jpg (960x540 frame px), subtitle ink band y290..335:
+  "(" paren       x242..261  y296..328  h=33
+  2nd glyph       x263..295  y296..321  h=26   <- top at the SAME y as the paren (296)
+  3rd glyph (i)   x297..309  y299..321  h=23
+
+Liberation Sans Italic 36pt (the Arial metric-compatible font at the measured size):
+  cap height               = 0.729 em x 36 = 26.2 px
+  x-height (lowercase 'w') = 0.526 em x 36 = 18.9 px
+
+The 2nd glyph measures h=26 == cap height (26.2). A lowercase 'w' would measure ~19 px and
+its top would sit ~19 px BELOW the paren's top (y~315), not at y296.
+
+RESULT: the original's letter after "(" is a CAPITAL W. The recreation renders "(With ..."
+verbatim — matching both the frame and analysis/slide_006_final.json's
+subtitle_or_header "(With Linearly Separable Data)". The judge's reading of a lowercase 'w'
+is a misread; no change warranted. The build's string is unchanged.

@@ -1,0 +1,54 @@
+## Discrepancy Report â Slide 004, "Let Y" / "Let Å¶" boxes (zoomed crop pair)
+
+**Region layout check:** Both crops show the same two boxes â left box ("Let Y" + Original Labels) and right box ("Let Å¶" + Predicted Labels). Content, ordering, box placement, and caption text all match. The following issues remain:
+
+---
+
+### Left box ("Let Y â¦ Original Labels")
+
+1. **MAJOR â Matrix entries rendered black instead of red.** In IMG2 the entire column vector (yâ, yâ, â¦, yâ), the ellipsis, and the tall delimiters are drawn in red (matching the deck's red-emphasis style). In IMG1 (crop-left, matrix at ~xâ170â250) the same entries and parens are black. This is a whole-element fill-color difference, not a small tint shift. Confidence: high.
+
+2. **MAJOR â Subscript case mismatch: "n Ã 1" vs "N x 1".** IMG2 shows the dimension subscript in uppercase **N** ("N x 1", red, at bottom-right of the matrix, ~xâ235, yâ215); IMG1 renders lowercase "**n Ã 1**" (~xâ265, yâ175). A wrong character in an equation element â per ground rules this is MAJOR even though small. Confidence: high.
+
+3. **MAJOR â Missing vector underline under "Y".** IMG2 renders the symbol as underlined **YÌ²** (vector notation, ~xâ95); IMG1 shows a bold non-underlined **Y** (~xâ115). A missing stroke on a math symbol changes its notation. Confidence: high.
+
+4. **MINOR â Font family / letterform mismatch.** IMG2 uses a serif face (Times-like) for "Let", the matrix letters, and both captions; IMG1 uses a sans/italic sans face ("Let" italic sans at ~xâ35; "Original Labels" in a bold sans). Same text, different typeface. Confidence: high.
+
+5. **MINOR â "Let" is italic in IMG1, upright in IMG2.** Confidence: high.
+
+---
+
+### Right box ("Let Å¶ â¦ Predicted Labels")
+
+6. **MAJOR â Matrix entries rendered black instead of red.** Same as item 1: in IMG2 the Å·â, Å·â, â¦, Å·â column and its delimiters are red (crop-right, matrix at ~xâ890â950); in IMG1 they are black (~xâ865â925). Confidence: high.
+
+7. **MAJOR â Subscript case mismatch: "n Ã 1" vs "N x 1".** IMG2: uppercase "N x 1" in red (~xâ960, yâ230); IMG1: lowercase "n Ã 1" in black (~xâ940, yâ195). Confidence: high.
+
+8. **MAJOR â Missing underline under "Å¶" and "X".** IMG2 shows **Å¶Ì²** in the "Let Å¶ =" lead-in and underlined **XÌ²** as well as underlined **WÌ²** in "Å¶ = XÌ² WÌ²". IMG1 underlines only the **W**; the Å¶ and X are plain bold (~xâ790 and ~xâ1215 in IMG1). Two missing notation strokes in one equation. Confidence: high.
+
+9. **MINOR â Spacing in "Å¶ = X W".** IMG2 separates X and W with a visible space; IMG1 sets them tight as "XW". Confidence: high.
+
+10. **MINOR â Font family mismatch** (serif in IMG2 vs sans in IMG1) for "Let", matrix glyphs, and "Predicted Labels"/"from Model â¦" text. Confidence: high.
+
+---
+
+### Checked and NOT discrepancies (per ground rules / verified correct)
+
+- Delimiter geometry: in both images the tall parentheses span all matrix rows (yâ through yâ) without touching glyphs â OK.
+- Hats present on every Å· in both images â OK.
+- Caption text "Original Labels" (red), "from Training Samples", "Predicted Labels" (blue), "from Model Å¶=â¦" â all present, correct wording, correct colors (red/blue emphasis matches).
+- Box chrome, stroke weight, white canvas â intentional template, not listed.
+- JPEG softness in IMG2 â capture artifact, not listed.
+- Typed rendering quality of IMG1 vs IMG2 â both typed here; format is equivalent.
+
+---
+
+### Summary
+
+- BLOCKER: 0
+- MAJOR: 4 distinct issues (red-vs-black matrix entries in both boxes; "n" vs "N" subscript in both boxes; missing YÌ²/Å¶Ì²/XÌ² underlines; counted as items 1â3, 6â8)
+- MINOR: 4 (font family, italic "Let", XâW spacing, grouping as listed)
+
+The equation structure, symbols, hats, and captions are all correct, but the recreation systematically drops the red coloring of both column vectors, lowercases the dimension subscript (n vs N) in both boxes, and omits the vector-notation underlines â three recurring, clearly visible-at-zoom content errors.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region."

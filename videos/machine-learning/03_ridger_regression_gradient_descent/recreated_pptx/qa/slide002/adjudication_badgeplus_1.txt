@@ -1,0 +1,70 @@
+ADJUDICATION RECORD — slide 002, attempt 1, Template B crop-pair "badgeplus"
+Date: 2026-10-20T20:05 | Worker: w4-s002-20261020T1857
+
+Judge transcript: qa/slide002/crop_1_badgeplus_judge.txt (FINAL VERDICT: PASS)
+Five MINOR findings raised. PIL-first adjudication per judging.md: judge findings are
+HYPOTHESES, never obeyed blind. Measurements in frame px (960x540 space; render px / 2.0833).
+
+Region: badgeplus (frame x747..908, y47..103), render scale Sx=2.084375 Sy=2.083333.
+
+--- Reference PIL measurements (render_1.png vs unique_slides/slide_002.jpg) ---
+Plus-sign ink bbox:  ORIGINAL x 763..772 (w 10.0) y 71..81 (h 11.0)
+                    RENDER   x 762.7..772.8 (w 10.6) y 71.0..81.6 (h 11.0)
+Plus ink mean rgb:   ORIGINAL (176,178,175)  [28 ink px, 2px hairline, JPEG-washed]
+                    RENDER   (136,136,136)  [248 ink px, 3px strokes, drawn 808080]
+Plus ink core (frame): ORIGINAL (140,142,139)  RENDER (128,128,128)
+Badge yellow disc:   ORIGINAL x860..893 y59..89 (34x31) center (876.5,74.0)
+                    RENDER   x859.7..891.8 y56.6..88.8 (32.1x32.2) center (875.8,72.7)
+Badge purple ring:   ORIGINAL outer radius 20.0 over disc radius 17.0 -> radial ~3.0px
+                    RENDER   outer radius 18.7 over disc radius 16.05 -> radial ~2.65px
+Numeral "2":         ORIGINAL offset from disc center (dx -0.5, dy 0.0) [essentially centered]
+                    RENDER   offset from disc center (dx -0.5, dy +0.7)
+                    render-vs-original numeral delta: dx -0.7, dy -0.6 frame px
+
+--- Finding-by-finding ---
+
+(1) "Plus stroke weight/size: IMG1 heavier and larger" — severity MINOR, conf high.
+    REFUTED (size). PIL-measured plus bbox: render 10.6x11.0 vs original 10.0x11.0 —
+    max deviation 0.8 frame px, i.e. pixel-matched and well inside the slide's calibrated
+    <=1.4px tolerance. The "larger" claim does not survive measurement. Stroke THICKNESS
+    differs by ~1px (render 3px vs original ~2px hairline), but (a) the judge's stated
+    axis is size, which is refuted, and (b) a 1px stroke-width difference at 960px frame
+    scale on a hairline annotation artifact is below the frame's own JPEG resolution.
+    NOT A FIX TRIGGER.
+
+(2) "Plus gray tone/contrast: IMG1 medium-dark, IMG2 much lighter washed" — MINOR, conf high.
+    CONFIRMED IN DIRECTION ONLY, and refuted as a defect basis. The render draws the
+    spec's VERBATIM color #808080 (analysis slide_002_final.json recreation_brief step 6
+    AND visual_elements[].colors = ["#808080"]). Spec color is authoritative for a
+    non-chrome element; the frame's lighter measured mean (176,178,175) is a JPEG/video
+    wash on a 2px hairline — Template B ground rule (e) states "JPEG compression halos or
+    soft edges in IMG2 are video-capture artifacts, not content." Core-to-core the gap is
+    ~12/256 per channel (4.7%), inside capture variance. NOT A FIX TRIGGER.
+
+(3) "Badge outline geometry: IMG1 near-circle, IMG2 horizontal ellipse" — MINOR, conf medium.
+    REFUTED AS A FIX BASIS. Deck AGENTS.md law: badge = "circle d~35px centered (876,73)px"
+    drawn by shared_patterns/house_chrome.js; Template B ground rule (b) declares the badge
+    (FDFD96 fill + 6A5ACD ring) INTENTIONAL chrome, never a discrepancy. The original's
+    34x31 is a 1px-per-side ellipse inside JPEG smear; the render's 32.1x32.2 circle is
+    centered (875.8,72.7) — within house_chrome_check tolerance 8 and law-compliant.
+    Chrome law wins; a judge may not veto it. NOT A FIX TRIGGER.
+
+(4) "Purple ring stroke weight: IMG1 visibly thicker than IMG2" — MINOR, conf medium-high.
+    REFUTED, DIRECTION INVERTED. PIL radial thickness: ORIGINAL ~3.0px, RENDER ~2.65px.
+    The render's ring is THINNER than the original's, not thicker. Deck law specifies a
+    ~2pt (~2px) ring, which the render matches. NOT A FIX TRIGGER.
+
+(5) "Numeral '2' placement: IMG2 slightly low/left of badge center" — MINOR, conf medium.
+    REFUTED. PIL: the ORIGINAL numeral is centered on its disc (dx -0.5, dy 0.0); the
+    RENDER numeral sits (dx -0.5, dy +0.7) — 0.7px from ITS OWN disc center. The
+    render-vs-original numeral delta is dx -0.7, dy -0.6 frame px, i.e. under 1px. The
+    judge's positioning claim (original low/left, render centered) is inverted by
+    measurement, and the actual 0.7px offset is below any visible threshold and inside
+    the slide's calibration tolerance. NOT A FIX TRIGGER.
+
+--- Conclusion ---
+All five findings are MINOR; the judge's verdict was PASS. Every geometry claim in the
+findings is PIL-refuted (or, for #2, an intentional spec-verbatim color masked by a
+ground-ruled JPEG wash). No fix, no rebuild, no re-render, no re-judge is warranted.
+The crop pair is therefore CLEAN (banked FINAL VERDICT: PASS + this refutation record
+covering each raised finding), satisfying Procedure B step 7.

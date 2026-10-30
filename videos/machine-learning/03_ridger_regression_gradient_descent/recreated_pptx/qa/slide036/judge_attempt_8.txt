@@ -1,0 +1,102 @@
+# Judge transcript — slide 036, attempt 8 (full-slide)
+- date: 2026-10-24 06:50
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_036.jpg  md5=a75911bb68fa4865ded5cd329891f76e
+- IMG_RENDER:   recreated_pptx/qa/slide036/render_8.png  md5=ad8676e60fbd305096dce60dc0b16c5a
+- PPPTX:        recreated_pptx/slide_036_recreated.pptx  md5=ad2a07ddd2e688b40d57d20e5c6ea701
+- BUILD:        recreated_pptx/qa/slide036/build_attempt_8.js  md5=1b5c330b73a9be8ae8d47f0ea6f6be6e
+- GM: render_H/540 = 1125/540 = 2.083333
+- read order: ORIGINAL first, then RENDER (protocol §7), then the dense-region crops
+
+## Ground rules acknowledged
+(a) This deck's house chrome is intentional: white canvas, gray E9E9E7 panel x54..903/y45..540,
+    C00000 1pt strokes LEFT x58.5 / RIGHT x901 / BOTTOM y538.5 and **no top stroke**, badge
+    circle d~35 centred (876,73) fill FDFD96 ring 6A5ACD numeral 36 — not discrepancies.
+    house_chrome_check.py on render_8: PASS (house_chrome_8.txt).
+(b) The original is a fully built slide, not a placeholder.
+(c) No cursor/video artifact is being recreated (none present in this frame).
+(d) Typed-vs-handwritten medium: n/a (both typed).
+(e) Equations: the original is already typographic; the recreation uses the mandated
+    professional 2D format (Sigma with lower limit, true sub/superscripts).
+(f) Judgement is about renderable content fidelity only.
+
+## Comparison (element by element)
+- TITLE "Problem Formulation": red bold, centred. Original ink x354..628 y64..84 (w274);
+  render x362.4..620.2 y65.3..84.0 (w258), centre 491.1 both. Match (width delta = Arial vs
+  the source's serif face, the deck's ratified substitution; see Discrepancy 1).
+- HOUSE CHROME / BADGE: checker PASS; badge numeral 36 correct; panel and three strokes match.
+- BOX REGIONS: four bordered boxes; borders measured (selfcheck_attempt_8.txt) orig vs render
+  x69..868 y94..211 / 226..313 / 328..420 / 437..538, render x69..868 y94..206 / 226..313 /
+  328..420 / 437..538. All content inside; no ink on or across any border.
+- BOX 1 text (4 lines, verbatim): "Define two classes: class I and Class II" / "let d(X) be a
+  discriminant function = W^T X" / "if X ∈ class I then d(X) > 0" / "if X ∈ Class II then
+  d(X) < 0" — verbatim, correct colour coding (class I red, Class II blue, d(X)/X green,
+  inequalities in the line's class colour). "W^T" superscript raised (render T top y132 vs
+  original y129; raised in both).
+- BOX 2 text (3 lines): "For misclassified X :" / "If X ∈ class I and misclassified as
+  Class II then d(X) will be <0" / "If X ∈ Class II and misclassified as Class I then d(X)
+  will be >0" — verbatim, including the capital "Class I" target token (fixed in attempt 8;
+  attempt 7 printed lowercase "class").
+- BOX 3 heading "Define Error function as:" — verbatim; vertical band/line spacing matches
+  (render baseline y355 vs original y353, selfcheck tolerance).
+- BOX 3 EQUATION (professional 2D): "Error = Σ_{all misclassified vectors(i)} W^T X_i ⇒
+  (W^T X_i) take positive and negative values".
+  Piece-level measurement (audit_8.txt §3, frame px, orig -> render):
+    Error=  84..151 -> 84.0..150.2        Sigma  220..239 y369..396 -> 219.8..240.5 y368.6..396
+    limit   162..297 y400..413 -> 162.2..296.6 y402.2..413.8 (italics; "misclassified" and
+            "(i)" red in BOTH — audit_8.txt §5: original 34 red px x179..297, render 771 red px
+            x178..297)
+    term1   304..356 -> 304.3..354.7  (W + raised T + green X + lowered red i; NO parentheses
+            on the first term, matching the original's ink-run census)
+    arrow   396..410 -> 396.5..411.4
+    term2   445..498 -> 443.5..499.7  (both parens present; delimiter strokes y374.8..394.5
+            span the enclosed glyphs y369.6..393.6 — the raised superscript T peeks above the
+            paren top in BOTH images, as in the original)
+    phrase  507..733 -> 507.4..732.5 (gap after ")" = 7.7 px vs the original's 9 px; no
+            collision)
+  Structure/limits/sub-superscripts/delimiters all correct; the attempt-7 defects (unmatched
+  opening paren, literal "_"+"i" text instead of a subscript, ")take" with no gap, black
+  upright summation limit) are gone.
+- BOX 4 text (3 lines): "Define δ_i as :" / "If X ∈ class I and misclassified as Class II then
+  d(X) will be <0 ⇒ δ_i = -1 ⇒ d(X) δ_i >0" / "If X ∈ class II and misclassified as Class I
+  then d(X) will be >0 ⇒ δ_i = +1 ⇒ d(X) δ_i >0" — verbatim with the capital "Class I" target
+  (fixed in attempt 8); δ has a true lowered subscript i; colours (green δ_i, red/blue class
+  tokens, blue/red inequality results, black final "d(X) δ_i >0") match.
+- RED X MARK (box 3, far right): original ink 763..785 y367..389, render 766.6..786.2
+  y365.8..387.4 — present, correct size/colour (FF0000), inside the box, 77 px clear of the
+  equation's last glyph (733).
+- COLORS: red C00000 (class-I tokens, title, box borders A60000), blue for Class-II tokens,
+  green 008000 for d(X)/X/δ, black body; render cores red 192 / blue 254 / green 128
+  (selfcheck) — semantic coding matches.
+- LINE SPACING / BASELINES: every addText block pins explicit lineSpacing; measured render
+  baselines vs original: box1 [118,150,178,206] vs [117,149,177,206]; box2 [249,279,308] vs
+  [248,279,307]; box3 [355] vs [353]; box4 [461,488,515] vs [461,487,514] — all within 2 px.
+- FRAME CONTAINMENT: PASS (selfcheck_attempt_8.txt); content ink inside panel x59..900 y45..539.
+- LINE WRAP: 4/3/3/4 ink bands for the 4/3/3/4 text lines — no accidental wrap or overflow.
+- TABLES/CHARTS/IMAGERY: none on this slide (four bordered text boxes + one equation + red X).
+
+## Discrepancies
+1. [MINOR] Typographic medium — the original's body face is a bold serif (Times-like) with
+   italic emphasis and vector underlines; the recreation uses the deck's ratified Arial
+   regular with italics only on d(X)/X/δ. Real difference, deck-standard substitution (the
+   certified siblings render the same way: slide 012's italic serif headers and slide 035's
+   source face are rendered in the deck's sans palette). Measured effect: per-line ink-width
+   ratios 0.907..1.021 (audit_8.txt §1) — no overflow or collision follows. Adjudicated as
+   deck-level typographic convention, recorded as open deck debt in worker_report.md; not a
+   content, geometry, colour or value defect.
+2. [MINOR] Vector underlines (W, X, d(X), δ_i underline bars in the original) are not drawn —
+   same deck-level styling convention as (1); no semantic loss (the symbols are verbatim).
+3. [MINOR] Class-token italics — the original italicises "class I"/"Class II"; the recreation
+   keeps them upright in their correct colours — same convention as (1).
+4. [MINOR] Title ink 16 px narrower than the original (274 -> 258) from the same font
+   substitution; centre, height and colour identical.
+5. [MINOR] Implication-arrow glyph: original prints a thick two-bar "=>"-style arrow, the
+   recreation uses "⇒" (U+21D2) — same meaning, same position (396..411 vs 396..410); symbol
+   substitution, not a content change.
+
+## Visual-quality defects
+None. No overflow, clipping, wrong wrapping, collision or illegibility; every element sits
+inside its box; the equation's ink band (84..732 y368.6..413.3) is inside box 3 and left of
+the red X; the summation limit's red parts are legible; no empty region.
+
+FINAL VERDICT: PASS

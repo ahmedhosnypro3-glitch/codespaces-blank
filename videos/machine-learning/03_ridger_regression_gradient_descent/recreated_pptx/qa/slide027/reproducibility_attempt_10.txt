@@ -1,0 +1,18 @@
+REPRODUCIBILITY CHECK — slide 027 attempt 10 (2026-10-22)
+
+The deliverable slide_027_recreated.pptx was re-derived by re-running
+`NODE_PATH=/home/ahmed/.npm-global/lib/node_modules node
+ videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_027.js`
+from the project root (OUT is root-relative in the build).
+
+Result: the regenerated package is CONTENT-IDENTICAL to the judged artifact. Unzipping both
+and diffing every part gives exactly one difference — docProps/core.xml's
+dcterms:created / dcterms:modified timestamps (2026-10-22T01:11:42Z vs 02:43:28Z), which
+pptxgenjs stamps at build time. Every other part (slide XML, rels, content types, theme,
+layouts) is byte-identical, so the pptx is deterministic and the render and the pptx are
+the same geometry.
+
+The pptx on disk was then RESTORED to the exact bytes render_10.png was rendered from
+(pre-rebuild copy), md5 a5f15c5d57342b344f78fc84fb1e5eb3, so the certified (pptx, render)
+pair is exactly the pair the judge sees. The regenerated copy is not needed; its md5 was
+cfceec730b3eacf4360db13b896357b9.

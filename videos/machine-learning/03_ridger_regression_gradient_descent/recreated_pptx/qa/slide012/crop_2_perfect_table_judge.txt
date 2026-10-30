@@ -1,0 +1,20 @@
+Comparison of the first (âperfectâ) training table only. I checked every cell in both crops.
+
+Cell-by-cell content check (IMG1 recreation vs IMG2 original):
+- Header row: X1 X2 X3 X4 X5 X6 X7 X8 â identical set and order in both.
+- Row X1: 1, 2, 3, 4, 8, 9, 10, 11 â identical (including the 4â8 step and X6=9).
+- Row X2: 1, 3, 5, 6, 16, 7, 5, 3 â identical (including the two 5s at X3/X7 and the 16 at X5).
+- Row y: 2, 4, 6, 8, 16, 18, 20, 22 â identical (including the duplicated 16 at X5, matching X2 row).
+- No missing row, no swapped value, no wrong/garbled digit; the y row is present in both.
+
+Discrepancies (crop-relative):
+
+1. Text-color scheme differs (systematic, color-only) â MINOR, high confidence. In IMG2 the text alternates by column: odd columns (X1/X3/X5/X7) and some labels read dark-blue while even columns X2/X4/X6/X8 read a dark red/maroon â applied across the header AND all data rows (e.g., X1 row: 1 blue, 2 red, 3 blue, 4 red, 8 blue, 9 red, 10 blue, 11 red). IMG1 drops the red: header row (top, ~y0â18%) is uniformly blue, the X1/X2 data rows (~y20â80%, columns ~x7â90%) are black, and only the y/output row (~y80â100%) is blue. Every value is unchanged; this is hue only. Location: header row and columns X2/X4/X6/X8 (~x17â27, 37â47, 57â67, 77â90%), all rows.
+
+2. Index notation: subscript vs full-size â MINOR, medium confidence. IMG2 labels are true subscripts (Xââ¦Xâ; row labels Xâ/Xâ/y). IMG1 appears to render full-size indices âX1â¦X8â with no subscript drop in both the header (top row) and the left row-label column (~x0â7%). Unambiguous and not truncated, but a typographic deviation.
+
+3. Internal rule hue may differ â MINOR, low confidence. IMG2âs cell separators read as dark-red/maroon in the capture; IMG1 uses near-black thin rules. Weight and continuity match (thin, unbroken, no gaps); this is likely the same color-scheme effect as item 1 rather than a geometry defect.
+
+No delimiter/bracket geometry or stacked equations exist in this crop, so those checks are N/A. Vertical centering in cells is consistent between both.
+
+FINAL VERDICT: PASS

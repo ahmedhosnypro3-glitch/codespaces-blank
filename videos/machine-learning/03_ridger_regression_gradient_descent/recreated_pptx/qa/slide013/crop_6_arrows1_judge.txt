@@ -1,0 +1,42 @@
+# Judge transcript — slide 013, attempt 6 (zoomed crop arrows1)
+- date: 2026-10-24 07:04
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_RENDER: recreated_pptx/qa/slide013/crop_6_arrows1_render.png  md5=100ce6f39b4aca05db474056f332a4f4
+- IMG_ORIGINAL: recreated_pptx/qa/slide013/crop_6_arrows1_orig.png  md5=4d2ffe11f332923dd01dc981c873ab1e
+- region: band-1 arrow pair between the train table / W box / test table (frame bbox
+  447,178..675,218); render crop scale = render_H/540 = 2.083333, original crop upscaled to
+  the same 475x83 px
+- read order: original crop first, then render crop
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR comparison of ONE region; same region, same effective scale.
+(b) House template is intentional chrome — never a discrepancy.
+(c) Typed-vs-handwritten ink: at most MINOR (both typed).
+(d) Professional 2D equation format mandate — the vector digits flanking the arrows are in
+    the mandated 2D form in both.
+(e) JPEG halos / soft edges in IMG2 are capture artifacts, not content.
+
+## Comparison (region contents: two hollow blue right-pointing arrows flanking the W box;
+## left arrow x464..503, right arrow x627..665, y186..210)
+
+- Direction: both arrows point RIGHT in both images (head at the far/right end).
+- Shaft: hollow rectangle — top stroke, bottom stroke and a vertical tail bar at the left
+  end — present in both, same height (shaft rows 192..205) and same left/right extents
+  (render 463.4..502.7 and 626.2..665.6 vs frame 464..503 and 627..665; <=1px).
+- Head: triangular, white core with a blue outline in both (the frame's head interior is
+  white at mid-height, not solid); head base at x~494 / x~656, tip at x~503 / x~665, full
+  25px height in both.
+- Colour: blue family in both (render 0000A7; frame's JPEG-blended stroke cores 60,52,140).
+- No arrow overlaps the W box or either table (the render's left arrow ends 3px before the
+  W-box border at 506, same as the frame).
+
+## Discrepancies
+1. [MINOR] Outline weight — the frame's stroke measures 3.0px across the top shaft (JPEG
+   halo included) vs 1.9px in the render; PIL adjudication banked
+   (adjudicate_minors_attempt_6.txt); the geometric strokes (top/bottom/tail/head) are all
+   present at matched positions. Disposition: capture-blur tolerance; not a fix trigger.
+
+## Visual-quality defects
+- None: no missing arrow, no wrong direction, no broken shaft/head, no collision.
+
+FINAL VERDICT: PASS

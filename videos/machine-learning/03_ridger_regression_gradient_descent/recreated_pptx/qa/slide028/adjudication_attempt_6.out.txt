@@ -1,0 +1,43 @@
+### A. RIGHT-PANEL MARKER COUNT (judge_attempt_3 finding 1, MAJOR)
+Original markers, measured as fat connected components:
+  M1: (561.6, 313.4)  17x21  px=150
+  M2: (593.2, 395.4)  11x16  px=119
+  M3: (683.0, 350.9)  13x15  px=132
+  M4: (710.7, 284.8)  11x14  px=125
+  => the original's right panel has FOUR large markers.
+  render_5's build declares FIVE: [536,300],[563,313],[647,345],[590,394],[706,322]
+  => CONFIRMED: one extra marker (the first, at x536) is a build defect.
+
+### B. LEFT-PANEL MARKER COUNT (judge_attempt_3 finding 3, MINOR ~0.5)
+Original left-panel fat blobs (window x150..400):
+  render_5 declares SEVEN left dots (4px): [293,250],[283,280],[274,308],
+       [265,336],[253,372],[264,412],[277,419] — d4 vs the original's ~8-14px.
+
+### C. CURVE GEOMETRY (crop_4 finding 2, MAJOR) — MEASURED IN ATTEMPT 5
+  Trimmed-LS quartic vs the original's blue stroke:
+    LEFT : RMSE 2.01px  max 4.47px  (old quadratic: RMSE 14.64px  max 45.34px)
+    RIGHT: RMSE 2.84px  max 9.72px  (old quadratic: RMSE 15.35px  max 46.87px)
+  => CONFIRMED and CLOSED by the quartic fit now in build/slide_028.js.
+     See fit_attempt_5.out.txt / verify_fit_attempt_5.out.txt /
+     adjudication_attempt_5_r5.out.txt.
+
+### D. MARKER POSITIONS (crop_4 finding 1, MAJOR)
+  The crop judge's normalised coords match NEITHER image exactly (its IMG2
+  coords disagree with the measured original too), so its per-marker numbers
+  are its own measurement artefact. The structural claim — that the marker
+  pattern is unfaithful — is CONFIRMED by section A: 5 markers vs 4, and the
+  step connectors therefore encode a different path. Fix the marker set to the
+  four measured centroids and the connectors follow.
+
+### E. COLOUR (both judges' MINOR)
+  The render declares CURVE_BLUE = 2E75B6 = (46,117,182).
+  Original measured curve means: LEFT [155,199,209], RIGHT [140,196,210];
+     darkest 25% cores: LEFT [123,175,186], RIGHT [88,174,198].
+  => the original's stroke is a LIGHT CYAN, materially lighter than 2E75B6;
+     both judges read the same thing (crop: 'lighter cyan/blue'; full-slide:
+     '~#7CC7D5 vs ~#4472C4 family'). The claim is CORRECT in substance even
+     though the exact hex named is off. NOT refuted.
+
+### F. 'Loss' CASING (crop_4 finding 5, MINOR)
+  The analysis JSON's verbatim label is 'Loss' and the full-slide judge read a
+  capital L in BOTH images. => REFUTED; no change.

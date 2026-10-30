@@ -1,0 +1,22 @@
+RESUME VERIFICATION — slide 024 (worker w4-s024-20261020T185618, 2026-10-20)
+
+Predecessor died twice during the vision-outage window. Banked evidence in this dir is
+the predecessor's; nothing was deleted.
+
+RECONCILIATION
+- qa/slide024/build_attempt_1.js == build/slide_024.js : byte-identical (diff exit 0).
+  => the live build script IS the banked attempt-1 script; no reconciliation needed.
+- build/assets/icon_024_pen.png present (600dpi pen icon asset referenced by the build).
+- recreated_pptx/slide_024_recreated.pptx existed (md5 pre-rebuild 63d57c311dd0ef1e7ed5dd62bed0d070).
+
+REBUILD-AND-VERIFY (judging.md: identify the render by MEASUREMENT, not numbering)
+- Rebuilt the pptx from the live script (new file md5 7aada6c3746c2b17312659a88db62429;
+  differs from the pre-rebuild md5 only because pptxgenjs stamps zip entry timestamps —
+  same file size 51197 bytes).
+- Rendered at 150dpi with a PRIVATE LO profile (-env:UserInstallation=file://.../lo_slide024),
+  TMPDIR=/home/ahmed/Projects/ai_llm_slides/scratch/tmp.
+- RESULT: new render is BYTE-IDENTICAL to the banked qa/slide024/render_1.png
+  (both md5 3ecea129e54387d2f4856b266b524b9b, 47300 bytes, 2001x1125).
+  => render_1.png IS the render of the CURRENT deliverable pptx, proven by pixel
+     identity. Attempt 1 judges render_1.png against build_attempt_1.js.
+- Rebuilt render banked as rebuild_verify_1.png for the record.

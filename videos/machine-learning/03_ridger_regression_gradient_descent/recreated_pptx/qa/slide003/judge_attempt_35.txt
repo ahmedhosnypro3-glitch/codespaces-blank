@@ -1,0 +1,36 @@
+# Fidelity Check â Slide 003 recreation attempt 35
+
+## Ground-rule dispositions (settled first, not raised as discrepancies)
+- House chrome (gray E9E9E7 panel, red C00000 strokes on left/right/bottom only, **no top stroke**, yellow badge at (876,73) with purple ring and numeral "3"): present and correct in IMG1; per rule (a) these are not scored.
+- IMG2 is a real content slide (not a placeholder), so content matching applies fully.
+- No cursor artifacts in IMG2 affect content (a small mark near "b" in the w-vector is a capture artifact; its absence in IMG1 is correct per rule (c)).
+- Equation typography differences (typed vs. professional 2D) are exempt per rule (e); both images here use comparable typed math anyway.
+
+## Element-by-element comparison
+
+| Element | IMG1 (recreation) | IMG2 (original) | Verdict |
+|---|---|---|---|
+| Title text "Matrix Notation for Linear Regression and Classification (N- Samples)" with blue/red coloring | Match, verbatim, same two-color split, same line | Match | â |
+| "N Training Samples" red label, left-middle | Match position/color | Match | â |
+| Blue-framed column box: Xâ (yellow), Xâ (cyan), parenthesized "â¦" column, Xâ (violet); entries xâââ¦xâd, yââ¦yâ | All present, same colors, same ordering, subscripts correct | Match | â |
+| "Remember" box (light cyan, blue border), red italic "Remember", equation y = WáµX = XáµW with underlined bold letters | Match, underlines on all five letters as original | Match | â |
+| "In General: N >>> d" bordered box, red bold N, italic d | Match | Match | â |
+| Lower-left red-framed box: y-vector (yâ/yâ/â¦/yâ with colored chips, N Ã 1 label), "=", 4-row matrix (1 xââ xââ â¦ xâd / 1 xââ xââ â¦ xâd / 1 â¦. â¦ â¦. â¦ / 1 xââ xââ â¦ xâd) with yellow/cyan/white/magenta row highlights, N Ã d+1 label, (b, wâ, wâ, â¦, w_d) vector with d+1 Ã 1 label | All present, values correct, row highlight colors correct, labels correct | Match | â |
+| Right red-framed box: Y = X W (underlined); "Where: X_{NÃd+1} is a matrix"; "Y_{NÃ1} is labels vector" | Present, verbatim, subscripts correct | Match | â |
+| Connecting arrow between lower-left box and right box | Thin gray arrow | White block arrow (outlined) | MINOR |
+| Delimiter geometry (parentheses on y-vector, matrix, w-vector) | Span full enclosed content, no overlap/clipping | Match | â |
+| Frame containment | All content inside panel and inner boxes; no ink crossing strokes | â | â |
+
+## Discrepancy list
+1. **MINOR** â Inter-box arrow style: original uses a white block arrow with dark outline; recreation uses a thin gray line arrow. Same position and direction, different glyph style. Confidence: high.
+2. **MINOR** â Vertical centering of yâ/yâ in their colored chips (lower-left y-vector): the subscript digits sit slightly low relative to the chip, marginally below optical center; original chips center the glyphs better. Confidence: medium.
+3. **MINOR** â "Where:" is italic in the original, roman in the recreation. Confidence: high.
+4. **MINOR** â Subscript style "N x d+1" (original) rendered as "NÃd+1" (recreation); semantically identical, glyph-level difference. Confidence: high.
+
+No BLOCKER or MAJOR defects found: all text is verbatim, all regions/boxes/colors/highlight patterns match, all table-like matrix values match, no missing elements, delimiters span correctly, nothing overflows its frame.
+
+## Visual-quality notes on the recreation
+- No text clipping, wrong wrapping, collisions, or illegibility observed.
+- Slight tightness of the y-chip vertical padding (see item 2) is the only cosmetic nit.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

@@ -1,0 +1,32 @@
+# Discrepancy Report â Slide 031, plot-region crop pair (attempt 34)
+
+## Region-under-test contents (both images)
+Parabola f(x)=(xâ5)Â²+1 (blue curve), black two-segment chord at y=10 with black dots at (2,10), (5,10), (8,10), lavender "3"/"3" segment labels, red auxiliary point on the left branch, two green points at the vertex area with "(5, 1)" label, "(?, ?)" label at the right chord endpoint, red dashed axis-of-symmetry line at x=5, tick labels (â5, 0, 5, 10, 15 on x; 5, 10, 15 on y), light grid, dark-red frame border.
+
+## Findings
+
+1. **Parabola stroke color/weight** â MINOR, confidence: medium.
+   IMG1 (crop-relative: entire U-curve, left and right branches) renders the curve in a heavier, grayer slate-blue; IMG2 shows a thinner, lighter blue stroke. Part of this is plausibly the original's upscale/compression softening, but the recreation's stroke reads noticeably darker and thicker at matched scale. Content is identical (same shape, same vertex, same intercepts with the chord).
+
+2. **Right green vertex dot x-position** â MINOR, confidence: low.
+   In IMG1 (bottom-center, ~55% across, ~92% down) the right green dot is centered on the dashed red line at x=5; in IMG2 the dashed line passes between the two green dots (right dot sits slightly right of x=5). A sub-tick positional shift only; dot count, color, size, and the "(5, 1)" label placement all match.
+
+3. **Red auxiliary point position** â MINOR, confidence: low.
+   IMG1 (left branch, ~38% across, ~57% down) places the red dot a touch higher/righter on the branch than IMG2 (~36% across, ~58% down). Same y-band (~7), same color/size; likely estimation drift, not a content error.
+
+4. **"(2, 10)" label clearance** â MINOR, confidence: low.
+   IMG1 (left of the left black dot, ~y=10 line) shows the label fully clear of the curve; in IMG2 the label slightly overlaps the left branch. Placement is otherwise equivalent; overlap in IMG2 reads as capture softness rather than a layout difference.
+
+## Checked and confirmed correct (no discrepancy)
+- All glyphs and labels: "(2, 10)", "(?, ?)", "(5, 1)", "3", "3", and tick numbers â5, 0, 5, 10, 15 / 5, 10, 15 â every character present, correct, not garbled in IMG1 (IMG2's "(?, ?)" softness is compression, per ground rule (e)).
+- Chord geometry: two black segments with three black dots, endpoints and midpoint at y=10 â matches.
+- Red dashed axis-of-symmetry at x=5, full height of plot box â matches.
+- Segment-length labels "3"/"3" in lavender above each half â matches.
+- Grid, frame strokes (left/right/bottom dark-red, no top stroke â mandated chrome), y-axis position at x=0 â match.
+- Green dot pair count/color and "(5, 1)" label text â match.
+- Small dark artifact at bottom edge of IMG2 (~48% across) is a video-capture cursor/artifact â ignored per rule (e).
+
+## Summary
+No wrong digits, no missing/garbled characters, no missing points or labels, no structural errors. All four findings are sub-tick positional/stylistic differences of MINOR severity.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

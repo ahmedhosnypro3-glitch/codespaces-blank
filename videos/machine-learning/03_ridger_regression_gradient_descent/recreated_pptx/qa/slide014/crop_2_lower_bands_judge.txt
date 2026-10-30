@@ -1,0 +1,32 @@
+# Region: Slide 014 lower bands â Loss Term / Regularization Term / Objective function
+
+## Content verification (cell-by-cell, symbol-by-symbol)
+
+| Element | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| Define line | "Define **Loss** function as **squared distance** between Å¶ and Y" | Identical wording, identical Å¶/Y order | â |
+| Loss Term | `\|\|YâÅ¶\|\|Â² = (YâÅ¶)áµ(YâÅ¶)` â Y first in both norm and product | `\|\|YâÅ¶\|\|Â² = (YâÅ¶)áµ(YâÅ¶)` â same order | â |
+| Regularization Term | `R = \|\|W\|\|Â² = WáµW` | `R=\|\|W\|\|Â²=WáµW` | â |
+| Objective | `J(W) = 1/2 [ (YâÅ¶)áµ(YâÅ¶) + Î» WáµW ]` | Same structure: 1/2, square-bracketed sum, Î» between terms | â |
+
+- **All digits/symbols verified**: the "2" in 1/2, both exponent "2"s, the hats on Å¶ (and their absence on Y), the superscript áµ on both factors, Î», and the double-bar norms are all present and correct in both. No wrong, missing, or garbled characters.
+- **Delimiter geometry**: In IMG1 objective line (bottom band, yâ0.80â0.95), the square bracket spans the entire enclosed sum from just after the 1/2 fraction to just after WáµW, with clearance â no contact with enclosed text. Norm bars span their arguments. â
+- **Line separation / vertical centering**: Loss-Term box (xâ0â0.55, yâ0.45â0.72) and Regularization-Term box (xâ0.58â1.0, same y-range) are horizontally aligned at top and baseline; single-line text is vertically centered. â
+- **1/2 stacked fraction** in IMG1 vs linear "1/2" in IMG2 â mandated format upgrade per ground rule (d), not a defect. â
+
+## Discrepancies
+
+1. **Inline term color-coding dropped** â In IMG2 the formula operands are role-coded: (YâÅ¶)áµ(YâÅ¶) renders in **red** and WáµW/Î»-family in **green** throughout all three bands (loss box xâ0.15â0.55 yâ0.58â0.62; reg box xâ0.62â0.95 yâ0.58â0.62; objective bottom band yâ0.82â0.90). IMG1 renders these operands in **black**; only the headings, J(W), and Î» retain color. Severity: **MINOR** (per rule f â text color difference; structure remains unambiguous). Confidence: high.
+
+2. **"squared distance" hue** â IMG1 renders it **green**; IMG2 renders it a distinctly **blue-violet** (top band, xâ0.35â0.55, yâ0.04â0.06). Severity: **MINOR**. Confidence: medium (a greenâblue-violet shift is larger than typical JPEG chroma bleed, but capture lighting on the original cannot be fully excluded).
+
+3. **Heading color of "Loss Term"** â IMG1 "Loss Term" is **red**; in IMG2 it reads **dark blue/indigo**, matching the blue of "Regularization Term" (both headings appear blue in the original, whereas the recreation splits them red/blue). Region: xâ0.02â0.25, yâ0.55â0.60. Severity: **MINOR**. Confidence: medium.
+
+4. **Underlining and heavy letter weight** â IMG2 underlines and hand-bolds the key symbols (Å¶, Y, W, Î») and the expanded terms in every band; IMG1 uses normal-weight typed math italics with no underline strokes. Severity: **MINOR** (largely subsumed by typed-vs-handwritten rule c; listed per stroke/weight requirement). Confidence: high.
+
+5. **Content-box fill palette** â IMG2 uses per-box tints (peach/salmon loss box, pale green reg box, pale cyan objective box) with colored outlines; IMG1 uses uniform pale-blue boxes on its house template. Severity: **MINOR** (fill-color restyle; outer template chrome protected by rule b, so this is noted, not charged). Confidence: high.
+
+## Verified clean
+No MAJOR or BLOCKER findings: no wrong digits, no swapped or missing values, no garbled glyphs, no truncated subscripts, no delimiter-span failures, no line-collision or centering faults.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region (only minor color/weight styling deviations listed above).

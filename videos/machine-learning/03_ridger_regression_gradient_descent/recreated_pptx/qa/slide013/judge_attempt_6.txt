@@ -1,0 +1,130 @@
+# Judge transcript — slide 013, attempt 6 (full-slide)
+- date: 2026-10-24 06:58
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_013.jpg  md5=25c8009ded61a255b2d76723956b2358
+- IMG_RENDER:   recreated_pptx/qa/slide013/render_6.png  md5=0321e28c3abb6afd3f35b099d5cb5547
+- GM: render_H/540 = 2.083333
+- read order: IMG_ORIGINAL first, then IMG_RENDER (protocol §7)
+
+## Ground rules acknowledged
+(a) House chrome values (this deck, measured 2026-10-19): white canvas; gray E9E9E7 panel
+    x54..903, y45..540; thin C00000 1pt strokes LEFT x58.5, RIGHT x901, BOTTOM y538.5;
+    INTENTIONALLY NO top stroke; badge circle d~35 centered (876,73), fill FDFD96, purple
+    ring 6A5ACD, bold numeral 333333 Arial 18pt, numeral = file number N (13). These are
+    intentional and NOT discrepancies.
+(b) Contentless placeholder match: N/A — the original carries full content.
+(c) Mouse cursor / video-capture artifacts in the original are correctly omitted (a cursor
+    arrow is visible over the band-1 ellipse in IMG_ORIGINAL; it is absent from the render
+    and that absence is correct).
+(d) Typed-vs-handwritten ink: medium difference, at most MINOR (not applicable — both typed).
+(e) Equations: professional 2D format is mandated; the recreation renders W = [0;2;0],
+    [2.7;0.67;0.64], [4;0.29;0.78] as stacked column vectors inside thin parentheses with
+    the ||W||^2 callouts as superscripted math — the same 2D form the original shows.
+(f) Verdict covers fidelity of renderable content only.
+
+## Comparison (element by element)
+
+### Title
+- IMG_ORIGINAL: "Effect of Overfitting on model parameter “W”" bold dark red, one line,
+  ink x156..787, y69..96 (632x28).
+- IMG_RENDER: same string verbatim (curly quotes kept), one line, ink x155.8..791.9,
+  y68.4..95.8 (636.6x27.8). Width +0.7%, height -0.2px; same left edge, same band.
+- Match.
+
+### Slide-number badge
+- Both show "13" top-right. Render = house chrome (FDFD96 fill, 6A5ACD ring, 333333 bold
+  18pt at center (876,73)); the original prints a smaller plain yellow badge with black 13.
+- House-rule element — NOT a discrepancy (ground rule a).
+
+### Layout / regions
+- Three equal bands, each: Train table | W box | test table, with the Train/Test label pair
+  only above band 1; identical region order and proportions in both images.
+- Render region bboxes (frame px, PIL): train tables x92..459 (bands y126..249 / 265..389 /
+  402..527); test tables x719..872 (y128..252 / 266..390 / 403..527); W boxes x506..623
+  (y127..252 / 265..390 / 403..528); labels x96..160 and x802..866, y97..125.
+- Match (all within <=1px of the original's measured edges).
+
+### Train/Test label boxes
+- Original: one blue box with white italic serif "Train" at x96..159 y97..124; one at
+  x802..865 y97..124 with "Test". Render: x96..160 / x802..866, same y band, dark-blue
+  fill (0000A7 measured from the frame) with white bold italic serif text.
+- Match (1px larger; within tolerance).
+
+### Training tables (3 x: header + X1 + X2 + y, 9 columns)
+- Band 1 header: (blank), X1..X8 in alternating BLUE(odd)/RED(even), left-aligned as in the
+  frame; rows X1=1 2 3 4 8 9 10 11, X2=1 3 5 6 16 7 5 3, y=2 4 6 8 16 18 20 22; row-label
+  column black; cell ink alternates BLUE/RED by column.
+- Band 2: identical except X1 row X8 = 30, that single cell yellow (FFFF00).
+- Band 3: identical except X1 row X8 = 60, that single cell yellow.
+- Render: every cell value, row/column count, colour phase, black row-label column, yellow
+  single-cell highlight and header left-alignment are reproduced (PIL cell-by-cell: 0 empty
+  cells; gridlines at 92,133,174,214,255,296,337,377,419,459 and rows
+  126/157/188/219/249, 265/296/327/358/389, 402/434/465/496/527 exactly).
+- Index digits: real subscripts on the SAME baseline (X₁..X₈, X₁/X₂), matching the original.
+- Match.
+
+### Test tables (3 x: header + 3 data rows, 3 columns)
+- Original: headers Test1/Test2/Test3 in RED/BLUE/RED; rows 30 40 50 / 15 20 25 /
+  y-row (band1 60 80 100; band2 32.4 42.3 52.3; band3 24.4 31.2 38); the y row carries a
+  pale mint fill; gridlines are pale rose.
+- Render: all values verbatim, RED/BLUE/RED phase, mint y rows, rose gridlines, header
+  subscripts on the baseline; gridlines 719,770,821,872 x 128/160/190/221/252,
+  266/298/328/359/390, 403/435/465/496/527 (<=2px of the measured original borders).
+- Match.
+
+### W boxes (3 x, the equation stack)
+- Original: red-bordered white rect; "W =" in red italic serif with an underline bar;
+  three stacked black values inside a thin parenthesis pair whose strokes span the FULL
+  stack; below, a pale-yellow ellipse with olive italic ||W||^2 = value, superscript 2.
+- Render: same composition in every band:
+  band1 W=[0;2;0] ||W||^2=4; band2 W=[2.7;0.67;0.64] ||W||^2=8.11;
+  band3 W=[4;0.29;0.78] ||W||^2=16.7.
+  PIL: parens span y135..214 / 272..352 / 410..488 vs digits 142..206 / 279..344 /
+  417..482 (contained, 2.6-3.6px clearance, no stroke-on-glyph); ellipse bbox 512..617 /
+  515..619 / 518..621 by 213..249 / 351..387 / 489..525 (== original within 1px).
+- Values, order, limits (none), sub/superscripts, delimiter geometry: match.
+- The original's cursor artifact over the band-1 ellipse is correctly absent (rule c).
+
+### Arrows
+- Original: 6 hollow blue arrows (2 per band), shaft with a tail bar, solid-looking outline
+  head facing RIGHT; left pair x464..503, right pair x627..665, y bands 186..210 /
+  319..343 / 452..476.
+- Render: same six arrows at x463.4..502.7 and 626.2..665.6, y186.2..210.2 etc., hollow
+  head outline with white core (as the frame's head interior is white), tail bars present.
+- Match.
+
+### Colours
+- Title/red ink/W glyph/W-box border: C00000 family (measured frame core 149,14,28..192,0,0
+  JPEG-darkened); blue ink/labels/arrows: 0000A7 (measured frame fill 2,0,167); table
+  highlight FFFF00; test y-row CCFFE1 (measured 203,255,224); ellipse FBFF85 (measured
+  251,255,133); olive ellipse text 808000. All within the frame's measured families.
+
+### Frame containment / overflow / collisions
+- PIL containment: title, all 6 tables, 3 W boxes and 2 label boxes each sit fully inside
+  their band; no ink crosses the panel (x54..903) or the house strokes; no ink in the outer
+  margins; no text overflow or wrap (title single line, all headers single line).
+
+## Discrepancies
+1. [MINOR] Table glyph advance width — Liberation Serif Bold (the installed metric-compatible
+   substitute for Times New Roman Bold, which is not installed) renders '30' 18.8x13.5 vs
+   the frame's 18.0x13.0 and '100' 28.8x14.4 vs 26.0x14.0 at a COMMON threshold (<205) —
+   confidence high that this is font rasterization, not a transcription error.
+   PIL adjudication: banked in qa/slide013/adjudicate_minors_attempt_6.py/.txt — digit
+   HEIGHT matches within 0.5px, the width delta is <=2.8 frame px, and the '100' ink stays
+   inside its cell (833.0..860.9 inside 822..872); no cell overflow, no alignment shift.
+   Disposition: accepted as a font-substitution artifact (no installed TNR build); not a
+   fix trigger.
+2. [MINOR] Arrow outline weight — the frame's blue stroke measures 3.0px across the top
+   shaft at x475 (JPEG halo included), the render 1.9px; confidence medium that ~1px of the
+   difference is JPEG blur. PIL adjudication: same record above; the shaft top/bottom,
+   tail bar and head outline are present in both, geometry matches within 1px.
+   Disposition: within capture-blur tolerance; not a fix trigger.
+3. [MINOR] W-box border stroke reads slightly brighter (C00000 nominal) than the JPEG-
+   darkened frame edge; PIL: 2px stroke in both. Disposition: JPEG chroma artifact, match
+   within the colour family; not a fix trigger.
+
+## Visual-quality defects
+- None that affect usability: no clipping, no wrong wrapping, no collisions, no illegible
+  text, no empty equation region, no missing row/cell or wrong value.
+
+FINAL VERDICT: PASS

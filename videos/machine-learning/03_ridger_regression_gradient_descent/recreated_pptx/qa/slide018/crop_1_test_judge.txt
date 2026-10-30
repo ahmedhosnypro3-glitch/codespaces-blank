@@ -1,0 +1,40 @@
+## Region inventory check (what must match)
+
+Compared the IMG1 (render crop) and IMG2 (matched-scale original crop) cell by cell.
+
+**Test label box** (IMG1 xâ272â397, yâ20â77; IMG2 xâ272â397, yâ22â78): present in both, dark-blue filled rectangle, white italic "Test", same size, same horizontal placement over the Test1âTest3 columns. â
+
+**Header row:** Test1 (red), Test2 (blue), Test3 (red), each with a proper subscript numeral, same column order and same ink colors. â
+
+**Label column (black ink):** Xâ, Xâ, y â all three present, correct characters, correct subscripts on 1 and 2. â
+
+**Data cells:**
+- Xâ row: 30 (red) | 40 (blue) | 50 (red) â
+- Xâ row: 15 (red) | 20 (blue) | 25 (red) â
+- y row: 57.4 (red) | 76.5 (blue) | 95.6 (red) â
+
+No wrong digit, no swapped value, no missing row/cell, no garbled or truncated glyph, no wrong subscript.
+
+**Mint-green y row:** green fill covers exactly the three value cells (Test1/Test2/Test3), label cell left white in both. â
+
+**Grid/geometry:** 4 columns, 4 horizontal bands (header, Xâ, Xâ, y); outer border, three internal verticals and three internal horizontals all continuous in both; same column widths (â97/100/99/100 px); same row bands; numerals centered in their cells and vertically centered within each row in both; label column left-aligned in both.
+
+## Discrepancies
+
+1. **MINOR â blue hue/saturation.** The Test box (IMG1 xâ272â397, yâ20â77) and the blue ink (Test2, 40, 20, 76.5) read as a brighter, more saturated royal blue in IMG1 versus a deeper navy/indigo in IMG2. **Confidence: MEDIUM** â video capture and JPEG chroma subsampling can pull blues toward indigo, so this may be partly an artifact; the fill is clearly the same intended dark blue.
+
+2. **MINOR â mint-green fill tone.** The y-row value cells (IMG1 xâ113â412, yâ284â352) are a slightly cleaner/lighter mint in IMG1 versus a marginally duller, faintly bluer green in IMG2. **Confidence: LOWâMEDIUM** (same value-cell extent, only a small hue/value shift; capture-softened fill).
+
+3. **MINOR â red ink appearance.** Red text (Test1, Test3, 30, 50, 15, 25, 57.4, 95.6) is crisper/more saturated in IMG1; IMG2's reds look slightly duller and more brick-toned. **Confidence: LOWâMEDIUM** â consistent with capture bleed; positions and characters are identical.
+
+4. **MINOR â glyph family / medium.** IMG1 sets Xâ, Xâ, y and all numerals in a bold Times-style serif; IMG2 shows a mixed face (lighter sans-serif Xâ, Xâ, y; a chunkier serif for the Test headers). Per the founder rule on typed-vs-handwritten ink, this is an inherent medium difference, not a content error. **Confidence: HIGH** that the shapes differ, but explicitly non-discrepancy by rule (c).
+
+5. **MINOR â type size/weight of the numerals.** The recreation's numerals (e.g. 30 at IMG1 xâ140â185, yâ168â205; 57.4 at xâ130â190, yâ300â335) look slightly larger and heavier than the original's at the same effective scale. **Confidence: MEDIUM** â a modest difference, still comfortably inside each cell with correct centering.
+
+**Not counted (artifact / out-of-region):** the slightly heavier, softer pink gridlines in IMG2 are capture blur; the cut-off red/blue letter fragments along the top edge and the partial purple-ringed badge at top-right are outside the specified region (and the badge/ring is mandated house chrome); the blue chevron intruding at the left edge (IMG1/IMG2 xâ0â15, yâ215â260) appears at the same position in both.
+
+## Summary
+
+No BLOCKER, no MAJOR. Every table value, subscript, header label, cell fill, column boundary, and row alignment matches exactly. Only small color-tone and typeface/weight differences remain, all of which are cosmetic or attributable to the video-capture medium.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation of this region".

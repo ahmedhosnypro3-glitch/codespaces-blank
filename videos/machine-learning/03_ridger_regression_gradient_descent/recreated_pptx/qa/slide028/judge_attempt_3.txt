@@ -1,0 +1,31 @@
+# Slide 028 â Fidelity Check: Recreation vs. Original
+
+## Confirmed matches (not defects)
+- Title text verbatim in both: "Effect of small and large Learning Rate" (red, bold, centered-top). â
+- Slide badge numeral "28" present, top-right. â
+- Both charts present with correct headers ("Small Learning Rate" / "Large Learning Rate"), red axis arrows, "Loss" (vertical) and "Value of weight" (horizontal) labels, convex loss curves, inner blue-framed plot region, side-by-side layout. â
+- House chrome (gray panel E9E9E7, red C00000 strokes on L/R/B with **no top stroke**, yellow/purple badge) â intentional per ground rules; not counted. â
+- Mouse cursor visible in the original near the left chart's trough â correctly omitted (video artifact, rule c). â
+- No frame-containment violations in the recreation: the blue inner box and all curve/dot/axis ink sit fully inside the gray panel; the right chart's x-axis arrowhead stops just short of the box's right edge; troughs sit well above the box bottom.
+
+## Discrepancies
+
+1. **MAJOR â "Large Learning Rate" chart: number of bounce points / step pattern differs. Confidence: ~0.6.**
+ - Original (IMG2): **3 data points** â one on the left descending branch, one low near the trough, one on the right ascending branch â connected by **2 segments** (a single down-then-up "V" bounce).
+ - Recreation (IMG1): **4 data points** â an extra intermediate marker sits between the upper-left point and the trough point, producing a **3-segment path** (down â further down past the intermediate kink â up-right to the rising branch). The interpolation of the bounce sequence is a data/series content change, not just a style change.
+
+2. **MINOR â Curve and marker color. Confidence: ~0.85.**
+ - Original renders the curves/dots in a soft cyan/teal (~#7CC7D5); the recreation uses a noticeably darker medium blue (~#4472C4 family) with a slightly heavier stroke weight. Same geometry intent, but hue/intensity deviation is visible.
+
+3. **MINOR â Left-chart marker placement precision. Confidence: ~0.5.**
+ - Dot count (~7) and descending staircase behavior match, but the recreation's descent is more evenly spaced/elongated than the original's tighter cluster near the trough; small positional drift typical of a redraw, noted for completeness.
+
+## Visual-quality defects in the recreation
+- No text clipping, overflow, or wrapping errors; all labels legible and uncollided.
+- The right-hand chart reads slightly busier than the original because of the extra intermediate point/segment (see Discrepancy 1) â the polyline kink is conspicuous against the smooth curve.
+- Line weight of the curves is slightly heavy relative to the original's lighter stroke, but not illegible.
+
+## Summary
+One element-level content deviation in the "Large Learning Rate" diagram (point count / bounce sequence) that I can see but with moderate confidence, plus a minor color shift. Under the founder directives (visible deviation in diagram content = MAJOR), the chart-series difference prevents a clean pass.
+
+**FINAL VERDICT: FAIL**

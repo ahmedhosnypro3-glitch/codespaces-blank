@@ -1,0 +1,48 @@
+# Element-by-Element Comparison
+
+## House chrome (not flagged, per ground rules)
+Gray panel, red left/right/bottom strokes with no top stroke, yellow "31" badge â all present and correct in IMG1. Not discrepancies.
+
+---
+
+## Discrepancies
+
+**1. Green annotation box text is NOT verbatim â MAJOR (high confidence)**
+- Original line 1: "X is in between **4.8** and color red bold **5.1**" â the literal words "color red bold" appear in the original (a leftover editing note).
+- Recreation line 1: "X is in between 4.8 and (5,1) **5.1**" â the words "color red bold" are deleted and a "(5,1)" token has been inserted. This is a verbatim text alteration, not a styling difference. Also, in the original "5.1" is blue; in the recreation it is red bold (the recreation followed the instruction rather than reproducing the original ink).
+
+**2. Chart point annotations missing â MAJOR-to-BLOCKER (high confidence)**
+The original chart contains several labeled elements the recreation omits entirely:
+- The "(7,7)" text label at the right end of the black horizontal segment.
+- The "3" labels above both endpoints of the black horizontal segment.
+- The partial "2,10â¦" text at the left edge of the plot.
+- The "(5,1)" label next to the green minimum point(s) (in the recreation this string was relocated into the text box instead of sitting on the chart).
+
+**3. Green minimum dot count â MAJOR (medium-high confidence)**
+The original shows TWO green dots at the parabola minimum (representing the 4.8/5.1 bounce pair); the recreation renders only ONE green dot.
+
+**4. Missing red hollow arrow at table's top-left â MAJOR (high confidence)**
+The original has a red outlined block arrow just left of the table's first row (in addition to the black diagonal leader line). The recreation has only the black diagonal line; the red arrow is absent.
+
+**5. Parameter table row colors â MINOR (high confidence)**
+Original: step = light green, initial X = pink/salmon, delta = yellow. Recreation: step = green, initial X = pale green, delta = pink. The delta row color (yellow â pink) and initial-X row color are swapped/wrong. Values themselves (0.3 / 3 / 0.1) match.
+
+**6. Title spacing â MINOR (high confidence)**
+Original: "Learning Rate =0.3, Start at X=3" (space after comma). Recreation: "=0.3,Start at X=3" â missing space after the comma.
+
+**7. f(x+delta) row fill â MINOR (medium confidence)**
+Original: near-white/gray fill. Recreation: light lavender tint. Same data, slightly different fill hue.
+
+---
+
+## Verified matches (no defect)
+- All 8 table rows present with correct order (x, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x); all ~18 column values check out digit-for-digit, including the oscillating 4.8/5.1 â 1.04/1.01 â -0.8/0.4 pattern and terminal "4.8" in next x.
+- Row color families (green header pair, purple delta pair, peach x+delta, green slope, red next x) match.
+- Equation f(x)=(xâ5)Â²+1 in red-bordered box â present, professionally rendered (matches original's 2D form).
+- Title tricolor scheme (red/green/blue), "Bouncing" lavender box with purple text/border, four blue hollow down-arrows, black diagonal leader line, blue bounding rectangle around the table â all present.
+- Chart: blue parabola, red dashed vertical line at x=5, red dot on left branch, black horizontal segment with end ticks, axes â5â¦15 â all present and correctly placed.
+- Text sits vertically centered in table cells; no text clipping or overflow detected; table fully contained within its blue frame; chart labels legible.
+
+---
+
+##

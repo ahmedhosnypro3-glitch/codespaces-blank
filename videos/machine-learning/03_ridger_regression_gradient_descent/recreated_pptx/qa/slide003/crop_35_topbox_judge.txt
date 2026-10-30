@@ -1,0 +1,32 @@
+# Zoomed Crop-Pair Review â Slide 003, Top Matrix-Notation Box (attempt 35)
+
+## Structural / content checks (all verified cell-by-cell)
+
+- **Column headers:** Xâ (bold italic, subscript 1), Xâ, bold "â¦", Xâ â all present, correctly ordered, subscripts correct in both. â
+- **Column 1 (yellow):** xââ, xââ, ellipsis, xâd â all glyphs and subscripts correct, correct vertical order. â
+- **Column 2 (cyan):** xââ, xââ, ellipsis, xâd â correct. â
+- **Column 4 (magenta):** xâ1, xâ2, ellipsis, xâd â correct. â
+- **Red y-labels:** yâ, yâ, red "â¦", yâ â present, correct order, correct red color, correctly positioned under their respective columns (dots column gets the red "â¦"). â
+- **Delimiter geometry:** In all three entry columns the tall parentheses span from the first entry (xââ / xââ / xâ1) down to the last (xâd / xâd / xâd) without touching any glyph. Middle standalone paren pair correctly encloses only the dots stack. â
+- **No wrong, missing, or garbled characters anywhere in the crop.** â
+
+## Discrepancies found
+
+1. **MINOR â Ellipsis dot count in entry columns.** Between xââ/xâd (and the cyan/magenta equivalents), IMG1 renders a three-dot "â¦" (crop-relative ~left-center of each column, e.g. ~(100, 265) in the yellow band), while IMG2 shows a shorter two-dot "Â·Â·" (~same position). Same glyph-family, slightly different length. Confidence: medium (IMG2 is soft; could be a faded third dot).
+
+2. **MINOR â Middle dots-column middle row.** IMG1 shows three identical three-dot ellipses stacked in the standalone paren pair (~(405, 140/200/250)); IMG2's middle row reads as a shorter two-dot "Â·Â·". Cosmetic only. Confidence: medium.
+
+3. **MINOR â Column band end shape.** IMG2's colored bands are pill/rounded-cap shapes (rounded top and bottom edges); IMG1's bands are straight-edged rectangles. Content and footprint are the same; purely a corner-geometry styling difference. Confidence: high.
+
+4. **MINOR â y-label vertical placement.** In IMG2 the red yâ/yâ/yâ sit at the very bottom edge of the pills (partially riding the rounded cap, ~yâ365â380); in IMG1 they sit fully inside the band with a little padding above the bottom edge. No overlap or clipping in either. Confidence: high.
+
+5. **MINOR â Separator line visibility.** IMG1 shows a crisp black horizontal separator spanning the full crop width near the bottom (~yâ395). In IMG2 the corresponding line is not clearly visible at this crop/scale (likely just below the visible crop or washed out by video compression). Per rule (e) I do not treat the softness as content; flagged only for completeness. Confidence: low.
+
+No BLOCKER or MAJOR defects: every value, subscript, delimiter span, ordering, and color assignment matches.
+
+## Non-issues per ground rules
+- Typed/serif math italic vs. the original's slightly softer handwritten-style italic: medium difference, â¤ MINOR (rule c).
+- JPEG halos around glyphs in IMG2: capture artifact, ignored (rule e).
+- Blue crop frame: crop chrome, ignored.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

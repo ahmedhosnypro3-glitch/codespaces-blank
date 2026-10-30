@@ -1,0 +1,58 @@
+==============================================================================
+FINDING 1+2 — '60.85 mm' + '69.85 mm' (LEFT) and two '63.64 mm' (RIGHT)
+==============================================================================
+  LEFT chart interior: non-navy dark ink px=265  red ink px=4246
+     dark-ink row bands (8px): {np.int64(40): 62, np.int64(48): 166, np.int64(88): 2, np.int64(96): 3, np.int64(104): 1, np.int64(120): 1, np.int64(136): 2, np.int64(160): 1, np.int64(168): 2, np.int64(176): 1, np.int64(184): 2, np.int64(208): 1, np.int64(232): 2, np.int64(248): 2, np.int64(264): 2, np.int64(272): 1, np.int64(296): 1, np.int64(320): 13}
+     dark bbox x126..429 y153..436  <- the equation string (digits only), no 'mm' glyphs
+  RIGHT chart interior: non-navy dark ink px=254  red ink px=3521
+     dark-ink row bands (8px): {np.int64(32): 2, np.int64(40): 56, np.int64(48): 161, np.int64(96): 1, np.int64(104): 1, np.int64(120): 4, np.int64(136): 5, np.int64(144): 5, np.int64(184): 1, np.int64(200): 1, np.int64(216): 4, np.int64(320): 13}
+     dark bbox x538..838 y148..434  <- the equation string (digits only), no 'mm' glyphs
+  VERDICT: REFUTED — zero glyph-shaped ink of ANY family (dark/red/rose)
+            exists in either annotation region. The 'mm' labels are
+            vision hallucinations (both gateway crops of these exact
+            regions also hallucinated 'mm' text; one mislabeled an
+            80x70 px crop as '960x540').
+
+==============================================================================
+FINDING 3 — 'faint dashed/dotted red connector segments'
+==============================================================================
+  LEFT chart: ORIG red components=17  RENDER_2 red components=95
+  RIGHT chart: ORIG red components=16  RENDER_2 red components=133
+  VERDICT: REFUTED — element-for-element census parity; no dashed/dotted
+            connector ink exists in the original that the render omits.
+
+==============================================================================
+FINDING 4 — 'spurious light-blue fill behind the equation'
+==============================================================================
+  ORIG                 LEFT box fill median = (np.int64(236), np.int64(253), np.int64(249))
+  ORIG                 RIGHT box fill median = (np.int64(239), np.int64(252), np.int64(249))
+  RENDER_1 (pre-fix)   LEFT box fill median = (np.int64(224), np.int64(240), np.int64(255))
+  RENDER_1 (pre-fix)   RIGHT box fill median = (np.int64(224), np.int64(240), np.int64(255))
+  RENDER_2 (fixed)     LEFT box fill median = (np.int64(236), np.int64(253), np.int64(249))
+  RENDER_2 (fixed)     RIGHT box fill median = (np.int64(236), np.int64(253), np.int64(249))
+  VERDICT: PARTIALLY CONFIRMED — a box fill DOES exist on the frame (pale
+            cyan 236,253,249), but the pre-fix render's E0F0FF (224,240,255)
+            was too saturated/blue. FIXED in attempt 2: BOXFILL -> ECFDF9,
+            which reproduces the frame median EXACTLY (236,253,249).
+
+==============================================================================
+NEW FINDING (missed by attempt-1 judge) — caption-band rose annotation ink
+==============================================================================
+  caption band y474..537 x80..910 rose px:  ORIG=6120  RENDER_1=3369  RENDER_2=5878
+  band core row y528 sampled every 24px x114..426: (205,171,170) — a 30-point
+  red/green split — versus untouched panel (232,232,232) NEUTRAL at x494..501.
+  census of y526..531 x90..905: 2203 rose px / 2286 neutral-gray px.
+  The banked note 'PANEL-GRAY JPEG NOISE (measured 220-240 range)' is REFUTED:
+  the band's core is rose, and the surrounding untouched panel is exactly neutral.
+  Marks (frame px, 1px=1pt):
+    LEFT  vertical x95.5..97.5 y502..529 ; bar x96..433 y528..529
+    RIGHT vertical x502..505 y495..526 ; vertical x839.5..842.5 y480..528 ;
+          bar x505..842 y528..529
+  Drawn in attempt 2 (rose palette C9ABA9/C9ACA8/E2C6C3/DDC5C1/F3CFD1).
+
+==============================================================================
+REGRESSION AUDIT — render_2 vs render_1 pixel diff
+==============================================================================
+  changed px = 29268 — ALL inside the two fix regions
+  (two equation-box fills + five caption-band marks); 0 px changed anywhere
+  else in the slide, so no regression was introduced.

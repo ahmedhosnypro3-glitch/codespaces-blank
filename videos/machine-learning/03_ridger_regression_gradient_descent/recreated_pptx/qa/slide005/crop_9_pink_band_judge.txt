@@ -1,0 +1,47 @@
+## Comparison â zoomed crop of pink band (slide 005)
+
+**Setup check:** Both images show the same pink band with the fraction at left and the callout sentence at right, at matched scale. Both retain the full rectangular red outline around the band (top edge included), so the band border geometry agrees; the slightly heavier/brighter red stroke in IMG2 is JPEG/capture softness plus house-template stroke styling, not a content discrepancy.
+
+---
+
+### Discrepancies found
+
+**1. Missing red emphasis on the âWâ in âGet Best Wâ â MINOR (high confidence)**
+- IMG2 (original): the âWâ in the right-hand sentence is rendered in **red, bold, italic serif** (âx 440â480, mid-height of the band), making it the visual emphasis point of the callout.
+- IMG1 (recreation): the same âWâ is plain **black, upright sans-serif**, blending with the surrounding words.
+- All glyphs, wording, and order are correct; only the color/weight emphasis is lost. This is a fidelity loss in an intentionally highlighted symbol, but it does not alter meaning or usability.
+
+**2. Typeface family of the right-hand sentence: serif vs sans-serif â MINOR (high confidence)**
+- IMG2: âGet Best W that minimizes the lossâ is set in a **Times-like serif** (visible serifs on G, B, t, l, s), with slight video softness.
+- IMG1: the same sentence is set in a **sans-serif** face (no serifs), with slightly heavier, cleaner stroke modulation.
+- Letterforms, spacing, case, and line content match exactly; this is a style/medium difference only.
+
+**3. Very slight pink-fill tone difference (IMG1 marginally lighter/greyer vs IMG2 marginally warmer) â MINOR (moderate confidence)**
+- Fills are otherwise equivalent (both light pink); the residual difference is consistent with JPEG capture in IMG2. No banding, no missing/extra fill region.
+
+**4. Left equation: handwritten vs typeset fraction â MINOR (high confidence), format upgrade**
+- IMG1 renders âLoss/âW as a clean professional stacked fraction with a straight horizontal bar, numerator above, denominator below, and â= 0â correctly to the right at the barâs level (âx 25â215).
+- IMG2 shows the same equation hand-drawn (slanted, slightly wavering bar, handwritten â glyphs).
+- Structure, numerator/denominator order, glyph identity (â, L, oss, W, =, 0), and the â= 0â placement are all correct in IMG1. Per the mandated rule, this is a format upgrade, not a discrepancy; the only residual note is the inherent ink/glyph-shape difference.
+
+### Verified correct (no discrepancy)
+- Text string: âGet Best W that minimizes the lossâ â exact match, no typos, no truncation, no extra/missing words.
+- Equation content: âLoss over âW = 0 â correct, with no swapped numerator/denominator, no missing â=â, no wrong zero.
+- Fraction bar spans the full ââLossâ and ââWâ widths in both; no bar clipping or touching of adjacent text.
+- Delimiters: none required in this region (no brackets/parens to span lines).
+- Vertical centering: the fraction block and the right-hand sentence are both optically centered in the band in both images; baselines agree within a few pixels.
+- No missing rows, no garbled characters, no stray marks, no clipped edges in either image.
+
+---
+
+### Severity summary
+| # | Item | Severity | Confidence |
+|---|------|----------|------------|
+| 1 | Red/bold/italic emphasis on âWâ lost (rendered black) | MINOR | High |
+| 2 | Serif â sans-serif typeface change in right-hand sentence | MINOR | High |
+| 3 | Marginal pink-fill tone difference | MINOR | Moderate |
+| 4 | Handwritten vs typeset fraction ink | MINOR (format upgrade) | High |
+
+No BLOCKER or MAJOR defects: no wrong digits, no swapped values, no missing content, no broken fraction or delimiter geometry.
+
+**FINAL VERDICT: PASS** for âfaithful, usable recreation of this region.â The only actionable refinement is restoring the red (bold italic) styling on the âWâ in âGet Best W,â and optionally switching the callout text to a serif face to match the original.

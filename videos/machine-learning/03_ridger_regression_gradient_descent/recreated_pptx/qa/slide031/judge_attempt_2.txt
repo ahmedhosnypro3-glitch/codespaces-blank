@@ -1,0 +1,55 @@
+## Discrepancy List (IMG1 recreation vs IMG2 original)
+
+**1. Title line breaks / layout**
+- Original: title is ONE single line â "Convex Function,  Learning Rate =0.3, Start at X=3" (red / green / blue spans on one row).
+- Recreation: split into THREE stacked lines.
+- Severity: **MAJOR** â line-break/line-separation fidelity fails (Confidence: high).
+
+**2. Equation incomplete â "+1" term of f(x)=(xâ5)Â²+1 not visible**
+- Original: `f(x)=(x-5)^2+1`.
+- Recreation: box renders only `f(x) = (x â 5)Â² +`; the `+1` is cut off at the right edge of the equation box / occluded by the overlapping plot frame.
+- Severity: **BLOCKER** â the displayed equation is mathematically wrong/incomplete (Confidence: medium-high).
+
+**3. Equation box and annotation box collide with the plot frame**
+- The annotation box (red-bordered, "X is in betweenâ¦") extends to xâ665â670 and its right border crosses the plot's left border (plot frame starts xâ640). The equation box (right edge â650) also overlaps the plot's left frame stroke. Two distinct content boxes overlap the same region.
+- Severity: **MAJOR** â frame containment / collision (Confidence: high).
+
+**4. Omitted instructional words "colored red bold"**
+- Original line 1: "X is in between 4.8 and **colored red bold** 5.1" (i.e., 4.8 â¦ 5.1).
+- Recreation: "X is in between 4.8 and 5.1", conveying the coloring by formatting only.
+- Severity: **MINOR** (Confidence: high â words dropped, but formatting carries the meaning).
+
+**5. "Bouncing" annotation color**
+- Original: pinkish/magenta-red "Bouncing" + red arrow.
+- Recreation: purple "Bouncing" + purple arrow. Position of the arrow target is otherwise correct.
+- Severity: **MINOR** (Confidence: high).
+
+**6. "(5,1)" label placement**
+- Original: green "(5,1)" sits flush to the right side of the annotation box, roughly aligned with the second text line.
+- Recreation: "(5,1)" sits at the top-right corner of the box, above line 1.
+- Severity: **MINOR** (Confidence: medium).
+
+**7. Plot x-axis tick labels**
+- Original plot shows numeric labels along the bottom/right axis region (e.g., 5/10/15 style ticks).
+- Recreation shows only y-axis labels (15/10/5); bottom-axis numeric labels appear absent.
+- Severity: **MINOR** (Confidence: medium â partially obscured).
+
+**8. Main data table vs. panel left edge**
+- The large table's left border sits essentially on top of the house panel's left stroke (xâ54) rather than strictly inside it.
+- Severity: **MINOR** (Confidence: medium).
+
+## Data / Content Verification (passes)
+- Table cell values (rows x, f(x), xâdelta, f(xâdelta), x+delta, f(x+delta), slope, next x across all 14 columns, including the 4.8â5.1 bouncing tail) match the original exactly.
+- Step/initial X/delta mini-table matches (0.3 / 3 / 0.1).
+- Title colors (C00000 red, green, blue), annotation text verbatim otherwise correct.
+- Parabola shape, gridlines, red start-point dot, dashed vertical at x=5, black capped horizontal function-value line all present and correctly placed.
+- House chrome (gray panel, no top stroke, yellow "31" badge) correct â not counted.
+
+## Visual-Quality Defects in the Recreation
+- Equation "+1" clipped/unreadable (occlusion at box/plot boundary).
+- Text-box vs. plot-frame collision (items #3).
+- Title occupies 3 lines instead of 1, changes the vertical rhythm of the upper half of the slide.
+- No other overflow/clipping; typography is otherwise clean and legible.
+
+## FINAL VERDICT: **FAIL**
+(One BLOCKER â incomplete equation; plus a MAJOR title line-break deviation and a MAJOR box/plot collision. Content is not faithfully usable as-is.)

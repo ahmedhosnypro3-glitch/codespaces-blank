@@ -1,0 +1,33 @@
+# Zoomed Crop-Pair Review â Slide 003, matrix-columns region (attempt 24)
+
+## Setup check
+Same slide-space region in both crops: four column vectors Xâ, Xâ, â¦, Xâ with entries xâââ¦xâd / yâ etc., on the white canvas. Chrome (template) is not at issue here since this region is content-drawn. Scale match is adequate for glyph-level judgment.
+
+## Cell-by-cell content check
+- Headers: **Xâ, Xâ, Xâ** â all present, correct glyphs, correct subscripts. â
+- Column 1: xââ, xââ, â¦, xâd, yâ â all correct, subscripts correct, yâ red. â
+- Column 2: xââ, xââ, â¦, xâd, yâ â all correct, yâ red. â
+- Column 4: xâ1, xâ2, â¦, xâd, yâ â all correct, yâ red. â
+- Panel fills (yellow / cyan / white / magenta): correct hues, acceptable within tolerance. â
+- Typed-vs-handwritten ink: per rule (c), not a discrepancy. â
+
+## Discrepancies found
+
+1. **BLOCKER â Missing left delimiter on columns 1, 2, and 4.** In IMG2 every colored column is enclosed by a tall pair of thin parentheses (left *and* right) spanning the vector. In IMG1 each colored column shows only a **single vertical bar on the right side** (crop-relative: right of the entries, xâ130â145 in col 1, xâ300 in col 2, xâ600 in col 4); the left parenthesis is entirely absent. An enclosure with one side is not a faithful rendering of the delimiter structure.
+
+2. **BLOCKER â Delimiters do not span all enclosed lines.** In IMG2 the parentheses run from the top of xââ down past yâ, enclosing the full vector including the y label. In IMG1 the lone right-side bar stops at/below xâd (crop-relative: bar bottom â y 310â320) and **excludes the y row** (yâ sits at â y 365, outside the bar). Per the founder rules, a delimiter that does not span its lines is a blocker even at zoom-only visibility.
+
+3. **MAJOR â Missing red ellipsis between columns 3 and 4 (bottom).** IMG2 shows a red "â¦" at bottom-right (crop-relative â x 420, y 375), indicating the continuation of the y row. IMG1 has nothing there â the y row simply stops after yâ. A missing element in the sequence is a content omission, not chrome.
+
+4. **MINOR â Delimiter shape in column 3.** The middle column's parentheses in IMG1 (crop-relative â x 375â425, y 105â330) are present on both sides (correct) but are drawn as a narrow, nearly-closed lens shape with straighter curvature than IMG2's gently bowed parens. Same content ("â¦" Ã3 at matching vertical positions), so cosmetic at this zoom.
+
+5. **MINOR â Delimiter stroke weight.** The single right-side bars in IMG1 are heavier/more opaque than the hairline parens in IMG2 (video-capture softness in IMG2 accounts for part of this, per rule (e), but the recreation's bars are still visibly heavier than the source's hairline rule weight).
+
+No wrong digits, no garbled subscripts, no swapped values, no truncation of d/n subscripts â the *textual* content is a perfect match.
+
+## Severity summary
+- BLOCKER Ã2 (missing left parens on cols 1/2/4; delimiters excluding the y row)
+- MAJOR Ã1 (missing red bottom ellipsis)
+- MINOR Ã2 (col-3 paren curvature; delimiter stroke weight)
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â the enclosure structure (missing left parentheses, delimiters not spanning the y row) and the dropped red ellipsis are structural content defects at this zoom, not chrome or medium differences. Fix: add curved left+right parens spanning x-top through y in each colored column (hairline weight, gentle bow), and add the red "â¦" at the bottom between the 3rd and 4th columns.

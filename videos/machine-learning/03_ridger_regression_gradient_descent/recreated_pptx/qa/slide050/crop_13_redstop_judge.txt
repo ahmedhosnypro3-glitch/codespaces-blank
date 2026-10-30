@@ -1,0 +1,29 @@
+## Region Comparison â Slide 050 crop: "Iteration 2 / Stop Iterations" block
+
+### What matches (and is not raised per ground rules)
+- Content is verbatim identical: "Iteration 2", "No change in W" (W underlined), "Stop Iterations". No missing, garbled, or wrong characters, no wrong digits.
+- Red banner box with white bold "Iteration 2", position near top of region â matches.
+- "Stop" in red vs "Iterations" in black/red split â matches.
+- W carries an underline in both â matches.
+- House template chrome (light gray panel, no top stroke) â intentional, not raised.
+- JPEG softness/halos in IMG2 â capture artifact, not raised.
+
+### Discrepancies
+
+1. **Font family mismatch across the whole text block â MAJOR** (confidence: high). IMG2 (original) sets all text in a serif face (Times/Latin-Modern style: serifs visible on "N", "o", "h", "g", "I", "t"; the "W" has thin/thick stroke modulation). IMG1 (recreation) sets the same text in a sans-serif face (Arial/Calibri-like: "No change in W", "Iterations", and even the white "Iteration 2" in the banner). At this zoom every glyph shape differs. Crop-relative location: banner text (~x 120â250, y 30â60) and the two text lines (~x 35â310, y 170â250).
+
+2. **Italic styling missing â MAJOR** (confidence: high). In IMG2, "Stop" and "Iterations" are italic (slanted, cursive-leaning "S", "p", "I"), and the underlined "W" is italic as well. In IMG1, "Stop Iterations" is upright bold, and "W" is upright. This changes the glyph silhouettes of roughly half the region's text. Location: lower two lines (~y 170â250).
+
+3. **Banner red shade â MINOR** (confidence: medium). IMG1's banner red is slightly darker/more crimson (âC00000); IMG2's reads a touch brighter/warmer (âCC0000âD40000 under video compression). Likely partly a JPEG artifact, hence MINOR only. Location: banner box, top of region.
+
+4. **"Stop" red tone â MINOR** (confidence: low). Same slight hue difference as #3 on the word "Stop" in IMG1 vs IMG2; possibly capture-related.
+
+### Not discrepancies
+- Underline on W present in both; underline length and placement under the W are comparable.
+- Line spacing and vertical centering of "Iteration 2" inside the banner are acceptable in both.
+- No delimiters, tables, or equations in this region, so rules (d)/(e) about equation format don't apply.
+
+### Assessment
+The content, layout, and color logic are correct, but the typography of the entire region deviates: wrong font family (sans vs serif) and missing italics on "Stop Iterations" and "W". At matched zoom these are the dominant visual features of the region, so they cannot be dismissed as invisible-at-scale.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

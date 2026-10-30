@@ -1,0 +1,64 @@
+# Crop judge transcript — slide 036, attempt 8, region "delta_lines"
+- date: 2026-10-24 06:52
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL_CROP: recreated_pptx/qa/slide036/crop_8_delta_lines_orig.png
+  md5=b28e95abe75c143ae0f0da519bdb27d5
+- IMG_RENDER_CROP:   recreated_pptx/qa/slide036/crop_8_delta_lines_render.png
+  md5=f0ad9b921531d83c6b647b8e6f702f51
+- SOURCE RENDER: recreated_pptx/qa/slide036/render_8.png md5=ad8676e60fbd305096dce60dc0b16c5a
+- REGION (slide space, frame px): x60..880, y433..539 = box 4 ("Define δ_i as :" + the two
+  delta conditional lines with two implication arrows each). Crop 1709x221 px each side.
+- SCALE AUDIT (cut_crops_8.txt): render 2.0841 x 2.0849 px per frame px; original upscaled
+  LANCZOS to the same 1709x221 -> identical effective scale on both sides.
+- read order: ORIGINAL crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair, same region and effective scale on both sides.
+(b) House chrome values are intentional and never a discrepancy.
+(c) Typed-vs-handwritten ink: n/a.
+(d) Professional 2D equations are the mandated format; here the line content is text + arrows,
+    compared 1:1.
+(e) JPEG halos/soft edges in the original are capture artifacts, not content.
+
+## Comparison (element by element)
+- Line 1 "Define δ_i as :" — verbatim; δ green italic with a true lowered subscript i in both;
+  render ink 80.6..191.5 vs original 79..184 (the terminal colon sits 7 px right because Arial's
+  advances are wider than the source serif face — MINOR, no collision, inside the box).
+- Line 2 — "If X ∈ class I and misclassified as Class II then d(X) will be <0 ⇒ δ_i = -1 ⇒
+  d(X) δ_i >0". VERBATIM: "class I" lowercase red, "Class II" capital blue, "<0" red, green
+  δ_i, "-1", black final "d(X) δ_i >0". The attempt-7 lowercase "class I" is fixed (capital
+  "Class II" was already correct on this line).
+- Line 3 — "If X ∈ class II and misclassified as Class I then d(X) will be >0 ⇒ δ_i = +1 ⇒
+  d(X) δ_i >0". VERBATIM, and the target token is now capital "Class I" red (attempt 7 printed
+  lowercase "class I" — the crop-leg finding that triggered this attempt). ">0" blue, "+1",
+  black final group — all correct; δ subscript is a true lowered glyph.
+- Symbols/values — every digit and sign checked cell-by-cell along the lines: <0 / >0 / -1 /
+  +1 all present and correctly coloured; no swapped or missing token; δ appears in all six
+  places the original shows it.
+- Line separation / baselines — render [461,488,515] vs original [461,487,514] (selfcheck
+  box4, deltas 0/1/1 px); line pitch 27 px in both.
+- Gaps around the arrows — original arrow ink is ~12 px wide with 22/9 px and 23/18 px clear
+  space around it (frame px, measured: audit_8.txt §2); the recreation's ⇒ is a wider DejaVu
+  glyph (~21 px) with ~8 px gaps, so the arrow sits ~11 px earlier and the following
+  "= -1" group ~7-11 px earlier. No collision anywhere (smallest inter-run gap 5 px in both).
+  This is substitution-bound spacing, MINOR (see Discrepancy 2).
+- Frame containment — last ink 822.7 (line 2) / 832.3 (line 3) vs the box's inner right edge
+  ~866 and the original's 846: fully inside, no overflow.
+- Colour cores — line's class tokens red/blue as in the original; green δ; black body.
+
+## Discrepancies
+1. [MINOR] Typeface/weight/italics — the source face is bold serif with italic word emphasis
+   and vector underlines; the recreation uses the deck's ratified upright sans (the same
+   substitution the certified siblings 012/035 use). No text, digit or colour changes.
+2. [MINOR] Implication-arrow glyph width and the whitespace around it — the recreation's ⇒
+   (U+21D2, ~21 px) is wider than the original's narrow serif arrow (~12 px), which tightens
+   the gaps from 22/9 px (and 23/18 px) to ~8/8 px. Same symbol, same order, no overlap; a
+   font-substitution consequence, recorded as deck-level typographic debt.
+3. [MINOR] Underlines under X, d(X) and δ_i and the italic class tokens are not drawn — same
+   deck-level styling convention as (1).
+
+## Visual-quality defects
+None. No clipping, no wrap, no overlap, no illegible glyph; the subscript i is legible and
+correctly placed on the baseline row below the δ body; the box borders are intact.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

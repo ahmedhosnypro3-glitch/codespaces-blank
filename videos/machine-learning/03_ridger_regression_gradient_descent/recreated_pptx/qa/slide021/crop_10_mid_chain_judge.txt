@@ -1,0 +1,40 @@
+## Comparison findings â slide 021, mid_chain determinant crop
+
+**Region content confirmed in both:** `|XáµX| = 5685` â implication arrow â `Non-Singular Matrix` â implication arrow â `Inverse Exists` (red italic).
+
+---
+
+### Discrepancies
+
+**1. WRONG ARROW GLYPH â both arrows are single-line `â` instead of double-line implication `â`**
+- **Severity: MAJOR** (mathematical symbol substitution, occurs twice)
+- **Confidence: High**
+- **Location:** IMG1 first arrow â x 300â360 (25â30% across), vertical midline (y â 45 of ~88); second arrow â x 800â850 (66â69% across), y â 45. In IMG2 the corresponding symbols at â x 325â360 and â x 815â850 are clearly double-shafted implication arrows `â` (two parallel horizontal bars with a solid triangular head).
+- The recreation renders an ordinary single-stroke right arrow in both slots. This changes the logical operator shown (a plain directional arrow vs. an implication/consequence arrow), which is a content/symbol error, not a stylistic choice. The two-arrow chain therefore does not read identically to the original.
+
+**2. First arrow collides with / overprints the "N" of "Non-Singular Matrix"**
+- **Severity: MINOR** (crowding; arrowhead and shaft intrude into the letter's ink area, making the N look struck through)
+- **Confidence: High**
+- **Location:** IMG1, arrowhead tip â x 335â355 abutting the N at x â 345â380. In IMG2 there is clear white space between the `â` and the "N" (gap â 20â25 px at matched scale). The second arrow in IMG1 is correctly spaced.
+- Glyphs remain legible, so this is a layout/spacing defect rather than a garbled character.
+
+**3. Typeface substitution in the black text (sans-serif vs. serif)**
+- **Severity: MINOR**
+- **Confidence: Medium-High**
+- **Location:** IMG1 `5685` (x â 175â280) and `Non-Singular Matrix` (x â 375â740) are set in a Helvetica/Arial-like sans face; IMG2 shows a Times/serif face with thin-thick stroke contrast. The determinant `XáµX` in IMG1 is sans-italic while IMG2 is serif-italic. The red italic "Inverse Exists" matches well in both.
+- This is a rendering-style difference only; no characters, digits, or spacing of words differ. Flagged as MINOR since the mandate caps medium/typed differences at MINOR.
+
+### Items checked and found correct (no discrepancy)
+- Value `5685` â identical, both digits correct, no transposition.
+- Determinant structure `|XáµX|` â both have enclosing vertical bars spanning the full glyph height, transpose `T` correctly placed as a superscript on the first X in both, second X not subscripted or malformed.
+- Text strings "Non-Singular Matrix" (hyphenated, capital N, S, M) and "Inverse Exists" (both words present, red, italic, no truncation) â exact.
+- Red color family of `Inverse Exists` and of the determinant `X` matches closely; blue of the arrows is comparable.
+- Second arrow's position/alignment and overall vertical centering of the chain are acceptable; the right-edge blue vertical rule appears in both crops.
+- No missing rows, dropped subscripts, garbled characters, or delimiter-height errors.
+
+---
+
+### Summary
+Two implication arrows have been replaced by plain right arrows (MAJOR), plus a minor arrow/text collision and a minor typeface substitution. The numbers, symbols, and words are otherwise faithful.
+
+**FINAL VERDICT: FAIL** â the arrow operator is wrong in both positions, so the region is not a faithful reproduction of the original's logical chain (the spacing collision also degrades usability of the first link).

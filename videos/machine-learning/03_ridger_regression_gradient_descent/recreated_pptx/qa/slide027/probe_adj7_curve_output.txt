@@ -1,0 +1,86 @@
+ATTEMPT-7 ADJUDICATION PART 2 — curvature + width with synthetic control
+worker w10-s027-a7-20261021T1945, 2026-10-21
+
+=== 1. luminance census, chain window x258..412 y250..455, neutral (spread<=14) only ===
+    original: neutral px 29588
+        lum 100.0-108.5:     93 ###########
+        lum 108.5-117.0:     87 ##########
+        lum 117.0-125.5:    177 ######################
+        lum 125.5-134.0:    108 #############
+        lum 134.0-142.5:     68 ########
+        lum 142.5-151.0:     85 ##########
+        lum 151.0-159.5:    129 ################
+        lum 159.5-168.0:    142 #################
+        lum 168.0-176.5:    168 #####################
+        lum 176.5-185.0:    163 ####################
+        lum 185.0-193.5:    160 ####################
+        lum 193.5-202.0:    158 ###################
+        lum 202.0-210.5:    238 #############################
+        lum 210.5-219.0:    205 #########################
+        lum 219.0-227.5:    276 ##################################
+        lum 227.5-236.0:    308 ######################################
+    render_7: neutral px 131793
+        lum 100.0-108.5:     91 ###########
+        lum 108.5-117.0:    104 #############
+        lum 117.0-125.5:     31 ###
+        lum 125.5-134.0:     86 ##########
+        lum 134.0-142.5:     42 #####
+        lum 142.5-151.0:     53 ######
+        lum 151.0-159.5:    119 ##############
+        lum 159.5-168.0:    149 ##################
+        lum 168.0-176.5:    830 ############################################################
+        lum 176.5-185.0:    183 ######################
+        lum 185.0-193.5:    106 #############
+        lum 193.5-202.0:    209 ##########################
+        lum 202.0-210.5:    119 ##############
+        lum 210.5-219.0:    157 ###################
+        lum 219.0-227.5:    305 ######################################
+        lum 227.5-236.0:    206 #########################
+
+=== 2. centre-line trajectory (band lum 150..200, |offset|<=6 fpx, 2-fpx buckets) ===
+    sagitta = largest centroid deviation from its own best-fit line, fpx
+    a straight stroke: sagitta ~ 0..1 (capture/AA noise); sagitta >=3 = visible bow
+
+    id    | ORIGINAL sag/rms/n             | RENDER_7 sag/rms/n             | verdict-ish
+    -------------------------------------------------------------------------------------
+    id14  | sag  2.69 rms  1.25 n 20        | sag  0.29 rms  0.13 n 20        | orig straight-ish
+    id17  | sag  1.19 rms  0.86 n  8        | sag  2.32 rms  1.14 n 10        | orig straight-ish
+    id18  | sag  0.13 rms  0.10 n  6        | sag  0.58 rms  0.42 n  6        | orig straight-ish
+    id19  | sag  2.35 rms  1.06 n 13        | sag  0.19 rms  0.09 n 13        | orig straight-ish
+    id20  | sag  1.91 rms  1.10 n  8        | sag  1.73 rms  0.76 n  8        | orig straight-ish
+    id21  | sag  1.99 rms  1.46 n  9        | sag  0.53 rms  0.33 n  9        | orig straight-ish
+    id22  | sag  3.71 rms  1.67 n 33        | sag  0.34 rms  0.16 n 33        | orig BOWS
+    id23  | sag  0.04 rms  0.02 n  6        | sag  0.37 rms  0.26 n  6        | orig straight-ish
+    id24  | sag  1.77 rms  1.04 n  6        | sag  0.45 rms  0.26 n  6        | orig straight-ish
+    id30  | sag  1.09 rms  0.72 n  7        | sag  0.16 rms  0.11 n  6        | orig straight-ish
+    id31  | sag  1.16 rms  0.79 n  6        | sag  0.10 rms  0.06 n  5        | orig straight-ish
+    id32  | too short / no ink in band
+    id33  | sag  0.30 rms  0.19 n  5        | sag  0.25 rms  0.14 n  5        | orig straight-ish
+
+    strokes with original sagitta >= 3 fpx (visible bow): 1 of 12
+    max original sagitta: 3.71 fpx (= 7.7 crop px at the 2.084 crop scale)
+
+=== 3. SYNTHETIC CONTROL — identical code path on known shapes ===
+    straight, width 3          -> trajectory sag  0.30 rms  0.22 n 20 ; measured width 3.0
+    sagitta 2 fpx, width 3     -> trajectory sag  1.16 rms  0.63 n 20 ; measured width 3.0
+    sagitta 4 fpx, width 3     -> trajectory sag  2.54 rms  1.22 n 20 ; measured width 3.0
+    straight, width 1          -> trajectory sag  0.42 rms  0.17 n 18 ; measured width 1.0
+    straight, width 5          -> trajectory sag  0.32 rms  0.23 n 20 ; measured width 5.0
+    (the metric must read ~0 for straight and ~2/~4 for the bowed ones; that
+     is the noise floor and the sensitivity this evidence is quoted against)
+
+=== 4. stroke width from the perpendicular half-max profile, band lum 150..200 ===
+    (original ink thickness vs the build's 1pt / 0.75pt shaft widths)
+    id14  | original   2.00 fpx   render_7 0.75 render-px = 0.36 fpx
+    id17  | original   3.50 fpx   render_7 1.75 render-px = 0.84 fpx
+    id18  | original        n/a   render_7 3.75 render-px = 1.80 fpx
+    id19  | original   1.00 fpx   render_7 0.50 render-px = 0.24 fpx
+    id20  | original   0.50 fpx   render_7 3.25 render-px = 1.56 fpx
+    id21  | original   0.00 fpx   render_7 3.50 render-px = 1.68 fpx
+    id22  | original   2.25 fpx   render_7 0.25 render-px = 0.12 fpx
+    id23  | original   0.00 fpx   render_7 3.00 render-px = 1.44 fpx
+    id24  | original   0.75 fpx   render_7 2.75 render-px = 1.32 fpx
+    id30  | original   2.00 fpx   render_7 1.00 render-px = 0.48 fpx
+    id31  | original   2.00 fpx   render_7 1.00 render-px = 0.48 fpx
+    id32  | original   2.00 fpx   render_7 1.25 render-px = 0.60 fpx
+    id33  | original   2.00 fpx   render_7 1.25 render-px = 0.60 fpx

@@ -1,0 +1,14 @@
+You are producing a GROUND-TRUTH DESCRIPTION of a ZOOMED CROP of a lecture-slide frame for a pixel-faithful PowerPoint recreation. Description task, NOT a judgment: describe only what is in the image, with measurements.
+
+This crop covers slide-space (599,50)-(853,321) of a 960x540 px lecture frame (1 image px = 1 pt), zoomed 2x. To convert: x_slide = 599 + x_crop/2, y_slide = 50 + y_crop/2. REPORT ALL GEOMETRY IN SLIDE PX.
+
+It shows the FUNCTION PLOT of the slide (a non-convex function). Report exhaustively:
+1. Plot frame: px box, border color + width per side.
+2. Axes: color hex, positions, arrowheads, ticks.
+3. Tick labels: verbatim + color + px per number on both axes (enables value<->px calibration).
+4. Curve: color hex, endpoints px, shape (number of valleys/humps; px of local min, local max, global min), stroke width.
+5. Point markers: every dot — color, px center, diameter; count them.
+6. Dashed/dotted guide lines: color, endpoints px, which values they mark.
+7. Arrows: color, px, direction, rotation, shape (block arrow? line arrow?).
+8. All text inside or adjacent to the plot: verbatim + color + px (e.g. 'global minima' labels, function name).
+9. Anything overlapping the plot frame edges with colors + px.

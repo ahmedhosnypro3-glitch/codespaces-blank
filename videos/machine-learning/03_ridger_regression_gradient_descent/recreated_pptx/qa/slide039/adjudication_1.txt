@@ -1,0 +1,46 @@
+ADJUDICATION RECORD — slide 039, attempt 2
+=========================================
+Source transcript: qa/slide039/judge_attempt_2.txt (Template A full-slide, attempt 2)
+Verdict in that transcript: FINAL VERDICT: PASS
+Raised finding adjudicated here: MINOR/borderline, low confidence — "the emphasis line
+'If n=N (it is GD), and if n=1 (it is SGD)' in IMG1 reads as a violet/indigo (≈ the house
+6A5ACD-family purple), whereas IMG2's same line is a slightly more saturated blue. This
+is within the 'approx hex' text-color tolerance, so I rate it MINOR/borderline."
+
+Method: blue-mask core sampling on BOTH images in the same slide-space region.
+  mask   = (b > r + 25) & (b > g + 15)
+  core   = median RGB of the top-10% most-blue-leading pixels (anti-alias-resistant core)
+  region = frame px x311..630, y459..478 (the blue caption line), scale 2.0833 on the render
+
+Measured blue cores (RGB / blue-lead):
+  RENDER caption "If n=N ..."   #584CA8  (88,76,168)  lead(b-r)=80  lead(b-g)=92
+  ORIG   caption "If n=N ..."   #6F67C5  (111,103,197) lead(b-r)=86  lead(b-g)=94
+  RENDER title  "Mini-Batch"    #584CA8  (88,76,168)  lead(b-r)=80  lead(b-g)=92
+  ORIG   title  "Mini-Batch"    #3D35A1  (61,53,161)  lead(b-r)=100 lead(b-g)=108
+
+Distances (RGB euclid, core-to-core):
+  dist(render caption, orig caption)          = 45.8
+  dist(render caption, orig TITLE blue)       = 36.2
+  dist(orig   caption, orig TITLE blue)       = 79.3   <-- decisive
+
+REFUTATION
+  1. The ORIGINAL frame contains no single blue. Its own two blue runs
+     (title "Mini-Batch" vs caption "If n=N ...") differ from each other by 79.3 RGB
+     units — a LARGER distance than the recreation's uniform #584CA8 differs from
+     either one (45.8 from the caption, 36.2 from the title). No single nominal hex
+     could satisfy both; #584CA8 is the measured median of the deck's blue text ink.
+  2. The residual delta is BRIGHTNESS, not hue. Blue-lead agrees within 6 units
+     (80 vs 86 on b-r, 92 vs 94 on b-g). The recreation is no more violet than the
+     original's caption ink is; the judge's "violet/indigo" reading is a brightness
+     impression ("more saturated blue" = brighter), not a hue rotation.
+  3. #584CA8 is the build's nominal blue, derived from the measured median of the
+     frame's blue ink and used consistently for every blue run on the slide
+     (title "Mini-Batch", caption line) — see build_attempt_2.js lines 66-68.
+  4. The judge itself rated the item MINOR/borderline and explicitly "within the
+     approx hex text-color tolerance"; the same transcript's verdict is PASS with
+     "MAJOR: none" and "BLOCKER: none".
+
+DECISION: NO FIX. PIL-refuted. Build unchanged (build_attempt_2.js, render_2.png bytes
+stand as delivered). Re-rolling the identical frozen template on unchanged bytes would
+only reproduce a PASS with the same borderline MINOR, so the refutation record above
+is banked in its place per the adjudication law.

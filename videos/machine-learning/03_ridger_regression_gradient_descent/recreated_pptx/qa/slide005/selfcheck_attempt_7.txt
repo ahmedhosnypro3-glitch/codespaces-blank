@@ -1,0 +1,62 @@
+# selfcheck slide 005 attempt 7 — render_7.png 2001x1125 (150dpi) vs slide_005.jpg 960x540
+# sx = 2.084375  sy = 2.083333 render px per frame px ; TOL 8.0 frame px
+
+== 3. EQUATIONS EXIST (ink present in every equation/text region on the RENDER) ==
+  eq1        orig[x98..544 y109..150]  rend[x98.4..543.6 y109.0..149.8]  OK
+  eq2        orig[x97..629 y173..214]  rend[x97.4..629.0 y172.8..213.6]  OK
+  eq3        orig[x98..522 y230..271]  rend[x98.4..522.0 y229.9..270.7]  OK
+  eq4        orig[x97..592 y375..417]  rend[x96.9..591.5 y374.9..416.6]  OK
+  eq5        orig[x96..637 y460..502]  rend[x96.0..636.6 y459.8..501.6]  OK
+  pinkfrac   orig[x79..164 y294..338]  rend[x78.7..163.6 y293.8..337.9]  OK
+  rem1       orig[x680..864 y213..235]  rend[x679.8..863.6 y212.6..234.7]  OK
+  rem2       orig[x660..867 y395..420]  rend[x660.1..866.9 y394.6..420.0]  OK
+  green      orig[x690..878 y465..497]  rend[x689.9..878.0 y464.6..496.8]  OK
+  title      orig[x162..808 y68..89]  rend[x163.1..807.4 y69.1..86.4]  OK
+  rememberU  orig[x681..754 y138..149]  rend[x681.7..753.2 y138.2..147.4]  OK
+  rememberL  orig[x659..727 y376..389]  rend[x661.6..726.8 y376.3..385.4]  OK
+  getbest    orig[x196..506 y296..334]  rend[x196.7..505.7 y303.4..317.3]  OK
+  => 0 empty regions: []
+
+== INK-BAND DELTAS vs the ORIGINAL (frame px) ==
+  eq1        dx0=+0.35 dy0=-0.04 dx1=-0.43 dy1=-0.24  worst=0.43 <=TOL
+  eq2        dx0=+0.39 dy0=-0.20 dx1=-0.03 dy1=-0.40  worst=0.40 <=TOL
+  eq3        dx0=+0.35 dy0=-0.08 dx1=-0.02 dy1=-0.28  worst=0.35 <=TOL
+  eq4        dx0=-0.09 dy0=-0.12 dx1=-0.46 dy1=-0.36  worst=0.46 <=TOL
+  eq5        dx0=-0.05 dy0=-0.16 dx1=-0.36 dy1=-0.40  worst=0.40 <=TOL
+  pinkfrac   dx0=-0.32 dy0=-0.24 dx1=-0.40 dy1=-0.08  worst=0.40 <=TOL
+  rem1       dx0=-0.18 dy0=-0.36 dx1=-0.43 dy1=-0.28  worst=0.43 <=TOL
+  rem2       dx0=+0.15 dy0=-0.44 dx1=-0.07 dy1=-0.00  worst=0.44 <=TOL
+  green      dx0=-0.10 dy0=-0.36 dx1=-0.04 dy1=-0.20  worst=0.36 <=TOL
+  title      dx0=+1.12 dy0=+1.12 dx1=-0.56 dy1=-2.60  worst=2.60 <=TOL
+  rememberU  dx0=+0.74 dy0=+0.24 dx1=-0.78 dy1=-1.64  worst=1.64 <=TOL
+  rememberL  dx0=+2.59 dy0=+0.32 dx1=-0.16 dy1=-3.56  worst=3.56 <=TOL
+  getbest    dx0=+0.70 dy0=+7.36 dx1=-0.33 dy1=-16.72  worst=16.72 >*TOL
+  WORST ink-band deviation = 16.72 frame px (TOL 8.0)
+
+== 1. FRAME CONTAINMENT (content ink must not cross the house strokes) ==
+  left of left stroke (x<58 frame px): 0 px OK
+  right of right stroke (x>902 frame px): 0 px OK
+  above panel top (y<44 frame px): 0 px OK
+  below bottom stroke (y>539.5 frame px): 0 px OK
+  => total house-frame overflow px: 0
+
+== per-box containment: ink must stay inside each measured box ==
+  cream_upper   outside-border ink px: 5864 CHECK
+  blue_upper    outside-border ink px: 2171 CHECK
+  pink          outside-border ink px: 3089 CHECK
+  cream_lower   outside-border ink px: 5819 CHECK
+  blue_lower    outside-border ink px: 1674 CHECK
+  green_outline outside-border ink px: 1024 CHECK
+  => boxes with ink outside their border: ['cream_upper', 'blue_upper', 'pink', 'cream_lower', 'blue_lower', 'green_outline']
+
+== 4. DELIMITER GEOMETRY (stacked-fraction horizontal bars) ==
+  pinkfrac  densest render row y+25.0 fp, 140 ink px of 178 cols (79%) -> horizontal bar PRESENT
+  eq1       densest render row y+22.1 fp, 294 ink px of 930 cols (32%) -> horizontal bar PRESENT
+  eq2       densest render row y+22.1 fp, 318 ink px of 1110 cols (29%) -> no clear bar
+  eq4       densest render row y+23.0 fp, 393 ink px of 1032 cols (38%) -> horizontal bar PRESENT
+  eq5       densest render row y+23.5 fp, 418 ink px of 1128 cols (37%) -> horizontal bar PRESENT
+
+== 8. LINE SPACING ==
+  every textbox in build/slide_005.js sets explicit lineSpacing (18/14/12 pt) -> OK by construction
+
+OVERALL SELFCHECK attempt 7: FAIL

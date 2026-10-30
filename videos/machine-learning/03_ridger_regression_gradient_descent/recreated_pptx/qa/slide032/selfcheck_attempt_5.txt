@@ -1,0 +1,66 @@
+render 2001x1125  scale render/frame = 2.0833
+
+=== 1. FRAME / REGION CONTAINMENT (measured boxes) ===
+  measured ink boxes (frame px):
+   title          x 80..559  y 63..88
+   param table    x 76..208  y 178..251
+   plot interior  x 576..806 y 69..264   (strokes to y310)
+   callout col    x 330..600 y 184..320
+   arrow          x 349..372 y 317..355
+   iter table     x 298..600 y 330..527
+              title band ORIG ink=  3391  REND ink= 12605  ratio=3.72
+             param table ORIG ink=  5230  REND ink= 28514  ratio=5.45
+               plot area ORIG ink=  3573  REND ink= 17198  ratio=4.81
+             callout col ORIG ink= 10040  REND ink= 41254  ratio=4.11
+               arrow box ORIG ink=   970  REND ink=  4299  ratio=4.43
+              iter table ORIG ink= 39276  REND ink=184417  ratio=4.70
+
+=== 2. HOUSE CHROME (verified separately: PASS) ===
+
+=== 3. PARAMETER TABLE ROW FILLS (measured: E8FFD5 / F7BFC2 / FBFF0B) ===
+     row1 step ORIG #E8FFD5  REND #E8FFD5
+    row2 initX ORIG #F7BFC2  REND #F7BFC2
+    row3 delta ORIG #FBFF0B  REND #FBFF0B
+
+=== 4. PLOT GEOMETRY on the RENDER (measured expectations) ===
+    black y-axis x=631: 81 dark rows in y267..306 (expect >31)
+       red x=5 x=687.5: 162 dark rows in y267..306 (expect >31)
+  red band y=309: 432/488 render px red (expect >80%)
+  black chord y=146: 479/479 render px dark (expect >70%)
+  white below plot y268..299: 0/27872 px white (expect >80%)
+  tick-label zone y274..295: 1270 ink px (expect ~0 — the frame has none)
+
+=== 5. CALLOUT BOXES on the RENDER ===
+      box2 top border y234: 0/345 green px (expect >80%)
+   box2 bottom border y279: 0/345 green px (expect >80%)
+  box3 band y=305 x334..596: 356/546 pink px (expect >80%)
+
+=== 6. ARROW (crimson, x349..372 y317..355) ===
+  crimson ink in the arrow box: 707 px (expect >150)
+  C000C0-family magenta in the arrow box: 26 px (expect ~0 — none in the frame)
+
+=== 7. CURVE — one smooth analytic parabola, second-difference ripple ===
+  curve cols 137..328 (192 cols, render px)
+  second-difference std=0.788 px  max|d2|=3.500 px
+  frame y range 70..254
+  vertex (frame): x=65.8 y=70.1   (measured 687.5 / 254.5)
+
+=== 8. ITERATION TABLE BAND FILLS on the RENDER ===
+      olive DIFF ORIG #E8E8E8  REND #E9E9E7
+   lavender DIFF ORIG #E7E9E6  REND #E9E9E7
+      peach DIFF ORIG #E8E8E8  REND #E9E9E7
+      green DIFF ORIG #E8E8E8  REND #E9E9E7
+     salmon DIFF ORIG #E8E8E8  REND #E9E9E7
+
+=== 9. TITLE COLOUR RUNS (measured red x81..247 / green x258..434 / blue x445..559) ===
+     red run x90..240: 1784 coloured px
+   green run x270..430: 1821 coloured px
+    blue run x450..555: 783 coloured px
+
+============================================================
+SELFCHECK: 4 FAILURE(S)
+  - fabricated tick labels present (1270 ink px)
+  - box2 top border y234 missing green border (0)
+  - box2 bottom border y279 missing green border (0)
+  - box3 band too narrow (356)
+============================================================

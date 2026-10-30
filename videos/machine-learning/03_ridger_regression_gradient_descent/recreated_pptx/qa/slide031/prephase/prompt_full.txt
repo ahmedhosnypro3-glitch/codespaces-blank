@@ -1,0 +1,22 @@
+You are producing a GROUND-TRUTH DESCRIPTION of a lecture-slide frame for a pixel-faithful PowerPoint recreation. This is a description task, NOT a quality judgment: describe ONLY what is actually in the image, with measurements; do not critique, score, or suggest fixes.
+
+The image is a 960x540 px lecture frame; 1 image px = 1 slide point (pt). Report every position/size in image px, origin TOP-LEFT, as (x_left, y_top, x_right, y_bottom) bounding boxes.
+
+For EVERY element report:
+1. Geometry: px bounding box; for lines/linesegments give endpoints; for arrows give shape + endpoints + apparent rotation.
+2. Verbatim text: transcribe ALL text EXACTLY as printed (capitalization, sub/superscripts, math symbols); unreadable -> [?]; empty cell -> <empty>.
+3. Colors: estimated hex #RRGGBB for every fill, border/stroke, and text run. Multi-color text runs: give each run's text + color + px extent.
+4. Line styles: solid/dashed/dotted; approximate stroke width in px.
+5. Structure: tables -> row/column boundaries (px), each cell's fill hex + verbatim content; plots -> every drawn element (axes, ticks, curve, markers, labels) with color + px endpoints.
+
+Be exhaustive; this transcription is the sole ground truth a builder will have. Order top-to-bottom, left-to-right. Do not omit small elements (badges, tick labels, tiny arrows).
+
+SLIDE-SPECIFIC QUESTIONS to answer explicitly:
+(a) Title near top: verbatim text, each color run with its text + hex + px x-span, approximate font size, and typeface (serif like Times vs sans-serif like Arial) — state which for title, table text, and labels separately.
+(b) Small parameter table upper-left: outer box px, border color/width, row y-boundaries, divider column x, label + value text verbatim, fill hex of each cell, text color.
+(c) The large table in the lower half: exact outer px box (left/right/top/bottom borders). Count the data columns and give each column's x-boundary. List every dark horizontal rule spanning (part of) the table width with its y. Are there dark VERTICAL lines between columns, or only whitespace/fill changes? The fill color (hex) of each row and whether any fill changes mid-row.
+(d) Function plot upper-right: plot box px + border color/width; axes color + px positions; tick marks; curve color + shape + endpoints; any dashed vertical/horizontal guide lines (values, color, endpoints); any straight/chord segments between points (color, endpoints); all point markers (color, px); all text inside/around the plot verbatim + color + px.
+(e) Any annotation/label box overlapping the plot area or below it: px box, fill hex, border color PER SIDE (top/bottom/left/right may differ), verbatim text + text colors.
+(f) Any arrows or decorative shapes anywhere: type, colors, px, rotation.
+(g) Corner badge: shape, center px, diameter, fill, outline, numeral text, numeral color, font size.
+(h) Any other text or elements not covered above, including footers.

@@ -1,0 +1,27 @@
+You are performing a GROUND-TRUTH EXTRACTION read of an ORIGINAL lecture-video frame slide (an ML course deck on ridge regression and gradient descent). There is NO render and NO comparison: describe ONLY what is visibly present in the image you were given, exhaustively and precisely. Your transcript is the sole record a later worker will use to understand this region — they will never see this image. Assume nothing that is not visible.
+
+Write ONE structured markdown report with EXACTLY these sections, in this order:
+
+## 1. REGION MAP
+Every visible region with a short name and its bounding box. For a full frame: positions in the frame's own 960x540 pixel space (top-left origin, x right, y down). For a crop: give positions in the CROP's pixels AND map back to slide space using the stated slide-space box. State each region's fill color and border (hex estimate + stroke width in px).
+
+## 2. VERBATIM TEXT INVENTORY
+Transcribe EVERY piece of text glyph-for-glyph: preserve spelling exactly (including apparent typos or truncations — transcribe, never correct), word order, punctuation, and line breaks. Group by region. For each item give: exact text | approx bbox (px) | text color hex | measured glyph height in px | weight (regular/bold) | style (italic/underline) | alignment.
+
+## 3. EQUATIONS & MATH STRUCTURES
+For every mathematical construct (column vectors, matrices, tall brackets/parentheses, subscripts, arrows, fractions): describe its 2-D structure exactly as DRAWN — what is stacked where, every bracket (shape: square/curly/paren; color hex; stroke width; exact px span; which rows it encloses), every entry value with its own position, and the alignment of entries. NEVER linearize a stacked construct into one line.
+
+## 4. TABLES & GRIDS
+For every table/grid: enumerate rows and columns with cell values, per-cell text colors, presence/absence of borders and gridlines, column centres and row bands measured in px.
+
+## 5. GRAPHICS, ICONS & ANNOTATIONS
+Arrows, markers, cursors, badges, circles, stray marks: type | color hex | size in px | position | direction/orientation.
+
+## 6. COLOR CENSUS
+Every distinct color visible: hex estimate + the element(s) carrying it.
+
+RULES:
+- Measure everything in pixels. The source frame is a 960x540 pixel slide where 1 image px = 1 slide pt.
+- Verbatim text wins over any guess about intent; never paraphrase, never autocorrect.
+- Mark anything ambiguous or illegible with [?] and give your best reading.
+- Be exhaustive and quantitative: a later worker rebuilds this region from your transcript alone.

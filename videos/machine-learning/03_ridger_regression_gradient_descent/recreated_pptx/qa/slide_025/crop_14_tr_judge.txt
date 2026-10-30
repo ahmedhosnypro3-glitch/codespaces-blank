@@ -1,0 +1,25 @@
+# Discrepancy Report â Slide 025, top-right region (convex bowl surface, contour rings, Ã10â´ header, red slice lines)
+
+Scope check: both images show the same crop-space region â 3D jet-colormap bowl with central spike, z-axis 0â¦2 with Ã10â´ header, two long red slice lines, contour ellipses below the surface. Chrome (red frame, panel) matches house template and is not flagged.
+
+## Discrepancies
+
+1. **MAJOR â Front-left horizontal axis tick order is reversed.** In IMG2 (original), the left-front axis reads top-to-bottom: **100, 50, 0, â50, â100** (labels at upper-left ~15% down the axis, descending to the bottom-center). In IMG1 (recreation), the same axis reads top-to-bottom: **â100, â50, 0, 50, 100** â the axis direction is inverted. All five tick values exist and are legible in both, but the orientation of the data along that axis is mirrored. This is an axis-direction error, not a styling difference. Confidence: high (the sign on the topmost label is clearly visible in both crops).
+
+2. **MINOR â Dotted back-pane grid lines missing.** IMG2 shows MATLAB-style dotted grid lines on the two back panes (visible as rows of dark dots across the upper portion, e.g. around the "Ã10â´" header and behind the surface). IMG1's back panes are plain white with no grid dots. Not purely a compression artifact â the dot pattern is structured in IMG2 and absent in IMG1. Confidence: medium-high.
+
+3. **MINOR â Extra short red slice segment at surface center.** IMG1 shows a third, short red line segment descending the central spike (~center of crop, just below the tilted red line). In IMG2 this segment is not discernible (possibly occluded by the spike or lost to compression). Recreation may be adding a slice line not visible in the source. Confidence: low-medium.
+
+4. **MINOR â Contour rings much heavier in recreation.** The concentric gray contour ellipses below the bowl are crisp and dark in IMG1; in IMG2 they are barely visible (faint ghost rings only). Part of this is video-capture washout, but the recreation renders them noticeably more prominent than the source region. Confidence: medium.
+
+## Verified as matching (not flagged)
+- "Ã10â´" header present with proper superscript 4 in both.
+- Z-axis ticks 2, 1.5, 1, 0.5, 0 â all present, correct values, correct order.
+- Right-front axis (100 â â100 top-to-bottom) matches in both, including the paired "â100 â100" (IMG1: "100 â100" bottom pair) near bottom-center.
+- Two long red slice lines: one tilted (low-left â high-right), one near-horizontal â geometry and placement match well.
+- Surface colormap (jet), central spike with red tip, bowl shape, and tick/axis line weight are consistent.
+
+## Summary
+1 MAJOR (reversed axis direction), 3 MINOR. Per the ground rules, a wrong axis-value ordering at zoom is treated at MAJOR-to-BLOCKER weight even though it is subtle at full-slide scale; the inverted front-left axis changes the meaning of the plotted data orientation.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

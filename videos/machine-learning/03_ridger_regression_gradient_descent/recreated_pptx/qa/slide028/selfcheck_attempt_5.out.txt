@@ -1,0 +1,28 @@
+render 2001x1125 scale=2.0833  original 960x540
+chart interior white fraction: 0.979
+chart-content ink bbox: frame x119-780 y184-463
+  strictly inside 1F4E79 box: OK
+  ink outside the chart box (excl. badge/title): 0
+  inside house panel x64..895 y45..532: OK
+
+blue curve px=6186  red-in-chart px=6015
+  left y-axis: red px at x158±2 = 1062
+  right y-axis: red px at x510±2 = 1580
+  left x-axis: red px at y442±2 = 1755
+  right x-axis: red px at y438±2 = 1198
+
+=== RIPPLE CHECK (rendered curve vs analytic quartic) ===
+  LEFT : cols traced=222 missing-cols=[161]  worst ink-gap from quartic=1px (150dpi)
+        monotone-wobble=2.3%  max adjacent step=8px (steep ends legitimately reach ~13px)
+  RIGHT: cols traced=222 missing-cols=[514, 737]  worst ink-gap from quartic=1px (150dpi)
+        monotone-wobble=3.6%  max adjacent step=158px (steep ends legitimately reach ~13px)
+  title     ink=18451
+  heading L ink=2093
+  heading R ink=2040
+  Loss L    ink=208
+  Loss R    ink=200
+  xlabel L  ink=813
+  xlabel R  ink=827
+
+=== RESULT ===
+SELF-CHECK PASS — containment, white interior, red axes, smooth analytic curves

@@ -1,0 +1,46 @@
+# Slide 051 â Zoomed Crop Comparison (top band: sample matrix / W + Î· / Z test matrix)
+
+## Cell-by-cell / token-by-token comparison
+
+### Left sample matrix (left ~0â30% of region)
+- Column headers xââ¦xâ: present, correct order, both images. â
+- Vector values, column by column:
+  - xâ = (1 | 1), label **Câ** red â
+  - xâ = (2 | 1), label **Câ** red â
+  - xâ = (1 | 2), label **Câ** red â
+  - xâ = (5 | 4), label **Câ** blue â
+  - (6 | 5), label **Câ** blue â
+  - xâ = (6 | 6), label **Câ** blue â
+- Parenthesis delimiters span both rows without touching glyphs in both images. â
+- No wrong digits, no missing/garbled characters. â
+
+### Centre: Initial W and Step (centre ~30â62%)
+- "Initial W =" â present in both. In IMG2 the **W** appears bold (and possibly underlined); in IMG1 it is plain italic. **MINOR** (confidence: medium â underline is hard to confirm through JPEG blur).
+- W vector = (4 | â2 | â2): both images match value-for-value; delimiters span all three lines cleanly. â
+- "Step Î· = 1" â dark red italic, matches. â
+
+### Legend row (bottom strip of region)
+- "Câ positive" â red Câ, black "positive". â both.
+- "Câ negative" â blue Câ, black "negative". â both.
+- **"Zero" â DISCREPANCY:** in IMG2 (original) "Zero" is rendered in **green italic**; in IMG1 (recreation) it is **dark gray/black italic**. A whole word's fill color is wrong at this zoom. **MAJOR** (confidence: high â green is clearly visible in IMG2 even through compression).
+- "is unaccepted" â present, black, both. â
+
+### Right: Z test matrix (right ~75â100%)
+- "Check classes of" â text and position match, but IMG1 renders it **bold** while IMG2 (original) is **regular weight**. **MINOR** (confidence: high).
+- Headers Zâ, Zâ, Zâ: correct in both. â
+- Vectors: Zâ = (0 | 0), Zâ = (7 | 6), Zâ = (3 | 2) â value-for-value identical, delimiters span both rows. â
+
+### Chrome / template
+- Cream background, bottom blue rule present in both â intentional per ground rules, not counted.
+
+## Discrepancy list
+| # | Item | Severity | Confidence |
+|---|------|----------|------------|
+| 1 | "Zero" in legend is green in original but gray/black in recreation (~bottom-centre of region) | **MAJOR** | High |
+| 2 | "Initial W" â W weight/possible underline differs (original bolder) | MINOR | Medium |
+| 3 | "Check classes of" is bold in recreation, regular in original (right side) | MINOR | High |
+
+## Assessment
+All numeric content â every matrix entry, every label, every subscript, delimiter geometry, and equation structure â is faithful. The single substantive defect is the recolored "Zero" legend word, which at this mandated zoom is a clear text-color error.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'

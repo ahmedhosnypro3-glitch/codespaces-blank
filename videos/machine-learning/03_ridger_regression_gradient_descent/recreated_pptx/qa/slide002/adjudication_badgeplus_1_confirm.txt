@@ -1,0 +1,32 @@
+ADJUDICATION RECORD — slide 002, S19 payload-exact CONFIRMATION leg, Template B crop-pair "badgeplus"
+Date: 2026-10-25 | Worker: S19-payload-confirm (pool run 299640)
+
+Judge transcript: qa/slide002/crop_1_badgeplus_judge_confirm.txt (FINAL VERDICT: PASS).
+This leg re-judged the SAME banked pair (crop_1_badgeplus_render.png / crop_1_badgeplus_orig.png,
+bytes unchanged since certification) with the correctly substituted frozen Template B payload
+(payload_B_N002_confirm.txt, md5 f15b43ed3def9b45640fc74c9baca2b3; tplB md5 d137335f924c3d7e8ff77bdcc68e8c6e
+with the single contracted substitution "of slide NNN" -> "of slide 002") — closing S16 HIGH #2's
+payload-integrity concern for this lane.
+
+Two MINOR findings raised. PIL-first adjudication per judging.md; the identical pair bytes were
+already measured frame-space in the certified adjudication record adjudication_badgeplus_1.txt
+(2026-10-20) — those measurements transfer 1:1 to this leg.
+
+(1) "Plus-sign glyph weight/style: IMG1 bold uniform cross, IMG2 lighter/thinner, different
+    terminal style" (MINOR, high) — REFUTED AS A FIX BASIS, per the banked measurements on these
+    bytes: plus bbox render 10.6x11.0 vs original 10.0x11.0 frame px (max delta 0.8px, inside the
+    slide's <=1.4px calibration); the render draws the spec-verbatim #808080 while the original's
+    (176,178,175) mean is the ground-ruled JPEG wash on a 2px hairline (Template B ground rule (e)).
+    The judge itself capped the item at MINOR under the medium/artifact rules. NOT A FIX TRIGGER.
+
+(2) "Numeral stroke weight: IMG1 bold '2', IMG2 lighter/regular-weight '2', different typeface"
+    (MINOR, high) — EXEMPT BY LAW / capture wash, per the banked measurements: the badge numeral is
+    house chrome (deck AGENTS.md: bold Arial 18pt #333333, drawn by shared_patterns/house_chrome.js;
+    Template B ground rule (b) declares badge chrome never a discrepancy); the original's lighter
+    read is the JPEG capture wash (numeral delta vs render under 1 frame px, from the certified
+    record). Same class as the 038 B-2 adjudication (numeral weight exempt). NOT A FIX TRIGGER.
+
+--- Conclusion ---
+Verdict PASS on the payload-exact confirmation leg; both raised MINORs are PIL-refuted /
+law-exempt by the banked records covering these identical pair bytes. The region is CLEAN.
+S16 HIGH #2 (slide 002 crop legs literal-NNN) is CLOSED for the badgeplus leg.

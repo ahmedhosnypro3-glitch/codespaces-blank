@@ -1,0 +1,28 @@
+# Slide 042 â right computation stack, zoomed crop-pair review (attempt 24)
+
+## Verified correct (cell-by-cell)
+
+- **Row 1** (update): `(1 1 1)` red Â· vector `(4, â2, â2)` Â· `= 0` Â· `â Update Weight` Â· bold underlined **W** `= (4,â2,â2) + 2 * (1,1,1) = (6,0,0)` Â· left-pointing arrow at right edge â all values, the `+ 2 *` scalar, colors, and the â marker match IMG2. â
+- **Row 2**: `(1 2 1)` red Â· `(6,0,0) = 6` Â· `â Keep same Weight` Â· `W = (6,0,0)` green â matches. â
+- **Row 3**: `(1 1 2)` red Â· `(6,0,0) = 6` Â· `â Keep same Weight` Â· `W = (6,0,0)` â matches. â
+- **Row 4** (update): `(1 5 4)` blue Â· `(6,0,0) = 6` Â· `â Update Weight` Â· **W** `= (6,0,0) â 2 * (1,5,4) = (4,â10,â8)` with â â matches, including the correctly rendered three-entry result `(4, â10, â8)`. â
+- **Row 5** dot product result `= â96`, **Row 6** `= â104`, and the right-hand `W = (4, â10, â8)` blocks in both rows â values match IMG2 exactly. â
+- Color coding of the leading digit triplets (red/red/red, red, red, blue, blue, blue) and green result vectors matches row-for-row. â
+
+## Discrepancies
+
+1. **BLOCKER (high confidence)** â Rows 5 and 6, left-side vector (left ~12% of crop, rows 5â6 of the stack): the vector that should read **(4, â10, â8)** â three entries â is rendered as a **four-entry stack: `4`, `â1`, `0`, `â8`**. The value `â10` has been broken across two lines into `â1` and `0`. This produces a 4-row vector (taller delimiters than any other 3-row vector in the stack), contradicts the adjacent `= â96` / `= â104` results, and contradicts the correctly rendered `W = (4, â10, â8)` on the right side of the very same rows. Two wrong entries + an extra row per occurrence; occurs twice (rows 5 and 6).
+
+2. **MINOR (medium confidence)** â Row 1, left half: in IMG1 the LHS vector `(4, â2, â2)` is rendered in green and the second vector `(1,1,1)` in red; in IMG2 both of these vectors read as dark/black (only the result `(6,0,0)` is green and the digit triplet `(1 1 1)` is red). Small text-color difference.
+
+3. **MINOR (medium confidence)** â Rows 2, 3, 5, 6, middle-right of each band: IMG1 renders `W =` in plain (non-bold, non-underlined) weight; IMG2 shows the bold underlined **W** in all six rows (IMG1 matches the bold underline only in rows 1 and 4). Styling inconsistency in the same symbol that is bold in the source.
+
+4. **MINOR (low confidence)** â Delimiter style: IMG1 uses square brackets `[ ]` for the column vectors in rows 1â6 where IMG2 uses parentheses `( )`. Brackets do span their enclosed lines correctly, so this is a shape/style difference only.
+
+Not counted as discrepancies per ground rules: serif-vs-sans font (medium difference), JPEG softness/halos in IMG2, the mouse cursor visible in IMG2 near row 3/4 boundary (capture artifact), the cropped `=` at the left edge of both images, and the gray band chrome.
+
+## Impact assessment
+
+The row-5/6 vector defect is a genuine wrong-number/garbled-content error: the recreation shows `4, â1, 0, â8` where the source and the recreation's own right-hand `W` show `4, â10, â8`. At zoom this is clearly legible and mathematically inconsistent; per the ground rules this is a MAJOR-to-BLOCKER defect and it is present twice, so the region cannot pass.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region."

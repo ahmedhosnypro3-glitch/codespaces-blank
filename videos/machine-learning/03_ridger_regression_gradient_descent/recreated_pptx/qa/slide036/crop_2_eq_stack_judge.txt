@@ -1,0 +1,14 @@
+| # | Location in crop | Original (IMG2) | Recreation (IMG1) | Severity / confidence |
+|---|---|---|---|---|
+| 1 | Equation row, center-right | The sequence is `â â¦ W^T X_i â (W^T X_i) take â¦` | The sequence is visually `â â¦ (W^T X_i)(Wâ X_i)take â¦` | **BLOCKER / high confidence** |
+| 2 | First factor after â | `W^T X_i` has no surrounding parentheses | Recreation adds parentheses: `(W^T X_i)` | **MAJOR / high confidence** |
+| 3 | Second parenthesized group | Correct second group is `(W^T X_i)` | Recreation shows `(Wâ X_i)`; the implication arrow is inside the parentheses and the second `W` is missing its superscript `T` | **MAJOR / high confidence** |
+| 4 | Subscript under â | Text is `all misclassified vectors(i)`, with visible red emphasis on `misclassified` and/or the index `(i)` | Subscript is dark/black throughout, losing the red emphasis distinction | **MINOR / high confidence** |
+| 5 | `X_i` occurrences in equation | Subscript `i` appears red in the original | Recreation renders subscript `i` dark rather than red | **MINOR / medium-high confidence** |
+| 6 | Heading, upper-left | Heading appears underlined | Heading is not underlined | **MINOR / medium confidence** |
+| 7 | Just after second closing parenthesis | Original has a visible space: `(W^T X_i) take â¦` | Recreation is tight: `)take â¦` | **MINOR / high confidence** |
+| 8 | Equation glyph style | Original math/red `X` are serif/italic style | Recreation uses sans/upright glyph shapes for variables and the red `X` | **MINOR / high confidence** |
+
+The decisive problem is that the recreation does **not** preserve the original formulaâs term order or implication structure: the original `W^T X_i â (W^T X_i)` has become `(W^T X_i)(Wâ X_i)`, and the second `W` is missing its `^T`. That is a content-level equation defect, not just a zoom-level rendering artifact.
+
+FINAL VERDICT: FAIL

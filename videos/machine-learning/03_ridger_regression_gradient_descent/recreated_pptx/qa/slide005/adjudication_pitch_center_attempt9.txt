@@ -1,0 +1,33 @@
+== TOP CREAM BOX: line pitch + vertical centering, BOTH images ==
+
+--- ORIGINAL slide_005.jpg (960x540, frame px) ---
+  eq1: y  108.00 ..  150.00   x   97.00 ..  545.00   (h= 42.00)
+  eq2: y  173.00 ..  214.00   x   97.00 ..  630.00   (h= 41.00)
+  eq3: y  229.00 ..  271.00   x   97.00 ..  523.00   (h= 42.00)
+  gap eq1->eq2 =   23.00 px   gap eq2->eq3 =   15.00 px   unevenness = 8.00 px
+  cream box fill bbox: x 74.00..849.00  y 104.00..275.00
+  padding top (box_top->eq1) =   5.00 px
+  padding bottom (eq3->box_bot) =   5.00 px
+  top/bottom balance =   0.00 px  (smaller = better centred)
+
+--- RENDER render_9.png (2001x1125, rescaled to frame px) ---
+  eq1: y  108.48 ..  150.24   x   98.35 ..  544.53   (h= 41.76)
+  eq2: y  172.32 ..  214.56   x   97.39 ..  629.93   (h= 42.24)
+  eq3: y  229.44 ..  271.20   x   98.35 ..  522.46   (h= 41.76)
+  gap eq1->eq2 =   22.08 px   gap eq2->eq3 =   14.88 px   unevenness = 7.20 px
+  cream box fill bbox: x 72.44..849.18  y 102.72..276.96
+  padding top (box_top->eq1) =   6.76 px
+  padding bottom (eq3->box_bot) =   6.76 px
+  top/bottom balance =   0.00 px  (smaller = better centred)
+
+== CROSS-IMAGE DELTAS (render - original, frame px) ==
+  eq1: dy0=+0.48  dy1=+0.24  dx0=+1.35  dx1=-0.47
+  eq2: dy0=-0.68  dy1=+0.56  dx0=+0.39  dx1=-0.07
+  eq3: dy0=+0.44  dy1=+0.20  dx0=+1.35  dx1=-0.54
+  gap eq1->eq2: orig 23.00  render 22.08  delta -0.92
+  gap eq2->eq3: orig 15.00  render 14.88  delta -0.12
+  unevenness:   orig 8.00  render 7.20  delta -0.80
+  cream box top:  orig 104.00  render 102.72  delta -1.28
+  cream box bot:  orig 275.00  render 276.96  delta +1.96
+
+TOL 8 frame px applies to the geometry deltas.

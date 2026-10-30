@@ -1,0 +1,27 @@
+## Region verification (cellâbyâcell)
+
+| Row | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| 1âL | `step` (black bold, ~x 68â120, y 33â58) | `step` (black bold, ~x 70â125, y 42â66) | â identical characters, no garbling |
+| 1âR | `0.2` (~x 204â240, y 30â55) | `0.2` (~x 200â235, y 38â62) | â value correct |
+| 2âL | `initial X` (~x 48â140, y 85â108) | `initial X` (~x 50â140, y 80â105) | â capital X, correct spacing |
+| 2âR | `3` (~x 214â232, y 84â106) | `3` (~x 208â226, y 78â100) | â |
+| 3âL | `delta` (~x 66â124, y 135â160) | `delta` (~x 72â128, y 127â152) | â |
+| 3âR | `0.1` (~x 205â241, y 137â160) | `0.1` (~x 202â238, y 127â151) | â |
+
+* Grid structure: 3 rows Ã 2 columns in both; column split at â57â58% of table width in both; all horizontal rules present and continuous; no missing/extra row or cell.
+* Fills: paleâgreen row 1, pink row 2, bright yellow row 3 in both â no appreciable color deviation.
+* Vertical centering of all six labels inside their cells is correct in both; no label clipped or touching a rule.
+
+## Discrepancies
+
+1. **MINOR â glyph weight / letterform rendering.** IMG2's type reads noticeably heavier and slightly more rounded than IMG1's (most visible in the `0` of `0.2`/`0.1`, the `a` of `delta`, and the `e`/`p` of `step`); stroke thickness is roughly 15â20% greater relative to letter height. Character identities are unaffected (no wrong, missing, or garbled glyphs). Severity MINOR; confidence high.
+2. **MINOR â rowâheight proportions.** IMG1 divides the table into three nearâequal rows (â55 px each). IMG2 is unequal: green â45 px, pink â40 px, yellow â60 px â the `delta`/`0.1` row is proportionally taller and the top two rows shorter. Text remains centered, so this is a proportion nuance only. Severity MINOR; confidence mediumâhigh.
+
+## Settled per ground rules (not raised as discrepancies)
+
+* The rounded purple outline surrounding the whole crop in IMG2 (x â18â282, y â14â186) is the template/annotation purple ring, and the recreation's squared, saturated darkânavy table stroke is its house chrome â exempt under rule (b), so no missingâborder defect is charged. (The fact that IMG2 additionally shows a thin dark inner table outline versus IMG1's single thick stroke is likewise part of this chrome frame treatment.)
+* No equations, delimiters, or subscripts occur in this region, so those checks are not applicable.
+* Soft/blurred edges and slight haloing on IMG2's rules and glyphs are JPEG capture artifacts per rule (e).
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation of this region" â all table values, labels, grid structure, fills and centering are cellâforâcell faithful; only minor typefaceâweight and rowâproportion nuances remain.

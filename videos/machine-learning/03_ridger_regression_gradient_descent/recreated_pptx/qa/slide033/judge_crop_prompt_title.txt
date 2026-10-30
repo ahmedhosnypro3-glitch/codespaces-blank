@@ -1,0 +1,47 @@
+GROUND RULES (founder-mandated, settle these FIRST and never raise them as discrepancies): (a) The recreation uses a house template — white canvas; gray E9E9E7 panel from x54..903px, y45..540px; thin dark-red C00000 1pt strokes on LEFT, RIGHT and BOTTOM only (there is INTENTIONALLY NO top stroke on this deck — the original has none; a missing top stroke is correct, a present top stroke would be a defect); yellow slide-number badge circle centered (876,73)px diameter ~35px, fill FDFD96, purple ring 6A5ACD, bold numeral 333333 Arial 18pt (the numeral equals the slide's file number). These are INTENTIONAL house chrome and are NOT discrepancies. (b) If image 2 (the original) is a contentless placeholder/Processing slide, then matching contentlessness IS a match — do not demand content the original does not have. (c) Any mouse cursor / video-capture artifact visible in image 2 is a video artifact and is CORRECTLY omitted from the recreation. (d) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR. (e) Equations in the recreation are rendered in PROFESSIONAL 2D FORMAT (stacked fractions with a horizontal bar, large ∑ with limits above/below, spatially aligned sub/superscripts) per founder directive 2026-10-09 — if image 2 (the original) shows the same equation in LINEAR/typed notation, that difference is a mandated format upgrade and is NOT a discrepancy. (f) Your verdict is about fidelity of renderable content ONLY. Image 1 is a PowerPoint recreation; image 2 is the original lecture slide. Compare them element by element for fidelity: title and all text (verbatim, line breaks), layout/regions, table contents and structure, chart types and data values, diagram shapes/arrows, colors (approx hex), imagery. Be PRECISE about text metrics and geometry — measure with your eyes, not vibes: (1) line height / line separation inside multi-line text blocks must match the original; (2) vertical centering of enclosed content — text inside brackets, parentheses, or cells must sit vertically CENTERED within the delimiters, not hugging the top while the delimiter's lower section wraps empty space; (3) sizes, gaps and ordering of legend items must match the original's sizes and gaps; (4) horizontal AND vertical alignment of every label against its value, every value against its enclosing marks, and every region against the original. (5) FRAME CONTAINMENT — every content element (text, box, table, graph, image) must sit fully INSIDE its enclosing frame/panel: any ink that crosses or touches the boundary of the inner frame it belongs to, or of the house panel/strokes, is an overflow and a MAJOR defect; scrutinize the items closest to every edge. (6) MISSING ELEMENTS — if the original shows an equation, graph, image, table row, or any visual element that the recreation omits ENTIRELY (absent, not just styled differently), that is a BLOCKER defect; an equation region that renders empty is a BLOCKER even if everything else matches. (7) DELIMITER GEOMETRY — parentheses/brackets/braces that span multiple lines in the original must (i) span ALL the lines they enclose (topmost to bottommost), (ii) be wide enough that their strokes do not sit ON or overlap the enclosed text, (iii) match the original's curvature/shape style; a delimiter covering only some of its lines, drawn over the text between it, clipped, or invisible is a MAJOR defect. (8) TABLE DATA — every table cell value must match the original exactly (or the real dataset the original displays, when it is a known dataset); missing rows, truncated tables, or wrong values are MAJOR-to-BLOCKER. A visible deviation in line spacing, vertical centering, gap, size, alignment, frame containment, delimiter geometry, or table data vs the original is a MAJOR defect even when all text is verbatim (founder directives 2026-10-10). List EVERY discrepancy with severity (BLOCKER/MAJOR/MINOR) and confidence, then any visual-quality defects in the recreation (text overflow/clipping, wrong wrapping, misalignment, collisions, illegibility). End with: FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation'."
+```
+
+## Procedure B — zoomed crop-pair certificates (ALL slides; founder 2026-10-19)
+
+Purpose: the full-slide judge cannot see delimiter/stroke/glyph-level detail; every
+slide gets a zoomed certificate over its densest ink.
+
+1. **Pick regions** from the ORIGINAL frame (`unique_slides/slide_33.jpg`,
+   960×540): every dense region — tables, equation stacks, multi-line small-text
+   clusters, graph annotations — plus, if the slide has only one modest content
+   block, that block. Minimum ONE region per slide. Region = slide-space bbox
+   (x0,y0,x1,y1) in frame px, with ~8px padding.
+2. **Crop BOTH images at the same slide-space region.** Render crop: from
+   `render_K.png` (150dpi, scale 2.083 render-px per frame-px — multiply frame
+   coords by H_render/540). Original crop: the same frame-px bbox from the
+   960×540 original.
+3. **Match effective scale** — output_px/frame_px must be EQUAL for both images
+   (per axis): LANCZOS-upscale the original crop by H_render/540 (≈2.083×). Never
+   pass the full frame as IMG2 to a crop judge; never pair crops of different
+   effective scale (an 8% mismatch fabricates drift MAJORs).
+4. **Bank the pair** under `qa/slide33/`:
+   `crop_K_<name>_render.png` + `crop_K_<name>_orig.png` (name = short region
+   slug, e.g. `table`, `eq_stack`, `notes`).
+5. **Judge the pair** with Template B (crop comparison; same walls as Template A;
+   transcript `crop_K_<name>_judge.txt`).
+6. **Map every finding back to slide space** before editing geometry
+   (crop-relative coords × crop scale); discard findings that only make sense as
+   a different element. Adjudicate PIL-first (judging.md); inherited/cascade zones
+   are adjudication inputs, never fix triggers.
+7. A crop-pair is clean when its transcript ends `FINAL VERDICT: PASS` or every
+   raised finding is PIL-refuted (re-roll the same frozen template on unchanged
+   bytes and bank the refutation record).
+
+## Template B — crop-pair judge (`-p` payload VERBATIM; substitute 33, K, NAME, region description)
+
+```
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide33/crop_K_NAME_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide33/crop_K_NAME_orig.png \
+  --view "Slide 33 zoomed crop NAME — render vs original at matched scale (attempt K)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: <one-line description of what the region contains>" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide33/crop_K_NAME_judge.txt \
+  -p "GROUND RULES (founder-mandated, settle these FIRST and never raise them as discrepancies): (a) This is a ZOOMED CROP-PAIR comparison of one region of slide 33, not a whole slide: IMG1 is the recreation's crop, IMG2 is the original's crop of the SAME region at the SAME effective scale. (b) The recreation's house template (white canvas; gray E9E9E7 panel; thin dark-red C00000 strokes on left/right/bottom only — this deck has NO top stroke; yellow badge FDFD96 with purple ring 6A5ACD) is INTENTIONAL chrome and never a discrepancy. (c) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR. (d) Equations in the recreation are rendered in PROFESSIONAL 2D FORMAT (stacked fractions with horizontal bar, large ∑ with limits above/below, spatially aligned sub/superscripts) — a LINEAR/typed rendering of the same equation in the original is a mandated format upgrade, NOT a discrepancy. (e) JPEG compression halos or soft edges in IMG2 are video-capture artifacts, not content. Zoomed in like this, be EXACT about: glyph shapes and any wrong/missing/garbled characters; every number and symbol in tables (cell by cell, value by value); equation structure (numerator/denominator order, limits, subscripts); delimiter geometry (brackets/parens must span all enclosed lines without touching the text); line separation and vertical centering inside cells and enclosures; stroke continuity and weight; small color differences in text or fills. A wrong digit, a swapped table value, a missing row, a truncated subscript, or a delimiter that does not span its lines is a MAJOR-to-BLOCKER defect even though it would be invisible at full-slide scale. Coordinates you cite are crop-relative — also note roughly where in the region they sit. List EVERY discrepancy with severity (BLOCKER/MAJOR/MINOR) and confidence. End with: FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation of this region'

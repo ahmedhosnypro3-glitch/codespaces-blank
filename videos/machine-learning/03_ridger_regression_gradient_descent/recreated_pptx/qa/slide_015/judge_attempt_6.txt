@@ -1,0 +1,45 @@
+# Fidelity Check â Slide 015 (Minimization of Objective Function)
+
+## Element-by-element comparison
+
+**House chrome (per ground rules, not scored):** gray panel, red C00000 strokes on left/right/bottom only, yellow "15" badge â all present and correct. No top stroke, as mandated. â
+
+**Title:** Verbatim match, including red/blue word coloring ("Minimizationâ¦Objectiveâ¦to obtainâ¦BESTâ¦model parameters"). â
+
+**Top yellow panel (3 J(W) equations):**
+- Equation line 1: matches structurally; fractions, superscript T's, underlined W/Y matrices all present. (Possible difference: original's second factor may read "(XâXW)" vs recreation's "(YâXW)" â low confidence at video resolution; recreation's version is the mathematically correct expansion, so MINOR at most.)
+- **Equation lines 2 and 3: recreation renders the trailing "+Â½Î»WáµW" in BLACK text (green underline only), whereas the original renders it in green text.** â MAJOR (color/role of the regularization term is a deliberate visual callout in the original), confidence medium-high.
+- **Spurious floating green annotations:** the recreation adds "+Â½Î»WáµW" green text blocks floating *below* each equation line (two extra in line 1's region, one each under lines 2 and 3). The original has NO such floating duplicates â its green term is inline at end-of-line only. â **MAJOR** (extra content + wrong placement), confidence high.
+- **Spurious blue "J(W)" labels** appear beneath each J(W) in the recreation (3 instances in top panel). The original has no such labels. â **MAJOR**, confidence high.
+
+**Pink box:** âJ(W)/âW = 0, "Get Best **W** that minimizes the Objective Function **J(W)**" with red W and blue J(W) â matches. â
+
+**Remember box:** "Remember" + âWáµW/âW = 2W, peach fill â matches, vertically centered. â
+
+**Lower panel:**
+- **Line 1 & 2: the blue "J(W)" annotation labels COLLIDE with the "= 0" text** â "= 0" is overlapped and reads as struck-through garbage ("âJ(W)/âW Ì¶=Ì¶0 J(W) 0 = Â½[â¦]"). This is a text collision rendering the "= 0" effectively illegible. â **BLOCKER** (illegible/corrupted equation text), confidence high.
+- Same spurious green floating "+Î»W", "+Î»IW", and "Î»I" labels absent from the original. â **MAJOR**, confidence high.
+- Line 3: "(XáµX + Î»I)W = XáµY" and boxed "W = (XáµX + Î»I)â»Â¹XáµY" (green box) match in content and coloring. â
+- **MISSING ELEMENT: the original shows a "â" arrow** (white fill, red outline) between "(XáµX + Î»I)W = XáµY" and the boxed result. The recreation omits this arrow entirely. â **MAJOR** per rule (6), confidence high.
+- The extra green "Î»I" label inside/below the answer box overlaps the lower region of the box and crowds the border. â MINOR.
+
+**Layout/spacing:** The interleaved annotation layers compress and irregularize line spacing in both panels vs the original's clean, evenly spaced lines. â MINOR-to-MAJOR (consequence of items above).
+
+## Visual-quality defects in the recreation
+1. Blue "J(W)" labels overlap "= 0" twice in the lower panel â collision/illegibility (BLOCKER item above).
+2. Floating green duplicate terms create visual clutter and false reading order in both yellow panels.
+3. Green "Î»I" label crowds/touches the bottom edge of the green answer box.
+4. Black-instead-of-green rendering of the Î»WáµW / Î»W terms breaks the original's color coding of the regularization term.
+
+## Summary of discrepancies
+| # | Issue | Severity | Confidence |
+|---|-------|----------|------------|
+| 1 | "J(W)" annotation collides with/obscures "= 0" (Ã2, lower panel) | BLOCKER | High |
+| 2 | Spurious floating green "+Â½Î»WáµW" / "+Î»W" / "+Î»IW" / "Î»I" duplicates not in original | MAJOR | High |
+| 3 | Missing "â" arrow before boxed solution | MAJOR | High |
+| 4 | Trailing Î»-terms rendered black w/ green underline instead of green text | MAJOR | Medium-high |
+| 5 | Spurious blue "J(W)" labels in top panel | MAJOR | High |
+| 6 | Irregular line spacing from interleaved annotations | MINOR | High |
+| 7 | (YâXW) vs possible (XâXW) in original line 1 | MINOR | Low |
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation' â the annotation-layer collisions corrupt the "= 0" text (BLOCKER), and the spurious floating labels, missing â arrow, and wrong term coloring deviate substantially from the original.

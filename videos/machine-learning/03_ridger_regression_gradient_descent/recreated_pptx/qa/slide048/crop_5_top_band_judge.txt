@@ -1,0 +1,43 @@
+## Comparison basis
+Matched-scale crop pair of slide 048's top band. Coordinates below are crop-relative (IMG1 â 1400Ã198; IMG2 â 1355Ã176), with rough location in the band.
+
+### What matches (for reference)
+- Left table: header set xââ¦xâ; every stacked pair matches value-for-value â (1,1), (2,1), (1,2), (5,4), (6,5), (6,6); derived row 1 2 2 4 5 6; class order C1 C1 C1 C2 C2 C2 (labels correct, colors not â see #5/#6).
+- W column entries 4, â2, â2 in correct top-to-bottom order.
+- Check-classes numeric content: (0,0), (7,6), (3,2) â all six numbers correct and correctly paired by column.
+- Legend wording "positive / negative / Zero is unaccepted" and the green "Zero".
+
+---
+
+## DISCREPANCIES
+
+1. **Check-class headers are wrong: "Z1 Z2 Z3" instead of the original's three "Zâ Zâ Zâ"** â MAJOR, confidence HIGH. Right side, xâ1195â1330, yâ55â85. Three distinct labels have been substituted for three identical subscripted labels; the second and third headers do not exist in the original (wrong characters / missing subscript form).
+
+2. **Check-classes grid lost its column-vector parentheses** â MAJOR, confidence HIGH. Right side, xâ1200â1330, yâ88â145. Original has a tall "(" â¦ ")" pair spanning both entries of each column, i.e. (0,0), (7,6), (3,2). Recreation renders two flat bare rows "0 7 3 / 0 6 2" with no enclosure, so the vector structure and its delimiters are missing (and the grid is not a linear re-expression of the original â structure was dropped).
+
+3. **The W vector's delimiters are garbled: narrow vertical strokes plus "x"-like marks instead of tall parentheses** â MAJOR, confidence MEDIUM-HIGH. Middle, xâ550â580, yâ28â115. Original shows one large "(" and ")" spanning the three entries (4 / â2 / â2). Recreation shows a thin vertical rule with small x-shaped glyphs at each line â wrong glyph shapes and no readable parenthesis pair.
+
+4. **The W vector is positioned BEFORE the label "Initial W =", not after it** â MAJOR, confidence HIGH. Middle, xâ550â745, yâ30â60. Original reading order is "Initial W = (4, â2, â2) REPEAT using Step Î· = 1". In the recreation the vector block sits to the left of "Initial W =", so the vector is orphaned from its label and the sentence order is changed.
+
+5. **Câ class labels in the table are red instead of blue/violet** â MAJOR, confidence HIGH. Bottom-left of table, xâ195â330, yâ160â190. Original: Câ Câ Câ in dark red, Câ Câ Câ in blue. Recreation paints all six C labels red, destroying the two-class color coding that the legend also relies on.
+
+6. **Câ in the legend is red instead of blue/violet** â MAJOR, confidence HIGH. xâ520â570, yâ132â158. Same semantic color loss as #5, and it makes "C1 positive, C2 negative" visually indistinguishable (both red), unlike the original's red/blue pairing.
+
+7. **"REPEAT" is red; in the original it is black** â MINOR, confidence HIGH. xâ735â830, yâ32â58. Only "using Step Î· = 1" is red in the original; the recreation extends the red to "REPEAT" as well.
+
+8. **Commas inserted into the legend** â MINOR, confidence HIGH. xâ440â680, yâ130â160. Recreation: "C1 positive, C2 negative, Zero is unaccepted". Original: "C1 positive  C2 negative  Zero is unaccepted" â no comma after "positive" or "negative". Punctuation is content.
+
+9. **Left-table parentheses are per-value, not column-spanning** â MAJOR, confidence MEDIUM. xâ55â325, yâ68â132. Original: one tall paren pair per column enclosing both stacked numbers ((1 over 1), (2 over 1), â¦). Recreation appears to parenthesize each number individually in each row, so the enclosures do not span the two lines and additional parentheses appear that are not in the original (delimiter geometry defect).
+
+10. **"Check classes of" caption: italic sans-serif, smaller, and raised/shifted left of the grid** â MINOR, confidence HIGH. xâ990â1110, yâ84â105. Original is an upright serif caption at the grid's mid-height, immediately abutting the first column. Recreation is italic, reduced, and vertically offset relative to the numbers it labels.
+
+11. **General typeface substitution (bold sans for serif)** â MINOR, confidence HIGH. Throughout: xââ¦xâ headers (bold sans vs serif, original not bold), Câ/Câ labels, Z labels, "Initial W =", and the grid numerals (plain vs original serif/italic). Readability is preserved, but glyph shapes differ from the original's Times-like forms.
+
+12. **Band border weight/colour differs** â MINOR, confidence MEDIUM. Whole-crop perimeter (e.g. xâ15, yâ20). Recreation has a hairline dark-navy rectangle; original has a thicker blue-violet stroke with a soft shadowed edge (partly capture softness). Chrome-level, flagged only for completeness.
+
+---
+
+## Verdict
+The band reproduces all numeric content of the left table and the check-classes values, but it introduces wrong header labels (Z1 Z2 Z3 vs Zâ Zâ Zâ), drops the grid's column-vector delimiters, garbles and misplaces the W vector, and collapses the Câ/Câ color coding into all-red while also altering the emphasized wording and punctuation. Several of these are content-level errors, not the protected template/medium/format differences.
+
+**FINAL VERDICT: FAIL**

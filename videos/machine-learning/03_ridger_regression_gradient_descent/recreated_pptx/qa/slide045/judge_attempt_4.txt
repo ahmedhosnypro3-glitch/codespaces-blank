@@ -1,0 +1,35 @@
+# Fidelity Check â Slide 045 recreation attempt 4
+
+## Ground-rule dispositions (settled first, not raised again)
+- House chrome (white canvas, gray panel, red strokes L/R/B with **no top stroke**, yellow "45" badge): present and correct in IMG1 â **not discrepancies**.
+- IMG2 cursor artifact near the Z-columns (~x645,y120): video artifact, correctly omitted â **not a discrepancy**.
+- IMG2 is a full-content slide, so rule (b) does not apply; full content comparison is required.
+- Both images render equations in 2D stacked form (column vectors with limits), so rule (e) does not create a mandated difference here â the comparison below is between two 2D renderings.
+
+## Discrepancies
+
+1. **BLOCKER â Missing element: xââ¦xâ label row in "Ugmented Vectors ( from Top )" panel.** IMG2 shows a row of small blue italic labels "xâ xâ xâ xâ x" directly under the panel header and above the numeric matrix. IMG1 omits this label row entirely (values start immediately). Per rule (6), an element present in the original and absent in the recreation is a BLOCKER. Confidence: high (labels clearly visible in IMG2, clearly absent in IMG1).
+
+2. **MAJOR â Delimiter shape mismatch on all column vectors (rule 7-iii).** In IMG2, "Initial W" and every weight column (14, â4, 0) â including the six in-line d(xáµ¢) vectors and the six right-hand "W =" results â are enclosed in round **parentheses**. IMG1 renders all of these with straight vertical **bars** (determinant-style), in ~13 places. The vectors span 3 lines in both, so rule (7)(iii) â matching the original's curvature/shape style â is violated consistently. Confidence: high.
+
+3. **MAJOR â Row-region structure differs.** In IMG2, the six d(xáµ¢) rows are six **separate white boxes with thin borders and visible gaps** between them. In IMG1, they are merged into one continuous white panel subdivided by hairline gray rules, with no gaps or per-row borders. Layout/regions do not match the original's discrete-box structure. Confidence: medium-high.
+
+4. **MINOR â Row-vector delimiters on the blue "1 1 1" (etc.) terms.** IMG2 shows a small bracket/paren mark enclosing the blue row vector in each d(xáµ¢) line; IMG1 shows bare "1 1 1" with no delimiters. Low visibility at original resolution. Confidence: medium.
+
+5. **MINOR â Stray glyph in header box (recreation-only).** IMG1 contains a small "â¯I"/"â1"-like mark below the Z-column values at the right end of the blue header box; IMG2 has no corresponding element. Extraneous ink. Confidence: medium (small, could be a rendering fragment).
+
+6. **MINOR â Left-panel matrix delimiter style.** In IMG2 the augmented-vector block reads as columns with spanning delimiters; IMG1 renders per-element "(n)" pairs. Stylistic divergence consistent with item 2. Confidence: low-medium (original is small).
+
+7. **MINOR â Italic styling.** IMG2 renders "positive"/"negative" in italic within "Câ positive, Câ negative, Zero is unaccepted"; IMG1 uses upright weight. Confidence: medium.
+
+## Verified matches (no defect)
+- All text verbatim including the preserved typo "Ugmented Vectors ( from Top )"; line breaks in header, left panel, and all six rows match.
+- All numeric content: Initial W (4, â2, â2); Z columns (0,7,3)/(0,6,2); results 10, 6, 10, â6, â10, â112; all W = (14, â4, 0). No wrong or truncated values.
+- Colors: blue header border, red "Step Î· = 2", red/green C labels, green weight values, blue row vectors, red "Iteration 4" box, pink "No change in W / Stop Iterations" box â all approximate-match.
+- "â Keep same Weight" wording, underlined W's, column ordering and x-positions proportionally consistent.
+- Vertical centering of values inside the 3-line vectors is correct in IMG1; no ink crosses the house panel or inner box boundaries; no clipping, collisions, or illegible text observed.
+
+## Visual-quality defects in the recreation
+- Only item 5 above (stray glyph). No overflow, bad wrapping, or misalignment.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation' â one BLOCKER (missing xââ¦xâ label row in the augmented-vectors panel) plus MAJOR delimiter-geometry and row-structure deviations.

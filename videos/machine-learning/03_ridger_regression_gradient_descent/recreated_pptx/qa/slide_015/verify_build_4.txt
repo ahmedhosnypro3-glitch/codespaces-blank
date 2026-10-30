@@ -1,0 +1,60 @@
+original (540, 960) render (1125, 2001, 3) scale F=2.0844 (render px per frame px)
+deck target 1px=1pt, 150dpi => expected 2001/960=2.0844
+
+NOTE: ink counts are compared at equal EFFECTIVE AREA: the render covers F^2=4.34 px per frame px, so the render's raw count is scaled down by F^2 before comparison.
+
+== INK CENSUS + ALIGNMENT (luma<150) ==
+title         ink orig=  4089 rend=  3958 (raw  17197) ratio=1.03
+                orig bbox x129..827 y68..86 | rend bbox x131..825 y67..85 | delta dx=+2 dy=-1
+redsentence   ink orig=  2449 rend=  1927 (raw   8371) ratio=1.27
+                orig bbox x210..702 y294..318 | rend bbox x210..698 y294..311 | delta dx=+0 dy=+0
+Remember      ink orig=   272 rend=   251 (raw   1091) ratio=1.08
+                orig bbox x792..856 y279..290 | rend bbox x791..857 y279..287 | delta dx=-1 dy=-0
+eq1_l1        ink orig=  2650 rend=  2290 (raw   9950) ratio=1.16
+                orig bbox x97..791 y108..150 | rend bbox x98..708 y105..151 | delta dx=+1 dy=-3
+eq1_l2        ink orig=  2559 rend=  2023 (raw   8787) ratio=1.27
+                orig bbox x97..760 y167..209 | rend bbox x98..674 y164..210 | delta dx=+1 dy=-3
+eq1_l3        ink orig=  2211 rend=  1851 (raw   8042) ratio=1.19
+                orig bbox x97..652 y220..262 | rend bbox x98..598 y217..264 | delta dx=+1 dy=-3
+redbox_eq     ink orig=   323 rend=   317 (raw   1379) ratio=1.02
+                orig bbox x81..177 y280..302 | rend bbox x83..177 y283..302 | delta dx=+2 dy=+3
+peach_eq      ink orig=   469 rend=   405 (raw   1761) ratio=1.16
+                orig bbox x791..890 y295..328 | rend bbox x792..888 y299..325 | delta dx=+1 dy=+4
+deriv_l1      ink orig=  2487 rend=  2450 (raw  10645) ratio=1.02
+                orig bbox x79..653 y352..402 | rend bbox x80..650 y351..403 | delta dx=+1 dy=-1
+deriv_l2      ink orig=  1775 rend=  1680 (raw   7299) ratio=1.06
+                orig bbox x79..499 y417..466 | rend bbox x80..486 y416..466 | delta dx=+1 dy=-1
+normal        ink orig=   790 rend=   941 (raw   4089) ratio=0.84
+                orig bbox x229..501 y484..508 | rend bbox x230..487 y482..510 | delta dx=+1 dy=-2
+solution      ink orig=  1654 rend=  1028 (raw   4468) ratio=1.61  <-- CENSUS MISMATCH
+                orig bbox x553..878 y478..511 | rend bbox x554..802 y477..511 | delta dx=+1 dy=-1
+
+== FILL / INK COLOUR (sampled in both images) ==
+creamA      (700,110) want #FBFDE5 orig #357C30 err=508 | rend #FBFDE5 err=  0  <-- OUT
+creamA      (700,250) want #FBFDE5 orig #FBFDE5 err=  0 | rend #FBFDE5 err=  0
+creamA      (120,110) want #FBFDE5 orig #FAFEE5 err=  2 | rend #FBFDE5 err=  0
+creamB      (400,350) want #FBFDE5 orig #FAFEE3 err=  4 | rend #FBFDE5 err=  0
+creamB      (400,500) want #FBFDE5 orig #FBFDE7 err=  2 | rend #FBFDE5 err=  0
+creamB      (120,350) want #FBFDE5 orig #FAFDEC err=  8 | rend #FBFDE5 err=  0
+pink        (300,300) want #F7D0D3 orig #A22833 err=413 | rend #F7D0D3 err=  0  <-- OUT
+pink        (600,285) want #F7D0D3 orig #F7D0D1 err=  2 | rend #F7D0D3 err=  0
+pink        (600,330) want #F7D0D3 orig #FACCCC err= 14 | rend #F7D0D3 err=  0
+peach       (830,278) want #F7DCBE orig #FFDFC4 err= 17 | rend #F7DCBE err=  0
+peach       (880,300) want #F7DCBE orig #FADBBC err=  6 | rend #F7DCBE err=  0
+peach       (830,325) want #F7DCBE orig #F0DBC0 err= 10 | rend #F7DCBE err=  0
+green       (700,490) want #CFFFE3 orig #CEFADF err= 10 | rend #0B0C0B err=655  <-- OUT
+green       (700,505) want #CFFFE3 orig #CFFBE0 err=  7 | rend #CFFFE3 err=  0
+green       (600,490) want #CFFFE3 orig #D5FFE7 err= 10 | rend #010101 err=686  <-- OUT
+title_red   (300,76) want #C00000 orig #B7B1F7 err=433 | rend #E9E9E7 err=505  <-- OUT
+title_red   (380,76) want #C00000 orig #897EFE err=435 | rend #00008B err=331  <-- OUT
+title_blue  (600,76) want #00008B orig #0B009F err= 31 | rend #00008B err=  0
+title_blue  (640,76) want #00008B orig #E9EAE2 err=554 | rend #E9E9E7 err=558  <-- OUT
+
+== HOUSE PANEL / STROKE PRESENCE ==
+panel lum orig mean=224.6 rend mean=226.3
+left stroke: orig red px=258 rend red px=2056
+right stroke: orig red px=0 rend red px=1029
+bottom stroke: orig red px=1694 rend red px=3524
+top band red px (must be 0): orig=0 rend=0
+
+RESULT: 1 elements with a census/missing flag

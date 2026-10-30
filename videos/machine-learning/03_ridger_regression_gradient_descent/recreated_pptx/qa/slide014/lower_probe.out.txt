@@ -1,0 +1,93 @@
+=== 1. GUTTER between the two lower columns (x 455..500) ===
+  ORIG: x=455: y 473..495  y 498..500  y 503..525
+  ORIG: x=462: y 473..525
+  ORIG: x=470: y 473..499  y 502..525
+  ORIG: x=478: y 473..478  y 495..499  y 502..506  y 516..518  y 522..525
+  ORIG: x=485: y 473..524
+  ORIG: x=492: y 473..525
+  ORIG: x=498: y 473..525
+--- render gutter ---
+  REND: x=455: y 510..520
+  REND: x=462: y 510..520
+  REND: x=470: y 510..520
+  REND: x=478: y 510..520
+  REND: x=485: y 510..520
+  REND: x=492: y 510..520
+  REND: x=498: y 510..520
+
+=== 2. Horizontal divider inside the blue region? column-scan x=200 and x=700 ===
+  ORIG x=200: x=200: y 473..495  y 498..504  y 508..525
+  ORIG x=700: x=700: y 473..504  y 508..525
+  REND x=200: x=200: y 468..520
+  REND x=700: x=700: y 468..520
+
+=== 3. Bottom edge / full extent of the blue region (text-free columns) ===
+  ORIG: x=95: y 466..469  y 473..525
+  ORIG: x=130: y 473..525
+  ORIG: x=430: y 473..525
+  ORIG: x=470: y 473..499  y 502..525
+  ORIG: x=700: y 473..504  y 508..525
+  ORIG: x=850: y 473..525
+  ORIG: x=880: y 467..469
+--- render ---
+  REND: x=95: y 468..482  y 491..516
+  REND: x=130: y 468..482  y 484..520
+  REND: x=430: y 468..520
+  REND: x=470: y 510..520
+  REND: x=700: y 468..520
+  REND: x=850: y 468..520
+  REND: x=880: y 468..520
+
+=== 3b. Any dark divider line in the gutter (x 460..500, y 470..525)? ===
+  ORIG dark x=470: x=470: NONE
+  ORIG dark x=475: x=475: y 516..521
+  ORIG dark x=480: x=480: y 509..512  y 519..521
+  ORIG dark x=485: x=485: NONE
+  ORIG dark x=490: x=490: NONE
+
+=== 4. The two missing middle bands: exact extents ===
+PEACH-like fill (y 340..395):
+  ORIG x=95: x=95: y 351..365  y 384..389
+  ORIG x=200: x=200: y 351..369  y 382..389
+  ORIG x=400: x=400: y 351..369  y 383..389
+  ORIG x=640: x=640: y 351..360  y 386..389
+  ORIG x=660: x=660: y 351..389
+  ORIG x=665: x=665: y 348..352  y 385..388
+  ORIG x=670: x=670: NONE
+  ORIG x=690: x=690: NONE
+
+YELLOW-mid fill (y 395..450):
+  ORIG x=520: x=520: NONE
+  ORIG x=540: x=540: y 404..444
+  ORIG x=600: x=600: y 404..422  y 435..444
+  ORIG x=700: x=700: y 404..422  y 435..444
+  ORIG x=860: x=860: y 404..418  y 436..444
+  ORIG x=880: x=880: y 440..443
+  ORIG x=885: x=885: NONE
+  ORIG x=890: x=890: NONE
+
+PINK fill in original's define-loss area (y 395..450):
+  ORIG x=95: x=95: y 403..444
+  ORIG x=200: x=200: y 403..444
+  ORIG x=400: x=400: y 403..411  y 414..418  y 435..444
+  ORIG x=460: x=460: y 403..410  y 419..434  y 440..444
+  ORIG x=470: x=470: y 403..444
+  ORIG x=475: x=475: y 399..448
+  ORIG x=480: x=480: NONE
+
+=== 5. Row profiles of the two missing bands ===
+  ORIG y=352 peach: y=352: x 90..567  x 572..661
+  ORIG y=360 peach: y=360: x 90..220  x 222..559  x 580..628  x 649..661
+  ORIG y=372 peach: y=372: x 90..92  x 98..102  x 150..163  x 170..177  x 204..218  x 289..295  x 312..325  x 393..397  x 468..476  x 546..564  x 572..590  x 620..632  x 641..661
+  ORIG y=382 peach: y=382: x 90..92  x 97..100  x 106..109  x 118..143  x 146..220  x 224..233  x 240..251  x 253..258  x 260..263  x 265..270  x 277..296  x 301..327  x 370..375  x 392..399  x 421..424  x 448..451  x 457..459  x 466..475  x 481..490  x 492..498  x 500..530  x 532..534  x 539..542  x 546..564  x 571..607  x 615..632  x 641..661
+  ORIG y=388 peach: y=388: x 90..661
+  ORIG y=400 yellow: y=400: NONE
+  ORIG y=400 pink: y=400: NONE
+  ORIG y=410 yellow: y=410: x 533..879
+  ORIG y=410 pink: y=410: x 89..453  x 456..471
+  ORIG y=424 yellow: y=424: x 533..542  x 713..722  x 762..764  x 782..784  x 819..821  x 839..842  x 846..853  x 871..879
+  ORIG y=424 pink: y=424: x 89..100  x 108..114  x 142..150  x 196..201  x 226..229  x 242..264  x 274..278  x 286..300  x 312..320  x 324..331  x 340..365  x 375..379  x 381..383  x 388..398  x 403..409  x 419..444  x 453..461  x 465..471
+  ORIG y=440 yellow: y=440: x 533..880
+  ORIG y=440 pink: y=440: x 89..471
+  ORIG y=443 yellow: y=443: x 533..880
+  ORIG y=443 pink: y=443: x 89..471

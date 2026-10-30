@@ -1,0 +1,45 @@
+==============================================================================
+ADJUDICATION — crop_10_axis_top (frame 190..332 x 170..292)
+==============================================================================
+render_10 2001x1125 scale 2.08438 (= H/540)
+
+### MAJOR 1 — y-axis shaft + arrowhead tone/weight
+
+Y-axis shaft location (dark-ink column profile, band frame y 300..420 so the
+crop's curve branch and labels are outside the window):
+  REND: dark col runs (frame px): [(np.float64(221.7), np.float64(222.7))]
+    shaft centroid x=222.22 fpx | ink px n=750 | mean RGB (0,0,0) | median lum 0 | darkest px lum 0 | stroke width (cols >59 lum) 3
+
+Arrowhead apex ink (topmost dark ink above the shaft, frame x 212..236, y 175..215):
+  ORIG: ink bbox y 178.0..214.0 x 213.0..235.0 | mean RGB (45,47,44) | lum p10 5 | n=116
+  REND: ink bbox y 176.9..214.8 x 212.0..235.5 | mean RGB (9,9,9) | lum p10 0 | n=546
+
+### MAJOR 2 — left branch geometry through the purple marker
+
+Left branch centre-line residual (band +-14 fpx, dark ink lum<70 spread<=12),
+frame x 244..300 — i.e. the exact stretch the crop judge described:
+  ORIG: no ink found
+  REND: n=55 cols | residual rms 1.411 max 4.667 fpx | 2nd-diff rms 0.4217 max 2.016 (quantisation floor ~0.30)
+       chord from x=244 to x=300 (len 96.9 fpx): max bow 4.17 fpx  (a quadratic bows |a|*L^2/8 = 4.64 fpx on the render)
+
+Branch slope across the same stretch (frame px/fpx) — a quadratic's slope is a
+straight line in x; the original's arms flatten slower, which is what makes the
+fitted quadratic read 'straight' over this window:
+  REND x 244..250: slope +1.61  (y 239..249)
+  REND x 258..268: slope +1.92  (y 258..275)
+  REND x 276..300: slope +1.32  (y 287..318)
+
+Grey-violet ink census in the crop (spread<=12, lum 100..200): where is the grey
+ink relative to dot 1 (263.12,263.41)?  The judge called the north-west blob
+'a faint separate gray arc hugging the lower-right of the dot'.
+  ORIG NW of dot1 (leader collar): n=59 px bbox x 253..260 y 233..255
+  ORIG S-SE of dot1 (connector 1->2): n=87 px bbox x 264..282 y 264..292
+  ORIG W of dot1: n=54 px bbox x 222..224 y 232..258
+  REND NW of dot1 (leader collar): n=8 px bbox x 252..257 y 250..257
+  REND S-SE of dot1 (connector 1->2): n=166 px bbox x 264..282 y 265..292
+  REND W of dot1: n=28 px bbox x 239..251 y 233..253
+
+### VERDICT INPUTS
+MAJOR 1: measured shaft/arrow tone above (compare mean RGB / lum).
+MAJOR 2: second differences + chord bow above; the shipped curve is one analytic
+        quadratic, so a kink is impossible by construction.

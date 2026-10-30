@@ -1,0 +1,43 @@
+# Region Comparison â Slide 019, left table half (score/regulation columns)
+
+## Content verification (cell by cell)
+
+**Left "Outlier Xâ" column:**
+- Header "Outlier Xâ" (with subscript s): present in both. â
+- Values 11 (blue), 3 (blue), 22 (green, yellow-highlighted), then 30 (red), 3 (cut): all match. â
+
+**Header banner:** "NO Regularizer with (as if Î»=0)" â text and Î»=0 match in both. â
+
+**Table 1 (NO Reg):** Header cells Testâ (red), Testâ (blue), Testâ (red) â match. Rows:
+- xâ: 30 / 40 / 50 â
+- xâ: 15 / 20 / 25 â
+- y (yellow band): 60 / 80 / 100 â
+- Color coding of values (red/blue/red per column) matches. â
+
+**W vectors & norms:**
+- NO Reg: W = (0, 2, 0), âWâÂ²=4 â values and stacked layout match. â
+- Ridge: W = (0.1, 1.95, 0.03), âWâÂ²=3.8 â match. â
+
+**Table 2 (bottom crop):** Testâ/Testâ/Testâ header, xâ row 30/40/50; Ridge W = (1.2, 0.72, â¦) â all match. â
+
+**Right "Ridge Regularizeâ¦" header:** matches (cut at crop edge in both). â
+
+No wrong, swapped, or missing numbers anywhere in the region.
+
+## Discrepancies
+
+1. **MAJOR â Arrow overlaps the table and the xâ row label** (center-left, crop-relative xâ300â365, yâ175â215). In IMG2 the blue outline arrow sits cleanly in the gutter *between* the W box and the table. In IMG1 the arrow is larger and shifted right, crossing the table's left border and sitting on top of the narrow label column at the xâ row â the "xâ" row header is partially occluded by the arrow outline. Same defect repeats on the Ridge side: the xâ label (xâ850, yâ155) collides with the right parenthesis of the W vector. Effectively a partially-hidden/garbled row label at this zoom. Confidence: high.
+
+2. **MAJOR â W-vector parenthesis touches/crosses the table border** (xâ300â310, yâ100â240; and Ridge xâ840â860). In IMG2 there is clear whitespace between the closing parenthesis and the table's left edge; in IMG1 the glyph abuts/overlaps the border line. Delimiter geometry is compromised. Confidence: high.
+
+3. **MINOR â Yellow highlight band extent differs.** In IMG2 the band continues left of the table (small block in the gutter, xâ335) and covers "âWâÂ²=3.8"; in IMG1 the band is confined to the table's y-row and the âWâÂ²=3.8 text (yâ240) sits *above* the band, unhighlighted. Confidence: high.
+
+4. **MINOR â Header typography.** IMG2's "NO Regularizer withâ¦" is bold *italic* serif; IMG1 is upright sans-serif. Styling/medium-level difference, content identical. Confidence: high.
+
+5. **MINOR â Left outlier delimiter shape.** IMG2 wraps the 11/3/22 stack in a curved large parenthesis; IMG1 shows a straighter bracket-like stroke at the far left edge (xâ18â30). Possible glyph-shape mismatch, partially cut in both crops. Confidence: lowâmedium.
+
+## Assessment
+
+All numeric content, colors, subscripts, norms, and highlighting targets are correct â this is a data-faithful recreation. However, the arrow and parenthesis intrusion into the table (occluding xâ / colliding with xâ and the border) is exactly the class of zoom-visible geometry defect flagged as MAJOR, and it occurs twice in this region.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'

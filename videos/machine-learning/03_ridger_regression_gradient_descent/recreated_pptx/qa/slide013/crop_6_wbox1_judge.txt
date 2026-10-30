@@ -1,0 +1,51 @@
+# Judge transcript — slide 013, attempt 6 (zoomed crop wbox1)
+- date: 2026-10-24 07:00
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_RENDER: recreated_pptx/qa/slide013/crop_6_wbox1_render.png  md5=bf4d01586154bed913de65be92e6a770
+- IMG_ORIGINAL: recreated_pptx/qa/slide013/crop_6_wbox1_orig.png  md5=3d11e8bf44646b842230230a8692aba4
+- region: band-1 W box (frame bbox 498,119..631,260), render crop scale = render_H/540 =
+  2.083333 and original crop upscaled to the same 277x294 px (equal effective scale, both axes)
+- read order: original crop first, then render crop
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR comparison of ONE region; IMG1=recreation crop, IMG2=original crop of
+    the SAME region at the SAME effective scale.
+(b) House template (white canvas, E9E9E7 panel, C00000 L/R/bottom strokes, no top stroke,
+    FDFD96 badge 6A5ACD ring) is intentional chrome — never a discrepancy.
+(c) Typed-vs-handwritten ink: at most MINOR (both are typed here).
+(d) Equations: professional 2D format is mandated; a linear rendering in the original would
+    be a format upgrade, not a discrepancy (the original is already 2D here).
+(e) JPEG compression halos / soft edges in IMG2 are capture artifacts, not content.
+
+## Comparison (region contents: red-bordered W box with "W =" + column vector in thin
+## parentheses + pale-yellow ||W||^2 ellipse and its olive italic superscript text)
+
+- Box frame: red border in both; render 2px C00000 stroke vs original's JPEG-darkened ~2px
+  edge; same rectangle position/size (PIL border bbox 506..623 x 127..252).
+- "W": red italic serif capital W with a red underline bar in both; render ink 17.6x14.3
+  (+underline 17.6x18) vs original 17x17 (underline included). Same position, same weight
+  family.
+- "=": two short black horizontal bars in both, same width (13px) and vertical spacing.
+- Parentheses: thin black strokes spanning the FULL three-value stack in both; PIL profile
+  at matched rows gives body x565 and tips x567 on the left, x585/x583 on the right for both
+  images; digits start x570.9, so no stroke touches a glyph. Curvature style matches.
+- Vector values: 0 / 2 / 0, black serif, same order top-to-bottom, same baselines
+  (PIL ink rows 142..156, 166..181, 192..206 in both) — no wrong/missing/garbled glyphs.
+- Ellipse: pale yellow fill, same position/size (PIL 512..617 x 213..249 in both).
+- Ellipse text: "||W||² = 4" olive italic, superscript 2 — glyphs, order and superscript
+  match; render text is ~2px larger/tighter but wholly inside the ellipse (no clipping).
+- The small cursor arrow visible at the original's lower-left ellipse edge is a video
+  artifact and is correctly absent (rule e/c).
+
+## Discrepancies
+1. [MINOR] Ellipse text glyph size — render ~2px larger than the capture — confidence
+   medium; PIL: render text x528..602 vs original x~527..604 (equal span), heights within
+   ~2px once the pale fill is excluded; no overflow. Disposition: JPEG halo + font
+   substitution rasterization; not a fix trigger.
+2. [MINOR] Border stroke reads brighter (C00000) than the JPEG-darkened original edge —
+   confidence high that this is a chroma artifact; stroke weight identical (2px).
+
+## Visual-quality defects
+- None: no clipping, no delimiter-on-glyph overlap, no missing element, no collision.
+
+FINAL VERDICT: PASS

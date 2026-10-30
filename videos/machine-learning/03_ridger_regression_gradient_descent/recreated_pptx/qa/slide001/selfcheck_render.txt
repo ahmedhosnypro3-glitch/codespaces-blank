@@ -1,0 +1,45 @@
+render 2001x1125 scale 2.0833; identical masks on render and original
+containment red: frame bbox x 85..883 y 128..514 -> interior(x63..896,y47..534): OK
+containment blue: frame bbox x 125..894 y 55..528 -> interior(x63..896,y47..534): OK
+red text: original 7 bands vs render 7 bands
+  band 0: orig y 126..171 x 280..668 | render y 128..169 x 283..663 | d(y0,y1,x0,x1)=(+2.2,-2.0,+3.2,-5.1) DRIFT>4
+  band 1: orig y 178..219 x 278..656 | render y 179..217 x 280..651 | d(y0,y1,x0,x1)=(+0.6,-2.0,+2.3,-5.1) DRIFT>4
+  band 2: orig y 230..274 x 307..639 | render y 232..272 x 308..635 | d(y0,y1,x0,x1)=(+1.8,-2.3,+1.2,-4.4) DRIFT>4
+  band 3: orig y 353..373 x 436..543 | render y 354..371 x 438..541 | d(y0,y1,x0,x1)=(+1.2,-2.0,+1.8,-2.0) OK
+  band 4: orig y 423..438 x 131..203 | render y 422..437 x 85..199 | d(y0,y1,x0,x1)=(-1.1,-0.7,-45.6,-4.3) DRIFT>4
+  band 5: orig y 483..496 x 688..883 | render y 483..498 x 688..883 | d(y0,y1,x0,x1)=(+0.4,+1.8,-0.2,+0.2) OK
+  band 6: orig y 509..514 x 697..882 | render y 510..514 x 727..882 | d(y0,y1,x0,x1)=(+1.2,+0.1,+30.2,-0.2) DRIFT>4
+blue text: original 7 bands vs render 7 bands
+  band 0: orig y 314..335 x 348..601 | render y 313..334 x 350..599 | d(y0,y1,x0,x1)=(-1.0,-0.9,+1.9,-2.4) OK
+  band 1: orig y 378..399 x 352..627 | render y 378..397 x 352..625 | d(y0,y1,x0,x1)=(+0.2,-1.6,+0.3,-1.6) OK
+  band 2: orig y 404..416 x 384..593 | render y 404..418 x 393..584 | d(y0,y1,x0,x1)=(+0.2,+1.6,+8.6,-9.3) DRIFT>4
+  band 3: orig y 450..464 x 125..376 | render y 449..467 x 125..372 | d(y0,y1,x0,x1)=(-0.7,+2.6,+0.3,-4.0) OK
+  band 4: orig y 475..484 x 126..322 | render y 472..484 x 125..307 | d(y0,y1,x0,x1)=(-3.2,+0.3,-0.7,-15.3) DRIFT>4
+  band 5: orig y 495..509 x 125..340 | render y 494..508 x 125..335 | d(y0,y1,x0,x1)=(-0.6,-1.2,+0.3,-5.0) DRIFT>4
+  band 6: orig y 519..528 x 126..314 | render y 516..528 x 125..302 | d(y0,y1,x0,x1)=(-3.0,+0.5,-0.7,-11.6) DRIFT>4
+title L1: 1 band OK (window y 111..174, band y 128..169)
+title L2: 1 band OK (window y 174..225, band y 179..217)
+title L3: 1 band OK (window y 225..290, band y 232..272)
+preparedby: 1 band OK (window y 339..389, band y 354..371)
+instr hdr: 1 band OK (window y 406..453, band y 422..437)
+subtitle: 1 band OK (window y 298..351, band y 313..334)
+name ctr: 1 band OK (window y 362..402, band y 378..397)
+email ctr: 1 band OK (window y 402..433, band y 404..418)
+instr name1: 1 band OK (window y 434..470, band y 449..467)
+instr email1: 1 band OK (window y 470..490, band y 472..484)
+instr name2: 1 band OK (window y 490..512, band y 494..508)
+instr email2: 1 band OK (window y 512..534, band y 516..528)
+logo render ink bbox frame-px x 593..888 y 459..531
+logo render ink vs box x592..889 y456..533 (+2 chamfer): OK
+logo orig ink bbox frame-px x 593..887 y 460..531
+
+SELFCHECK RENDER v2: FAIL
+  - red text band 0: drift (+2.2,-2.0,+3.2,-5.1)
+  - red text band 1: drift (+0.6,-2.0,+2.3,-5.1)
+  - red text band 2: drift (+1.8,-2.3,+1.2,-4.4)
+  - red text band 4: drift (-1.1,-0.7,-45.6,-4.3)
+  - red text band 6: drift (+1.2,+0.1,+30.2,-0.2)
+  - blue text band 2: drift (+0.2,+1.6,+8.6,-9.3)
+  - blue text band 4: drift (-3.2,+0.3,-0.7,-15.3)
+  - blue text band 5: drift (-0.6,-1.2,+0.3,-5.0)
+  - blue text band 6: drift (-3.0,+0.5,-0.7,-11.6)

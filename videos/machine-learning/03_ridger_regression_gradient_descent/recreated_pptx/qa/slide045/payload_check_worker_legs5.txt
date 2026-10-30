@@ -1,0 +1,24 @@
+Slide 045 independent payload re-derivation
+protocol: /workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/judge_protocol_03.md
+protocol md5: 1c79e7d7b01ffa0a7e6410dfcf75159f
+fenced blocks found: 4
+
+Template A: raw payload chars=4115  NNN_count=0  standalone_K_count=0
+judge_prompt_1.txt           BYTE-EXACT  expected_md5=9387f5fbb94ef05a31db19f1e018dde1 actual_md5=9387f5fbb94ef05a31db19f1e018dde1 len=4115
+                             BLOCKER_intact=True no_NNN_leftover=True
+
+Template B: raw payload chars=1914  NNN_count=1  standalone_K_count=0  NAME_count=0
+crop_prompt_1_r2_calcs.txt   BYTE-EXACT  expected_md5=62e9518fbf738468ec888321543ed3ac actual_md5=62e9518fbf738468ec888321543ed3ac len=1914
+                             BLOCKER_intact=True no_NNN_leftover=True
+
+crop_prompt_1_r2_toppanel.txt BYTE-EXACT  expected_md5=62e9518fbf738468ec888321543ed3ac actual_md5=62e9518fbf738468ec888321543ed3ac len=1914
+                             BLOCKER_intact=True no_NNN_leftover=True
+
+crop_prompt_1_r2_augtable.txt BYTE-EXACT  expected_md5=62e9518fbf738468ec888321543ed3ac actual_md5=62e9518fbf738468ec888321543ed3ac len=1914
+                             BLOCKER_intact=True no_NNN_leftover=True
+
+Substitution guard:
+  judge_prompt_1.txt           BLOCKER_count=4 naive-corruption_count=0
+  crop_prompt_1_r2_calcs.txt   BLOCKER_count=2 naive-corruption_count=0
+
+RESULT: ALL PAYLOADS BYTE-EXACT + BLOCKER INTACT

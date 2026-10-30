@@ -1,0 +1,26 @@
+# Discrepancy Report â Slide 050, scatter-chart region (zoom crop-pair, matched scale)
+
+## Checked and matching (no action)
+- **Axes/ticks:** x labels 0â8 and y labels 7â0 all present, correct order, correct positions along both axes (bottom edge and left edge of plot). â
+- **Gridlines:** faint horizontal gridlines at y = 1â¦6 present in both, similar weight/opacity. â
+- **Data series (value-by-value):** blue squares at (1,1), (1,2), (2,1); magenta diamonds at (5,4), (6,5), (6,6); red down-triangles at (0,0), (3,2), (7,6). All nine markers present at correct coordinates in both images. â
+- **Decision line path:** runs from off-plot top-left (~crop 55,190) to bottom-right (~crop 790,620) in both; crosses y=2 at xâ3, y=0 at xâ5 in both. â
+- **'+ve' text:** present in both, red bold, same glyph shapes, no garbling. â
+- Red frame around crop: template chrome per ground rule (b) â ignored.
+
+## Discrepancies
+
+1. **MAJOR â '+ve' annotation geometry wrong; extra spurious arrow stroke on the decision line.**
+ - In **IMG2 (original)**, the '+ve' label sits at ~crop (128â178, 283â300), i.e. to the **left of the decision line at line level (yâ4)**, with a single small red arrow starting on the line at ~(205, 285) and pointing **down-left**, tip at ~(185, 320).
+ - In **IMG1 (recreation)**, '+ve' has been moved **below the line** to ~(150â190, 287) with the arrow beside it pointing **horizontally left** (~155â185, 305â330) instead of down-left. Additionally there is a **thick dark-red arrow/parallelogram blob lying along the decision line itself** at ~crop (125â170, 235â280) that has **no counterpart in the original** â a spurious element overlapping the line. Confidence: high (both the repositioned label/arrow orientation and the extra on-line stroke are clearly visible at this zoom).
+
+2. **MINOR â Decision line color/weight.** The recreation's line reads as a darker, brownish maroon (~#A03030) and slightly heavier stroke; the original is a brighter red (~#C00000) with a slightly thinner stroke. Confidence: medium (JPEG softening in IMG2 could exaggerate this).
+
+3. **MINOR â Marker sizes.** All nine data markers in IMG1 are rendered noticeably larger (squares ~1.3Ã, diamonds ~1.4Ã, triangles ~1.4Ã the original's on-screen size); colors otherwise match (navy squares, magenta diamonds, red triangles). Confidence: high, but impact is low.
+
+4. **MINOR â Line-end truncation at top-left.** The decision line in IMG2 begins slightly further up-left (~crop 55,190) with a cleaner entry off the plot edge; IMG1's entry (~52,185) is marginally shorter/steeper at the very start. Confidence: low.
+
+## Summary
+All data values, axes, gridlines, and the decision-line path are faithful. The single substantive defect is the '+ve' annotation: the label was repositioned below the line, the small arrow's direction changed from down-left to horizontal, and a non-original thick arrow stroke was added on top of the decision line.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â driven by the MAJOR annotation-geometry mismatch (item 1); correcting the '+ve' placement, arrow orientation, and removing the spurious on-line arrow would bring this to PASS.

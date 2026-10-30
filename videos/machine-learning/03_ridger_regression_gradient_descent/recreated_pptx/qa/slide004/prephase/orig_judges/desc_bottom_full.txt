@@ -1,0 +1,116 @@
+# EXTRACTION â slide004 bottom_full (crop 1680Ã330 px = slide rect x=60..900, y=370..535, 2Ã LANCZOS)
+
+Conversion: slide_x = crop_x/2 + 60, slide_y = crop_y/2 + 370. All measurements below in crop px, with slide-space values in parentheses.
+
+---
+
+## 1. LAYOUT MAP
+
+| Region | Crop px (x, y, w, h) | Slide space (x, y, w, h) |
+|---|---|---|
+| **R1 â top red box fragment** (bottom sliver of a box above the crop) | (768, 0) â (1618, 14), i.e. x 768â1618, y 0â14 | x 444â869, y 370â377 |
+| **R2 â Define box** (rounded-corner-free rectangle, red border, salmon fill) | (38, 42) â (1188, 150) | x 79â654, y 391â445 |
+| **R3 â Define sentence text cluster** (single line, inside R2) | (45, 72) â (1170, 122) | x 82.5â645, y 406â431 |
+| **R4 â Formula box** (rectangle, blue border, pale-yellow fill) | (38, 188) â (852, 303) | x 79â486, y 464â521.5 |
+| **R5 â Loss equation** (single math line, inside R4) | (60, 210) â (775, 270) | x 90â447.5, y 475â505 |
+| **R6 â Pencil/pen icon** (small dark pencil graphic, diagonal, tip pointing down-left; straddles the top border of R4 just left of the word "Loss") | (148, 192) â (195, 232) | x 134â157.5, y 466â486 |
+| **R7 â background** | full crop | full region |
+
+No title, table, or matrix is present in this crop â only the two boxed text regions plus the red sliver at top.
+
+---
+
+## 2. VERBATIM TEXT
+
+Reading order, left to right:
+
+**Define sentence (R3), one line, serif (Times-like):**
+1. "Define" â black #000000, regular, cap-height â 32 crop px (16 slide px)
+2. "Loss" â red #CC0000, **bold**, cap-height â 32 crop px
+3. "function as" â black #000000, regular, cap-height â 32 crop px
+4. "squared distance" â blue/violet #3333CC, regular, cap-height â 32 crop px
+5. "between" â black #000000, regular, cap-height â 32 crop px
+6. "Y with circumflex (hat) accent above, bold, underlined" â black #000000, bold, glyph height â 40 crop px including hat
+7. "and" â black #000000, regular
+8. "Y, bold, underlined" â black #000000, bold
+
+**Loss equation (R5), mixed italic serif / math style:**
+1. "Loss" â dark red #CC0000, **bold italic**, cap-height â 30 crop px
+2. "=" â black, math equals sign
+3. "â" double vertical bar (norm opening) â black, bold strokes
+4. "Y" â bold, underlined
+5. "â" minus sign
+6. "Y with hat" â bold, underlined
+7. "â" double vertical bar (norm closing)
+8. "2 with subscript position" (the â of the 2-norm, dropped below baseline, regular weight)
+9. "=" equals sign
+10. "(" tall thin parenthesis
+11. "Y" bold, underlined
+12. "â" minus
+13. "Y with hat" bold, underlined
+14. ")" tall thin parenthesis
+15. "T as superscript" â black, raised above and right of the closing parenthesis, regular weight, cap-height â 14 crop px
+16. "(" tall thin parenthesis (opening the second factor)
+17. "Y" bold, underlined
+18. "â" minus
+19. "Y with hat" bold, underlined
+20. ")" tall thin parenthesis (closing)
+
+No other text is present.
+
+---
+
+## 3. COLORS (JPEG source, Â±10 tolerance)
+
+| Element | Fill | Border | Text |
+|---|---|---|---|
+| R1 red sliver | solid red #CC0000 (appears as filled red band) | â | â |
+| R2 Define box | light salmon #FBD5C5 (â peach #FCD8C8) | red #CC0000, ~3 crop px stroke | â |
+| R3 sentence | â | â | black #000000; red #CC0000 ("Loss"); blue #3333CC ("squared distance") |
+| R4 Formula box | pale yellow #FFFFCC | blue #0000CC (â #2222BB), ~3 crop px stroke | â |
+| R5 equation | â | â | dark red #CC0000 ("Loss"); black #000000 for all math glyphs |
+| R6 pencil | dark navy/black #1A1A2E body with lighter grey #CCCCCC tip highlight | â | â |
+| R7 background | off-white/light grey #F5F5F5 (slight vignette from JPEG) | â | â |
+
+---
+
+## 4. GEOMETRY MEASUREMENTS
+
+- **R2 Define box**: rectangle x 38â1188, y 42â150 (w 1150, h 108 crop px; slide: 79â654 Ã 391â445, 575Ã54). Border stroke â 3 crop px (1.5 slide px), uniform red. Corners square. Text line vertically centred; text block x 45â1170, so left padding â 7 crop px to "Define" glyph edge but effectively â 15â20 px visual padding; top/bottom padding â 30 crop px each side of the ~50 px text block.
+- **R4 Formula box**: rectangle x 38â852, y 188â303 (w 814, h 115 crop px; slide: 79â486 Ã 464â521.5, 407Ã57.5). Border stroke â 3 crop px, uniform blue. Square corners. Equation block x 60â775, vertically centred (top padding â 22, bottom â 33 crop px).
+- **Vertical gap between R2 bottom (y=150) and R4 top (y=188)**: 38 crop px (19 slide px).
+- **R1 red sliver**: horizontal band, left end at xâ768, right end at xâ1618 (both cut by crop edges at top; the left end at xâ768 is the box's actual bottom-left corner region â a small step/notch visible at x 768â790, y 0â14, consistent with a border corner). Height visible 14 crop px (7 slide px).
+- **R6 pencil**: diagonal, oriented tip-down-left at â 45Â°; overall length â 45 crop px; body dark, tip lighter; centre â (172, 212) crop = (146, 476) slide. It overlaps the R4 top border (border at y=188 crosses the pencil at its upper third).
+- **Text line positions**: Define sentence baseline â y 115 crop (baseline slide y â 427.5); equation baseline â y 262 crop (slide â 501).
+- **Inter-word gaps in Define sentence** (crop px): "Define"â"Loss" â 23; "Loss"â"function" â 27; "as"â"squared" â 22; "distance"â"between" â 25; "between"â"Å¶" â 25; "Å¶"â"and" â 12; "and"â"Y" â 20.
+
+---
+
+## 5. MATH RENDERING
+
+**Loss equation layout (single line, no fractions):**
+
+`Loss = âY â Å¶ââ = (Y â Å¶)áµ (Y â Å¶)`
+
+- **"Loss"**: bold-italic serif, dark red, x 62â155, baseline y â 260. Sits slightly larger than the following math glyphs.
+- **First "="**: x 165â190, centred on baseline, bar thickness â 5 crop px, bar separation â 9.
+- **Norm pair â Â· â**: two double-bar glyphs. Opening â at x 205â228 (two parallel vertical strokes, each â 4 px thick, 6 px apart), extending y 218â268 â full ascender-to-descender height, ~50 crop px tall. Closing â at x 343â366, same height.
+- **Inside the norm**: bold "Y" (x 235â272) with a thin black underline directly beneath at y â 268â271; "â" minus (x 276â298) at mid-height; bold "Å¶" (x 302â338) with circumflex hat above (hat spans x 303â336, apex â y 210) and matching underline beneath at y â 268â271.
+- **Subscript 2**: immediately right of closing â at x 368â382, baseline of the "2" sits at y â 265, i.e. dropped â 18 crop px below the main baseline â classic subscript drop, height â 18 crop px (half of full glyph height). Not bold.
+- **Second "="**: x 400â422, same style as first.
+- **First parenthesised factor (Y â Å¶)áµ**:
+  - "(" tall thin parenthesis x 433â452, spanning y 212â272 (~60 crop px â slightly taller than the norm bars), gently curved.
+  - bold underlined "Y" x 456â490 (underline at y â 268â271); "â" x 494â514; bold underlined "Å¶" x 518â552 with hat above (apex â y 204).
+  - ")" x 554â572, same 60 px vertical extent.
+  - **Superscript T**: placed above-right, tucked against the upper-right of the ")", at x 556â574, y 214â234; cap-height â 16 crop px; raised â 48 crop px above baseline. Slight italic slant.
+- **Second factor (Y â Å¶)**: "(" x 636â654; underlined bold "Y" x 658â692; "â" x 696â716; underlined bold "Å¶" x 720â752 with hat (apex â y 206); ")" x 754â772. Same vertical extent y â 212â272. The gap between the "áµ" and this "(" is â 62 crop px â a visible multiplication space, no explicit Ã symbol.
+- All underlines are ~3 crop px thick, positioned â 6 px below glyph bottoms, and stop â 2 px short of glyph edges on each side.
+- Hats are wide flat-bottomed circumflexes (â 33 crop px wide), sitting â 6 px above the Y cap-height.
+
+---
+
+## CROP-EDGE NOTES
+
+- **R1** (red box sliver, top-right) is cut off by the TOP crop edge at y=0 â only its bottom â14 crop px are visible; its full extent belongs to the region above (y < 370 slide).
+- The **pencil icon (R6)** extends slightly above the R4 box border; its top (yâ192) is fully inside the crop, so it is complete.
+- No element is cut by the left, right, or bottom crop edges; the Define box's right edge (xâ1188) and Formula box's right edge (xâ852) are both fully within the crop.

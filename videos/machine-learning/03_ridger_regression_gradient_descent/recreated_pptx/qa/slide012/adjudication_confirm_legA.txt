@@ -1,0 +1,193 @@
+============================================================================
+SLIDE 012 — S19 PAYLOAD-EXACT CONFIRMATION legA FAIL → PIL ADJUDICATION
+============================================================================
+Confirm judge: judge_attempt_3_confirm.txt (tplA payload byte-exact,
+payload_A_confirm.txt, md5 9387f5fbb94ef05a31db19f1e018dde1) on
+render_regen.png (S12b regen of the certified deliverable, md5
+f481c04973ae93643d113286ecd88a55) vs unique_slides/slide_012.jpg.
+Verdict: FAIL — 5 MAJOR + 1 MINOR. Adjudication: PIL measurements
+(s19_adjudicate_012_confirm.py + s19_confirm_f2f6_012.py, both banked in
+.agent scratch run dir) + certified-lane records in this qa dir.
+Scale render/orig = 2.0844 x 2.0833.
+
+F1  MAJOR "outlier label: recreation X5 vs original X8" — REFUTED
+  The original's label is "X5 is Outlier" in BOTH lower tables; the label/
+  highlight mismatch (label X5, highlighted column X8) is the ORIGINAL's own
+  quirk, which the recreation must copy verbatim.
+  Banked proof:
+  - ORCHESTRATOR_FINDINGS.md finding 1 (certified lane): orchestrator measured
+    the original natively — "Original (BOTH lower tables): 'X5 is Outlier' /
+    'X5 is Outlier' — capital X, digit 5"; ordered the x8->X5 restore.
+  - adjudication_attempt3.txt: render literal 'X5 is Outlier' verified in
+    ppt/slides/slide1.xml x2; original 960x540 glyphs at the per-character
+    noise floor; both certified-lane judges (attempt-2 full-slide + crop)
+    read 'X5' with high confidence.
+  - judge_attempt_3.txt (certified PASS) content-completeness: "side labels
+    read 'X5 is Outlier' while the highlighted cell is X8 (30, then 60)" —
+    the quirk is a verified faithful copy, not a defect.
+  Fresh proof: current deliverable pptx XML still carries 'X5 is Outlier' x2
+  (s19_confirm_f2f6_012.py output). The confirm judge re-made exactly the
+  "semantic correction" the orchestrator finding forbids (X5 contradicts the
+  X8 highlight -> "must be X8"); the frame wins over plausibility.
+  This leg's F1 hole-topology numbers (orig digit holes=2, render holes=5)
+  are noise-floor unreliable (a clean vector "5" fragments into 5 holes at
+  this scale) — not evidence either way.
+
+F2  MAJOR "test-table y-row fill: original light green vs recreation pale
+    yellow/beige" — CONFIRMED (real defect; fix ordered)
+  Per-row fill medians over the test-table value columns (x700..880):
+    ORIGINAL y222..249 (the 60/80/100 row): (203,255,224) — light mint GREEN
+      (solid 28-row band; histogram mode cluster (199..202, 255, 222..226);
+      green-ink census 3438 px, bbox x721..877 y194..250)
+    RENDER   y460..526 render-px (frame-eq y221..252): (255,247,194) — the
+      literal SHADE constant FFF7C2 (yellow-ink census 19153 px)
+  Zero overlap: original yellow px in the whole region = 27 (noise); render
+  green px = 0. Fill span is IDENTICAL in both (x719/721..872/877 = all three
+  value columns; label side and other rows unfilled both sides) — color-only
+  mismatch.
+  How certification missed it: judge_attempt_3.txt content-completeness line
+  "Test-Data y-row 60/80/100 on the pale-yellow band" described the
+  recreation and wrongly implied the original matched; the difference was
+  never adjudicated. The build constant SHADE="FFF7C2" (slide_012.js:34,
+  components/slide_012.js:53) is a mis-measurement: the descendant chain
+  measured the SAME template element correctly — components/slide_013.js:45
+  "TEST_SHADE = CCFFE1 // measured y-row mint fill (203,255,224)" (identical
+  value to this frame's measurement), inherited by 017/018.
+  DISPOSITION: real color-class defect on a filled table row -> fix loop per
+  the amendment. SHADE FFF7C2 -> CCFFE1 in build/slide_012.js +
+  build/components/slide_012.js. CASCADE-NEUTRAL (proven): 013/017/018
+  override every test-table body cell fill explicitly after calling 012's
+  builders (components/slide_013.js:170 "ri === 3 ? TEST_SHADE : WHITE",
+  components/slide_017.js:163, slide_018.js:131 with TEST_SHADE sourced from
+  013, not 012) — 012's SHADE never reaches a descendant render.
+
+F3  MAJOR "Test1/Test3 ink: original dark/black vs recreation red" — REFUTED
+  Hue census per column (headers y130..158, values y162..250):
+    Test1: ORIG red=493 blue=0 dark=1 | REND red=588 blue=0 dark=384
+    Test2: ORIG blue=619 red=1        | REND blue=568 red=0
+    Test3: ORIG red=560 blue=0 dark=1 | REND red=685 blue=0
+  Phase RED/BLUE/RED on BOTH sides — the certified post-fix state
+  (verify_fixes.txt: "render_3 (post-fix): ORIGINAL ['RED','BLUE','RED']
+  RENDER ['RED','BLUE','RED']"). The original's JPEG red is muted
+  (attempt3 cell medians (194,127,135)) and reads "dark" to a vision judge
+  at full-slide scale — the same misread the certified lane's PIL census
+  already corrected once (followup3 finding 3).
+
+F4  MAJOR "training-table headers: recreation red vs original dark/black" —
+    REFUTED
+  Per-column hue census, T1 header row: alternating BLUE/RED ink in BOTH
+  images (orig X1 blue=128, X2 red=125, X3 blue=130, X4 red=129, X5 blue=131,
+  X6 red=132, X7 blue=126; render identical phase), dark=0 in every column on
+  both sides. Matches certified crop_4_perfect_table_judge.txt finding 1
+  ("X2/X4/X6/X8 are red, X1/X3/X5/X7 blue" — same alternating scheme both
+  sides). The confirm judge's "recreation all red / original dark" is
+  contradicted in both halves by pixels.
+
+F5  MAJOR "missing subscript formatting (X1..X8, x1/x2 baseline vs true
+    subscripts)" — observation CONFIRMED, severity REFUTED (accepted MINOR)
+  PIL agrees with the observation: original T1 header digit h=9 at rows
+  14..22 under an X of h=14 rows 7..20 (true subscript drop); render digit
+  h=17 on the same rows as its X h=17 (baseline, full-size).
+  But this exact deviation was raised THREE times during certification and
+  every time rated MINOR and accepted: crop_2_perfect_table_judge.txt
+  finding 2 (MINOR), crop_4_perfect_table_judge.txt finding 2 (MINOR),
+  judge_attempt_3.txt finding 4 ("Format/medium difference. MINOR, high").
+  worker_report.md records the acceptance rationale: the original's 1-digit
+  subscripts are at the 960x540 noise floor, separate subscript runs risk
+  more damage than they fix, and the content (X + digit) is verbatim-identical.
+  The confirm judge's escalation to MAJOR ("violates verbatim text fidelity")
+  re-litigates a closed, banked adjudication. Not a fix trigger.
+
+F6  MINOR "question-box fill: original pale cream vs recreation white" —
+    real but immaterial MINOR, within the certified envelope; no fix
+  Clean interior strips: ORIG (246,247,237)/(249,251,234)/(250,254,229) — a
+  faint warm tint vs REND (255,255,255). Delta ~6-26 levels, far below the
+  materiality bar the certified lane applied to the box's own adjudicated
+  MINORs (12-14px box offset, line-break difference). judge_attempt_3
+  (certified PASS) listed the box's MINORs without any fill finding. Noted;
+  consistent with the no-fix handling of 002/008 MINORs in this run.
+
+============================================================================
+DISPOSITION
+============================================================================
+  F1, F3, F4  REFUTED (pixel + banked-record proof)
+  F5          observation true, accepted MINOR per three banked certified
+              adjudications — not reopened
+  F6          real, immaterial MINOR — noted, no fix
+  F2          CONFIRMED real defect -> FIX LOOP: SHADE FFF7C2 -> CCFFE1
+              (build/slide_012.js, build/components/slide_012.js), rebuild,
+              re-render (render_4.png), house_chrome_check, re-judge BOTH
+              legs (legA byte-exact tplA on render_4 -> new transcript;
+              crop leg on a re-cut perfect-table pair), then DB update.
+  Cascade: none (proven above). The other four S19 slides are unaffected.
+
+═══════════════════════════════════════════════════════════════════════════
+ADDENDUM (S19, 2026-10-25) — legA attempt-4 FAIL dispositions + Fix 2
+═══════════════════════════════════════════════════════════════════════════
+
+Attempt-4 (judge_attempt_4_confirm.txt, on render_4) findings → measured
+dispositions (scripts in pool scratch dir; see also fix2_pil_verify*.txt):
+
+F-N1 "Missing test-table row-label column" (MAJOR) — CONFIRMED REAL.
+  Original has a 4th column at x669..719: empty header cell; labels X1/X2/y.
+  Judge's "x₁/x₂/y" lowercase reading OVERRIDDEN by PIL glyph analysis:
+  cap-height X shapes (glyph 8-9px true height = digit cap height, identical
+  X-structure to the certified training-table labels), ink median (77,78,76)
+  = dark neutral, non-bold (48 ink px vs train bold 65), left-aligned at
+  x677 (=669 border + 7.2px default margin), y-band centers match row centers.
+  Judge's "~188px table at ~x622" OVERRIDDEN by border scan: table spans
+  x669..873 (left border x=669 solid y128..252, top y129 x669..873, verticals
+  x≈719-721/770-771/821-822/871-873, bottom y251 full width) = 4 cols
+  [50,50,51,53]. Judge's "green shading should cover a label cell" REFUTED:
+  original green starts x722; the y-row label cell is white (255,255,251).
+  Header separator at y160 exists under the label column only (original).
+
+F-N2 "X5 is Outlier label error → X8" (MAJOR) — REFUTED again. Digit at
+  x86..91 y330..343 correlates with '5' templates (+0.30/+0.35/+0.17) and
+  ANTI-correlates with '8' (−0.17/−0.15); controls (1,2,3) ≈ 0. Hole-count
+  calibration run (s19_holes_012.py) is INCONCLUSIVE — it fails its own
+  ground truth (known '8' scores 0 holes at every threshold; polarity bug
+  for dark-on-white glyphs) so it cannot overturn the correlation + the
+  banked ORCHESTRATOR_FINDINGS native measurement + the build XML literal
+  'X5 is Outlier' (×2) + the certified PASS judges. Label stays X5.
+F-N3 question-box wrap/fill — certified-accepted MINOR (unchanged).
+F-N4 serif-italic + title color — certified-accepted MINOR (systematic JPEG
+  red muting; orig title ink (163,26,40) vs FF0000).
+F-N5 subscripts — certified-accepted MINOR (3 banked adjudications).
+F-N6 "added arrow" — REFUTED (banked pass-2 red-dominance + fresh identical
+  bbox both sides; red stroke over border at y251 x685..699 with blended
+  edges, arrowhead fringe x677..681 y246-247).
+F-N7 vertical rhythm — REFUTED (gridlines matched at 127/189/265/404/465).
+F-N8 header tinting — self-refuted by the judge itself (LOW).
+
+FIX 2 (label column), applied additively in BOTH
+  build/slide_012.js (inline 4-col table) and
+  build/components/slide_012.js (012's own drawTestBlock — makeTestTable,
+  consumed by 013/017, UNTOUCHED):
+  - table x 719→669, w 154→204, colW [50,51,53]→[50,50,51,53] (value
+    columns keep their absolute positions and widths);
+  - header ["", "Test1", "Test2", "Test3"]; rows X1/X2/y prepended, dark
+    (BLACK) non-bold, align left, valign middle, white fill; mint SHADE
+    guarded to value cells (ci>0);
+  - phase mapping re-anchored: ci0=BLACK, odd ci=RED, even ci=BLUE
+    (Test1/Test2/Test3 stay RED/BLUE/RED).
+  Label glyphs verified in render_6 vs original: X1 cap top 170.9 vs 171;
+  X2 201.6 vs 201; y descender bottom 247.7 vs 247 (Δ≤1px). Interim
+  render_5 (valign top state) banked as evidence with fix2_pil_verify.txt.
+
+Verification of Fix 2 (render_6, md5 141bd6af-lineage):
+  - house_chrome_check.py PASS;
+  - value-column verticals byte-identical r4-vs-r6 at x≈719.5/770/821.5/872;
+    value digits "50"/"15" byte-identical positions;
+  - perfect-table crop region [423..1190, 250..542] render px ZERO-DIFF
+    → the banked crop-pair certificate carries over unchanged;
+  - r6-vs-r4 diff confined to the test-table region (label strip new ink +
+    ~1px AA phase wobble on value-column border edges; 28330 px of a
+    425×260 region, no geometry moved).
+
+md5 chain: pre-fix d7312b78233c990d1e0937a91fa1edc1 (banked as
+  slide_012_recreated_prefix2.pptx) → 4-col build 3d1361064db14f8b671beb0167e8dc01
+  (render_5) → valign-middle 886a3536228f0fc7b65ff6cf57bd83ff (render_6,
+  current deliverable).
+Attempt-5 legA judge (frozen payload_A, md5 9387f5fbb94ef05a31db19f1e018dde1)
+  on render_6 → judge_attempt_5_confirm.txt (next section).

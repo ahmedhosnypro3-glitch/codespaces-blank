@@ -1,0 +1,39 @@
+# Slide 041 paren-curve region â crop-pair audit
+
+## Scope check (per ground rules)
+Both images cover the same crop-relative region: six labeled column vectors (xââ¦xâ) across the left two-thirds, "Initial W =" plus the tall 3Ã1 vector (4, â2, â2) at right, red italic "Step" at the far right edge, and the top sliver of a red/blue color-legend row cut off at the bottom. Both crops are cut at the same height, so the truncated legend glyphs at the bottom edge are crop artifacts in BOTH images and are not scored. Chrome (top blue hairline, cream background) is identical in both and not scored. Typed-vs-handwritten ink (rule c) and the professional 2D matrix layout (rule d) are not discrepancies.
+
+## Cell-by-cell / value-by-value verification
+
+**Column vectors (left half, crop-relative x â 10â280):**
+- xâ = (1, 1) â â values match, order correct
+- xâ = (2, 1) â
+- xâ = (1, 2) â
+- xâ = (5, 4) â
+ = (6, 5) â
+- xâ = (6, 6) â
+
+All six labels xââ¦xâ present, correct order, correct subscripts. No wrong, swapped, or missing digits anywhere.
+
+**W matrix (right, crop-relative x â 385â610):**
+- "Initial W =" text present â
+- Tall enclosing paren pair spans all three rows (rows at y â 35, 65, 100; parens run y â 8â120) without touching any glyph â
+- Entries top-to-bottom: 4, â2, â2 â â matches IMG2 exactly; no truncated minus signs
+
+**"Step" label (far right edge):** present, red, italic, cut at edge identically in both â
+
+**Bottom legend sliver:** partial red glyphs under the vector columns, then C/positive and C/negative â both cut mid-glyph at the same line in both crops; not scoreable, not a discrepancy.
+
+## Discrepancies found
+
+1. **MINOR â "W" weight/style** (crop x â 465): IMG2 renders W bold (matches its bold "Initial"); IMG1's W is regular weight and slightly more upright. Confidence: high that the difference exists; low impact.
+2. **MINOR â minus sign glyph** (crop x â 537, rows 2â3 of W): IMG1 uses a short hyphen-style "-2"; IMG2 uses a proper-length minus "â2" in the matrix. Same value, slightly different glyph geometry. Confidence: high.
+3. **MINOR â x-label letterform** (crop x â 10â280): IMG2's xââ¦xâ are italic serif-style with slightly larger subscripts; IMG1's are a touch bolder/more upright with smaller, lower-set subscripts. Labels remain unambiguous. Confidence: medium.
+4. **MINOR â column-vector paren curvature** (across x â 10â280): IMG1's small enclosing parens are very slightly narrower/more vertical in the bowl than IMG2's rounder curves. Both fully span their two rows with clear clearance above and below â no touching, no truncation. Confidence: medium.
+
+No BLOCKER or MAJOR defects: every numeric value, subscript, delimiter span, and label verified correct; nothing garbled, missing, swapped, or truncated that isn't a shared crop artifact.
+
+## Final assessment
+The recreation reproduces this region faithfully at zoom scale: all twelve vector entries correct, W matrix (4, â2, â2) correct with properly spanning delimiters, labels and legend position correct. Remaining differences are typographic fine-points (glyph weight, minus length, letterform style) that do not affect content or usability.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

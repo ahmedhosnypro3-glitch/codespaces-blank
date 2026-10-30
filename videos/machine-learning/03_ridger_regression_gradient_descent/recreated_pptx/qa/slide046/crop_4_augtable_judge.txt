@@ -1,0 +1,34 @@
+# Judge transcript — slide 046, attempt 4, region augtable (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 07:00
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_augtable_orig.png    md5=efe614644375baff2d70ab974e7125f2
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_augtable_render.png  md5=66e0504b49b329ca9b0566e16c390bf9
+- region (frame px, +padding): x62..254, y133..262 — the augmented-vectors box: title, x1..x6 header, six 3-value parenthesised columns, class row
+- scale audit: render crop 400x269 px for 192x129 frame px = 2.0833 / 2.0853; original resized LANCZOS to 400x269 = 2.0833 / 2.0853 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes; crop pair re-cut from this render, bytes identical to the pre-fix render for this region)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR, same region/effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten at most MINOR.
+(d) Professional 2D equation rendering is mandatory.
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison (crop-relative)
+- Box: white field with a thin light gray-blue border at the same coordinates in BOTH (frame x69..246, y140..255). MATCH.
+- Title: "Ugmented Vectors ( from Top )" — same words (spelling "Ugmented" preserved verbatim), same blue-violet bold italic, single line, centred on the same axis (render ink x82.0..236.0 frame px vs frame 82..236 — exact). MATCH.
+- Header row: six italic x1..x6 labels at the same six column centres, same order. MATCH.
+- Column 1 (1,1,1), column 2 (1,2,1), column 3 (1,1,2), column 4 (1,5,4), column 5 (1,6,5), column 6 (1,6,6) — EVERY value matches the frame, row by row (PIL digit rows 182-189 / 198-205 / 214-221 vs frame 184-192 / 199-207 / 214-222, Δ≤2 px). MATCH.
+- Delimiters: each column's paren pair spans ALL THREE value rows and clears the digits horizontally; stretched-paren curvature matches the original's style. MATCH (selfcheck: digit x 96.1..100.0 vs parens 91.4/103.9 for column 1; same for all six).
+- Class row: C1 C1 C1 in red (left three), C2 C2 C2 in blue (right three) — same colours as the ORIGINAL (the analysis JSON's C1-blue/C2-red is the swapped version and is NOT reproduced). MATCH.
+- Vertical centring: values sit centred between paren tops/bottoms in BOTH.
+- No garbled or missing glyph; no clipped paren.
+
+## Discrepancies
+1. MINOR (font style) serif math glyphs in the original vs the deck's Arial/DejaVu mechanism in the render — same characters, same sizes ±1.5 px, same positions; deck-consistent (all 17 certified deck-03 slides). DISMISSED (deck mechanism precedent + measured extents).
+2. MINOR (header weight) the render's x1..x6 header reads slightly lighter/smaller than the original's serif italic; PIL ink extents 92.6..214.9 x 165..179.5 vs frame 97..211 x 166..175 (Δ≤4.5 px on an 8-9 px glyph). DISMISSED (measurement; content identical).
+3. MINOR (title tracking) render title is ~2 px wider per side than the original at the same 154 px ink width — rendering/crispness only. DISMISSED (measurement).
+
+No BLOCKER, no MAJOR: all six columns, all eighteen values, the title, header and class row are present and correct.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

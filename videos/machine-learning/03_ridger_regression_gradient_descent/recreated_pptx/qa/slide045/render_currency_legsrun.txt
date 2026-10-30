@@ -1,0 +1,38 @@
+RENDER CURRENCY RE-VERIFICATION (slide 045, worker-fresh-045-legs run, 2026-10-24 06:59 UTC)
+==========================================================================================
+NOTE ON NOMENCLATURE: the task brief for this run referenced `render_6.png` and a
+root-level `qa/slide045/worker_report.md`. NEITHER EXISTS for slide 045 — `render_6.png`
+is slide 047's banked render. The authoritative, currency-correct render for slide 045 is
+`render_1.png` (md5 re-verified below, and md5-identical to a fresh LibreOffice render of
+the on-disk pptx). The banked worker report lives at
+`recreated_pptx/qa/slide045/worker_report.md` (this deck's own tree). Used render_1.png.
+
+Question: does the banked render correspond to the CURRENT recreated_pptx/slide_045_recreated.pptx?
+
+Method (independent of the prior lane, re-run in this worker):
+  1. cp the on-disk pptx to scratch/tmp/045legs/
+  2. libreoffice --headless --convert-to pdf    (TMPDIR=project scratch/tmp)
+  3. pdftoppm -r 150 -png                       -> fresh-1.png
+  4. md5 compare against the banked render + the prior lane's verify2/r150-1.png
+
+Result:
+  scratch/tmp/045legs/slide_045_recreated.pdf   80110 B  (== verify2/ pdf size)
+  scratch/tmp/045legs/fresh-1.png             169129 B
+
+  md5(fresh-1.png)         = c41a7a11c8f8976bbfc31cadef99c0b1
+  md5(render_1.png)        = c41a7a11c8f8976bbfc31cadef99c0b1
+  md5(verify2/r150-1.png)  = c41a7a11c8f8976bbfc31cadef99c0b1
+  => ALL THREE IDENTICAL. render_1.png IS the render of the current pptx.
+     The LO -> PDF -> 150dpi pipeline is deterministic for this build (3/3 reproducible).
+
+Also verified this run:
+  - build currency: md5(recreated_pptx/build/slide_045.js) ==
+    md5(recreated_pptx/qa/slide045/build_attempt_2.js) == 9ca5e8eb04cbd3ccd3442888104f63d8
+  - house chrome check on render_1.png: HOUSE CHROME CHECK: PASS
+    (panel x112-1882 y94-bottom; strokes L/R/bottom present, top bare;
+     badge center (1824,152) d=68 — i.e. (876,73) d~35 frame px; all within tol 8)
+  - original frame: unique_slides/slide_045.jpg, 960x540 RGB
+  - render: 2001x1125 RGB, scale = 2001/960 = 1125/540 = 2.083333 px/frame-px
+
+No re-render and no rebuild required: all inputs are current. The two judge legs are
+the only outstanding work.

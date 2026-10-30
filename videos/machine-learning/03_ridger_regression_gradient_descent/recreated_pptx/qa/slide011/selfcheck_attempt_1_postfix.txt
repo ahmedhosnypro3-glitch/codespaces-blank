@@ -1,0 +1,113 @@
+== 1. house chrome (delegated checker) ==
+   HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present, top bare; badge center (1824,152) d=68; all within tol 8)
+  OK   house_chrome_check.py PASS
+
+== 2. CONTENT ROW GROUPS (frame px) ==
+   original: [(np.float64(230.0), np.float64(264.0)), (np.float64(301.0), np.float64(329.0)), (np.float64(342.0), np.float64(359.0))]  (cursor band excluded: [(np.float64(342.0), np.float64(359.0))])
+   render:   [(np.float64(231.8), np.float64(263.5)), (np.float64(301.9), np.float64(330.2))]
+  OK   exactly 2 content text bands (title, subtitle) — no phantom/extra bands
+   band 0: orig rows 230.0-264.0 | render rows 231.8-263.5 (delta top +1.8, bottom -0.5)
+   band 1: orig rows 301.0-329.0 | render rows 301.9-330.2 (delta top +0.9, bottom +1.2)
+
+== 3. TITLE ink bbox (orig: x 112..817, y 230..264) ==
+   render: x 113.3-814.6  y 231.8-263.5
+  OK   title L 113.3 vs 112 (tol 4.0)
+  OK   title R 814.6 vs 817 (tol 4.0)
+  OK   title T (cap top) 231.8 vs 232 (tol 6.0)
+  OK   title B (descender) 263.5 vs 263 (tol 6.0)
+
+== 4. SUBTITLE ink bbox (orig: x 243..683, y 301..329) ==
+   render: x 245.8-681.1  y 301.9-330.2
+  OK   sub L 245.8 vs 243 (tol 4.0)
+  OK   sub R 681.1 vs 683 (tol 4.0)
+  OK   sub T (cap top) 301.9 vs 302 (tol 4.0)
+  OK   sub B (descender) 330.2 vs 328 (tol 4.0)
+
+== 5. UNDERLINE of 'outlier' (orig: solid band rows 258-261, x 595..698) ==
+   original per-row red px (bar x-span 595..698, 104 px wide):
+      row 252:  69/104
+      row 253:  76/104
+      row 254:  75/104
+      row 255:  74/104
+      row 256:  63/104
+      row 257:  52/104
+      row 258: 103/104
+      row 259: 104/104
+      row 260: 104/104
+      row 261: 102/104
+      row 262:   0/104
+      row 263:   0/104
+      row 264:   0/104
+      row 265:   0/104
+   render per-row red px (same x-span):
+      render row 525 (frame y 252.00): 112/217
+      render row 526 (frame y 252.48): 117/217
+      render row 527 (frame y 252.96): 132/217
+      render row 528 (frame y 253.44): 142/217
+      render row 529 (frame y 253.92): 137/217
+      render row 530 (frame y 254.40): 136/217
+      render row 531 (frame y 254.88): 129/217
+      render row 532 (frame y 255.36): 122/217
+      render row 533 (frame y 255.84): 113/217
+      render row 534 (frame y 256.32): 101/217
+      render row 535 (frame y 256.80):  37/217
+      render row 536 (frame y 257.28):   0/217
+      render row 537 (frame y 257.76): 216/217
+      render row 538 (frame y 258.24): 217/217
+      render row 539 (frame y 258.72): 217/217
+      render row 540 (frame y 259.20): 217/217
+      render row 541 (frame y 259.68): 217/217
+      render row 542 (frame y 260.16): 217/217
+      render row 543 (frame y 260.64): 217/217
+      render row 544 (frame y 261.12): 217/217
+      render row 545 (frame y 261.60): 217/217
+      render row 546 (frame y 262.08):   0/217
+      render row 547 (frame y 262.56):   0/217
+      render row 548 (frame y 263.04):   0/217
+      render row 549 (frame y 263.52):   0/217
+      render row 550 (frame y 264.00):   0/217
+      render row 551 (frame y 264.48):   0/217
+      render row 552 (frame y 264.96):   0/217
+      render row 553 (frame y 265.44):   0/217
+   ORIGINAL band rows 258-261 (center 260.0, thickness 4)
+   RENDER   band rows 537-545 (frame y 257.76-262.08, center 259.92, thickness 4.32), x 594.7-698.9 (orig 595.0-699.0)
+  OK   ul L 594.7 vs 595 (tol 4.0)
+  OK   ul R 698.9 vs 699 (tol 4.0)
+  OK   ul band center 259.9 vs 260.0 (tol 4.0)
+  OK   ul thickness 4.3 vs 4 (tol 2.0)
+  OK   underline band below the title baseline (top 257.76 >= 256)
+  OK   underline spans only the 'outlier' word (594.7-698.9 within 595-699)
+   band ink density: orig 0.993 | render 0.999 (render is crisp, orig JPEG-blurred)
+  OK   band density within 0.25 (0.999 vs 0.993)
+
+== 6. BADGE numeral '11' ==
+   numeral ink 334 px, extent 14.4x13.0 frame px, center (875.1,73.7)
+  OK   numeral ink present (334 px)
+  OK   numeral centered horizontally (875.1 vs 876)
+  OK   numeral centered vertically (73.7 vs 73)
+  OK   numeral fits the 35px disc (14.4x13.0)
+   numeral ink column span 20..49 render px, internal column gaps: 1
+  OK   numeral renders as a glyph pair with 1 internal gap(s) ('11')
+
+== 7. FRAME CONTAINMENT (strokes L x58.5 / R x901 / panel top y45 / bottom y538.5) ==
+   content ink bbox (frame px): x 113.3-814.6  y 231.8-330.2
+  OK   no content ink at/left of the left stroke (L=113.3)
+  OK   no content ink at/right of the right stroke (R=814.6)
+  OK   content ink starts below the panel top (T=231.8)
+  OK   content ink clears the bottom stroke (B=330.2)
+   clearance: 54.8 left | 86.4 right | 186.8 top | 208.3 bottom (frame px)
+
+== 8. CURSOR REGION clean (orig rows 342-359, x 324-339 = mouse cursor) ==
+   non-bg px in cursor region: 0
+  OK   cursor region clean (0 px) — artifact omitted
+
+== 9. EMPTY REGIONS (must equal the original's empty bands) ==
+   inter-title gap (frame rows 266-300, x 70-890): 0 non-bg px
+  OK   inter-title gap (frame rows 266-300, x 70-890) empty (0 px)
+   below subtitle (frame rows 332-536, x 70-890): 0 non-bg px
+  OK   below subtitle (frame rows 332-536, x 70-890) empty (0 px)
+   above title (frame rows 200-228, x 70-840): 0 non-bg px
+  OK   above title (frame rows 200-228, x 70-840) empty (0 px)
+
+================ SELF-CHECK SUMMARY (checker v4 post-underline-fix) ================
+30 checks OK, 0 FAIL

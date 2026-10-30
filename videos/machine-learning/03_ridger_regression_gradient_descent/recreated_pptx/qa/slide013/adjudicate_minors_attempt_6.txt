@@ -1,0 +1,17 @@
+Finding 1 — table glyph metrics, COMMON threshold max(rgb)<205
+test '30' band1: orig 18.0x13.0 (x736.0..753.0 y168.0..180.0) | render 18.8x13.5 (x735.8..753.5 y168.7..181.2) | dw=+0.8 dh=+0.5
+test '100' band1: orig 26.0x14.0 (x834.0..859.0 y229.0..242.0) | render 28.8x14.4 (x833.0..860.9 y229.7..243.1) | dw=+2.8 dh=+0.4
+train hdr 'X2': orig 26.0x26.0 (x174.0..199.0 y128.0..153.0) | render 19.2x13.5 (x181.7..199.9 y135.2..147.7) | dw=-6.8 dh=-12.5
+train cell '16' (X2 row): orig 41.0x22.0 (x296.0..336.0 y158.0..179.0) | render 9.2x14.0 (x312.3..320.5 y165.7..178.6) | dw=-31.8 dh=-8.0
+  cell overflow check (render): '100' cell x822..872 -> ink (np.float64(833.04), np.float64(229.68), np.float64(860.88), np.float64(243.12)) inside
+  digit HEIGHT delta above is the metric that drives line fit; width delta is
+  Liberation Serif Bold (metric-compatible TNR substitute) advance, <=3.5 frame px.
+
+Finding 2 — W-box border stroke weight (dark-red run length across the left edge at y190)
+  original left border run: 1.0px | render: 0.0px
+
+Finding 3 — arrow outline weight (blue run length across the top shaft stroke at x475)
+  original top shaft stroke: 3.0px | render: 1.9px
+
+Finding 4 — ellipse text extents (band2, olive mask)
+ellipse text band2: orig 102.0x31.0 (x516.0..617.0 y355.0..385.0) | render 97.5x22.6 (x518.4..614.9 y358.4..380.0) | dw=-4.5 dh=-8.4

@@ -1,0 +1,27 @@
+analyze_image.py process count: 9
+    PID ELAPSED STAT     TIME %CPU WCHAN  COMMAND
+  pid=548446 elapsed=274s stat=S< cputime=00:00:00 cpu=0.0% wchan=do_wai view=lide 021 recreation attempt 10 — fidelity check vs original lecture fr
+  pid=548448 elapsed=274s stat=S< cputime=00:00:00 cpu=0.0% wchan=sigsus view=lide 021 recreation attempt 10 — fidelity check vs original lecture fr
+  pid=548449 elapsed=274s stat=S<l cputime=00:00:00 cpu=0.2% wchan=futex_ view=lide 021 recreation attempt 10 — fidelity check vs original lecture fr
+  pid=551125 elapsed=151s stat=S< cputime=00:00:00 cpu=0.0% wchan=do_wai view=lide 016 zoomed crop missing_band — render vs original at matched scal
+  pid=551129 elapsed=151s stat=S< cputime=00:00:00 cpu=0.0% wchan=sigsus view=lide 016 zoomed crop missing_band — render vs original at matched scal
+  pid=551130 elapsed=151s stat=S<l cputime=00:00:00 cpu=0.3% wchan=futex_ view=lide 016 zoomed crop missing_band — render vs original at matched scal
+  pid=551935 elapsed=92s stat=S<s cputime=00:00:00 cpu=0.0% wchan=do_wai view=
+  pid=551990 elapsed=89s stat=S<s cputime=00:00:00 cpu=0.0% wchan=do_wai view=
+  pid=552663 elapsed=39s stat=S<s cputime=00:00:00 cpu=0.0% wchan=do_wai view=
+processes at <1% CPU: 9 / 9
+TEXT-LEG probe (13-token 'say OK'): HTTP 200 in 0.5s
+  body head: b'{"id":"bfefd80987dd0e41","choices":[{"index":0,"message":{"content":null,"refusal":null,"role":"assistant","reasoning_co'
+
+=== DIRECT ROUTER IMAGE-LEG MEASUREMENT (same window) ===
+payload: crop_3_eqstack_orig.png (small crop, ~1MP) + "describe in 5 words", max_tokens 30, non-stream
+  model images (analyzer's DEFAULT_MODELS)          : HTTP 200 in 32.9s
+  model nemotron-3.5-super-vl-120b-a12b (direct VL) : HTTP 200 in 1.7s
+  text leg, 13-token "say OK"                       : HTTP 200 in 0.5s (also measured 31.6s in the earlier window)
+
+ANALYZER DEFAULT_MODELS = ["images"]  (analyze_image.py:30-31) — races ONLY the images route.
+
+CONCLUSION: router alive and serving; the `images` virtual route is ~19x slower than the direct
+VL route and ~65x slower than text. A full-frame (2001x1125) analysis on that route cannot
+finish inside the probe's `timeout 150` wrapper. Two probe dispatches (043_probe3.sh,
+043_probe3b.sh) each hit EXIT_PROBE=124 with ZERO output and no transcript.

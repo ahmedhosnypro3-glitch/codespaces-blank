@@ -1,0 +1,27 @@
+## Q1 — blue key-term runs (L2/L1 regularization)
+   Original's blue-run bboxes (frame px): b3b x254..390 y357..374;
+   b4b x254..390 y434..447 (from the banked line inventory).
+  render_1  b3b 'L2 regularization'    blue px=0
+  render_1  b4b 'L1 regularization'    blue px=0
+  render_2  b3b 'L2 regularization'    blue px=  2526 (of 10188)  x=534..799 (frame px)  mean RGB of blue px=(55,55,255)
+  render_2  b4b 'L1 regularization'    blue px=  1876 (of 7641)  x=534..797 (frame px)  mean RGB of blue px=(55,55,255)
+  render_3  b3b 'L2 regularization'    blue px=  2526 (of 10188)  x=534..799 (frame px)  mean RGB of blue px=(55,55,255)
+  render_3  b4b 'L1 regularization'    blue px=  1876 (of 7641)  x=534..797 (frame px)  mean RGB of blue px=(55,55,255)
+  ORIGINAL  b3b 'L2 regularization'    blue px=  1170 (of 2312) x=254..389
+  ORIGINAL  b4b 'L1 regularization'    blue px=   973 (of 1768) x=254..389
+
+## Q2 — ink beyond the inner box right edge x833, band y495..531
+   (render_1's banked overrun: black underline x675..877 at y~505 crossing x830)
+  render_1  ink px in x834..898, y495..530 = 270
+            bbox y=505..507 x=834..923 (frame px)
+  render_2  ink px in x834..898, y495..530 = 75
+            bbox y=495..569 x=834..834 (frame px)
+  render_3  ink px in x834..898, y495..530 = 75
+            bbox y=495..569 x=834..834 (frame px)
+  ORIGINAL  ink px in x834..898, y495..530 = 0
+
+   wide dark runs in the same band, full width (which element crosses x833?):
+  render_1  x84..876
+  render_2  x108..163, x170..192
+  render_3  x108..163, x170..192
+  ORIGINAL  x109..163, x445..640, x710..807

@@ -1,0 +1,31 @@
+rowA words (band y143..157):
+   [1]       x 146.. 166 w= 21
+   Start     x 173.. 208 w= 36
+   with      x 214.. 246 w= 33
+   initial   x 254.. 296 w= 43
+   Random    x 304.. 366 w= 63
+   Weights   x 372.. 433 w= 62
+   (W)       x 440.. 469 w= 30
+expected: [1] Start with initial Random Weights (W)
+
+=== per-word density (rows 148..157, x-height) ===
+   [1]       x 146.. 166 w= 21  [0.305, 0.386, 0.614]
+   Start     x 173.. 208 w= 36  [0.283, 0.403, 0.722]
+   with      x 214.. 246 w= 33  [0.276, 0.421, 0.73]
+   initial   x 254.. 296 w= 43  [0.314, 0.419, 0.767]
+   Random    x 304.. 366 w= 63  [0.327, 0.462, 0.787]
+   Weights   x 372.. 433 w= 62  [0.271, 0.416, 0.726]
+   (W)       x 440.. 469 w= 30  [0.233, 0.343, 0.56]
+
+=== same-letter rulers (ORIGINAL rowA): 't' in 'with'(REG) vs 't' in 'Weights'; 'i' in 'initial'(REG) vs 'i' in 'Weights'; 'n' in 'initial' vs 'n' in 'Random'; 's' in 'Start' vs 's' in 'Weights' ===
+   'with' (REG)   stems(w<=5): [(234, 236, 3), (240, 241, 2), (243, 246, 4), (254, 255, 2), (259, 259, 1)]
+   'initial' (REG) stems(w<=5): [(263, 265, 3), (269, 270, 2), (274, 276, 3), (280, 281, 2), (284, 287, 4), (289, 290, 2), (294, 295, 2)]
+   'Random'       stems(w<=5): [(304, 306, 3), (325, 326, 2), (328, 331, 4), (334, 338, 5), (340, 341, 2), (344, 346, 3), (349, 351, 3), (362, 365, 4)]
+   'Weights'      stems(w<=5): [(399, 400, 2), (423, 425, 3)]
+   '(W)'          stems(w<=5): [(440, 442, 3), (460, 461, 2), (467, 468, 2)]
+
+=== RENDER_8 cross-check: its own same-line ruler (regular prefix, bold 'Random Weights (W)') ===
+   'with' (REG)             [(232, 234, 3), (268, 269, 2)]
+   'initial'(REG)           [(263, 264, 2), (281, 282, 2), (308, 310, 3)]
+   'Random' (BOLD in ren8)  [(304, 306, 3)]
+   'Weights' (BOLD in ren8) [(420, 423, 4)]

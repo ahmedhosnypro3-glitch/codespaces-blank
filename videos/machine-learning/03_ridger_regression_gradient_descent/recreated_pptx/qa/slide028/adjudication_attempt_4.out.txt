@@ -1,0 +1,47 @@
+=== D2: axis / arrowhead colour ===
+  ORIG: red chart px=555 bbox frame x154-779 y209-446
+  REND: red chart px=6015 bbox frame x153-780 y206-446
+  ORIG y-axis shaft colour x157 y300: (np.int64(128), np.int64(86), np.int64(90))  x510 y300: (np.int64(126), np.int64(63), np.int64(72))
+  ORIG up-arrowhead  y215 x158    : (np.int64(170), np.int64(33), np.int64(59))
+  REND y-axis shaft colour x157 y300: (np.int64(223), np.int64(126), np.int64(126))  x510 y300: (np.int64(192), np.int64(0), np.int64(0))
+  REND up-arrowhead  y214 x158      : (np.int64(192), np.int64(0), np.int64(0))
+  -> both axes red-dominant: OK
+
+=== D3: extra black pointer at the left valley ===
+  ORIG dark ink in the pointer footprint x250..272 y425..449: 7 px
+  REND dark ink in the pointer footprint x250..272 y425..449: 0 px
+  -> pointer removed (orig 7 px, render 0 px): OK
+  (wider x225..286 y415..460 zone: orig 13 px, render 72 px — the render's extra ink is the 'Value of weight' label text at x277..285 y455..461, which is legitimate and NOT the pointer)
+
+=== D1: right-panel oscillation (4 large dots crossing the valley) ===
+  ORIG right-panel blue px=480  marker groups=5
+      x557-564 y309-322 centre=(560,316)
+      x589-596 y197-401 centre=(592,299)
+      x612-612 y197-430 centre=(612,314)
+      x679-687 y198-359 centre=(683,278)
+      x706-714 y195-456 centre=(710,326)
+  REND right-panel blue px=3793  marker groups=10
+      x481-481 y127-127 centre=(481,127)
+      x514-529 y127-241 centre=(522,184)
+      x614-616 y127-186 centre=(615,156)
+      x620-620 y127-192 centre=(620,159)
+      x625-625 y127-127 centre=(625,127)
+      x643-643 y127-127 centre=(643,127)
+      x649-649 y127-190 centre=(649,158)
+      x693-693 y127-127 centre=(693,127)
+      x708-711 y127-192 centre=(710,159)
+      x728-736 y127-241 centre=(732,184)
+  render right-panel dots from build_attempt_4.js:
+    [(536,300),(563,313),(647,345),(590,394),(706,322)]  vertex x=628
+  -> dots bracket the valley on BOTH sides (oscillation, not a single U): OK
+
+=== supporting: white chart interior, dark horizontal Loss labels ===
+  render chart interior white fraction: 0.979  (original: 0.941)
+  ORIG left Loss   ink px= 225 mean=(np.float64(167.0), np.float64(169.0), np.float64(166.0)) red-dominant=False
+  REND left Loss   ink px= 231 mean=(np.float64(128.0), np.float64(128.0), np.float64(128.0)) red-dominant=False
+  ORIG right Loss  ink px= 229 mean=(np.float64(167.0), np.float64(169.0), np.float64(166.0)) red-dominant=False
+  REND right Loss  ink px= 234 mean=(np.float64(130.0), np.float64(130.0), np.float64(130.0)) red-dominant=False
+  -> Loss labels must be dark (NOT red) in both images
+
+=== RESULT ===
+ALL THREE DIAGNOSED DEFECTS CLOSED (D1 oscillation, D2 red axes, D3 pointer removed)

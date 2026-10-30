@@ -1,0 +1,28 @@
+# Crop-pair ink-alignment check (Procedure B step 3 + step 6)
+# Proves render crop and orig crop cover the SAME slide-space region,
+# so any judge drift finding is real, not a scale artifact.
+# ink = |L - median| > 25 ; bg = channel median
+--- title ---
+  render: size=(811, 1298) bg=233 ink_bbox=(6,368)-(1286,530) inkpx=51089
+  orig: size=(811, 1298) bg=232 ink_bbox=(0,361)-(1297,533) inkpx=71016
+  ink-centroid delta render-orig: dx=-2.5px dy=+2.0px
+  => -1.20 x +0.96 frame px
+--- subtitle ---
+  render: size=(638, 1022) bg=233 ink_bbox=(0,191)-(1020,353) inkpx=44185
+  orig: size=(638, 1022) bg=232 ink_bbox=(0,184)-(1021,356) inkpx=62067
+  ink-centroid delta render-orig: dx=-0.5px dy=+2.0px
+  => -0.24 x +0.96 frame px
+--- textblock ---
+  render: size=(196, 1332) bg=233 ink_bbox=(23,20)-(1303,182) inkpx=51089
+  orig: size=(196, 1332) bg=232 ink_bbox=(16,13)-(1315,185) inkpx=71234
+  ink-centroid delta render-orig: dx=-2.5px dy=+2.0px
+  => -1.20 x +0.96 frame px
+--- badge ---
+  render: size=(84, 84) bg=233 ink_bbox=(2,3)-(79,80) inkpx=1409
+  orig: size=(84, 84) bg=241 ink_bbox=(0,4)-(83,83) inkpx=1807
+  ink-centroid delta render-orig: dx=-1.0px dy=-2.0px
+  => -0.48 x -0.96 frame px
+# note: orig ink spans full crop width on title/subtitle because the region
+# includes the house panel's left/right red strokes at x~58.5 / x~901 (house
+# chrome, exempt per ground rules). render ink is thinner (typed vs the
+# original's marker strokes) - inherent medium difference, at most MINOR.

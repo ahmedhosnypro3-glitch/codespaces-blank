@@ -1,0 +1,100 @@
+# Judge transcript — slide 028, attempt 8 (full-slide)
+- date: 2026-10-24 07:05
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_028.jpg  md5=29086867162d619f10e9db9ac3a58d2b
+- IMG_RENDER:   recreated_pptx/qa/slide028/render_8.png  md5=13c175d4dc6637f63d2b4f4a7acab8a0
+- PPTX UNDER TEST: recreated_pptx/slide_028_recreated.pptx  md5=cba49e51d031a37a9d8f003bbfee95a5
+  (LO render of that exact file, private profile; 2001x1125)
+- GM: render_H/540 = 2.0844
+- read order: IMG_ORIGINAL first, then IMG_RENDER (protocol §7)
+
+## Ground rules acknowledged
+(a) House chrome for THIS deck is intentional and never a discrepancy: white canvas;
+    gray E9E9E7 panel x54..903 y45..540; thin dark-red C00000 1pt strokes on LEFT
+    (x58.5), RIGHT (x901) and BOTTOM (y538.5) only — NO top stroke (its absence is
+    correct, its presence would be a defect); yellow badge circle centred (876,73)
+    d~35, fill FDFD96, purple ring 6A5ACD, bold numeral 333333 = the file number 28.
+(b) Contentless placeholder match — n/a (the original is a full content slide).
+(c) Mouse-cursor / video-capture artifacts in the original are CORRECTLY omitted.
+    The small black pointer near the left valley bottom of the original (footprint
+    x250..272 y425..449, 13 dark px) is the presenter's cursor and is omitted.
+(d) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR.
+(e) Equations in professional 2D format — n/a (this slide carries no equation).
+(f) The verdict is about fidelity of renderable content only.
+
+## Comparison (element by element)
+
+- TITLE "Effect of small and large Learning Rate" — verbatim, single line, bold, dark
+  red; measured ink bbox render x186..691 y73..101 vs original x189..690 y72..101
+  (max edge delta 3px); colour core (160,0,16) identical to the original's measured
+  header core; bold serif face now matches the original's serif (attempt 7 was Arial
+  bold #FF0000, ink x251..709 w=459 — a real mismatch, FIXED this attempt). MATCH.
+- BADGE — house chrome, numeral 28 (chrome check PASS). MATCH (chrome).
+- CHART FRAME — 1F4E79 outline, white interior; render bbox x90..858 y127..508 equals
+  the original's measured box exactly. MATCH.
+- HEADINGS "Small Learning Rate" / "Large Learning Rate" — verbatim, bold, near-black;
+  left ink render x239..372 y187..200 vs original x239..374 y187..200; right centre
+  655 vs measured 655.5. MATCH.
+- LEFT PANEL AXES — red L-axes at the measured geometry (y-axis x157.5 y221..444 with
+  up head; x-axis y441.5 x157..428 with right head); arrowhead extents 10x13 px vs the
+  original's measured 10x10. MATCH (arrowhead style see D2).
+- LEFT "Loss" — dark, horizontal, left of the y-axis; render ink x119..155 y216..228 vs
+  original x122..154 y216..230. MATCH (see D4).
+- LEFT CURVE — one analytic quartic, endpoints (161,236)/(383,249) vs the original's
+  measured (160,236)/(383,250); valley x275 y438.6 vs measured x275 y439; stroke core
+  2.4-2.9 frame px vs the original's measured 3-5 (this attempt widened 1pt -> 2.5pt;
+  attempt 7's hairline measured ~1px). MATCH.
+- LEFT DESCENT PATH — the original draws SEVEN hollow circles (white core, cyan ring)
+  descending the left arm, joined by six outward-bulging step arcs; render now has
+  exactly those 7 rings, pixel-matched to the measured centres (max offset 0.8px:
+  178.5/250.4, 194.8/287.4, 219.7/348.8, 238.4/393.4, 246.6/412.6, 261.5/435.6,
+  282.6/439.5), the six arcs at the measured apexes, 0 filled discs and 0 markers on
+  the right ascending arm (the original has none). See D1/D3. MATCH.
+- LEFT "Value of weight" — bold, right-aligned under the x-axis arrow end; render ink
+  x367..454 y448..458 vs original x367..453 y448..460. MATCH.
+- RIGHT PANEL AXES / "Loss" / curve — same geometry family; curve endpoints
+  (514,234)/(735,246) vs (514,233)/(737,248); valley nesting 4.9px above the axis vs
+  the original's ~5px. MATCH.
+- RIGHT DESCENT PATH — the original's drawn connectors are A-C, A-D and C-B (measured
+  chord ink coverage 1.00/1.00/1.00; A-B is only the curve, B-D 0.05); render_8 draws
+  exactly D->A->C->B (coverage A-C 1.00, A-D 1.00, B-C 1.00, A-B 0.00, B-D 0.01) with
+  FOUR saturated discs at the measured centroids (561.5/314.6, 592.5/394.6,
+  682.4/350.6, 709.4/283.6; max offset 0.7px). Attempt 7 drew A->B->C->D — a real
+  topology defect, FIXED this attempt. MATCH.
+- RIGHT "Value of weight" — bold, right-aligned; render ink x711..798 y450..460 vs
+  original x707..797 y450..462. MATCH.
+- COLOURS — curve 8FC3D1 (measured original means (155,199,209)/(140,196,210));
+  right discs #32B6DD (measured (50,182,221)); connectors/arcs #A6BCBE (measured cores
+  (164,187,187)/(165,190,195)); frame 1F4E79; title #A00010. MATCH.
+- FRAME CONTAINMENT — chart ink bbox x89..857 y127..508, inside the 1F4E79 box; 0 px
+  outside; 0 px above the house panel (selfcheck_attempt_8.out.txt). MATCH.
+- MISSING ELEMENTS — none: both headings, both curves, both marker sets, all six
+  labels and the chart frame are present. MATCH.
+- DELIMITERS / TABLES / EQUATIONS — none exist on this slide. NOT APPLICABLE.
+
+## Discrepancies
+1. [MINOR] Left hop arcs — the render's six step arcs are smooth quadratic Beziers; the
+   original's lobes are slightly more angular at their shoulders (hand-drawn medium).
+   Confidence high that a difference exists. PIL: each arc's maximum outward excursion
+   is within 2px of the measured original apex (7-13.5px off its chord); medium-driven
+   per ground rule (d), no content change. MATCHING within redraw tolerance.
+2. [MINOR] Axis stroke tone — the original's 1px axis cores measure (125,0,19); the
+   render draws #C00000. PIL refutation: the original's own house strokes (mandated
+   #C00000 by this deck's chrome law) measure cores (113,40,51)/(126,0,20) in the same
+   frame — i.e. the axis ink is the same red family, JPEG-diluted at 1px width. No fix.
+3. [MINOR] X-axis arrowheads — render filled triangles 10x13px vs the original's 10x10px
+   thin heads (measured extents differ by 3px in height). MINOR, same medium/blur
+   allowance as the axis strokes.
+4. [MINOR] "Loss" words — render left ink 36x12 vs original 32x14; right 18x6 vs 23x8.
+   PIL refutation: the original's threshold-180 bboxes carry ~1px of JPEG halo per side
+   (its height is +2px vs the render's for the same 9pt string), so the true glyph widths
+   agree within 2px; both words are complete, correctly placed and horizontal.
+
+## Visual-quality defects
+- No text overflow, clipping, wrong wrapping, collisions or illegibility.
+- No empty region: both charts, all markers and all labels carry ink.
+- Curve stroke continuity verified (ripple: worst cyan-ink distance from the analytic
+  quartic 3.3px LEFT / 0.2px RIGHT, the LEFT value being the circle/arc ink that sits on
+  the curve); no segmentation joins.
+
+FINAL VERDICT: PASS

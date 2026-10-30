@@ -1,0 +1,37 @@
+## Element-by-Element Fidelity Check
+
+### House chrome (per ground rules â not scored)
+- Gray panel with red left/right/bottom strokes, no top stroke: present in both. â
+- Yellow slide badge "51", purple ring, top-right: present in both, correct numeral. â
+- Cursor artifact in IMG2 near "Undefined Class": correctly omitted per rule (c). â
+
+### Header panel (yellow box, blue border)
+- xââxâ labels with subscripts: match. â
+- Column vectors (1,1,1)(2,1,1)(1,2,2)(5,4,4)(6,5,5)(6,6,6): all six values match original exactly. â
+- "Initial **W** = (4, â2, â2)" with stacked 2D vector: match; W bold/italic as original. â
+- "*Step Î·* = 1", dark-red italic: match, correct position after W vector. â
+- "Check classes of" + Zâ(0,0,0), Zâ(7,6,6), Zâ(3,2,2) stacked vectors: match. â
+- Footer line "Câ Câ Câ Câ Câ Câ   Câ *positive*   Câ *negative*   *Zero* is unaccepted" with correct red/blue/green coloring and subscripts: verbatim match including line break position. â
+
+### Left column
+- "**Ugmented** Vectors ( from Top )" â recreation preserves the original's typo "Ugmented" verbatim (correct behavior). â
+- Six augmented vectors (1,1,1)(2,1,1)(1,2,1)(1,5,4)(6,6,5)(1,6,6) with Câ/Câ/Câ/Câ/Câ/Câ labels: values and coloring match. â
+- Red "Check Classes" button: match in position, fill, white bold text. â
+
+### Three result boxes
+- Box 1: d(Zâ) = (1 0 0)(5,â1,â1)áµ = 5 â Positive > 0, **Class I** (red): verbatim, values correct. â
+- Box 2: d(Zâ) = (1 7 6)(5,â1,â1)áµ = â8 â Negative < 0, **Class II** (dark blue): verbatim, values correct. â
+- Box 3: d(Zâ) = (1 3 2)(5,â1,â1)áµ = 0 â Not > 0 , Not < 0, **Undefined Class**: verbatim â including the original's repeated "Zâ" subscript, correctly preserved. â
+- Delimiter geometry: 3-row column vectors have parentheses spanning all three rows, wide enough not to overlap digits, vertically centered enclosed values. â
+- Frame containment: all equation ink, "= 5 / = â8 / = 0", arrows, and class labels sit fully inside their boxes; nothing touches box borders or the house panel strokes. â
+- Colors: green column vectors, blue row vectors, red/blue class labels â all match. â
+- Vertical alignment of "â â¦" and class labels against the equation midline: matches. â
+
+### Discrepancies found
+1. **MINOR** (confidence: medium) â In the row vectors "(1 0 0)", the opening parenthesis sits directly against the first digit in the recreation; the original shows a slightly taller glyph with a touch more clearance. Cosmetic only.
+2. **MINOR** (confidence: low-medium) â Digit tracking inside "(1 0 0)" / "(1 7 6)" / "(1 3 2)" is marginally wider in the recreation than the original's compact spacing. No collision or overlap.
+3. **MINOR** (confidence: low) â The "= 5" / "= â8" / "= 0" results sit at the vertical midline of the column vectors in both, but the recreation's baseline is a hair lower relative to the middle "â1" row. Sub-pixel-level at 150 dpi.
+
+No BLOCKER or MAJOR defects: no missing elements, no table/data errors, no overflow/clipping, no delimiter failures, no alignment or line-spacing deviations beyond the minor notes above.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

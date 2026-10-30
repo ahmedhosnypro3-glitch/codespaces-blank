@@ -1,0 +1,15 @@
+Comparison: IMG1 = recreation crop (topâleft white figure), IMG2 = originalâframe crop of the same region at matched scale.
+
+Discrepancies (cropârelative coordinates, x/y in 0â1 across the crop):
+
+- D1 â Missing left vertical axis tick labels (MAJOR; confidence High). IMG2 renders a "0" near the topâleft inside the red border (~0.08, 0.22) and a "â5" at midâleft inside the border (~0.09, 0.47). IMG1's corresponding leftâinterior border areas are blank white â both glyphs are absent. Same region, same scale, so this is omitted content, not a framing difference.
+- D2 â Missing bottom horizontal axis tick labels (MAJOR; confidence High). IMG2 shows "2" at the bottomâleft corner (~0.05, 0.90), "â2" and "0" along the bottom center (~0.35/0.43, ~0.92), and "2" at the bottomâright (~0.72, 0.86). IMG1's bottom interior border is blank; none of "â2", "0", "2" appear. Scale information present in the original is lost in the recreation.
+- D3 â Surface wireframe/mesh (MINORâMAJOR; confidence MediumâHigh). IMG2's dome carries a clear crossâhatch wireframe grid over the whole surface (~0.08â0.86, 0.22â0.78). IMG1 renders the same concave dome shape but as a smooth filled surface with contour bands and no cross wireframe. The underlying shape matches; the stroke overlay does not.
+- D4 â Dome peak fill color (MINOR; confidence Medium). IMG1 peak is a deep red cap (â0.47, 0.27) consistent with a jet maximum. IMG2's corresponding peak reads yellowâgreen/olive rather than red, i.e. the strong red high value is subdued/absent. (Possible capture/lighting influence, but the difference is visible at this scale.)
+- D5 â Lower red reference line vertical position (MAJORâcandidate; confidence Medium). IMG1 shows two red lines both cutting the upper dome (ây 0.33 and 0.42, xâ0.19â0.90). IMG2 shows an upper line plus lower lineâlike strokes down near the "â5" axis height (ây 0.48â0.52), i.e. the lower reference line appears to sit lower relative to the surface/axis than in IMG1. Line positions are slightly ambiguous in IMG2, flagged at Medium confidence.
+
+No wrong/garbled digits or delimiter issues are present because IMG1 simply omits the axis tick text entirely rather than misrendering it. The two red reference lines, red border, and dome geometry otherwise correspond.
+
+Severity summary: D1 and D2 are MAJOR missingâcontent defects (all six axis scale labels dropped), which alone make the region not faithfully/usably reproduced at matched scale; D3âD5 are supporting rendering/position differences.
+
+FINAL VERDICT: FAIL

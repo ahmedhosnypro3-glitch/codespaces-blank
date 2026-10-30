@@ -1,0 +1,72 @@
+ADJUDICATION RECORD — slide 039, attempt 2, crop leg 1 (eq_stack)
+==================================================================
+Source transcript: qa/slide039/crop_2_eq_stack_judge.txt
+Status: the body is coherent but contains NO "FINAL VERDICT:" line, therefore
+        it is NOT evidence per the standing law. Its substantive claims are
+        adjudicated PIL-first below before any re-invoke.
+Claims raised: (1) W and W^old bold+underlined in IMG2, plain in IMG1;
+               (2) eta red, delta_i green, X_i red+bold+underlined in IMG2;
+               (3) a pen scribble over eta is missing from the PPTX.
+
+METHOD — JPEG-response control (decisive)
+  Both crops are the same slide-space region, so any ink on the green E1FFEF fill
+  picks up the same JPEG chroma response from IMG2's codec. The red annotation
+  "Repeat for ALL misclassified Samples" is known red (render median (195,25,23)).
+  In IMG2 the same annotation measures (213,129,130).
+    => measured JPEG chroma response on this background = delta(+18, +104, +107)
+  Predicted appearance of the render's pure-black equation ink (4,4,4) after that
+  response: (22,108,111)  -> g-lead 86, b-lead 89.
+  Observed IMG2 equation ink (dark, non-red, equation half): (73,114,81)
+    -> g-lead 41,  b-lead 8.
+
+RESULT: the original's equation ink is LESS green (g-lead 41 vs predicted 86) and
+dramatically less blue-shifted (b-lead 8 vs predicted 89) than neutral black would
+appear. If the equation were truly green-coded, its g-lead would EXCEED the control
+prediction; instead it is under half of it. There is no colour coding in the
+equation zone: the ink is plain black seen through JPEG.
+
+CLAIM-BY-CLAIM
+  (1) "W bold + underlined / W^old bold + underlined"
+      REFUTED. Ink density inside the crop: RENDER 4881 dark px / 39000 px bbox
+      = 12.5%; ORIG 6882 px / 56316 px bbox = 12.2%. A 0.3pp difference is
+      noise. No bold-weight difference exists, and no underline stroke is present
+      in either (measured row profiles show only glyph bands).
+  (2) "eta red, delta_i green, X_i red + bold + underlined"
+      REFUTED. Colour: see METHOD above (no colour coding; observed ink is
+      *less* saturated than the black control predicts). Red: the equation-zone
+      red in IMG2 clusters as SOLID BLOBS, not glyph strokes —
+          cols 289..298  density 0.81 (10x7px)
+          cols 320..342  density 0.67 (23x33px)
+          cols 386..390  density 0.90
+          cols 430..436  density 0.72
+      at frame px x493..566, y280..295 — i.e. over eta/delta_i/X_i. Text strokes
+      in the same image (the red annotation) measure density 0.26-0.49; these
+      blobs are 0.67-0.90, i.e. a filled arrow shape. That is exactly the
+      "Red mouse-pointer arrow visible over the equation near delta_i; likely a
+      screen cursor from the video capture rather than a slide object" recorded in
+      analysis/slide_039_final.json (visual_elements, type "other"). Ground rule
+      (c) makes its omission CORRECT. Green: the naive green mask's median is
+      (225,255,239) = the box FILL E1FFEF, not glyph ink; see METHOD for the real
+      test. Bold/weight: see (1).
+  (3) "pen scribble over eta missing"
+      REFUTED as a defect. Same red blob cluster as (2): the analysis record
+      identifies it as a screen cursor / video-capture artifact, not slide
+      content; ground rule (c) covers mouse cursor / video-capture artifacts and
+      mandates its omission.
+
+SPEC CROSS-CHECK
+  analysis/slide_039_final.json (validation PASS_WITH_FIXES) gives the equation as
+  plain "W^(updated)=W^old - eta delta_i X_i" with typography_notes "the equation is
+  italic math-style" — NO per-symbol colours. colors.accents list the slide's palette
+  (#0000ff, #c00000, #ff0000, #00b050, #ffff00) which is spent on the arrow markers,
+  box border and annotation, not the equation. The build follows the spec:
+  assets/eq_039_main.json mathtext "W^{(updated)}=W^{old}-\eta\,\delta_{i}\,X_{i}",
+  color 000000, 17pt, 600dpi.
+  The full-slide leg (judge_attempt_2.txt) independently checked the equation at full
+  resolution: "identical content ... same variable order and eta/delta_i/X_i", with
+  "MAJOR: none" and "BLOCKER: none", and raised no equation colour discrepancy.
+
+DECISION: NO BUILD CHANGE. All claims PIL-refuted. render_2 bytes stand.
+Because the source transcript carries no FINAL VERDICT line (so it is not evidence),
+the same frozen Template B prompt is re-invoked on unchanged bytes to obtain a real
+verdict; this record is banked as the adjudication input to that re-invoke.

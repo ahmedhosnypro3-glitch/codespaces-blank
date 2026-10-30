@@ -1,0 +1,144 @@
+# 1. LAYOUT MAP
+
+The crop shows **five stacked white rounded-corner boxes** (list rows) on a mid-gray background, each containing one line of a perceptron-training derivation: a left equation group, a red â, a text verdict, a right weight-update equation, and a red â return arrow. A **red vertical bar** runs along the far right edge of the crop. A small **pencil/pen annotation icon** sits in row 3.
+
+Image is 1932 Ã 996 px (slide-space 644 Ã 332 px, offset x=264, y=206; img/3 + offset = slide).
+
+```
+IMG x: 0                     1770        1888-1902
+       +--------------------------------------------------+ +--+
+       | +----------------------------------------------+ | |  |
+       | | ROW1 d(x2)=...= -16  => Update Weight  W=...<=| | |  |
+       | +----------------------------------------------+ | |R |
+       | +----------------------------------------------+ | |E |
+       | | ROW2 d(x3)=...= -2   => Update Weight  W=...<=| | |D |
+       | +----------------------------------------------+ | |  |
+       | +------------------ â(pencil) -----------------+ | |B |
+       | | ROW3 d(x4)=...= -6   => Keep same Weight W=...| | |A |
+       | +----------------------------------------------+ | |R |
+       | +----------------------------------------------+ | |  |
+       | | ROW4 d(x5)=...= -10  => Keep same Weight W=...| | |  |
+       | +----------------------------------------------+ | |  |
+       | +----------------------------------------------+ | |  |
+       | | ROW5 d(x5?)=...= -112 => Keep same Weight W=..| | |  |
+       | +----------------------------------------------+ | |  |
+       +--------------------------------------------------+ +--+
+```
+
+| Region | Image px (x0,y0âx1,y1) | Slide px (x0,y0âx1,y1) |
+|---|---|---|
+| ROW1 box | â30,8 â 1770,170 | â274,208.7 â 854,262.7 |
+| ROW2 box | â30,200 â 1770,365 | â274,272.7 â 854,327.7 |
+| ROW3 box (w/ pencil) | â30,395 â 1770,565 | â274,337.7 â 854,394.3 |
+| ROW4 box | â30,590 â 1770,765 | â274,402.7 â 854,461 |
+| ROW5 box | â30,790 â 1770,960 | â274,469.3 â 854,526 |
+| Pencil icon | â575,408 â 630,462 | â455.7,342 â 474,360 |
+| Red edge bar | â1888,0 â 1902,996 | â892.7,206 â 897.3,538 |
+
+Within each row, three horizontal zones: **left equation** (img xâ70â570), **center verdict** (img xâ735â1080), **right update equation** (img xâ1120â1700 incl. â).
+
+# 2. VERBATIM TEXT
+
+Reading order per row, leftâright.
+
+**ROW 1** (box y img 8â170):
+- `d(xâ) =` â [black, italic d, x with subscript 2] â slide â(289,234)
+- `(1   2   1)` â [red] (row vector printed raised, above the line) â slide â(332,221)
+- column vector `â 10 â` / `ââ10 â` / `â â6 â ` â [green, digits green; large parentheses green] â slide â(385,221)â(412,260)
+- `= â 16` â [black] â slide â(419,235)
+- `â` â [red] â slide â(510,236)
+- `Update Weight` â [black] â slide â(529,235)
+- `WÌ² =` â [black, bold underlined W] â slide â(638,236)
+- column vector `â 10 â` / `ââ10 â` / `â â6 â ` â [black] â slide â(665,220)â(693,260)
+- `+ 2 *` â [red: "+", "2", "*"] â slide â(703,236)
+- column vector `â1â` / `â2â` / `â1â ` â [black] â slide â(727,220)â(747,260)
+- `=` â [black] â slide â(755,236)
+- column vector `â12â` / `ââ6â` / `ââ4â ` â [green] â slide â(766,220)â(795,262)
+- `â` â [red, double-line left arrow] â slide â(815,236)
+
+**ROW 2** (box y img 200â365):
+- `d(xâ) =` â [black] â slide â(289,299)
+- `(1   1   2)` â [red] â slide â(333,286)
+- column `â12â` / `ââ6â` / `ââ4â ` â [green] â slide â(388,286)â(412,326)
+- `= â 2` â [black] â slide â(423,299)
+- `â` â [red] â slide â(511,300)
+- `Update Weight` â [black] â slide â(529,300)
+- `WÌ² =` â [black] â slide â(639,300)
+- column `â12â` / `ââ6â` / `ââ4â ` â [black] â slide â(665,285)â(693,326)
+- `+ 2 *` â [red] â slide â(704,300)
+- column `â1â` / `â1â` / `â2â ` â [black] â slide â(729,285)â(748,326)
+- `=` â [black] â slide â(756,300)
+- column `â14â` / `ââ4â` / `â 0â ` â [green] â slide â(767,285)â(793,327)
+- `â` â [red] â slide â(817,300)
+
+**ROW 3** (box y img 395â565):
+- `d(xâ) =` â [black] â slide â(289,364)
+- `(1   5   4)` â [blue] â slide â(330,352)
+- column `â14â` / `ââ4â` / `â 0â ` â [green] â slide â(383,351)â(408,392)
+- `= â 6` â [black] â slide â(423,364)
+- `â` â [black] â slide â(510,365)
+- `Keep same Weight` â [black] â slide â(529,365)
+- `WÌ² =` â [black] â slide â(638,365)
+- column `â14â` / `ââ4â` / `â 0â ` â [black] â slide â(666,350)â(693,391)
+- (pencil annotation icon â gray/black â slide â(456,342))
+- (no â in this row)
+
+**ROW 4** (box y img 590â765):
+- `d(x â [black] â slide â(289,430)
+- `(1   6   5)` â [blue] â slide â(328,418)
+- column `â14â` / `ââ4â` / `â 0â ` â [green] â slide â(383,417)â(408,458)
+- `= â 10` â [black] â slide â(423,430)
+- `â` â [black] â slide â(512,431)
+- `Keep same Weight` â [black] â slide â(529,431)
+- `WÌ² =` â [black] â slide â(638,431)
+- column `â14â` / `ââ4â` / `â 0â ` â [black] â slide â(666,416)â(693,457)
+
+**ROW 5** (box y img 790â960):
+- `[?]) =` â [black; subscript ambiguous, see Â§5] â slide â(289,497)
+- `(1   6   6)` â [blue] â slide â(328,484)
+- column `â14â` / `ââ4â` / `â 0â ` â [green] â slide â(383,483)â(408,524)
+- `= â 112` â [black] â slide â(423,497)
+- `â` â [black] â slide â(513,498)
+- `Keep same Weight` â [black] â slide â(530,498)
+- `WÌ² =` â [black] â slide â(639,498)
+- column `â14â` / `ââ4â` / `â 0â ` â [black] â slide â(667,483)â(693,524)
+
+Notes on exact glyphs: minus signs are printed as "â" attached to the first digit of each negative vector entry (`â10`, `â6`, `â4`); the standalone result equals signs are followed by a spaced minus (`= â 16` etc.). The weight-update operator is the literal sequence `+ 2 *`. Arrows in rows 1â2: `â` before the text and `â` (double-shafted, pointing left) at the right end; rows 3â5 have `â` only.
+
+# 3. COLORS
+
+| Element | Color |
+|---|---|
+| Box fill | white, #FFFFFF |
+| Box border | light blue-gray, â#9FB6C9 (1â2 px) |
+| Page background | mid gray, â#C9C9C9 |
+| Black text/equation ink | â#000000 |
+| Red ink (row vectors `(1 2 1)`, `(1 1 2)`; `+ 2 *`; `â`, `â`; edge bar) | â#C00000â#CC0000 |
+| Green ink (column vectors in left eq. row 1â2 and result vectors; their parentheses) | â#00A650 / #00B050 |
+| Blue ink (row vectors `(1 5 4)`, `(1 6 5)`, `(1 6 6)`) | â#1F1FCC / #2222CC |
+| Pencil icon | dark gray/black â#333 with gray body â#888 |
+
+# 4. MEASURED GEOMETRY
+
+**Column centres (slide px):** left-equation group â x 364; verdict arrow â x 512; verdict text centre â x 575; right-equation group â x 725; return arrow â x 822. Row vertical centres (slide y): R1 â 236, R2 â 300, R3 â 365, R4 â 431, R5 â 498.
+
+**Row bands (image px, per line of text):** each main text line â30â34 px tall; e.g. R1 baseline band yâ85â120; superscript row-vector band yâ45â78; column-vector glyph bands yâ45â80 (top entry), 95â128 (middle), 133â163 (bottom). R2: text 280â312, vector band 228â350. R3: text 472â505, vector band 420â545. R4: text 640â672, vector band 590â715. R5: text 840â875, vector band 795â920.
+
+**Parenthesis spans (image px):** column-vector big parentheses â115â125 px tall (â38â42 slide px); e.g. R1 green vector parens xâ355â368 (left) and 435â448 (right), yâ45â165. R5 black vector parens yâ795â920. Small column vectors (`(1;2;1)`) parens â115 px tall but narrower (x-span â60 px).
+
+**Glyph heights (image px):** digits â28â32 (â10 slide px); italic `d(xâ)` â32 incl. subscript; `WÌ²` cap height â30 with underline bar â3 px thick â4 px below baseline; `Update Weight` x-height â20, cap â28; arrows â24 px tall, â30â45 px wide.
+
+**Arrows (image px):** R1 `â` at xâ740â768, yâ90â112; R1 `â` at xâ1655â1700, yâ85â112; R2 `â` xâ742â768, yâ288â310; R2 `â` xâ1658â1700, yâ288â312; R3 `â` xâ740â765, yâ478â500; R4 `â` xâ742â768, yâ645â668; R5 `â` xâ745â770, yâ848â870.
+
+**Box geometry:** each box â1740 Ã 160â170 image px (â580 Ã 54â56 slide px), uniform left edge img xâ30, right edge xâ1770, vertical gap between boxes â30 image px (10 slide px).
+
+**Red edge bar:** img xâ1888â1902 (width â14 px), full crop height.
+
+# 5. AMBIGUITIES
+
+1. **[?] Row 5 subscript** â img â(135,855)â(160,895), slide â(309,491): the subscript after `x` reads as ` a `â` is plausible given rows 4â5 should be x, xâ sequentially; candidate readings "5 vs 6".
+2. **[?] Row 4 subscript** â img â(138,655), slide â(310,424): reads ` could conceivably be `â` at this resolution; candidate readings "5 vs 6".
+3. **[?] Asterisk color in `+ 2 *`** â img â(1368,90) / (1370,285), slide â(720,236)/(720,301): the `*` appears red like the `+` and `2`, but low contrast makes "red vs black" marginally uncertain.
+4. **[?] Result "â 112" in Row 5** â img â(505,845)â(565,880), slide â(432,488): digit string reads `112` (1, 1, 2); the second glyph could be a "1" vs a degraded "1/7"; candidate readings "112 vs 172". (Also note it is inconsistent with the pattern of prior rows, but it is transcribed as printed.)
+5. **[?] Left crop edge** â img xâ0â5: a faint red sliver may be present at the very left edge (mirroring the right red bar); too faint to confirm â "red bar vs compression artifact".
+6. **[?] Row 1 red superscript spacing** â the red row vector `(1  2  1)` uses very wide inter-digit gaps; the exact spacing (2 vs 3 space-widths) is not precisely resolvable, though the digits themselves (1, 2, 1) are clear.

@@ -1,0 +1,14 @@
+Compared crop-by-crop at matched scale:
+
+**Discrepancies**
+
+1. **Right chord-endpoint label text** â IMG1 (recreation) prints **â(7, 7)â** by the right-hand black dot; IMG2 (original) prints **â(?, ?)â** at the same spot. The original is left as a blank/to-be-filled coordinate; the recreation replaces it. Severity **MAJOR**, confidence **high**. Note this is not just a medium/typing difference: the plotted dot sits on the horizontal y = 10 chord at x = 8, and for f(x) = (xâ5)Â²+1, f(7) = 5, so â(7, 7)â is also inconsistent with the graph geometry â it is a wrong-coordinate content error, not a faithful carry-over.
+
+**Checked and consistent (no reportable defect)**
+- Left dot label **â(2, 10)â**: same text and placement in both.
+- Green vertex label **â(5, 1)â**: same in both.
+- Segment labels **â3â** and **â3â** above the two chord halves: same count, values, and approximate placement in both.
+- Blue parabola shape, red dashed vertical x = 5, black chord, unlabeled red point on the left branch (~(3, 5)), black end-dots: all present in both.
+- Axes/tick labels (â5, 0, 5, 10, 15 on x; 5, 10, 15 on y) and gridlines: same in both. No missing/garbled glyphs, no delimiter-span or table-cell issues in this region. Color/weight differences are within capture-artifact range.
+
+**FINAL VERDICT: FAIL** â the substituted, incorrect â(7, 7)â label replaces the originalâs â(?, ?)â blank and misstates the pointâs coordinates; the rest of the region matches, but that MAJOR content defect prevents full fidelity.

@@ -1,0 +1,19 @@
+**Discrepancy Log (IMG1 = recreation crop; IMG2 = original crop, matched scale)**
+
+| # | Location (crop-relative) | Observation | Severity | Confidence |
+|---|--------------------------|-------------|----------|------------|
+| 1 | Red equation box, center-top (entire equation) | Operator spacing differs: IMG1 renders **âf(x) = (x â 5)Â² + 1â** with spaces around â=â, âââ, and â+â. IMG2 renders tighter **âf(x)=(xâ5)Â²+1â** with minimal spacing. Glyphs and structure are identical; only inter-glyph spacing changes. | MINOR | High |
+| 2 | Green box, line 1 (âX = 5â) and line 2 blue text (âf(x)â, â1.0â) | Text colors in IMG2 appear slightly more saturated / shifted (red âXâ, blue âf(x)â and â1.0â) compared with IMG1, consistent with video-capture/JPEG rendering rather than a content change. | MINOR | Medium |
+| 3 | Green box, all four corners | IMG1âs green enclosure corners look marginally rounded; IMG2âs corners appear slightly sharper, likely an upscaling/capture artifact rather than intentional template difference. | MINOR | Medium |
+
+**Checks performed (no defects found):**  
+- Equation content: **f(x) = (x â 5)Â² + 1** identical in both (superscript 2, parentheses, â+ 1â all correct).  
+- Green box values: **X = 5** and **f(x) Minimum value is 1.0** identical; no wrong/missing digits or symbols.  
+- Delimiter geometry: Parentheses in the red box span correctly in both; no truncation.  
+- Vertical alignment/centering: Two-line green box and single-line red box are vertically centered in both.  
+- Stroke continuity/weight: Borders and text strokes are continuous in both (IMG2 softness is capture artifact per ground rule e).  
+- Fonts/italicization: âf(x)â italic serif in both; âMinimum value isâ roman in both.
+
+**No BLOCKER or MAJOR defects detected.** Differences are limited to minor typography spacing and subtle capture-related color/edge rendering.
+
+FINAL VERDICT: **PASS** â faithful, usable recreation of this region.

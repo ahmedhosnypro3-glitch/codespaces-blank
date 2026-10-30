@@ -1,0 +1,37 @@
+== curve run isolation: genuine curve run per column, both images ==
+    x analytic |     ORIG run y centroid      d |     REND run y centroid      d
+  643     70.3 |   70.0..   79.0     74.5  +4.24 |   66.7..   80.6     73.6  +3.39
+  647    101.5 |   94.0..  107.0    100.5  -0.97 |   96.4..  109.9    103.1  +1.68
+  651    129.8 |  123.0..  136.0    129.5  -0.28 |  123.3..  136.3    129.8  -0.01
+  655    155.2 |      -                 -      - |  152.1..  163.1    157.6  +2.41
+  659    177.7 |  173.0..  177.0    175.0  -2.69 |  173.7..  178.0    175.8  -1.86
+  663    197.3 |  193.0..  201.0    197.0  -0.29 |  193.3..  201.5    197.4  +0.13
+  667    214.0 |  211.0..  218.0    214.5  +0.52 |  212.1..  218.8    215.4  +1.43
+  671    227.8 |  225.0..  230.0    227.5  -0.28 |  225.5..  231.2    228.4  +0.59
+  675    238.7 |  236.0..  241.0    238.5  -0.17 |  236.5..  240.8    238.7  +0.02
+  679    246.7 |  245.0..  247.0    246.0  -0.65 |  246.1..  249.0    247.6  +0.91
+  683    251.7 |  250.0..  252.0    251.0  -0.73 |      -                 -      -
+  687    253.9 |      -                 -      - |      -                 -      -
+  691    253.2 |      -                 -      - |      -                 -      -
+  695    249.6 |      -                 -      - |  248.0..  249.0    248.5  -1.04
+  699    243.0 |  239.0..  244.0    241.5  -1.52 |  240.8..  244.7    242.8  -0.26
+  703    233.6 |  229.0..  234.0    231.5  -2.08 |  230.3..  235.1    232.7  -0.90
+  707    221.2 |  216.0..  223.0    219.5  -1.74 |  217.3..  223.6    220.4  -0.79
+  711    206.0 |  200.0..  208.0    204.0  -2.00 |  202.0..  209.7    205.8  -0.18
+  715    187.9 |  181.0..  190.0    185.5  -2.35 |  181.8..  190.9    186.4  -1.47
+  719    166.8 |  160.0..  170.0    165.0  -1.80 |  160.2..  170.8    165.5  -1.28
+  723    142.8 |  133.0..  142.0    137.5  -5.35 |  133.4..  144.4    138.9  -3.96
+  727    116.0 |  107.0..  119.0    113.0  -2.99 |  107.0..  119.5    113.2  -2.77
+  731     86.2 |   75.0..   89.0     82.0  -4.23 |   76.8..   91.6     84.2  -2.03
+
+max |genuine curve centroid - analytic|:  ORIG 5.35 px   REND 3.96 px
+REFUTATION of banked 'REND 16.77 px' claim: that number came from a centroid
+taken over ALL curve-coloured ink in the column, which at x=671/703 included
+the render's segment-3 label glyphs (ink 7A98A9-family passes is_curve).
+The ORIGINAL's handwritten labels are lighter grey and fail the filter, so its
+centroid never included them. Genuine curve runs only: render tracks the
+analytic form TIGHTER than the original does.
+
+== ONE smooth curve: second-difference ripple on the render's runs ==
+  points=20  max |2nd difference| = 6.6916 px
+  ripple check: ROUGH — investigate

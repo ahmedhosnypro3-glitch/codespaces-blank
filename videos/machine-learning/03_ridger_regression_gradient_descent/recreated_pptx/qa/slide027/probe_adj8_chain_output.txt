@@ -1,0 +1,99 @@
+ATTEMPT-8 BUILD VERIFICATION — render_8 chain vs measured 9-arc model
+worker w10-s027-a7-20261021T1945; gray band lum 145..205 spread<=14, weak core exclusion
+ORIGICAL 960x540 S=1.0 | RENDER_7 2001x1125 S=2.0833 | RENDER_8 2001x1125 S=2.0833
+
+=== 1. PER-INTERVAL PRESENCE (ink px above the curve, per inter-dot window) ===
+    attempt-7 judge item 1b: intervals dot6->7 and dot7->8 read absent
+    window = x in [x_a+3, x_b-3], y in 250..420 (band excludes the curve core)
+    interval    x-window  ORIG px   R7 px     | R8 px     R7 sgn    R8 sgn   
+    -----------------------------------------------------------------------------
+    (262,264)->(283,310)  265.. 280        67        57        34 | OK        OK       
+    (283,310)->(306,342)  286.. 303       115        50        62 | OK        OK       
+    (306,342)->(332,366)  309.. 329       149        63        68 | OK        OK       
+    (332,366)->(354,380)  335.. 351       100        39        57 | OK        OK       
+    (354,380)->(374,390)  357.. 371        85        19        40 | OK        OK       
+    (374,390)->(392,396)  377.. 389        70        33        50 | OK        OK       
+    (392,396)->(411,404)  395.. 408        59        25        30 | OK        OK       
+    (411,404)->(426,404)  414.. 423        16         9        16 | OK        OK       
+    (426,404)->(444,407)  429.. 441        61        31        44 | OK        OK       
+
+=== 2. PER-INTERVAL CENTRE-LINE: offset from curve + line-vs-quad fit ===
+  [ORIGINAL]
+    (262,264)->(283,310): cols 16 offset-from-curve  -33.7..  +2.5 lineRMS  3.77 quadRMS  2.82 ratio   1.3 R2 0.482
+    (283,310)->(306,342): cols 18 offset-from-curve  -42.3..  +0.7 lineRMS 10.31 quadRMS  7.06 ratio   1.5 R2 0.539
+    (306,342)->(332,366): cols 20 offset-from-curve  -62.5.. -11.3 lineRMS 11.64 quadRMS 11.61 ratio   1.0 R2 0.192
+    (332,366)->(354,380): cols 17 offset-from-curve  -73.3..  -5.8 lineRMS 22.24 quadRMS 21.68 ratio   1.0 R2 0.125
+    (354,380)->(374,390): cols 14 offset-from-curve  -82.3.. -10.1 lineRMS 15.21 quadRMS 15.19 ratio   1.0 R2 0.699
+    (374,390)->(392,396): cols 12 offset-from-curve  -88.1..  -8.9 lineRMS 22.33 quadRMS 22.01 ratio   1.0 R2 0.033
+    (392,396)->(411,404): cols 13 offset-from-curve -116.8.. -10.9 lineRMS 21.69 quadRMS 21.68 ratio   1.0 R2 0.579
+    (411,404)->(426,404): cols  8 offset-from-curve  -11.9..  -9.2 lineRMS  0.33 quadRMS  0.22 ratio   1.5 R2 0.888
+    (426,404)->(444,407): cols 12 offset-from-curve  -26.9.. -11.9 lineRMS  4.72 quadRMS  4.67 ratio   1.0 R2 0.259
+
+  [RENDER_7]
+    (262,264)->(283,310): cols 12 offset-from-curve  -18.1..  -1.0 lineRMS  3.80 quadRMS  3.76 ratio   1.0 R2 0.275
+    (283,310)->(306,342): cols 17 offset-from-curve  -12.7..  +4.6 lineRMS  1.99 quadRMS  1.93 ratio   1.0 R2 0.409
+    (306,342)->(332,366): cols 20 offset-from-curve  -69.9..  +1.3 lineRMS 18.82 quadRMS 15.37 ratio   1.2 R2 0.657
+    (332,366)->(354,380): cols 17 offset-from-curve  -77.6..  -5.8 lineRMS 22.11 quadRMS 20.30 ratio   1.1 R2 0.157
+    (354,380)->(374,390): cols 13 offset-from-curve  -59.0..  -7.3 lineRMS 15.30 quadRMS 14.76 ratio   1.0 R2 0.437
+    (374,390)->(392,396): cols 12 offset-from-curve -117.8..  -5.3 lineRMS 33.08 quadRMS 29.07 ratio   1.1 R2 0.427
+    (392,396)->(411,404): cols 14 offset-from-curve -122.1..  -5.6 lineRMS 16.42 quadRMS 15.61 ratio   1.1 R2 0.894
+    (411,404)->(426,404): cols  6 offset-from-curve  -11.6..  -8.4 lineRMS  0.13 quadRMS  0.13 ratio   1.0 R2 0.991
+    (426,404)->(444,407): cols 10 offset-from-curve  -20.8..  -5.9 lineRMS  4.45 quadRMS  4.30 ratio   1.0 R2 0.224
+
+  [RENDER_8]
+    (262,264)->(283,310): cols 10 offset-from-curve  -33.0..  -1.7 lineRMS  4.64 quadRMS  3.99 ratio   1.2 R2 0.280
+    (283,310)->(306,342): cols 14 offset-from-curve  -25.8.. -11.7 lineRMS  3.77 quadRMS  2.05 ratio   1.8 R2 0.938
+    (306,342)->(332,366): cols 19 offset-from-curve  -72.0.. -10.3 lineRMS 17.89 quadRMS 17.89 ratio   1.0 R2 0.448
+    (332,366)->(354,380): cols 17 offset-from-curve  -69.5.. -10.3 lineRMS 15.75 quadRMS 15.53 ratio   1.0 R2 0.061
+    (354,380)->(374,390): cols 14 offset-from-curve  -46.7.. -13.2 lineRMS  9.27 quadRMS  9.11 ratio   1.0 R2 0.413
+    (374,390)->(392,396): cols 12 offset-from-curve  -98.2..  -9.3 lineRMS 24.64 quadRMS 24.29 ratio   1.0 R2 0.171
+    (392,396)->(411,404): cols 12 offset-from-curve -122.1.. -13.1 lineRMS 14.16 quadRMS 12.31 ratio   1.2 R2 0.913
+    (411,404)->(426,404): cols  8 offset-from-curve  -11.9..  -9.7 lineRMS  0.28 quadRMS  0.18 ratio   1.6 R2 0.825
+    (426,404)->(444,407): cols 12 offset-from-curve  -21.8.. -10.2 lineRMS  3.80 quadRMS  3.60 ratio   1.1 R2 0.104
+
+=== 3. CHAINING: nearest gray ink to each iterate centre (rim = 6.5 fpx) ===
+  [RENDER_7] attempt-8 model: links stop 8-12 fpx from the disc centre
+    dot1 (262.0,263.5): nearest gray ink 8.1 fpx
+    dot2 (283.0,310.5): nearest gray ink 7.6 fpx
+    dot3 (306.5,342.0): nearest gray ink 7.8 fpx
+    dot4 (332.0,366.5): nearest gray ink 7.2 fpx
+    dot5 (354.5,380.5): nearest gray ink 7.6 fpx
+    dot6 (374.5,390.0): nearest gray ink 7.6 fpx
+    dot7 (392.0,396.5): nearest gray ink 7.3 fpx
+    dot8 (411.0,403.5): nearest gray ink 7.6 fpx
+    dot9 (426.5,403.5): nearest gray ink 7.6 fpx
+    dot10 (444.5,407.0): nearest gray ink 7.1 fpx
+  [RENDER_8] attempt-8 model: links stop 8-12 fpx from the disc centre
+    dot1 (262.0,263.5): nearest gray ink 8.1 fpx
+    dot2 (283.0,310.5): nearest gray ink 8.9 fpx
+    dot3 (306.5,342.0): nearest gray ink 8.1 fpx
+    dot4 (332.0,366.5): nearest gray ink 7.2 fpx
+    dot5 (354.5,380.5): nearest gray ink 7.6 fpx
+    dot6 (374.5,390.0): nearest gray ink 7.6 fpx
+    dot7 (392.0,396.5): nearest gray ink 7.3 fpx
+    dot8 (411.0,403.5): nearest gray ink 8.9 fpx
+    dot9 (426.5,403.5): nearest gray ink 8.1 fpx
+    dot10 (444.5,407.0): nearest gray ink 7.1 fpx
+
+=== 4. THICKNESS / NO HEADS: gray components in the chain window ===
+    components (area>=12): 17 of 301
+      id  1 area   396  bbox  17.3x 41.3 fpx  len-ratio  4.25
+      id192 area   259  bbox  18.7x 23.5 fpx  len-ratio  4.14
+      id214 area   222  bbox  20.6x 15.8 fpx  len-ratio  4.10
+      id221 area   204  bbox  18.2x 13.4 fpx  len-ratio  4.32
+      id243 area   191  bbox  18.7x 10.6 fpx  len-ratio  4.27
+      id273 area   170  bbox  17.8x  7.2 fpx  len-ratio  4.26
+      id285 area   130  bbox  15.4x  2.9 fpx  len-ratio  3.99
+      id282 area   106  bbox  12.5x  3.4 fpx  len-ratio  3.94
+      id276 area    76  bbox   9.1x  2.9 fpx  len-ratio  3.81
+      id  7 area    26  bbox   0.5x 12.5 fpx  len-ratio  1.00
+      id231 area    25  bbox   0.5x 12.0 fpx  len-ratio  1.00
+      id242 area    18  bbox   0.5x  8.6 fpx  len-ratio  1.00
+      id103 area    14  bbox   6.7x  0.5 fpx  len-ratio  1.00
+      id106 area    14  bbox   6.7x  0.5 fpx  len-ratio  1.00
+    FAT components (len-ratio>6 => solid head): 0
+
+=== 5. SYNTHETIC CONTROL: known-straight vs known-arc through the same code ===
+    straight chord         lineRMS  0.00 quadRMS  0.00 ratio   0.0 R2 1.000
+    arc sagitta+2 (convex) lineRMS  0.16 quadRMS  0.00 ratio 161428883.1 R2 1.000
+    arc sagitta-2 (concave) lineRMS  0.16 quadRMS  0.00 ratio 161428883.1 R2 1.000

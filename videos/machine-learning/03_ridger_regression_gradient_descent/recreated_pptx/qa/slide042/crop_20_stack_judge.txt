@@ -1,0 +1,26 @@
+# Slide 042 â Zoomed Crop-Pair Analysis (attempt 20)
+
+**Region:** Five iteration rows of the weight-update walkthrough (rows 1, 2, 4, 5, 6), each with a leading row-number badge, a colored vector equation, a decision arrow + status text, and a right-hand "W =" update expression. This region sits in the mid-lower body of the slide.
+
+## Cell-by-cell / value-by-value verification
+
+| Row | Left vector | Result | Right expression | Match? |
+|---|---|---|---|---|
+| 1 | (6, 0, 0) = 6 | "Keep same Weight" | W = (6, 0, 0) | |
+| 2 | (6, 0, 0) = 6 | "Keep same Weight" | W = (6, 0, 0) || 4 | (6, 0, 0) = 6 â "Update Weight" | W = (6,0,0) â 2 â (1,5,4) = (4, â10, â8) | red left-pointing double arithmetic and all six values identical |
+| 5 | (4, â10, â8) = â96 | "Keep same Weight" | W = (4, â10, â8) | 6 | (4, â10, â8) = â104 | "Keep same Weight" | W = (4, â10, â8 |
+
+- Row-number badge colors match: 1, 2 red; 4, 5, 6 blue. Vector entry colors match: green (1,5,4) and green (4,â10,â8) entries in row 4; green (4,â10,â8) in rows 5/6 left and right. "Update Weight" text in red on row 4 in
+- Row 3 correctly absent in both (not a dropped
+- Every digit verified: 6/0/0, â2, 1/5/4, 4/â10/â8, â96, â104. **No wrong, swapped, or missing numbers.**imiters span all three stacked lines in every enclosure; no touching of glyphs; vertical centering inside brackets/parens is correct in both.crepancies found
+
+1. **MINOR â delimiter glyph style (systematic, all rows):** The original uses rounded **parentheses** for every vector enclosure; the recreation uses **square brackets**. Spanning and centering are correct in both; this is a notational-style substitution, not a content error. Confidence: high.
+2. **MINOR â missing underline under "W":** In the original, "W" is underlined in all five rows (e.g., rows 1â2 right side, row 4 expression, rows 5â6 right side); the recreation renders plain "W". Confidence: high.
+3. **MINOR â row-4 left-pointing double arrow (right margin, ~85% across):** Original shows a heavy red "â"; the recreation's arrow is slightly thinner and reads more orange. Same glyph, same position. Confidence: medium (JPEG softening in IMG2 contributes).
+4. **MINOR â spacing in row 4 expression:** Original renders "â 2 â" with spaces around the 2; recreation renders "â2 â". Content identical. Confidence: high.
+
+No BLOCKER or MAJOR defects: no wrong digits, no swapped table/vector values, no missing rows, no truncated subscripts, no delimiters failing to span their lines, and no text-color errors in the vector entries.
+
+## FINAL VERDICT: **PASS**
+
+The recreation of this region is faithful and usable â all numerical content, row structure, coloring logic, and decision text are exact; remaining differences are cosmetic (paren-vs-bracket style, W underline, arrow weight).

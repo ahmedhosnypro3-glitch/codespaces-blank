@@ -1,0 +1,103 @@
+# GROUND-TRUTH EXTRACTION â slide005 pink_band
+
+Crop: 1680 Ã 160 crop px (= 840 Ã 80 slide px; slide region x=60..900, y=275..355).
+Conversion: slide_x = crop_x/2 + 60, slide_y = crop_y/2 + 275.
+
+---
+
+## 1. LAYOUT MAP
+
+| Region | Crop px (x,y â x,y) | Slide space (x,y â x,y) |
+|---|---|---|
+| **Top rule fragment** (thin gray horizontal line, remnant of element above, cut off) | (0, 2) â (28, 8) | (60, 276) â (74, 279) |
+| **Pink callout box** (rounded-corner-free rectangle, crimson border, pink fill) | (32, 24) â (1586, 142) | (76, 287) â (853, 346) |
+| â Box interior padding zone (empty pink left of equation) | (32,24) â (50,142) | (76,287) â (85,346) |
+| **Equation cluster** (âLoss/âW = 0) | (48, 30) â (340, 138) | (84, 290) â (230, 344) |
+| â Numerator "âLoss" | (52, 34) â (240, 82) | (86, 292) â (180, 316) |
+| â Fraction bar (horizontal rule) | (40, 86) â (256, 92) | (80, 318) â (188, 321) |
+| â Denominator "âWÌ²" (W underlined) | (55, 96) â (200, 138) | (87, 323) â (160, 344) |
+| â "= 0" | (262, 58) â (336, 94) | (191, 304) â (228, 322) |
+| **Text cluster "Get Best W that minimizes the loss"** | (452, 52) â (1444, 100) | (286, 301) â (782, 325) |
+| â "Get Best " (black) | (452, 52) â (706, 100) | (286, 301) â (413, 325) |
+| â "W" (bold, red) | (728, 48) â (780, 102) | (424, 299) â (450, 326) |
+| â "that minimizes the loss" (black) | (812, 52) â (1444, 100) | (466, 301) â (782, 325) |
+| **Right margin** (plain background, no content) | (1586, 0) â (1680, 160) | (853, 275) â (900, 355) |
+
+No arrows, no tables, no badges inside this crop.
+
+---
+
+## 2. VERBATIM TEXT (reading order)
+
+| # | Text | Hex colour | Style | Cap height (crop px) |
+|---|---|---|---|---|
+| 1 | "â" (curly partial-d, serif) | #000000 | italic | ~46 px (full glyph height incl. descender) |
+| 2 | "Loss" | #000000 | italic, serif | ~40 px |
+| 3 | "â" (denominator) | #000000 | italic, serif | ~44 px |
+| 4 | "W" (denominator) with **underline** | #000000 | italic bold, underlined | ~40 px |
+| 5 | "=" | #000000 | regular | ~30 px |
+| 6 | "0" | #000000 | regular | ~40 px |
+| 7 | "Get Best " | #000000 (near-black, slight JPEG softness ~#1a1a1a) | bold, sans-serif | ~40 px |
+| 8 | "W" | #C00000 (dark red / crimson) | **bold**, sans-serif | ~44 px |
+| 9 | "that minimizes the loss" | #000000 | bold, sans-serif | ~40 px |
+
+No superscripts/subscripts appear anywhere in this crop. The only special decoration is the **underline beneath the denominator W** (underline stroke â3 crop px thick, sitting â4 crop px below the W baseline, spanning the W width plus ~6 px).
+
+---
+
+## 3. COLORS
+
+| Element | Fill | Border | Text |
+|---|---|---|---|
+| Pink callout box | **#F2C9CE** (light rose/pink; Â±10 tolerance, could read as #F5CBD0) | **#C00000** (dark crimson red), ~3 crop px stroke | â |
+| Slide background around box | **#FFFFFF** (white; slight JPEG gray noise, ~#F8F8F8) | â | â |
+| Top rule fragment | â | gray **#AAAAAA** | â |
+| Equation glyphs, fraction bar, underline | â | â | #000000 |
+| "Get Best â¦ loss" text | â | â | #000000 |
+| Emphasised "W" | â | â | **#C00000** (matches box border red) |
+
+---
+
+## 4. GEOMETRY MEASUREMENTS
+
+**Pink box:**
+- Border rectangle: left xâ32, top yâ24, right xâ1586, bottom yâ142 (crop px). Stroke thickness â3 crop px, uniform, sharp corners (no rounding detectable).
+- Interior fill is uniform pink; no gradient.
+- Left inner padding (border â â glyph): â20 crop px. Top inner padding (border â numerator top): â10 crop px. Bottom inner padding (underline â border): â4 crop px. Right inner padding (end of "loss" â right border): â142 crop px.
+
+**Fraction (stacked):**
+- Fraction bar: horizontal rule from (40, 89) to (256, 89), thickness â3 crop px, black.
+- Numerator baseline â y=80; denominator cap top â y=100. Gap numerator-baselineâbar â 8 px; barâdenominator-top â 9 px.
+- Bar is slightly wider than the wider of numerator/denominator (extends ~6 px each side).
+
+**"= 0":** equals sign centred at â (285, 76); "0" centred at â (318, 76); vertically centred on the fraction bar (bar y=89 â midline of =/0 which spans yâ58â94).
+
+**Gap equation â text:** â116 crop px of empty pink between "0" (right edge xâ336) and "G" of "Get" (xâ452).
+
+**Emphasis gap:** normal word space (~22 px) between "Best" and red "W"; slightly larger gap (~32 px) between red "W" and "that" â reads as a normal space around the emphasised word.
+
+**Inter-word spacing in "that minimizes the loss":** â18â22 crop px, uniform.
+
+**Top rule fragment:** ~6 crop px thick, gray, hugging the very top-left corner; severed by the crop's top edge.
+
+---
+
+## 5. MATH RENDERING
+
+Equation: **âLoss / âW = 0**
+
+- **Stacked fraction, 2 levels:** numerator "âLoss" on top, 3-px black horizontal bar (yâ89 crop), denominator "âWÌ²" below. No outer parentheses, no brackets, no radical.
+- **â symbols:** serif italic partial-d (â), rendered larger than the x-height of adjacent letters (~46 crop px tall), with the characteristic curled top hook and reversed-S bowl. Both numerator and denominator â are identical in style.
+- **"Loss":** fully italic serif (Times-like), capital L ~40 px cap height, lowercase "oss" with x-height ~28 px; slight right-leaning slant ~15Â°.
+- **Denominator "W":** italic bold serif W with a straight black **underline** directly beneath (3 px thick, offset 4 px below baseline, extends the full W width). This underline is the visual marker for the parameter vector being optimized.
+- **"= 0":** upright (non-italic), placed to the right of the fraction at bar height, with ~8 px space after the bar. The 0 is a regular oval zero, no slash.
+- **Emphasis W in prose:** the red "W" in "Get Best **W** that minimizesâ¦" is set in the same bold sans-serif as the surrounding prose but coloured #C00000; it is *not* underlined (unlike the denominator W) and is upright, not italic. This is the only colour emphasis in the band.
+
+---
+
+## CROP-EDGE NOTES
+
+- **Top edge:** the thin gray rule fragment at top-left (crop x 0â28) is severed by the crop's top boundary â it is the bottom edge of an element belonging to the band above and should not be rebuilt as part of this pink band.
+- **Left edge:** nothing cut â the box's left border and white margin are fully inside the crop.
+- **Right edge:** the pink box's right border (xâ1586) and ~94 px of white background are fully inside the crop; nothing is severed on the right.
+- **Bottom edge:** box bottom border fully visible (yâ142) with white margin below; nothing cut.

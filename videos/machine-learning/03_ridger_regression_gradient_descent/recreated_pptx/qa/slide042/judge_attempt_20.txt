@@ -1,0 +1,46 @@
+# Fidelity Check â Slide 042 (Perceptron Iteration 1)
+
+## Element-by-element comparison
+
+### BLOCKER defects
+
+1. **MISSING ENTIRE ROW â d(xâ) computation (confidence: very high).** The original has **six** white computation boxes: d(xâ)= (1 1 1)Â·(4, â2, 2) = 0 â **Update Weight**, W = (4, â2, 2) + 2 * (1, 1, 1) = (6, 0, 0), with a red â arrow at right. The recreation contains only **five** boxes, starting at d(xâ). The entire first iteration step â the row that produces the (6,0,0) weight used by every subsequent row â is absent. Per directive (6), a wholly omitted row is a BLOCKER.
+
+2. **"Initial W" vector rendered broken (confidence: very high).** In the yellow header panel the original shows Initial W as a 3-component stacked vector (4, â2, â2/2). The recreation shows only "4" and "â2"; the third component is missing and the bracket glyphs are clipped/overlapping fragments (a stray "]" overlaps the "-2", the lower bracket is a stub). An equation region that renders broken/clipped is a BLOCKER.
+
+### MAJOR defects
+
+3. **Header xââ¦xâ vectors truncated (confidence: very high).** Original shows each as a 3-component column in parentheses: (1,1,1),(2,1,1),(1,2,1),(5,4,4),(6,5,5),(6,6,6). Recreation shows only **two** component rows per column and no enclosing parentheses â the third row of data is missing and the delimiters are gone.
+
+4. **Zâ, Zâ, Zâ vectors truncated (confidence: very high).** Original: (0,0,0), (7,6,2), (3,3,2) â three rows each. Recreation shows only two rows each (0,0 / 7,6 / 3,2); third components missing.
+
+5. **Left panel title text wrong (confidence: very high).** Recreation: "**Upgraded** Vectors (From Top)". Original: "**Augmented** Vectors ( From Top )". Verbatim text error.
+
+6. **d(xáµ¢) notation broken (confidence: very high).** Original renders "d(xâ) =" on one line with xáµ¢ inside the parentheses. Recreation splits it into two lines: "d( )" with empty parentheses and "x" plus a hanging subscript ("â=", "â="â¦) sitting below/outside the delimiters. The argument is not enclosed by its delimiters and the baseline is misaligned.
+
+7. **Delimiter geometry failures throughout (confidence: very high).** Nearly every stacked vector (green (6,0,0)/(4,â10,â8) vectors, update vectors, left-panel augmented vectors) renders with only partial corner-bracket fragments that do not span all enclosed rows; in the left panel the bottom "1" of each 4-component vector sits at/outside the bracket's end. Additionally, a stray vertical bar "|" artifact floats left of the green vector in every computation row. Violates directive (7).
+
+8. **Possible wrong values in the xâ row (confidence: medium, ~60%).** Recreation row 2 shows the multiplier "1 1 2"; the original's d(xâ) row appears to read "1 2 1". Flagged for author verification at source resolution.
+
+9. **Missing red "â" arrow on the Update Weight row (confidence: high).** The original places a red return-arrow at the right edge of both Update-Weight rows; the recreation's lone update row has none.
+
+### MINOR defects
+
+10. **Text collision in header bottom line (confidence: high).** Recreation reads "Câ positiveCâ negative" â the comma/space after "positive" is swallowed and the Câ subscript collides with the preceding word. Original: "Câ positive, Câ negative,".
+11. **Dot operator between the two vectors in d(x)=â¦ is not clearly rendered** in the recreation (low confidence â may be subsumed by the "|" artifacts in #7).
+12. **"Iteration 1" box proportions** differ from the original (wider/taller); cosmetic only.
+
+### Non-defects (per ground rules)
+- House chrome (gray panel, red left/right/bottom strokes, no top stroke, yellow "42" badge) â intentional, matches original's badge numeral.
+- 2D stacked-vector format â matches the original's own 2D notation; not a format-upgrade question here.
+- Frame containment: no content crosses the house panel boundary â acceptable.
+
+## Visual-quality defects in the recreation
+- Bracket fragments and stray "|" bars scattered across all five computation rows (collisions/ink artifacts).
+- Subscripts of x and C hanging below the text baseline, colliding with adjacent glyphs.
+- Green weight vectors' bottom delimiters open/missing, leaving values visually unenclosed.
+- d-row two-line split creates ragged vertical alignment vs. the original's single-line form.
+
+## FINAL VERDICT: **FAIL** for "faithful, usable recreation."
+
+The recreation is missing an entire computation row (the d(xâ) Update-Weight step), the Initial W vector is clipped/broken, both header and Z vector sets are truncated to two of three components, and delimiter/notation geometry is broken throughout. These are BLOCKER/MAJOR defects that must be fixed before the slide is usable.

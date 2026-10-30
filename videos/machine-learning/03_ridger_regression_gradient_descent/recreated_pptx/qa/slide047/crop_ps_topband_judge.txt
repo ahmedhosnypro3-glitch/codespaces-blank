@@ -1,0 +1,27 @@
+## Slide 047 â paren-curve audit (augmented-matrix top band, crop-relative coords)
+
+**Region content:** six header glyphs xââ¦xâ, each above a 2-line parenthesized column vector: (1,1), (2,1), (1,2), (5,4), (6,5), (6,6).
+
+### Cell-by-cell / glyph-by-glyph check
+
+| Location in crop | Expected (IMG2) | Rendered (IMG1) | Status |
+|---|---|---|---|
+| Col 1 (~x 10â40) | xâ; (1 over 1) | xâ; (1 over 1) | â match |
+| Col 2 (~x 45â80) | xâ; (2 over 1) | xâ; (2 over 1) | â match |
+| Col 3 (~x 85â120) | xâ; (1 over 2) | xâ; (1 over 2) | â match |
+| Col 4 (~x 125â160) | xâ; (5 over 4) | xâ; (5 over 4) | â match |
+| Col 5 (~x 165â200) | x6 over 5) | x over 5) | â match |
+| Col 6 (~x 205â240) | xâ; (6 over 6) | xâ; (6 over 6) | â match |
+
+- **Subscripts:** all six x-headers carry the correct subscript digit (1â6). No truncated or dropped subscripts.
+- **Vector entries:** every digit matches, top and bottom row, all six columns â no swapped, wrong, or missing values. Row 1 = 1,2,1,5,6,6; Row 2 = 1,1,2,4,5,6. â
+- **Delimiter geometry:** in both images every paren pair spans both rows of its vector without touching either digit; spacing between column groups is comparable. The slightly heavier paren stroke in IMG1 is the typed-vs-ink medium difference (ground rule c) â MINOR at most.
+- **Vertical centering:** digits in IMG1 are well-centered within the parens on both rows; no cell drift.
+- **Stroke continuity:** IMG1 paren curves are continuous, no gaps or double-struck artifacts.
+- **Color:** background cream/flesh tone matches; digit ink dark and consistent in both. IMG2 shows a thin blue strip at top and slight mottling/haloing â frame chrome and JPEG/capture artifacts per ground rules (b) and (e), not discrepancies.
+- **No discrepancies found** beyond the mandated/ignored classes above.
+
+### Discrepancy list
+None beyond ground-rule-excluded items (typed ink weight, capture softness/halos, original's top-edge chrome).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

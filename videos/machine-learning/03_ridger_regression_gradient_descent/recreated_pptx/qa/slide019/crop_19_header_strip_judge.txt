@@ -1,0 +1,37 @@
+# Region Comparison â Slide 019, header_strip crop (attempt 19)
+
+## Content verification (values, glyphs, structure)
+
+All textual/numeric content is **present and correct** in both images:
+- Title "Test Data" â (both)
+- Vectors: zâ = (30, 15), zâ = (40, 20), zâ = (50, 25) â every digit matches, correct stacking, correct pairing with y=60 / y=80 / y=100 â
+- Red underline beneath zâ, zâ, zâ present in both â
+- Headers: "Outlier Xs", "NO Regularizer with (as if Î»=0)", "Ridge Regularizer with Î»=3", "Ridge Regularizer with Î»=10" â all characters and Î» values correct â
+- Badge "19" yellow with purple ring, top-right â (mandated chrome)
+
+No wrong, missing, or garbled characters anywhere. No delimiter failure: in IMG1 (~x=290â350, 480â540, 690â750) the large parens fully span both stacked numbers without touching the glyphs.
+
+## Discrepancies
+
+1. **MAJOR â Column header text color: red vs. dark navy.** In IMG1, all three headers â "NO Regularizer with (as if Î»=0)" (~x=140â500), "Ridge Regularizer with Î»=3" (~x=680â1000), "Ridge Regularizer with Î»=10" (~x=1220â1560) â are set in **red (âC00000)**. In IMG2 the same three headers are clearly **dark navy/indigo italic**. This is a full hue change in text, not a "small color difference"; it affects all three headers and is the region's dominant styling cue. Confidence: **high**.
+
+2. **MINOR â Header typeface style.** IMG2 headers are bold-italic serif; IMG1 headers are upright bold sans. Interacts with #1 (the italic character of the original headers is lost). Per rule (c)-adjacent medium/font norms this alone would be MINOR; combined with the color swap it reinforces #1. Confidence: high.
+
+3. **MINOR â Missing/pale box fills in header strip.** IMG2 shows a cream/light-yellow fill on the "NO Regularizerâ¦" box (~x=140â680) and a clear light-green fill on the "Î»=10" box (~x=1220âright edge). In IMG1 the "NO Regularizer" region reads essentially white, and the Î»=10 region's green tint is much paler/near-white (the Î»=3 peach fill *is* correctly present, ~x=680â1240). Confidence: medium-high for the cream box; medium for the green box (JPEG wash possible, but the contrast against IMG2 is marked).
+
+4. **MINOR â Reference line segmentation.** In IMG1 the red reference line above the strip (~y=218) reads as a continuous strong red segment only over the Î»=3 box (~x=680â1245) with thin/gapped segments and small tick marks elsewhere (~x=150, ~x=680); IMG2 shows a more uniform dark-red line across the full strip width. Stroke continuity issue at zoom. Confidence: medium.
+
+5. **MINOR â Delimiter weight and font of math text.** IMG1 uses heavy, near-black parens and sans-serif math (z, y=60â¦); IMG2 uses thin hairline parens and blue italic serif. Per rules (c)/(d) this is a mandated/medium-level difference, listed only for completeness. Confidence: high (that it is MINOR, not a defect).
+
+6. **MINOR â "Outlier Xs" layout.** IMG1 renders "Outlier Xs" on one line (~x=20â110, y=250â275); IMG2 shows "Outlier" with "Xs" apparently wrapped to a second line below the crop. Possibly a line-wrap difference; the crop prevents full confirmation. Confidence: low-medium.
+
+## What is NOT a discrepancy (per ground rules)
+- White canvas, gray panel, missing top stroke, badge styling â house chrome.
+- Professional 2D large-paren vectors vs. original's thin parens â mandated format upgrade.
+- JPEG halos/softness in IMG2 â capture artifact.
+- All numeric content â verified cell by cell, no errors.
+
+## Summary
+Zero numeric/structural errors; the region is fully usable and readable. However, the systematic **red-vs-navy recoloring of all three column headers** (plus lost italic style and two missing box fills) is a real, visible-at-any-scale fidelity break in the region's most prominent text, not a medium or chrome artifact.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

@@ -1,0 +1,34 @@
+# Discrepancy Report â Slide 025, TL region (3D dome surface plot), attempt 9
+
+## Content discrepancies
+
+**1. Surface geometry is fundamentally different â BLOCKER (confidence: high)**
+In IMG2 (original), the dome is a mesh surface with a flared, concave "skirt": the surface sweeps down and outward from the peak and meets the floor across the full footprint, with visible down-turned lobes at the left/right edges (classic peaks/Gaussian-with-dip profile, ~x 60â330, y 90â340 crop-relative). In IMG1 (recreation), the dome is a smooth bell that terminates at roughly half height and sits on a flat, featureless dark-blue plane. The plotted function's shape â the actual mathematical content of this figure â does not match.
+
+**2. Floor contour rings missing â MAJOR (confidence: high)**
+IMG2 shows concentric contour rings (white/pale-cyan) on the floor beneath/around the dome (visible ~x 100â320, y 240â340). IMG1's floor is solid dark blue with no contour rings whatsoever. This is missing figure content, not a rendering artifact.
+
+**3. Surface wireframe/mesh lines missing â MAJOR (confidence: high)**
+IMG2's dome is drawn with a visible quad mesh (dark grid lines over the oliveâcyanâblue colormap). IMG1's dome is smooth-shaded with no mesh lines. Per the region spec ("olive-to-blue colormap" dome), the rendering style itself differs.
+
+**4. Axis orientation flipped / z-axis on wrong side â MAJOR (confidence: high)**
+IMG2: z-axis tick labels ("0", "-5") sit on the **left** side (~x 40â55, y 85 and y 185), with x/y tick labels ("2", "0", "-2" and "2", "0", "-2") along the bottom-left and bottom-right floor edges. IMG1: the z-axis with ticks "0", "â5" is on the **right** side (~x 375â390, y 130 and y 240), with "2", "0" also stacked on the right. The 3D camera/axis layout is mirrored relative to the original.
+
+**5. Missing tick labels â MAJOR (confidence: high)**
+IMG2 carries 8 tick labels: 0, -5 (z), plus 2, 0, -2 on the left floor edge and 2, 0, -2 on the right floor edge. IMG1 carries only 6: 0, â5, 2, 0 (right side), â2, 0 (bottom). One "â2" and one "2" from the original's floor-edge label sets are absent. Missing labeled values are a MAJOR defect even at crop scale.
+
+**6. Blue corner badge wrong color and missing glyph â MAJOR (confidence: medium-high)**
+Top-right, outside the red border: IMG2 shows a **dark navy** square containing a yellow character ("C") (~x 410â440, y 60â120). IMG1 shows a **bright pure-blue** rectangle with no glyph. Both the fill color (royal blue vs navy) and the missing yellow character are wrong.
+
+## Minor / acceptable
+
+- **Red reference lines:** both images have three red horizontal lines; positions and lengths differ slightly (IMG1's third line spans the full crop width ~y 195; IMG2's lines start nearer the dome, ~y 125/165/185). â MINOR, medium confidence.
+- **Red border weight:** IMG1's border reads slightly heavier/more continuous than IMG2's (partly a video-capture softness in IMG2). â MINOR.
+- **Tick-mark styling and axis-line color** (black with ticks in IMG1 vs thin gray lines in IMG2). â MINOR.
+- JPEG softness/halos in IMG2 around red lines and border: capture artifact, not counted.
+
+## Summary
+
+Three MAJOR+ content defects on the figure itself (different surface shape, missing contour rings, missing mesh) plus a flipped axis layout with missing tick labels and a wrong corner badge. This is not a faithful reproduction of the region.
+
+**FINAL VERDICT: FAIL**

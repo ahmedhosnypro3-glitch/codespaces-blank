@@ -1,0 +1,38 @@
+# Fidelity Check â Slide 041
+
+## Ground-rule dispositions (settled first, not raised again)
+- House chrome (white canvas, gray panel E9E9E7, red C00000 strokes left/right/bottom only, no top stroke, yellow badge "41" at top-right) â present in both, **intentional, not a discrepancy**.
+- Equation vectors are rendered in professional 2D stacked format in BOTH images (parenthesized column vectors with horizontal alignment) â consistent, no format-upgrade question arises.
+- No cursor artifacts to adjudicate (IMG2 is a clean frame).
+- IMG2 is a real content slide, so contentlessness-matching does not apply; content must be compared.
+
+## Element-by-element comparison
+
+**Header box (yellow, blue border):**
+- xââ¦xâ vectors (1,1),(2,1),(1,2),(5,4),(6,5),(6,6) â verbatim match, colors C1 red / C2 blue match.Initial W = (4, â2, â2)" â verbatim, professional 2D vector, matches- "Step Î· = 2" â red italic,
+- "Check classes of" + Zâ Zâ Zâ vectors (0,0),(7,6),(3,2) â verbatim match, colors
+- Legend line "Câ positive, Câ negative, Zero is unaccepted" â **DEFECT, see below.**
+
+**Chart:**
+- Red-framed plot, axes 0â8 (x) and 0â7 (y), gridlines, tick labels â match in position, spacing, and
+- Data points: navy squares (1,2),(1,1),(2,1); magenta diamonds (5,4),(6,6),(6,5); dark-red triangles (0,0),(3,2),(7,6) â all 9 points present, correct shapes, colors, and coordinates in both.## Discrepancy list
+
+1. **MAJOR â Legend line wrapping / broken subscript ("Câ").** In the original, "Câ positive Câ negative Zero is unaccepted" sits on a single line inside the header box. In the recreation, "Câ" is broken across lines: the "C" renders inline with "negative," while its "2" wraps to a second line below, hanging down toward the box's bottom border. This produces (a) wrong wrapping vs. the original's single line, (b) a split glyph pair ("C" / "2") that reads as two separate tokens, (c) misalignment â "negative," is baseline-aligned with "C," not with the full "Câ" token, and (d) the orphaned "2" nearly touches the yellow box's bottom edge (frame-containment risk). Confidence: high (clearly visible in IMG1 at ~x630, y240â265).
+
+2. **MINOR â Subscript styling.** Original renders Câ/Câ (and xââ¦xâ, Zâ) as true italic subscripts; the recreation renders several of these as inline baseline text (e.g., "C1", "Z1" appear with subscript but non-italic/plain styling). Confidence: medium â small at render resolution.
+
+3. **MINOR â Punctuation in legend.** Recreation inserts commas ("C1 positive," / "negative,") where the original appears to use spacing only ("Câ positive Câ negative"). Confidence: lowâmedium (resolution-limited on IMG2).
+
+4. **MINOR â Inter-phrase gaps in legend.** Original uses wider, even spacing between "positive / Câ / negative / Zero"; recreation's gaps are uneven owing to the wrap defect. Confidence: medium. (Consequence of #1; listed for completeness.)
+
+**Missing elements:** none â every vector, label, equation, and all 9 chart data points from the original are present. No empty equation regions. No table in the original, so no table-data check applies.
+
+**Delimiter geometry:** all column-vector parentheses in the header span exactly their two enclosed values, are wide enough to avoid overlapping the digits, and are vertically centered.Vertical centering:** numerals inside all parentheses are centered; axis tick labels align with gridlines; badge numeral "41" is centered in its (The only centering failure is the split "C/2" token, captured in #1.)
+
+## Visual-quality defects in the recreation
+- Broken "Câ" token with orphaned "2" wrapping to a second line, nearly touching the yellow box's bottom border (part of #1 above).
+- No text clipping, no collisions elsewhere, no illegible text.
+
+## FINAL VERDICT: FAIL for 'faithful, usable recreation'
+
+The slide is content-complete and the chart is a point-perfect match, but the legend line's broken "Câ" wrap is a visible MAJOR layout defect (wrong wrapping, split token, misalignment, near-clipping at the box edge) that was not present in the original. Fix the header text box width / font size so "Câ positive, Câ negative, Zero is unaccepted" renders on one line, and this slide passes.

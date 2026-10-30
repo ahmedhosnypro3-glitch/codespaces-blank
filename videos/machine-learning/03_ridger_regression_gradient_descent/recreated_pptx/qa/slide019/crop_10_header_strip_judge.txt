@@ -1,0 +1,12 @@
+DISCREPANCIES
+
+**1) MAJOR â Testâdata equation structure / containment (upper area, right of and inside the âTest Dataâ box).**
+- Original (IMG2): the blueâbordered âTest Dataâ box encloses three stacked 2âD column vectors, zâ=(30 over 15) with y=60 underneath, zâ=(40 over 20) with y=80 underneath, zâ=(50 over 25) with y=100 underneath â a professional stacked layout fully inside the box.
+- Recreation (IMG1): the box contains only the title âTest Dataâ; the data is rendered as a single inline linear line âz1=(30, 15), y=60; z2=(40, 20), y=80; z3=(50, 25), y=100â placed to the right in the gray area (outside the box), using row tuples instead of column vectors, and the line runs off the right crop edge. All digits are correct (30/15/60; 40/20/80; 50/25/100), so there is no wrong value, but the equation structure is changed from the originalâs 2âD column vectors to a linear inline tuple and moved outside the title box. Ground rule (d) only excuses recreationâ2D versus originalâlinear; it does NOT excuse the reverse (recreation linearizing an original 2âD equation), so this is a real structure/layout defect. Confidence: High.
+
+**2) MINOR â Columnâheader leadâin text color (bottom header row, three headers).**
+- âNO Regularizer with â¦â and âRidge Regularizer with Î»=3â and âRidge Regularizer with Î»=10â: the leadâin text (âNO Regularizer withâ, âRidge Regularizer withâ) renders BLACK/dark in the recreation but BLUE in the original. Only the parameter portions â(as if Î»=0)â, âÎ»=3â, âÎ»=10â are red in both. Small but consistent textâcolor difference across three headers. Confidence: MediumâHigh.
+
+Not flagged (settled by ground rule b â intentional chrome, never a discrepancy): gray E9E9E7 panel, thin darkâred C00000 left/right/bottom strokes, no top stroke, yellow FDFD96 badge with purple 6A5ACD ring; the recreationâs grayâpanel + darkâredâstroke header row follows that intentional template. No wrong digits anywhere (slide â19â, âTest Dataâ, all Î» values, and all x/y numbers match).
+
+FINAL VERDICT: FAIL â driven by the MAJOR equationâstructure/layout discrepancy (2âD column vectors collapsed to a single cutâoff inline line and moved outside the âTest Dataâ box). Numeric content is fully correct and the region remains readable/usable, but it is not a faithful structural match to the original region.

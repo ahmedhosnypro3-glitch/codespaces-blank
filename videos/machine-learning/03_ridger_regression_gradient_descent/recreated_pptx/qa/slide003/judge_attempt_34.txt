@@ -1,0 +1,38 @@
+# Fidelity Check â Slide 003 (Matrix Notation for Linear Regression and Classification, N-Samples)
+
+## Ground rules applied first
+- House chrome (white canvas, gray panel, C00000 left/right/bottom strokes only, no top stroke, yellow badge at ~(876,73) with purple ring and numeral 3): present and correct in the recreation; **not** discrepancies.
+- Typed-vs-rendered equation styling: both images show the Remember equation and Y=XW in effectively the same underlined typed style, so no format-upgrade conflict arises.
+- No cursor/artifacts present in image 2; nothing to omit.
+
+## Element-by-element comparison
+
+| Element | Original (IMG2) | Recreation (IMG1) | Verdict |
+|---|---|---|---|
+| Title text/wording/colors ("Matrix" blue, rest red, "(N-" blue "N") | â | â verbatim, same two-color pattern | Match |
+| Badge "3" | â | â | Match (house chrome) |
+| "N Training Samples" red label, position left-middle | â | â | Match |
+| Top blue-framed box: columns Xâ (yellow), Xâ (cyan), â¦, Xâ (magenta), entries xâââ¦x_nd, vertical bar pairs, yââ¦yâ at column bottoms, dots column with parentheses | â | â same structure, same column colors, same ordering, subscripts aligned | Match |
+| "Remember" box: cyan fill, blue border, italic red "Remember", underlined **y = WáµX = XáµW** | â | â verbatim, underlines on y, W, X, W present | Match |
+| "In General: **N >>> d**" boxed | â | â verbatim, red bold N >>> d | Match |
+| Bottom-left red-framed box: y-vector (NÃ1), "=", augmented matrix rows [1 xââ xââ â¦ xâ_d] etc. with yellow/cyan/â¦/magenta row bands, w-vector (b, wâ, wâ, â¦, w_d) (d+1Ã1) | â | â all rows present, row band colors match, dimension labels "N Ã 1", "N Ã d+1", "d+1 Ã 1" present | Match (see color note below) |
+| Delimiter geometry (large parens on matrix and vectors) | Span all enclosed rows | Span all enclosed rows in both images; no overlap onto text, no clipping | Match |
+| Frame containment | â | All content sits inside its boxes; magenta/cyan columns end inside the blue frame; "d+1 Ã 1" and "N Ã d+1" labels inside the red frame; no ink crossing panel strokes | Match |
+| Bottom-right red-framed box: **Y = X W** (underlined), "Where: X_{NÃd+1} is a matrix", "Y_{NÃ1} is labels vector" | â | â verbatim, subscripts present | Match |
+| Table/data values | â | All cell entries (1, xââ, xââ, â¦, x_nd, etc.) match; no missing rows | Match |
+
+## Discrepancies
+
+1. **MINOR** â Color of the parameter vector entries: original renders **b** in bold black and the w entries in black with red subscripts; recreation renders **b** in red and the w entries in blue/purple. Content and positions identical; coloring differs. Confidence: high.
+2. **MINOR** â Arrow between bottom-left and bottom-right boxes: original uses a white/outlined block arrow (â style); recreation uses a thin solid gray arrow (â). Same position and meaning, different glyph style. Confidence: high.
+3. **MINOR** â Bottom y-vector label: original's last row reads **yâ** (with "NÃ1"); the recreation's last label appears to read **yâ**/"yâ" ambiguously rendered (subscript partially collides with the adjacent "N Ã 1" label). Content likely intended as yâ; rendering is ambiguous. Confidence: medium.
+4. **MINOR** â Subscript notation style: original uses "N x d+1" / "N x 1" (letter x); recreation uses "NÃd+1" / "NÃ1" (Ã sign). Semantically identical. Confidence: high.
+5. **MINOR** â Third matrix row dots: original shows "1 â¦. â¦. â¦. â¦." (wider dot leaders); recreation shows "1 â¦ â¦ â¦ â¦". Same meaning, slightly different dot glyph weight. Confidence: medium.
+
+No BLOCKER or MAJOR defects found: no missing elements, no empty equation regions, no frame overflows, no delimiter failures, no table data errors, and line spacing/vertical centering within multi-line blocks and columns visually matches the original.
+
+## Visual-quality defects in the recreation
+- Slight collision between the last y-vector label's subscript and the "N Ã 1" text (bottom-left box) â MINOR legibility nick.
+- The "b" in the w-vector sits slightly higher relative to its enclosing parenthesis apex than in the original â MINOR.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation."

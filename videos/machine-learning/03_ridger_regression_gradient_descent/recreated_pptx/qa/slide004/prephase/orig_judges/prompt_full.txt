@@ -1,0 +1,29 @@
+GROUND-TRUTH EXTRACTION — pure DESCRIPTION task. There is exactly ONE image and NO
+comparison, NO render, NO judgement call to make. You are producing the authoritative
+text record of what this image shows, for a pixel-accurate slide rebuild.
+
+Image: the ORIGINAL lecture-video frame of deck slide 4 (960x540 px, 1 px = 1 pt; the slide-number badge reads 4). All bounding boxes in FRAME pixels (x right, y down, origin top-left).
+
+Required output sections:
+1. LAYOUT MAP — every visible element as a named region with a bounding box in frame px.
+   Cover ALL of: title, badge, boxes and their borders, equations, arrows, rules/lines,
+   text clusters, table/matrix rows and columns. Leave nothing out.
+2. VERBATIM TEXT — transcribe every text element exactly, character-for-character,
+   in reading order. Mark subscripts/superscripts explicitly (e.g. "x with subscript 11",
+   "T as superscript"). For each element give: approx hex colour, bold/italic/underline
+   flags, and an estimated font cap-height in px.
+3. COLORS — per element: fill, border, text colours as approx hex (JPEG source, +-10
+   tolerance is expected; name the closest conventional hex).
+4. GEOMETRY MEASUREMENTS — border positions and stroke thickness, line endpoints,
+   arrow shaft and head geometry, badge centre + diameter, matrix/table cell grid
+   (row heights, column x-positions), inter-line gaps, box padding.
+5. MATH RENDERING — for each equation describe the exact 2D visual arrangement:
+   stacked fractions with bar positions, sub/superscript offsets, underlines,
+   bracket/paren shapes and their vertical extent, radical signs, spacing.
+
+Rules: transcribe exhaustively — NEVER paraphrase or summarise small text away;
+if a glyph is genuinely illegible give your best reading and mark it [?];
+all measurements in px; be specific enough that a builder could redraw the
+region without seeing the image.
+
+This slide's overall subject: the concept of the LOSS function (its printed title).

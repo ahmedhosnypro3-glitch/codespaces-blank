@@ -1,0 +1,25 @@
+## Comparison: Slide 025, bottom-right region â gradient-descent path on multimodal surface
+
+**Scope check:** Both images show the same crop-space region: the surface plot with its black descent trajectory. IMG2 (original) shows a smooth, warm-colored (redâyellowâgreenâblue) multimodal surface with a fine mesh and an elegant, smoothly curving descent path running from near the red summit down into a blue basin, terminating in a small white cursor-style arrow at lower left. IMG1 (recreation) shows a coarsely tessellated MATLAB-âpeaksâ-style surface in a turquoise/green colormap with a sharp central red peak and a deep blue valley, traversed by an angular black polyline with a sharp elbow, plus a small solid-black arrow pointing left near the surface's left edge.
+
+### Discrepancies
+
+1. **BLOCKER â Descent path trajectory does not match.** In IMG2 the path is a smooth, continuous S-curve descending from the summit region (upper-center, ~40% width, ~25% height of the crop) winding down to a blue basin at lower center, with a distinct rounded switchback. In IMG1 the trajectory is a jagged polyline with a hard ~90Â° elbow near center and a thick tapered segment toward the left â a qualitatively different curve. This is the defining content of this region. Confidence: high.
+
+2. **BLOCKER â Surface geometry mismatch.** The original is a gently undulating multimodal surface (soft hills, shallow basins, characteristic dimpled/rippled top). The recreation renders the classic MATLAB `peaks` function: one dominant sharp central peak and one deep V-shaped valley. Different function, different silhouette, different number/position of extrema. Confidence: high.
+
+3. **MAJOR â Colormap mismatch.** Original uses a warm rainbow colormap: deep red at the summit, banding through orange/yellow/green into blue at the basins, so the surface reads as "warm multimodal." Recreation is dominated by cyan/turquoise/green with red confined to the peak tip and dark blue to the valley â the warm character of the region is lost. Confidence: high.
+
+4. **MAJOR â Arrow/endpoint marker mismatch.** The original path terminates (or begins) with a small **white** cursor-style arrow at lower-left (~20% width, ~70% height). The recreation instead has a small **solid black** arrow at a different location (~30% width, ~60% height), detached from the path's endpoint geometry. Wrong glyph color, shape, and placement. Confidence: high.
+
+5. **MINOR â Mesh density.** Original has a fine, dense wireframe mesh (dozens of cells per feature); recreation has a visibly coarser grid with heavy JPEG-style faceting. Medium confidence (partly a rendering-resolution artifact, but the coarseness exceeds what capture blur explains).
+
+6. **MINOR â Shadow/reflection under surface.** IMG2 shows a faint pale reflection/shadow beneath the surface at the bottom edge of the crop; IMG1 has none. Confidence: medium.
+
+**Not discrepancies (per ground rules):** the white canvas, gray panel edge, and dark-red border strokes visible at crop edges are house template chrome; softness/halos in IMG2 are upscale/compression artifacts.
+
+### Assessment
+
+Both blockers strike at the actual content of this region: the figure in the recreation is effectively a *different plot* (different function, different colormap, different path, different arrow). At full-slide scale it might read as "a 3D surface with a black line," but at this crop scale â which is the mandated standard â it is not a faithful recreation of the original figure.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

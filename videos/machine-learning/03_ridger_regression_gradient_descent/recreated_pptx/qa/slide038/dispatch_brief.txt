@@ -1,0 +1,97 @@
+
+
+You are the build worker for slide 038 of
+`/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/`.
+Work autonomously to a certified single-version deliverable. You are the ONLY
+worker on this slide; DB claims enforce that.
+
+READ FIRST, in this order (they are binding law; the deck files OVERRIDE the
+generic runbook wherever they differ):
+1. `~/.zcode/skills/slide-recreation/SKILL.md` — the skill. Follow
+   `references/building.md`, `references/judging.md`,
+   `references/dependencies.md` (children only), and `references/patterns/`
+   (index.json → the patterns your slide needs).
+2. `/home/ahmed/Projects/ai_llm_slides/scripts/17_worker_instructions.md` —
+   the worker runbook (DB milestones, render, self-check, judge, verdict law,
+   resume rule, final report).
+3. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/AGENTS.md` —
+   THIS deck's law (measured chrome, dependency graph, ZOOMED-judge-for-ALL).
+4. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/judge_protocol_03.md` —
+   the FROZEN judge templates. Source every `-p` payload byte-for-byte from
+   there (substitute only 038/K/region). Never hand-roll a judge prompt.
+
+STATE:
+- Content spec: `videos/machine-learning/03_ridger_regression_gradient_descent/analysis/slide_038_final.json`
+  (verbatim-text law: text is VERBATIM, `[?]` markers preserved, never invent facts).
+- Ground truth frame: `videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_038.jpg`
+  (960×540, 1px = 1pt = 1/72in). Measure with PIL — geometry from measurement,
+  never intuition.
+- DB (run from `/home/ahmed/Projects/ai_llm_slides`):
+  `VIDEO=machine-learning/03_ridger_regression_gradient_descent python3 scripts/15_progress.py <cmd>`
+  (claim/heartbeat/release/set/get; `set` takes THREE positionals; verify every
+  write with a `get`). **NEVER invoke 15_progress.py without the `VIDEO=` prefix**
+  — the default targets the CLOSED ml-intro deck's DB and a stray `set` silently
+  corrupts another deck's certified rows (known incident class, 2026-10-19;
+  if it ever happens, restore the foreign row from git and report it in your
+  worker_report.md).
+
+PROTOCOL:
+1. `claim 038 <your-unique-id>` (stand down read-only if a FRESH peer claim
+   exists; heartbeat every ~10 min of quiet phases; `release` at the end).
+2. DB milestones as you go: `gen_status=building`, `build_script`,
+   `pptx_path`, `visual_attempts`, `visual_check`, `visual_transcript`,
+   `gen_status`, `last_error` on failure.
+3. Build: `node videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_038.js`
+   producing `recreated_pptx/slide_038_recreated.pptx` (plain name, single version).
+   - House chrome: `require("../../shared_patterns/house_chrome.js").drawHouseChrome(pptx, slide, {numeral: 038})`
+     — THIS deck has NO top stroke (that is correct; do not add one).
+   - hex colors never carry `#` in pptxgenjs; lineSpacing mandatory on multi-line
+     text; measured geometry over intuition; never edit a certified component
+     in place (copy-then-modify).
+   - Equations (if any): matplotlib mathtext → 600dpi transparent PNG →
+     `addImage()` at exact px/600 size; bank PNGs + `eq_038_*.json` sidecars
+     (rel_id, image, mathtext, font_size_pt, color) under `recreated_pptx/build/assets/`
+     for the post-certification OMML wrap (`scripts/18_omml_wrapper.py`).
+   - Advanced graphs (if any): graphgen venv, topic-correct library, real data.
+4. Render 150dpi (private scratch + OWN LibreOffice profile
+   `-env:UserInstallation=file:///tmp/lo_slide038`; TMPDIR=
+   `/home/ahmed/Projects/ai_llm_slides/scratch/tmp`), then run
+   `python3 videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/house_chrome_check.py <render.png> 038`
+   — FAIL = fix the build BEFORE spending a vision call.
+5. Judge — BOTH legs (founder directive: ALL slides get the zoomed judge):
+   a. FULL-SLIDE comparison (Template A of judge_protocol_03.md), attempt K.
+   b. ZOOMED CROP-PAIR certificates (Procedure B): ≥1 crop region covering the
+      slide's densest content (one per dense region on multi-region slides);
+      crop-vs-crop ONLY at matched effective scale (upscale the original crop
+      by H_render/540, LANCZOS); bank pairs + transcripts under
+      `recreated_pptx/qa/slide038/`.
+   Bank `judge_prompt_K.txt` + `build_attempt_K.js` per attempt; verdicts only
+   from real winner bodies; 3 garbage re-invokes; 6 attempts max then park
+   `gen_status=failed` + `last_error` and STOP.
+   Adjudication: judge findings are HYPOTHESES — PIL-measure against the
+   original frame before fixing; refuted findings become judge context for the
+   re-roll (judge variance is sampling). Inherited/cascade zones are
+   adjudication inputs, never fix triggers.
+6. Certification: full-slide PASS + all crop certificates clean (or
+   PIL-adjudicated with banked refutation records) → DB `visual_check=PASS`,
+   `visual_transcript=<path>`, `gen_status=passed`. OMML wrap happens
+   POST-certification as a separate orchestrator pass (do not wrap yourself
+   unless your brief says so).
+7. `worker_report.md` in `qa/slide038/` + final message: slide id, attempts,
+   final verdict, pptx path, transcript paths, one-line judge-flag summary.
+
+DEPS: root — no dependencies; build free.
+
+CONTENT LINES (orientation only — the final JSON + frame are authority):
+  - Title: Gradient Descent (GD) vs Stochastic Gradient Descent (SGD) | header/subtitle: No separate subtitle exists; this is a title-only slide whose entire text content is the three-line centered title block: 'Gradient Descent (GD)' / 'vs' / 'Stochastic Gradient Descent (SGD)'
+  - Layout: Centered title block occupying the middle of the slide; first line 'Gradient Descent (GD)' in mixed red/blue, second line 'vs' in red centered below, third line 'Stochastic Gradient Descent (SGD)' in mixed red/blue below that; thin gray border frame around the full slide; slide number badge in top-right corner; mouse cursor near lower right of text block
+  - Visual element: highlight-box — Thin rectangular border framing the entire slide content area
+  - Visual element: icon — Yellow filled circle with thin dark outline containing black numeral '38'
+  - Verbatim text blocks: bullets=3, labels=1
+  - Validation: verdict=PASS_WITH_FIXES score=9 uncertain=["Exact font family is unverifiable: source only states 'likely Arial or Calibri'.", "Exact point sizes are estimates: title lines given only as a 48-60pt range and 'vs' only as 'slightly smaller'; the brief uses ~54pt and ~44pt mid-range values.", 'Yellow badge diameter is not specified in the source; ~0.4in is an estimate sized to fit the ~12pt numeral.', "Border thickness is described only as 'thin'; ~2pt is an assumed value.", 'The mouse cursor arrow is likely a video screen-capture artifact rather than designed slide content; it is retained per layout.regions and imagery for frame fidelity.', 'No items were explicitly marked [?] in the source JSON.']
+  - Imagery: ["Standard white/gray mouse cursor arrow pointer located to the right of the word 'Descent' in the second title line"]
+
+STORM RESILIENCE: on provider/upstream errors sleep 120s and retry up to 3×;
+bank per step atomically; keep logs in project scratch (never host /tmp);
+never abort the run; never delete banked evidence.
+

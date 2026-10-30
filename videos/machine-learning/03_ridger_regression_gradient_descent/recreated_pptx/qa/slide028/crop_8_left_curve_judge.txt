@@ -1,0 +1,56 @@
+# Judge transcript — slide 028, attempt 8 (zoomed crop-pair, left_curve)
+- date: 2026-10-24 07:05
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL (crop): recreated_pptx/qa/slide028/crop_8_left_curve_orig.png
+  md5=db51d8adb37b8b71336baa35c0b7041b  (frame bbox x152..400 y208..466, LANCZOS x2.0847)
+- IMG_RENDER (crop):   recreated_pptx/qa/slide028/crop_8_left_curve_render.png
+  md5=cbd7bd687f1e8cc1ba4c38013e3a867e  (same slide-space bbox at 150dpi scale 2.0847)
+- source render: qa/slide028/render_8.png md5=13c175d4dc6637f63d2b4f4a7acab8a0
+- effective scale: 2.0847 render px / frame px on BOTH axes for both images
+  (orig 517x538, render 517x537; 1px height delta = 0.19% — under the 8% mismatch wall)
+- read order: IMG_ORIGINAL first, then IMG_RENDER
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region: IMG1 = recreation's crop, IMG2 = original's crop of
+    the SAME region at the SAME effective scale; house template (white canvas, E9E9E7
+    panel, C00000 L/R/B strokes with NO top stroke, FDFD96/6A5ACD badge) is chrome.
+(b) Contentless placeholder — n/a.
+(c) The black mouse-cursor artifact at the bottom of IMG2 (x250..272 frame, under the
+    valley) is a capture artifact and its omission is correct.
+(d) Typed-vs-handwritten ink is medium — at most MINOR.
+(e) JPEG halos / soft edges in IMG2 are capture artifacts, not content.
+    (f) No equation, table or delimiter occurs in this region.
+
+## Comparison (crop-relative, mapped back to frame px)
+- Curve: single continuous U stroke; left shoulder starts at (161,236), valley bottom
+  x275 y439, right arm tops at (383,249). Both images agree; the render's stroke core
+  measures 2.4-2.9 frame px, the original's 3-5 (JPEG bloom) — weight now matches.
+- Descent markers: SEVEN hollow circles (white core + cyan ring) on the descending arm.
+  Positions (frame px) original vs render: (179,251)/(178.5,250.4), (195,288)/(194.8,287.4),
+  (220,349)/(219.7,348.8), (239,394)/(238.4,393.4), (247,413)/(246.6,412.6),
+  (262,436)/(261.5,435.6), (283,440)/(282.6,439.5). Count 7 = 7; ring style = hollow in
+  both; no marker on the right ascending arm in either image.
+- Step arcs: six grey lobes joining consecutive circles, each bulging outward 7-13.5px
+  from its chord in the original; the render's arcs reach the same apexes (max 2px).
+- Axes: red L-axes; y-axis shaft on the left edge, x-axis along the bottom, both with
+  arrow terminators. Geometry matches (x158 / y441.5). 
+- "Value" (of weight) text enters at the lower right in both; bold in both.
+- Leftover: IMG2's black cursor mark — correctly absent from IMG1 (rule c).
+
+## Discrepancies
+1. [MINOR] Hop-arc shape — the render's arcs are smooth quadratics, the original's lobes
+   are a little more angular at the top shoulder of each hop (hand-drawn medium).
+   Confidence: high that the shapes differ slightly; PIL: apex positions agree within 2px;
+   no content difference (rule d). MATCHING within redraw tolerance.
+2. [MINOR] The original's curve is very slightly wavier along the left arm (hand stroke
+   wobble); the render is the analytic fit. Ripple check: worst cyan-ink distance from the
+   quartic 3.3 frame px, and that worst column is circle ink, not curve. Refuted as medium.
+3. [MINOR] y-axis stroke tone: original core (125,0,19) vs the render's #C00000. PIL
+   refutation: the same frame's mandated house strokes (drawn #C00000 by deck law) measure
+   (126,0,20)/(113,40,51) — same red family; the 1px original stroke is JPEG-diluted.
+
+## Visual-quality defects
+- No clipped, garbled or missing glyphs; no collisions; the complete descent path is
+  legible and fully inside the frame; no empty equation/delimiter/table region (none).
+
+FINAL VERDICT: PASS

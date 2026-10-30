@@ -1,0 +1,26 @@
+## Discrepancy List
+
+**1. Line spacing inside the top equation block â MAJOR, confidence ~0.8**
+In the recreation, the three stacked `Loss = ...` formulas have noticeably wider gaps between lines than the original (roughly 55px vs ~35â40px at render scale). The original keeps the three equations with a tight, even line pitch; the recreation stretches them out, and the gaps are uneven (the 1stâ2nd gap is visibly larger than the 2ndâ3rd). Per founder directive 2026-10-10, deviation in line separation inside a multi-line block is a MAJOR defect even with verbatim text.
+
+**2. Vertical centering / whitespace distribution inside the top yellow equation box â MAJOR, confidence ~0.7**
+In the original, the three-formula group is vertically centered in its pale-yellow box (balanced top/bottom padding). In the recreation, the equation group sits toward the *lower* half of that box, leaving a large empty band between the box's top edge and the first `Loss =` line, while the third formula sits close to the box's bottom edge. The box frame is effectively oversized at top relative to its content.
+
+**3. Missing red emphasis underlines on weight symbols â MINOR, confidence ~0.75**
+The original underlines the `W` in `(XáµX)W` (red underline) and again underlines the final `W` in `W = (XáµX)â»Â¹XáµY`. In the recreation, these underlines are absent (the `W` in "Get Best W" *is* underlined, but the equation ones are not).
+
+**4. Arrow color / derivation restructuring at the bottom of the slide â MINOR, confidence ~0.9**
+The original presents the chain `[2XáµXW â 2XáµY] â (XáµX)W = XáµY â W = (XáµX)â»Â¹XáµY` inline in one line with bold **red** arrows. The recreation renders the arrows as thin dark-gray `â`, and relocates the final `W = (XáµX)â»Â¹XáµY` into a separate green-outlined box on a lower row. Content is preserved, but arrow styling and layout differ from the original.
+
+**5. Spacing in matrix products "X W" vs "XW" â MINOR, confidence ~0.7**
+The original writes matrix products as separated tokens (e.g., `X W`, `(X W)^T`); the recreation consistently uses the joined form `XW` in several places. Cosmetic, but visible in the top line and the Remember notes.
+
+**Content completeness check (vs. BLOCKER criteria):** No elements are omitted. All three `Loss` identities, both "Remember" notes, the `âLoss/âW = 0` intermediate box, both derivative formulas, and the final normal-equation solution are present and readable. No empty equation regions, no truncated tables/graphs. No delimiter spans/clipping problems â stacked fractions, the tall `âLoss/âW` fractions, and the spanning `[ ... ]` brackets are well-formed.
+
+**Frame containment:** All content (including the right-hand Remember boxes and the green solution box) sits inside the house panel; nothing crosses the left/right/bottom strokes. Top stroke correctly absent; badge "5" correct â per ground rules these are not flagged.
+
+## Visual-Quality Defects in the Recreation
+- No clipping, overflow, collisions, or illegibility; rendering is clean.
+- The only genuine layout flaws are the two MAJOR items above (line pitch and top-box centering), plus the minor emphasis/arrow styling differences.
+
+## FINAL VERDICT: **FAIL** â All content is present and verbatim, but the top equation block's line spacing is stretched and uneven versus the original, and the block is not vertically centered in its frame â both MAJOR defects under founder directive 2026-10-10.

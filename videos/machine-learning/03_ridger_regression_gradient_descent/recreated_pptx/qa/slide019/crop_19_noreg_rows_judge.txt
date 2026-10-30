@@ -1,0 +1,33 @@
+# Region Comparison â Slide 019, NO-Regularizer column (all 3 row groups)
+
+## Cell-by-cell content check (values & glyphs)
+
+**Group 1 â W = (0, 2, 0), âWâÂ²=4**
+- Vector entries: 0 / 2 / 0 â match. Parens span all three entries in both. â
+- Table: Testâ, Testâ, Testâ headers â; xâ: 30, 40, 50 â; xâ: 15, 20, 25 â; y: 60, 80, 100 â. Yellow y-row highlight present in both. â
+
+**Group 2 â W = (2.7, 0.67, 0.64), âWâÂ²=8.11**
+- Vector entries: 2.7 / 0.67 / 0.64 â match â. Norm "8.11" matches â.
+- Table: xâ: 30, 40, 50 â; xâ: 15, 20, 25 â; y: 32.4, 42.3, 52.3 â (yellow highlight in both). All digits correct.
+
+**Group 3 â W = (4, 0.29, 0.78), norm value cut by crop in both**
+- Vector entries: 4 / 0.29 / 0.78 â match â. Visible norm fragment (â¦12.7) is crop-truncated in both, not a discrepancy.
+- Table: Testâ/â/â â; xâ: 30, 40, 50 â; xâ: 15, 20, 25 â. y-row cut in both crops.
+
+No wrong digits, no missing rows, no garbled characters, no subscript truncation. Arrow glyphs and row labels (xâ, xâ, y) all correct.
+
+## Discrepancies found
+
+1. **MAJOR (confidence ~0.85) â Per-column value colors flattened to uniform red.** In IMG2 (original), the data-value colors follow a consistent per-column scheme in every row group: column 1 values (30, 15) are red, column 2 values (40, 20) are **blue**, column 3 values (50, 25) are a **darker maroon/crimson** â visible in all three groups and all six x-rows (e.g., crop-relative ~(300, 60) region of each table block). In IMG1 (recreation), every value in the xâ and xâ rows is rendered the same red. This pattern repeats too consistently across all 6 rows to be JPEG chroma bleed. The recreation has erased an intentional color coding across ~12 cells.
+
+2. **MINOR (confidence ~0.5) â y-row value coloring.** In IMG2, the y-row values (60/80/100, 32.4/42.3/52.3) appear with mixed olive/dark-yellow vs green tints; IMG1 renders them uniformly green. Low confidence due to JPEG chroma noise on the yellow highlight, but consistent with discrepancy #1's flattened palette.
+
+3. **MINOR (confidence ~0.7) â Norm-equation text color.** âWâÂ²=4 and âWâÂ²=8.11 render in **blue** in IMG2 (left panel, mid-left of each group); IMG1 renders them in black/dark gray. The red underlined **W** itself matches.
+
+Not raised (per ground rules): white vs gray panel background, box stroke weight/color on the left panels, typed-vs-handwritten ink, equation formatting, JPEG halos in IMG2.
+
+## Verdict reasoning
+
+All numeric content, equation structure, table structure, delimiters, and layout are faithful. However, discrepancy #1 is a systematic, repeatable color-coding difference affecting every data cell in all three row groups â exactly the kind of text-color fidelity the zoomed mandate requires be exact, and it is not a "small" difference (red vs blue vs maroon).
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â content is correct, but the original's per-column value coloring (blue col-2, maroon col-3) must be restored in all three tables, and ideally the blue norm-equation text, before this region passes.

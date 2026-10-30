@@ -1,0 +1,56 @@
+# Fidelity Check â Slide 019, Recreation Attempt 21
+
+## Ground-rule settlements (not counted as discrepancies)
+- House panel (gray E9E9E7, red C00000 strokes on left/right/bottom only, no top stroke), yellow "19" badge with purple ring: present and per spec â **not discrepancies**.
+- IMG2 contains a mouse-cursor artifact near the row-2/Î»=10 table (visible ~middle-right of that table). It is correctly absent from the recreation per rule (c).
+- Typed vs. rendered equation ink: not applicable here â both images show the vectors in 2D stacked-with-parentheses form, so no format-upgrade call is needed.
+
+## Element-by-element comparison
+
+**Title & Test Data box**
+- "Test Data" (bold italic blue), box border, position: match.
+- zâ=(30/15), zâ=(40/20), zâ=(50/25) with y=60/80/100: all values verbatim, correct order, correct blue color, parens span both stacked values, vertically centered. â
+
+**Column headers**
+- "NO Regularizer with (as if Î»=0)" (green band), "Ridge Regularizer with Î»=3" (pink band, dark-red border), "Ridge Regularizer with Î»=10" (green band, green border): verbatim, correct colors/bands. â
+
+**Left "Outlier" column**
+- Group values 11/3/22, 30/3/22, 60/3/22 with 22 yellow-highlighted: all verbatim, highlight correct. â
+- **DISCREPANCY 1 â MAJOR (confidence ~0.6):** Bracketâvalue vertical alignment. In the original, each tall bracket spans its top two values (e.g., 11 and 3) with the yellow 22 at/below the bracket bottom. In the recreation the brackets sit *low* relative to their values: the top value (11 / 30 / 60) extends **above the bracket's top terminal**, so the delimiter fails to span the topmost value it should enclose (rule 7i violated).
+- **DISCREPANCY 2 â MAJOR (confidence ~0.55):** Label reads "Outlier X the recreation; the original reads "Outlier Xâ" (subscript 8). Verbatim-text mismatch.
+- **DISCREPANCY 3 â MINOR (confidence ~0.7):** Recreation brackets are much heavier/bolder than the original's thin brackets â a styling-weight deviation, not structural.
+
+**W blocks (all 9)**
+- Values verbatim and correct in every case: (0,2,0)=4; (2.7,0.67,0.64)=8.11; (4,0.29,0.78)=16.7; (0.1,1.95,0.03)=3.8; (1.2,0.72,0.77)=2.45; (1.77,0.32,0.98)=4.2; (0.13,1.87,0.09)=3.5; (0.54,0.73,0.81)=1.48; (0.82,0.33,1.1)=1.92. âWâÂ² labels all match, blue, correct positions. â
+- **DISCREPANCY 4 â MINOR (confidence ~0.65):** W parentheses are rendered far heavier than the original's thin parens, and several values (e.g., 1.95, 0.09, 1.87, 0.81) sit very tight against the closing paren â no clear overlap, but spacing is tighter than the original.
+
+**Tables (all 9)**
+- Every cell value matches exactly, including colored values (30/40/50, 15/20/25 pattern; red/blue alternation), all Testâââ headers with subscripts, and all y-rows (60/80/100; 59/78.7/98.4; 57.4/76.5/95.6; 32.4/42.3/52.3; 34.1/45.1/56.1; 34.6/46/57.4; 24.4/31.2/38; 26.2/34.4/42.5; 26.8/35.4/44.1). No missing rows, no truncation. â
+- Yellow y-row highlights present in all 9 tables. â
+- **DISCREPANCY 5 â MAJOR (confidence ~0.45):** In the Î»=10 (rightmost) column, the tables extend right to the green column border â the right table border appears to touch/coincide with the green boundary line, whereas the original leaves clear margin inside the column frame (rule 5, borderline containment).
+- **DISCREPANCY 6 â MINOR (confidence ~0.4):** In the Î»=10 column the yellow y-row highlight appears to end before the Testâ column, leaving the last values (95.6 / 57.4 / 44.1) at or just past the highlight edge; in the original the yellow runs under the full row.
+
+**Arrows / layout / alignment**
+- Blue block arrows present in all 9 slots, correct orientation and vertical position. â
+- Row/column ordering, region sizes, and gaps proportionally match. â
+- No element crosses the house panel's red strokes; no top stroke (correct). â
+
+## Visual-quality defects in the recreation
+- Outlier brackets offset downward relative to their value stacks (see Discrepancy 1).
+- Heavy paren/bracket stroke weight throughout vs. original's light strokes (Discrepancies 3, 4).
+- Right-column tables run flush to the green column border (Discrepancy 5).
+- No text clipping, no illegible text, no wrong wrapping observed.
+
+## Summary of discrepancies
+| # | Issue | Severity | Confidence |
+|---|-------|----------|------------|
+| 1 | Outlier brackets don't span topmost value (11/30/60 sit above bracket top) | MAJOR | 0.6 |
+| 2 | "Outlier X original "Outlier Xâ" | MAJOR | 0.55 |
+| 3 | Bracket stroke weight far heavier than original | MINOR | 0.7 |
+| 4 | W-parens heavier; tight clearance to closing paren | MINOR | 0.65 |
+| 5 | Î»=10 tables touch green column border (containment margin lost) | MAJOR | 0.45 |
+| 6 | Î»=10 yellow y-row highlight may not cover Testâ values | MINOR | 0.4 |
+
+All data content â every vector, every âWâÂ² value, every table cell â is verbatim-correct. The defects are geometric/stylistic: delimiter alignment, one wrong subscript character, and right-edge containment in the third column.
+
+FINAL VERDICT: **FAIL** for "faithful, usable recreation" (three MAJOR defects: bracket-value misalignment, wrong subscript in "Outlier X", and Î»=10-column right-border containment; content itself is 100% verbatim and would pass after these alignment/label fixes).

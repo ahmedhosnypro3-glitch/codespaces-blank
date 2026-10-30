@@ -1,0 +1,45 @@
+# Slide 003 â Zoomed Crop Comparison: Expanded Equation Box (y = Xw + b with dimension labels)
+
+## Region inventory (both images)
+Left-to-right: parenthesized **y-vector** (yâ yellow, yâ cyan, red "...", yâ magenta) with red "N Ã 1" label â "=" â large parenthesized **X matrix** (4 rows: yellow 1 xââ xââ â¦ xâd; cyan 1 xââ xââ â¦ xâd; white 1 â¦ â¦ â¦ â¦; magenta 1 xââ xââ â¦ xâd) with "N Ã d+1" label â parenthesized **w-vector** (red **b**, blue wâ, wâ, "...", w_d) with blue "d+1 Ã 1" label.
+
+## Cell-by-cell / symbol-by-symbol check
+
+| Item | IMG1 (recreation) | IMG2 (original) | Verdict |
+|---|---|---|---|
+| yâ, yâ, yâ + highlight colors | Present; yellow/cyan/magenta | Present; same colors | Match |
+| Red "â¦" in y-vector | Present | Present | Match |
+| "N Ã 1" label | Red, bold, right of yâ | Red "N x 1" | Match (see D3) |
+| Matrix row 1 (yellow): 1, xââ, xââ, â¦, xâd | All present, correct subscripts | Same | Match |
+| Matrix row 2 (cyan): 1, xââ, xââ, â¦, xâd | All present | Same | Match |
+| Matrix row 3 (white): 1, ellipses | Present | Present | Match (see D1) |
+| Matrix row 4 (magenta): 1, xââ, xââ, â¦, xâd | All present | Same | Match |
+| "N Ã d+1" label | Present, right of matrix | "N x d+1" | Match |
+| w-vector: b, wâ, wâ, â¦, w_d | Present; b red bold, w's blue | Same | Match |
+| "d+1 Ã 1" label | Blue, bold | Blue | Match |
+| Highlight spans / row banding | Correct per-row bands, white row 3 | Same | Match |
+
+## Discrepancy list
+
+**D1 â Ellipsis dot count in matrix row 3 (MINOR, confidence ~0.6).**
+Crop-relative: middle of the region, row 3 of the X matrix (~40â70% across, ~55â65% down). In IMG2 the ellipses in the x-column positions of row 3 appear as **four dots** ("....") in at least the first three ellipsis slots (only the last slot is clearly three dots), while IMG1 uses a uniform three-dot "â¦" in every column. This is partially obscured by JPEG blur in IMG2, so it may be a capture artifact rather than a real 4-dot glyph. Same meaning either way; not a wrong digit or missing element.
+
+**D2 â Right delimiter glyph shape (MINOR, confidence ~0.65).**
+Crop-relative: right edge of the y-vector enclosure (~22% across) and right edge of the X-matrix enclosure (~76% across), full height. In IMG1 the **right** delimiters of the y-vector and the X-matrix render as nearly straight vertical bars, while the corresponding left delimiters are clearly curved parentheses; in IMG2 both sides are visibly curved parens. The w-vector parens in IMG1 are curved on both sides, which makes the asymmetry more noticeable. The delimiters do **span all enclosed rows** and do not touch any text or highlight bands, so the mandated spanning/geometry requirement is met â this is a glyph-shape nuance only, likely a consequence of the thin-stroke template style at this height.
+
+**D3 â "Ã" vs letter "x" in dimension labels (MINOR, confidence ~0.9).**
+Crop-relative: "N Ã 1" (~15% across, ~78% down), "N Ã d+1" (~80% across, ~78% down), "d+1 Ã 1" (~93% across, ~88% down). IMG1 uses the true multiplication sign "Ã"; IMG2 uses a lowercase letter "x". Semantically identical, standard typographic normalization in the recreation.
+
+**D4 â Per-row parenthesis segments in IMG2 (NOT a discrepancy â original artifact).**
+In IMG2, the big matrix parens appear segmented, with small paren hooks at each row band (visible at ~26% and ~72% across, at each row boundary). This is a rendering artifact of the original (parens drawn per row / JPEG smearing), which the recreation correctly consolidates into single tall delimiters. Per the ground rules this is not charged against the recreation.
+
+**Checked and clean:** all subscripts (ââ, ââ, âd, ââ, ââ, âd, n1, n2, nd, yâ, wâ, wâ, w_d) present and correctly positioned with no truncation or garbling; the lone "1" column present in all four matrix rows; "=" vertically centered between y-vector and matrix; red/blue color assignments (b red, w-vector blue, dimension labels correct colors) all match; highlight band colors and extents match row-for-row; no missing rows, no swapped values, no wrong digits anywhere.
+
+## Severity summary
+- BLOCKER: none
+- MAJOR: none
+- MINOR: D1 (ellipsis dot count, low confidence), D2 (right-delimiter curvature), D3 (Ã vs x glyph)
+
+All content â every entry, subscript, color band, label, and delimiter span â is faithful. The three findings are cosmetic glyph-level nuances that do not affect correctness or readability of the equation.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

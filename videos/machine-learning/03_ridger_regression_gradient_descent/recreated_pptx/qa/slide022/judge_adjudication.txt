@@ -1,0 +1,96 @@
+# Judge-finding adjudication records — slide 022 (attempt 1, all legs PASS)
+
+Worker w4-s022-20261020T1854, 2026-10-20. PIL-first adjudication per
+`references/judging.md` + the dispatch brief's adjudication law: judge findings
+are HYPOTHESES; measure against the original frame before fixing. All three
+MINOR findings below are REFUTED by measurement and are retained as judge
+context only — none is a fix trigger.
+
+Common measurement basis (banked in `measure_frame_1.py`, `measure_frame_2.py`,
+`measure_cursor.py`, `selfcheck_final.py`, `selfcheck_resume_current.txt`):
+
+- The original frame is a JPEG-washed video frame: its red-band ink edges are
+  wash-extended ~1.5 px outward per edge; the render is crisp (its mask loses
+  ~1 px AA per edge). Banked target law: targets = original raw edges moved
+  1.5 px INWARD, tolerance 2.0 frame px (2.5 for the one adjudicated
+  rasterizer class edge).
+- Original measured ink (halo-inclusive): L1 `[3] Inverse of High Dimension`
+  x 189..726, y 235..274; L2 `(non-singular) Matrix` x 274..652, y 325..364.
+- Current render (pixel-identical to banked `render_1.png`, md5
+  `1a4b00687a154164f26cc785b260dd3f`): L1 band x 190.5..723.0, y 236.6..272.2;
+  L2 band x 275.9..650.6, y 326.9..362.4; band-center pitch 90.24 vs the
+  original's 90.00; title core color exactly `(192,0,0)` = `C00000`.
+
+## 1. `crop_1_title_judge.txt` — MINOR (MEDIUM confidence): "inter-line leading in IMG1 is visibly larger than in IMG2; block sits a touch lower"
+
+REFUTED by measurement:
+
+- Line pitch (band-center to band-center): render **90.24 frame px** vs original
+  **90.00 frame px** — a 0.24 px difference (0.27%), far below any visible
+  threshold and inside the 2.0 px self-check tolerance.
+- Block vertical position: render L1 top/bottom 236.6..272.2 vs the
+  wash-corrected original target 236.5..272.5 (residuals +0.14 / −0.34 frame
+  px); render L2 326.9..362.4 vs target 326.5..362.5 (residuals +0.38 /
+  −0.10 frame px). The block is at the identical vertical position, not lower.
+- Cause of the judge's read: at the title crop's zoom (×2.08) the original's
+  JPEG-washed, upscaled glyphs sit inside a wider soft halo, so the two washed
+  bands read as closer together and the crisp render's bands read as slightly
+  more separated — a capture/medium artifact, explicitly covered by the
+  frozen template's ground rules (c)/(e). Each title line is its own
+  single-line text box positioned from measured ink centers (the sibling-020
+  certified pattern), so pitch is exact by construction.
+
+No fix. Judge context only.
+
+## 2. `crop_1_line1_judge.txt` — MINOR (HIGH confidence): "IMG1 renders a brighter, more saturated primary red; IMG2 marginally deeper/darker crimson"
+
+REFUTED by measurement:
+
+- The render's title core color is exactly `(192,0,0)` = nominal `C00000`
+  (self-check `render title core color: (np.int64(192), np.int64(0), np.int64(0))`).
+- The original frame's darkest measured core is `(121,1,13)` — i.e. the
+  original's red is JPEG-DARKENED `C00000`, the same founder-ratified family
+  nominal the house chrome strokes use (banked in `build/slide_022.js` header;
+  sibling 020 certified the identical class with cores `(134,10,22)`).
+- A brighter recreation is therefore the correct nominal; the darker original
+  is the washed capture, not a color-spec difference.
+
+No fix. Judge context only.
+
+## 3. `crop_1_line2_judge.txt` — MINOR (LOW–MEDIUM confidence): "the '(' / ')' in the recreation reach roughly the ascender, whereas in IMG2 they read slightly shorter, centered closer to x-height"
+
+REFUTED by measurement (procedure and numbers in
+`judge_adjudication_paren.txt` / `judge_adjudication_paren2.txt`):
+
+- Correct probe: a fixed frame-px window covering the WHOLE opening-paren glyph
+  (x 273..288 frame px — wider than the paren's ~10.5 px measured advance
+  275.7..285.3 on the render), applied to both images. Render paren red-ink
+  extent y 326.9..362.4 (height 36.5 frame px); original y 326.0..364.0 (height
+  39.0 frame px). Raw delta −2.5 frame px vs the expected −3.0 px wash
+  allowance (1.5 px/edge): **within 2.0 px of the wash-adjusted original**.
+- The parens are therefore the same Arial 38 pt glyph at the same size and
+  vertical extent; the judge's "shorter in the original" read comes from
+  washing/upscale softening of the original's thin paren tips. (A naive
+  leftmost-columns probe is invalid here: the '(' curve's tips sit to the RIGHT
+  of its mid-height bulge, so a leftmost-column window samples the curve's
+  middle in the crisp render but also catches wash-spread tip pixels in the
+  original — that asymmetry produced a spurious −12 px reading in the first
+  probe, recorded for the record.)
+- The judge itself rated the finding low-confidence and PASSed the region; the
+  span rule was not violated either way (single-line enclosure, no contact
+  with the enclosed glyphs in either image).
+
+No fix. Judge context only.
+
+## Also noted (not discrepancies, correct in the recreation)
+
+- `crop_1_line2_judge.txt` observation 2: the "thin stray diagonal gray stroke
+  above the M of Matrix" in IMG2 is the mouse-cursor sliver measured at
+  x 519..556, y 311..325 (`measure_cursor.py`) — a video-capture artifact,
+  correctly omitted from the recreation per the frozen ground rules (c) and
+  `recreation_brief` step 9. Its correct absence is not a defect.
+- Original-side JPEG halos/edge softness: capture artifacts, not content
+  (frozen ground rules (e)).
+
+**Adjudication conclusion:** all findings refuted or artifact-classified; the
+build is unchanged and stays certified on its attempt-1 bytes.

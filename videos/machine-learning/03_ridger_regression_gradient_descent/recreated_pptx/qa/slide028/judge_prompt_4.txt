@@ -1,0 +1,23 @@
+Template A full-slide comparison — slide 028, attempt 4 (render_4.png)
+
+cd <root> && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide028/render_4.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_028.jpg \
+  --view "Slide 028 recreation — fidelity check vs original lecture frame" \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide028/judge_attempt_2.txt \
+  -p "<Template A payload from shared_patterns/judge_protocol_03.md verbatim>"
+
+Fix history:
+  attempt 3 (render_3) FAILED full-slide + left_curve crop. PIL-adjudicated causes, all
+  fixed in attempt 4: red axes (were dark blue), dark horizontal "Loss" labels (were
+  rotated red), white chart interior (was E9E9E7), analytic dense parabola curves
+  (were 28-pt polylines), 4 oscillating dots on the right panel (were a single U),
+  removed the extra black pointer at the left valley, removed the x474 panel divider,
+  headings recentred to measured ink.
+
+Attempt accounting: 6 max per slide (shared across both legs, garbage re-invokes
+excluded). Attempt 1 (render_3, full-slide) consumed; crop_3_left_curve also consumed
+shares the same pool. Two judge attempts remain after attempt 2 below.

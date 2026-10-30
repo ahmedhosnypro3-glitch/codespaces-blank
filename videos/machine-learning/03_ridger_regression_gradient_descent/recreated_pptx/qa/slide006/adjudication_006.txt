@@ -1,0 +1,55 @@
+# PIL-first adjudication of Procedure-B crop findings — slide 006
+# worker: worker-006-r2   2026-10-23T22:38:07Z
+# law: 960x540 original, 1px = 1pt; render_1.png 2001x1125 (150dpi), 2001/540 = 2.0833 render px per frame px
+# basis: colour-isolated ink bands (red mask = title, blue mask = subtitle, badge ring excluded),
+#        per-glyph run segmentation, per-column ink tops, ASCII glyph maps at matched scale.
+
+## Ground measurements (frame px, 1px = 1pt)
+| metric | original | render | delta |
+|---|---|---|---|
+| title ink band | x176-797 y248-289 (w622 h42) cx486.5 | x178.1-792.5 y250.6-289.9 (w614.9 h39.8) cx485.3 | w -7.1 (-1.1%), h -2.2, cx -1.2 |
+| subtitle ink band | x241-731 y295-329 (w491 h35) cx486.0 | x241.4-728.6 y294.7-328.3 (w487.7 h34.1) cx485.0 | w -3.3 (-0.7%), h -0.9, cx -1.0 |
+| inter-line gap (title bottom ink -> subtitle top ink) | 5 | 4.3 | -0.7 |
+| band-centre separation | 43.5 | 41.3 | -2.2 |
+| title cx - subtitle cx | 0.5 | 0.3 | -0.2 |
+| subtitle dominant ink colour | #2116BF (capture-degraded) | #0000FF (spec accent #0000FF) | see #4 |
+| title dominant ink colour | #B01727 (capture-degraded) | #C00000 (house red) | capture variance |
+
+### Glyph run-height classes in the subtitle line (frame px)
+  original : {19, 25, 26, 32, 33}
+  render   : {19.7, 25.0, 25.4, 25.9, 26.4, 26.9, 33.6}   (render px / 2.0833)
+  -> the two height inventories MATCH: render cap class 33.6 vs original 33; render x-height
+     class 25.0-26.9 vs original 25-26. The render reproduces the original's glyph geometry.
+
+## Finding 1 — subtitle case: IMG1 '(With' vs IMG2 '(with'  (MINOR/HIGH confidence, from crop_1_subtitle_judge.txt)
+  REFUTED. Per-column ink tops inside the subtitle's opening run (x 254-290 frame px) show the
+  first letter's ink reaching the CAP LINE (y 296-298) in BOTH images, not the x-height line
+  (y 307-310). A lowercase 'w' cannot reach the cap line. Corroborated twice over: the validated
+  analysis spec slide_006_final.json verbatim_text bullets = ['Problems of Linear Regression',
+  '(With Linearly Separable Data)'] (capital W, PASS_WITH_FIXES) and the banked Template-A
+  judge_attempt_1.txt row 'Subtitle line | "(With Linearly Separable Data)" is verbatim, italic,
+  blue ... MATCH'. NOT a defect; no fix.
+
+## Finding 2 — title->subtitle leading: IMG1 ~45px vs IMG2 ~25-30px (MINOR/MEDIUM, from crop_1_textblock_judge.txt)
+  REFUTED. Measured inter-line gap (title bottom ink -> subtitle top ink) = 5 frame px in the
+  original vs 4.3 frame px in the render: delta -0.7 px, i.e. the render is marginally TIGHTER,
+  not ~20px looser. Band-centre separation agrees (43.5 vs 41.3, delta -2.2 px). The judge's
+  crop-relative estimate came from comparing different padding in the two crops. NOT a defect.
+
+## Finding 3 — subtitle optical centring: IMG1 ~90px left vs IMG2 ~150px left of title centre (MINOR/LOW-MEDIUM)
+  REFUTED. Ink-centroid measurement: title cx - subtitle cx = 0.3 px (render) vs 0.5 px (original).
+  In BOTH images the subtitle is dead-centre under the title. The judge's 90/150 figures are not
+  reproducible from the ink. NOT a defect; no geometry change.
+
+## Finding 4 — subtitle blue hue: IMG1 brighter/less indigo than IMG2 (MINOR/LOW)
+  ADJUDICATED NOT A FIX TRIGGER. The original frame is a VIDEO CAPTURE; its measured subtitle ink
+  is #2116BF, a capture/compression-degraded version of the slide's true blue. The authoritative spec
+  (slide_006_final.json colors.accents) declares #0000FF, and the render uses exactly that. Ground
+  rule (e) excludes IMG2 compression halos/soft edges as artifacts, and the parent instruction forbids
+  drawing a defect the original does not have — forcing #2116BF would reproduce capture damage.
+  Judge itself graded this MINOR/LOW with 'likely within capture variance'. No change.
+
+## Net adjudication
+  All four findings refuted or adjudicated non-defects. Both crop legs end 'FINAL VERDICT: PASS';
+  both legs stand clean. Given the crop pairs are scale-matched (ink-centroid delta <= 2.5 crop px
+  = 1.2 frame px) so no finding could have been a scale artifact.

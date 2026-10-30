@@ -1,0 +1,34 @@
+FIX 1 — top-left class row colour (frame y108..126)
+   ORIG x1..x3 (C1): red=77 blue=0   REND: red=414 blue=0
+   ORIG x4..x6 (C2): red=3 blue=32   REND: red=64 blue=489
+   -> PASS
+
+FIX 2 — class-check matrix parens span both entries (frame y78..112)
+   col1: ORIG (598, 82, 612, 109) | REND (np.float64(597.2), np.float64(81.8), np.float64(620.7), np.float64(108.2)) span=26.4 -> PASS
+   col2: ORIG (612, 83, 643, 107) | REND (np.float64(612.0), np.float64(81.8), np.float64(643.7), np.float64(108.2)) span=26.4 -> PASS
+   col3: ORIG (635, 81, 657, 108) | REND (np.float64(635.0), np.float64(81.4), np.float64(658.0), np.float64(108.2)) span=26.8 -> PASS
+
+FIX 3 — aug heading inside box (box right edge 246)
+   REND (np.float64(79.3), np.float64(146.4), np.float64(212.7), np.float64(161.7)) | ORIG (81, 148, 236, 159)
+   -> PASS
+
+FIX 4 — legend line (frame y104..122); original runs red x239..253, blue x312..326, green x395..423
+   C1 x239..252: ORIG r/g/b=72/0/0  REND=185/0/0
+   C2 x312..325: ORIG r/g/b=0/0/47  REND=0/0/163
+   Zero x395..423: ORIG r/g/b=0/164/0  REND=0/309/0
+   -> PASS
+
+REGRESSION — equation bands
+   band 1: d-ink=(np.float64(287.7), np.float64(156.7), np.float64(476.2), np.float64(192.7)) w-ink=(np.float64(617.4), np.float64(156.7), np.float64(811.7), np.float64(192.7)) px=4247 -> PASS
+   band 2: d-ink=(np.float64(287.7), np.float64(226.0), np.float64(475.3), np.float64(262.0)) w-ink=(np.float64(616.0), np.float64(226.0), np.float64(811.7), np.float64(262.0)) px=4178 -> PASS
+   band 3: d-ink=(np.float64(287.7), np.float64(285.7), np.float64(477.7), np.float64(321.7)) w-ink=(np.float64(616.0), np.float64(285.7), np.float64(810.3), np.float64(321.7)) px=4128 -> PASS
+   band 4: d-ink=(np.float64(287.7), np.float64(349.3), np.float64(471.9), np.float64(386.3)) w-ink=(np.float64(616.0), np.float64(352.2), np.float64(801.2), np.float64(388.2)) px=4998 -> PASS
+   band 5: d-ink=(np.float64(283.8), np.float64(415.3), np.float64(477.7), np.float64(453.7)) w-ink=(np.float64(616.0), np.float64(417.7), np.float64(780.6), np.float64(453.7)) px=5144 -> PASS
+   band 6: d-ink=(np.float64(284.8), np.float64(481.3), np.float64(477.7), np.float64(519.2)) w-ink=(np.float64(616.0), np.float64(482.8), np.float64(779.6), np.float64(519.2)) px=5319 -> PASS
+
+REGRESSION — frame containment + table cells
+   content ink bbox (np.float64(67.7), np.float64(53.7), np.float64(893.8), np.float64(519.3)) (must be inside x57..902 y45..539)
+   -> PASS
+   top-left table cells missing: none (24/24 inked)
+
+RESULT: ALL PASS

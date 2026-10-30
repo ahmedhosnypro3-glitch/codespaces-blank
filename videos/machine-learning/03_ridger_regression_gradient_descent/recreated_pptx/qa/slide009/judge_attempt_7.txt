@@ -1,0 +1,43 @@
+# Judge transcript — slide 009, attempt 7 (full-slide comparison)
+- date: 2026-10-25 (attempt 7; render_7.png md5 84fc8bfc4d403edf248fb442ede3313a)
+- method: direct harness image reads via an isolated visual-judge subagent
+  (owner directive 2026-10-24 precedent, as on attempt 5's crop legs; visual-judge
+  skill Tier 1). Vision-gateway legs DEFERRED/BLOCKED this window: 3 probe
+  attempts failed (HangError @150s wall; rc=124 re-probe @170s wall;
+  EmptyStreamError then outer-wall cut on the 420s W4 wide wall) — the gateway
+  was saturated by other lanes and returned empty streams.
+- IMG1 (render): qa/slide009/render_7.png (2001x1125, 150dpi)
+- IMG2 (original): unique_slides/slide_009.jpg (960x540)
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- template: payload_A_7.txt (verbatim from shared_patterns/judge_protocol_03.md);
+  founder directive 2026-10-25 injected as --view context lines only
+- leg label: single-read (harness); no second-model consensus this window
+---
+
+SLIDE 009 — VISUAL JUDGE (Template A, full-slide comparison)
+Render: recreated_pptx/qa/slide009/render_7.png (2001×1125) vs original lecture frame unique_slides/slide_009.jpg (960×540); both measured on a common 960×540 logical grid.
+
+DISCREPANCIES
+1) [MINOR | Visual | confidence HIGH] In-chart equation frame ink weight/colour — the original draws a complete four-sided frame but in washed hand-drawn blue-violet whose top edge is nearly invisible: left-chart frame top edge sampled (216,224,237) at (260,147), left edge (173,175,196) at (217,160), bottom edge (137,140,181) at (260,174). The recreation redraws the same four-sided frame in uniform saturated navy: top (71,70,161) at (260,147), side (130,141,196) at (216,160), bottom (154,167,208) at (260,174). Frame presence and extent match; only the stroke weight/colour of a hand-drawn frame replaced by a crisp vector box differs. Right chart: same pattern.
+2) [MINOR | Visual | confidence HIGH (measurement) / LOW (perceptual impact)] Right-chart equation frame geometry — original vertical edges at x633 and x732 (y148..175), i.e. 99 px wide; recreation at x630-631 and x734 (y147..175), i.e. 104 px wide, shifted ~3 px left of the original. Left chart: original x217/x316 vs recreation x215/x317 (≤2 px). Equation glyphs inside are unaffected (original digits x633..725, recreation x635..723).
+3) [MINOR | Visual | confidence MEDIUM-HIGH] Plot-area background fill — original chart interiors are white (254,255,253) at (400,420), (300,130) and (600,200); recreation fills both plot areas #F5F5F5 (246,246,246) / (245,245,245) at the same points, a consistent ~9-level luminance drop across both charts. Grid, marks, lines and text remain fully legible.
+
+VISUAL-QUALITY DEFECTS IN THE RECREATION
+None beyond the three minor items above. No text overflow or clipping, no wrong wrapping, no overlapping modules, no collisions between chart frames / annotations / captions, nothing illegible at presentation distance; all four caption lines, both equations, all 26 data markers, both fitted lines, both axis pairs and both annotation clusters render crisply.
+
+VERIFIED AS MATCHING
+- House chrome (frozen rule a, not a discrepancy): white canvas; E9E9E7 panel x54..903/y45..540; C00000 strokes on left (x58), right (x901) and bottom (y538) only, with no top stroke added (correct per rule); badge circle centred ~(876,73), d≈37 px, fill (253,253,150)≈FDFD96, purple ring (91,73,207)≈6A5ACD, bold dark numeral "9" centred in the disc (glyphs x869-878, y67-80); original's ring reads as washed mauve (141,101,127) — same purple family.
+- Layout/regions: original carries no title and the recreation adds none; two equal scatter plots side by side (original frames x95..465 / x486..871, y108..473; recreation x94..465 / x485..871, y106..473/474) with cream FBFCEC caption panels beneath (original (251,254,237), recreation (251,252,236)); the inter-chart gutter is empty in both (0 ink px, x467..483).
+- Plot frames and grid: navy borders in both (original core (34,25,104), recreation (0,0,128)); 16×16 grid on identical pitch and phase — vertical gridlines x149,172,…,425 and horizontal y142,165,210,255,277,322,344,367,389 coincide in both; recreation gridline ink (217-222) matches the original's darkest gridline pixels (219).
+- Blue fitted lines: left (141,352)→(433,199) original vs (140,352)→(432,200) recreation; right (555,390)→(841,247) vs (554,387)→(842,246); the dark-blue ink blob at each line's upper terminus is present in both (original x838-846/y247-254, recreation x841-848/y246-251).
+- Data values: 13 markers per chart at matching coordinates in both — left (197,144),(205,207),(242,327),(260,333),(293,333),(324,289),(328,332),(381,301),(397,248),(421,254),(233,361),(188,355),(176,380); right (610,144),(629,221),(655,327),(673,333),(707,333),(737,289),(741,332),(793,301),(809,248),(834,254),(646,361),(601,355),(589,380). The large red outlier disc (238,49,69)=EE3145 appears only in the LEFT chart in both images, 26×26 px at x220..245/y229..254, centre (232.5,241.5) — identical.
+- Red hand-drawn axes and arrowheads: left vertical axis x126/127 y144→433 with up-head at (124-130,144-149) and horizontal axis y433/434 x126→435 with right-head at (417-434); right chart mirrored at x539/540. Recreation reproduces the same axes and heads at the same coordinates (vertical x126 y152→437 with head at x122-130/y143-149; horizontal y433.5 x124→428 with head at x428/y430). Recreated red is cleaner/brighter (198,46,46) versus the original's faded maroon (127,31,43) — founder-sanctioned ink cleanup, not a discrepancy.
+- In-chart equation boxes and content: a complete four-sided frame exists in both images (not corner strokes alone) — original left x217..316/y148..174, right x633..732/y148..175; recreation left x215..317/y147..175, right x630..734/y147..175 (geometry deltas listed above). Equation text is verbatim and correctly placed: left "50.85² = 2585", right "63.64² = 4050" (OCR of original and render returns the same strings; glyph boxes y155..167 in both, vertically centred in the frames).
+- mm-annotation rebuilt per founder directive 2026-10-25, verified in render pixels on BOTH charts: red #C00000 dimension shaft with slope 1.95 (left) / 2.10 (right) against blue-line slopes 0.51 / 0.48 (orthogonal); foot lands on the blue line (left foot (269,285) vs line y=285.0; right foot (694.6,320.6) vs line y=320.5); arrowheads at BOTH ends (left upper ≈(195-201,144-153), lower ≈(264-272,277-284); right upper ≈(608-616,141-149), lower ≈(690-697,312-319)); "50.85 mm"/"63.64 mm" labels run ALONG the shaft (red glyphs x194-220/y188-234 and x622-652/y210-239, rotating with the shaft); short RED leader parallel to the blue line through the outlier, no arrowhead (left (176.5,145.1)→(197.5,155.9), slope 0.51; right (591,145.1)→(611,154.6), slope 0.48). The original's faded pale-rose sloped line, detached single arrowhead and old label orientation are intentionally replaced and are not counted.
+- Captions: verbatim (including the original's "Successes to detect the Pattern" typo) and aligned glyph-for-glyph. Left line 1 "Overfit (try to minimize the residuals ONLY)": red "Overfit" x108-159 (original x109-159), black x165-418 (original x166-419), both y488..502; exactly one closing parenthesis at x416-418 (original x416-419) — no duplicate character. Left line 2 "Fails to detect the Pattern": glyph columns x178..348 (original x179..349), y501..518 (original y501..519). Right line 1 "Generalized (Residuals are not minimized)": red "Generalized" x522-608 (original x524-609), black to x818 (original x819). Right line 2 "Successes to detect the Pattern": x567..773 (original x569..774). Line separation, glyph heights and baselines match within 1 px.
+- Caption accent rules: rose left rule of the left panel at x96 in both; rose right rule of the right panel at x840-841 (original) / x839-840 (recreation), y480..527 in both; panel bottom edge line at y528-529 in both.
+- Residual dashed guides present in both charts along the same corridors and in the same pale-lavender ink (original (198,197,215) at (312,303) vs recreation (204,203,221) at (312,300)).
+- Frame containment: no ink crosses either chart frame or the house panel/stroke boundaries; the top band y46..104 contains nothing but the badge in both; no stray ink below the caption panels.
+- Cursor/video-capture artifacts in the original are correctly omitted from the recreation.
+
+FINAL VERDICT: PASS

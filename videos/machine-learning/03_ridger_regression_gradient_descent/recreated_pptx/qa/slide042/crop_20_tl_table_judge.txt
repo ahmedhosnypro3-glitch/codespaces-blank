@@ -1,0 +1,34 @@
+# Region Comparison â Slide 042, tl_table crop (attempt 20)
+
+**Region content:** "Initial W =" definition â header row xââ¦xâ, value row (1, 2, 1, 4, 5, 6), Cââ¦Câ class row, and the annotation "â Câ positive" at right. Both crops are truncated at the right edge (crop boundary, not slide content).
+
+## Cell-by-cell / value-by-value check
+
+| Element | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| Header subscripts | xâ xâ xâ xâ xâ | xâ xâ xâ xâ x | â all six correct |
+| Values | 1 2 1 4 5 6 | 1, 2, 1, 4, 5, 6 (one per column) | â all six correct, same order |
+| Class row | Câ Câ Câ Câ Câ | Cââ¦Câ row present (partially garbled by upscale, but count and positions align) | â |
+| Annotation | "â Câ positive." | "Câ positive" (the trailing glyph reads as "Câ" only because the italic *k* at this resolution resembles a 4; leading â falls outside the IMG2 crop) | â content matches |
+
+**No wrong, missing, swapped, or garbled digits or subscripts found.** The numeric payload (1, 2, 1, 4, 5, 6) and all six x-subscripts are exact.
+
+## Discrepancy list
+
+1. **Vector layout: column-vector with parentheses (original) vs. flat linear rows (recreation).** IMG2 renders each xáµ¢ over its value inside a tall pair of parentheses (proper column-vector geometry); IMG1 lays xáµ¢ and values out as two flat rows with no delimiters. All values and pairing are identical, so no content is lost. Under ground rule (d) this is a mandated equation-format difference, not a content error. **Severity: MINOR. Confidence: high.** (Located across the left ~60% of the crop.)
+
+2. **Class-row coloring.** IMG2 shows the C-row entries in red ink; IMG1 alternates red/blue on Cââ¦Câ. Small fill/text color difference only, glyphs and subscripts correct. **Severity: MINOR. Confidence: medium-high** (IMG2 upscale softens exact hues). Bottom-left of region.
+
+3. **Annotation "Câ" color.** Original renders the C in "Câ positive" in red; recreation uses blue. Text, subscript, and the word "positive" all match. **Severity: MINOR. Confidence: medium.** Right side of region, below "Initial W =".
+
+4. **Blue rounded box border around the region in IMG2, absent in IMG1.** IMG2 shows a thin blue rounded rectangle enclosing the vector block; IMG1 shows only the house red chrome strokes. This is most consistent with the recreation's intentional template chrome vs. the original's own box styling â not a content element. **Severity: MINOR. Confidence: low-medium** (could partly be a capture artifact). Perimeter of region.
+
+5. **W label styling.** "Initial W =" present in both; original's W appears slightly bolder/italic. **Severity: MINOR (at most). Confidence: low** â within medium-difference / artifact tolerance.
+
+## Delimiter geometry check
+The original's parentheses correctly span their single enclosed value per column with no touching; since the recreation (per rule d) uses the linear layout, no delimiter in the recreation fails to span enclosed lines â there is no enclosure rendered to violate.
+
+## Summary
+Every number, subscript, and text token matches value-for-value. All findings are formatting/color-level (rule-d format difference, ink color, chrome), none affects content, values, or legibility.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

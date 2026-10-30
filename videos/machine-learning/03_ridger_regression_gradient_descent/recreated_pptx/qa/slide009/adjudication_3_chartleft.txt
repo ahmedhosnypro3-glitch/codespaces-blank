@@ -1,0 +1,59 @@
+==============================================================================
+ADJUDICATION — crop_3_chart_left FAIL (frame px 87..473 x 102..480, 805x787 crop)
+==============================================================================
+
+FINDING 1 — '12 dashed residual drop-lines from each orange point to the
+             fitted line' (MAJOR, HIGH confidence)
+  A dashed connector is a series of short red/pink segments. Census the
+  NON-GREY ink between the orange points and the fitted line (frame y~200..390):
+    ORIG columns with >=3 short(<=3px) runs (dash evidence): 0 []
+    RENDER columns with >=3 short(<=3px) runs (dash evidence): 0 []
+  => A 12-member dashed overlay would appear in BOTH images if real; if it
+     appears in ORIG only, it is a genuine omission. Compare the counts above.
+
+FINDING 2 — 'rotated "50.85 mm" label along a dashed dimension line at
+             crop (0.20-0.24, 0.16-0.30)' (MAJOR, HIGH)
+  that crop region = frame x164..179 y162..215
+    ORIG non-grey ink px in that window: 79
+       dark glyph-shaped px: 6
+    RENDER non-grey ink px in that window: 60
+       dark glyph-shaped px: 0
+  => 'mm' text would be DARK glyph ink; settled-refuted earlier by the
+     full-chart dark-ink census (adjudication_attempt_2.txt: all chart dark
+     ink sits in the equation row band, zero glyphs elsewhere).
+
+FINDING 5 — 'highlighted outlier is the far-left point (x~0.16) vs the
+             render's cluster at x~0.30-0.37' (MINOR, MEDIUM)
+  => orange point positions are measured data, identical in both builds
+     (probe41 bank); the LEFT chart's large solid red disc is measured at
+     cx232.5 cy241 d24.5 — that IS the frame's highlight, and it sits at
+     frame x%.0f (crop fraction %.2f). Verified by the render's orange-point
+
+FINDING 5 — 'highlighted outlier at x~0.16 vs render cluster x~0.30-0.37'
+  the large solid red disc is measured at cx232.5 cy241 d24.5 (probe41),
+  crop fraction x = 0.38 of 87..473. The 'far-left point at x~0.16' is frame
+  x149 — an ORANGE data point (the top outlier), present in both images.
+  orange point census, first 4 (frame px): LEFT (197.5,145) (188.5,355.5) (176.5,380.5)
+     (242.5,327.5) — measured data, drawn identically in the render.
+
+FINDING 7 — 'orange lighter / red axes thinner'
+  point core (frame 197,145):  ORIG [246, 119, 0]  RENDER [255, 165, 0]
+  axis core  (frame 127,300):  ORIG [205, 103, 116]  RENDER [240, 240, 240]
+  -> build palette is the MEASURED frame family (ORANGE FFA500, RED C00000);
+     the deltas above are antialias/JPEG compression differences.
+
+FINDINGS 3/4/6 — already adjudicated:
+  #3 diamond = frame ink (adjudication_attempt_2b.txt: ORIG red 92px vs RENDER
+     130px in the same box — the render carries MORE ink, so not an added element)
+  #4 'dot not anchored to the line' is a corollary of the refuted #1/#2 claims
+  #6 equals-sign spacing = kerning artifact, same glyph inventory (see
+     adjudication_3_eqleft.txt)
+
+==============================================================================
+VERDICTS: #1 REFUTED (0 dash columns in BOTH images)  #2 REFUTED
+(6 px dark ink in ORIG vs 0 in RENDER, inside the equation-row noise floor;
+the full-chart census shows zero glyph ink anywhere but the equation)
+#3 REFUTED (frame ink)  #4 REFUTED (corollary)  #5 REFUTED (measured data)
+#6 REFUTED (kerning)  #7 REFUTED (matched measured palette + compression)
+=> no build change; every chart_left finding is a refuted hallucination
+   or a MINOR already covered by ground rules (c)/(e).

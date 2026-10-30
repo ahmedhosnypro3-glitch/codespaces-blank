@@ -1,0 +1,36 @@
+## Region Comparison â Slide 005, pink band (dLoss/dW fraction + "Get Best Wâ¦" text)
+
+### Content verification (character by character)
+
+**Left side â fraction:**
+- Numerator: IMG1 "âLoss" / IMG2 "â Loss" â same characters (â, L, o, s, s). â
+- Fraction bar: present in both, spans the numerator/denominator width, no break. â
+- Denominator: IMG1 "âW" / IMG2 "âW" â same characters. â
+- No missing, swapped, or garbled glyphs on either side.
+
+**Equation tail:** "= 0" in IMG1 vs "=0" in IMG2 â same values, only spacing differs (typed-vs-source kerning). â
+
+**Right side text:** "Get Best **W** that minimizes the loss" â identical wording in both, including the red "W". â No truncation at either crop edge; both crops show the full sentence ending in "loss".
+
+### Discrepancy list
+
+1. **MINOR â letterform style of the fraction.** IMG1 renders âLoss/âW in an upright sans-serif math style; IMG2 shows a serif/italic-styled rendering (e.g., "â *Loss*", "â *W*"). Same characters, same stacked-fraction structure with horizontal bar. Per ground rule (d) this is a mandated rendering-format difference, not a defect. Confidence: high.
+
+2. **MINOR â spacing around "= 0".** IMG1 has a visible gap ("= 0", crop-relative ~xâ150â190 of ~910px width); IMG2 is tighter ("=0", ~xâ155â175). Purely typographic spacing; value identical. Confidence: high.
+
+3. **MINOR â spacing inside "âLoss" vs "â Loss".** IMG2 inserts a small gap between â and Loss; IMG1 does not. Cosmetic only. Confidence: high.
+
+4. **MINOR â red "W" weight/style.** IMG1: bold sans-serif red W (~xâ430 in IMG1); IMG2: italic serif red W with slightly thinner strokes (~xâ450 in IMG2). Same character, same red color family, same emphasis role. Typed-vs-source medium difference. Confidence: high.
+
+5. **MINOR â apparent underline under "W" in IMG2's denominator.** IMG2 shows a faint horizontal stroke beneath the denominator W (~xâ100, yâ75); this is consistent with a video-capture/JPEG artifact or italic descender rendering rather than a distinct content element (no corresponding underline is intended content in IMG1). Confidence: medium â flagging for awareness, not as content loss.
+
+6. **No discrepancies found in:** border stroke continuity (thin dark-red frame, no top stroke â consistent with house template per rule (b)), pink fill tone (both read as the same light pink at this zoom), fraction bar geometry (bar does not touch glyphs on either side), vertical centering of text within the band, or the red "W" color (both a saturated red, no perceptible hue shift).
+
+### Severity summary
+- BLOCKER: none
+- MAJOR: none
+- MINOR: 5 (items 1â5 above, all typographic/stylistic or capture artifacts)
+
+Every character, value, and structural element (fraction bar, stacked layout, red-W emphasis) matches. All differences are typed-vs-source letterform style, spacing, and compression artifacts explicitly covered by the ground rules.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

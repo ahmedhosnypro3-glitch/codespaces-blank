@@ -1,0 +1,11 @@
+render_2 (pre-fix): ORIGINAL test-table header phase ['RED', 'BLUE', 'RED']   RENDER ['BLUE', 'RED', 'BLUE']
+render_2 (pre-fix): no arrow ink in y244..258 window
+render_3 (post-fix): ORIGINAL test-table header phase ['RED', 'BLUE', 'RED']   RENDER ['RED', 'BLUE', 'RED']
+render_3 (post-fix): render arrow-mask bbox (y244..258 window) x671..705 y248..253
+
+ORIGINAL arrow (loose mask, y244..257 x575..705): bbox x669..705 y246..251  px=76
+TARGET: render must place its arrow head near x670 and its stroke at y~250, within the callout-to-table gap.
+render_3 arrow strict-red bbox (y240..330, x560..715): x671..714 y248..316
+
+=== ARROW PLUS FIX CHECK ===
+head left edge near x670 (tol 14px): False   stroke top y=248 (orig 246)

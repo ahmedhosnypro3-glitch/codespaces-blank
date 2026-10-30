@@ -1,0 +1,29 @@
+[info] context header injected: VIEW: Slide 009 zoomed crop eq_right — render vs original at matched scale (crop set 6, render attempt 7). FOUNDER DIRECTIVE 2026-10-25 (owner feedback overrides the frame here): the red mm-annotation on both charts is INTENTIONALLY rebuilt in this attempt — the dimension arrow is ORTHOGONAL to the blue fitted line with its foot ON that line and an arrowhead at BOTH ends (upper + lower), the '50.85 mm' / '63.64 mm' label runs ALONG that arrow, and the short leader beside the outlier is RED, exactly PARALLEL to the blue line, and carries NO arrowhead. The original frame's faded pale-rose sloped dimension line, its detached single arrowhead and the label's old orientation are INTENTIONALLY corrected — they are NOT discrepancies; judge the rebuilt construction against this spec. | CAPTURE: IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT chart annotation box holding the black equation 63.64^2 = 4050; the founder-corrected red dimension shaft clips this box's lower-left corner
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1421965
+[info] /home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_render.png, /home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_orig.png: transcript written (validated winner, atomic): /home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_judge.txt (pid 1421965)
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_render.png, /home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_6_eq_right_orig.png ===
+[winner] images (round 1, attempt 1)
+### Inspection result
+
+I checked the equation box glyph-by-glyph and structurally.
+
+- Equation content matches exactly: `63.64Â² = 4050` in both crops.
+- No wrong, missing, garbled, or substituted digit/symbol.
+- The superscript `2` is present and raised correctly.
+- The `=` is intact in both.
+- The box text is enclosed by the blue box without any clipping of the glyphs.
+- The red dimension shaft touching/clipping the boxâs lower-left corner is part of the founder-mandated rebuilt annotation, so I am not counting that as a discrepancy. It does not obscure any equation text.
+
+### Discrepancies
+
+| # | Discrepancy | Severity | Confidence | Location / note |
+|---|---|---|---|---|
+| 1 | Spacing around the equals sign differs: render shows `63.64Â² = 4050`, while IMG2 shows the tighter `63.64Â²= 4050`. | MINOR | High | Centered equation text; content and math structure are unchanged. |
+| 2 | Minor visual styling difference in the annotation box: the renderâs blue border/fill appears slightly crisper/darker/more saturated than the upscaled original box. | MINOR | Medium | Around box border, especially bottom/right edges; likely partly capture/scale rendering, but no content effect. |
+
+I do **not** see a confident text-color change in the exponent: any warm cast on the tiny `2` in IMG2 is too ambiguous at this compression/scale to call a defect.
+
+FINAL VERDICT: PASS
+

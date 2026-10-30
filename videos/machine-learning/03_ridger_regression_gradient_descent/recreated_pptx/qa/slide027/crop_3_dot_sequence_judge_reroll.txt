@@ -1,0 +1,25 @@
+## Settling the arrowhead question first (as instructed): my read of the pixels
+
+I compared the inter-dot gaps directly in both crops.
+
+- **IMG2 (original crop):** The chain between consecutive dots is **not** one naked smooth curve. In the gaps â clearest between the 1stâ2nd dot (upper-left region, around crop xâ0.15â0.28, yâ0.10â0.33), and repeatedly through the mid-chain (crop center) to the lower-right near the last dot (xâ0.75â0.85, yâ0.90) â each black stroke **terminates in a small pointed triangular fin aimed at the next dot**. These fins are continuous black content ink, oriented toward a target dot; they are not JPEG halos (halos/ringing don't point at a neighbor).
+- **IMG1 (render):** The same gaps are plain stroke segments of a single continuous parabola with **no fins/arrowheads**.
+
+Regarding the relayed PIL summary: the stats as relayed cannot exclude these fins. "1px ASCII shows one continuous ~2px curve in both" is *expected* even with small arrowheads â at 1px downsampling, 3â6px fins merge into the stroke band. Likewise, if the 237 vs 241px chain-band was measured along a mask fit to the render's smooth geometry, the original's fins fall outside that fitted band and are the exact pixels a normalization sweep would mislabel. The decisive evidence is directional: pointed black ink terminating at each successive dot. **The arrowhead finding stands.**
+
+## All other checks in this region (agreements noted for completeness)
+
+- Dot count: 9 in both; positions along the parabola match.
+- Label "Learning step": same text, same placement right of the top dot (crop-relative xâ0.35â0.75, yâ0.15â0.25). â
+- Dashed vertical leader from beneath the top dot down to the solid horizontal baseline: present in both, same extent. â
+- Overall descent-path shape, dot color class (violet-blue), and region composition match. â
+
+## Discrepancies
+
+| # | Discrepancy | Location (crop-relative) | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | **Inter-dot direction arrowheads present in the original are missing in the render.** The original reads as a *directed step-by-step descent* (one arrow per gap, tip at each successive dot); the recreation renders an undirected smooth parabola. This is a content/semantic change of the figure, not a stroke-weight issue. | Along the left parabola branch between all 9 dots; clearest in gaps 1â2 and 3â4, present through the chain to the last dot | **MAJOR** | Moderateâhigh (fins directly visible in IMG2; relayed PIL numbers do not actually rule them out, but JPEG softness means their exact geometry is partly inferred) |
+
+## FINAL VERDICT: **FAIL**
+
+The region is *usable* â the descent sequence, label, and leader line are all faithfully placed â but it is not *faithful*: the original's annotated, directed stepping is a meaningful content element of this figure and was silently dropped in favor of a clean smooth curve. The arrowheads are visible at full-slide scale, so this is not a zoom-only artifact.

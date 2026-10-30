@@ -1,0 +1,43 @@
+# Fidelity Check â Slide 031 (Convex Function, Learning Rate = 0.3, Start at X=3)
+
+## Element-by-element comparison
+
+**House chrome (per ground rule (a), not scored):** White canvas, gray E9E9E7 panel, red C00000 strokes on left/right/bottom only (no top stroke â correct), yellow badge circle with purple ring and "31" â all present and correct in the recreation.
+
+**Title:** "Convex Function," (dark red) + "Learning Rate =0.3," (green) + "Start at X=3" (blue) â verbatim, correct colors, correct line, correct position in both. â
+
+**Parameter table (step / initial X / delta):** Values 0.3 / 3 / 0.1 match; row fills (green / pink / yellow) match; layout matches. â
+
+**Equation box:** Red-bordered box, white fill, f(x) = (x â 5)Â² + 1. Recreation renders it in clean professional 2D form â permitted format upgrade per rule (e), not a discrepancy. Position and box geometry match. â
+
+**Green callout box:** "X is in between **4.8** and color red bold **5.1**" / "f(x) is in between **1.04** and **1.01**" â verbatim (including the literal "color red bold" string, which the original also contains), correct coloring of X (red), f(x) (blue), 4.8/5.1 (red), 1.04/1.01 (blue). Two-line layout and vertical centering inside the box match. â
+
+**Chart (right panel):** Parabola, red dashed axis-of-symmetry at x=5, black secant segment at y=10 with endpoints (2, 10) and (?, ?), "3" and "3" interval labels, red mid-point, two green dots at (5, 1) with "(5, 1)" label, axis ticks â5/0/5/10/15 and 5/10/15 â all present and correctly placed. â (one collision issue below)
+
+**"Bouncing" label:** Pink/lavender rounded box, purple text â present, correct. â
+
+**Red curved arrow into table:** Present in both, same style and target. â
+
+**Data table:** Row structure (x / f(x) / x-delta / f(x-delta) / x+delta / f(x+delta) / slope / next x), row colors (olive, light green, purple, light purple, peach, light peach, green-outlined slope, pink next-x with dark-red bars above/below) all match. Spot-checked values all match: 5, 3.89, 2.96, 2.21, 1.64, 1.25, 1.04, 1.01â¦; 5.41, 4.24, 3.25, 2.44, 1.81, 1.36, 1.09, 1â¦; â8, â6.8, â5.6, â4.4, â3.2, â2, â0.8, 0.4â¦ â no wrong values found. â (column-count issue below)
+
+## DISCREPANCIES
+
+1. **MAJOR â Extra "Bouncing" indicator arrow.** The original shows **3** downward blue arrows over the bounce columns (4.8, 5.1, 4.8). The recreation shows **4** arrows (4.8, 5.1, 4.8, 5.1). Element count mismatch â an added indicator not present in the original. Confidence: high (clearly countable in both frames).
+
+2. **MAJOR â Extra table data column.** The original table's x-row terminates on a "4.8" column (17 data columns; f(x) row ends 1.04, slope row ends 0.4, next-x row ends 4.8). The recreation carries **18** data columns, terminating on "5.1" (f(x) row ends 1.01). One extra bounce cycle of computed data has been appended. Confidence: moderate â the original frame is low-resolution, but the terminal values of the x, f(x) and next-x rows are distinguishable and do not match the recreation's terminal column.
+
+3. **MINOR â Arrow style mismatch.** Original arrows are solid-blue filled block arrows with broad heads; recreation arrows are hollow/outline rectangles with small solid heads. Same positions and pointing direction, but fill/style differ. Confidence: high.
+
+4. **MINOR â "(?, ?)" label collision.** In the recreation, the gray parabola stroke passes through/behind the "(?, ?)" label text, partially obscuring it; in the original the label sits clear of the curve stroke. Readability is reduced. Confidence: medium-high.
+
+5. **MINOR â Slope-row outline weight.** The green outline on the slope row in the recreation is slightly heavier than the original's thin rule; cosmetic only. Confidence: medium.
+
+No MISSING-ELEMENT (rule 6) or delimiter-geometry (rule 7) defects: all rows, the equation region, the chart, and every label render with content; no ink crosses the panel strokes or chart frame (the parabola is clipped at the chart top in both images, matching the original's clipping behavior).
+
+## Visual-quality defects in the recreation
+- The "(?, ?)" text/curve collision (item 4 above) is the only legibility issue.
+- No text overflow, clipping, or wrapping errors observed elsewhere; table cell values are vertically centered and column-aligned; legend-free chart labels align to their marks correctly.
+
+## FINAL VERDICT: **FAIL** for "faithful, usable recreation"
+
+The recreation is substantively faithful (all text verbatim, all data values correct, all regions and colors match), but the extra bounce arrow, the appended 18th data column, and the arrow-style divergence are visible structural deviations from the original. Remove the fourth arrow, truncate the table to the original's 17 data columns, fill the arrows solid blue, and nudge the "(?, ?)" label clear of the curve â then this slide would pass.

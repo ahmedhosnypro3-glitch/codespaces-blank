@@ -1,0 +1,37 @@
+## Comparison of Slide 043 top-band crop (attempt 2)
+
+### Cell-by-cell content verification
+
+**6-column data table (left region, x â 30â280):**
+- Headers xââ¦xâ present in both, in correct order. â
+- Row 1: (1) (2) (1) (5) (6) (6) â matches original exactly, cell by cell. â
+- Row 2: (1) (1) (2) (4) (5) (6) â matches exactly. â
+- Class row: Câ Câ Câ (red) | Câ Câ Câ (blue) â matches, correct color assignment per column. â
+
+**Initial W vector (center-left, x â 430â620):**
+- Entries 4, â2, â2 â matches original exactly (both negatives present, correct order). â
+- Parentheses span all three rows without touching glyphs in both. â
+- "Initial WÌ²=" label with underline on W present in both. â
+
+**Step label (x â 630â760):**
+- "Step Î· = 2" in red bold italic â matches original's red bold italic "Step Î· = 2". â
+
+**Check classes / Z matrix (right, x â 930â1290):**
+- Label "Check classes of" present, correctly placed. â
+- Three Zâ columns with stacked entries: (0, 0), (7, 6), (3, 2) â all three columns match value-for-value; each paren pair spans its two stacked entries correctly. â
+
+**Legend line (bottom, x â 340â900):**
+- "Câ positive" (red), "Câ negative" (blue), "Zero" (green), "is unaccepted" (black) â colors and wording all match. â
+
+### Discrepancies found
+
+1. **MINOR** â Background tint of the band: recreation uses a warm cream/ivory fill; original appears near-white with a faint cool cast. Confidence: high that a difference exists, moderate that it's not just video-capture color shift.
+2. **MINOR** â Minus sign glyph in the W vector: recreation uses a hyphen-style "-2"; original uses a fuller mathematical minus "â2" (slightly longer, better centered). Confidence: high.
+3. **MINOR** â Typeface style: original uses italic math styling for xââ¦xâ, the Zâ headers, Câ/Câ, and the bold-italic legend words ("positive", "negative", "is unaccepted" in serif bold italic); recreation uses upright/bold sans-serif equivalents. Per ground rule (c)/(d) this is a medium/format difference, at most MINOR. Confidence: high.
+4. **MINOR** â Spacing around "=" in "Initial WÌ²=": recreation sets it tight ("WÌ²="), original has a small gap ("WÌ² ="). Confidence: high.
+5. **MINOR** â Original shows a full thin blue/purple border frame around the band (including top edge); recreation has no top stroke â this is mandated template chrome per ground rule (b) and is **not counted as a discrepancy**; noted only for completeness.
+
+### Summary
+No wrong digits, no swapped table values, no missing rows, no truncated subscripts, no delimiter failures. All numeric and symbolic content matches exactly. All five discrepancies are cosmetic/typographic and MINOR.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

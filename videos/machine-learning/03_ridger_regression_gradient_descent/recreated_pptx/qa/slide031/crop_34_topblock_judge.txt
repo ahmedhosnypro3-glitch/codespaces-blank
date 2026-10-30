@@ -1,0 +1,40 @@
+# Region Comparison â Slide 031 zoomed crop (attempt 34)
+
+## Chrome / Mandated (not discrepancies)
+- Template chrome (gray panel, left/bottom strokes, no top stroke) â intentional.
+- Formula box: IMG1 renders `f(x) = (x â 5)Â² + 1` in a cleaner sans/2D style vs IMG2's serif italic linear form â same content, same structure (squared term on (xâ5), +1 outside the exponent). Mandated format upgrade, not a discrepancy.
+- JPEG softness/halos in IMG2 ignored.
+
+## Cell-by-cell / element-by-element audit
+
+**Title line (top of crop):**
+1. **MAJOR â Title segment colors are wrong.** IMG2 (original): all three title segments render in the same dark red â "Convex Function,", "Learning Rate =0.3,", and "Start at X=3". IMG1 (recreation): "Learning Rate =0.3," is **green** and "Start at X=3" is **blue**. Two of three title phrases are in the wrong color. Confidence: 0.70 (the red-green shift cannot be a JPEG artifact; residual uncertainty is only from the upscale blur).
+
+**Parameter table (left-center, ~x 110â370):**
+2. **MINOR â Missing highlight on "initial X" row.** IMG2 shows a thin blue/cyan rectangle outlining the "initial X | 3" row (an annotation/selection box in the original); IMG1 reproduces only the black grid with no blue outline. Confidence: 0.80.
+3. Values verified: step=0.3 (green fill), initial X=3 (pink fill), delta=0.1 (yellow fill) â all correct, correct fills, correct text weights. â
+
+**Formula box (~x 755â1030, upper right of center):**
+4. Content, red border, position, and centering all match. â (Format per rule (d).)
+
+**Annotation box (green fill, green border, ~x 430â1105):**
+5. Text verified token-by-token: "X is in between **4.8** and color red bold **5.1**" / "f(x) is in between **1.04** and **1.01**" â including the literal string "color red bold" faithfully preserved in both. Colors correct: X and f(x) red bold, 4.8/5.1 red, 1.04/1.01 blue. Vertical centering fine. â
+
+**Bouncing badge (~x 555â750, bottom):**
+6. **MINOR â Badge fill and typeface differ.** IMG1: light lavender/violet fill, bold upright sans "Bouncing". IMG2: pinker fill, italic serif "Bouncing". Confidence: 0.85.
+
+**Right-edge graph crop:**
+7. **MINOR â "(2, 10)" label placement.** In IMG1 the point label "(2, 10)" sits fully inside the crop; in IMG2 it is clipped at the crop edge ("(2, 1â¦"), i.e., the recreation nudged the label slightly left. Axis labels 15, 10, 5, â5, 0 otherwise correct. Confidence: 0.60.
+
+**Bottom decorations:**
+8. **MINOR â Red outlined arrow (bottom-left) is noticeably larger/thicker in IMG1 than in IMG2.** Shape and color are right; stroke weight/scale slightly heavy. Confidence: 0.70.
+9. Blue hollow arrows along the bottom: count (4), fill, dark outlines, and spacing match. â
+
+## Summary
+- BLOCKER: none
+- MAJOR: 1 (title segment colors: green/blue in recreation vs red in original â items #1)
+- MINOR: 4 (blue row highlight missing; Bouncing badge fill/font; "(2, 10)" label nudged; red arrow weight)
+
+Everything numeric, textual, and structural (table values, formula, annotation strings including the "color red bold" artifact, arrow count, axis labels) is exact. The single MAJOR is a color-only error on two title phrases, but per the exactness mandate on text colors it stands.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â fix the title segment colors (middle â red, end â red per original) to clear the MAJOR; the four MINORs are optional polish.

@@ -1,0 +1,36 @@
+# Fidelity Check â Slide 051 (Recreation IMG1 vs Original IMG2)
+
+## Element-by-Element Comparison
+
+**House chrome (per ground rules, not scored):** Gray panel, red left/right/bottom strokes, no top stroke, yellow "51" badge â all present and correct in both. Not discrepancies.
+
+**Header box (cream/blue):** Present in both with matching region, colors, and layout: xââxâ vectors, "Initial W =", column vector, "Step Î· = 1" in red italic, "Check classes of", ZââZâ columns, and the Câ/Câ legend row with "Zero is unaccepted" in green italic.
+
+**Left column:** "Augmented Vectors (from Top)" + six 2-row vectors + Câ/Câ labels + red "Check Classes" button â all present and correctly placed.
+
+**Three result boxes:** Present, correctly ordered (Class I red, Class II blue, Undefined Class blue), with green column vectors (5, â1, â1) and correct results (= 5, = â8, = 0).
+
+## Discrepancies
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | **Missing augmented row vectors in every d(Z) box.** Original shows `d(Zâ) = \|1 0 0\| (5,â1,â1) = 5`, `d(Zâ) = \|1 7 6\| (5,â1,â1) = â8`, `d(Zâ) = \|1 3 2\| (5,â1,â1) = 0`. Recreation omits the row vectors [1 0 0], [1 7 6], [1 3 2] and the "=" after d(Záµ¢) entirely â an entire visual element per row is absent. | **BLOCKER** | High |
+| 2 | **Character substitution:** recreation reads "Step **n** = 1"; original reads "Step **Î·** (eta) = 1". Not verbatim. | **MAJOR** | High |
+| 3 | **Delimiter geometry/style mismatch (rule 7):** original encloses ALL column vectors (Initial W, ZââZâ in header and in d-boxes, and the six x-vectors) in **round parentheses**; recreation renders them with **vertical bars**. Systematic delimiter-style deviation across the slide. | **MAJOR** | High |
+| 4 | **Line-break mismatch:** original renders "Check classes of" on ONE line; recreation wraps "of" onto a second line. | **MAJOR** | High |
+| 5 | **Line-break mismatch / bad wrapping:** original renders "â Not > 0 , Not < 0" on one line; recreation wraps to "Not > 0 , Not <" / "0", orphaning the final "0" â visually defective wrap inside the box. | **MAJOR** | High |
+| 6 | **Omitted glyphs:** original has "â" before "Positive > 0", "Negative < 0", and "Not > 0 , Not < 0"; recreation omits the â arrow in all three boxes. | **MAJOR** | High |
+| 7 | Subscript rendering in "d(Záµ¢)" â subscript i in recreation sits so low/small it reads as a comma ("d(Z,)"). Legibility defect. | MINOR | Medium |
+| 8 | "Augmented Vectors (from Top)" is bold, non-italic blue in recreation; original is *italic*. Font-style deviation. | MINOR | High |
+
+*(Equations in recreation are rendered in stacked 2-D format vs original's linear notation â per ground rule (e), NOT a discrepancy.)*
+
+## Visual-Quality Defects in the Recreation
+- "Not > 0 , Not < / 0" wrap creates an awkward orphaned "0" and leaves unbalanced whitespace in the third box (see #5).
+- The d(Záµ¢) subscripts are cramped against the closing parenthesis, degrading legibility (#7).
+- No ink crosses any frame or panel boundary â frame containment is clean. Vertical centering inside vectors and boxes is acceptable.
+
+## Summary
+The recreation captures the overall layout, color scheme, vectors, and classification results, but omits an entire mathematical element (the augmented row vectors in all three d(Z) rows â a data omission), substitutes n for Î·, uses vertical-bar delimiters where the original uses parentheses, and introduces two wrap deviations and missing â glyphs.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation."

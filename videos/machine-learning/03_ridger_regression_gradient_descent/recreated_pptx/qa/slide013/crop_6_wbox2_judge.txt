@@ -1,0 +1,45 @@
+# Judge transcript — slide 013, attempt 6 (zoomed crop wbox2)
+- date: 2026-10-24 07:01
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_RENDER: recreated_pptx/qa/slide013/crop_6_wbox2_render.png  md5=8c37b1908ace51e6f2a2df501cc575c6
+- IMG_ORIGINAL: recreated_pptx/qa/slide013/crop_6_wbox2_orig.png  md5=37e98ff1eb48951287a6406a121b885d
+- region: band-2 W box (frame bbox 498,257..631,398), widest vector (0.67 / 0.64); render
+  crop scale = render_H/540 = 2.083333, original crop upscaled to the same 277x294 px
+- read order: original crop first, then render crop
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR comparison of ONE region; same region, same effective scale.
+(b) House template is intentional chrome — never a discrepancy.
+(c) Typed-vs-handwritten ink: at most MINOR (both typed).
+(d) Professional 2D equation format is mandated; linear notation in the original is an
+    upgrade, not a discrepancy (the original is 2D here).
+(e) JPEG halos / soft edges in IMG2 are capture artifacts, not content.
+
+## Comparison (region contents: W box with "W =" + wide three-value column vector inside
+## parentheses + ellipse "||W||² = 8.11")
+
+- Box frame: red border present in both at the same position (PIL 506..623 x 265..390).
+- "W": red italic serif with underline, same position/weight family in both.
+- "=": two black bars, same spacing.
+- Parentheses: thin strokes spanning the full stack in both; PIL: left body x565 tips x567,
+  right body x612 tips x610 in BOTH images; values x570..607 well clear of the strokes
+  (2.6px minimum clearance). No overlap, no clipping, curvature matches.
+- Vector values: 2.7 / 0.67 / 0.64, correct order, all digits and both decimal points
+  present and correctly placed (no truncated or transposed digits). Baselines match the
+  frame (279..293 / 304..319 / 330..344 vs render 279..293 / 305..319 / 330..344).
+- Ellipse: pale yellow, same bbox (PIL 515..619 x 351..387 in both).
+- Ellipse text: "||W||² = 8.11" olive italic with superscript 2 — numerals 8.11 correct,
+  no missing glyph; text nearly fills the ellipse in both (in the original it reaches the
+  right edge; in the render it stops ~4px short).
+
+## Discrepancies
+1. [MINOR] Ellipse text reaching ~4px less far right than the original (its "11" touches the
+   ellipse edge in the frame, not in the render) — confidence high; PIL: text span
+   518.4..614.9 vs 520..614 (the frame's apparent extra reach is JPEG bleed into the fill).
+   Disposition: capture artifact; no content/overflow issue; not a fix trigger.
+2. [MINOR] Border colour brightness (C00000 vs JPEG-darkened edge) — chroma artifact.
+
+## Visual-quality defects
+- None: no clipped digits, no delimiter-on-text overlap, no missing value.
+
+FINAL VERDICT: PASS

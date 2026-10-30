@@ -1,0 +1,37 @@
+## Region-level comparison â Slide 050 scatter chart crop (IMG1 recreation vs IMG2 original, matched scale)
+
+### Data layer (checked point-by-point)
+
+| Item | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| Blue squares | (1,1), (1,2), (2,1) | (1,1), (1,2), (2,1) |enta diamonds | (5,4), (6,5), (6,6) | (5,4), (6,5), (6,6) | |
+| Red triangles | (0,0), (3,2), (7,6) | (0,0), (3,2), (7,6 |
+| X ticks 0â8, Y ticks 0â7 | all correct, correct order | same| Decision line trajectory | enters ~y=5.4 at left edge, exits bottom-right ~x=6.2 | same slope/intercept| "+ve" text glyphs | correct, bold, dark red | correct, bold, |
+
+All nine data markers and all axis labels are correct â no wrong/missing values.
+
+### Discrepancies
+
+1. **MAJOR â Extra triangle-like red marker on the line at â(1, 4.1)** (crop upper-left quadrant, ~x=185, y=268). IMG1 shows a solid red triangle sitting on the decision line just left of x=1; IMG2 has nothing there. At this zoom it reads as a spurious extra data marker. Confidence: medium-high (could conceivably be a malformed arrowhead, but as rendered it is a foreign shape).
+
+2. **MAJOR â Broken/doubled stroke on the decision line, xâ0.4â0.9, yâ4.4â4.6** (crop coords ~128â178, 238â268). IMG1 shows a thick detached dark-red segment running parallel to and slightly below the main line, breaking stroke continuity; the original line is a single uniform stroke through this stretch. Confidence: high.
+
+3. **MAJOR â "+ve" annotation arrow geometry/orientation differs.** In IMG2 the arrow is a single short stroke leaving the decision line and pointing **down-left**, head adjacent to the "+ve" label (label left of arrow). In IMG1 the arrow is detached below the label and points **up-left** (head beneath the text), with the stray stub from item 2 standing in for the line attachment. Arrow direction and its relationship to the label/line are effectively reversed. Confidence: medium-high.
+
+4. **MAJOR â Diamond fill color washed out.** IMG1 diamonds are pale pink (â#F2A0E8) at all three positions; IMG2 diamonds are vivid magenta/violet (â#C33CC3). Clearly visible at this scale. Confidence: high.
+
+5. **MINOR â Line weight and hue.** IMG1 decision line is ~1.5â2Ã thicker and a darker maroon-red than IMG2's brighter, thinner red stroke. Confidence: high (weight), medium (hue â some may be JPEG softening in IMG2, but the weight difference is real).
+
+6. **MINOR â Line-end arrowhead.** IMG1 terminates the line with a clear arrowhead at bottom-right (~x=6.2, below y=0); IMG2's line appears to end plain at ~x=6.4 with no visible head. The region descriptor calls for an arrow, so this may be capture softness â low confidence, flagged for completeness.
+
+7. **MINOR â Gridline weight.** IMG1 gridlines are marginally heavier/darker than IMG2's hairlines. Low impact. Confidence: medium.
+
+### What is NOT a discrepancy (per ground rules)
+- White canvas + red border chrome: intentional template.
+- Typed/bold "+ve" styling vs original: acceptable medium difference.
+- JPEG halo around red strokes in IMG2: capture artifact, ignored.
+
+### Summary
+The quantitative content is fully faithful (every marker position, every tick label, correct "+ve" text, correct line placement). The failures are in rendering fidelity of the annotation and line: a spurious triangle-like shape on the line, a broken doubled stroke, a reversed/detached "+ve" arrow, and washed-out diamond fills â all clearly visible at this mandated zoom.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'

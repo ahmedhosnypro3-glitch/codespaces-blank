@@ -1,0 +1,42 @@
+# Slide 042 â Zoomed Crop Comparison (legend region, attempt 20)
+
+**Region:** lower text band of the slide, crop-relative roughly yâ60â100% of the crop; content is the sentence "negative, Zero is unaccepted" with "Zero" highlighted, plus (in IMG2 only) the clipped bottom edge of the line above.
+
+## Cell-by-cell / glyph-by-glyph findings
+
+**Text content â "negative, Zero is unaccepted"**
+- All characters present, correct order, no garbling, no missing glyphs. The comma after "negative" is present in both. â
+- "Zero" is green in both images, correctly positioned mid-sentence. â
+
+**Discrepancy 1 â Italic styling of "negative" â MINOR (confidence: high)**
+- IMG2 (original): "negative" is rendered in *italic* (slanted, serif-like letterforms: the "g" descender and slanted "t" are visible even through compression).
+- IMG1 (recreation): "negative" is upright/roman, sans-serif.
+- This is a font-style/formatting difference, not a content error. Under ground rule (c) this sits in the MINOR band. The rest of the sentence ("is unaccepted") is upright in both, so only the single word "negative" is affected.
+
+**Discrepancy 2 â Green shade of "Zero" â MINOR (confidence: medium)**
+- IMG1: bright green (â #00A650 / #00B050 range).
+- IMG2: slightly darker, more saturated green, though JPEG/video chroma bleed at this zoom makes an exact match impossible to certify. Likely the same intended green; flagging only as a possible small hue shift.
+
+**Discrepancy 3 â Clipped line-above fragment visible only in IMG2 â MINOR (confidence: medium)**
+- IMG2 shows the cropped bottom slivers of a preceding line at the very top of the crop (fragments consistent with a bracket/delimiter and "â2" â likely the tail of an equation or a list item such as "|â2|").
+- IMG1's crop shows only blank white at that position â the crop window sits slightly lower, or the recreation places this text block slightly lower / with more leading above.
+- If this is purely crop-registration offset, it is a non-issue. **However, verify at full-slide scale that the preceding line (the fragment suggesting "â2" content) exists in the recreation.** If that line is actually missing from the recreated slide, this escalates to MAJOR. Nothing in this crop pair alone proves it is missing.
+
+**Non-findings (explicitly checked, no defect):**
+- No top stroke expected in this region; the thin colored sliver at IMG2's top edge is the above-mentioned clipped line, not chrome. Consistent with ground rule (b).
+- No delimiter geometry to evaluate in this crop (no brackets/parens fully enclosed here).
+- No table cells or equation structure inside this crop.
+- Softness/halos around glyphs in IMG2 are compression artifacts per rule (e) â not counted.
+- Vertical centering of the sentence within its band looks acceptable; baseline sits a touch higher in IMG1 but within tolerance for a crop-pair registration difference.
+
+## Summary
+
+| # | Issue | Severity | Confidence |
+|---|-------|----------|------------|
+| 1 | "negative" upright in recreation vs italic in original | MINOR | High |
+| 2 | Green hue of "Zero" possibly slightly brighter | MINOR | Medium |
+| 3 | Line-above fragment absent from recreation crop (verify full slide) | MINOR (esc. MAJOR if line truly missing) | Medium |
+
+No wrong digits, no missing characters, no swapped values, no truncated subscripts, no broken delimiters in this region.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region' â conditional on confirming at full-slide scale that the line above (the "â2" fragment) is present in the recreation.

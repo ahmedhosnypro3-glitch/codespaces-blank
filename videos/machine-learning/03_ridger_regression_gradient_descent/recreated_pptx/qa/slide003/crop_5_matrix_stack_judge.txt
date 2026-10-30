@@ -1,0 +1,19 @@
+Region compared: the design-matrix notation box. IMG1 = recreation render; IMG2 = original, same effective scale. Crop-relative coords are 0â1 (x leftâright, y topâbottom).
+
+Discrepancies (every one I can see):
+
+1. **BLOCKER â all stacked component entries are missing.** In IMG2 each colored band is a filled vector/column: left yellow band (xâ0.14â0.30, yâ0.20â0.80) contains **xââ, xââ, â¦, xâd**; middle cyan band (xâ0.37â0.55) contains **xââ, xââ, â¦, xâd**; right pink band (xâ0.76â0.94) contains **xââ, xââ, â¦, xâd**, evenly line-separated and vertically centered. In IMG1 these three bands are rendered as **solid color fills with no glyphs at all** â every xáµ¢â±¼ row (including the subscripted âdâ) is absent. Confidence: high.
+
+2. **MAJOR â the continuation ââ¦â column is gone.** IMG2 has a fourth narrow column between the cyan and pink bands (xâ0.63â0.72): a header **ââ¦â** on top and a tall vertical dotted stack enclosed in parentheses. IMG1 has a bare gutter there â no ellipsis header, no dotted stack. Confidence: high.
+
+3. **MAJOR â delimiter geometry absent.** In IMG2 each stacked column (and the ellipsis column) is bounded by parentheses that span the enclosed lines top-to-bottom. IMG1 has **no parentheses/brackets whatsoever** around the bands, so no delimiter spans the (missing) entries. Confidence: high.
+
+4. **MINOR â red y-labels sit outside the bands in IMG1.** IMG2 places **yâ / yâ / yâ** at the base of each panel so each target is grouped with its column (yâ0.74â0.85). IMG1 floats them below the bands (yâ0.83â0.92), detached from Xâ±¼. Values and red italic style otherwise match. Confidence: medium-high.
+
+5. **MINOR â panel shape.** IMG2 uses rounded panels that tightly wrap each vector + its y label; IMG1 uses plain rectangles. Confidence: medium.
+
+6. **MINOR â X glyph weight/style.** IMG1âs italic serif **X** vs IMG2âs heavier brush/italic **X**; per medium rules this caps at minor. Subscripts (1, 2, n) and the red y-subscripts are present and un-truncated in IMG1. Confidence: medium.
+
+7. **MINOR / low confidence â stray clipped red text at the very top of IMG1** (upper-leftâcenter, e.g. ââ¦amples)â cut by the frame) with no counterpart in IMG2âs copy of the same region; likely title/badge bleed rather than box content, but flagged for completeness.
+
+FINAL VERDICT: FAIL

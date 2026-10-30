@@ -1,0 +1,28 @@
+# Slide 001 attempt-1 judge verdict bank (worker w4-s001-20261020T1900, 2026-10-20)
+
+## Leg status
+
+| Leg | Template | Transcript | Verdict | Notes |
+|---|---|---|---|---|
+| full-slide | A | judge_attempt_1.txt (PENDING re-dispatch) | — | see worker_report.md |
+| title crop | B | crop_1_title_judge.txt | PASS | only MINOR: red saturation render-vs-capture |
+| preparedby crop | B | crop_1_preparedby_judge.txt | PASS | 3 MINOR: calligraphic-italic substitution (Arial italic used), blue sans subfamily, descender gap rhythm |
+| instructors crop | B | crop_1_instructors_judge.txt | PASS | MINOR: original header is italic (render upright — PIL-corroborated ~2px shear), email weight/size notes |
+| logo crop | B | crop_1_logo_judge.txt | PASS | letter-for-letter glyph integrity incl. Arabic; only artifact-class MINORs (JPEG halo, fill luminance) |
+
+All four Template B crop transcripts end "FINAL VERDICT: PASS" from real winner bodies.
+
+## Outage-ruling signal
+
+These four crop transcripts (2026-10-20 ~17:0x–18:3x UTC) are the first slide-001
+vision winner bodies of this run — dispatched after three bodyless probe hangs
+(630s stuck-stream class) and concurrent with fleet recovery (slide022/024/038
+full-slide PASSes landing the same window).
+
+## Banked adjudications (PIL-first, numbers in adjudicate_drift.py / cut_crops.txt)
+
+- Logo asset: 0-pixel diff vs the original crop, placed at exact px/72 — byte-faithful.
+- Text line tops match within ~3px; left edges/centers within ~1px; line
+  separations within 2px. Width jitter 2–8% = LO Liberation Sans vs the original's
+  font (unknowable from JPEG); positions preserved.
+- House chrome check PASS (panel, L/R/bottom strokes, no top stroke, badge).

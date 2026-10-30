@@ -1,0 +1,30 @@
+# Crop-Pair Analysis: Slide 042, Z-block (top-right), box (575,50)â(690,125)
+
+## Content verification (value-by-value)
+
+| Element | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| Left text fragment | "of" (crop-left, mid-height) | "of" (same position) | â |
+| Header 1 | Zâ (subscript) | Zâ | â |
+| Header 2 | Zâ | Zâ | â |
+| Header 3 | Zâ | Zâ | â |
+| Vector 1 entries | 0, 0 | 0, 0 | â |
+| Vector 2 entries | 7, 6 | 7, 6 | â |
+| Vector 3 entries | 3, 2 | 3, 2 | â |
+| Top blue rule | present, full width | present, full width | â |
+
+All numeric content is correct â no wrong, swapped, or missing values. Stacked 2D vector layout with vertically centered entries is correct in both.
+
+## Discrepancies
+
+1. **MAJOR â Delimiter glyph mismatch (confidence: high).** The original (IMG2) encloses all three column vectors in **thin parentheses** â tall curved `( )` at crop positions ~(90â150, 100â240), (175â235, 100â240), (260â320, 100â240). The recreation (IMG1) uses **square brackets** `[ ]` â visible as right-angle corner strokes at ~(65â135, 115â245), (160â230, 115â245), (245â315, 115â245). The attempt-22 changelog claims "thin parens added around the three Z column vectors," but IMG1 clearly still renders square brackets: the corner strokes are sharp 90Â° elbows, not curves, and the top/bottom of each delimiter end in horizontal ticks (bracket style), not hooks. Parentheses-vs-brackets is a substantive mathematical-notation difference for column vectors and is plainly visible at this zoom. This is not covered by any house-template or format-upgrade exemption.
+
+2. **MINOR â Header-to-vector vertical gap (confidence: medium).** In IMG1 the Zâ headers sit slightly higher above the vectors (gap â 25â30 px crop-relative) than in IMG2 (gap â 15â20 px), leaving a slightly looser header block. Purely spacing, no content impact.
+
+3. **MINOR â Subscript legibility on Zâ (confidence: low).** In IMG1 the subscript on each Z renders as a very small, slightly comma-like mark (e.g., above vector 1 at ~(115, 85)); in IMG2 the "â" is marginally clearer. Likely a resolution artifact of the smaller subscript font; not a wrong character.
+
+Delimiter spans are otherwise correct in both images: no delimiter touches the digits, and each spans both rows of its vector fully.
+
+## FINAL VERDICT: FAIL
+
+Faithful in every value and in 2D equation structure, but the recreation still shows square brackets where the original has thin parentheses â the claimed attempt-22 paren fix did not land in this render. One targeted delimiter fix should flip this to PASS.

@@ -1,0 +1,27 @@
+## Discrepancy Report â Slide 005, pink band (dLoss/dW = 0 Â· "Get Best W...")
+
+Region context: crop spans the full-width pink band; fraction at left (~x 20â180), text right (~x 270â900).
+
+**1. "W" in "Get Best W that minimizes the loss" â color/weight mismatch. MAJOR, high confidence.**
+In IMG2 (original), the standalone "W" (~x 440â480, mid-band) is **bold, italic, and red** (matches the dark-red emphasis color, ~C00000 family) â clearly intentional emphasis of the variable. In IMG1 (recreation), the same "W" (~x 430â470) is **plain black, regular weight, upright sans-serif**, visually identical to the surrounding sentence text. This is a whole-glyph color/weight omission in the recreation, not a small antialiasing-level tint shift. Per the rules this is not "typed vs handwritten" and not template chrome â it's a lost emphasis treatment on a content token.
+
+**2. Underline beneath the denominator "W" in the fraction â missing. MINOR, medium-high confidence.**
+IMG2's denominator "âW" (~x 100â140, lower-left) shows a short horizontal underline directly under the W (a hand-styled emphasis/stroke in the original). IMG1's denominator "âW" has no underline. The character itself is present and correct; only the underline mark is absent, and it does not change the mathematical content â MINOR.
+
+**3. Math typeface: serif (Times-like) in IMG2 vs sans-serif in IMG1. MINOR, high confidence.**
+â, L, o, s, s, W glyph shapes differ accordingly (e.g., original's italic serif â and "Loss"; recreation's upright-sans rendering with italic "Loss"). Same characters, same order, same stacked-fraction structure with horizontal bar in both â this falls under acceptable rendering-format/medium variance, MINOR at most.
+
+**4. Spacing around "= 0". MINOR (cosmetic), high confidence.**
+IMG1 has visible spaces around "=" ("= 0", ~x 150â210); IMG2 has "=" tight against the fraction bar ("=0"). No content impact.
+
+**Verified as CORRECT (no discrepancy):**
+- Fraction structure: âLoss over âW with a continuous horizontal bar spanning the full numerator width in both images; bar does not touch glyphs. â
+- All characters present and in order: â Loss / â W = 0; "Get Best W that minimizes the loss" â no wrong, missing, or garbled glyphs. â
+- Pink band fill (~FBD5DC-family) and thin red border present on both; border stroke continuous, no top-edge anomalies in this crop. â
+- Vertical centering of both the fraction and the sentence inside the band is comparable. â
+
+## Summary
+- MAJOR: red bold "W" emphasis in the right-hand sentence rendered as plain black text (1 item)
+- MINOR: missing underline under denominator W; serifâsans typeface shift; "= 0" spacing (3 items)
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â the loss of the red bold emphasis on "W" is a visible content-styling defect at matched scale that a faithful recreation should carry.

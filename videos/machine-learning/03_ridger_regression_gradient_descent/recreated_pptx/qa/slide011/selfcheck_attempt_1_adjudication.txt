@@ -1,0 +1,26 @@
+== A. ORIGINAL underline measurement (slide_011.jpg, 960x540) ==
+   per-row red px in x560-720: {255: 98, 256: 83, 257: 64, 258: 103, 259: 104, 260: 104, 261: 102}
+   contiguous red runs rows 258-261 (frame px): [(np.float64(595.0), np.float64(697.0)), (np.float64(595.0), np.float64(698.0)), (np.float64(595.0), np.float64(698.0)), (np.float64(596.0), np.float64(697.0))]
+   ORIGINAL bar: x 595.0-698.0  rows 258-261 (core 258-260, center 259.0, thickness 3)
+
+== B. RENDER underline measurement (render_1.png, 2001x1125) ==
+   per-row red px in x560-720(win): {'529(y253.9)': 185, '530(y254.4)': 184, '531(y254.9)': 174, '532(y255.4)': 165, '533(y255.8)': 153, '534(y256.3)': 137, '535(y256.8)': 51, '538(y258.2)': 215, '539(y258.7)': 215, '540(y259.2)': 215}
+   contiguous red runs (frame px): [(np.float64(509.3), np.float64(512.6)), (np.float64(530.9), np.float64(535.2)), (np.float64(557.3), np.float64(561.1)), (np.float64(571.7), np.float64(576.0)), (np.float64(601.9), np.float64(606.2)), (np.float64(620.6), np.float64(624.0)), (np.float64(640.3), np.float64(644.2)), (np.float64(672.5), np.float64(676.8)), (np.float64(753.1), np.float64(756.5)), (np.float64(595.2), np.float64(697.9)), (np.float64(595.2), np.float64(697.9)), (np.float64(595.2), np.float64(697.9))]
+   RENDER bar: x 595.2-697.9  rows 258.24-259.20 (center 258.72, thickness 1.96)
+
+== C. re-run the 5 banked FAILs against the CORRECT measurement ==
+   reference: orig x 595.0-698.0, y core center 259.0, thickness 3
+  OK   ul L 595.2 vs 595.4 (tol 5.0)
+  OK   ul R 697.9 vs 698 (tol 5.0)
+  OK   ul Y center (core) 258.7 vs 259.0 (tol 3.0)
+  OK   underline below the title baseline band (top 258.2 >= 256)
+  OK   underline spans only the 'outlier' word (595.2-697.9 within 595-698)
+  FAIL ul thickness render 1.44 vs orig 3 (tol 1.5)
+
+== D. contamination proof (why the banked checker FAILed) ==
+   max red px in a title-glyph row (x70-890 window): 716 > 60 -> those rows were absorbed into the 'wide_rows' union
+   => banked FAILs are checker-bugs; render underline is correct.
+
+================ ADJUDICATION SUMMARY ================
+1 FAIL
+  - ul thickness render 1.44 vs orig 3 (tol 1.5)

@@ -1,0 +1,46 @@
+# Fidelity Check â Slide 050 Recreation vs Original Lecture Frame
+
+## Element-by-Element Comparison
+
+**House chrome (per ground rules, not scored):** gray panel, red C00000 strokes on left/right/bottom only (no top stroke â correct), yellow "50" badge top-right â all present and consistent. Not counted.
+
+**Top yellow panel:**
+- xââxâ headers, vector rows (1 2 1 5 6 6)/(1 1 2 4 5 6), colored Câ(red)/Câ(blue) labels â verbatim match â
+- "Initial W = (4, â2)" â present, correctly stacked â
+- "REPEAT using Step" â present, but the original reads **"REPEAT using Step Î· = 1"**. The recreation omits **"Î· = 1"** entirely.
+- "Check classes of zâ zâ zâ" â present. zâ = (0,0) â, zâ = (7,6) â, but **zâ renders as (7,6) in the recreation vs (3,2) in the original** â a table-data error.
+- Bottom legend "Câ positive / Câ negative / Zero is unaccepted" â present, correct colors and ordering â.
+
+**Right W-panel:** W = (5, â1, â1) with underlined W â verbatim and correctly stacked â. Panel fill is pinker than the original's lavender (MINOR).
+
+**Augmented Vectors box:** heading + 3Ã6 vector table (1,1,1)(1,2,1)(1,1,2)(1,5,4)(1,6,5)(1,6,6) + class labels â verbatim, correct line spacing, digits vertically centered in delimiters, no overflow â.
+
+**"Iteration 2" box, "No change in W / Stop Iterations":** text verbatim; W underlined â; "Stop" italic in original vs roman in recreation (MINOR).
+
+**Chart:** axes 0â8 / 0â7, gridlines, magenta diamonds (6,6)(6,5)(5,4) â, navy squares (1,2)(1,1)(2,1) â, red line trajectory with matching slope/extent â. But:
+- Original has a **red triangle data marker at (3,2)** â absent in the recreation (the line passes through that spot with no marker).
+- Recreation shows **stray red triangular ink on the line at â(0.6, 4.5)** with no counterpart in the original â looks like the (3,2) marker misplaced.
+- Triangle at (7,6): original points â¼ down, recreation points â² up (MINOR).
+- Recreation line ends in a visible arrowhead; original end is plain/cut (MINOR).
+- "+ve" annotation present in both; arrow shape/angle slightly different (MINOR).
+
+## Discrepancy List
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | "Î· = 1" missing from "REPEAT using Step" | **MAJOR** | High (0.95) |
+| 2 | zâ = (7,6) in recreation vs (3,2) in original â wrong table value | **MAJOR** | Medium (0.65) |
+| 3 | Red triangle data point at (3,2) missing from chart | **MAJOR** | Medium-high (0.8) |
+| 4 | Stray red triangle ink on line at â(0.6, 4.5), not in original | **MAJOR** (chart-data integrity, likely the displaced #3 marker) | Medium (0.7) |
+| 5 | Triangle marker orientation â² vs â¼ at (7,6) | MINOR | High (0.9) |
+| 6 | W-panel fill pink vs lavender | MINOR | High (0.9) |
+| 7 | Missing italics on "positive"/"negative"/"Stop" | MINOR | High (0.85) |
+| 8 | Line end arrowhead present vs plain in original | MINOR | Medium (0.6) |
+| 9 | "+ve" arrow geometry slightly different | MINOR | Medium (0.7) |
+
+## Visual-Quality Defects (recreation)
+- No text overflow, clipping, or frame-containment violations detected; all content sits inside the gray panel and chart frame.
+- Vertical centering in parentheses/stacked vectors is correct throughout.
+- Line spacing in multi-line blocks matches the original.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation' â driven by the missing "Î· = 1" text, the zâ data-value error, and the missing/misplaced (3,2) chart marker (items 1â4).

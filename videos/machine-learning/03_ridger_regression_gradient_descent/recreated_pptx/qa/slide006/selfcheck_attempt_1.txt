@@ -1,0 +1,23 @@
+Render 2001x1125; scale x=2.0844 y=2.0833
+Title ink render x371..1651 y522..604 (n=32228)
+  expected     x365..1663 y515..604
+    OK  left: 371 vs 365 (diff 6)
+    OK  right: 1651 vs 1663 (diff 12)
+    OK  top: 522 vs 515 (diff 7)
+    OK  bottom: 604 vs 604 (diff 0)
+  color sample RGB=(np.int64(192), np.int64(0), np.int64(0)) (want 192,0,0)
+Subtitle ink render x504..1517 y615..683 (n=15380)
+  expected       x502..1524 y615..685
+    OK  left: 504 vs 502 (diff 2)
+    OK  right: 1517 vs 1524 (diff 7)
+    OK  top: 615 vs 615 (diff 0)
+    OK  bottom: 683 vs 685 (diff 2)
+  color sample RGB=(np.int64(0), np.int64(0), np.int64(255)) (want 0,0,255)
+title ink inside panel (panel x113..1882 y94+)
+subtitle ink inside panel (panel x113..1882 y94+)
+Badge numeral ink pixels: 263 (window cx1826 cy152 d35)
+Title-bottom -> subtitle-top gap: 11 px (expected 10)
+
+SELF-CHECK: PASS
+  Title (C00000 bold 42pt) + subtitle (0000FF italic 36pt) ink geometry match
+  the original frame within tol; all ink inside the house panel; badge numeral present.

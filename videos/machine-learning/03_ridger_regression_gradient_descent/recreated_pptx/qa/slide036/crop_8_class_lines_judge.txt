@@ -1,0 +1,66 @@
+# Crop judge transcript — slide 036, attempt 8, region "class_lines"
+- date: 2026-10-24 06:53
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL_CROP: recreated_pptx/qa/slide036/crop_8_class_lines_orig.png
+  md5=0e26e68784e3a05df1845d33c6f3fba7
+- IMG_RENDER_CROP:   recreated_pptx/qa/slide036/crop_8_class_lines_render.png
+  md5=b93f601da97dc532150494548c1e6ea7
+- SOURCE RENDER: recreated_pptx/qa/slide036/render_8.png md5=ad8676e60fbd305096dce60dc0b16c5a
+- REGION (slide space, frame px): x60..880, y90..318 = boxes 1+2 (small-text clusters: the
+  class-definition lines, the discriminant function with W^T, the two misclassification
+  conditionals). Crop 1709x474 px each side.
+- SCALE AUDIT (cut_crops_8.txt): render 2.0841 x 2.0789 px per frame px; original upscaled
+  LANCZOS to the same 1709x474 -> identical effective scale on both sides.
+- read order: ORIGINAL crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair, same region and effective scale on both sides.
+(b) House chrome values are intentional and never a discrepancy.
+(c) Typed-vs-handwritten ink: n/a.
+(d) Equations are in the mandated professional 2D format — here only W^T superscripts appear,
+    rendered raised in both images.
+(e) JPEG halos/soft edges in the original are capture artifacts, not content.
+
+## Comparison (element by element)
+- Box 1, line 1 "Define two classes: class I and Class II" — verbatim; "class I" red,
+  "Class II" blue, correct cases (lowercase membership token, capital target token) as in the
+  original.
+- Box 1, line 2 "let d(X) be a discriminant function = W^T X" — verbatim; d(X) and the
+  terminal X green, W black with a RAISED superscript T (render T top y132 vs original y129 —
+  raised in both), the "=" in place.
+- Box 1, line 3 "if X ∈ class I then d(X) > 0" — verbatim; "> 0" red (class-I line), X black,
+  d(X) green.
+- Box 1, line 4 "if X ∈ Class II then d(X) < 0" — verbatim; "Class II" blue, "< 0" blue.
+- Box 2, line 1 "For misclassified X :" — verbatim; terminal X green.
+- Box 2, line 2 "If X ∈ class I and misclassified as Class II then d(X) will be <0" — verbatim;
+  "<0" red; class tokens correctly cased/coloured.
+- Box 2, line 3 "If X ∈ Class II and misclassified as Class I then d(X) will be >0" — verbatim,
+  including the capital "Class I" target token that attempt 7 printed lowercase (the crop-leg
+  finding fixed in this attempt); ">0" blue.
+- Glyphs — every word, digit and relation sign present; ∈ drawn in both; no garbled or missing
+  character; no caret/underscore artifacts (the only superscript is the raised T; subscripts
+  are true lowered glyphs).
+- Line separation — render baselines [118,150,178,206] (box 1) / [249,279,308] (box 2) vs
+  original [117,149,177,206] / [248,279,307]: 0-2 px deltas; pitch 28-31 px in both.
+- Per-line ink spans (audit_8.txt §1): ratios render/original 1.014 (b1L1), 1.021 (b1L2),
+  0.907 (b1L3), 0.947 (b2L1), 0.968 (b2L2) — inside the deck's sans-for-serif substitution
+  band; no line crosses the box borders.
+- Frame containment — all ink inside x69..866, y94..313; no ink on the borders.
+- Colours — red class-I tokens, blue Class-II tokens, green d(X)/X, black body; measured cores
+  red 192 / blue 254 / green 128 in the render (selfcheck) — same semantic coding as the
+  original.
+
+## Discrepancies
+1. [MINOR] Typeface/weight/italics — the original's bold serif with italic class tokens and
+   math symbols vs the recreation's upright sans (the deck's ratified substitution, same as
+   certified siblings 012/035). Text, case, colour and order are unchanged.
+2. [MINOR] Underlines — "misclassified" and the vector symbols (X, d(X), W) carry underline
+   bars in the original; the recreation draws none. Deck-level styling convention.
+3. [MINOR] Sub-pixel metric drift from the substitution (see the per-line ratios) — e.g.
+   box 2 line 2 ends at 627 vs 647 in the original; no wrap, no collision, well inside the box.
+
+## Visual-quality defects
+None. No overflow, clipping, wrong wrap, collisions, or illegible glyphs; both boxes' four/three
+ink bands correspond 1:1 to the original's four/three text lines.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

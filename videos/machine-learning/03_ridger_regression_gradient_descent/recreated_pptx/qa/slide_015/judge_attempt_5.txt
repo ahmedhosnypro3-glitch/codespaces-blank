@@ -1,0 +1,48 @@
+# Fidelity Check â Slide 015
+
+## Ground rules acknowledged
+House chrome (gray panel, red C00000 strokes on left/right/bottom only, no top stroke, yellow "15" badge at top right) is confirmed present and correct, and per rules (a)â(f) is not scored. The original (IMG2) is a content-bearing lecture slide, so full content fidelity is required.
+
+## Element-by-element comparison
+
+**Title:** "Minimization of Objective function to obtain BEST model parameters" â verbatim match; red/blue color spans match the original exactly. Badge numeral "15" correct. â
+
+**Top yellow panel â Equation 1:**
+- First half: J(W) = Â½(YâÅ¶)áµ(YâÅ¶) + Â½Î»WáµW â matches.
+- Second half: **DISCREPANCY.** Original reads "= Â½(**Y**âXW)áµ(**X**âXW) + Â½Î»WáµW". Recreation reads "= Â½(YâXW)áµ(**Y**âXW)". The second parenthesized factor's leading variable is Y instead of X. Wrong rendered value vs the original. **MAJOR** (high confidence).
+- **DISCREPANCY (systematic):** In the original, the regularization terms "+ Â½Î» WáµW" are rendered **inline and in green**. In the recreation, the inline Î» terms are black, and green duplicates ("+Â½Î»WáµW") float on separate lines *below* each equation at arbitrary x-positions. These floating green fragments do not exist in the original â spurious extra elements, and the inline green coloring is lost. **MAJOR** (high confidence).
+- Blue "J(W)" annotation tags with green strike/underline marks are drawn beneath each J(W); these annotations are not in the original and collide with the line above/below. **MAJOR** (high confidence).
+
+**Equations 2 and 3:** Text verbatim and correct (Â½[YáµY + (XW)áµ(XW) â Yáµ(XW) â (XW)áµY] and the â2(XW)áµY form). Same defects as above: black inline Î» terms instead of green, floating green "+Â½Î»WáµW" duplicates, stray J(W) tags. Interleaving the annotation lines makes the vertical rhythm uneven vs the original's clean, evenly spaced three lines. **MAJOR** (same items, counted once).
+
+**Pink box:** âJ(W)/âW = 0 with stacked fraction â matches; fraction professionally rendered (mandated format, not scored). Text "Get Best W that minimizes the Objective Function J(W)" verbatim; J(W) blue matches. **MINOR:** original renders the W in "Best W" in bold red; recreation renders it black (medium confidence). Box geometry and red border match.
+
+**Remember box:** Orange panel, red bold "Remember", âWáµW/âW = 2W with green W â matches. â
+
+**Bottom yellow panel:**
+- Line 1: âJ(W)/âW = 0 = Â½[(XW)áµ(X) + (X)áµ(XW) â 2(X)áµY] + Î»W â verbatim match. â
+- Line 2: = Â½[2XáµXW â 2XáµY] + Î»IW â verbatim match. â
+- **DISCREPANCY:** blue "J(W)" annotation tags overlap the "= 0" on both derivative lines, striking through the equals sign â a collision not present in the original, partially obscuring content. **MAJOR** (high confidence).
+- Floating green "+Î»W" and "+Î»IW" duplicates again absent from original. **MAJOR** (counted with the systematic item).
+- Final line: (XáµX + Î»I)W = XáµY matches, bold, W underlined. **DISCREPANCY:** the original shows a block **arrow (â)** between this equation and the green result box; the recreation omits the arrow entirely. **MAJOR** (high confidence).
+- **DISCREPANCY:** a spurious green "Î»I" annotation floats under the final equation and again inside/over the bottom of the green result box, colliding with the boxed formula's descender region and nearly touching the box border. Not in the original. **MAJOR** (high confidence).
+- Green result box W = (XáµX + Î»I)â»Â¹XáµY: content present, green border matches, superscript â1 correct. The formula sits high in the box (pushed up by the stray Î»I), so vertical centering within the box is off vs the original. **MINOR-to-MAJOR** (medium confidence).
+
+## Visual-quality defects in the recreation
+1. Annotation collisions: blue J(W) tags overlap "= 0" and surrounding strokes (bottom panel, twice).
+2. Stray green fragments ("+Â½Î»WáµW" Ã3, "+Î»W", "+Î»IW", "Î»I" Ã2) create visual clutter and one near-border-touch inside the green box.
+3. Uneven line spacing in the top panel caused by interleaved annotation lines.
+4. No text clipped at panel edges; frame containment otherwise OK.
+
+## Summary of discrepancies
+| # | Item | Severity | Confidence |
+|---|------|----------|------------|
+| 1 | Eq1 second factor: (YâXW)áµ(YâXW) vs original (YâXW)áµ(XâXW) | MAJOR | High |
+| 2 | Inline green Î»-terms recolored black; green duplicates floated as extra lines | MAJOR | High |
+| 3 | Spurious J(W) annotation tags colliding with equations (top Ã3, bottom Ã2) | MAJOR | High |
+| 4 | Omitted â arrow before green result box | MAJOR | High |
+| 5 | Stray "Î»I" annotations colliding with final equation / green box | MAJOR | High |
+| 6 | "Best W" â W not red | MINOR | Medium |
+| 7 | Result formula not vertically centered in green box | MINOR | Medium |
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation'.

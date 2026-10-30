@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Banked dispatch (byte-identical -p payload sourced from shared_patterns/judge_protocol_03.md)
+set -u
+cd /home/ahmed/Projects/ai_llm_slides
+PAYLOAD="$(cat <<'__PAYLOAD_EOF__'
+GROUND RULES (founder-mandated, settle these FIRST and never raise them as discrepancies): (a) This is a ZOOMED CROP-PAIR comparison of one region of slide 027, not a whole slide: IMG1 is the recreation's crop, IMG2 is the original's crop of the SAME region at the SAME effective scale. (b) The recreation's house template (white canvas; gray E9E9E7 panel; thin dark-red C00000 strokes on left/right/bottom only — this deck has NO top stroke; yellow badge FDFD96 with purple ring 6A5ACD) is INTENTIONAL chrome and never a discrepancy. (c) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR. (d) Equations in the recreation are rendered in PROFESSIONAL 2D FORMAT (stacked fractions with horizontal bar, large ∑ with limits above/below, spatially aligned sub/superscripts) — a LINEAR/typed rendering of the same equation in the original is a mandated format upgrade, NOT a discrepancy. (e) JPEG compression halos or soft edges in IMG2 are video-capture artifacts, not content. Zoomed in like this, be EXACT about: glyph shapes and any wrong/missing/garbled characters; every number and symbol in tables (cell by cell, value by value); equation structure (numerator/denominator order, limits, subscripts); delimiter geometry (brackets/parens must span all enclosed lines without touching the text); line separation and vertical centering inside cells and enclosures; stroke continuity and weight; small color differences in text or fills. A wrong digit, a swapped table value, a missing row, a truncated subscript, or a delimiter that does not span its lines is a MAJOR-to-BLOCKER defect even though it would be invisible at full-slide scale. Coordinates you cite are crop-relative — also note roughly where in the region they sit. List EVERY discrepancy with severity (BLOCKER/MAJOR/MINOR) and confidence. End with: FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation of this region'.
+__PAYLOAD_EOF__
+)"
+TMPDIR=/home/ahmed/Projects/ai_llm_slides/scratch/tmp timeout 1700 scripts/16_vision_gate.sh timeout 1700 python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide027/crop_10_axis_top_render.png \
+videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide027/crop_10_axis_top_orig.png \
+  --view "Slide 027 zoomed crop axis_top — render vs original at matched scale (attempt 10)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: y-axis arrowhead + 'Cost' label + top of the left parabola branch — the region of founder finding A" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide027/crop_10_axis_top_judge.txt \
+  -p "$PAYLOAD"

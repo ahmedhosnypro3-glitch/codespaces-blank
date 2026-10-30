@@ -1,0 +1,41 @@
+orig 960x540  render 2001x1125  S=2.0833
+
+=== F1: yellow-fill (r>190,g>190,b<160) per band, BOTH ===
+  better-generalization line       orig   yellow px    2494
+  better-generalization line       render yellow px   12009
+  bullet2 L1/L2                    orig   yellow px       0
+  bullet2 L1/L2                    render yellow px       0
+  L3 'customized weigh factor'     orig   yellow px       0
+  L3 'customized weigh factor'     render yellow px       0
+  missing_band L7-L10              orig   yellow px       0
+  missing_band L7-L10              render yellow px       0
+  last-bullet cluster              orig   yellow px       0
+  last-bullet cluster              render yellow px       0
+
+=== F2: red underline under 'customized weigh factor' (y293..300) ===
+  orig   red px     31
+  render red px    784
+
+=== G1: ink RGB vs known red/blue runs (is L3 red text?) ===
+  RED 'Squared Norm'             orig   ink   1809 mean (189,117,126) strong-red   186 ( 10.3%)
+  RED 'Squared Norm'             render ink   5127 mean (202, 43, 43) strong-red  3955 ( 77.1%)
+  RED '(N)'                      orig   ink    177 mean (182,106,116) strong-red    24 ( 13.6%)
+  RED '(N)'                      render ink    407 mean (203, 47, 47) strong-red   318 ( 78.1%)
+  BLUE 'L2 regularization'       orig   ink   1002 mean ( 97, 89,190) strong-red     0 (  0.0%)
+  BLUE 'L2 regularization'       render ink   2341 mean ( 43, 43,255) strong-red     0 (  0.0%)
+  L3 'customized weigh factor'   orig   ink   1042 mean (173,129,133) strong-red    31 (  3.0%)
+  L3 'customized weigh factor'   render ink   2981 mean ( 42, 42, 42) strong-red     0 (  0.0%)
+  BODY b2a L1                    orig   ink   1657 mean (116,118,115) strong-red     0 (  0.0%)
+  BODY b2a L1                    render ink   5318 mean ( 42, 42, 42) strong-red     0 (  0.0%)
+
+=== G2/G3: b3b line word-gap profile (y357..376) ===
+  orig: 18 clusters; gaps: 1 5 1 1 10 1 1 5 1 1 5 1 5 5 1 1 1
+    clusters x360..440: 372-391 402-415 417-420 422-438 444-452
+  render: 40 clusters; gaps: 0 6 0 0 1 1 1 0 0 1 1 1 1 1 7 0 0 1 1 6 1 1 -0 5 7 1 1 1 1 7 1 1 1 2 1 0 0 1 1
+    clusters x360..440: 362-364 366-374 376-383 391-395 397-406 407-409 411-418 420-428 435-442 444-452
+
+=== F5: gap last letter -> ')' (L8 tail, x400..620) ===
+  orig: tail clusters 565..606, 608..611, 613..619  | gap->')' 1 frame px
+  render: tail clusters 601..603, 604..614, 615..619  | gap->')' 0 frame px
+
+DONE

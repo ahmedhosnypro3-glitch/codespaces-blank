@@ -1,0 +1,50 @@
+# Fidelity Audit: Slide 003
+
+## House chrome (checked, NOT flagged)
+White canvas, gray E9E9E7 panel with left/right/bottom dark-red strokes only (no top stroke â correct), yellow badge "3" at (876,73). All match the founder template. No cursor artifacts in IMG2 to worry about.
+
+---
+
+## Discrepancies vs. original (IMG2)
+
+**1. Top data-matrix box: all interior column entries omitted â MAJOR (confidence: high)**
+- Original: each column (Xâ, Xâ, â¦, Xâ) is a *labeled list* â e.g. column Xâ visibly enumerates xââ, xââ, xââ, xââ, â¦, xâd, xâd; Xâ enumerates xââ, xââ, â¦, xâd; likewise Xâ, each capped with its red yáµ¢ label.
+- Recreation: the three columns render as **solid colored bars with no entries at all** â only the "X_1 / X_2 / X_n" headers and bottom "y_1 / y_2 / y_n" labels survive. The enumerated xáµ¢â±¼ content is gone entirely, not merely restyled.
+
+**2. Bottom-right box: "Where:" explanatory block missing entirely â MAJOR (confidence: high)**
+- Original box contains: "**Y = X W**" **plus** "Where: X_{NÃd+1} is a matrix" and "Y_{NÃ1} labels vector" (blue-italic symbols).
+- Recreation box contains **only "Y = X W"** in a large, otherwise empty frame. Both explanatory lines are absent.
+
+**3. Weight-vector contents wrong: spurious "b" entry, truncated w-list â MAJOR (confidence: high)**
+- Original right-hand vector: wâ, wâ, â¦, w_d, â¦, w_{d+1}, dimensioned (d+1)Ã1.
+- Recreation: a blue **"b"** appears as the top entry (no such element in the original), followed by wâ, wâ, â¦ â the w_d and w_{d+1} entries are missing, replaced by a bare ellipsis row.
+
+**4. Dimension labels: matrix width label missing/misplaced â MAJOR (confidence: medium)**
+- Original: y-column "NÃ1", data matrix "NÃd+1", w-vector "(d+1)Ã1".
+- Recreation: "N Ã 1" under the y-column, but the label beneath the data-matrix columns reads **"d+1 Ã 1"**; the correct **"NÃd+1"** matrix label is absent (and the w-vector's own dimension label is effectively displaced).
+
+**5. Top-box ellipses omitted â MINOR (confidence: high)**
+- Original header row "Xâ Xâ **â¦** Xâ" and footer "yâ yâ **â¦** yâ"; recreation drops the "â¦" separators between the second and third columns/rows.
+
+**6. Inner frame styling vs. original â MINOR (confidence: high)**
+- Original inner boxes sit on white with dark near-black borders; recreation uses **bright blue inner borders** (top box, "Remember" box) and a **pale-cyan fill** for the bottom-left matrix region. Color drift from the original's chrome.
+
+**7. Column geometry in top box â MINOR (confidence: medium)**
+- Original's three columns are uniform height; recreation renders column 2 visibly shorter than columns 1 and 3.
+
+**8. Right-vector delimiter fragmented â MINOR (confidence: medium)**
+- Original uses one continuous bracket spanning all w entries; reconstruction draws per-row bracket fragments with the top entry ("b") sitting outside the bracket â a delimiter-geometry weakness, partly a consequence of item 3.
+
+---
+
+## Containment / visual-quality check
+- No ink crosses the house panel strokes or the bottom red border; the bottom-left and bottom-right boxes approach the panel's lower stroke closely but appear to remain inside (frame containment: OK).
+- No text clipping or collision detected; the title matches verbatim, "Remember: y = WáµX = XáµW" and "In General: N >>> d" are present and correct.
+- The large empty area in the bottom-right box (item 2) is the most visible visual-quality weakness in the recreation.
+
+---
+
+## Summary
+Content omissions are substantial and concentrated in two data-bearing regions (the top column matrix and the bottom-right definition box), plus an incorrect vector entry. All verbatim text that *was* carried over matches, and the frame/layout skeleton is correct â but the omissions are element-level losses, not restyling.
+
+FINAL VERDICT: **FAIL**

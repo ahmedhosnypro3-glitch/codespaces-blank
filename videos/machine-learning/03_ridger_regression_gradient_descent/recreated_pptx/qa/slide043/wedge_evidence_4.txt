@@ -1,0 +1,36 @@
+=== VISION WEDGE EVIDENCE — slide 043 attempt 4, 2026-10-24 ===
+
+Queue depth observed across the lane: 8 -> 40 -> 42 -> 24 -> 17 analyze_image.py procs.
+At the fatal moments the fleet was 40-42 concurrent judges on the shared localhost:17844 gateway.
+
+DISpatched vision calls, all of which failed to produce a transcript:
+
+  probe_4.sh    (analysis, --timeout 120 in timeout 150)   : EXIT 124, hung, no transcript
+  probe_4b.sh   (same)                                       : EXIT 124, hung, no transcript
+  probe_4c.sh   (analysis, --timeout 1200 in timeout 1400,
+                 orchestrator 1200s override)               : EXIT 1, HTTP 504
+                    upstream_timeout "the upstream provider timed out"
+                    provider Nvidia, candidate "nva..hWGS"
+  leg_a4.sh     (comparison render_4 vs slide_043.jpg,
+                 --timeout 1200 in timeout 1700)            : attempt 1 ABORT HangError
+                    "hard wall-clock 1230s exceeded" at ~1117s; killed cleanly
+                    (one hard-wall retry already spent) -> EXIT, NO_TRANSCRIPT
+  leg_b4.sh eqstack (comparison crop_4_eqstack pair,
+                 --timeout 1200 in timeout 1700)            : attempt 1 ABORT HangError
+                    "hard wall-clock 1230s exceeded" at ~1050s; killed cleanly
+                    -> EXIT, NO_TRANSCRIPT
+
+Text-leg control in the same window: HTTP 200 in 55.8s (alive, degraded).
+So the router and auth are healthy; the IMAGE upstream provider (Nvidia) is not serving.
+
+Direct measurement earlier in the window (banked in wedge_evidence_3.txt):
+  images route 32.9s (crop) / 37.9s (full render) for a 30-token request
+  nemotron-3.5-super-vl-120b-a12b 1.7s
+  The route flaps: it served 37.9s at 11:22, then 504'd at 13:05.
+
+Gate law compliance: pgrep >= 8 held before every call; heartbeat kept
+(w043-finish-20261024 -> w043-finish-20261024b after the 40m auto-takeover);
+240s sleeps and one re-probe per hang; never wrapped analyze_image.py in a
+retry loop; one hard-wall retry max per leg and that was spent on Leg A.
+
+VERDICTS OBTAINED THIS LANE: 0. Nothing was recorded as PASS.

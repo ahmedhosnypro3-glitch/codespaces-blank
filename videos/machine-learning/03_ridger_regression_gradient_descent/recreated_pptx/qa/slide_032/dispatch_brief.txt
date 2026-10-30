@@ -1,0 +1,99 @@
+
+
+You are the build worker for slide 032 of
+`/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/`.
+Work autonomously to a certified single-version deliverable. You are the ONLY
+worker on this slide; DB claims enforce that.
+
+READ FIRST, in this order (they are binding law; the deck files OVERRIDE the
+generic runbook wherever they differ):
+1. `~/.zcode/skills/slide-recreation/SKILL.md` — the skill. Follow
+   `references/building.md`, `references/judging.md`,
+   `references/dependencies.md` (children only), and `references/patterns/`
+   (index.json → the patterns your slide needs).
+2. `/home/ahmed/Projects/ai_llm_slides/scripts/17_worker_instructions.md` —
+   the worker runbook (DB milestones, render, self-check, judge, verdict law,
+   resume rule, final report).
+3. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/AGENTS.md` —
+   THIS deck's law (measured chrome, dependency graph, ZOOMED-judge-for-ALL).
+4. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/judge_protocol_03.md` —
+   the FROZEN judge templates. Source every `-p` payload byte-for-byte from
+   there (substitute only 032/K/region). Never hand-roll a judge prompt.
+
+STATE:
+- Content spec: `videos/machine-learning/03_ridger_regression_gradient_descent/analysis/slide_032_final.json`
+  (verbatim-text law: text is VERBATIM, `[?]` markers preserved, never invent facts).
+- Ground truth frame: `videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_032.jpg`
+  (960×540, 1px = 1pt = 1/72in). Measure with PIL — geometry from measurement,
+  never intuition.
+- DB (run from `/home/ahmed/Projects/ai_llm_slides`):
+  `VIDEO=machine-learning/03_ridger_regression_gradient_descent python3 scripts/15_progress.py <cmd>`
+  (claim/heartbeat/release/set/get; `set` takes THREE positionals; verify every
+  write with a `get`). **NEVER invoke 15_progress.py without the `VIDEO=` prefix**
+  — the default targets the CLOSED ml-intro deck's DB and a stray `set` silently
+  corrupts another deck's certified rows (known incident class, 2026-10-19;
+  if it ever happens, restore the foreign row from git and report it in your
+  worker_report.md).
+
+PROTOCOL:
+1. `claim 032 <your-unique-id>` (stand down read-only if a FRESH peer claim
+   exists; heartbeat every ~10 min of quiet phases; `release` at the end).
+2. DB milestones as you go: `gen_status=building`, `build_script`,
+   `pptx_path`, `visual_attempts`, `visual_check`, `visual_transcript`,
+   `gen_status`, `last_error` on failure.
+3. Build: `node videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_032.js`
+   producing `recreated_pptx/slide_032_recreated.pptx` (plain name, single version).
+   - House chrome: `require("../../shared_patterns/house_chrome.js").drawHouseChrome(pptx, slide, {numeral: 032})`
+     — THIS deck has NO top stroke (that is correct; do not add one).
+   - hex colors never carry `#` in pptxgenjs; lineSpacing mandatory on multi-line
+     text; measured geometry over intuition; never edit a certified component
+     in place (copy-then-modify).
+   - Equations (if any): matplotlib mathtext → 600dpi transparent PNG →
+     `addImage()` at exact px/600 size; bank PNGs + `eq_032_*.json` sidecars
+     (rel_id, image, mathtext, font_size_pt, color) under `recreated_pptx/build/assets/`
+     for the post-certification OMML wrap (`scripts/18_omml_wrapper.py`).
+   - Advanced graphs (if any): graphgen venv, topic-correct library, real data.
+4. Render 150dpi (private scratch + OWN LibreOffice profile
+   `-env:UserInstallation=file:///tmp/lo_slide032`; TMPDIR=
+   `/home/ahmed/Projects/ai_llm_slides/scratch/tmp`), then run
+   `python3 videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/house_chrome_check.py <render.png> 032`
+   — FAIL = fix the build BEFORE spending a vision call.
+5. Judge — BOTH legs (founder directive: ALL slides get the zoomed judge):
+   a. FULL-SLIDE comparison (Template A of judge_protocol_03.md), attempt K.
+   b. ZOOMED CROP-PAIR certificates (Procedure B): ≥1 crop region covering the
+      slide's densest content (one per dense region on multi-region slides);
+      crop-vs-crop ONLY at matched effective scale (upscale the original crop
+      by H_render/540, LANCZOS); bank pairs + transcripts under
+      `recreated_pptx/qa/slide032/`.
+   Bank `judge_prompt_K.txt` + `build_attempt_K.js` per attempt; verdicts only
+   from real winner bodies; 3 garbage re-invokes; 6 attempts max then park
+   `gen_status=failed` + `last_error` and STOP.
+   Adjudication: judge findings are HYPOTHESES — PIL-measure against the
+   original frame before fixing; refuted findings become judge context for the
+   re-roll (judge variance is sampling). Inherited/cascade zones are
+   adjudication inputs, never fix triggers.
+6. Certification: full-slide PASS + all crop certificates clean (or
+   PIL-adjudicated with banked refutation records) → DB `visual_check=PASS`,
+   `visual_transcript=<path>`, `gen_status=passed`. OMML wrap happens
+   POST-certification as a separate orchestrator pass (do not wrap yourself
+   unless your brief says so).
+7. `worker_report.md` in `qa/slide032/` + final message: slide id, attempts,
+   final verdict, pptx path, transcript paths, one-line judge-flag summary.
+
+DEPS: root — no dependencies; build free.
+
+CONTENT LINES (orientation only — the final JSON + frame are authority):
+  - Title: Convex Function, Learning Rate =0.4, Start at X=3 | header/subtitle: f(x)=(x-5)²+1 (center-left equation callout; the source slide has no separate subtitle line, so this prominent equation is the closest header-level text)
+  - Layout: Title top-left spanning ~3-70% of slide width (~0-12% height); 3x2 parameter table top-left directly below the title; 2D function graph top-right (~58-95% width, ~8-45% height); equation and result callouts center-left (~28-60% width, ~33-58% height); 8x7 gradient-descent iteration table bottom-center/right (~25-95% width, ~62-95% height); pink arrow from the callout text down to the iteration table; yellow slide-number circle in the top-right corner; small red cursor dot upper-left/center (~24% height, ~26% width)
+  - Visual element: table — Small 3-row, 2-column parameter table. Row 1: 'step' | '0.4'. Row 2: 'initial X' | '3'. Row 3: 'delta' | '0.1'. Left-column cells have colored backgrounds (green, red, yellow).
+  - Visual element: graph — 2D Cartesian plot of f(x)=(x-5)^2+1. Blue upward parabola with vertex at (5,1). X-axis ticks at -6, 0, 5, 10, 15. Y-axis ticks at 0, 5, 10, 15. Light gray grid lines. Red vertical dashed line at x=5. Red dot at (2,10) la
+  - Visual element: table — Large 8-row, 7-column gradient descent table. Column 1 contains row labels with colored backgrounds; columns 2-7 contain iteration data. Row 1 'x' (light green): 3, 3.4, 3.8, 4.2, 4.6, 5. Row 2 'f(x)' (light yellow): 5, 
+  - Visual element: arrow — Pink/magenta arrow pointing from the 'Reach Minimum after 6 Steps' text downward to the top edge of the iteration table.
+  - Verbatim text blocks: bullets=3, labels=20, equations=1
+  - Validation: verdict=PASS_WITH_FIXES score=9 uncertain=["The small red dot at ~24% height / ~26% width is described only as 'likely a mouse cursor or laser pointer marker'; it may be a video-frame artifact rather than slide content, so brief step 12 is optional.", "The right endpoint of the black horizontal line at y=10 is approximate ('approximately x=7'); exact endpoint is not specified in the source.", "The iteration table's color list contains #0000FF, #008000, #800080 and #FF0000, but the element description does not state where each applies; the brief follows the original analysis in applying #0000FF to the outer border - the exact use of the other three colors (likely text or border accents) is unverifiable from the JSON.", "Source labeling inconsistency kept verbatim: the title calls the 0.4 value 'Learning Rate' while the parameter table row label for the same value is 'step'; both strings are retained as extracted."]
+  - Imagery: ['No photographs or illustrations. Only geometric shapes, tables, a function plot, and text.']
+
+STORM RESILIENCE: on provider/upstream errors sleep 120s and retry up to 3×;
+bank per step atomically; keep logs in project scratch (never host /tmp);
+never abort the run; never delete banked evidence.
+

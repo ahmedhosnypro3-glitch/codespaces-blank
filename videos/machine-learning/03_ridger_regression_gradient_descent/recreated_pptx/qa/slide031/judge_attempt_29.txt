@@ -1,0 +1,36 @@
+# Element-by-Element Fidelity Comparison â Slide 031
+
+## House chrome (per ground rules â NOT discrepancies)
+Gray panel, red left/right/bottom strokes with no top stroke, yellow "31" badge â all present and correct in IMG1. Not listed below.
+
+## Discrepancies
+
+1. **MAJOR â Chart axis labels fall OUTSIDE the chart frame (frame containment, rule 5).** In IMG1 the chart's red border bottom edge sits at ây560px, but the x-axis tick labels "-5 0 5 10 15" render at ây570â580px, i.e. below/outside the red frame; the rightmost "15" actually sits on/crosses the right red border. In IMG2 all tick labels sit INSIDE the red-bordered chart rectangle. Confidence: high.
+
+2. **MAJOR â Green annotation box text not verbatim.** IMG2 reads: "X is in between **4.8** and color red bold **5.1**" (the literal words "color red bold" appear in the original, an authoring artifact, but they are rendered text). IMG1 renders "X is in between 4.8 and â¦ 5.1" and drops the literal "color red bold" words, inserting a small gray "(5,1)" into the box instead. Per the verbatim-text rule this is a text deviation. Confidence: high that the text differs; medium on severity (the dropped words are plausibly an authoring note).
+
+3. **MAJOR â Pointer arrow replaced by a plain line.** IMG2 has a white arrow with red outline pointing DOWN at the "3" cell of the table's x-row. IMG1 instead shows a black diagonal LINE from the Bouncing area to the table's top-left â different shape, color, direction, and target. Confidence: high.
+
+4. **MINOR â Missing chart annotations.** IMG2's chart contains small text labels absent from IMG1: "3" and "3" above the black bracket ends, "(7,7)" at the bracket's right end, "2,10" near the y-axis, and "(5,1)" next to the green dots (the "(5,1)" in IMG1 is misplaced inside the green box rather than in the chart). Confidence: high.
+
+5. **MINOR â Parameter table row colors mismatched.** IMG2: step = light green, initial X = pink, delta = yellow. IMG1: step = green, initial X = green, delta = pink. Values (0.3 / 3 / 0.1) match. Confidence: high.
+
+6. **MINOR â Table row-band colors differ.** IMG2 shades x & f(x) both yellow-green and f(x-delta) purple (paired bands); IMG1 leaves f(x), f(x-delta), f(x+delta) white/very pale. Values unaffected. Confidence: high.
+
+7. **MINOR â Title spacing.** IMG1: "Learning Rate =0.3,Start at X=3" â missing space after the comma ("0.3, Start" in IMG2). Confidence: high.
+
+8. **MINOR â Added "y" axis label** at top of chart in IMG1, not present in IMG2. Confidence: medium.
+
+## Verified as matching
+- Table data: all 8 rows Ã 18 columns (x, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x) match cell-for-cell, including the oscillating 4.8/5.1 â 1.04/1.01 pattern. No missing rows/values.
+- Equation "f(x) = (x â 5)Â² + 1" in red-bordered box â present, correct, linear format in both.
+- Bouncing callout, 4 blue down-arrows over the correct 4.8/5.1/4.8/5.1 columns â present, correctly positioned.
+- Chart: blue parabola, red dashed x=5 line, black bracket segment at y=10 with end ticks, red dot, two green dots, gridlines, axis numbering â all present.
+- Slide badge "31", title colors (red/green/blue) â correct.
+
+## Visual-quality defects in the recreation
+- Axis tick labels outside/bordering the chart frame (see #1) â the most visible layout flaw.
+- The small gray "(5,1)" floating inside the green box looks like a stray annotation and collides visually with the box layout.
+- No text clipping, wrapping, or cell-centering problems observed in the table; all cell values vertically centered.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation" â the out-of-frame axis labels, the altered annotation-box text, and the arrow-to-line substitution are MAJOR defects that must be fixed; the remaining items are MINOR polish.

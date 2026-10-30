@@ -1,0 +1,76 @@
+# Local (non-vision) verification — lane slide005-judge9-1024192313, 2026-10-24
+# Claim: VIDEO=machine-learning/03_ridger_regression_gradient_descent \
+#   python3 scripts/15_progress.py claim 005 slide005-judge9-1024192313  -> OK
+
+## Deliverable currency
+slide_005_recreated.pptx md5 = 58de0cb2c39c5ef004e60d9f000a48a9
+  (matches the verified prior state; no rebuild needed)
+
+## Render currency
+fresh soffice --convert-to pdf + pdftoppm -png -r 150 (own LO profile, TMPDIR=scratch/tmp)
+  -> 2001x1125, max abs diff 0, pixels differing 0, md5 01bcb967f29e502e99e80925aa320599
+render_9.png md5 = 01bcb967f29e502e99e80925aa320599   IDENTICAL to the bank
+
+## House chrome
+python3 .../shared_patterns/house_chrome_check.py render_9.png 005
+  -> HOUSE CHROME CHECK: PASS (panel x112-1882 y94-bottom; strokes L/R/bottom present,
+     top bare; badge center (1824,152) d=68; all within tol 8)
+
+## Pre-judge selfcheck
+python3 measure_attempt9/selfcheck_005_final.py
+  -> OVERALL SELFCHECK attempt 8: PASS  (worst ink-band deviation 3.64 px vs TOL 8;
+     0 px house-frame overflow; every box contained; all 6 fraction bars present;
+     explicit lineSpacing in every textbox)
+
+## Payload byte-fidelity (5 payloads vs the frozen protocol)
+python3 dispatch_attempt9/verify_payloads.py
+  [A] judge_prompt_9.txt          bytes_match=True  4115 B
+  [B] crop_prompt_9_blue_upper    bytes_match=True  1914 B
+  [B] crop_prompt_9_eq_stack      bytes_match=True  1914 B
+  [B] crop_prompt_9_lower_eqs     bytes_match=True  1914 B
+  [B] crop_prompt_9_pink_band     bytes_match=True  1914 B
+  RESULT: ALL PAYLOADS BYTE-FAITHFUL
+BLOC1ER/BLOC2ER corruption scan (grep -noE 'BLOC[0-9]ER' over protocol + 5 payloads
++ dispatch scripts): 0 hits. Only clean BLOCKER survives (\bK\b->9 was the sole
+substitution).
+
+## Crop-pair currency + effective scale
+python3 measure_attempt9/crop_currency_9.py
+  -> RESULT: ALL 4 PAIRS CURRENT + SCALE-MATCHED
+Independent re-derivation: render 2001x1125 => H_render/540 = 2.083333,
+W_render/960 = 2.084375. Per pair, output_px/frame_px is EQUAL on the render crop
+and the LANCZOS-upscaled original crop:
+  eq_stack    562x185 frame px -> 1172x386 (2.0854 x 2.0865) render == orig
+  blue_upper  230x117         ->  479x243 (2.0826 x 2.0769) render == orig
+  pink_band   450x 70         ->  938x146 (2.0844 x 2.0857) render == orig
+  lower_eqs   836x180         -> 1743x375 (2.0849 x 2.0833) render == orig
+
+## Pre-flight adjudication numbers (BOTH images) banked for refutation use
+measure_attempt9/adjudication_preflight_attempt9.txt
+  worst ink-band deviation 3.64 px (TOL 8) over 13 elements; house-frame overflow 0 px;
+  eq5 noise-rejected groups refute the 45 px phantom (orig ends x637, render x638).
+measure_attempt9/../adjudication_pitch_center_attempt9.txt
+  Top cream box, measured on BOTH images (frame px):
+    ORIGINAL eq bands y108..150 / 173..214 / 229..271; gaps 23.0 / 15.0 (uneven 8.0);
+      cream box y104..275; padding top 5.0 / bottom 5.0 (balance 0.0)
+    RENDER   eq bands y108.48..150.24 / 172.32..214.56 / 229.44..271.20;
+      gaps 22.08 / 14.88 (uneven 7.2); cream box y102.72..276.96;
+      padding top 6.76 / bottom 6.76 (balance 0.0)
+    Cross-image deltas: all <= 1.96 px (TOL 8)
+  => the stale attempt-6 MAJORs "line spacing stretched/uneven" and "group not
+     vertically centered" are REFUTED on render_9: the original itself is uneven
+     (23/15) and perfectly balanced (5/5), and the recreation reproduces both.
+  Detector hygiene: the badge fill FDFD96 matches the cream mask, so the badge is
+  excluded; rows/columns with <3 ink px are rejected as JPEG noise (3 stray 1-px
+  specks in the original were removed by this rule).
+
+## Staged dispatch kit re-verified
+bash -n on all 6 dispatch_attempt9 scripts: syntax OK
+path resolution (eval of the Q=/R= lines): Q and R expand correctly;
+judge_prompt_9.txt EXISTS; project root and analyzer path OK
+Walls on all 5 legs: --thinking high --max-tokens 65536 --timeout 1200 --rounds 1
+--tries 1 wrapped in `timeout 1700` via scripts/16_vision_gate.sh (no value exceeds 1200/1700)
+
+## Conclusion
+The build, render, chrome, payloads and crop pairs are all current and correct.
+The ONLY outstanding item is the vision gate itself.

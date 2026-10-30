@@ -1,0 +1,18 @@
+**Discrepancies**
+
+| # | Description | Severity | Confidence |
+|---|-------------|----------|------------|
+| 1 | **Equation line separation / wrapping:** In Image 1, each top-block equation row (the three $J(\underline W)=â¦$ rows) and each bottom derivative row is followed by an extra visual line containing the green regularization term (e.g., $+\tfrac12\lambda \underline W^T\underline W$ below row 1, etc.). Image 2 keeps every equation on a single visual line with all terms inline. This violates ground-rule (1) â line height / line separation inside multi-line equation blocks must match. | MAJOR | High |
+| 2 | **Missing diagram arrow:** Image 1 omits the white right-arrow ($\Rightarrow$) between $(X^T X + \lambda \underline I)\underline W = X^T\underline Y$ and the final solution box. Image 2 shows that arrow. Missing diagram/arrow element. | MAJOR | High |
+| 3 | **Missing underlines on $Y$ variables:** In Image 1âs top expansion rows, several $Y$ symbols are not underlined where Image 2 underlines them: row 1 uses $\hat Y$ instead of $\hat{\underline Y}$; row 2 uses $Y^TY$, $Y^T(X\underline W)$, $(X\underline W)^TY$ instead of $Y^T\underline Y$, $\underline Y^T(X\underline W)$, $(X\underline W)^T\underline Y$; row 3 uses $Y^TY$ and $(X\underline W)^TY$ instead of $Y^T\underline Y$ and $(X\underline W)^T\underline Y$. Text is not verbatim; symbols are missing. | MAJOR | High |
+
+**Visual-quality defects in the recreation**
+- **Wrong wrapping / orphaned sub-lines:** The green regularization terms are rendered as separate, right-aligned sub-lines beneath their parent equations rather than inline at the end of each line as in the original. This creates visual misalignment and extra vertical separation not present in Image 2.
+- No text overflow/clipping, collisions, or illegibility was observed at panel edges.
+
+**Ground-rule notes (not discrepancies)**
+- House chrome (white canvas, gray panel, strokes, slide-number badge â15â) matches the intentional template and is correctly reproduced.
+- Mouse cursor visible in Image 2 is correctly omitted from Image 1 (rule c).
+- Professional 2D equation formatting per founder directive is applied in Image 1; no linear-vs-2D penalty applies.
+
+**FINAL VERDICT: FAIL** â not a faithful, usable recreation due to multiple MAJOR defects (equation line splitting, missing arrow, missing underlines on $Y$).

@@ -1,0 +1,39 @@
+# Region Comparison â Slide 003 crop (matrix equation region)
+
+## Setup acknowledgment
+Zoomed crop-pair of the central matrix equation. Template chrome (white canvas, colored row highlights, badge colors) is intentional. Typed-vs-handwritten and linear-vs-2D equation formatting differences are per ground rules not discrepancies. JPEG softness in IMG2 ignored.
+
+## Content inventory (both images should show)
+Left: y-column vector (yâ, yâ, â¦, yâ) with NÃ1 label. Center: (N Ã d+1) matrix with 3 highlighted rows + 1 plain ellipsis row. Right: (d+1 Ã 1) weight vector (b, wâ, wâ, â¦, w_d).
+
+## Discrepancies
+
+1. **BLOCKER â Missing "â¯" column in yellow row (center matrix).** IMG2 row 1 reads `1, xââ, xââ, â¦, xâd` (5 cells); IMG1 (crop-relative ~x260â560, top row) reads `1, xââ, xââ, xâd` â the ellipsis column between xââ and xâd is entirely absent. Confidence: high.
+
+2. **BLOCKER â Missing "â¯" column in cyan row.** IMG2 row 2: `1, xââ, xââ, â¦, xâd`; IMG1 (~x260â560, second row): `1, xââ, xââ, xâd` â ellipsis column missing. Confidence: high.
+
+3. **BLOCKER â Missing "â¯" column in magenta row.** IMG2 row 4: `1, x_{n1}, x_{n2}, â¦, x_{nd}`; IMG1 (~x260â560, bottom row): `1, x_{n1}, x_{n2}, x_{nd}` â ellipsis column missing. Confidence: high.
+
+4. **MAJOR â Ellipsis row (row 3) is one symbol short.** IMG2 shows `1, â¦.â¦.â¦.â¦` (four ellipsis groups after the leading 1); IMG1 (~x260â560, middle row) shows `1, â¦, â¦, â¦` (three). One ellipsis group missing, consistent with the dropped column in items 1â3. Confidence: high.
+
+5. **MAJOR â Missing colored highlight chips behind left-vector entries.** IMG2 has yellow, cyan, and magenta highlight rectangles behind yâ, yâ, and yâ respectively (mirroring the matrix row colors); IMG1's left vector (~x60â150) has plain unhighlighted entries. Missing visual element tied to the slide's pedagogy. Confidence: high.
+
+6. **MAJOR â Stray gray stroke overlapping the matrix.** IMG1 has a thin gray vertical/curved line (~x580â630, running from above the yellow row down past the magenta row) that crosses the matrix interior and is not present in IMG2. Reads as a leftover/unintended artifact stroke. Confidence: high.
+
+7. **MINOR â Delimiter style mismatch on all three groups.** IMG2 uses round parentheses (red on the y-vector, dark on the matrix, blue on the w-vector); IMG1 uses square brackets throughout. Brackets do span their enclosed lines correctly in IMG1, so this is shape/color only, not a spanning failure. Confidence: high.
+
+8. **MINOR â Label color mismatches.** "N Ã 1" and "N Ã d+1" and "d+1 Ã 1" are purple/violet in IMG1; in IMG2 they are red ("N x 1"), dark red ("N x d+1"), and blue ("d+1 x 1") respectively. Values and dimension text are correct; color only. Confidence: high.
+
+9. **MINOR â "â¦" row in left vector is black in IMG1 vs red in IMG2** (~x95â120, mid-left). Confidence: medium-high.
+
+10. **MINOR â yâ glyph color.** IMG2 yâ is olive/dark-yellow; IMG1 yâ (~x95, upper left) is orange-brown. Same hue family, slightly shifted. Confidence: medium.
+
+## Verified as matching (no issue)
+- All subscript values xââ, xââ, xâd, xââ, xââ, xâd, x_{n1}, x_{n2}, x_{nd} correct, cell by cell.
+- Leading 1s in every matrix row present; leading-column "1" alignment correct.
+- Right vector contents b (red), wâ, wâ, â¦, w_d (blue) all correct and in order; no garbled glyphs.
+- Equals sign present and vertically centered; row 3 correctly unhighlighted; "N Ã d+1" / "d+1 Ã 1" superscript-style placement correct.
+- Odd marks on "b" and "wâ" in IMG2 are JPEG/capture artifacts per rule (e) â not discrepancies.
+
+## FINAL VERDICT
+**FAIL** for 'faithful, usable recreation of this region' â the systematic omission of the ellipsis ("â¯") column across all four matrix rows (items 1â4) misrepresents the matrix's depicted structure, and the stray gray stroke (item 6) plus missing y-vector highlights (item 5) compound it.

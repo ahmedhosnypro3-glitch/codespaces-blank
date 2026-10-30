@@ -1,0 +1,47 @@
+# Judge transcript — slide 047, attempt 5 — crop AUG
+- date: 2026-10-24 07:01
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): recreated_pptx/qa/slide047/crop_5_aug_render.png  (cut from render_9.png md5=1e73a453ca54f0d45455780b109857af)
+- IMG2 (original crop): recreated_pptx/qa/slide047/crop_5_aug_orig.png (frame bbox 61,131,256,264 upscaled to the identical pixel size)
+- scale: identical per axis by construction (audit: crop_5_scale_audit.txt); region = the augmented-vectors block (title, header, three-row matrix, class row).
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region at matched effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten ink at most MINOR.
+(d) Professional 2D math rendering is a mandated format; a linear original is not a discrepancy.
+(e) JPEG halos/soft edges in IMG2 are capture artifacts.
+Exactness required on glyph shapes, every number, table cells value by value, delimiter
+geometry, line separation and vertical centering.
+
+## Comparison
+- Block title: "Ugmented Vectors ( from Top )" in BLUE italic on ONE line on both — including
+  the verbatim "Ugmented" spelling and the spaces inside the parentheses.
+- Header: x1 x2 x3 x4 x5 x6 (lowercase italic) on both, same order.
+- Matrix: THREE data rows on both — (1 1 1 1 1 1), (1 2 1 5 6 6), (1 1 2 4 5 6); every cell
+  identical column by column; each column is a three-component column vector enclosed in ONE
+  paren pair spanning all three entries (selfcheck [3]: paren y181.4..226.0 covers digits
+  183.8..222.2; three separated ink runs per column). No missing/doubled row (the old 4-row
+  duplicate defect is gone), no swapped digit.
+- Class row: C1 C1 C1 (red) then C2 C2 C2 (blue) on both — three of each.
+- Box border: thin gray-blue hairline on both; white interior on both.
+
+## Discrepancies
+1. [MINOR] Block title width 157.4 px vs 154 px (+2.2%) and ~1 px taller — Liberation Serif
+   substitute for Times New Roman; same words on one line, same colour, same origin (83.2 vs
+   82.0 px). Not a content defect.
+2. [MINOR] Matrix digits are ~1 px larger than the original's at the same measured bands
+   (render rows 183.8..222.2 vs original 184..223, i.e. the same extent); glyph weight slightly
+   heavier — font substitution.
+3. [MINOR] Delimiter arcs are slightly more curved than the original's near-straight parens;
+   the strokes fully span the three rows and clear the digits by >= 1 px on every column
+   (selfcheck [3] PASS x6).
+4. [MINOR] Header subscripts sit ~3 px lower (Unicode subscripts vs the original's math
+   subscripts); no overlap with the matrix or the title (gap band ink=0).
+
+## Checked as matching
+All 18 matrix cells, the class-row values/order/colours, the header labels, the title text and
+colour, the three-row structure, the spanning delimiters, the box border — no wrong value, no
+missing row, no truncated subscript, no delimiter covering only part of its lines.
+
+FINAL VERDICT: PASS

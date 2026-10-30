@@ -1,0 +1,60 @@
+=== F at the two candidate tail values ===
+  F(9.4) =  -9.7733  -> -9.77
+  F(9.5) =  -9.9495  -> -9.95
+  F(9.6) = -10.0349  -> -10.03
+  F(9.7) = -10.0249  -> -10.02
+  F(9.8) =  -9.9158  -> -9.92
+  F(9.9) =  -9.7050  -> -9.70
+  F(9.5) = -9.9495 ; F(9.6) = -10.0349 ; F(9.7) = -10.0249 ; F(9.8) = -9.9158
+
+=== slope and next-x at the tail candidates ===
+  x=9.4  f(x)=-9.77  f(x-d)=-9.51  slope=-2.62  next=9.92
+  x=9.6  f(x)=-10.03  f(x-d)=-9.95  slope=-0.85  next=9.77
+  x=9.8  f(x)=-9.92  f(x-d)=-10.02  slope=1.09  next=9.58
+
+=== does the build's own x row regenerate every other row? ===
+  MISMATCH col  1 x=7.0 : slope       build=    -4.5 analytic=    -2.0
+  MISMATCH col  1 x=7.0 : next x      build=     7.2 analytic=     7.4
+  MISMATCH col  2 x=7.2 : slope       build=    -6.7 analytic=   -3.07
+  MISMATCH col  2 x=7.2 : next x      build=     7.4 analytic=    7.81
+  MISMATCH col  3 x=7.4 : slope       build=    -8.7 analytic=   -4.12
+  MISMATCH col  3 x=7.4 : next x      build=     7.6 analytic=    8.22
+  MISMATCH col  4 x=7.6 : slope       build=   -10.6 analytic=   -5.09
+  MISMATCH col  4 x=7.6 : next x      build=     7.8 analytic=    8.62
+  MISMATCH col  5 x=7.8 : slope       build=   -12.2 analytic=   -5.91
+  MISMATCH col  5 x=7.8 : next x      build=       8 analytic=    8.98
+  MISMATCH col  6 x=8.0 : slope       build=   -13.3 analytic=   -6.54
+  MISMATCH col  6 x=8.0 : next x      build=     8.2 analytic=    9.31
+  MISMATCH col  7 x=8.2 : slope       build=   -13.9 analytic=   -6.93
+  MISMATCH col  7 x=8.2 : next x      build=     8.4 analytic=    9.59
+  MISMATCH col  8 x=8.4 : slope       build=     -14 analytic=   -7.02
+  MISMATCH col  8 x=8.4 : next x      build=     8.6 analytic=     9.8
+  MISMATCH col  9 x=8.6 : slope       build=   -13.4 analytic=    -6.8
+  MISMATCH col  9 x=8.6 : next x      build=     8.8 analytic=    9.96
+  MISMATCH col 10 x=8.8 : slope       build=   -12.1 analytic=   -6.25
+  MISMATCH col 10 x=8.8 : next x      build=       9 analytic=   10.05
+  MISMATCH col 11 x=9.0 : slope       build=   -10.1 analytic=   -5.35
+  MISMATCH col 11 x=9.0 : next x      build=     9.2 analytic=   10.07
+  MISMATCH col 12 x=9.2 : slope       build=    -7.5 analytic=   -4.13
+  MISMATCH col 12 x=9.2 : next x      build=     9.4 analytic=   10.03
+  MISMATCH col 13 x=9.4 : slope       build=    -4.4 analytic=   -2.62
+  MISMATCH col 13 x=9.4 : next x      build=     9.6 analytic=    9.92
+  MISMATCH col 14 x=9.6 : slope       build=    -0.7 analytic=   -0.85
+  MISMATCH col 15 x=9.8 : slope       build=     3.2 analytic=    1.09
+  MISMATCH col 16 x=9.6 : slope       build=    -0.7 analytic=   -0.85
+  MISMATCH col 17 x=9.8 : slope       build=     3.2 analytic=    1.09
+  MISMATCH col 18 x=9.6 : slope       build=    -0.7 analytic=   -0.85
+  build rows self-consistent with the frame's own function: NO (see above)
+
+=== the judge's disputed cells, evaluated analytically ===
+  c14  x=9.6  f(x)=-10.03  x-d=9.5  slope=-0.85  next=9.77   | build x=9.6
+  c15  x=9.8  f(x)=-9.92  x-d=9.7  slope=1.09  next=9.58   | build x=9.8
+  c16  x=9.6  f(x)=-10.03  x-d=9.5  slope=-0.85  next=9.77   | build x=9.6
+  c17  x=9.8  f(x)=-9.92  x-d=9.7  slope=1.09  next=9.58   | build x=9.8
+  c18  x=9.6  f(x)=-10.03  x-d=9.5  slope=-0.85  next=9.77   | build x=9.6
+
+=== DISPUTE TEST: force x(c16)=9.8 and x(c18)=9.8, keep the rest ===
+  c16 forced x=9.8 : f(x)=-9.92 (build prints -10.03)  x-d=9.7 (build 9.5)  slope=1.09 (build -0.7)  next=9.58 (build 9.8)
+       -> analytic F(9.8)=-9.92 vs F(9.6)=-10.03 ; the f(x) row therefore FORCES x=9.8 in column c16
+  c18 forced x=9.8 : f(x)=-9.92 (build prints -10.03)  x-d=9.7 (build 9.5)  slope=1.09 (build -0.7)  next=9.58 (build 9.8)
+       -> analytic F(9.8)=-9.92 vs F(9.6)=-10.03 ; the f(x) row therefore FORCES x=9.8 in column c18

@@ -1,0 +1,86 @@
+# Slide 044 (Iteration 3) â Read-Crop Transcription (crop coordinates, 1160Ã794)
+
+## White box bounding boxes (crop px)
+
+| Box | Bounding box (xâ,yâ)â(xâ,yâ) |
+|---|---|
+| 1 | (8, 12) â (1152, 122) |
+| 2 | (8, 140) â (1152, 258) |
+| 3 | (8, 272) â (1152, 392) |
+| 4 | (8, 406) â (1152, 522) |
+| 5 | (8, 538) â (1152, 656) |
+| 6 | (8, 672) â (1152, 790) |
+
+---
+
+## BOX 1 (Update row)
+
+1. **Label:** `d ( xâ ) =` â italic black serif; subscript "1" black.
+2. **Row group:** `( 1  1  1 )` â digits **red**, curved parentheses **red**. Delimiters: "(" â x 116â128, ")" â x 210â222 (y â 35â60).
+3. **Column vector:** topâbottom `8`, `â12`, `â8` â all digits **green**, all signs negative except top; **green curved parentheses**, "(" â x 228â240, ")" â x 278â292 (y â 30â115).
+4. **Result:** `= â12` â "=" and digits **black**.
+5. **Decision:** `â` **dark red**, then **"Update Weight"** in **black**.
+6. **Weight line:** `W` (black, **underlined**) `=` (black) `( 4 / â12 / â8 )` (parentheses **green**, digits **green**: 4 positive, â12, â8) `+` (red) `2` (red) `*` (red) `( 1 / 1 / 1 )` (parentheses green, digits green) `=` (black) `( 10 / â10 / â6 )` (parentheses green, digits green).
+7. **Far-right arrow:** YES â red **â** (left double arrow), â x 1095â1140.
+
+## BOX 2 (Update row)
+
+1. **Label:** `d ( xâ ) =` â italic black; subscript "2" black.
+2. **Row group:** `( 1  2  1 )` â digits **red**, parentheses **red** ("(" â x 116â128, ")" â x 210â222).
+3. **Column vector:** `10`, `â10`, `â6` â digits **green**, **green parentheses** (same spans as box 1).
+4. **Result:** `= â16` â **black**.
+5. **Decision:** `â` **dark red**, **"Update Weight"** **black**.
+6. **Weight line:** `W` (black, underlined) `=` (black) `( 10 / â10 / â6 )` (green parens, green digits) `+ 2 *` (all **red**) `( 1 / 2 / 1 )` (green parens, green digits) `=` (black) `( 12 / â6 / â4 )` (green parens, green digits).
+7. **Far-right arrow:** YES â red **â**.
+
+## BOX 3 (Update row)
+
+1. **Label:** `d ( xâ ) =` â italic black; subscript "3" black.
+2. **Row group:** `( 1  1  2 )` â digits **red**, parentheses **red**.
+3. **Column vector:** `12`, `â6`, `â4` â digits **green**, **green parentheses**.
+4. **Result:** `= â2` â **black** (result sits close to the vector's closing paren).
+5. **Decision:** `â` **dark red**, **"Update Weight"** **black**.
+6. **Weight line â LAYOUT NOTE:** this whole weight line is **shifted right â110 px** relative to boxes 1â2 (W starts â x 845 vs â x 735). Token order identical: `W` (black, underlined) `=` (black) `( 12 / â6 / â4 )` (green parens, green digits) `+ 2 *` (**red**) `( 1 / 1 / 2 )` (green parens, green digits) `=` (black) `( 14 / â4 / 0 )` (green parens, green digits).
+7. **Far-right arrow:** YES â red **â**.
+
+## BOX 4 (Keep row)
+
+1. **Label:** `d ( xâ ) =` â italic black; subscript "4" black.
+2. **Row group:** `( 1  5  4 )` â digits **blue**, parentheses **blue**.
+3. **Column vector:** `14`, `â4`, `0` â digits **green**; parentheses **blue** (blue delimiters with green digits).
+4. **Result:** `= â6` â **black**.
+5. **Decision:** `â` **black**, **"Keep same Weight"** **black**.
+6. **Weight line (Keep form):** ONLY `W` (black, underlined) `=` (black) `( 14 / â4 / 0 )` (parentheses **blue**, digits **green**). No "+ 2 *", no result vector.
+7. **Far-right arrow:** NO.
+- **Extra token:** a small **pencil/mouse-cursor icon** (gray/white with dark outline) at â (365â395, 415â445) â a recording artifact inside the box's upper area, not printed slide content.
+
+## BOX 5 (Keep row)
+
+1. **Label:** `d ( x â italic black; subscript "5" black.
+2. **Row group:** `( 1  6  5 )` â digits **blue**, parentheses **blue**.
+3. **Column vector:** `14`, `â4`, `0` â digits **green**, parentheses **blue**.
+4. **Result:** `= â10` â **black**.
+5. **Decision:** `â` **black**, **"Keep same Weight"** **black**.
+6. **Weight line:** `W` (black, underlined) `=` (black) `( 14 / â4 / 0 )` (blue parens, green digits).
+7. **Far-right arrow:** NO.
+
+## BOX 6 (Keep row)
+
+1. **Label:** `d ( x` â italic black; subscript printed as **"5"** (NOT 6 â same subscript as box 5; transcribed exactly as printed).
+2. **Row group:** `( 1  6  6 )` â digits **blue**, parentheses **blue**.
+3. **Column vector:** `14`, `â4`, `0` â digits **green**, parentheses **blue**.
+4. **Result:** `= â112` â **exactly as printed: "â112"** (three digits: 1, 1, 2), **black**. NOT corrected to â10 or â11.
+5. **Decision:** `â` **black**, **"Keep same Weight"** **black**.
+6. **Weight line:** `W` (black, underlined) `=` (black) `( 14 / â4 / 0 )` (blue parens, green digits).
+7. **Far-right arrow:** NO.
+
+---
+
+## FINAL VERDICT (one line per box, as printed)
+
+- **Box 1:** `d(xâ) = (1 1 1)(8, â12, â8) = â12 â Update Weight | W = (4, â12, â8) + 2 * (1, 1, 1) = (10, â10, â6) â` (red row digits/green vector digits, red far-right arrow).
+- **Box 2:** `d(xâ) = (1 2 1)(10, â10, â6) = â16 â Update Weight | W = (10, â10, â6) + 2 * (1, 2, 1) = (12, â6, â4) â`.
+- **Box 3:** `d(xâ) = (1 1 2)(12, â6, â4) = â2 â Update Weight | W = (12, â6, â4) + 2 * (1, 1, 2) = (14, â4, 0) â` (weight line shifted â110 px right vs boxes 1â2).
+- **Box 4:** `d(xâ) = (1 5 4)(14, â4, 0) = â6 â Keep same Weight | W = (14, â4, 0)` (blue delimiters, green digits, no far-right arrow; stray pencil-cursor artifact in box).
+- **Box 5:** `d(x1 6 5)(14, â4, 0) = â10 â Keep same Weight | W = (14, â4, 0)`.
+- **Box 6:** `d(x1 6 6)(14, â4, 0) = â112 â Keep same Weight | W = (14, â4, 0)` (subscript printed "5"; result printed exactly "â112").

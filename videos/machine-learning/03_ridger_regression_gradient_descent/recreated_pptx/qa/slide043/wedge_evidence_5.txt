@@ -1,0 +1,23 @@
+VISION WEDGE EVIDENCE — slide 043 attempt 5 (renew lane w043-renew-20261024), 2026-10-24 ~18:59-19:1x
+
+Dispatch history this lane (attempt 5 assets, payloads byte-verified vs shared_patterns/judge_protocol_03.md):
+
+  probe_5 (Template A probe, analysis render_4, --timeout 120 in timeout 150) : EXIT 1, HTTP 502
+     {"error":{"code":"upstream_error","ironrouter":{"candidate":"nva..B2PK","provider":"Nvidia"},
+     "message":"the upstream provider is temporarily unavailable; please retry"}} - NO transcript
+
+  leg_a5.sh      (full-slide comparison render_4 vs slide_043.jpg, --timeout 1200 in timeout 1700):
+     attempt 1 HTTP 504 upstream_timeout (provider Nvidia) -> NO_TRANSCRIPT
+  leg_b5.sh topband  (comparison crop_4_topband pair, --timeout 1200 in timeout 1700):
+     SUCCESS 1170s wall -> crop_4_topband_judge.txt (2990 B, real FINAL VERDICT body: FAIL)
+  leg_b5.sh eqstack   (comparison crop_4_eqstack pair, --timeout 1200 in timeout 1700):
+     attempt 1 HTTP 504 upstream_timeout (provider Nvidia) -> NO_TRANSCRIPT
+  leg_b5.sh midleft   (comparison crop_4_midleft pair, --timeout 1200 in timeout 1700):
+     attempt 1 ABORT HangError wall 1230s; attempt 2 HTTP 504 upstream_timeout -> NO_TRANSCRIPT
+
+Queue depth across this lane: 13 -> 17 -> 24 -> 15-30 analyze_image.py processes.
+Text-leg controls and cheap image probes served HTTP 200 in the same windows
+(043_probe5.log: 1MP crop HTTP 200 in 57.4s at 16:05), so router + auth are
+healthy and the image upstream FLAPS between serving and 502/504.
+
+VERDICTS OBTAINED: 1 of 4 legs (topband). Nothing recorded as PASS in the DB.

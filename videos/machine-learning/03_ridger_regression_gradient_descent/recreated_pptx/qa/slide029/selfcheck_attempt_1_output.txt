@@ -1,0 +1,32 @@
+render bands (frame-px units, scale 2.0833):
+  y 54.2-91.7  x 857.3-884.6  cx=871.0  ink=3719
+  y 195.4-237.1  x 138.2-821.8  cx=480.0  ink=41213
+  y 273.6-315.8  x 268.8-662.9  cx=465.8  ink=22197
+  y 351.4-393.6  x 235.2-709.0  cx=472.1  ink=29244
+orig bands (re-derived with same predicate, scale 1.0000):
+  y 46.0-47.0  x 75.0-885.0  cx=480.0  ink=810
+  y 55.0-94.0  x 856.0-885.0  cx=870.5  ink=939
+  y 191.0-237.0  x 137.0-825.0  cx=481.0  ink=12020
+  y 269.0-315.0  x 269.0-666.0  cx=467.5  ink=6487
+  y 347.0-393.0  x 235.0-712.0  cx=473.5  ink=8454
+
+per-band deltas (render vs banked target, frame px):
+  L1: dy0=+4.4 dy1=+1.1 dx0=+1.2 dx1=-2.2 cx=480.0 (target 480.5, d=-0.5) w=683.5 (target 687)
+  L2: dy0=+4.6 dy1=+1.8 dx0=-0.2 dx1=-2.1 cx=465.8 (target 467.0, d=-1.2) w=394.1 (target 396)
+  L3: dy0=+4.4 dy1=+1.6 dx0=+0.2 dx1=-2.0 cx=472.1 (target 473.0, d=-0.9) w=473.8 (target 476)
+band pitch (top-to-top): 78.2, 77.8 (target 78)
+  band 0 clearance: L 79.7px, R 79.2px, bottom-of-window 292.9px
+  band 1 clearance: L 210.3px, R 238.1px, bottom-of-window 214.2px
+  band 2 clearance: L 176.7px, R 192.0px, bottom-of-window 136.4px
+
+badge numeral dark px in render: 527 (need >= 12*scale^2=52)
+
+orig re-derived vs banked (predicate drift check):
+  L1: dy0=+0.0 dy1=+1.0 dx0=+0.0 dx1=+1.0
+  L2: dy0=+0.0 dy1=+1.0 dx0=+0.0 dx1=+1.0
+  L3: dy0=+0.0 dy1=+1.0 dx0=+0.0 dx1=+1.0
+
+SELF-CHECK: FAIL
+  - L1 y0 delta +4.4 exceeds tol 3.0
+  - L2 y0 delta +4.6 exceeds tol 3.0
+  - L3 y0 delta +4.4 exceeds tol 3.0

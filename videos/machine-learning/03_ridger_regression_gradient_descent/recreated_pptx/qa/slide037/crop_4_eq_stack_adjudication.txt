@@ -1,0 +1,72 @@
+# crop_4_eq_stack adjudication — slide 037 (worker w037, 2026-10-24)
+
+Source transcript: `crop_4_eq_stack_judge.txt` (FAIL, 7 findings; it judged `render_4.png`,
+which was superseded by `render_5.png` and is now superseded by `render_6.png`).
+Method: PIL-first adjudication against the ORIGINAL frame
+(`unique_slides/slide_037.jpg`, 960x540, 1 px = 1 pt). Measurements below are frame px.
+Bands sampled with a background-distance mask (cream = 254,255,232; tan = 234,219,200;
+green = 223,255,238; threshold 90) and word-column segmentation.
+
+## Dispositions
+
+1. **MAJOR — explanation wraps to a second line.** REAL. Frame: the explanation is one
+   line, x 394..869, rows 266..288 (`all ... and δ_i has the same sign`). render_4 wrapped
+   after "has", creating a second line at x 300..537. FIXED: the frame's explanation is
+   ITALIC (Liberation roman was ~15 % wider); italicised and set to 18 pt, render_6 shows
+   ONE line at x 392.9..879.9, rows 268.2..287.9, fully inside panel P2 (66..891).
+
+2. **MAJOR — δ_i / X_i render black instead of green.** REAL. Frame ink in the box-2
+   equation terms (x 270..342) is green: saturated-ink median (40,132,40) = #288428; same
+   green in box-3 terms (x 723..762 rows 415..438 and x 422..489 rows 478..501). FIXED:
+   δ, W, X runs use #288428 (δ subscript i stays RED — frame (165,0,20)-family).
+
+3. **MAJOR — implication arrow red instead of blue.** REAL. Frame arrow ink at x 363..377,
+   rows 272..281 is blue (saturated mask (14,0,167) family); render_4 used BRIGHT_RED.
+   FIXED: arrow run #0000A8 (frame-measured blue family).
+
+4. **MAJOR — missing underlines on W^T X_i / (W^T X_i).** REAL. Frame shows underline
+   strokes under W and X of both occurrences (rows 284..286 and 435..437 families), and
+   under W/X in the box-3 terms. FIXED: underline runs on W and X (T superscript and
+   subscripts not underlined, matching the frame).
+
+5. **MINOR — "positive"/"negative" should be red + underlined.** REFUTED. Measurement of
+   the explanation band: word at x 499..551 ("positive") dominant ink (119,120,102) and
+   x 557..642 ("negative") (121,122,104) — both NEUTRAL (tan-background black ink), and no
+   underline row exists beneath them (row profile 283..288 shows no horizontal run in those
+   columns). The only red "positive" on the slide is in "Summation is always positive"
+   (x 237..295, ink (162,1,14)). No fix applied; the render keeps them black italic, exactly
+   as the frame shows.
+
+6. **MINOR — heading "Redefine Error function as:" not underlined.** REAL, and the colour
+   was also wrong: the frame heading band (x 72..299, rows 242..258) contains **zero**
+   saturated-red ink (1 saturated pixel in the whole band) — it is BLACK bold and
+   underlined, not dark red. FIXED: black bold + underline.
+
+7. **MINOR — typed vs handwritten glyph shapes.** Medium difference (rule (d)); no fix.
+
+## Additional frame-vs-render_4 defects found during adjudication (fixed in the rebuild)
+
+- **∂Error/∂W was rendered LINEAR** (`∂Error/∂W` text) in both update equations. The frame
+  shows STACKED 2-D fractions (numerator rows 403..419/422, bar rows 424..426, denominator
+  rows 431..448, x 267..336 and 511..580). House math law forbids linear fractions.
+  FIXED: matplotlib mathtext `\frac{\partial\, Error}{\partial\, W}` → 600 dpi PNG →
+  addImage at exact ink size (render_6 ink 266.7..336.3 x 403.0..449.1 and 510.5..582 x
+  403.0..449.1).
+- **Sigma limits were one-colour and oversized.** Frame limits: L1 x150..272 rows 290..303
+  ("all" black, "misclassified" red underline, "vectors" black, "(i)" black); L2 x610..716
+  rows 441..453; L3 x261..425 rows 503..518. Rebuilt as Sigma glyph PNG (ink 202..221 x
+  262..287; 651..677 x 409..441; 331..354 x 472..501) + coloured text limit runs; render_6
+  L1 152.6..269.1 x 293.1..302.7, L2 609.3..715.3 x 439.9..455.3, L3 250..439.5 x 501.8..519.6.
+- **Box-1 colour scheme** (frame): class I RED / class II BLUE (line 2 swapped), misclassified
+  BLACK bold italic underlined, "<0"/">0" RED, "⇒" BLACK, "d" of d(X) GREEN, δ_i GREEN with
+  RED subscript. render_4 had class labels blue, misclassified red, arrows red, δ red.
+  FIXED to the frame measurements.
+- **"positive" in "Summation is always positive"**: frame red bold italic UNDERLINED
+  (x 237..295); render_4 was red italic only. FIXED.
+- **eta**: frame RED bold italic in both update equations (x 240..250, rows 415..438);
+  render_4 was black. FIXED.
+- **Title centre**: frame title ink 353..629 (centre 491, not the slide centre 480);
+  render_4 centred at 480. FIXED (render_6 title 351.7..629.0).
+
+All fixed defects were re-checked in `selfcheck_attempt_6.txt` (PASS) before judging
+`render_6.png`.

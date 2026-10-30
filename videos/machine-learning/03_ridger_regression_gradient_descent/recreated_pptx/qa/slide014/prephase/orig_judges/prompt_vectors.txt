@@ -1,0 +1,30 @@
+GROUND-TRUTH EXTRACTION — pure DESCRIPTION task. There is exactly ONE image and NO
+comparison, NO render, NO judgement call to make. You are producing the authoritative
+text record of what this image shows, for a pixel-accurate slide rebuild.
+
+Image: a 2x LANCZOS upscale of the slide-space rect x=72..818, y=91..246 cropped from the ORIGINAL 960x540 lecture frame of deck slide 14 (1 px = 1 pt in slide space; crop px = 2 x slide px). Mapping: slide_x = crop_x/2 + 72, slide_y = crop_y/2 + 91. Report each region BOTH in crop px AND converted to slide space.
+
+Required output sections:
+1. LAYOUT MAP — every visible element as a named region with a bounding box in frame px.
+   Cover ALL of: title, badge, boxes and their borders, equations, arrows, rules/lines,
+   text clusters, table/matrix rows and columns. Leave nothing out.
+2. VERBATIM TEXT — transcribe every text element exactly, character-for-character,
+   in reading order. Mark subscripts/superscripts explicitly (e.g. "x with subscript 11",
+   "T as superscript"). For each element give: approx hex colour, bold/italic/underline
+   flags, and an estimated font cap-height in px.
+3. COLORS — per element: fill, border, text colours as approx hex (JPEG source, +-10
+   tolerance is expected; name the closest conventional hex).
+4. GEOMETRY MEASUREMENTS — border positions and stroke thickness, line endpoints,
+   arrow shaft and head geometry, badge centre + diameter, matrix/table cell grid
+   (row heights, column x-positions), inter-line gaps, box padding.
+5. MATH RENDERING — for each equation describe the exact 2D visual arrangement:
+   stacked fractions with bar positions, sub/superscript offsets, underlines,
+   bracket/paren shapes and their vertical extent, radical signs, spacing.
+
+Rules: transcribe exhaustively — NEVER paraphrase or summarise small text away;
+if a glyph is genuinely illegible give your best reading and mark it [?];
+all measurements in px; be specific enough that a builder could redraw the
+region without seeing the image.
+
+This crop's region: the two side-by-side vector-definition boxes: left 'Let Y = [y1;y2;...;yn] Nx1' with a red bracketed column vector, bold label lines 'Original Labels' / 'from Training Samples'; right 'Let Yhat = [yhat1;...;yhatn] Nx1' with red bracketed column vector, 'Predicted Labels' / 'from Model Yhat = XW'. Bracket/delimiter shapes, vector entry stacking, subscript Nx1 placement, text colour per line, maroon box borders.
+Scope: describe ONLY what is inside the crop; note at the end if any element is cut off at a crop edge.

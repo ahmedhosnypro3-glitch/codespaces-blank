@@ -1,0 +1,41 @@
+1 frame containment: content ink bbox (frame px) = (67.7, 53.7, 893.8, 519.3) -> PASS
+2 band 1: d-eq ink bbox=(287.7, 156.7, 476.2, 192.7)  W-eq ink bbox=(617.4, 156.7, 811.7, 192.7)  orig_ink=284 render_ink=4247 ratio=14.95 -> PASS
+2 band 2: d-eq ink bbox=(287.7, 226.0, 475.3, 262.0)  W-eq ink bbox=(616.0, 226.0, 811.7, 262.0)  orig_ink=279 render_ink=4178 ratio=14.97 -> PASS
+2 band 3: d-eq ink bbox=(287.7, 285.7, 477.7, 321.7)  W-eq ink bbox=(616.0, 285.7, 810.3, 321.7)  orig_ink=256 render_ink=4128 ratio=16.12 -> PASS
+2 band 4: d-eq ink bbox=(287.7, 349.3, 471.9, 386.3)  W-eq ink bbox=(616.0, 352.2, 801.2, 388.2)  orig_ink=255 render_ink=4998 ratio=19.60 -> PASS
+2 band 5: d-eq ink bbox=(283.8, 415.3, 477.7, 453.7)  W-eq ink bbox=(616.0, 417.7, 780.6, 453.7)  orig_ink=342 render_ink=5144 ratio=15.04 -> PASS
+2 band 6: d-eq ink bbox=(284.8, 481.3, 477.7, 519.2)  W-eq ink bbox=(616.0, 482.8, 779.6, 519.2)  orig_ink=344 render_ink=5319 ratio=15.46 -> PASS
+3a initial-W bracket strokes: (329.9, 62.3, 333.8, 105.0) (429.9, 62.3, 430.4, 105.0) | Step text bbox: (330.0, 62.3, 430.7, 89.7) | interior ink bbox: (331.0, 68.0, 411.1, 104.5)
+3a verdict: FAIL (Step text starts inside/at the left bracket x330.5; vector has no enclosing delimiter)
+3b matrix col1: ink bbox=(598.4, 83.3, 610.4, 111.6)
+3b matrix col2: ink bbox=(621.4, 83.3, 633.4, 111.6)
+3b matrix col3: ink bbox=(644.3, 83.3, 656.3, 111.6)
+3b verdict: see judge transcript (render draws separate one-line parens per entry, not one paren spanning the two-entry vector)
+3c aug 99: ink bbox=(96.7, 183.8, 101.5, 221.3)
+3c aug 122: ink bbox=(119.2, 183.8, 124.0, 221.3)
+3c aug 144: ink bbox=(141.2, 183.8, 146.0, 221.3)
+3c aug 166: ink bbox=(161.8, 183.8, 167.6, 221.3)
+3c aug 189: ink bbox=(185.8, 183.8, 191.0, 221.3)
+3c aug 212: ink bbox=(208.8, 183.8, 214.0, 221.3)
+4 top-left table row 1 cell ink: [1, 1, 1, 1, 1, 1]
+4 top-left table row 2 cell ink: [1, 1, 1, 1, 1, 1]
+4 top-left table row 3 cell ink: [1, 1, 1, 1, 1, 1]
+4 top-left table row 4 cell ink: [1, 1, 1, 1, 1, 1]
+4 verdict: PASS (18/18 cells inked)
+4b top-left class row colour px: red=0 blue=0 -> FAIL (frame has red C1 + blue C2; render is black)
+5a aug heading bbox: (88.6, 146.0, 247.9, 156.0) | box right edge x=246 -> FAIL overflow
+5b iteration block bbox: (84.3, 277.3, 213.9, 305.1) | frame box x84..245 y277..307
+5c band 1 decision-zone ink bbox: (470.0, 157.2, 624.5, 192.7)
+5c band 2 decision-zone ink bbox: (470.0, 226.5, 623.5, 262.0)
+5c band 3 decision-zone ink bbox: (470.0, 286.2, 624.5, 321.7)
+5c band 4 decision-zone ink bbox: (470.0, 352.7, 624.5, 388.2)
+5c band 5 decision-zone ink bbox: (470.0, 418.2, 624.5, 453.7)
+5c band 6 decision-zone ink bbox: (470.0, 483.2, 624.5, 519.2)
+6 crop_2_eqstack: render_crop=(1233, 838) orig_crop=(1233, 838) region=591x402 frame px; effective px/frame: x=2.0863 y=2.0846; render dpi scale=(2.0844,2.0833) -> PASS
+
+SELFCHECK RESULT: FAIL — unfixed defects: 4
+  - initial-W delimiter
+  - matrix delimiter
+  - class-row colour
+  - aug heading overflow
+HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present, top bare; badge center (1824,152) d=68; all within tol 8)

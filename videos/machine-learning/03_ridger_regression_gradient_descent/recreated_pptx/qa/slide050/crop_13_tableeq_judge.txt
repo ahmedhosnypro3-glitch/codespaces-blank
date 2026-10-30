@@ -1,0 +1,36 @@
+# Discrepancy Report â Slide 050 crop-pair (table + math zone + L4 caption)
+
+## Cell-by-cell / symbol-by-symbol comparison
+
+**Top navy box, xâ..xâ table**
+- Headers xââ¦xâ: match. Value row 1 (1)(2)(1)(5)(6)(6): match. Value row 2 (1)(1)(2)(4)(5)(6): match. Class row Câ Câ Câ Câ Câ Câ with correct red/blue coloring: match. â
+- "Câ positive  Câ negative  Zero is unaccepted": all present, colors correct (red/blue/green). â
+- "Check classes of" + Zâ Zâ Zâ columns (0,0), (7,6), (3,2): all values match, parens span both rows correctly. â
+
+**"Initial W" equation â ÑÐµÐ½ÑÑ of the box**
+1. **BLOCKER â missing vector row.** Original shows **W = (4, â2, â2)** â a **3Ã1** column vector (three rows inside the parens, crop-relative ~x 560â650, upper-middle of navy box). The recreation shows only a **2Ã1** vector (4 over â2). The third component **â2** is missing entirely. This is a wrong equation, the core mathematical content of the region. Confidence: very high (clearly visible in IMG2 at matched scale).
+
+2. **MAJOR â missing "Î· = 1".** Original headline reads "**REPEAT** using Step **Î· = 1**" (crop-relative ~x 640â960, top of navy box). Recreation reads only "REPEAT using Step" â the learning-rate term **Î· = 1** is absent. Confidence: high.
+
+3. **MINOR â styling of "REPEAT".** Original has REPEAT bold+underlined; recreation has neither the underline nor the bold emphasis. Confidence: high. (Color is dark red in both â acceptable.)
+
+4. **MINOR â W not underlined.** Original underlines W (WÌ², "Initial WÌ² ="); recreation italicizes only. Confidence: high.
+
+**"Augmented Vectors (from Top)" panel (lower left)**
+5. **MAJOR â vector structure lost.** In the original, each xáµ¢ is rendered as a **3-element column vector** with tall parentheses spanning all three rows â e.g. xâ = (1;1;1), xâ = (1;2;1), â¦ xâ = (1;6;6) (crop-relative ~x 60â340, y 230â390). The recreation flattens this into three separate rows of scalar "(n)" cells, so **no delimiter spans the three lines** â exactly the delimiter-geometry failure the rules flag. The individual values themselves are all correct row-by-row, but the column-vector semantics are destroyed. Confidence: high.
+
+**Caption / other**
+- "Augmented Vectors (from Top)" heading: original handwriting reads "Ugmented" â handwriting artifact in IMG2, not a recreation defect; recreation's spelling is the correct intent. Not counted.
+- L4 chart fragment (right side): axis labels 7 and 6 present in both; magenta diamond marker present in both. â
+- Medium differences (handwritten vs typed, JPEG halos in IMG2): per rules, not discrepancies.
+
+## Summary
+| # | Issue | Severity | Confidence |
+|---|-------|----------|------------|
+| 1 | Initial W vector missing third row (â2); 2Ã1 instead of 3Ã1 | **BLOCKER** | Very high |
+| 2 | "Î· = 1" missing from "REPEAT using Step" headline | **MAJOR** | High |
+| 3 | Augmented vectors rendered as scalar cells, no column-vector parens spanning 3 rows | **MAJOR** | High |
+| 4 | "REPEAT" missing bold/underline | MINOR | High |
+| 5 | W missing underline | MINOR | High |
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â the truncated Initial W vector alone is a blocker (wrong equation content), compounded by the missing Î· = 1 term and the flattened augmented-vector structure.

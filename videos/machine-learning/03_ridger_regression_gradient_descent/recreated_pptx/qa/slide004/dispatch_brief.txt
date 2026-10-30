@@ -1,0 +1,98 @@
+
+
+You are the build worker for slide 004 of
+`/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/`.
+Work autonomously to a certified single-version deliverable. You are the ONLY
+worker on this slide; DB claims enforce that.
+
+READ FIRST, in this order (they are binding law; the deck files OVERRIDE the
+generic runbook wherever they differ):
+1. `~/.zcode/skills/slide-recreation/SKILL.md` — the skill. Follow
+   `references/building.md`, `references/judging.md`,
+   `references/dependencies.md` (children only), and `references/patterns/`
+   (index.json → the patterns your slide needs).
+2. `/home/ahmed/Projects/ai_llm_slides/scripts/17_worker_instructions.md` —
+   the worker runbook (DB milestones, render, self-check, judge, verdict law,
+   resume rule, final report).
+3. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/AGENTS.md` —
+   THIS deck's law (measured chrome, dependency graph, ZOOMED-judge-for-ALL).
+4. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/judge_protocol_03.md` —
+   the FROZEN judge templates. Source every `-p` payload byte-for-byte from
+   there (substitute only 004/K/region). Never hand-roll a judge prompt.
+
+STATE:
+- Content spec: `videos/machine-learning/03_ridger_regression_gradient_descent/analysis/slide_004_final.json`
+  (verbatim-text law: text is VERBATIM, `[?]` markers preserved, never invent facts).
+- Ground truth frame: `videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_004.jpg`
+  (960×540, 1px = 1pt = 1/72in). Measure with PIL — geometry from measurement,
+  never intuition.
+- DB (run from `/home/ahmed/Projects/ai_llm_slides`):
+  `VIDEO=machine-learning/03_ridger_regression_gradient_descent python3 scripts/15_progress.py <cmd>`
+  (claim/heartbeat/release/set/get; `set` takes THREE positionals; verify every
+  write with a `get`). **NEVER invoke 15_progress.py without the `VIDEO=` prefix**
+  — the default targets the CLOSED ml-intro deck's DB and a stray `set` silently
+  corrupts another deck's certified rows (known incident class, 2026-10-19;
+  if it ever happens, restore the foreign row from git and report it in your
+  worker_report.md).
+
+PROTOCOL:
+1. `claim 004 <your-unique-id>` (stand down read-only if a FRESH peer claim
+   exists; heartbeat every ~10 min of quiet phases; `release` at the end).
+2. DB milestones as you go: `gen_status=building`, `build_script`,
+   `pptx_path`, `visual_attempts`, `visual_check`, `visual_transcript`,
+   `gen_status`, `last_error` on failure.
+3. Build: `node videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_004.js`
+   producing `recreated_pptx/slide_004_recreated.pptx` (plain name, single version).
+   - House chrome: `require("../../shared_patterns/house_chrome.js").drawHouseChrome(pptx, slide, {numeral: 004})`
+     — THIS deck has NO top stroke (that is correct; do not add one).
+   - hex colors never carry `#` in pptxgenjs; lineSpacing mandatory on multi-line
+     text; measured geometry over intuition; never edit a certified component
+     in place (copy-then-modify).
+   - Equations (if any): matplotlib mathtext → 600dpi transparent PNG →
+     `addImage()` at exact px/600 size; bank PNGs + `eq_004_*.json` sidecars
+     (rel_id, image, mathtext, font_size_pt, color) under `recreated_pptx/build/assets/`
+     for the post-certification OMML wrap (`scripts/18_omml_wrapper.py`).
+   - Advanced graphs (if any): graphgen venv, topic-correct library, real data.
+4. Render 150dpi (private scratch + OWN LibreOffice profile
+   `-env:UserInstallation=file:///tmp/lo_slide004`; TMPDIR=
+   `/home/ahmed/Projects/ai_llm_slides/scratch/tmp`), then run
+   `python3 videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/house_chrome_check.py <render.png> 004`
+   — FAIL = fix the build BEFORE spending a vision call.
+5. Judge — BOTH legs (founder directive: ALL slides get the zoomed judge):
+   a. FULL-SLIDE comparison (Template A of judge_protocol_03.md), attempt K.
+   b. ZOOMED CROP-PAIR certificates (Procedure B): ≥1 crop region covering the
+      slide's densest content (one per dense region on multi-region slides);
+      crop-vs-crop ONLY at matched effective scale (upscale the original crop
+      by H_render/540, LANCZOS); bank pairs + transcripts under
+      `recreated_pptx/qa/slide004/`.
+   Bank `judge_prompt_K.txt` + `build_attempt_K.js` per attempt; verdicts only
+   from real winner bodies; 3 garbage re-invokes; 6 attempts max then park
+   `gen_status=failed` + `last_error` and STOP.
+   Adjudication: judge findings are HYPOTHESES — PIL-measure against the
+   original frame before fixing; refuted findings become judge context for the
+   re-roll (judge variance is sampling). Inherited/cascade zones are
+   adjudication inputs, never fix triggers.
+6. Certification: full-slide PASS + all crop certificates clean (or
+   PIL-adjudicated with banked refutation records) → DB `visual_check=PASS`,
+   `visual_transcript=<path>`, `gen_status=passed`. OMML wrap happens
+   POST-certification as a separate orchestrator pass (do not wrap yourself
+   unless your brief says so).
+7. `worker_report.md` in `qa/slide004/` + final message: slide id, attempts,
+   final verdict, pptx path, transcript paths, one-line judge-flag summary.
+
+DEPS: root — no dependencies; build free.
+
+CONTENT LINES (orientation only — the final JSON + frame are authority):
+  - Title: Concept of LOSS Function
+  - Layout: Title top-center with slide number top-right. Two-column body: left column contains Original Labels box (red border) above Objective box (yellow border) above Error box (yellow border). Right column contains Predicted Labels box (red border) with a smaller Remember box (blue border) to its far right, and a Predicted/Where annotation block below. Bottom spans full width with a Define box (salmon background) above a Formula box (yellow border).
+  - Visual element: highlight-box — Red-bordered rectangular box containing the Original Labels vector definition and caption
+  - Visual element: highlight-box — Red-bordered rectangular box containing the Predicted Labels vector definition and caption
+  - Visual element: highlight-box — Small blue-bordered rectangular box with Remember header and norm identity
+  - Visual element: highlight-box — Yellow-bordered rectangular box stating the objective
+  - Verbatim text blocks: bullets=9, labels=13, equations=5
+  - Validation: verdict=PASS_WITH_FIXES score=8 uncertain=['Exact font sizes, box dimensions, and pixel coordinates are not provided in the JSON; the brief uses relative sizing (title largest, body annotations smallest, per layout.hierarchy) and the relative positions from layout.regions.', "The text color of the 'Remember' header is not explicitly assigned (the Remember box lists #0000FF, #FFFFFF, #000000, and its description attributes the blue to the border); the brief renders 'Remember' in bold black (#000000) — switch to #0000FF if the original header text is blue."]
+
+STORM RESILIENCE: on provider/upstream errors sleep 120s and retry up to 3×;
+bank per step atomically; keep logs in project scratch (never host /tmp);
+never abort the run; never delete banked evidence.
+

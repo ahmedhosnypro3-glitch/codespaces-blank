@@ -1,0 +1,36 @@
+# Slide 004 â zoomed crop-pair analysis: "Let Y" / "Let Å¶" boxes
+
+Grounding: crop-relative coordinates; each box is ~0â660 px wide (left box) and ~0â680 px (right box), with the matrix column at roughly xâ150â300 and the caption text block at xâ290â620.
+
+## Discrepancy list
+
+1. **MAJOR â Matrix delimiter shape is wrong (both boxes).**
+ In IMG2 (original), both matrices use thin red **vertical bars** `| y1; y2; â¦; yn |` (left box bars at â(170â250, 30â200); right box same geometry). In IMG1 (recreation), both matrices use large round **parentheses** `( â¦ )` (left box â(155â290, 55â185); right box â(150â300, 70â215)). The delimiters do span all enclosed lines and don't touch the glyphs, so this is not a spacing defect â but the delimiter *glyph itself* is a different symbol. A column vector convention change (bars â parens) is a content-level mismatch, not styling. Confidence: HIGH.
+
+2. **MAJOR â Missing underline on Y and Å¶ in the "Let" statements.**
+ In IMG2, the lead symbol is underlined in both boxes: "Let **YÌ²** =" (â(60â150, 95â135) left box) and "Let **Å¶Ì²** =" (â(45â160, 100â150) right box). Underline is also used on W in "Å¶=XÌ²WÌ²" in the original. In IMG1, "Let **Y** =" and "Let **Å¶** =" have **no underline** under Y/Å¶ (left box â(90â155, 130â170); right box â(45â165, 165â205)). The W underline in "Å¶=XÌ²W" *is* present in the recreation, which makes the missing Y/Å¶ underlines internally inconsistent as well. Underline here is mathematical notation (vector convention), so its loss is a content defect. Confidence: HIGH.
+
+3. **MINOR â Subscript case: "nÃ1" vs "NÃ1".**
+ IMG2 renders the dimension subscript as "**N x 1**" with what appears to be an uppercase N in both boxes (left â(240â310, 190â215); right â(215â290, 205â230)); IMG1 renders lowercase "n Ã 1". Confidence: MEDIUM (video compression blurs the case slightly, but the pointed apex shape in IMG2 reads as "N").
+
+4. **MINOR â Hat glyph geometry on Å· entries.**
+ IMG2 uses a wide hat (`\widehat`) spanning the full "y" over each entry (right box â(160â240, 30â210)); IMG1 uses a narrow circumflex that sits slightly small/left relative to the y stem (right box â(180â260, 55â200)). Same character, weaker glyph. Confidence: HIGH (defect is real; severity capped at MINOR since the character is unambiguous).
+
+5. **MINOR â Typeface of "Let" and captions.**
+ IMG2's "Let", "Original Labels", "Predicted Labels", and "from Training/Modelâ¦" are in a serif face (Times-like); IMG1 renders "Let" italic and the captions in a bold sans-serif. Under ground rule (d)-adjacent styling latitude this is presentational, but at this zoom the letterforms differ visibly. Confidence: HIGH; severity MINOR per rule (c)-style allowances.
+
+6. **MINOR â Stroke weight of matrix delimiters.**
+ Related to item 1: even accounting for the shape change, IMG1's parentheses are noticeably heavier than IMG2's hairline vertical bars (left box, xâ155 vs xâ170). Subsumed under the delimiter defect but noted for completeness. Confidence: MEDIUM.
+
+## Verified as matching (no issue)
+- All matrix entries correct and ordered: yâ, yâ, â¦, yâ (left) and Å·â, Å·â, â¦, Å·â (right); ellipsis row present and centered in both.
+- Captions textually identical: "Original Labels" (red), "from Training Samples", "Predicted Labels" (blue), "from Model Å¶=XÌ²WÌ²" â no wrong/missing characters.
+- Colors correct: red entries/subscripts, red "Original Labels", blue "Predicted Labels", black body text, red box strokes.
+- "nÃ1"/"NÃ1" subscript correctly positioned after the closing delimiter, baseline-aligned near the bottom row in both.
+- Delimiters span all enclosed rows without touching glyphs.
+- Box border chrome (no top stroke) is intentional per ground rule (b).
+
+## Summary
+Two MAJOR content-level defects (delimiter shape changed from vertical bars to parentheses; missing vector underlines on Y/Å¶), plus three MINOR rendering differences. At full-slide scale these would be nearly invisible, but at this zoom they are clear notation changes in the equations themselves.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'

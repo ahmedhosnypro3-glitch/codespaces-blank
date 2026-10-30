@@ -1,0 +1,14 @@
+GROUND-TRUTH EXTRACTION — description task, NOT a comparison, NOT a judging task. You are describing ONE image for a slide-recreation engineer who must rebuild it pixel-faithfully in PowerPoint.
+
+The image is a ZOOMED CROP of a 960x540 lecture-video slide frame (1 image px = 1 pt at full-frame scale). The crop covers slide-space x X0..X1, y Y0..Y1 of the original frame, upscaled 3x with Lanczos. Give ALL px coordinates in CROP space (they will be mapped back as X0 + x/3, Y0 + y/3).
+
+Produce a DETAILED, structured report:
+
+1. LAYOUT MAP — named sub-regions, each with its bounding box in crop px.
+2. VERBATIM TEXT — transcribe EVERY visible string EXACTLY: subscripts/superscripts, Greek letters, decimal points, punctuation, capitalization. Do not paraphrase or correct; mark uncertain glyphs [?].
+3. COLORS — per element: text/fill/border colors as estimated hex. Note multi-color runs word by word.
+4. GEOMETRY — every vertical/horizontal rule with its x or y position, color, and any gaps/breaks; box borders (color, thickness, fill or hollow); brackets (span + color); arrows; circles.
+5. TYPOGRAPHY — glyph heights in crop px, bold/italic, alignment per text class.
+6. ANOMALIES — mouse cursor, JPEG chroma smear, ambiguous digits: flag explicitly.
+
+Be exhaustive and precise: measured-looking numbers over adjectives.

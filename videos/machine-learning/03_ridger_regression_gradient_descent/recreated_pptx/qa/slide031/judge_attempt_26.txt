@@ -1,0 +1,54 @@
+# Fidelity Check â recreation attempt 26 (slide 31, "Convex Function")
+
+## Element-by-element comparison
+
+**House chrome (per ground rules â not scored):** gray panel, red left/right/bottom strokes, no top stroke, yellow "31" badge with purple ring â all present and correct. â
+
+**Title:** Colors correct (red/green/blue segments). Recreation reads "=0.3,Start at X=3" â missing the space after the comma ("=0.3, Start"). **MINOR** (high confidence).
+
+**Small parameter table (step / initial X / delta):** Values match (0.3 / 3 / 0.1). Row fills differ: original has initial X = pink, delta = yellow; recreation has initial X = pale green, delta = pink. **MINOR** (high confidence).
+
+**Equation box:** f(x) = (xâ5)Â² + 1, red frame, proper 2D formatting in both. â
+
+**Chart:**
+- Parabola, red dashed line at x=5, red dot, green dot near (5,1), axes â5â¦15 â all present. â
+- **Black horizontal line:** original spans roughly xâ2 to xâ7 at y=10 with visible end ticks; recreation's segment is drastically shorter (~x=4.65â¦5.35). **MAJOR** (high confidence).
+- **Missing chart annotations:** original shows "2, 10" at the left end of the black line, "(7,7)" at its right end, small "3" labels above the dashed markers, and "(5,1)" beside the green dot. ALL omitted from the recreation's chart. **MAJOR** (high confidence) â per rule 6 these are entirely omitted visual elements.
+- The "(5,1)" string was relocated into the green text box instead of sitting at the green dot. **MAJOR** (high confidence).
+- Recreation's chart-frame red stroke on the right extends downward past the frame's bottom edge (stray vertical line to ~y=600). **MINOR** (medium confidence).
+- X-axis labels (â5â¦15) render *below/outside* the chart frame; in the original they sit inside the plot region. **MINOR** (medium confidence).
+
+**Green annotation box:** Original text is verbatim "**X** is in between **4.8** and color red bold **5.1**" (the words "color red bold" are literal text in the original â an authoring artifact, but it IS the original text). Recreation renders "X is in between 4.8 and (5,1) **5.1**" â drops the words "color red bold" and inserts "(5,1)". Second line matches (bold blue f(x), red 1.04, blue 1.01). **MAJOR** (high confidence) â verbatim text deviation.
+
+**Arrows:**
+- Original's white block arrow with red outline pointing at the table's x=3 column is replaced by a plain red line segment with no arrowhead. **MAJOR** (high confidence).
+- Original's three blue outlined down-arrows pointing at the 5.1/4.8/5.1 columns are **entirely absent**. **MAJOR** (high confidence).
+- Purple arrow present. â
+
+**Large data table:**
+- **f(x) row, first value: original = 5 (correct, f(3)=5); recreation = 9. Wrong data value.** **BLOCKER** (high confidence).
+- **Column count:** original x-row runs 3, 3.3, â¦ 4.8, 5.1, **4.8** (17 data columns, ending 4.8 / slope â0.8); recreation ends at 5.1 / 0.4 (16 columns). Truncated table / missing final column. **MAJOR** (medium-high confidence).
+- All other shared cell values (x-delta, f(x-delta), x+delta, f(x+delta), slope, next x) match. â
+- Row fill colors match closely. â
+- Original's blue outer border around the table region is absent. **MINOR** (medium confidence; possibly chrome).
+- **FRAME CONTAINMENT:** the recreation's table extends to xâ1965/2000, crossing the house panel's right stroke (~x=1806) and running onto the white canvas; its bottom row also touches/crosses the panel's bottom stroke region. In the original the table sits fully inside the panel with margins. **MAJOR** (high confidence).
+
+## Visual-quality defects in the recreation
+- Table overflows the gray panel on the right and bottom (see above) â the most visually obvious defect.
+- Chart frame's right red stroke trails below the frame.
+- Chart axis labels sit outside the chart frame.
+- No text clipping/collisions inside text boxes; equation box clean.
+
+## Summary
+| # | Defect | Severity |
+|---|--------|----------|
+| 1 | f(x) first cell = 9 instead of 5 | BLOCKER |
+| 2 | Black line span wrong (xâ2â7 vs Â±0.35) | MAJOR |
+| 3 | Chart annotations ("2, 10", "(7,7)", "3", "(5,1)") missing | MAJOR |
+| 4 | Red block arrow â plain line; 3 blue arrows missing | MAJOR |
+| 5 | Green box text altered ("color red bold" dropped, "(5,1)" inserted) | MAJOR |
+| 6 | Table truncated (missing final 4.8 column) | MAJOR |
+| 7 | Table overflows panel right/bottom strokes | MAJOR |
+| 8 | Title missing space; badge/table fill colors; chart-frame stray line; axis labels outside frame; missing blue table border | MINOR |
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation'.

@@ -1,0 +1,31 @@
+## Discrepancy Report â Slide 003, zoomed crop (column-vector figure)
+
+**Reference layout (both images should show):** Four columns â Xâ (yellow), Xâ (cyan), "â¦", Xâ (magenta) â each column containing xââ/xââ/xââ, xââ/xââ/xââ, an ellipsis row, xâd/xâd/xâd, and a red yâ/yâ/yâ at the bottom, with the whole column of entries enclosed in tall parentheses.
+
+---
+
+### 1. BLOCKER â Column delimiters replaced by a single vertical rule (center-left, center, right of region)
+In IMG2 (original), **every colored column is enclosed by a tall, curved parenthesis pair** â left "(" and right ")" â spanning all entries from xââ down through yâ (and likewise for the cyan and magenta columns). In IMG1 (recreation), each column instead shows only **one straight vertical black line on the right edge of the colored rectangle, with no left delimiter at all** (e.g., yellow column, crop-relative xâ130, yâ80â440; cyan xâ300; magenta xâ590). Per the ground rules, a delimiter that fails to span its lines is MAJOR-to-BLOCKER; here the left delimiter is **entirely absent** and the right one is a straight rule rather than a spanning paren, which changes the depicted mathematical object (a parenthesized column vector becomes a bar-sided rectangle). This is a structural notation error in all three data columns. **Confidence: high.**
+
+### 2. MAJOR â Missing red "â¦" between yâ and yâ (bottom-center of region)
+IMG2 (original) contains a **red ellipsis on the bottom baseline, horizontally between the cyan and magenta columns** (crop-relative xâ430, yâ370), continuing the yâ, yâ, â¦, yâ sequence. IMG1 (recreation) has **no such element** â the bottom row reads yâ, yâ, yâ with nothing between yâ and yâ. A missing content element in an equation/sequence context is a MAJOR defect. **Confidence: high.**
+
+### 3. MINOR â Vertical ellipsis glyph: "â¦" (recreation) vs ".." (original) inside each column
+In the middle of each data column, IMG2 shows a **two-dot ellipsis ("..")**, while IMG1 shows a **three-dot ellipsis ("â¦")** (e.g., yellow column, crop-relative xâ100, yâ265; cyan xâ265; magenta xâ565). Same semantic intent, differing glyph. **Confidence: medium-high** (IMG2 is soft, but the two-dot form is consistent across all three columns and in the middle paren column's lower dot row).
+
+### 4. MINOR â Entry placement relative to enclosure (all columns)
+In IMG2 the entries sit **centered horizontally inside the parentheses**; in IMG1 the entries sit toward the **left of the colored rectangle with dead space between them and the right-side vertical line** (visible in all three columns, crop-relative yâ100â440). Consequence of discrepancy #1; flagged for completeness. **Confidence: medium.**
+
+### Checked and NOT flagged (per ground rules / verified correct)
+- Column fill colors (yellow / cyan / magenta) and white canvas: match within tolerance; slight hue softness in IMG2 is capture artifact.
+- Headers **Xâ, Xâ, â¦, Xâ** with bold italic X and correct subscripts: present and correct in both, including the top "â¦" between Xâ and Xâ.
+- All entry values cell-by-cell: xââ, xââ, xâd; xââ, xââ, xâd; xâ1, xâ2, xâd â correct, correct d-subscripts, no garbled or truncated glyphs.
+- Red yâ, yâ, yâ labels: correct color, correct subscripts, bottom placement.
+- Middle paren column with three "â¦" rows: present in both, parens span the lines.
+- Typed-vs-handwritten ink differences, JPEG halos, and any template chrome: not discrepancies.
+
+---
+
+**FINAL VERDICT: FAIL**
+
+The recreation is not a faithful reproduction of this region: the per-column parentheses enclosures are replaced by a bare right-side rule with no left delimiter (BLOCKER, #1), and the red bottom ellipsis of the y-sequence is missing (MAJOR, #2). Fixing those two items â restoring spanning parenthesis pairs around each column and adding the red "â¦" between yâ and yâ â would bring this region to PASS.

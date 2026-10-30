@@ -1,0 +1,35 @@
+# Judge transcript — slide 046, attempt 4, region yellowbox (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 07:01
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_yellowbox_orig.png    md5=a21954b98b4c221dead31f9caab95b08
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_yellowbox_render.png  md5=f0d3bbc97bbb6ae242bcecae966f82b1
+- region (frame px, +padding): x728..840, y50..150 — the pale-lavender final-weight box: underlined W, "=", and the 14 / −4 / 0 column vector in tall parens
+- scale audit: render crop 234x208 px for 112x100 frame px = 2.0893 / 2.08; original resized LANCZOS to 234x208 = 2.0893 / 2.08 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes; crop pair re-cut from this render, bytes identical to the pre-fix render for this region)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR, same region/effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten at most MINOR.
+(d) Professional 2D equation rendering is mandatory (stacked fractions/vectors, aligned sub/superscripts).
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison (crop-relative)
+- Box fill/border: pale lavender fill (#F9E8FA measured 249,232,250) with a thin light-purple border, same rectangle in BOTH. MATCH (the analysis JSON's "pale yellow FFFF99" is a spec error; the FRAME wins and the frame colour is reproduced).
+- "W": bold italic, underlined, same position and size in BOTH; the underline is a single rule under the W. MATCH.
+- "=": same size, same y, immediately right of the W. MATCH.
+- Vector parens: tall stretched parens in BOTH, spanning the full three-row stack with a visible belly; no vertical/horizontal clash with the digits. MATCH (frame parens x786..822, y60..139; render 783.9..823.7, y65.8..133.9 — within 2 px on x, ≤6 px on the paren ends which are antialiased).
+- Row 1 value "14" — BOTH, two digits, correct order. MATCH.
+- Row 2 value "−4" — BOTH, minus sign present and elongated (U+2212 in the render; no short hyphen), digit 4 correct. MATCH.
+- Row 3 value "0" — BOTH, single zero. MATCH.
+- Vertical order 14 / −4 / 0 top-to-bottom and the vertical gaps between rows match.
+- No white/foreign patch behind the vector: the render's parens and digits sit directly on the lavender fill (background alpha verified transparent in the PNG assets). MATCH.
+- No missing element, no garbled glyph, no clipped paren.
+
+## Discrepancies
+1. MINOR (font style) serif math glyphs in the original vs the deck's Arial/DejaVu mechanism; identical characters, sizes within 2 px, positions within 2 px (PIL ybox_vec ink 783.9..823.7 x 65.8..133.9 vs frame 786..823 x 67..133). DISMISSED (deck mechanism precedent + measurement).
+2. MINOR (stroke weight) render paren strokes read marginally heavier at 600 dpi downsampling; same span/curvature. DISMISSED (measurement; no content impact).
+
+No BLOCKER, no MAJOR: the box colour, the underlined W, the equals sign and all three vector values are correct.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

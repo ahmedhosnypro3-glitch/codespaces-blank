@@ -1,0 +1,143 @@
+===============================================================================
+SLIDE 009 — VISUAL JUDGE DISPATCH PACK, ATTEMPT 1 (w9-s009-20261021T0230, 2026-10-21)
+===============================================================================
+Protocol law (shared_patterns/judge_protocol_03.md): the -p payloads below are
+extracted PROGRAMMATICALLY from the frozen template (probe60_judgepack.py) and are
+byte-for-byte identical to it except for the substitutions NNN=009, K=1 and, for
+Template B, NAME + the one-line region description. Vision route: DEFAULT (no
+--models flag). Thinking high, --max-tokens 65536. Outer wall: timeout 1700.
+Inner --timeout 600. Never wrap analyze_image.py in another retry loop.
+
+RENDER BEING JUDGED: videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_1.png
+  (fresh 150dpi LibreOffice render of the CURRENT deliverable
+   recreated_pptx/slide_009_recreated.pptx — component fidelity proven pixel-identical,
+   see component_fidelity.txt; 52/52 selfcheck PASS, see selfcheck_attempt_3.txt.)
+
+CERTIFICATION NEEDS BOTH LEGS (founder directive 2026-10-19, ALL slides zoomed):
+  LEG A  Template A — full-slide comparison
+  LEG B  Template B — zoomed crop-pairs, one per dense region: eq_left, eq_right, cap_left, cap_right, chart_left, chart_right
+
+-------------------------------------------------------------------------------
+LEG A — TEMPLATE A, FULL-SLIDE COMPARISON (attempt 1)
+-------------------------------------------------------------------------------
+
+PROBE FIRST (opens the gateway window; a valid body opens it, a hang means
+sleep 300 and re-probe ONCE — a probe is NOT a judge attempt):
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 150 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py analysis \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_1.png \
+  --view "Slide 009 recreation attempt 1 — probe" \
+  --capture "150dpi PNG render of a 13.33x7.5in PPTX" \
+  --timeout 120 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/probe_1.txt
+
+COMPARISON (the real judge — execute exactly this):
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_1.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_009.jpg \
+  --view "Slide 009 recreation — fidelity check vs original lecture frame" \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/judge_attempt_1.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_A.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'eq_left' (attempt 1)
+-------------------------------------------------------------------------------
+region: LEFT chart annotation box holding the black equation 50.85^2 = 2585
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_left_orig.png \
+  --view "Slide 009 zoomed crop eq_left — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT chart annotation box holding the black equation 50.85^2 = 2585" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'eq_right' (attempt 1)
+-------------------------------------------------------------------------------
+region: RIGHT chart annotation box holding the black equation 63.64^2 = 4050
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_right_orig.png \
+  --view "Slide 009 zoomed crop eq_right — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT chart annotation box holding the black equation 63.64^2 = 4050" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_eq_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'cap_left' (attempt 1)
+-------------------------------------------------------------------------------
+region: LEFT chart's two caption lines: red 'Overfit' keyword + '(try to minimize the residuals ONLY)' over 'Fails to detect the Pattern'
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_left_orig.png \
+  --view "Slide 009 zoomed crop cap_left — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT chart's two caption lines: red 'Overfit' keyword + '(try to minimize the residuals ONLY)' over 'Fails to detect the Pattern'" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'cap_right' (attempt 1)
+-------------------------------------------------------------------------------
+region: RIGHT chart's two caption lines: red 'Generalized' keyword + '(Residuals are not minimized)' over 'Successes to detect the Pattern'
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_right_orig.png \
+  --view "Slide 009 zoomed crop cap_right — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT chart's two caption lines: red 'Generalized' keyword + '(Residuals are not minimized)' over 'Successes to detect the Pattern'" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_cap_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'chart_left' (attempt 1)
+-------------------------------------------------------------------------------
+region: LEFT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, 12 orange points, red diagonal stroke, solid red discs incl. the large one
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_left_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_left_orig.png \
+  --view "Slide 009 zoomed crop chart_left — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: LEFT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, 12 orange points, red diagonal stroke, solid red discs incl. the large one" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_left_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+
+-------------------------------------------------------------------------------
+LEG B — TEMPLATE B, CROP-PAIR 'chart_right' (attempt 1)
+-------------------------------------------------------------------------------
+region: RIGHT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, 12 orange points, red diagonal stroke, two solid red discs
+
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_right_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_right_orig.png \
+  --view "Slide 009 zoomed crop chart_right — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: RIGHT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, 12 orange points, red diagonal stroke, two solid red discs" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/crop_1_chart_right_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_B.txt)"
+

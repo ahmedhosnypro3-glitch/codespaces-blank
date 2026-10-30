@@ -1,0 +1,55 @@
+ORIGINAL (960, 540)
+==============================================================================
+
+## DEFECT A — L7-L10 body band (x88..828, y330..455)
+  render_1 (banked FAIL)           frame-space ink px = 0
+  render_2 (fixed)                 frame-space ink px = 8870
+  render_3 (current, == pptx)      frame-space ink px = 8826
+  ORIGINAL                         frame-space ink px = 9780
+
+  blue-ink evidence (the two key-term runs 'L2/L1 regularization'):
+  render_1 (banked FAIL)           blue px=0 (no blue key terms)
+  render_2 (fixed)                 blue px=0 (no blue key terms)
+  render_3 (current, == pptx)      blue px=0 (no blue key terms)
+  ORIGINAL                         blue px=1812
+
+  native-resolution ink in the same frame-scaled bbox:
+  render_1 (banked FAIL)           native ink px = 0
+  render_2 (fixed)                 native ink px = 34314
+  render_3 (current, == pptx)      native ink px = 34124
+  ORIGINAL                         native ink px = 9780
+
+  per-band ink px (frame rows), original vs current render:
+    title    y 59- 86  orig=  2848  render_3=  2470
+    L1 hdr   y104-117  orig=  1131  render_3=   913
+    L2 hdr   y129-146  orig=  1881  render_3=  2005
+    b1       y179-197  orig=  4251  render_3=  4241
+    b2a      y230-248  orig=  2896  render_3=  3011
+    b2b      y256-273  orig=  2787  render_3=  2771
+    b2c      y281-298  orig=  2121  render_3=  2266
+    b3a      y332-350  orig=  2439  render_3=  2510
+    b3b      y357-374  orig=  2867  render_3=  2212
+    b4a      y408-426  orig=  3133  render_3=  2940
+    b4b      y434-447  orig=  1122  render_3=   798
+    b5a      y484-502  orig=  3376  render_3=  2947
+    b5b      y510-527  orig=   490  render_3=   436
+
+## DEFECT B — 2nd underline crossing the inner box border x830
+  (banked: black underline x675..877 in render_1; original's own dark
+   underline sits at x109..163 y525, fully inside the box x83..833)
+    render_1 (banked FAIL)           red-underline band y294-298    wide runs: 
+    render_1 (banked FAIL)           dark-underline band y518-530   wide runs: x84..830
+    render_2 (fixed)                 red-underline band y294-298    wide runs: x110..299
+    render_2 (fixed)                 dark-underline band y518-530   wide runs: x109..163
+    render_3 (current, == pptx)      red-underline band y294-298    wide runs: x110..299
+    render_3 (current, == pptx)      dark-underline band y518-530   wide runs: x109..163
+
+  right-border crossing test — any ink beyond the inner box right edge x833
+  (white box interior ends x833; house panel stroke at x901):
+    render_1 (banked FAIL)           y294-298 ink px in x834..899 = 0
+    render_1 (banked FAIL)           y518-530 ink px in x834..899 = 0
+    render_2 (fixed)                 y294-298 ink px in x834..899 = 0
+    render_2 (fixed)                 y518-530 ink px in x834..899 = 0
+    render_3 (current, == pptx)      y294-298 ink px in x834..899 = 0
+    render_3 (current, == pptx)      y518-530 ink px in x834..899 = 0
+    ORIGINAL                         y294-298 ink px in x834..899 = 0  y518-530 = 0

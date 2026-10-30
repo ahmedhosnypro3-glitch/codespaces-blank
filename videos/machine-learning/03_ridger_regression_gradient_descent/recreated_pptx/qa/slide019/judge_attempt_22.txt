@@ -1,0 +1,17 @@
+Elementâbyâelement comparison vs. the original lecture frame:
+
+- Test Data block: zâ=(30/15) y=60, zâ=(40/20) y=80, zâ=(50/25) y=100 â matches verbatim, same horizontal threeâup layout, same blue rule/title. MATCH.
+- "Outlier Xâ" column: (11, 3, 22), (30, 3, 22), (60, 3, 22), with the "22" cells highlighted and the blue bracket spanning each triplet â MATCH.
+- "NO Regularizer with (as if Î»=0)": W=(0/2/0) âWâÂ²=4 â y 60 80 100; W=(2.7/0.67/0.64) âWâÂ²=8.11 â y 32.4 42.3 52.3; W=(4/0.29/0.78) âWâÂ²=16.7 â y 24.4 31.2 38 â MATCH (all cells, all three rows present, xâ in red / xâ in blue / y in green, blue â arrows present in every row).
+- "Ridge Regularizer with Î»=3": W=(0.1/1.95/0.03) âWâÂ²=3.8 â 59 78.7 98.4; W=(1.2/0.72/0.77) âWâÂ²=2.45 â 34.1 45.1 56.1; W=(1.77/0.32/0.98) âWâÂ²=4.2 â 26.2 34.4 42.5 â MATCH.
+- "Ridge Regularizer with Î»=10": W=(0.13/1.87/0.09) âWâÂ²=3.5 â 57.4 76.5 95.6; W=(0.54/0.73/0.81) âWâÂ²=1.48 â 34.6 46 57.4; W=(0.82/0.33/1.1) âWâÂ²=1.92 â 26.8 35.4 44.1 â MATCH.
+- Column ordering (Outlier | Î»=0 | Î»=3 | Î»=10), paleâgreen tint on the two Ridge header bands vs. white NO band, âWâÂ² cell at the left of each yellow prediction band, stacked 2âD W parentheses spanning all three lines and vertically centered, slide badge "19," and the tick stubs below the panel â all reproduce the original.
+
+Discrepancies (severity / confidence):
+- BLOCKER: none.
+- MAJOR: none. No missing row, no empty equation region, no wrong/truncated table value, no lineâspacing/verticalâcentering/gap/alignment deviation detected, no delimiter that fails to span its lines or overlaps its text, and no inner content crossing/touching its frame or the panel strokes (closest items â bottom bands and tick stubs â behave the same as the original).
+- Per founder directives these are explicitly NOT defects and were not counted: absence of a top red stroke (correct â original has none); omitted mouse pointer/video artifact in frame 2 (correctly omitted); stacked 2âD equation format (mandated upgrade); both frames are typed (handwrittenâink rule inapplicable).
+
+Visualâquality defects in the recreation: none material â no text clipping/overflow, no wrong wrapping, no labelâvsâvalue or valueâvsâenclosingâmark misalignment, no collisions, no illegibility.
+
+FINAL VERDICT: PASS â faithful, usable recreation.

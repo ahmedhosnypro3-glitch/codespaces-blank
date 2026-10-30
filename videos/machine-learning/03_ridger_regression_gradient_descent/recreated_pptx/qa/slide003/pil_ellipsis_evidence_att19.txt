@@ -1,0 +1,35 @@
+PIL-FIRST ELLIPSIS VERIFICATION — slide 003, worker judge-slide003-att19, 2026-10-24
+Targets: the attempt-16 FAIL — (1) bottom design matrix middle row drops one
+ellipsis cell; (2) weight-vector subscript case + missing ellipsis cell.
+
+METHOD 1 — pptx ground truth (the pptx IS the render source; LibreOffice is
+deterministic, proven by render_19 == render_18 md5 7afc5d9056ad725cbf7b6f5d9a29e20a):
+  ppt/slides/slide1.xml shape geometry (96dpi EMU/9525) x 0.75 -> frame coords:
+    design-matrix row1 y=367.5: x11 x12 ... x1d   (x=181.5/225.75/270/313.5)
+    design-matrix row2 y=396.75: x21 x22 ... x2d  (SAME four x)
+    design-matrix row3 y=426.75: ... ... ... ...  (SAME four x)  <-- FIX PRESENT
+    design-matrix row4 y=456.0 : xn1 xn2 ... xnd  (SAME four x)
+    weight vector x=462: b(349.5) w1(387.75) w2(415.5) ...(453.0) wd(469.5)
+      — all lowercase w, ellipsis restored as the 3rd entry.
+
+METHOD 2 — rendered-pixel census (scripts: matrixprofile_att19.py,
+inkcells_att19.py). Dark ink (min channel <100) per 3px band per matrix column,
+frame coords, both images LANCZOS-resampled to 960x540:
+
+  ORIG       row1 y373-382:  4/13/10/11    row2 y400-418:  8/15/18/15
+             row3 y445:       2/12/13/14     row4 y460-478: 11/22/20/18
+  RENDER_19  row1 y376-382:  8/ 8/ 3/12    row2 y406-415:  5/ 5/ 3/ 5
+             row3 y442:       3/ 3/ 2/ 3     row4 y463-484:  5/36/ 3/10
+
+  ORIG row3 carries ink in ALL FOUR columns (2/12/13/14); RENDER_19 row3 carries
+  ink in ALL FOUR columns (3/3/2/3). The 4-cell middle row now reproduces the
+  original's structure. Full-resolution per-cell census: row3 = 10/10/10/10 dark
+  px — four uniform ellipsis cells.
+
+  Weight vector (dark ink, full-res render vs original): b 150/93, w1 121/75,
+  w2 126/37, ellipsis 20/24, wd 355/67 — every cell incl. the ellipsis has ink.
+
+CONCLUSION: both attempt-16 defects are fixed and visible in the render. No
+rebuild is needed on their account. Residual ink-weight differences (render
+ellipsis strokes thinner than the original pen strokes) are the typed-vs-
+handwritten medium difference, capped MINOR by GROUND RULES.

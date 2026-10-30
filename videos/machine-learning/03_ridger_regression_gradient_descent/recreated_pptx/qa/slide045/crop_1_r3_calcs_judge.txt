@@ -1,0 +1,27 @@
+## Zoomed Crop-Pair Analysis â Slide 045, "attempt 4 leg" (six d(xáµ¢) rows)
+
+**Region covered:** six stacked rows, each of the form `d(xáµ¢) = [blue row vector] [green column vector] = value â Keep same Weight, W = [green column vector]`, separated by thin rules. Crop-relative coordinates below are roughly (x, y) within the ~1240Ã845 crop.
+
+### Cell-by-cell value audit (all six rows)
+
+| Row | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| 1 (~y 30â130) | xâ; 1 1 1; 14/â4/0; = 10 | xâ; 1 1 1; 14/â4/0; = 10| 2 (~y 160â265) | xâ; 1 2 1; 14/â4/0; = 6 | xâ; 1 2 1; 14/â4/0; = 6| 3 (~y 295â400) | xâ; 1 1 2; 14/â4/0; = 10 | xâ; 1 1 2; 14/â4/0; = 10| 4 (~y 430â535) | xâ; 1 5 4; 14/â4/0; = â6 | xâ; 1 5 4; 14/â4/0; = â6| 5 (~y 565â670) | x 6 5; 14/â4/0; = â10; 1 6 5; 14/â4/0; = â10 | 6 (~y 700â810) | xâ; 1 6 6; 14/â4/0; = â112 | xâ(ambiguous); 1 6 6; 14/â4/0; = â112 |) |
+
+Every digit, sign, and result matches row-for-row. The "â Keep same Weight" text with underlined "Weight" appears in all six rows in both images. The W-column at right reads 14/â4/0 in all six rows in both.
+
+### Discrepancy list
+
+1. **Delimiter style on the vectors** â MINOR, confidence high. Original (~x 230â300 in each row, and ~x 950â1030 at right) encloses the blue row vector in parentheses and sets the green W-column in parentheses; the recreation drops the blue parentheses and renders the green column between vertical bars `|14 â4 0|` (determinant-style), in both the equation and the `W =` display. This is consistent with the founder-mandated professional 2D-format license (rule d) and is mathematically equivalent notation; the bars in the recreation span all three lines cleanly without touching the digits, so delimiter geometry itself is correct.
+
+2. **Row-6 subscript glyph** â MINOR, confidence medium. In IMG2 (~x 95, y ~735) the subscript on x in row 6 is handwritten and ambiguous â it reads like a 5 with a correction stroke. The recreation renders a clean xâ, which is the only reading consistent with the row sequence xââ¦xâ and the distinct vector (1 6 6). Reasonable disambiguation of source handwriting, not a content change.
+
+3. **Vertical placement of the blue row vector** â MINOR, confidence high. In IMG2 the blue digits sit high (top-aligned with the top of the green column); in IMG1 they are vertically centered against the column (~x 140â250). Within the 2D-format re-typesetting license; no glyph or value change.
+
+4. **`â112` in row 6** â INFORMATIONAL, not a defect. Arithmetically 1Â·14 + 6Â·(â4) + 6Â·0 = â10, but the **original itself shows â112** and the recreation faithfully reproduces â112. Since fidelity to the source is the criterion, this is correct behavior; flagged only so no one "fixes" it later.
+
+5. **Color saturation** â MINOR/negligible, confidence medium. Recreation's blue (pure blue) and green are slightly more saturated than the original's ink-blue/oliver-green, partly a JPEG-capture artifact in IMG2. Not a content difference.
+
+No BLOCKER or MAJOR defects: no wrong, missing, or garbled digits or characters; no swapped table values; all subscripts present; all delimiters span their full three-line content without touching the glyphs; row separation and per-row vertical centering match.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

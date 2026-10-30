@@ -1,0 +1,42 @@
+FIDELITY CHECK REPORT
+
+**DISCREPANCIES**
+
+1.  **Top Left Data Matrix â Value Mismatch**
+    *   **Location:** Top panel, left region (data table).
+    *   **Observation:** Image 1 Row 2 Column 3 displays `(2)`. Image 2 Column 3 Row 2 displays `1`. Image 1 Row 2 Column 4 displays `(4)`. Image 2 Column 4 Row 2 displays `2`.
+    *   **Severity:** MAJOR
+    *   **Confidence:** High
+    *   **Rule:** Table Data / Content fidelity.
+
+2.  **Top Right "Check classes of" Vectors â Dimensionality Mismatch**
+    *   **Location:** Top panel, right region.
+    *   **Observation:** Image 1 displays column vectors with 2 rows: $\begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 7 \\ 6 \end{pmatrix}, \begin{pmatrix} 3 \\ 2 \end{pmatrix}$. Image 2 displays column vectors with 3 rows: $\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 7 \\ 6 \\ 0 \end{pmatrix}, \begin{pmatrix} 3 \\ 2 \\ 2 \end{pmatrix}$. Image 1 is missing the third row of data.
+    *   **Severity:** MAJOR
+    *   **Confidence:** High
+    *   **Rule:** Missing elements / Content fidelity.
+
+3.  **Row 4 ($x_4$) â Weight Update Logic Error**
+    *   **Location:** Main content area, 4th row.
+    *   **Observation:** Image 1 text reads "Keep same Weight" with $W = [10; -2; 0]$. Image 2 text reads "Update Weight" with calculation resulting in $W = [8; -12; -8]$.
+    *   **Severity:** MAJOR
+    *   **Confidence:** High
+    *   **Rule:** Content fidelity / Logic.
+
+4.  **Sidebar Title â Typo Correction**
+    *   **Location:** Left sidebar header.
+    *   **Observation:** Image 1 reads "Augmented Vectors". Image 2 reads "Ugmented Vectors" (typo in original).
+    *   **Severity:** MINOR
+    *   **Confidence:** High
+    *   **Rule:** Verbatim text match.
+
+5.  **Equation Delimiter Geometry / Format**
+    *   **Location:** Main content area equations ($d(x_1)$ through $d(x_6)$).
+    *   **Observation:** Image 2 uses tall, spanning parentheses/brackets for column vectors. Image 1 uses inline bracket notation `[1 1 1; -10; -8]`. While Rule (e) mandates 2D format for the recreation, Image 1 fails to render the 2D format shown in Image 2 (which is already 2D), effectively downgrading the notation.
+    *   **Severity:** MINOR
+    *   **Confidence:** High
+
+**VISUAL-QUALITY DEFECTS IN RECREATION**
+*   None detected beyond the content discrepancies listed above. Layout, containment, and alignment appear otherwise consistent with the house template.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation'.

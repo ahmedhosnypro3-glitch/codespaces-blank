@@ -1,0 +1,26 @@
+## Comparison â Slide 019, header_strip region (zoomed crop-pair)
+
+**Region contents checked:** title box ("Test Data" + three column vectors zâ, zâ, zâ with y-values), the horizontal rule with tick marks, the four column headers ("Outlier Xs", "NO Regularizer with (as if Î»=0)", "Ridge Regularizer with Î»=3", "Ridge Regularizer with Î»=10"), and the "19" badge.
+
+### Content verification (values, glyphs, structure)
+- Vectors: zâ=(30, 15), zâ=(40, 20), zâ=(50, 25); y=60, y=80, y=100 â all numbers and subscripts correct in both. â
+- Header text strings: all four headers verbatim correct, including "(as if Î»=0)" with Î» glyph intact. â
+- Badge "19" present. â
+- Delimiter geometry: parentheses in both span both vector components cleanly without touching the numerals. â (Original uses thin serif parens; recreation uses heavier black parens â inherent rendering-weight difference, MINOR.)
+
+### Discrepancies
+
+1. **Column-header text color, "Ridge Regularizer with Î»=3" (crop-relative ~xâ680â1000, lower strip):** recreation renders it in **blue**, original renders it in **dark red/maroon** matching the "NO Regularizer" header. Same for "Ridge Regularizer with Î»=10" (~xâ1220â1560): blue in recreation, red in original. In the original, ALL three treatment headers are red; the recreation only colored the first one red. â **MAJOR**, confidence high.
+
+2. **Missing tinted fills on header boxes:** in the original, the three treatment-header boxes have distinct pale fills (pale yellow for "NO Regularizer", pale peach/orange for "Î»=3", pale green for "Î»=10"), visible across the full lower strip. The recreation's boxes are unfilled (white/panel-gray) with only the border strokes. â **MAJOR**, confidence medium-high (fills are subtle at this scale but consistently present in IMG2 and absent in IMG1).
+
+3. **Title/typeface style:** original "Test Data", the z vectors, and "y=60/80/100" are set in an italic serif face (Times-like); recreation uses a bold upright sans face throughout the title box. Same characters, different family/weight â **MINOR**, confidence high (stylistic, all glyphs and values intact).
+
+4. **"Outlier Xs" label:** both show the label at the far left; original is bottom-cropped in this crop so full text can't be compared â no defect charged. (Note only.)
+
+Not charged per ground rules: missing top stroke, yellow badge with purple ring, panel chrome, JPEG softness/halos in IMG2, heavier math-parenthesis weight, sans-serif house style.
+
+### Summary
+All numeric content, subscripts, Î» values, and text strings are correct and every equation/delimiter is properly formed â the recreation is textually faithful. However, the two coloring/fill defects in the header strip (red-vs-blue on the two Ridge headers, and missing box tints) are real, visible-at-zoom deviations from the original's visual encoding of the three treatment columns.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â fix the Ridge-header colors and the missing header-box fills, then this region passes.

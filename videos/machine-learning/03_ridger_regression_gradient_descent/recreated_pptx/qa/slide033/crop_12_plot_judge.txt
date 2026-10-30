@@ -1,0 +1,33 @@
+## Comparison frame
+Matched-scale, crop-relative coordinates (both images ~712Ã445 px). I checked the curve topology, every tick glyph, the marker set, the callout text and the leader arrows.
+
+**Verified matches (no discrepancy):**
+- Curve shape/topology: left descent â trough at â(152,296) â hump at â(200,58) â shallow trough â(395,176) â hump â(440,86) â deep trough â(495,348) â upstroke. Same in both.
+- X-axis label row, value by value: **â10, â8, â6, â4, â2, 2, 4, 6, 8, 10** â digits and minus signs identical; the "4" is occluded by the second trough in *both* frames, so not a recreation error.
+- Y-axis label row, value by value: **6, 4, 2, â4, â6, â8, â10, â12** â identical, no "0" label in either, no shifted/garbled numerals.
+- "x" axis label (â588,152 in IMG1 / â547,152 in IMG2) present in both; axis arrowheads (left â108, right â555; vertical bottom â322,425) present in both.
+- Callout wording and line break: "Reach" / "Local Minima" â correct letters, italic serif, purple, 2 lines in both.
+- Positions of red initial point, green minimum marker, orange arrow and pink callout all land on the same curve features.
+
+Ruled out per ground rules: red/gray panel chrome, typed-vs-handwritten ink, JPEG softness/halo on the original, and background/grid tone differences.
+
+## Discrepancies
+
+| # | Location (crop-relative) | Finding | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | âx=127, y=105â290 (vertical strip between the red dot and the green marker, left of the teal descent) | **Dashed drop-guide line is truncated and mis-coloured.** IMG2 shows a continuous red/maroon dashed line running from the initial-point marker down the full gap to the reached minimum. IMG1 shows only a short dark (black) dash stub just below the dot (ây=105â140); below that the strip is empty grid/panel. The element that communicates "initial point â reached minimum" is largely missing, and its ink colour does not match. | **MAJOR** | Medium |
+| 2 | â(152,297), green marker at the first trough | Green reached-minimum marker is a **noticeably larger ellipse** in IMG1 (â30Ã22 px) than in IMG2 (â22Ã14 px), so it covers more of the teal trough and hides the curve bottom. Shape class (rounded green blob) matches; scale does not. | MINOR | High |
+| 3 | â(127,98) | Red initial-point dot is **larger in IMG1** (Ãâ16 px) than in IMG2 (Ãâ12 px). | MINOR | Medium-High |
+| 4 | â(145â172, 33â80), orange arrow | IMG1's orange arrow is a **thin shaft with a small narrow head**; IMG2's is a **thick solid orange wedge with a broad triangular head** and slightly different head angle. | MINOR | Medium-High |
+| 5 | â(150â160, 305â332) vs â(152â178, 300â332) | Black leader arrow from callout to green marker: IMG1 = **short, stubby, solid-filled** arrow; IMG2 = **longer, hollow/outlined** arrow with a clear shaft. | MINOR | Medium |
+| 6 | Callout box â(105â280, 330â410) vs â(105â278, 333â400) | Pink callout is **â15 px taller** in IMG1, with **larger, heavier purple italic text and wider line spacing** than IMG2's more compact box/text. Line break and glyphs are correct. | MINOR | Medium-High |
+| 7 | Teal curve throughout (e.g. y=60â350) | Curve stroke reads **slightly heavier/darker** in IMG1; IMG2's is lighter and softened (partly capture blur). Stroke weight only; no shape deviation. | MINOR | Medium |
+| 8 | Left crop edge, â(0â75, 330â395) green box; â(0â45, 190â235) white box | Edge-cropped neighbours: the red "**â9.6**" is **larger and bolder** in IMG1, and the italic *x* rule under it is black in IMG1 vs grey in IMG2. Outside the core region, but visible in the crop. | MINOR | Low-Medium |
+| 9 | Top edge, yâ0, x=0â290 | A thin horizontal dark rule appears only along IMG1's top crop edge; likely a crop-boundary artifact rather than scene content, so flagged only as an observation. | MINOR | Low |
+
+## Assessment
+The graph itself is faithful: identical non-convex curve, identical marker placement, and every tick numeral on both rows is correct with no garbled glyphs, no swapped values and no missing label row; the callout text is correct and correctly broken. The defect that matters is #1: the original's red dashed initial-pointâminimum guide line is reduced to a short black stub in the recreation, so a distinct instructional graphic element present in the source is absent for most of its run. The remaining items are scale/weight/style variances that do not impede reading.
+
+To reach PASS: restore the full red dashed guide from the red dot down to the green minimum, and trim the green marker, red dot, callout box/text and orange arrow toward the original's proportions (plus extend/shape the black leader arrow as an outlined arrow).
+
+**FINAL VERDICT: FAIL**

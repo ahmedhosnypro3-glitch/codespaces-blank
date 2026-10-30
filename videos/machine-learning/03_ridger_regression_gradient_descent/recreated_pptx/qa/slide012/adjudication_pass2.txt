@@ -1,0 +1,98 @@
+============================================================================
+1a. DECISIVE: is the y250..252 x670..705 red band a real element?
+============================================================================
+Per-row red-dominance over x665..710 (original). A real red stroke should
+stand out sharply against neighbouring rows.
+  y=244: R-G=  +0.5  R-B=  +3.8
+  y=245: R-G=  +0.4  R-B=  +3.7
+  y=246: R-G=  -0.1  R-B=  +3.3
+  y=247: R-G=  +1.4  R-B=  +4.6
+  y=248: R-G=  +2.8  R-B=  +5.2
+  y=249: R-G=  +5.5  R-B=  +5.4
+  y=250: R-G= +24.7  R-B= +20.1  <== RED-DOMINANT
+  y=251: R-G= +26.9  R-B= +22.1  <== RED-DOMINANT
+  y=252: R-G= +16.3  R-B= +14.9  <== RED-DOMINANT
+  y=253: R-G=  +6.8  R-B=  +8.7
+  y=254: R-G=  +0.5  R-B=  +4.3
+  y=255: R-G=  -2.4  R-B=  +2.2
+  y=256: R-G=  -2.1  R-B=  +0.5
+  y=257: R-G=  -1.6  R-B=  +0.5
+
+Rows 260..276 (the same band ABOVE the callout, for contrast):
+  y=258: R-G=  -1.1  R-B=  +1.0
+  y=259: R-G=  -1.3  R-B=  +1.2
+  y=260: R-G=  -2.2  R-B=  +1.0
+  y=261: R-G=  -2.2  R-B=  +1.3
+  y=262: R-G=  -1.4  R-B=  +2.0
+  y=263: R-G=  -1.2  R-B=  +2.0
+  y=264: R-G=  -1.6  R-B=  +1.5
+  y=265: R-G=  -2.0  R-B=  +0.7
+  y=266: R-G=  -2.2  R-B=  +0.2
+  y=267: R-G=  -1.6  R-B=  +0.7
+  y=268: R-G=  -0.5  R-B=  +2.1
+  y=269: R-G=  +2.0  R-B=  +4.5
+
+Control: red-dominance of chroma fringe on KNOWN horizontal edges.
+  test-table bottom border (y252, x740..800): R-G=-1.5
+  middle-table top border (y265, x300..400) : R-G=-2.0
+  question-box top border (y366, x700..800) : R-G=+1.3
+
+  -> if all controls are BLUE-dominant and only the candidate band is
+     RED-dominant, the band is a real red element, not JPEG fringe.
+
+============================================================================
+1b. Where exactly is that band's ink?
+============================================================================
+  y244..245:   0
+  y246..249:    5 loose-red px  x669..670
+  y250..252:   89 loose-red px  x670..714
+  y253..256:   0
+
+============================================================================
+2. Again-box + question-box geometry, both images
+============================================================================
+  ORIGINAL Again box: x707..835 y270..316  (w=129 h=47)
+  ORIGINAL question box blue ink: x614..852 y375..405
+  ORIGINAL question box border scan:
+  RENDER Again box: x707..835 y270..316  (w=129 h=47)
+  RENDER question box blue ink: x604..869 y366..414
+  RENDER question box border scan:
+      vertical blue run at x=1204 -> 102 px tall
+      horizontal blue run at y=726 -> 551 px wide
+
+============================================================================
+5. Text alignment inside EVERY label box (both text lines recovered)
+============================================================================
+  Training Data (box centre x=132, w=130):
+      ORIG : y104..104 x68..197 centre=132 (box 132, +0)  insets L0/R0
+      ORIG : y113..127 x79..174 centre=126 (box 132, -6)  insets L11/R23
+      ORIG : y133..133 x68..197 centre=132 (box 132, +0)  insets L0/R0
+      REND : y104..104 x68..68 centre=68 (box 132, -64)  insets L0/R129
+      REND : y115..127 x92..174 centre=133 (box 132, +1)  insets L24/R23
+  Perfect Data (box centre x=132, w=128):
+      ORIG : y183..196 x78..162 centre=120 (box 132, -12)  insets L9/R34
+      REND : y175..221 x69..171 centre=120 (box 132, -13)  insets L0/R25
+  Outlier 1 (box centre x=132, w=128):
+      ORIG : y331..341 x79..166 centre=122 (box 132, -10)  insets L10/R30
+      REND : y323..349 x69..167 centre=118 (box 132, -14)  insets L0/R29
+  Outlier 2 (box centre x=132, w=128):
+      ORIG : y453..463 x79..166 centre=122 (box 132, -10)  insets L10/R30
+      REND : y445..471 x69..167 centre=118 (box 132, -14)  insets L0/R29
+  Again (box centre x=771, w=129):
+      ORIG : y278..291 x720..754 centre=737 (box 771, -34)  insets L13/R81
+      REND : y270..270 x707..707 centre=707 (box 771, -64)  insets L0/R128
+      REND : y282..294 x754..789 centre=772 (box 771, +1)  insets L47/R46
+      REND : y297..306 x735..808 centre=772 (box 771, +1)  insets L28/R27
+
+============================================================================
+7. Header cell ci=1 (the 'X1' cell), not the empty label cell
+============================================================================
+  ORIGINAL X1 header cell (x244..285 y127..158, h=31, centre=142.5):
+      text rows y136..150 (15px) centre=143.0
+      row X1 data: text rows y167..189 centre=178.0
+      row y: text rows y228..240 centre=234.0
+  RENDER X1 header cell (x244..285 y127..158, h=31, centre=142.5):
+      text rows y128..158 (30px) centre=142.8
+      grid rows at y: [127, 127, 158]
+      row X1 data: text rows y159..188 centre=173.6
+      row y: text rows y220..248 centre=234.1

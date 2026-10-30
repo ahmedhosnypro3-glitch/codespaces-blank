@@ -1,0 +1,47 @@
+# Region Comparison â Slide 005, upper-right blue "Remember" box (zoomed crop-pair, attempt 9)
+
+## Text content â prose lines
+
+**1. Equation first symbol: Y vs X â BLOCKER (confidence: high)**
+In IMG2 (original), the equation reads **Y^T(X W) = (X W)^T Y** â the leading variable is a *Y* (italic with descender, red bold, underlined), and the trailing variable after the superscript T is also a *Y*. In IMG1 (recreation), both occurrences are rendered as **X**: "X^T(XW) = (XW)^T X". This is a wrong character in the equation, occurring twice (left of "(XW)" at crop-relative ~xâ55, and right of "(XW)^T" at ~xâ420). Per the ground rules, a wrong symbol in an equation is a blocker-grade defect. (Note: the original slide is the well-known identity Y^T(XW) = (XW)^T Y from the ML lecture series; the recreation substituted X.)
+
+**2. Color/weight styling of inline variables â MAJOR (confidence: high)**
+IMG2 distinguishes the matrices/vectors typographically: **X is red bold underlined** ("X is a matrix" at ~xâ45), **W is blue bold underlined** ("W is a vector" at ~xâ235), and **XW is bold with underline** ("XW is a vector" at ~xâ50), and the same red/blue/bold/underline treatment carries into the equation (X red, W blue, Y red). IMG1 renders every variable in plain black italic with no color distinction and no underlines. The underlines in the original are meaning-bearing (they mark column vectors), so this is more than cosmetic â MAJOR.
+
+**3. Missing underlines beneath X, W, XW, Y â MAJOR (confidence: high)**
+Even considered separately from color, IMG2 shows a thin underline stroke under each variable token in both prose lines and throughout the equation (e.g., under "X W" inside both parenthesized groups at ~xâ150 and ~xâ310). IMG1 has none. Combined with item 2 this is part of the same lost styling, but on its own it is a missing stroke element â MAJOR.
+
+## "Remember" label
+
+**4. Label font style â MINOR (confidence: high)**
+IMG2: "Remember" is bold *italic serif* in dark red **with an underline**. IMG1: bold sans-serif red, no underline. Per rule (c)-adjacent reasoning this is a typed-style difference in the same label; the missing underline is the more notable part, but the label text and color are correct â MINOR.
+
+## Equation layout (medium/format)
+
+**5. Equation rendered in professional 2D italic format vs original's spaced serif style â NOT a discrepancy (confidence: high)**
+Per ground rule (d), IMG1's cleaner 2D rendering (italic glyphs, tighter spacing, superscript T raised and aligned) vs IMG2's wider-spaced serif typesetting is a mandated format upgrade. Spacing around "=" is wider in IMG2 (~xâ230â280) and tighter in IMG1 â MINOR at most, and I do not raise the format itself. The superscript T in both is correctly attached to the correct parenthesized group on each side.
+
+**6. Delimiters â OK (confidence: high)**
+Parentheses in both images correctly span the enclosed "XW" / "X W" tokens without touching glyphs. No defect.
+
+## Box chrome
+
+**7. Blue box fill and outline â OK / MINOR (confidence: medium)**
+Both show the light-blue panel; IMG2 may show a faint thin darker outline on the blue box edge, IMG1 none visible at this crop â within template-chrome tolerance per rule (b) â MINOR at most, low impact.
+
+---
+
+## Summary
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | Equation variables Y rendered as X (twice) | **BLOCKER** | High |
+| 2 | Lost red/blue/bold color styling of variables | MAJOR | High |
+| 3 | Lost underlines under vector/matrix tokens | MAJOR | High |
+| 4 | "Remember" label font style + missing underline | MINOR | High |
+| 5 | Equation typeset format (2D upgrade) | Not a discrepancy | â |
+| 7 | Faint box outline difference | MINOR | Medium |
+
+The recreation gets the prose wording right and the equation structure (parenthesization, superscript T placement) right, but it renders the equation with the wrong leading/trailing variable (X instead of Y) â a wrong character in the equation content â and drops the meaning-bearing color/underline styling of the variables entirely.
+
+**FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'**

@@ -1,0 +1,81 @@
+# Judge transcript — slide 046, attempt 4 (full-slide)
+- date: 2026-10-24 07:02
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL first then RENDER; no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_046.jpg  md5=0b355cbc667845d46001d7001ada241d
+- IMG_RENDER:   recreated_pptx/qa/slide046/render_4.png  md5=a68b112d2d0866b77cc59ca82ff6378b
+- GM: render_H/540 = 1125/540 = 2.0833
+
+## Ground rules acknowledged
+(a) House chrome for THIS deck (founder-mandated, never a discrepancy): white canvas; gray
+E9E9E7 panel x54..903, y45..540, no border; thin C00000 1pt strokes on LEFT x58.5, RIGHT x901,
+BOTTOM y538.5 only — there is INTENTIONALLY NO TOP STROKE (the originals have none; a missing
+top stroke is correct, a present top stroke would be a defect); yellow slide-number badge circle
+centred (876,73) d≈35, fill FDFD96, purple ring 6A5ACD, bold Arial 18pt numeral 333333
+(numeral = the file number N = 46).
+(b) If image 2 were a contentless placeholder, contentlessness would be a match — it is not; the
+original is a full content slide.
+(c) Mouse cursor / video-capture artifacts in image 2 are correctly omitted.
+(d) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR.
+(e) Equations are rendered in PROFESSIONAL 2D FORMAT (stacked vectors with a horizontal
+alignment, stretched parens, aligned subscripts) per founder directive 2026-10-09 — a
+linear/typed rendering in the original would be a mandated upgrade, not a discrepancy.
+(f) Verdict covers fidelity of renderable content only.
+
+## Comparison (element by element)
+- Title: the original prints NO slide title (top box only); the recreation also adds none. MATCH.
+- Top-left data block (frame x68..720, y54..130): cream fill (254,255,232 in the frame; FEF… in
+  the render) with a thin dark-navy border — BOTH, same rectangle, same colour family. MATCH.
+- Data matrix: six PARENTHESISED COLUMN VECTORS, header x1..x6 (y64..73), values x1(1,1)
+  x2(2,1) x3(1,2) x4(5,4) x5(6,5) x6(6,6), class row C1 C1 C1 (RED) C2 C2 C2 (BLUE) — every
+  header, every value and every class label matches the frame, in the frame's column layout.
+  MATCH (the attempt-2/3 horizontal-row transcription and its C1-blue/C2-red swap are gone; the
+  frame wins over the analysis JSON).
+- Caption line (y110..123): "C1 positive  C2negative   Zero  is unaccepted" with C1 red,
+  C2 blue, Zero green — BOTH, same words, same colours, same band. MATCH.
+- "Initial W = (4/−2/−2)" vector: BOTH at x267..375, y58..108; underlined W, stacked 4/−2/−2 in
+  stretched parens with a real minus. MATCH (vector crop leg separately certified).
+- "Step η = 2": red bold italic at x370..437, y67..81 in BOTH. MATCH.
+- "Check classes of": black label at x499..581, y80..88 in BOTH. MATCH.
+- Z matrix: header Z1 Z1 Z1 (y64..72) over three parenthesised columns (0,0) (7,6) (3,2) in
+  BOTH — the frame's real values (the spec's 0 0 7 / 0 6 2 is wrong and is NOT reproduced).
+  MATCH (crop leg certified).
+- Final-weight box (x738..829, y58..143): pale-lavender fill #F9E8FA with a thin light-purple
+  border (NOT the spec's FFFF99), underlined W, "=", and the 14 / −4 / 0 column vector in tall
+  parens — BOTH. MATCH (crop leg certified).
+- Augmented-vectors box (x69..246, y140..255): white fill, thin gray-blue border; title
+  "Ugmented Vectors ( from Top )" blue-violet bold italic on ONE line (x82..236); header
+  x1..x6; six 3-value columns (1,1,1)(1,2,1)(1,1,2)(1,5,4)(1,6,5)(1,6,6); class row C1 red ×3,
+  C2 blue ×3 — BOTH. MATCH (crop leg certified).
+- "Iteration 4" callout (x84..213, y278..304): solid red box (192,0,0), white bold centred text
+  — BOTH, same size (white-ink 209x32 crop px vs frame 212x32). MATCH.
+- Stop callout (x64..245, y331..415): pink fill #F9D7D8 with a thin red border; "No change in W"
+  (W bold italic underlined) over "Stop" (red bold italic) + "Iterations" (black italic) — BOTH,
+  same two-colour split. MATCH.
+- Scatter plot (x312..825, y173..482): red border; white field; gray spines and gridlines at
+  x=0..8 / y=0..7; red decision line at data x=3.478 overshooting the frame; red "+ve" with a
+  LEFT arrow whose tail touches the line; blue squares (1,2)(1,1)(2,1); magenta diamonds
+  (5,4)(6,5)(6,6); red down-triangles (3,2)(7,6)(0,0) — all present at the frame's coordinates
+  (PIL: marker centres Δ≤1.6 px; gridlines Δ≤0.5 px; decision line Δ0.9 px). MATCH (crop leg
+  certified).
+- Frame containment: every element sits inside its box and inside the house panel; nothing
+  crosses the panel/strokes; no overflow, no collision (PIL selfcheck 60/60 PASS).
+- Legibility: all text legible at 150 dpi; no clipping, no wrong wrapping.
+
+## Discrepancies
+1. MINOR (font style) the frame is typeset in serif faces; the recreation uses the deck's
+   Arial text + DejaVu math mechanism (identical to all 17 certified deck-03 slides). Characters,
+   sizes (±2 px measured) and positions match. Deck-consistent style, not a content difference.
+2. MINOR (crispness / JPEG) trace glyph edges sharper than the compressed video frame; marker
+   antialiasing differs by ≤1 px. Ground rule (e)/(f).
+3. MINOR (title tracking) "Ugmented Vectors ( from Top )" ink 154 px wide in both, ±2 px per side
+   on individual words (PIL). No text change.
+4. Cursor artifact at the plot top in the original — correctly omitted (ground rule c); not a
+   discrepancy.
+
+No BLOCKER, no MAJOR: no missing equation/graph/row, no empty equation region, every table and
+matrix value matches the frame, no delimiter geometry defect, no overflow.
+
+## Visual-quality defects
+None observed: no text overflow/clipping, no collision, no illegible region; all glyphs render.
+
+FINAL VERDICT: PASS

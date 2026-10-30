@@ -1,0 +1,29 @@
+# Slide 021 â Paren-Curve Region Audit (crop-relative coordinates)
+
+**Region:** main equation, opening paren through "Î» =" (~full width of crop, vertically centered)
+
+## Glyph-by-glyph comparison
+
+| Element | IMG1 (recreation) | IMG2 (original) | Assessment |
+|---|---|---|---|
+| Opening paren "(" | present, black, correct span | present, black, correct span | Match |
+| First X | red, italic serif, **no underline** | dark red, italic serif, **with horizontal underline beneath** (~x 40â90) | Underline missing |
+| Superscript T | present, raised, correct | present, raised, correct | Match |
+| Second X | red, **no underline** | dark red, **with horizontal underline beneath** (~x 130â180) | Underline missing |
+| "+" | present, black, correct | present, black, correct | Match |
+| Î» | blue, correct glyph | blue, correct glyph | Match |
+| I | blue italic, correct | blue italic, correct | Match |
+| Closing paren ")" | present, spans all terms, no collision | present, spans all terms, no collision | Match |
+| Trailing "Î» =" | present at right edge, partially cropped in both | present at right edge, partially cropped in both | Match (crop artifact) |
+
+## Discrepancies
+
+1. **MAJOR â Missing matrix underlines on both X glyphs** (confidence: high). IMG2 shows a clear horizontal underbar beneath each X (standard notation marking X as a matrix/data matrix). IMG1 renders plain X with no underline in either position (~x 35â95 and ~x 120â175 in IMG1). Two instances of a missing notation element; visible at this zoom and semantically meaningful (distinguishes matrix X from scalar x).
+
+2. **MINOR â Inter-term spacing** (confidence: medium). IMG1 sets "X^T X" slightly tighter than IMG2's "X^T  X", and "Î»I" tighter than "Î» I". Purely spacing, no glyph or structural error.
+
+No color errors, no wrong/garbled glyphs, no delimiter-span failures, no missing symbols.
+
+## FINAL VERDICT: FAIL
+
+The paren geometry, equation structure, colors, and every character are correct, but the missing underbars under both X's are a repeated omission of meaningful mathematical notation â a MAJOR defect at this zoom. Fix: add underlines beneath both X glyphs; then this region passes.

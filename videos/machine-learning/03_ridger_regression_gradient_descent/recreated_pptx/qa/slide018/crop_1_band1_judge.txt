@@ -1,0 +1,40 @@
+# Slide 018, Band 1 (Train table â W box â Test table) â Crop-Pair Audit
+
+## Cell-by-cell content verification
+
+**Train table header (top strip, crop-left):**
+- IMG1: Xâ Xâ Xâ Xâ Xâ Xâ Xâ â all present, correct subscripts, alternating blue/red ink matching IMG2. â
+- IMG2: identical sequence. â
+
+**Train table rows (crop-left, rows 2â4):**
+- Row Xâ: 1, 2, 3, 4, 8, 9, 10, 11 â values identical in both images. â
+- Row Xâ: 1, 3, 5, 6, 16, 7, 5, 3 â values identical. â
+- Row y: 2, 4, 6, 8, 16, 18, 20, 22 â values identical. â
+- No missing rows, no swapped digits, no truncation anywhere. â
+
+**W box (crop-center):**
+- Red-framed box, red underlined *W*, "W =" with tall parentheses spanning all three vector entries. â
+- Vector entries top-to-bottom: 0.13 / 1.87 / 0.09 â identical in both, correctly vertically distributed inside the delimiters; parens do not touch the digits. â
+- Norm line: âWâÂ² = 3.5 â superscript 2 correctly raised off the second â in both; "= 3.5" present in both. â
+
+**Arrows:** both hollow blue block arrows present at equivalent positions, similar proportions. â
+
+**Test table (crop-right):**
+- Header: Testâ (red), Testâ (blue), Testâ (red) â both match, subscripts correct. â
+- Xâ row: 30 / 40 / 50 â identical, ink colors match. â
+- Xâ row: 15 / 20 / 25 â identical, ink colors match. â
+- y row: 57.4 / 76.5 / 95.6 on mint fill â identical values, identical mint fill (fill only on the y row in both). â
+
+## Discrepancies found
+
+1. **MINOR** â *Ink-color swap in four Train-table cells (rows Xâ and Xâ, columns Xâ, crop-left middle).* In IMG2 (original), the column-alternating body ink follows the headers: 8 and 16 (under blue X; 9 and 7 (under red Xâ) are red. In IMG1 (render), these four cells are flipped: 8 and 16 render red, 9 and 7 render blue. All digit values themselves are correct; only the decorative blue/red alternation is inverted in those two columns. Visible only at this zoom; no content error. Confidence: medium-high (JPEG softness in IMG2 makes the exact hue read slightly uncertain, but the flip is consistent across both rows).
+
+2. **MINOR (low confidence)** â *Test-table gridline tint.* In IMG2 the Test table's interior rules read faintly pink/red-tinted, whereas IMG1's rules are light gray-blue. Given IMG2's capture softness and halo artifacts, this may be a compression artifact rather than a real template difference; flagging for completeness only.
+
+Not discrepancies (per ground rules): typed vs. slightly softer handwritten-look glyphs in IMG2; JPEG halos; the gray canvas and red side/bottom strokes at crop edges; the blue badge fragment at top-left/top-right (template chrome).
+
+## Summary
+
+All numeric content, table structure, the vector (0.13 / 1.87 / 0.09), the norm equation, the mint-highlighted Test row, and delimiter geometry match exactly. The only substantive finding is a decorative ink-color flip in four Train-table cells.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

@@ -1,0 +1,30 @@
+COMPARISON RESULTS â SLIDE 025, TOP-LEFT 3D DOME REGION
+
+**Discrepancy 1: BLOCKER â Floor axis tick labels have flipped signs**
+- Location: Bottom-left floor corner (~8% from bottom, ~12% from left) and bottom-right floor corner (~6% from bottom, ~92% from left)
+- IMG1 (recreation): Shows **"-2"** at left floor corner and **"-2"** at right floor corner
+- IMG2 (original): Shows **"2"** at left floor corner and **"2"** at right floor corner
+- Impact: The entire horizontal axis domain sign is wrong; this changes the mathematical meaning of the plot region. Wrong digit/sign at axis extremity is a mandated BLOCKER defect.
+
+**Discrepancy 2: MAJOR â Front/bottom edge axis labels differ in value and arrangement**
+- Location: Bottom front edge center (~12% from bottom, ~35â65% from left)
+- IMG1 (recreation): Shows **"0"** labels along the front bottom edge; right corner area shows **"-2"**
+- IMG2 (original): Shows **"2"** at far left, **"0"** left-center, **"-2"** center-bottom front, **"0"** right-center, **"2"** far right (a full symmetric set of floor-axis ticks)
+- Impact: Missing/incorrect tick values along the front axis edge. A wrong/missing axis value is MAJOR-to-BLOCKER.
+
+**Discrepancy 3: MINOR â Background 3D grid box visibility**
+- Location: Back walls and ceiling of the 3D box behind the dome (~15â45% from top, center-left to center-right)
+- IMG1 (recreation): Distinct light-gray grid lines forming the 3D enclosure are clearly visible
+- IMG2 (original): Grid lines are much fainter/lighter, nearly washed out in places
+- Impact: Likely render/compression artifact; visual fidelity difference only, not content.
+
+**Severity Summary**
+| Discrepancy | Severity | Confidence |
+|-------------|----------|------------|
+| Floor axis sign flip (-2 vs 2) | BLOCKER | High |
+| Front edge axis labels missing/wrong values | MAJOR | High |
+| Background grid line weight/visibility | MINOR | Medium |
+
+**FINAL VERDICT: FAIL**
+
+The recreation is not a faithful usable recreation of this region because the floor axis tick labels carry the wrong signs ("-2" instead of "2") at both corners, and the front axis tick arrangement does not match the original. These are content-altering defects that would be visible at full-slide scale as incorrect axis domains.

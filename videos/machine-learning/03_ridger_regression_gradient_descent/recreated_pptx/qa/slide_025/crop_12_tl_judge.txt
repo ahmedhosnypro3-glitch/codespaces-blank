@@ -1,0 +1,38 @@
+# Region Comparison â Slide 025, TL concave dome plot (crop-pair, matched scale)
+
+## Discrepancies
+
+**1. Axis tick values are wrong / missing (MAJOR, high confidence)**
+- Original (IMG2), left edge top-to-bottom: `0`, `-5`, then a front-corner label `2` (~62% down the crop). Recreation (IMG1) shows `0`, `â5`, then `â2` at the same spot. **The `2` tick is rendered as `â2`** â a wrong digit.
+- Original bottom/front axis carries four labels: `0` (left, ~72% down), `-2` and `-2` (center-bottom pair, ~85% down), `0` (~88% down), and far right `2` (~75% down). Recreation shows only `0` (left), `0` (bottom center, ~90% down), and `â2` (right, ~77% down). **The `-2`, `-2` pair and the right-hand `2` are missing**, and the center `0` sits where the original has `-2`.
+
+**2. Floor contour rings missing (MAJOR, high confidence)**
+- IMG2 clearly shows concentric cyan/yellow/green contour rings on the floor beneath the dome (center of plot, ~55â85% down). IMG1's floor is a flat dark-blue mesh with **no contour rings at all**. This is a stated feature of the region and a visible content omission.
+
+**3. Surface geometry mismatch (MAJOR, medium-high confidence)**
+- IMG2 renders a true concave dome: steep sides descending all the way to the floor corners, with a visible central dip/vertex at the front bottom (~85% down, center) where the mesh converges to a point.
+- IMG1 renders a smooth Gaussian-style bump with a rounded/flat crown sitting **on top of** a flat blue plane â the surface never meets the floor corners, and there is no central convergence point. Different mathematical shape for the same "concave function, one maxima" plot.
+
+**4. Color ramp on surface (MINOR, medium confidence)**
+- IMG2 shows a full jet colormap including orange bands near the crown; IMG1's crown is yellowâgreen with no orange band. Same family, but the ramp is compressed.
+
+**5. Red reference line placement (MINOR, medium confidence)**
+- Three red lines present in both â. In IMG2 they are spread across the surface height (top line ~33% down, then ~45%, then ~52% down, terminating inside/over the plot). In IMG1 the top two lines are clustered higher (~30% and ~42% down) and all three overshoot well past the plot frame's right edge to ~62% of crop width, longer than in the original. Not a content error, but placement/extent differs.
+
+**6. Label typography (MINOR, high confidence)**
+- IMG2 tick labels are serif (Times-like) bold; IMG1 uses a sans-serif face. Also IMG1 uses proper minus glyphs (â) vs original hyphen-minus â acceptable. Chrome/text-title box ("Concave Function / One Maxima", yellow keyword + white text on navy) matches in content, position, and color â.
+
+## What matches
+- Region framing, white plot panel with thin dark-red border â
+- Navy title box at right with yellow "Concave" + white "Function One Maxima" â
+- Three red horizontal reference lines present â
+- z ticks `0` and `-5` present and correctly placed â
+- Overall dome-with-blue-base color scheme â
+
+## Severity summary
+- MAJOR Ã3 (wrong `2`â`â2` tick; missing `-2, -2` / `2` axis labels; missing floor contour rings) plus surface-shape mismatch
+- MINOR Ã3 (colormap band, red-line extent, font family)
+
+The wrong tick value and missing axis labels are exactly the class of defect flagged as MAJOR even at zoom scale, and the missing contour rings plus altered surface geometry mean the plot does not faithfully reproduce the original figure.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

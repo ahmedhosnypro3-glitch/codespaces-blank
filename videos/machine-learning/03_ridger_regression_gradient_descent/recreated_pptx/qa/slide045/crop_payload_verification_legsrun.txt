@@ -1,0 +1,28 @@
+CROP-PAIR CURRENCY VERIFICATION (slide 045, worker-fresh-045-legs run, 2026-10-24 07:00 UTC)
+==========================================================================================
+Question: do the three banked `crop_1_r2_*` pairs really derive from the verified
+render_1.png, at matched effective scale?
+
+Method: re-ran build_crops_r2.py's exact logic (same frame bboxes, same
+RH/540 scale, LANCZOS upscale for the original crop) against the md5-verified
+render_1.png (see render_currency_legsrun.txt), then md5-compared the freshly
+computed PNGs byte-for-byte against the banked files.
+
+Result — all three pairs reproduced byte-identically from the verified render:
+  calcs     frame x266..861 y131..536 (595x405) -> 1240x844 | scale r=2.08403 o=2.08403 | both match
+  toppanel  frame x60..727  y46..137  (667x91)  -> 1390x189 | scale r=2.08396 o=2.08396 | both match
+  augtable  frame x62..254  y132..263 (192x131) ->  400x273 | scale r=2.08333 o=2.08333 | both match
+
+PAYLOAD VERIFICATION (same run)
+All four `-p` payloads were re-derived byte-for-byte from
+shared_patterns/judge_protocol_03.md (fenced block [2] = Template A comparison,
+block [3] = Template B crop; NNN=045, K=1, NAME + region description substituted
+only) and md5-compared against the banked files:
+  judge_prompt_1.txt          md5 9387f5fbb94ef05a31db19f1e018dde1  MATCH (4115 chars)
+  crop_prompt_1_r2_calcs.txt  MATCH (1914 chars, no placeholder leftovers)
+  crop_prompt_1_r2_toppanel.txt MATCH (1914 chars)
+  crop_prompt_1_r2_augtable.txt MATCH (1914 chars)
+The banked payloads are therefore protocol-legal and were NOT re-typed or edited.
+
+Gateway state at dispatch: pgrep -c -f analyze_image.py = 1 (below the 8-slot
+gate threshold) -> dispatch proceeded immediately, no wait required.

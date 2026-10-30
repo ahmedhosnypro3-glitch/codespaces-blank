@@ -1,0 +1,99 @@
+
+
+You are the build worker for slide 043 of
+`/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/`.
+Work autonomously to a certified single-version deliverable. You are the ONLY
+worker on this slide; DB claims enforce that.
+
+READ FIRST, in this order (they are binding law; the deck files OVERRIDE the
+generic runbook wherever they differ):
+1. `~/.zcode/skills/slide-recreation/SKILL.md` — the skill. Follow
+   `references/building.md`, `references/judging.md`,
+   `references/dependencies.md` (children only), and `references/patterns/`
+   (index.json → the patterns your slide needs).
+2. `/home/ahmed/Projects/ai_llm_slides/scripts/17_worker_instructions.md` —
+   the worker runbook (DB milestones, render, self-check, judge, verdict law,
+   resume rule, final report).
+3. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/AGENTS.md` —
+   THIS deck's law (measured chrome, dependency graph, ZOOMED-judge-for-ALL).
+4. `/home/ahmed/Projects/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/judge_protocol_03.md` —
+   the FROZEN judge templates. Source every `-p` payload byte-for-byte from
+   there (substitute only 043/K/region). Never hand-roll a judge prompt.
+
+STATE:
+- Content spec: `videos/machine-learning/03_ridger_regression_gradient_descent/analysis/slide_043_final.json`
+  (verbatim-text law: text is VERBATIM, `[?]` markers preserved, never invent facts).
+- Ground truth frame: `videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_043.jpg`
+  (960×540, 1px = 1pt = 1/72in). Measure with PIL — geometry from measurement,
+  never intuition.
+- DB (run from `/home/ahmed/Projects/ai_llm_slides`):
+  `VIDEO=machine-learning/03_ridger_regression_gradient_descent python3 scripts/15_progress.py <cmd>`
+  (claim/heartbeat/release/set/get; `set` takes THREE positionals; verify every
+  write with a `get`). **NEVER invoke 15_progress.py without the `VIDEO=` prefix**
+  — the default targets the CLOSED ml-intro deck's DB and a stray `set` silently
+  corrupts another deck's certified rows (known incident class, 2026-10-19;
+  if it ever happens, restore the foreign row from git and report it in your
+  worker_report.md).
+
+PROTOCOL:
+1. `claim 043 <your-unique-id>` (stand down read-only if a FRESH peer claim
+   exists; heartbeat every ~10 min of quiet phases; `release` at the end).
+2. DB milestones as you go: `gen_status=building`, `build_script`,
+   `pptx_path`, `visual_attempts`, `visual_check`, `visual_transcript`,
+   `gen_status`, `last_error` on failure.
+3. Build: `node videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_043.js`
+   producing `recreated_pptx/slide_043_recreated.pptx` (plain name, single version).
+   - House chrome: `require("../../shared_patterns/house_chrome.js").drawHouseChrome(pptx, slide, {numeral: 043})`
+     — THIS deck has NO top stroke (that is correct; do not add one).
+   - hex colors never carry `#` in pptxgenjs; lineSpacing mandatory on multi-line
+     text; measured geometry over intuition; never edit a certified component
+     in place (copy-then-modify).
+   - Equations (if any): matplotlib mathtext → 600dpi transparent PNG →
+     `addImage()` at exact px/600 size; bank PNGs + `eq_043_*.json` sidecars
+     (rel_id, image, mathtext, font_size_pt, color) under `recreated_pptx/build/assets/`
+     for the post-certification OMML wrap (`scripts/18_omml_wrapper.py`).
+   - Advanced graphs (if any): graphgen venv, topic-correct library, real data.
+4. Render 150dpi (private scratch + OWN LibreOffice profile
+   `-env:UserInstallation=file:///tmp/lo_slide043`; TMPDIR=
+   `/home/ahmed/Projects/ai_llm_slides/scratch/tmp`), then run
+   `python3 videos/machine-learning/03_ridger_regression_gradient_descent/shared_patterns/house_chrome_check.py <render.png> 043`
+   — FAIL = fix the build BEFORE spending a vision call.
+5. Judge — BOTH legs (founder directive: ALL slides get the zoomed judge):
+   a. FULL-SLIDE comparison (Template A of judge_protocol_03.md), attempt K.
+   b. ZOOMED CROP-PAIR certificates (Procedure B): ≥1 crop region covering the
+      slide's densest content (one per dense region on multi-region slides);
+      crop-vs-crop ONLY at matched effective scale (upscale the original crop
+      by H_render/540, LANCZOS); bank pairs + transcripts under
+      `recreated_pptx/qa/slide043/`.
+   Bank `judge_prompt_K.txt` + `build_attempt_K.js` per attempt; verdicts only
+   from real winner bodies; 3 garbage re-invokes; 6 attempts max then park
+   `gen_status=failed` + `last_error` and STOP.
+   Adjudication: judge findings are HYPOTHESES — PIL-measure against the
+   original frame before fixing; refuted findings become judge context for the
+   re-roll (judge variance is sampling). Inherited/cascade zones are
+   adjudication inputs, never fix triggers.
+6. Certification: full-slide PASS + all crop certificates clean (or
+   PIL-adjudicated with banked refutation records) → DB `visual_check=PASS`,
+   `visual_transcript=<path>`, `gen_status=passed`. OMML wrap happens
+   POST-certification as a separate orchestrator pass (do not wrap yourself
+   unless your brief says so).
+7. `worker_report.md` in `qa/slide043/` + final message: slide id, attempts,
+   final verdict, pptx path, transcript paths, one-line judge-flag summary.
+
+DEPS: root — no dependencies; build free.
+
+CONTENT LINES (orientation only — the final JSON + frame are authority):
+  - Title: Perceptron Iteration 2 | header/subtitle: Step η = 2
+  - Layout: Top band spans full width with 3 zones: left original-data table at approx 0–30% width, center initial-parameter block at approx 30–50% width, and right class-check matrix and legend at approx 50–85% width. A yellow slide-number circle sits in the top-right corner. Middle-left holds the augmented-vectors table at approx 0–30% width and the red Iteration 2 callout box below it. Right side and lower-right contain 6 stacked calculation rows at approx 30–100% width; rows 1–4 have blue left-pointing arrows on the far right.
+  - Visual element: text — Bold red header Step η = 2 with η italicized.
+  - Visual element: text — Black text Initial W = [4; -2].
+  - Visual element: table — Original data table: 3 rows × 6 columns. Header x1 x2 x3 x4 x5 x6; row 1 (1) (2) (1) (5) (6) (6); row 2 (1) (1) (2) (4) (5) (6); row 3 C1 C1 C1 C2 C2 C2 with C1 red and C2 blue.
+  - Visual element: text — Black label Check classes of.
+  - Verbatim text blocks: bullets=8, labels=13, equations=12
+  - Validation: verdict=PASS_WITH_FIXES score=9 uncertain=['slide_title was null in the source; Perceptron Iteration 2 is a reconstructed descriptive title, not a verified on-slide title.', 'Equations d(x₂) and d(x₃) do not arithmetically match their displayed vectors/weights; verbatim text was preserved because the image was unavailable.', 'Right arrows after Keep same Weight rows are not explicitly confirmed; the checklist places right arrows only after Update Weight rows 1–3.', 'Exact font sizes, circle diameter, arrow sizes, and pixel coordinates are not specified; placements use the JSON approximate region percentages.']
+  - Imagery: ['Small hand-pointer icon immediately to the right of the Iteration 2 box.']
+
+STORM RESILIENCE: on provider/upstream errors sleep 120s and retry up to 3×;
+bank per step atomically; keep logs in project scratch (never host /tmp);
+never abort the run; never delete banked evidence.
+

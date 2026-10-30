@@ -1,0 +1,45 @@
+=== ORIGINAL: white boxes (vector boxes) — column scan at x=70 (text-free left strip) ===
+  ORIG left vector box: col x=70 -> y 90..249 (h 159)
+  ORIG right vector box: col x=520 -> y 90..105 (h 15), y 233..249 (h 16)
+=== RENDER: same column ===
+  REND left vector box: col x=70 -> y 90..104 (h 14), y 135..145 (h 11), y 231..249 (h 18)
+  REND right vector box: col x=520 -> y 90..104 (h 14), y 136..141 (h 4), y 231..249 (h 18)
+
+=== ORIGINAL: blue boxes (term boxes + final band) — column scan at x=100 and x=560 ===
+  ORIG x=100: col x=100 -> y 468..525 (h 57)
+  ORIG x=560: col x=560 -> y 468..485 (h 17), y 498..505 (h 7), y 510..525 (h 15)
+=== RENDER: ===
+  REND x=100: col x=100 -> y 468..486 (h 18), y 491..520 (h 29)
+  REND x=560: col x=560 -> y 468..520 (h 52)
+
+=== ORIGINAL: blue region horizontal extent at text-free rows ===
+  ORIG y=512: row y=512 -> x 90..505 (w 415), x 511..562 (w 51), x 570..583 (w 13), x 591..642 (w 51), x 648..879 (w 231)
+  ORIG y=518: row y=518 -> x 90..879 (w 789)
+  ORIG y=483: row y=483 -> x 90..553 (w 463), x 558..879 (w 321)
+=== RENDER: ===
+  REND y=512: row y=512 -> x 54..903 (w 850)
+  REND y=518: row y=518 -> x 54..218 (w 165), x 225..903 (w 678)
+  REND y=483: row y=483 -> x 54..76 (w 22), x 100..116 (w 16), x 130..133 (w 3), x 143..450 (w 307), x 500..525 (w 25), x 528..533 (w 4), x 537..557 (w 20), x 561..575 (w 14), x 596..603 (w 7), x 608..615 (w 7), x 618..636 (w 17), x 640..652 (w 12), x 660..896 (w 235)
+
+=== ORIGINAL: white vector box horizontal extent (row inside box, text-free left margin x70..200?) ===
+  ORIG y=115 left col: row y=115 -> x 40..60 (w 20), x 78..436 (w 358), x 455..459 (w 4)
+  ORIG y=115 right col: row y=115 -> x 460..812 (w 352), x 899..909 (w 10)
+=== RENDER: ===
+  REND y=115 left col: row y=115 -> x 40..450 (w 410)
+  REND y=115 right col: row y=115 -> x 500..896 (w 396), x 900..909 (w 9)
+
+=== MIDDLE BANDS (the two the render is missing) ===
+ORIGINAL: not-gray scan at rows between the objective band and the define-loss band
+  ORIG y=352: row y=352 -> x 40..60 (w 20), x 85..666 (w 581), x 899..909 (w 10)
+  ORIG y=370: row y=370 -> x 40..60 (w 20), x 85..667 (w 582), x 899..909 (w 10)
+  ORIG y=388: row y=388 -> x 40..60 (w 20), x 85..667 (w 582), x 899..909 (w 10)
+  ORIG y=405: row y=405 -> x 40..60 (w 20), x 80..478 (w 398), x 527..886 (w 359), x 899..909 (w 10)
+  ORIG y=425: row y=425 -> x 40..60 (w 20), x 85..476 (w 391), x 527..885 (w 358), x 899..909 (w 10)
+  ORIG y=438: row y=438 -> x 40..60 (w 20), x 85..476 (w 391), x 527..886 (w 359), x 899..909 (w 10)
+RENDER: same rows
+  REND y=352: row y=352 -> x 40..54 (w 14), x 900..909 (w 9)
+  REND y=370: row y=370 -> x 40..54 (w 14), x 900..909 (w 9)
+  REND y=388: row y=388 -> x 40..54 (w 14), x 900..909 (w 9)
+  REND y=405: row y=405 -> x 40..909 (w 869)
+  REND y=425: row y=425 -> x 40..54 (w 14), x 900..909 (w 9)
+  REND y=438: row y=438 -> x 40..54 (w 14), x 900..909 (w 9)

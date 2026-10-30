@@ -1,0 +1,75 @@
+==============================================================================
+A1  MAJOR — the implication arrow ⇒ is alleged ABSENT from the render
+==============================================================================
+flagged element: red ⇒ between 'dimension d' (ends x409) and '(X^T X)' (starts x505)
+scan window: frame x415..465 y194..216 (the gap only; nothing else is drawn there)
+  original: red ink bbox = x439.0..454.0 y200.0..209.0 (w15.0 h9.0)
+           red ink pixels = 114
+  render  : red ink bbox = x437.1..455.3 y199.8..209.8 (w18.2 h10.1)
+           red ink pixels = 324
+  original: 1..3 rows; full-width bar rows at rel y [2, 3, 4, 6, 7] (5 bars >= 2 => double-shaft U+21D2)
+  render  : 4..1 rows; full-width bar rows at rel y [4, 5, 6, 12, 13, 14] (6 bars >= 2 => double-shaft U+21D2)
+  ADJUDICATION: the arrow is PRESENT in the render at the measured position with the
+  measured two-bar + head glyph shape. A1 is REFUTED (PIL, exact flagged coordinates).
+
+==============================================================================
+A2  MINOR — the comma after O(n^3) is alleged dropped
+==============================================================================
+flagged element: red text 'O(n^3),' on blue L1, ink x774..835 y243..264 in the frame
+BASELINE = y260 (navy L1 baseline; the comma hangs below it). Comparison is STRUCTURAL:
+red ink below the baseline at each image's own red-run end (the run's Arial advance is
+~14px wider in the render — an accepted font-metric deviation, selfcheck section D).
+  original: red-run ends x835.0; below-baseline ink x822.0..834.0 y261.0..264.0 w=12.0 depth=3.0
+  render  : red-run ends x848.7; below-baseline ink x837.1..848.6 y261.0..263.9 w=11.5 depth=2.9
+  ADJUDICATION: both images carry a 11-12px-wide red comma hanging 3.0-3.4px below the
+  baseline, flush with the red run's end. A2 is REFUTED.
+
+==============================================================================
+A3  MINOR — emphasis underlines alleged not reproduced
+==============================================================================
+(a) the W and Y underlines INSIDE the equation: the equation is a single embedded PNG
+    (assets/eq_023_main.png, built by qa/slide023/build_eq_023_ws.py with mathtext
+    \underline{W} ... X^T Y). Measure the underline bars directly in that asset:
+    W underline band y180: 844 ink px across x104..131 (asset cols 64..278)
+    W underline band y181: 2532 ink px across x104..131 (asset cols 64..278)
+    Y underline band y180: 0 ink px across x410..429 (asset cols 2497..2648)
+    Y underline band y181: 0 ink px across x410..429 (asset cols 2497..2648)
+    frame W bar band y180..181: 32 dark px (of 54)
+    frame Y bar band y180..181: 24 dark px (of 38)
+
+(b) underline under the dim-note '(X^T X)': the prior bank's minor_adjudication.md
+    already refuted this (permissive lum<225 scan over x505..755 y205..220: zero long
+    horizontal dark runs). Re-derived here for the record:
+    longest horizontal dark runs in x505..755 y205..220: [(218, 250), (219, 250), (210, 15), (212, 15), (213, 15)]
+    (an underline bar would be ~200px long; nothing here exceeds 100px)
+    the build carries NO underline option on that run (slide_023.js:207-210).
+    ADJUDICATION: the original has no such bar; the render has none either. REFUTED.
+
+(c) underline under the red numbers '1000' (y365..381) and '1,000,000,000' (y399..418):
+    1000: below-baseline ink orig=(np.float64(528.0), np.float64(573.0), np.float64(381.0), np.float64(382.0)) render=(np.float64(529.9190404797602), np.float64(575.976011994003), np.float64(381.0), np.float64(381.47976011994))
+    -> present in one image only; measure whether it is a descender or a bar.
+    1,000,000,000: below-baseline ink orig=(np.float64(188.0), np.float64(327.0), np.float64(419.0), np.float64(425.0)) render=(np.float64(188.0), np.float64(327.61019490254876), np.float64(424.75712143928035), np.float64(425.23688155922036))
+    -> present in one image only; measure whether it is a descender or a bar.
+
+==============================================================================
+A4  MINOR — title typeface: 'original serif bold, recreation sans bold'
+==============================================================================
+  original title: 7 narrow stems, median lean -0.0000 px/row (-0.00 deg)
+  render   title: 5 narrow stems, median lean +0.0022 px/row (+0.13 deg)
+  A serif face would ALSO show terminal serifs: small horizontal feet at the stem
+  bases/bottoms and at cap tops. Serif probe: ink pixels in the baseline band plus
+  small horizontal extent beyond the stem width:
+    original title baseline band y96..105: per-row ink widths [211, 225, 192, 4, 3, 8, 10, 10, 7, 0]
+    render   title baseline band y96..105: per-row ink widths [464, 438, 414, 369, 31, 8, 8, 12, 16, 18]
+  (the frame's title is a video capture of the deck's own rendering; a 'serif' read at
+  full-slide scale is the classic small-text misread — the crop certificate for the
+  title band decides it. A4 recorded as an open measurement, not a build change.
+
+==============================================================================
+SUMMARY (attempt 1 findings)
+==============================================================================
+  A1 (MAJOR, arrow omitted)  : REFUTED — arrow ink present, measured, double-shaft.
+  A2 (MINOR, comma dropped)  : REFUTED — red comma present below baseline in both.
+  A3 (MINOR, no underlines)  : REFUTED (b) and (c); (a) verified inside the eq asset.
+  A4 (MINOR, title serif)    : OPEN — measured for the title crop certificate.
+  No build change is warranted from any refuted finding (judging.md).

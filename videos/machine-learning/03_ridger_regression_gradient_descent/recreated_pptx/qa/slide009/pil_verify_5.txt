@@ -1,0 +1,17 @@
+SUPERSEDED (self-caught measurement bugs, kept for the record): pil_verify_5.py used
+2001/540 as the x scale (wrong) and an inverted containment mask; pil_verify_5b.py used
+the same wrong x scale plus a white-including histogram mask. Both produced false alarms
+(eq_right 'EMPTY', equation ink 'touching border', '216 red top-band px', '167410 px
+outside panel') that pil_verify_5c.py + containment_5.txt refuted at the correct scales.
+Trust: pil_verify_5c.txt, containment_5.txt, crossbuild_diff_5.txt, adjudicate_5_*.
+--- original (buggy) output below ---
+scale=3.70556  render=2001x1125
+[chrome] red px in TOP band: original=0 render=216 (both must be 0: no top stroke)
+[chrome] render stroke columns L117..125=2060 R1875..1882=2058 (present)
+[eq_left] ink in box=YES nonzero=2797 pad L/R/T/B=0/1/0/1px(render) dark-glyph bbox=(970, 548, 1125, 647) (all pads >0 -> no border touch)
+[eq_left] original dark bbox=(227, 157, 306, 166) render dark bbox(frame px)=(262, 148, 304, 175)
+Traceback (most recent call last):
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/pil_verify_5.py", line 58, in <module>
+    assert len(xs), f"{name}: EMPTY equation region in render (BLOCKER)"
+           ~~~^^^^
+AssertionError: eq_right: EMPTY equation region in render (BLOCKER)

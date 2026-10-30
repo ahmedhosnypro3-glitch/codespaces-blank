@@ -1,0 +1,33 @@
+## Discrepancy List (crop-relative, bottom-left surface region)
+
+**1. Surface geometry/topology â MAJOR (high confidence)**
+- IMG2 (original): one tall, narrow "Global Maxima" peak (~z=8) and one distinctly *smaller* "Local Maxima" peak (~z=4); one shallow "Local Minima" trough (~z=â4) and one deep "Global Minima" trough (~z=â6). Asymmetric, spiky peaks.
+- IMG1 (recreation, e.g. crop ~(150â420, 150â380)): two broad, nearly *equal-height* peaks with double-bump crowns, and two roughly *equal-depth* troughs. The max/min asymmetry that makes the global vs. local distinction meaningful is lost. This changes the pedagogical content of the figure.
+
+**2. Minima labels swapped left/right â MAJOR (high confidence)**
+- Original: "Local Minima" is on the **left** (pointing to the shallow trough), "Global Minima" is on the **bottom-right** (pointing to the deep trough).
+- Recreation (crop ~(120,350) and ~(480,360)): "Global Minima" is on the **left**, "Local Minima" is on the **bottom-right** â the opposite assignment. Combined with #1 (equal-depth troughs), the recreation misidentifies which trough is global.
+
+**3. Maxima annotation type changed â MAJOR (high confidence)**
+- Original: maxima are annotated with **arrows** (â from "Global Maxima" and "Local Maxima" labels toward the peaks). Red **X markers appear only at the minima**.
+- Recreation: red **X markers placed at the maxima too** (crop ~(245,165) and ~(378,163)), and no arrows anywhere. Annotation semantics differ (X = marked extremum vs. arrow = pointer).
+
+**4. Axis assignment swapped â MAJOR (medium-high confidence)**
+- Original: **Y** axis runs along the lower-left (ticks 2, 0, â2; label "Y" at crop ~(180,485)); **X** axis along the bottom-right (ticks 3â¦â3â¦2; label "X" at crop ~(465,485)).
+- Recreation: **X** on the lower-left (ticks â3â¦3; label "X" at ~(232,470)), **Y** on the bottom-right (ticks â3â¦3; label "Y" at ~(482,428)). The 3D view orientation is effectively rotated/mirrored relative to the original, and peak/trough positions in (x,y) don't correspond.
+
+**5. Z-axis tick labels â MINOR (medium confidence)**
+- Original visible z-ticks: 8, 6, 4, 2, 0 (crop ~(45,75)â(55,300)).
+- Recreation shows 8, 6, 4, 2, **â2, â4, â6** (crop ~(495â505, 100â320)). If the original truly omits the negative labels, the recreation adds ticks; if they're clipped in the video frame, this may be an artifact â flagged conservatively as MINOR.
+
+**6. Label line-wrapping â MINOR (high confidence)**
+- Original wraps labels on two lines: "Global / Maxima", "Local / Maxima", "Local / Minima", "Global / Minima". Recreation renders each on a single line (e.g. "Global Maxima" at ~(370,45), "Local Minima" at ~(482,360)). Text content itself is correct.
+
+**7. Background wall grid â MINOR (high confidence)**
+- Original shows light gridlines on the plot panes; recreation's plot area (crop ~(130â480, 60â430)) has no visible wall grid. Cosmetic only.
+
+**Correct/verified items:** red horizontal zero-line present in both and at similar height; red X markers present at both minima; yellow badge/template chrome consistent with house template (not a discrepancy); JPEG softness in IMG2 ignored per ground rules; no garbled characters â all label strings ("Global Maxima", "Local Maxima", "Local Minima", "Global Minima", "X", "Y") spelled correctly.
+
+---
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â the surface shape (peak/trough asymmetry), the global-vs-local minima label assignment, the maxima annotation style (arrows vs. X), and the X/Y axis orientation all differ materially from the original.

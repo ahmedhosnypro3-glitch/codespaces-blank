@@ -1,0 +1,37 @@
+## Scope and method
+
+Compared IMG1 (recreation crop, top) and IMG2 (original-frame crop, bottom) at matched scale, regionâwise: (i) left Train table incl. yellow Xâ/60 column, (ii) blue arrow 1, (iii) central redâboxed W block, (iv) blue arrow 2, (v) right Test table incl. mint yârow. All coordinates below are cropârelative.
+
+## Cellâbyâcell verification (no differences found)
+
+**Train table (IMG1 xâ15â750):** headers Xââ¦Xâ with blue/red alternation and subscript numerals â matches. Row Xâ = 1, 2, 3, 4, 8, 9, 10, **60** (60 in red on yellow) â matches. Row Xâ = 1, 3, 5, 6, 16, 7, 5, 3 â matches. Row y = 2, 4, 6, 8, 16, 18, 20, 22 â matches. Blue/red column coloring matches in every cell. No swapped digit, no missing row.
+
+**W block (IMG1 xâ843â1082, yâ17â267):** W = column vector with **1.77 / 0.32 / 0.99** and norm line **âWâÂ² = 4.2** â identical numerals to IMG2 (xâ960â1060, yâ35â240). Red underlined âWâ, black â=â, blue norm line, blue superscript Â² on the norm â all consistent. The vectorâs opening delimiter spans all three entries in both.
+
+**Test table (IMG1 xâ1175â1585):** headers Testâ (red), Testâ (blue), Testâ (red) â matches. Xâ = 30, 40, 50; Xâ = 15, 20, 25; mint yârow = **26.2 (red), 34.4 (blue), 42.5 (red)** â matches exactly, including the mint fill and the red/blue text colors. Row labels Xâ, Xâ, y â matches.
+
+**Arrows:** both blue hollow outline arrows (xâ760â840 and xâ1088â1168) match in position, head shape, and stroke.
+
+## Discrepancies
+
+1. **MINOR â confidence ~0.6.** Closing delimiter of the W column vector (IMG1, âx=1045â1055, y=35â180) is essentially a **straight vertical stroke with a small top tick**, reading visually as â|â, whereas IMG2 (âx=1050â1060) shows a clearly **curved â)â**. It does span all three entries and does not clearly collide with the â7â of 1.77, so this is a glyphâshape/weight issue, not a structural or truncation defect.
+
+2. **MINOR â confidence ~0.55.** Testâtable gridlines in IMG1 (right block, x=1175â1585, all horizontal/vertical rules) are pale, nearâneutral grayâpink, whereas the same rules in IMG2 are distinctly **pink/redâtinted**. Small strokeâcolor divergence in the rightâhand table only; the Train table rules are gray in both.
+
+3. **MINOR â confidence ~0.8 (inherent medium difference).** Weight/face of all table ink: IMG1 uses heavy bold serif for headers, row labels (Train Xâ/Xâ at xâ30â75; Test Xâ/Xâ at xâ1190â1235) and the yâlabels, while IMG2âs headers/row labels are lighter, handâset/handwritten and its numerals are thinner. Per the ground rules this is a medium difference, MINOR at most.
+
+4. **MINOR â confidence ~0.35.** The yellow highlight on â60â (IMG1, xâ672â750, yâ78â133) is a flat, fully saturated yellow that slightly overprints the cellâs grid edges; IMG2âs yellow is marginally warmer/softer and inset so the cell rules stay visible. Very slight fill/edge treatment difference.
+
+5. **MINOR â confidence ~0.3.** Mint fill of the Test yârow (IMG1, xâ1275â1585, yâ200â260) reads a touch more saturated green than IMG2âs slightly paler mint. Small tonal difference only.
+
+**Artifacts ignored (not discrepancies):** the pointer/cursor arrow and JPEG softness visible over â4.2â and around the handâdrawn strokes in IMG2 are capture artifacts.
+
+## Captureâdescription note (needs clarification, not an imageâvsâimage defect)
+
+The region description states the W box should carry the vector **(0.83 / 0.16 / 0.11)** and **âWâÂ² = 3.59**. Both images actually show **(1.77 / 0.32 / 0.99)** and **4.2**. Since the recreation and the original frame agree with each other on every value shown, there is **no renderâvsâoriginal discrepancy here**; the mismatch is between the prose locator and the pair of images. If 0.83/0.16/0.11 and 3.59 are the true contents of slide 017, then IMG2 is a misâcropped/misâlabeled reference for this strip and the W block could not be validated against the true source â but nothing in the recreation itself is wrong relative to the supplied original frame.
+
+## Summary
+
+All table values, colors, row/column structure, subscripts, the vector entries, and the norm line match exactly between recreation and original. The only findings are cosmetic: a straighterâlooking closing parenthesis, slightly different hairline color on the Test table, and minor fill/typography tone differences.
+
+**FINAL VERDICT: PASS** for âfaithful, usable recreation of this regionâ.

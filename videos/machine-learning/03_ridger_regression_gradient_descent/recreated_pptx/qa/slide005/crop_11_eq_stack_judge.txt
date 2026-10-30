@@ -1,0 +1,36 @@
+# Comparison: eq_stack region, slide 005 (attempt 9)
+
+## Content verification (glyph-by-glyph, term-by-term)
+
+**Equation 1** (top, ~y=15â100 crop-relative):
+- Both: `Loss = 1/2 (Y â Å¶)áµ(Y â Å¶) = 1/2 (Y â XW)áµ(Y â XW)`
+- Hats on both Å¶ glyphs: present in both. Superscript áµ placement: correct in both. Fraction bars with 1 above / 2 below: present in both. Second Â½ term: matches.
+- â **Color of the first Â½ fraction:** In IMG2 (original) the first `1/2` fraction (~x=145â175) is rendered in **RED**, as a deliberate highlight. In IMG1 (recreation) it is **black**, identical to all other ink. This is a text-color difference, not a compression artifact â the red is saturated and uniform, clearly intentional highlighting in the source.
+
+**Equation 2** (middle, ~y=155â235):
+- Both: `Loss = 1/2 [YáµY + (XW)áµ(XW) â Yáµ(XW) â (XW)áµY]`
+- All four terms, signs (+, â, â), square brackets, and superscripts match term-for-term. Bracket delimiters span the full expression height in both, without touching glyphs. â
+
+**Equation 3** (bottom, ~y=280â345):
+- Both: `Loss = 1/2 [YáµY + (XW)áµ(XW) â 2(XW)áµY]`
+- The coefficient 2, all terms and signs match. Bracket spans correctly. â
+
+## Discrepancy list
+
+| # | Discrepancy | Location (crop-relative) | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | First `1/2` fraction in Equation 1 is **red** in the original, **black** in the recreation â the deliberate highlight color was not reproduced | Top line, first fraction, ~x=145â175, y=15â90 | **MAJOR** | High (red is uniform and saturated; not a JPEG halo) |
+| 2 | Original renders matrices in bold serif with underline (ð, ð underlined-bold); recreation uses plain italic sans (Y, W, no underline) | Throughout all three equations | MINOR | High (notation styling only; symbols/values identical) |
+| 3 | Original has wider spacing around `+`/`â` operators (esp. Equation 2, mid-line); recreation is more tightly set | Equations 2â3, mid-region | MINOR | Medium |
+| 4 | Typefont family differs (sans-italic vs. serif-bold) | All equations | MINOR | â (mandated medium difference, rule c/d) |
+
+## What checks out
+- All three equations structurally identical: no wrong, missing, or garbled characters; every term, sign, coefficient, superscript áµ, and hat correct.
+- Stacked Â½ fractions with horizontal bars, correct limits/numerator-denominator order in all four fraction instances.
+- Square-bracket delimiters span their full enclosed lines without collision; parentheses correctly sized in both.
+- Vertical separation between the three equation rows is consistent with the original layout.
+
+## Verdict rationale
+The recreation gets the hard parts right â every mathematical term, the fraction structure, hats, superscripts, and delimiters are exact. However, the missing red highlight on the first Â½ fraction is a clear, intentional visual feature of the source region (the only colored element in an otherwise all-black region), and its omission is exactly the kind of "small color difference in text" the ground rules require flagging at zoom. One MAJOR defect stands.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

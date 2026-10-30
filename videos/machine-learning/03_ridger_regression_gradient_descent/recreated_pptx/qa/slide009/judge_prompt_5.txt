@@ -1,0 +1,37 @@
+# Slide 009 verification round (independent re-verification by worker w009-root-20261024, 2026-10-24)
+# Purpose: the prior lane certified render_5 (attempt 5) with a full-slide PASS but NO fresh
+# crop-pair certificates for the regions that changed since the last judged round (attempt 3).
+# This round re-executes BOTH mandated legs through the vision gateway on the SAME bytes
+# (render_5.png md5 84c8bf3179992d74717fa070f5f8c607 = the certified render; no rebuild).
+# Payloads sourced byte-for-byte from shared_patterns/judge_protocol_03.md (Template A + B).
+# Cross-build diff proof (which crop certificates remained valid): crossbuild_diff_5.txt
+#   eq_left/chart_left/chart_right changed since attempt-3 judging -> fresh crop_5 pairs + Template B
+#   eq_right/cap_left/cap_right pixel-identical across builds -> crop_3 certificates kept (diff=0)
+#
+# Attempt-5 probe (Template A):
+cd /worksp""aces/codespaces-blank/ai_llm_slides && scripts/16_vision_gate.sh timeout 150 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py analysis \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_5.png \
+  --view "Slide 009 recreation attempt 5 — probe" \
+  --capture "150dpi PNG render of a 13.33x7.5in PPTX" \
+  --timeout 120 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/probe_5.txt
+#
+# Template A — full-slide comparison (payload payload_A_v.txt byte-for-byte):
+cd /worksp""aces/codespaces-blank/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/render_5.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_009.jpg \
+  --view "Slide 009 recreation — fidelity check vs original lecture frame" \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/judge_attempt_5_rootw009.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide009/payload_A_v.txt)"
+#
+# Template B — crop pairs from render_5 + original at matched effective scale (2.0833x LANCZOS on the
+# original crop; payload payload_B_v.txt byte-for-byte; transcripts crop_5_<name>_judge.txt):
+#   eq_left     LEFT equation box x216..317 y148..175 ("50.85^2 = 2585") — changed since attempt 3
+#   chart_left  LEFT scatter chart x95..466 y107..474 + annotations — changed (attempt-4 fixes)
+#   chart_right RIGHT scatter chart x486.5..871.5 y107..474 — never had a certificate (crop_3 judge missing)
+# full commands mirror the Template A form with the crop pair as IMG1/IMG2 (see dispatch log)

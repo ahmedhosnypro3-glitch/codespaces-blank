@@ -1,0 +1,33 @@
+## Element-by-Element Fidelity Check
+
+### Intentional house chrome (not counted, per ground rules)
+- Gray panel, red C00000 strokes on left/right/bottom only, no top stroke, yellow "42" badge at top-right â all present and correct. â
+
+### Matches confirmed
+- Header data table xââ¦xâ with values 1/1, 2/1, 1/2, 5/4, 6/5, 6/6 and Câ/Câ/Câ/Câ/Câ/Câ color coding (red/blue) â
+- "Step Î· = 2" red italic; "Zero is unaccepted" with green bold "Zero" â
+- "Augmented Vectors ( from Top )" blue label; 6 augmented 3-row vectors with correct values (1,1,1)(1,2,1)(1,1,2)(1,5,4)(1,6,5)(1,6,6) and correct class color coding â
+- Red "Iteration 1" badge â
+- Six white equation boxes in correct order; all scalar results correct: 0, 6, 6, 6, â96, â104; correct Update/Keep decisions; row 1 update (4,â2,â2)+2*(1,1,1)=(6,0,0) with red â; row 4 update (6,0,0)â2*(1,5,4)=(4,â10,â8) with red â â
+- Per rule (e), professional 2D fraction/matrix formatting is a mandated upgrade, not a discrepancy. â
+
+### Discrepancies
+
+1. **MAJOR (confidence 0.95) â Value wrapping inside column vectors, rows d and d(xâ).** The enclosed vector should read (4, â10, â8) on three lines. The recreation wraps "â10" across two lines, rendering a **four-line** vector "4 / â1 / 0 / â8". This misrepresents the data values (a "â1" and a "0" appear as separate entries) and breaks the 3-row structure every other vector in the slide has.
+
+2. **MAJOR (confidence 0.9) â Delimiter geometry violations throughout.** The original uses clean tall parentheses around every column vector; the recreation uses corner-bracket fragments (â â â â-style strokes) that (a) do not match the original's parenthesis style, and (b) are too narrow/short â enclosed glyphs sit ON the strokes: in the header "Initial W" vector the â2 entries cross the right bracket; in rows d(xâ), d(xâ), d(xâ) the bottom "0" overlaps the lower bracket stroke so it reads as a "Q"-like collision; same collision in the row-4 result vector. This violates rule (7)(ii) and the vertical-centering requirement â values hug/overlap the delimiter instead of sitting centered inside it.
+
+3. **MAJOR (confidence 0.75) â Wrong glyph in header legend.** Original reads "**Câ** positive, Câ negative" with Câ in red. The recreation renders the first symbol as a green "G" with an arrow-like subscript ("Gâ positive"), which is not the original character. If this is a corrupted "Câ" render, it is still visibly wrong ink.
+
+4. **MINOR (confidence 0.8)** â Missing space: "Cânegative," in recreation vs "Câ negative" in the original header line.
+
+5. **MINOR (confidence 0.7)** â Weight-vector label styling: the original underlines **WÌ²** consistently in every row (including rows 2, 3, 5, 6); the recreation underlines W only in rows 1 and 4, leaving "W =" plain (and non-bold) in rows 2, 3, 5, 6.
+
+6. **MINOR (confidence 0.6)** â "Check classes of zâ zâ zâ" vectors: delimiters are mismatched/misshapen fragments rather than the original's balanced parentheses; the enclosed 0/0, 7/6, 3/2 values are correct.
+
+### Visual-quality defects in the recreation (summary)
+- Text wrap inside matrix delimiters (item 1) â worst defect, affects rows 5 and 6.
+- Bracket/glyph collisions in at least 6 locations (header W vector, rows 2, 3, 4 result vectors, rows 5â6 enclosed vectors).
+- No text overflows the white boxes or the gray panel; frame containment (rule 5) is otherwise satisfied; no missing rows, boxes, or regions â all six iteration rows, both left-column blocks, and the header are present.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation' â driven by the â10 line-wrap corrupting vector values in rows 5â6 and the systemic delimiter-geometry/glyph-collision defects.

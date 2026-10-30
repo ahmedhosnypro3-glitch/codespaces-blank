@@ -1,0 +1,27 @@
+=== BAND FILLS (orig vs render) ===
+  y328-368: ORIG #D9E277  REND #D9E275  maxdiff=2
+  y378-408: ORIG #D6B2F8  REND #D6B2F5  maxdiff=3
+  y422-452: ORIG #F7DDC2  REND #F7DDC2  maxdiff=0
+  y464-476: ORIG #DEAC95  REND #DEAC95  maxdiff=0
+  y488-498: ORIG #F6BFC2  REND #F7BEC4  maxdiff=2
+
+=== TEXT ROW INK (label col + data cols) — proportional check ===
+  row y341: label ORIG=   0 REND=  73 | data ORIG=  737 REND= 1644 (norm 378.8018433179724)
+  row y359: label ORIG=   0 REND= 171 | data ORIG=  912 REND= 1818 (norm 418.8940092165899)  <-- RENDER INK LIGHT
+  row y383: label ORIG=  20 REND= 271 | data ORIG=  625 REND= 1408 (norm 324.42396313364054)
+  row y401: label ORIG=  49 REND= 365 | data ORIG=  769 REND= 1575 (norm 362.90322580645164)  <-- RENDER INK LIGHT
+  row y427: label ORIG=  35 REND= 281 | data ORIG=  551 REND= 1353 (norm 311.7511520737327)
+  row y445: label ORIG=  68 REND= 214 | data ORIG=  664 REND= 1542 (norm 355.29953917050693)
+  row y469: label ORIG=  18 REND= 234 | data ORIG=  836 REND= 1439 (norm 331.5668202764977)  <-- RENDER INK LIGHT
+  row y493: label ORIG=  30 REND= 232 | data ORIG=  794 REND= 1351 (norm 311.2903225806452)  <-- RENDER INK LIGHT
+
+=== GREEN CURVE (isolated) ===
+  curve cols 9..209 frame (418 cols)
+  y range frame 113..260
+  ripple std=1.397px max|d2|=12.500px; column gaps>8px: 0
+
+=== TABLE GRIDLINES on render (frame px) ===
+  horizontal: [320, 321, 374, 410, 418, 454, 460, 478, 484, 501, 517, 519]
+  vertical: []
+
+VERIFY: PASS — band fills, text rows, one smooth curve, gridlines all match

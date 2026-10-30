@@ -1,0 +1,43 @@
+normal [ 0.91478305 -0.40394552] ; curve at chord-mid x=273.4 -> y=283.4; chord-mid y=286.6  => curve is ABOVE the chord by 3.3 fpx
+NWAY (toward curve) = [ 0.91478305 -0.40394552] ; NAWAY = [-0.91478305  0.40394552]
+
+### ORIG: connector-1 ink, offsets measured on the AWAY side of the chord
+   t    mean off (NAWAY, fpx)   median   n
+  0.14    +5.50               +5.50   5
+  0.20    +6.88               +6.88   4
+  0.26    +5.20               +5.25   19
+  0.32    +4.00               +4.00   5
+  0.38    +7.90               +9.00   15
+  0.44    +8.69               +9.38   18
+  0.50    +9.58              +10.50   19
+  0.56    +3.78               +4.00   9
+  0.62    +4.12               +4.12   4
+  0.68    +9.25               +9.25   10
+  0.74    +9.62               +9.62   8
+  0.80    +3.88               +3.88   4
+  0.88    +5.25               +5.25   1
+   quadratic fit of mean-offset profile: a=-18.01 (chord units) -> bow 2.46 fpx ; residual rms 2.38
+   profile: mid(t=0.5 approx) mean off +9.58 fpx ; max mean off +11.56 at t=0.64
+   built render arc at t=0.5 sits 13.64 fpx off the chord on the away side
+   offsets near the target (t>0.86): +5.25 mean (the head tip is 6.3-6.6 fpx from the target centre)
+
+### REND: connector-1 ink, offsets measured on the AWAY side of the chord
+   t    mean off (NAWAY, fpx)   median   n
+  0.14    +3.68               +3.75   7
+<stdin>:33: RuntimeWarning: Mean of empty slice
+/usr/lib/python3.14/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+
+### REND (re-run): connector-1 ink, away-side offsets
+  0.14    +3.68               +3.75   7
+   quadratic fit: a=142.86 -> bow 4.00 fpx ; residual rms 0.00
+   mid mean off +11.75 ; max +12.50 at t=0.52
+   near-target (t>0.86) mean +nan
+
+=== connector-1 ink census; chord [263.12 263.41]->[283.64 309.88] len 50.8; up-right normal (0.915,-0.404); curve sits 3.3 fpx up-right at mid ===
+  ORIG: n=158 | along-chord 9.4..44.3 | perp(up-right +) -5.1..+29.4 mean +8.09 | ink centroid (281.87,285.84)
+     chord s  6..14: perp mean +10.45 (median +11.41, n=12)
+     chord s 14..22: perp mean +8.95 (median +11.78, n=29)
+     chord s 22..30: perp mean +8.62 (median +11.19, n=47)
+     chord s 30..38: perp mean +7.00 (median +9.38, n=47)
+     chord s 38..44: perp mean +6.80 (median +8.53, n=22)

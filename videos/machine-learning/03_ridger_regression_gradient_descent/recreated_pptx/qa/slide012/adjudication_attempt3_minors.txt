@@ -1,0 +1,65 @@
+============================================================================
+1. 'Added red left-pointing arrow — not present in IMG2' (MINOR, high)
+============================================================================
+Raw colours along y246..256 in the gap row x668..708 (original frame):
+  y=246: 233,218,221 252,255,251  55, 60, 54 252,255,251 254,255,251 254,255,251 252,255,251
+  y=247: 234,218,221 251,253,248 183,185,180 253,255,250 255,255,251 255,255,251 254,255,251
+  y=248: 237,218,222 255,255,251 255,255,251 255,255,251 255,254,251 255,254,251 255,255,251
+  y=249: 236,217,221 255,251,250 255,251,250 255,251,250 255,251,251 255,251,251 255,252,251
+  y=250: 232,217,220 255,230,235 254,227,232 254,227,232 255,228,233 255,228,233 255,228,233
+  y=251: 226,214,216 207,178,183 208,179,184 208,179,184 210,179,185 210,179,185 209,180,185
+  y=252: 240,234,234 227,208,210 224,205,207 224,205,207 225,206,208 225,206,208 223,207,208
+  y=253: 234,233,231 238,228,227 239,229,228 239,229,228 239,231,229 239,231,229 237,232,229
+  y=254: 229,234,230 237,233,230 234,230,227 234,230,227 233,232,228 233,232,228 231,233,228
+  y=255: 228,233,229 233,234,229 232,233,228 232,233,228 232,234,229 232,234,229 230,235,231
+  y=256: 231,233,230 231,233,230 231,233,230 231,233,230 231,233,230 231,233,230 231,233,232
+
+Is there a DARK core (arrow shaft) or only a pink wash (JPEG chroma
+fringe from a nearby horizontal edge)?
+  luminance min=0 max=254 mean=231
+  red-minus-green mean=+5.6  red-minus-blue mean=+7.1
+  panel gray reference (x600,y245): (np.int64(231), np.int64(233), np.int64(230))
+  pixels darker than 200 in y246..257 x660..715: 59
+    bbox x669..714 y246..251
+
+Control — same test on the test table's bottom border (x740..800, y246..258):
+  red-minus-green mean=-19.1  red-minus-blue mean=-4.8  lum min=156
+
+============================================================================
+2. 'Again box sits lower than in the original' (MINOR, medium)
+============================================================================
+  ORIGINAL: blue box bbox x614..852 y375..405
+  RENDER: blue box bbox x604..868 y366..414
+  -> the two boxes' relative vertical offset is the finding.
+
+============================================================================
+3. Question-box line break differs (MINOR, high)
+============================================================================
+  ORIGINAL: 2 text lines -> line y374..389 (16px tall) x613..853 (241px wide); line y394..406 (13px tall) x612..834 (223px wide)
+  RENDER: 1 text lines -> line y366..413 (48px tall) x604..868 (264px wide)
+
+============================================================================
+5. Two-line red boxes: recreation left-aligned vs original centered (MINOR, med)
+============================================================================
+  ORIGINAL Perfect Data box (box centre x=132, w=128):
+      line y182..196: x78..162 w=85 centre=120
+  ORIGINAL Again box (box centre x=771, w=129):
+      line y278..291: x717..755 w=39 centre=736
+  RENDER Perfect Data box (box centre x=132, w=128):
+      line y175..175: x69..69 w=1 centre=69
+      line y187..196: x96..171 w=75 centre=134
+      line y202..211: x96..170 w=74 centre=133
+  RENDER Again box (box centre x=771, w=129):
+      line y270..270: x707..707 w=1 centre=707
+      line y282..294: x754..789 w=35 centre=772
+      line y297..306: x735..808 w=74 centre=772
+
+============================================================================
+7. Header row looks taller / labels ride higher (MINOR, low-medium)
+============================================================================
+  ORIGINAL T1 header cell (x203..244, y127..158):
+      full-width grid rows: []
+  RENDER T1 header cell (x203..244, y127..158):
+      text ink rows y128..158 (30px tall) inside cell y127..158 (h=31)
+      text vertical centre=142.8 vs cell centre=142.5
+      full-width grid rows: [127, 127]

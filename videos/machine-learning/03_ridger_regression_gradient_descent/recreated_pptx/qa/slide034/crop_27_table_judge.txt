@@ -1,0 +1,39 @@
+# Slide 034 zoomed crop table â cell-by-cell comparison (attempt 27)
+
+## Content verification (all 18 columns Ã 8 rows, read cell-by-cell)
+
+**Row `x`:** 7, 7.2, 7.4, 7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8, 9, 9.2, 9.4, [9.6, 9.8, 9.6], 9.8, 9.6 â â identical in both images, including the 3 highlighted cells.
+
+**Row `f(x)`:** 2.99, 2.43, 1.66, 0.69, â0.45, â1.73, â3.1, â4.5, â5.88, â7.16, â8.28, â9.17, â9.77, [â10.03, â9.92, â10.03], â9.92, â10.03 â â identical.
+
+**Row `x-delta`:** 6.9, 7.1, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7, 9.5, 9.7, 9.5 â â identical.
+
+**Row `f(x-delta)`:** 3.19, 2.74, 2.07, 1.2, 0.14, â1.08, â2.41, â3.8, â5.2, â6.54, â7.75, â8.76, â9.51, â9.95, â10.02, â9.95, â10.02, â9.95 â â identical.
+
+**Row `x+delta`:** 7.1, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7, 9.9, 9.7, 9.9, 9.7 â â identical.
+
+**Row `f(x+delta)`:** 2.74, 2.07, 1.2, 0.14, â1.08, â2.41, â3.8, â5.2, â6.54, â7.75, â8.76, â9.51, â9.95, â10.02, â9.7, â10.02, â9.7, â10.02 â â identical.
+
+**Slope strip:** â4.5, â6.7, â8.7, â10.6, â12.2, â13.3, â13.9, â14, â13.4, â12.1, â10.1, â7.5, â4.4, â0.7, 3.2, â0.7, 3.2, â0.7 â â identical; salmon fills on negatives and yellow fills with red frames on the two 3.2 values reproduced in both.
+
+**Row `next x`:** 7.2, 7.4, 7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8, 9, 9.2, 9.4, 9.6, 9.8, 9.6, 9.8, 9.6, 9.8 â â identical, red frame intact.
+
+No missing rows, no wrong digits, no swapped values, no garbled characters anywhere. Row band colors (yellow-green / lavender / peach / green slope strip / pink next-x), white gridlines, dark band borders, and the red arrow at top-left are all reproduced correctly.
+
+## Discrepancies
+
+1. **MINOR â Highlight fill hue** (crop-relative: upper-right block, cols 14â16 of rows 1â2, ~x 1230â1500). IMG1 fills the highlighted 3Ã2 block with a pale **mint green**; IMG2 uses a distinctly **teal/cyan** fill. Values inside are correct and legible in both; this is purely the annotation color. Confidence: high.
+
+2. **MINOR â Dashed highlight border geometry/color** (same location). IMG1 draws a thin dark-red (C00000) **rectangular** dashed frame; IMG2 uses a brighter red, slightly thicker, **rounded-corner** dashed frame. Same coverage, different corner treatment and stroke tone. Confidence: high.
+
+3. **MINOR â First slope box border looks faded in IMG2** (slope strip, col 1, ~x 150â200, y ~320). The â4.5 box border is much fainter in IMG2 than the crisp red frame in IMG1. Most consistent with JPEG/video softening rather than a missing border; confidence: lowâmedium.
+
+4. **MINOR â Highlighted f(x) digits appear green-tinted/faded in IMG2** (row 2, cols 14â16). The â10.03 / â9.92 text in IMG2 looks washed toward the fill color versus the solid dark digits in IMG1. Consistent with compression bleed over the teal fill; confidence: low.
+
+Items 3 and 4 fall under video-capture artifacts per ground rule (e) and are flagged only for completeness.
+
+## Assessment
+
+All 144 numeric cells, all labels, the slope strip boxing/fill logic, the red-framed next-x row, the row banding, and the highlighted region's coverage (3 columns Ã 2 rows) match exactly. Remaining differences are decorative-color and stroke-shape items on the highlight annotation plus probable compression artifacts â none affect legibility or content.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

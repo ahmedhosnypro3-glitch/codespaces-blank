@@ -1,0 +1,25 @@
+**Comparison scope:** the two blue bottomâgutter caption boxes (upperâright caption for the BL/BR figure area, lowerâleft caption) plus the sliver of template chrome at the crop edges.
+
+**What matches well**
+- Box positions and sizes are essentially identical: upper box â x 207â487 (IMG1) vs x 207â489 (IMG2), y 13â85 in both; lower box â x 20â298 (IMG1) vs x 17â297 (IMG2), y 198â270 vs y 197â269.
+- Both boxes are blue with centered, bold, white twoâline text; vertical centering of the text block inside each box is correct.
+- Red left/right vertical strokes and the short leftâmid horizontal red tick are present in both; no missing/extra chrome. Gray panel/white canvas and absence of a top stroke are consistent with the house template.
+- No garbled glyphs, no missing words, no wrong digits; all words ("Gradient Descent Path to reach Minima", "NonâConvex Multiple Minima") are spelled correctly and are fully legible in the recreation.
+
+**Discrepancies (cropârelative coordinates)**
+
+1. **Upper caption â different line break.** Original (IMG2, x â 250â450, y â 28â45 / 55â75): line 1 = "Gradient Descent", line 2 = "Path to reach Minima". Recreation (IMG1, x â 212â480, y â 30â46 / 53â68): line 1 = "Gradient Descent Path to", line 2 = "reach Minima". Same content, but the wrap point moves, so "reach Minima" is orphaned on its own line and the first line nearly fills the box width. **Severity: MINOR. Confidence: HIGH.**
+
+2. **Lower caption â different line break.** Original (IMG2, x â 60â255, y â 210â232 / 237â258): line 1 = "Nonâ Convex", line 2 = "Multiple Minima". Recreation (IMG1, x â 48â290, y â 213â233 / 238â255): line 1 = "NonâConvex Multiple", line 2 = "Minima" (single short word on line 2, leftâofâcenter mass). **Severity: MINOR. Confidence: HIGH.**
+
+3. **Lower caption â dropped space after hyphen.** Original reads "Nonâ Convex" (visible gap between the hyphen and "Convex", IMG2 â x 88â140, y 210â232); recreation reads "NonâConvex" with no space (IMG1 â x 48â140, y 213â232). This is a characterâlevel deviation from the source. **Severity: MINOR. Confidence: HIGH.**
+
+4. **Typeface of caption text.** Original uses a bold serif face (Timesâstyle serifs clearly visible on "Gradient Descent", "Path", "Minima"); recreation uses a bold sansâserif (Arial/Helveticaâstyle). Per the mediumâdifference ground rule this is at most a minor typographic deviation, but it is a visible difference throughout both boxes. **Severity: MINOR. Confidence: HIGH.**
+
+5. **Blue fill saturation/hue.** IMG1 boxes read as a brighter, more saturated pure blue; IMG2 boxes read as a slightly deeper, less luminous navyâblue, with mild vignetting/shading from the capture. Much of this is likely capture/illumination, but there may be a small true fillâhue difference. **Severity: MINOR. Confidence: LOWâMEDIUM.**
+
+6. **Marginal left red tick length.** The short horizontal red stub at the left edge is ~20 px long in IMG1 (y â 131) vs ~14 px in IMG2 (y â 133); most plausibly cropâoffset/perspective from the upscaled frame, outside the caption content. **Severity: MINOR. Confidence: LOW.**
+
+No BLOCKER or MAJOR defects: no missing/garbled characters, no altered words, no clipping, no text touching box edges, and no structural/geometry failures inside the enclosures.
+
+**FINAL VERDICT: PASS** â the region is faithful and usable; the remaining issues are minor caption lineâbreak/typography deviations (plus one dropped space after the hyphen in "Nonâ Convex"), with no wrong, missing, or garbled content.

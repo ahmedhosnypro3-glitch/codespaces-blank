@@ -1,0 +1,37 @@
+# Region Comparison â Slide 043, equation-stack crop (attempt 2)
+
+## Cell-by-cell / row-by-row audit
+
+**Row 1 â d(xâ):** vector |1 1 1| (red), column (4, â10, â8) green, = â14, â Update Weight, **W** = (4, â10, â8) + 2Â·(1,1,1) = (6, â8, â6), red â. All values, signs, and colors match. â
+
+**Row 2 â d(xâ):** |1 2 1|, (6, â8, â6) = â14; **W** = (6, â8, â6) + 2Â·(1,2,1) = (8, â4, â4). Match. â
+
+**Row 3 â d(xâ):** |1 1 2|, (8, â4, â4) = â4; **W** = (8, â4, â4) + 2Â·(1,1,2) = (10, â2, 0).
+- **Discrepancy:** original result column reads (10, â2, **â0**) â it carries a minus sign on the zero (upper-right of region, row 3, green column). Recreation renders plain **0**. Numerically identical, glyph differs. **MINOR**, confidence ~0.7 (the "â" in IMG2 is small but visible; could partially be compression, though it sits cleanly beside the 0).
+
+**Row 4 â d(xâ):** |1 5 4| (blue), (10, â2, 0) = 0; **W** = (10, â2, 0) â 2Â·(1,5,4) = (8, â12, â8), blue minus, red â. Match. (IMG2's garbled "10 / 02 / 0" in the left **W** column is a video-capture overlap artifact per rule (e); the recreation's â2 is the correct reading.) â
+
+**Row 5 â d(x |1 6 5| (blue), (8, â12, â8) = â104 â Keep same Weight, **W** = (8, â12, â8). Match. â
+
+**Row 6 â d(xâ):** |1 6 6|, (8, â12, â8) = â112 â Keep same Weight, **W** = (8, â12, â8).
+- **Discrepancy:** the original labels this row **d (bottom-left of region) â the subscript is clearly a 5, duplicating row 5's label (an evident typo in the source lecture). The recreation renders **d(xâ)**. This is a wrong subscript character relative to the original. **MAJOR**, confidence ~0.75 (the original's glyph reads as 5 in both rows 5 and 6; residual chance it's a degraded 6).
+
+## Cross-cutting observations (all MINOR)
+
+1. **â arrow color/weight:** original's right-pointing double arrows (before "Update Weight" / "Keep same Weight", center of each row) are **red and bold**; recreation renders them in **black/dark gray, lighter weight**. The left-pointing â arrows are red in both. **MINOR**, confidence ~0.8.
+2. **Font family:** original uses a serif/italic math face; recreation uses sans-serif. Typed-vs-typed styling difference, permitted under rule (d)'s spirit â **MINOR**.
+3. **Left delimiter of the |1 1 1|-style groups:** original shows a thin curved paren-like stroke, recreation a straight red bar. Same function, same span, same color. **MINOR**, confidence ~0.6.
+
+## Delimiter / structure check
+All green parens correctly span their 3-line columns without touching glyphs in both images; the update-equation chains (W = â¯ + 2 â â¯ = â¯) have identical structure, spacing, and color coding (red +2 for rows 1â3, blue â2 for row 4). Underlined bold **W** present in all six rows in both. â
+
+## Discrepancy summary
+| # | Item | Severity | Confidence |
+|---|------|----------|------------|
+| 1 | Row 6 label: original d vs recreation d(xâ) | **MAJOR** | 0.75 |
+| 2 | Row 3 result: original â0 vs recreation 0 | MINOR | 0.7 |
+| 3 | â arrows red/bold in original vs black/light in recreation | MINOR | 0.8 |
+| 4 | Serif vs sans-serif equation font | MINOR | 1.0 |
+| 5 | Left delimiter bar shape (bar vs thin paren) | MINOR | 0.6 |
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â driven solely by discrepancy #1: the recreation silently "corrected" the original's d label on the last row to d(xâ). Under the founder's rules a changed character in an equation label is a MAJOR defect regardless of whether it fixes a source typo; the recreation should match the original's subscript (or the source typo should be ratified explicitly) before this region passes. All numeric content, structure, delimiters, and coloring are otherwise faithful.

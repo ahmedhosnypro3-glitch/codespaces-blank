@@ -1,0 +1,123 @@
+# Judge transcript — slide 023, attempt 7 (full-slide)
+- date: 2026-10-24 06:49
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_023.jpg  md5=bc5c99ae61ea467f9531374bbab98d76
+- IMG_RENDER:   recreated_pptx/qa/slide023/render_7.png  md5=3fd468fde9de1430c203a1e82293b782
+- GM: render_H/540 = 1125/540 = 2.083333 (render 2001x1125)
+- render provenance: LibreOffice headless render of the CURRENT
+  slide_023_recreated.pptx (md5 7edb4065969ad593fab31ccb770f215c, built 2026-10-24 06:47
+  from build/slide_023.js md5 f60f72b55283fd3001b54b707993fd4e). Reading order: IMG_ORIGINAL
+  first, then IMG_RENDER.
+
+## Ground rules acknowledged
+(a) House chrome for THIS deck is intentional and NOT a discrepancy: white canvas; gray
+    E9E9E7 panel x54..903 y45..540; thin C00000 1pt strokes on LEFT, RIGHT and BOTTOM only
+    — the deck has INTENTIONALLY NO top stroke (a missing top stroke is correct; a present
+    top stroke would be the defect); yellow badge circle centered (876,73) d~35px, fill
+    FDFD96, purple ring 6A5ACD, bold numeral 333333 Arial 18pt equal to the file number (23).
+(b) If IMG2 were a contentless placeholder, contentlessness would be the match — N/A here
+    (IMG2 is a fully populated slide).
+(c) Mouse cursor / video-capture artifacts in IMG2 are correctly omitted (none visible on
+    this frame; the faint smudges near the solution text are JPEG ripple, not content).
+(d) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR.
+(e) Equations in the recreation are in PROFESSIONAL 2D FORMAT (real raised superscripts,
+    spatially aligned); a linear rendition in IMG2 is a mandated upgrade, not a discrepancy.
+(f) Verdict is about fidelity of renderable content only — element by element: title/text
+    verbatim and line breaks, layout/regions, tables/charts, equations, colors, imagery,
+    frame containment, overflow, collisions, legibility. 8-point checklist applied.
+
+## Comparison (element by element)
+- TITLE "Inverse of High Dimension Matrix": red (C00000) bold, centred, one line. Render ink
+  x221..652 y78..103 vs original x219..654 y78..104 (d +1.6/-1.6/-0.2/-0.8 px, banked
+  selfcheck_attempt_7.txt). MATCH.
+- BADGE: FDFD96 fill, 6A5ACD ring, bold "23" — house chrome rule (a); numeral equals the
+  file number. MATCH.
+- RECALL label: the original prints "Recall" with NO trailing colon (measured 5 glyph
+  groups; the analysis spec's colon is a transcription artefact — documented in the build
+  header). Render: italic, underlined, no colon, ink x103..178 vs original x103..177.
+  Underline y matches. MATCH.
+- EQUATION W = (X^T X + λI)^(-1) X^T Y: every glyph present and in the same order; W and Y
+  both carry underline bars (original W bar y180..181, Y bar x410..429; render bars present
+  under both); λ and I green in both; the exponent −1 is red and raised in both; parens
+  span their single line and do not touch the glyphs. Equation ink x104..427 y150..187 vs
+  original x104..427 y150..185. MATCH (content/structure/colour/position). Residual
+  glyph-weight and the post-inverse inter-symbol gap are the banked ACCEPTED MINORs below.
+- DIM NOTE "if Feature vectors are of dimension d ⇒ (X^T X) is of size d+1 x d+1": part 1
+  ink x104..409 vs x103..409; red "d"; red double-shaft ⇒ at x437..455 vs x439..454;
+  "(X" + RAISED SUPERSCRIPT T (ink x529.1..535.8 y191.8..199.9 vs original x529..535
+  y192..200) + " X)" with the measured UNDERLINE BAR under the first X (render y213
+  x512..524.8; original y212..213 x512..526); "is of size" at x571.8..647.2 vs original
+  x572..645; red d+1 x d+1 at x662..746 vs x661..747. This is the attempt-7 fix: the old
+  build's linear "(X^T X)" caret + full-height T is gone. MATCH (residual word-space drift
+  from Arial metrics, measured, below).
+- BLUE COMPLEXITY BOX, 3 navy lines (000080, measured saturated navy): verbatim text and
+  line breaks identical; "O(n^3)," now rendered with a TRUE RAISED CUBE (render ink
+  x815.2..821.0 y242.8..253.8 vs original x815..821 y243..253) and a red comma after ")"
+  (below-baseline comma tail 12 px, depth 2.9 vs 3.0); pitch 34/33 px vs original 34/34.
+  Line ink ends x833/847/763 vs original x834/840/760. MATCH (L2 +7 px advance accepted,
+  measured).
+- EXAMPLE lines (inside the blue box): "For Example: if Features vector is of size 1000
+  then Inverse calculation is" / "or order 1000,000,000 which is impractical" — verbatim,
+  black with red numerals; "1000" x530..579 vs x528..577; "1000,000,000" now has EXACTLY
+  TWO commas like the original (render commas below baseline at x239..240.5 and x284.6..286.1
+  vs original x238..240 and x283..285; run x186..327 vs x189..327) — the attempt-7 frame
+  correction (the spec's "1,000,000,000" carried an extra comma). Line tail ends x535 vs
+  x541 (Arial prefix advance, measured below). MATCH in content; MINOR advance residual.
+- SOLUTION BOX: "Solution:" navy bold; line 1 "Instead of using Least Squares with Matrix
+  inversion," centred; line 2 "use Gradient Descent iterative solution" centred; both
+  italic; no red ink anywhere in the box interior in either image (0 px vs a 1710-px red
+  control band — adjudication_attempt_2.md S2). Centres/ink: SOL1 x244..708 vs x246..709;
+  SOL2 x309..651 vs x313..648; "Solution:" x96..184 vs x97..176. MATCH in content; the
+  extra 8 px is Arial Bold's advance (measured below).
+- LAYOUT/REGIONS: title band; green recall box (borders x96.9/753.8 y109.9/217.7 vs original
+  x98/754 y111.5/219.5); blue complexity box (x87.4/867.8 y227.9/424.7 vs x87/868
+  y229.5/425.5); yellow solution box (x86.9/873.8 y434.9/529.2 vs x87/875 y435.5/530);
+  example lines inside the blue box. Order, gaps and relative heights match. MATCH.
+- TABLES/CHARTS/IMAGERY: none on the original; none demanded. N/A.
+- FRAME CONTAINMENT: every content element sits inside its coloured box and inside the
+  house panel; no ink in the outside bands (left margin/top band/right margin/bottom band
+  all clear — selfcheck_attempt_7.txt section F); no text crosses or touches a stroke.
+- COLORS: house chrome per rule (a); green box fill CEFFE2/549B56 border, blue box
+  F8F8FF/B9B6D8, yellow box FAFDE2/6B562E — all measured from the frame and within
+  ≤1 px stroke placement; navy 000080 body (frame core (2,0,111)); red accents C00000.
+- VISUAL-QUALITY: no clipping, no overflow, no wrong wrapping, no collision, no illegible
+  glyph. Line pitch is explicit/pinned by per-line boxes (no multi-line paragraph boxes;
+  pitch measured 34/33, 34.1, 27.6 vs original 34, 35, 29 — selfcheck_attempt_7.txt).
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — body face obliqueness. The original's body face
+   leans ≈ −7.5..−8.4°; the recreation uses upright Arial for the blue/example/dim-note
+   body lines (the Recall label and both solution lines are italic). Banked font forensics
+   (adjudication_attempt_1_minors.txt M1, adjudication_attempt_2_solution.md D1): no
+   installed face reproduces the frame's slant AND single-storey 'a' AND Arial-identical
+   advance (Carlito Italic −7° but +15.9% advance; Arial Italic −12° vs the frame's −8°).
+   Changes no glyph, digit, word, break or region. ACCEPTED (font-availability limit).
+2. MINOR (accepted, banked measurement) — equation glyph weight/typeface. The frame's
+   equation is bold italic; matplotlib mathtext draws one weight from one string
+   (adjudication_attempt_2.md R2/R3). Glyph shapes, positions, underline bars, colours and
+   enclosure all measure correct (equation ink x104..427 vs x104..427). ACCEPTED.
+3. MINOR (accepted, banked measurement) — post-inverse inter-symbol space. Frame ")→X"
+   gap 29 pt; render 16 pt (matplotlib collapses math-mode spaces). Order, glyphs and the
+   −1 exponent are correct (adjudication_attempt_4_fullslide.md C4). ACCEPTED.
+4. MINOR (accepted, banked measurement) — "Solution:" run is 8.1 px wider on the right
+   (Arial Bold advance; 7.6..8.1 px across renders 2..7, selfcheck_attempt_7.txt). Label
+   verbatim, bold, navy in both. ACCEPTED.
+5. MINOR (accepted, measured) — EX2 tail ends 6.2 px left of the original after the
+   verbatim numeral correction (Arial prefix advance; the red numeral itself x186..327 vs
+   x189..327, two commas matching). ACCEPTED.
+6. MINOR (accepted, measured) — dim-note word-space drift: "is of size" starts x571.8 vs
+   x572 and "size" ends x647.2 vs x645 (Arial space advance vs the frame's wider
+   inter-word gaps; the salient glyph clusters parenthetical / d+1 x d+1 are pinned at
+   their measured x). ACCEPTED.
+7. MINOR (accepted, measured) — blue L2 advance +7 px (Arial 23.5pt; selfcheck tol 8),
+   blue L1 −1.6 px after the O(n³) fix. ACCEPTED.
+
+No BLOCKER and no MAJOR findings. Every MINOR above is either matching the original or
+dispositioned with a banked PIL measurement (selfcheck_attempt_7.txt and the cited
+adjudication records); none is a fix trigger.
+
+## Visual-quality defects
+None: no clipping/overflow, no wrong wrapping, no collisions, no illegibility; line
+spacing explicit (per-line boxes) and measured; all content inside its frames.
+
+FINAL VERDICT: PASS

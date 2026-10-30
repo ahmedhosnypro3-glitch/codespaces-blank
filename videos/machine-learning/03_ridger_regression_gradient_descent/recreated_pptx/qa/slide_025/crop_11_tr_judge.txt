@@ -1,0 +1,53 @@
+# Discrepancy Report â Slide 025, TR region (3âD surface: bowl + spike, zoomed crop pair)
+
+## Region-by-region findings
+
+**1. Left horizontal axis label order (lower-left edge of the 3âD box)**
+- IMG2 (original), topâbottom along the axis: **100, 50, 0, â50, â100**.
+- IMG1 (recreation), topâbottom: **â100, â50, 0, 50, 100** â the direction of the axis is **reversed/mirrored** relative to the original. Every tick value on this axis is in the opposite position.
+- Severity: **MAJOR** (an entire axis's tick sequence is inverted â wrong data orientation, not a styling difference). Confidence: high.
+
+**2. Extra horizontal reference line at z = 0 (spanning the full plot width, center of region)**
+- IMG1 shows a **third, very thick darkâred horizontal line at the z = 0 level**, running edgeâtoâedge across the whole plot, thicker than the others.
+- IMG2 shows only the two thick reference lines in the ~0.35â0.5 band plus the slanted stroke A; there is **no line at z = 0**.
+- Severity: **MAJOR** (an extra reference stroke that does not exist in the original). Confidence: mediumâhigh (it is clearly present and clearly a drawn stroke, not an axis line â it's much heavier than the axis).
+
+**3. Reference-line pair placement (y226/y234, mid-left band)**
+- In IMG2 the two thick horizontal lines sit close together around z â 0.4â0.45 and are roughly the same weight.
+- In IMG1 the corresponding lines sit at roughly z â 0.5 and z â 0.4 â slightly higher and slightly more separated than the original. Both extend to/past the plot edges in IMG1; in IMG2 they stop nearer the box.
+- Severity: **MINOR** (position/extent offset of a few pixels at this zoom). Confidence: medium.
+
+**4. Slanted stroke A (upper band, rising leftâright)**
+- Present in both, similar slope and endpoints (~0.75 at left rising to ~1.05 at right). In IMG1 it protrudes slightly past the right edge of the 3âD box; in IMG2 it terminates at/near the box edge.
+- Severity: **MINOR**. Confidence: medium.
+
+**5. Central spike shape and height**
+- IMG2: spike rises to a sharp red peak essentially reaching the top of the z-range (~1.95â2.0), clean conical silhouette.
+- IMG1: spike is noticeably **shorter/blunter** (dark maroon tip around z â 1.6â1.7), with irregular cyan/blue and red diamond-shaped patches at its base (z-order/shading artifacts not present in the original).
+- Severity: **MAJOR** for the height/shape mismatch (the peak is the visual focal point and clearly does not reach the same height); the base patches alone would be MINOR. Confidence: medium.
+
+**6. Surface colormap distribution**
+- IMG2: smooth gradient, yellow/green band concentrated on the upper bowl walls, deep blue floor, red only at the four corner peaks and spike tip.
+- IMG1: mesh is much more prominent, and the red/orange corner peaks appear at different positions/emphasis (e.g., strong orange at the far-right corner in IMG1 vs. a smaller red corner in IMG2), consistent with the flipped axis orientation in item 1.
+- Severity: **MINOR** on its own (colormap family matches), but it corroborates the axis-flip in item 1. Confidence: medium.
+
+**7. Gridline style / bottom contour projection**
+- IMG2 shows **dotted** gray gridlines and faint **contour projections** on the bottom plane beneath the surface.
+- IMG1 shows solid light-gray pane gridlines and **no bottom contour projection**.
+- Severity: **MINOR** (styling/omission of a faint decorative projection). Confidence: medium.
+
+**8. Tick labels and Ã10â´ exponent (verified cell-by-cell)**
+- Ã10â´ present, correct form, top-left â matches.
+- Z axis: 2, 1.5, 1, 0.5, 0 â all present, correct, correctly ordered, properly centered against ticks in both.
+- Right axis: 100, 50, 0, â50, â100 â matches original order. No garbled glyphs, no truncated minus signs anywhere.
+- Severity: none.
+
+## Summary
+- MAJOR: left-axis tick order reversed (â100â100 instead of 100ââ100) â high confidence.
+- MAJOR: extra thick reference line at z = 0 not present in the original â mediumâhigh confidence.
+- MAJOR: central spike shorter/blunter than original, with base rendering artifacts â medium confidence.
+- MINOR: reference-line pair offset/extent; slanted line overshoot; missing bottom contour projection; gridline style.
+
+## FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'
+
+The reversed axis direction and the extra z = 0 reference stroke are content-level errors in a plot whose entire purpose is the geometry and reference lines; they must be corrected before this region can pass.

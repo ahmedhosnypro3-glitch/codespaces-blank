@@ -1,0 +1,39 @@
+# Slide 042 â paren-curve audit, z-column vector region (crop-relative coordinates)
+
+## Cell-by-cell value check (all six vectors, top â bottom row)
+
+| Vector | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| **xâ** | 1, 1, 1 | 1, 1, 1 | â |
+| **xâ** | 1, 2, 1 | 1, 2, 1 | â |
+| **xâ** | 1, 1, 2 | 1, 1, 2 | â |
+| **xâ** | 1, 5, 4 | 1, 5, 4 | â |
+| **x 1, 6, 5 | 1, 6, 5 | â |
+| **xâ** | 1, 6, 6 | 1, 6, 6 | â |
+
+Every digit in every cell matches, in correct order, with correct row alignment. All six column headers xââxâ are present with correct subscripts in both images. No missing rows, no swapped values, no truncated subscripts.
+
+## Delimiter geometry
+- In **IMG1**, each opening/closing paren pair spans all three enclosed rows cleanly at every column (verified at each of the six columns, xâ through xâ). No paren is too short, and no paren touches or overlaps any digit. â
+- Paren curvature and weight are consistent and comparable to IMG2 at matched scale. â
+
+## Discrepancies found
+
+1. **MINOR â inter-column paren spacing (â boundary, right side of crop, ~mid-height):** In IMG1, the closing paren and the opening paren of xâ sit closer together than in IMG2, where a slightly wider gutter separates the adjacent vector groups. All delimiters remain visually distinct and unambiguous; purely a spacing nicety. Confidence: high.
+
+2. **MINOR â header weight (top edge of crop):** IMG1 renders the xââxâ headers in a heavier/bolder style than the lighter italic serif headers in IMG2. Same glyphs, same subscripts; a styling-weight difference only. Confidence: high.
+
+3. **MINOR â ink rendering (global):** Typed/digital glyph rendering in IMG1 vs. softer, JPEG-softened ink in IMG2 â inherent medium difference per ground rule (c)/(e); the soft edges in IMG2 are capture artifacts, not content. Confidence: high.
+
+## Non-issues (explicitly not discrepancies)
+- White canvas background in both crops is consistent; no template chrome appears in this region.
+- No top-stroke questions arise in this crop; nothing of that kind is present or missing here.
+
+## Summary
+- BLOCKER: none
+- MAJOR: none
+- MINOR: 3 (spacing atâ gutter; header font weight; medium/ink rendering)
+
+All numeric content is exact cell-by-cell; all six paren pairs span their three lines without touching text; no wrong, missing, or garbled characters anywhere in the region.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

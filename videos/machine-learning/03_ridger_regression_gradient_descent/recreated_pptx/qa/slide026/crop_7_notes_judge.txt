@@ -1,0 +1,17 @@
+# Template B NOTES crop leg — slide 026 attempt 7 (resume worker w26-r3-20261021T0538)
+# render crop: crop_7_notes_render.png (md5 5292f1247a751eb61b00a09b9bd1bbc2)
+# original crop: crop_7_notes_orig.png (md5 fa2ece1795adf287ac7f7bd000947629)
+# payload: crop_6_notes_prompt.txt byte-exact (md5 3d8251da32fd8ab70fe3d7d37c2fb08f)
+# cmd: bash scripts/16_vision_gate.sh python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison crop_7_notes_render.png crop_7_notes_orig.png -p "$(cat crop_6_notes_prompt.txt)" --thinking high --max-tokens 65536 --timeout 600   [inside timeout 1700]
+# date: 2026-10-21T07:29:05+03:00
+
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1107672
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/crop_7_notes_render.png, videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/crop_7_notes_orig.png ===
+[winner] images (round 1, attempt 1)
+- Discrepancy: Lower bullet, first line, around xâ15â30%, yâ74â82% â in the original crop the underlined/italic phrase after âGD willâ reads **âapproximatlyâ**; the recreation renders it **âapproximatelyâ** (adds the missing **e** after âtâ). This is a character-level difference vs. the original. Severity: **MAJOR**. Confidence: **high**.
+- No other glyph, number, symbol, table, equation, delimiter, alignment, or spacing discrepancy is clearly visible in this crop.
+
+FINAL VERDICT: FAIL
+

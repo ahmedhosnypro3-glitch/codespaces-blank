@@ -1,0 +1,73 @@
+WALL / DISPATCH EVIDENCE — attempt 19 legs, worker judge-slide003-att19
+
+1. 12:22-12:32 — Leg A + Leg B (matrix) first dispatched as tracked background
+   tasks (the default harness background-task timeout, 600s). Congestion at
+   dispatch was 38-49 concurrent analyze_image.py processes fleet-wide.
+   BOTH tasks were killed by the harness 600s cap at exactly 600.252s
+   ("timed_out") with only the [info] context-header lines emitted — NO
+   transcript, NO gateway error, NO verdict. This is a client-wall abort, not
+   a gateway failure: the inner `timeout 1700` never got the chance to fire.
+   Evidence: sessions dir output.log files for tasks
+   bash-y8iejudv / bash-log092ps (2 [info] lines each, 321 and 554 bytes).
+
+2. 12:33 — re-dispatched with the harness timeout DISABLED (disable_timeout=true)
+   so the protocol's own `timeout 1700` outer / gate ladder governs, as the
+   standing law requires. Congestion had fallen to 11. New task ids:
+   bash-jqys564r (Leg A), bash-53jsx6px (Leg B matrix). Payloads unchanged
+   (byte-verified judge_prompt_19.txt / judge_prompt_19_crop.txt); render and
+   crops unchanged (render_19 == render_18, verified current).
+
+Attempt accounting: neither aborted call produced a body or consumed a judge
+attempt (protocol: "a hang means sleep 300 and re-probe ONCE"; degenerate/
+absent body = no evidence, attempt count unchanged). Leg A and the matrix crop
+each get ONE further hard-wall retry, already spent above, and no more.
+
+3. ~12:47 — attempt-19 leg A and the three leg-B crops (matrix/topbox/
+   bottomright) all hit the script's OWN hard wall: "ABORT HangError: hard
+   wall-clock 630s exceeded — call aborted (possible stuck thinking stream)
+   — abort+retry 1/3" at 650-855s elapsed. Congestion 32-39 processes. The
+   script began auto-retrying at the SAME 600s timeout, which had already
+   proven unable to finish against this congestion.
+
+4. Stopped all four (no verdicts had been produced, so no attempt consumed)
+   and applied the standing law: ONE hard-wall retry per leg with
+   `--timeout 1200` (the orchestrator-sanctioned ceiling; 049 proved the heavy
+   invocation lands real verdicts under it). Payload byte-for-byte unchanged
+   (judge_prompt_19.txt / judge_prompt_19_crop.txt); images unchanged
+   (render_19.png + crop_19_*.png, all already banked).
+   Re-dispatched: bash-lk5c9li5 (Leg A), bash-ko76qbf8 (matrix crop).
+   No further extension is permitted for these legs.
+
+--- second window (worker judge-slide003-att20, re-anchor 15:30) ---
+15:30 re-claimed slide 3 (judge-slide003-att20, hb 143m stale).
+Bank-first verification: pptx md5 66efcb88934169c253e47551866c54b8 UNCHANGED;
+render_18 == render_19 md5 7afc5d9056ad725cbf7b6f5d9a29e20a — the banked render
+still matches the current pptx. No re-render was needed. House chrome PASS.
+Transcript re-glob found crop_19_matrix_judge.txt had landed at 13:09:49
+(FAIL) — the matrix crop verdict that the first window was waiting for.
+
+Legs in the second window:
+- Leg A (full-slide): dispatched --timeout 1200 -> ABORT HangError at the
+  script's own hard wall (1230s) on attempt 1; the outer 1700s wrapper then
+  expired, so attempts 2-3 never ran. No transcript.
+- Matrix crop re-run --timeout 900 --tries 3: all three attempts returned
+  HTTP 504 upstream_timeout (Nvidia) in 188s. The analyzer's own hygiene
+  correctly REFUSED to overwrite the valid 13:09 verdict ("transcript NOT
+  overwritten — this run produced no validated winner"). The 13:09 FAIL verdict
+  therefore stands as the current, real crop-pair verdict.
+- Leg A final dispatch: --timeout 900 --tries 3 inside timeout 1700 (task
+  bash-qou69ur8), in flight.
+
+Congestion across the window: 13-16 analyze_image.py processes;
+gateway responds (401 = key required, healthy).
+
+--- Leg A final dispatch (task bash-qou69ur8) : ladder exhausted, NO VERDICT ---
+  attempt 1: ABORT HangError hard wall-clock 930s exceeded
+  attempt 2: HTTP 504 upstream_timeout (Nvidia)
+  attempt 3: HTTP 504 upstream_timeout (Nvidia)
+  attempt 4: HTTP 504 upstream_timeout (Nvidia)
+  -> 0/1 analyzed; LEG_A_EXIT=1. No transcript write (analyzer hygiene: a
+  degenerate run never overwrites a transcript; here none existed).
+
+Probe budget used this hour: 2 (16:15 re-probe after sleep 240; the Leg A
+ladder above). Per the gate law no further probe is permitted within the hour.

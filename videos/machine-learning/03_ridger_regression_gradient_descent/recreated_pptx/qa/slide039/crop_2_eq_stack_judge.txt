@@ -1,0 +1,20 @@
+**Fidelity verdict:** The render is geometrically matched to the original region, but it is **not a faithful style reproduction**. The original relies on heavy math formatting (bold/underlined vectors, color-coded operators, and an overlaid pointer artifact) that the 150-dpi render has âcleaned upâ into plain black text. If the goal is pixel-exact preservation of the lecture slide, the render fails on typography and color semantics.
+
+**What is preserved**
+- **Content:** Both show the same equation string and the same red annotation, *âRepeat for ALL misclassified Samples.â*
+- **Layout:** The green callout box, the relative placement of the equation on the left and the red text on the right, and the overall slide-space crop bounds match.
+- **Colors at the box level:** Pale green fill and green rounded-rectangle border are present in both.
+
+**What is lost / differs**
+
+| Element | Original lecture frame | 150-dpi render |
+|---|---|---|
+| **Weight vectors** | **W** (updated and old) are rendered **bold and underlined**, indicating vector notation. | **W** is plain, non-bold, with no underline. |
+| **Minus sign (â)** | Rendered in **red**. | Rendered in black. |
+| **Learning rate (Î·)** | Rendered in **red**. | Rendered in black. |
+| **Error/sample term (Î´â Xáµ¢ / Î´áµ¢ Xáµ¢)** | Carries color/underline emphasis (green/underlined styling on the Î´áµ¢/Xáµ¢ cluster). | Plain black, no underline, no color distinction. |
+| **Overlay artifact** | A pointer/cursor graphic overlaps the Î· / operator area. | No artifact (clean equation space). |
+| **Math font** | Appears as a math-type font (e.g., Cambria Math) with vector bars/underlines. | Appears as a standard office-equation font (e.g., Calibri/Cambria hybrid) with thinner glyphs. |
+| **Border crispness** | Slightly wavy/perspective-distorted by camera capture. | Geometric, sharp rounded rectangle. |
+
+**Bottom line:** If the deliverable is the *content*, the render contains the right words. If the deliverable is *visual fidelity*, the render is regressing to a âdefaultâ equation style and has dropped the slide authorâs vector notation (bold-underlined **W**) and the red/green semantic highlighting used to emphasize the update rule.

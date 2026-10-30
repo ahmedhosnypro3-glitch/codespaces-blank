@@ -1,0 +1,29 @@
+## Region-by-region comparison (caption band, crop-relative coords)
+
+**Text content (glyph-by-glyph):**
+- "Câ positive" â present in both. Red "C", red subscript "1" (IMG1: xâ15â45, left edge; IMG2: xâ15â40). Subscript correctly positioned and rendered in the matching color in both. â
+- "Câ negative" â present in both. Blue "C" and blue subscript "2" (IMG1: xâ170â200; IMG2: xâ150â180). â
+- "Zero is unaccepted" â present in both. "Zero" in green, "is unaccepted" in black in both (IMG1: xâ330â560; IMG2: xâ315â535). No missing, garbled, or substituted characters. â
+- No wrong digits, no swapped values, nothing truncated. â
+
+**Colors:**
+- Red Câ, blue Câ, green "Zero", black body text â all match within tolerance. IMG2 shows JPEG-ish color bleed on the green/letters; per ground rule (e), not a discrepancy.
+
+**Delimiter/edge artifacts:**
+- IMG2 top edge shows a clipped "(â2)" fragment (xâ195â230, top 0â12px) â this is the bottom of the equation *above* the caption band, included because the original's crop boundary sits slightly higher. It is not part of this caption region's content; the recreation's crop simply starts below it. **MINOR** crop-framing offset, confidence high â not a content defect.
+- IMG1 bottom-left shows a small gray strip below the navy rule (xâ0â60, yâ95â100) â house-template chrome (gray E9E9E7 panel edge), excluded per ground rule (b).
+
+**Typography (the only real difference):**
+- IMG2 (original) renders the whole caption in an *italic* serif face ("*Câ positive*", "*negative*", "*is unaccepted*"). IMG1 (recreation) renders the same words upright in a non-italic face. Typed-vs-rendered font styling is an inherent medium/rendering difference; text, colors, subscripts, and word order are identical. **MINOR**, confidence high.
+
+**Rule/line geometry:**
+- Dark blue horizontal rule along the bottom: present in both, full width, consistent weight, correct separation from the text baseline. â
+
+**Vertical centering/spacing:** word gaps ("Câ negative", "Zero is unaccepted") are proportionate in both; no crowding or clipping of glyphs. â
+
+## Discrepancy list
+1. **MINOR** â Font style: original italic serif vs recreation upright face. Confidence: high.
+2. **MINOR** â Crop framing: "(â2)" fragment visible at IMG2's top edge (leftover of equation above), absent in IMG1. Confidence: high. Not caption content.
+3. No MAJOR or BLOCKER discrepancies found: all glyphs, subscripts, colors, and the bottom rule match cell-for-cell.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

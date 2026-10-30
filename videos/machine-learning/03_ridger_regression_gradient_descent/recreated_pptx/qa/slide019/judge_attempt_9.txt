@@ -1,0 +1,40 @@
+DISCREPANCIES:
+
+1.  **Missing Weight Vector Components (BLOCKER)** â Confidence: High
+    *   In every regularizer column (NO Regularizer, Ridge Î»=3, Ridge Î»=10) across all 3 outlier rows, Image 1 renders the weight vector $W$ with only 2 components (e.g., `W=(2, 0)`, `W=(2.7, 0.67)`), while Image 2 (original) displays 3 components (e.g., `W = 0, 2, 0`, `W = 2.7, 0.67, 0.64`).
+    *   Affected cells: All 9 W-vector labels. Missing values violate Rule (8) (Table Data / Missing elements).
+
+2.  **Column Header Background Colors (MAJOR)** â Confidence: High
+    *   Image 1 uses white/gray backgrounds for the "NO Regularizer", "Ridge Regularizer with Î»=3", and "Ridge Regularizer with Î»=10" headers.
+    *   Image 2 uses distinct colored backgrounds: Light Red (NO Regularizer), Light Orange (Ridge Î»=3), Light Green (Ridge Î»=10).
+
+3.  **Test Data Table Structure (MAJOR)** â Confidence: High
+    *   Image 1 replaces the original grid tables (with headers Test1/Test2/Test3 and rows x1/x2/y) with linear text blocks (e.g., `Test1: x1=30,x2=15, y=60`).
+    *   Image 2 displays these as structured tables inside the cells.
+
+4.  **Divider Stroke Colors (MAJOR)** â Confidence: High
+    *   Image 1 uses uniform dark blue/purple vertical dividers throughout the main grid.
+    *   Image 2 uses thematic divider colors matching the columns (Blue for Outlier column, Red for NO Regularizer, Orange for Ridge Î»=3, Green for Ridge Î»=10).
+
+5.  **Text Colors â W Vectors and Headers (MAJOR)** â Confidence: High
+    *   Image 1 renders $W$ vector labels in Red and column headers in Blue.
+    *   Image 2 renders $W$ vector labels and headers in Black (on colored backgrounds).
+
+6.  **Yellow Separator Layout (MAJOR)** â Confidence: High
+    *   Image 1 uses full-width yellow horizontal bars separating the three main outlier rows across all regularizer columns.
+    *   Image 2 applies yellow highlighting only to the specific `y` row inside the small nested tables.
+
+7.  **Top Box Border Color (MAJOR)** â Confidence: Medium
+    *   Image 1 uses a blue border for the "Test Data" box.
+    *   Image 2 uses a red/pink border for the "Test Data" box.
+
+VISUAL-QUALITY DEFECTS (Recreation):
+*   None observed regarding overflow/clipping/illegibility in Image 1 itself, but the structural substitutions (linear text vs tables) reduce fidelity.
+
+NOTE ON RULE (e): The top "Test Data" equation format differs (Image 1 linear `z1=(30, 15)...` vs Image 2 2D stacked vectors). Per founder directive, this mandated format upgrade is NOT a discrepancy.
+
+NOTE ON RULE (c): Image 2 contains a mouse cursor artifact near the Ridge Î»=10 / Outlier 30 region; Image 1 correctly omits it.
+
+NOTE ON RULE (a): Slide number badge "19" and house chrome (gray panel, red L/R/B strokes, no top stroke) match the original and are intentional.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation'.

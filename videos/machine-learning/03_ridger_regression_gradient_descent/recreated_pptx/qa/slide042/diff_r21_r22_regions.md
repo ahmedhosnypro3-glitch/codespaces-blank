@@ -1,0 +1,19 @@
+FULL RENDER: 1959 changed px, 13 components
+  comp n=236 render x1230..1247 y165..229  frame x590..598 y79..110
+  comp n=227 render x1293..1313 y134..154  frame x620..630 y64..74
+  comp n=224 render x1243..1263 y134..154  frame x596..606 y64..74
+  comp n=219 render x1345..1361 y166..229  frame x645..653 y80..110
+  comp n=219 render x1335..1355 y134..154  frame x640..650 y64..74
+  comp n=218 render x1304..1319 y166..229  frame x626..633 y80..110
+  comp n=186 render x1254..1269 y166..229  frame x602..609 y80..110
+  comp n=175 render x1322..1339 y165..229  frame x634..642 y79..110
+  comp n=157 render x1280..1282 y166..229  frame x614..615 y80..110
+  comp n=45 render x1283..1297 y165..167  frame x616..622 y79..80
+  comp n=19 render x1356..1359 y148..154  frame x651..652 y71..74
+  comp n=17 render x1314..1317 y148..154  frame x630..632 y71..74
+  comp n=17 render x1264..1267 y148..154  frame x606..608 y71..74
+region stack    : r21->r22 changed_px=     0  NONE (pixel-identical)
+region legend   : r21->r22 changed_px=     0  NONE (pixel-identical)
+region topright : r21->r22 changed_px=  1959  changed bbox frame x590.2..653.1 y64.5..110.1
+region tl_table : r21->r22 changed_px=     0  NONE (pixel-identical)
+region lm_table : r21->r22 changed_px=     0  NONE (pixel-identical)

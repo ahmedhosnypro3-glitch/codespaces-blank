@@ -1,0 +1,58 @@
+render 2001x1125 scale=2.0833  frame 960x540
+mean|diff|=13.42  px>32: 57160  px>64: 32225  px>128: 13786
+original ink px=13668  render ink px=15445  (ink=luma<128)
+ink only in ORIGINAL (present in orig, absent in render) = 8855
+ink only in RENDER  (absent in orig, present in render) = 10632
+
+coarse grid (40pt cells): / = original-only ink, # = both ink, + = render-only ink, . = blank
+y  0- 40  ........................
+y 40- 80  .#################...##.
+y 80-120  .#################...##.
+y120-160  .###########////###...#.
+y160-200  .#####+#.##.####.##...#.
+y200-240  .#####+#/##.####.##...#.
+y240-280  .#####++.++.++++.+#...#.
+y280-320  .#####.#/##.####.##...#.
+y320-360  .###//#./#+.......#...#.
+y360-400  .###//##.##.####.##...#.
+y400-440  .#////##/##/####.###..#.
+y440-480  .#.......++....+..#+..#.
+y480-520  .#.....#/###.###..##..#.
+y520-560  .######################.
+        |     |     |     |     
+
+[ORIGINAL] red px total=3139
+   top band y40..60 red px=0 (of which vertical-stroke tops=0); after excluding x56..62+897..904 => 0 (must be 0 on this deck)
+
+[RENDER  ] red px total=5674
+   col x=58 red=493
+   col x=900 red=493
+   row y=538 red=843
+   top band y40..60 red px=28 (of which vertical-stroke tops=28); after excluding x56..62+897..904 => 0 (must be 0 on this deck)
+
+[ORIGINAL] red-ish px in y0..59: 0
+
+[RENDER  ] red-ish px in y0..59: 28
+   y=46: 2 px  x=[58, 900]
+   y=47: 2 px  x=[58, 900]
+   y=48: 2 px  x=[58, 900]
+   y=49: 2 px  x=[58, 900]
+   y=50: 2 px  x=[58, 900]
+   y=51: 2 px  x=[58, 900]
+   y=52: 2 px  x=[58, 900]
+   y=53: 2 px  x=[58, 900]
+   y=54: 2 px  x=[58, 900]
+   y=55: 2 px  x=[58, 900]
+   y=56: 2 px  x=[58, 900]
+   y=57: 2 px  x=[58, 900]
+   y=58: 2 px  x=[58, 900]
+   y=59: 2 px  x=[58, 900]
+
+[ORIGINAL] yellow badge bbox in x840..915/y45..105: x860..893 y59..89  n=757  centroid=(876.3,73.4)
+   badge row y=73: x860..892  (w=33)
+   badge col x=876: y59..88  (h=30)
+
+[RENDER  ] yellow badge bbox in x840..915/y45..105: x860..891 y57..88  n=674  centroid=(875.1,72.3)
+   badge row y=72: x860..891  (w=32)
+   badge col x=875: y57..88  (h=32)
+   purple ring px=199 bbox x857..893 y54..90

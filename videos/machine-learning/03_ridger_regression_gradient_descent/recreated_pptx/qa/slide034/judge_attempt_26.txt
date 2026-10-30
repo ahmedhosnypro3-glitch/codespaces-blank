@@ -1,0 +1,77 @@
+## Elementâbyâelement fidelity review â Slide 034
+
+### 1. Title block (upper left/center)
+
+| Item | Original (IMG2) | Recreation (IMG1) | Finding |
+|---|---|---|---|
+| Line 1 | âNonâConvex Functionâ (bold red, serif) | same wording, red, bold, **sansâserif** | Font family differs (minor) |
+| Line 2 | âMay reach different minimum value **based on:**â (ends with âon:â) | âMay reach different minimum value **based**â â âon:â **omitted** | **MAJOR** â text not verbatim, line wrap differs |
+| Line 3 | âinitial point and learning rateâ (blue, clean) | âinitial point and learning rateâ but the âand â¦ learning rateâ run is **overprinted/collided** (two ink layers overlapping at âx285â320) | **MAJOR** â text collision, illegible span |
+| Geometry | 3 lines centered âx132â400 (block centre âx265), line pitch â28 px | lines âx143â493, block centre âx305â318, pitch â24 px | Lines wider/shifted right, different tracking/centre â **MAJOR** alignment/size deviation |
+
+### 2. Chart region (right, red frame)
+
+- **Original**: red frame âx570â795 / y52â278, filled by a large vector plot (grid, labelled x and y axes, â10â¦10 / â12â¦6 ticks), **cyan** xÂ²cos(x)/10 curve, **orange arrow pointing downâleft**, **red marker dot** near the local optimum, **green marker dot** at the global minimum, and a **magenta boxed label âReach global Minimaâ** at the bottom.
+- **Recreation**: red frame âx570â795 / y48â260, but the plot occupies only âx595â790 / y88â205 and is a lowâresolution raster with a **purple/violet** curve, tiny unreadable tick labels, a plain orange stroke (no arrowhead), **no red dot, no green dot, no orange arrow, and the magenta âReach global Minimaâ text is a 3âpixelâhigh label with no box**, placed midâright instead of bottomâcentre.
+- â **BLOCKER**: the orange arrow, red marker, green marker and the boxed âReach global Minimaâ callout are **omitted entirely** (rule 6), and the chart itself is a different rendering at a different scale/colour (rule: chart type & geometry). Axis tick labels in the recreation are **illegible** (quality defect). Chart frame bottom (y260) vs plot bottom (y205) leaves a large empty band, unlike the originalâs filled frame.
+
+### 3. Equation callout
+
+- Original: redâstroked box (âx437â566 / y150â192) containing f(x) = (xÂ²cos(x) â x)/10.
+- Recreation: blackâstroked box (âx435â565 / y137â182), equation content correct and professionally typeset (mandated 2âD format â **not** a discrepancy), but the **border colour is wrong (black vs C00000)** and the box is **shifted up â13 px**. â **MINOR** (colour) / **MINOR** (position).
+
+### 4. Left âstep / initial X / deltaâ miniâtable
+
+- Original: greenâoutlined box âx72â160 / y218â270; rows âstep 0.2â, âinitial X **7**â (7 in red bold), âdelta 0.1â, all bold serif.
+- Recreation: âx58â165 / y200â250, **no green outline**, â7â in black, regular weight sansâserif. Data values match. â **MINOR** (border omitted, emphasis lost), **MINOR** (â18 px up / â14 px left shift).
+
+### 5. âX is in between â¦â callout and arrow
+
+- Original: **greenârectangle frame** (âx252â560 / y222â262) containing two lines: â**X** is in between **9.6** and color red bold **9.8**â and â**f(x)** is in between **â 10.03** and **â 9.92**â (f(x) and the two values in blue bold); the X in line 1 is red. A small redâoutlined white **downâpointing arrow** links the âinitial X 7â cell of the miniâtable to this box (âx155â178 / y266â296).
+- Recreation: **no green frame at all** (text floats free) â element omission. Line 1 reads âX is in between 9.6 and 9.8â â the literal words **âcolor red boldâ are omitted** â **MAJOR** (verbatim text). âf(x)â, ââ10.03â, ââ9.92â are rendered **black** instead of blue bold â **MINOR**. Minus signs are hyphens without the originalâs spacing (ââ 10.03â vs â-10.03â) â **MINOR**.
+- The arrow is a **long thick horizontal red arrow pointing right** into the callout text (âx175â255 / y228) â completely different position, orientation, length and head style from the originalâs small downâarrow anchored at the âinitial X 7â cell â **MAJOR** (diagram/arrow geometry).
+
+### 6. Main table
+
+- **All 8 rows Ã 18 value columns were checked cellâbyâcell: every number, label and row order matches exactly** (f(x), xâdelta, f(xâdelta), x+delta, f(x+delta), slope, next x, including the highlighted â10.03 / â9.92 / 9.6 / 9.8 / 9.4 / â0.7 / 3.2 cells). No data error.
+- However the **framing/structure styling diverges**: the original has a **blue outer rectangle** (âx62â832 / y280â455) plus **black outlines grouping the header, the xâdelta block, the x+delta block, the slope row (green outline) and the nextâx row (red outline)**, with a **yellow header row**; the recreation has **no blue outer frame, no black group outlines**, a **cyan header row**, and added solid pink (next x) / green (slope) / cream row fills not present in the original â **MAJOR** (table structure/colour framing deviates, though data is intact).
+- Vertical placement: recreation table top ây262 vs original ây285 (table sits â20 px higher) and right edge â820 vs â832 â **MINOR** geometric shift; all content remains inside the house panel (no overflow).
+
+### 7. House chrome / exempt items
+
+Panel grey field, red left/right/bottom strokes (no top stroke), badge â34â at (876,73) â treated as intentional, not counted.
+
+---
+
+## Visualâquality defects in the recreation
+
+1. Overlapping/collided ink in the blue third title line (âand learning rateâ region) â illegible.
+2. Chart raster is lowâresolution; axis tick numbers and the magenta label are unreadable at 100 %.
+3. Large empty white band inside the chartâs red frame (plot not filling the frame as in the original).
+4. Missing green frame around the callout text leaves the callout visually unanchored.
+5. Equation box stroke colour inconsistent with the deckâs red accent.
+
+---
+
+## Summary of discrepancies
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | Chart omits orange arrow, red marker, green marker, boxed âReach global Minimaâ label | **BLOCKER** | High |
+| 2 | Chart reârendered at wrong scale/colour (purple vs cyan), different aspect, illegible axes | **MAJOR** | High |
+| 3 | Green rectangle frame around âX is in betweenâ¦â callout missing | **MAJOR** | High |
+| 4 | Arrow geometry wrong: horizontal rightâpointing vs original small downâpointing arrow at âinitial X 7â cell | **MAJOR** | High |
+| 5 | Title line 2 missing âon:â | **MAJOR** | High |
+| 6 | Title line 3 has overprinted/collided text | **MAJOR** | High |
+| 7 | Callout line 1 missing literal âcolor red boldâ | **MAJOR** | Medium |
+| 8 | Main table: missing blue outer frame, missing black rowâgroup outlines, cyan vs yellow header, extra pink/green row fills | **MAJOR** | MediumâHigh |
+| 9 | Title/callout lines wider and shifted right vs original centre; different font family (sans vs serif) | **MAJOR** (metrics) / **MINOR** (typeface) | Medium |
+| 10 | Callout colours: f(x), â10.03, â9.92 black instead of blue bold | **MINOR** | High |
+| 11 | Equation box border black instead of red; box shifted up â13 px | **MINOR** | High |
+| 12 | Miniâtable: green border missing, â7â not red/bold, position shifted upâleft | **MINOR** | High |
+| 13 | Main table shifted up â20 px; right edge 12 px short | **MINOR** | Medium |
+| 14 | Hyphen vs enâdash and spacing in ââ 10.03 / â 9.92â | **MINOR** | High |
+
+No table data errors and no frameâoverflow violations were found.
+
+**FINAL VERDICT: FAIL**

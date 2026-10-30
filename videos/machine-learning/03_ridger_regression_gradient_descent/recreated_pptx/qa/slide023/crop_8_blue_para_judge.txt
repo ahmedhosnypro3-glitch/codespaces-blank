@@ -1,0 +1,47 @@
+# Judge transcript — slide 023, crop blue_para (complexity paragraph), attempt 8
+- date: 2026-10-24 06:54
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide023/crop_8_blue_para_render.png  (from render_8.png md5=587c850172f7008eb636315d0a83e59f)
+- IMG2 (original crop): qa/slide023/crop_8_blue_para_orig.png  (from unique_slides/slide_023.jpg md5=bc5c99ae61ea467f9531374bbab98d76)
+- region: frame px x84..872, y236..340 — the three-line complexity paragraph inside the
+  blue box, including the red O(n^3), run and its comma
+- scale: render crop 1642x216 @ GM=2.0833; original crop 1642x216 (same frame bbox,
+  LANCZOS-upscaled) → identical output dims → equal effective px/frame-px per axis
+  (crop_8_scale_audit.txt: identical_dims=True). Reading order: IMG2 first, then IMG1.
+
+## Ground rules acknowledged
+(a) House template (panel/strokes/badge, no top stroke) is intentional chrome, never a
+    discrepancy. (b) This is a zoomed crop-pair of one region. (c) Typed-vs-captured ink
+    is a medium difference — at most MINOR. (d) Professional-2D equation rendering is
+    mandated; a caret-text recreation where the frame shows a raised superscript is a
+    defect. (e) JPEG halos/soft edges in IMG2 are capture artifacts. Glyph-level exactness
+    is required: every character, number, superscript and comma.
+
+## Comparison (crop-relative)
+- Line 1: "The standard matrix inversion algorithm has a time complexity of O(n^3)," —
+  same words and break in both. The O(n^3) run is RED in both and in BOTH the exponent is
+  a TRUE RAISED CUBE, not caret text: IMG1 "3" ink x815.2..821.0 y242.8..253.8 vs IMG2
+  x815..821 y243..253. The comma after ")" is present in both and red (below-baseline
+  tail 12 px, depth 2.9 vs 3.0).
+- Line 2: "which means that the computation time increases rapidly with the size of" —
+  identical; break after "of" in both.
+- Line 3: "the matrix (increasing cubically with the number of components)." — identical.
+- Colours: saturated navy body in both (frame core (2,0,111); render 000080); red accent
+  only on O(n^3) and its comma. MATCH.
+- Vertical metrics: 3 lines at 34/33 px pitch in IMG1 vs 34/34 in IMG2 (band tops
+  242.7/276.7/309.8 vs 242/276/310); baselines and box padding match.
+- Horizontal: line ink ends x833 / 847 / 763 in IMG1 vs x834 / 840 / 760 in IMG2
+  (within +7 px; banked Arial-advance residual). The O(n^3), run ends x833 vs x835.
+- Enclosure: all three lines inside the blue box; no ink on or beyond the border; no
+  clipping; no collision with the box top/bottom.
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — the frame's body face is oblique (≈ −8°); IMG1
+   renders upright Arial (M1 — adjudication_attempt_1_minors.txt). No glyph/word/break/
+   position change. ACCEPTED.
+2. MINOR (accepted, measured) — L2's advance is 7 px longer in IMG1 (Arial 23.5pt metric;
+   selfcheck tol 8). L1 −1 px, L3 +3 px. ACCEPTED.
+No BLOCKER/MAJOR findings: no wrong/missing glyph, no caret text, no missing/wrong comma,
+no delimiter or enclosure fault.
+
+FINAL VERDICT: PASS — faithful, usable recreation of this region.

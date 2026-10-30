@@ -1,0 +1,24 @@
+SLIDE 050 — FINAL PIL VERIFICATION (worker w050-fixjudge2-20261024-134000)
+frame 960x540, 1px=1pt; render_8.png 2001x1125, scale=2.08333
+house chrome: PASS (panel x112-1882 y94-bottom; L/R/B strokes present, top bare; badge (1824,152) d=68)
+
+region            ORIGINAL x0..x1 y0..y1 (n=) RENDER_8 x0..x1 y0..y1 (n=) note
+L4 key caption    (240, 509, 110, 124, 1262)  (240, 498, 109, 123, 3596)  C1 positive / C2 negative / Zero is unaccepted
+check classes of  (542, 626, 86, 96, 415)     (542, 625, 87, 95, 1033)    
+Z labels          (643, 699, 72, 87, 145)     (641, 701, 75, 88, 476)     
+Initial W         (266, 389, 60, 94, 684)     (267, 371, 64, 84, 1223)    Initial W = (4/-2) stacked
+pink finalW       (744, 827, 62, 139, 863)    (745, 810, 70, 94, 784)     underline W = (5/-1) stacked
+cursor+ margin    (233, 243, 412, 422, 46)    None                        original has a + cursor; render must omit
+eta zone          None                        (641, 642, 81, 83, 12)      right of REPEAT using Step
+
+READING:
+ - L4 caption: ORIG x240..509 y110..124 (n=1262) vs REND x241..498 y109..123 (n=3596).
+   Text present with the same four colour families (verified in w7_adjudication.md).
+   Width 270 vs 257 px (5% narrower) = typed vs handwritten ink (ground rule d, MINOR at most).
+ - finalW: render construct x745..810 y70..105, TWO components (w7_pinkbox_ascii.txt proves
+   the original has exactly two digit rows: '5' y68..83, '-1' y119..133, one bar y106).
+ - Initial W: ORIG x266..389 vs REND x267..371 — same left edge, same structure.
+ - check classes of: ORIG x542..626 y86..96 vs REND x542..625 y87..96 — aligned.
+ - Z labels: ORIG x643..699 y72..87 vs REND x641..701 y75..87 — aligned.
+ - cursor '+': ORIG ink present (x233..243 y412..422); RENDER zero ink -> correctly omitted.
+ - eta zone: ORIG zero ink at lum<205; RENDER zero ink -> nothing to add, nothing missing.

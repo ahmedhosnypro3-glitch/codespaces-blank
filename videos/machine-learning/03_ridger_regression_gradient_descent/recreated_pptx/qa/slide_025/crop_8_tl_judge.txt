@@ -1,0 +1,33 @@
+# Discrepancy Report â Slide 025, TL region (3D surface plot), attempt 8
+
+## Findings
+
+**1. Wrong surface shape / wrong function â BLOCKER (confidence: very high)**
+IMG1 renders a single smooth Gaussian bell dome: one central peak, monotonic falloff in all directions, edges of the surface stay near the floor (crop-relative roughly x=40â380, y=70â350). IMG2's original surface is structurally different â a dome whose rim dips sharply at the mid-edges/corners (corners fall to a lower level, giving visible downward-curving flanks and a flatter crowned top; visible at e.g. xâ60â380, yâ90â330). This is a different z-function (bell/Gaussian vs. a corner-dropping/dome-with-dips surface such as a cos-based or "peaks"-like form). At this zoom the silhouette difference is unmistakable. This is the core content of the region and it is wrong.
+
+**2. Missing axis tick labels â BLOCKER (confidence: very high)**
+IMG2 carries full tick labeling: "0" and "-5" on the vertical z-axis (left side, xâ45, yâ85 and yâ185), "2" at front-left (xâ50, yâ265), "0" front-center-left (xâ105, yâ330), "0" front-center-right (xâ275, yâ340), "2" at right (xâ355, yâ300), "-2" and "-2" along the bottom front edge (xâ160/210, yâ365). IMG1 shows only a faint "z" at far left (xâ15, yâ345) and a lone "0" at right (xâ345, yâ345); every numeric tick (0, -5, 2, 0, 0, 2, -2, -2) is absent. Multiple missing text elements = MAJOR-to-BLOCKER under the ground rules; collectively BLOCKER.
+
+**3. Missing floor contour rings â MAJOR (confidence: high)**
+IMG2 shows clear concentric colored contour ellipses projected on the floor beneath the surface (center â xâ220, yâ300, spanning xâ70â370). IMG1 has only one faint thin blue arc near the front-left floor (xâ60â150, yâ330â350); the contour family is essentially absent. Content element missing.
+
+**4. Colormap mismatch â MAJOR (confidence: high)**
+IMG1 uses a full jet ramp: red at the peak â orange â yellow â green â cyan â deep blue at the skirt. IMG2's original peaks in yellow-green/olive with no red band at all, grading through teal to blue; the whole upper half of the surface reads green, not red/orange. Color of a data element is content, not chrome.
+
+**5. Mesh density/character differs â MINOR (confidence: medium)**
+IMG1: fine, dense rectangular grid mesh. IMG2: coarser, diamond/cross-hatched wireframe texture. Likely a consequence of finding #1's different function/sampling, but visually distinct even so.
+
+**6. Blue box at right edge â MINOR (confidence: medium)**
+Both images have a blue rectangle bleeding in at the right edge (IMG1 xâ400â440, yâ55â150; IMG2 xâ400â440, yâ65â150). IMG1's is bright royal blue and empty; IMG2's is dark navy and shows the left edge of a letterform ("Câ¦"). Color/ink mismatch on a partially visible element; possibly adjacent-slide chrome, so MINOR.
+
+**7. Red reference lines â OK (no discrepancy)**
+Three red horizontal lines present in both, matching count, approximate heights, and left-start positions (upper line starting near the dome's upper flank, middle and lower lines lower on the skirt). Stroke weight in IMG1 is marginally heavier, consistent with rendering at native vs. upscaled resolution â within tolerance.
+
+**8. Red border frame â OK (no discrepancy)**
+Present in both, similar thickness and extent; house-template chrome per ground rule (b).
+
+## Summary
+
+The recreation gets the easy chrome right (red frame, three reference lines, blue side box) but fails on the substance: a different surface function, a wrong colormap, missing all numeric axis ticks, and missing the floor contour projection. Under the founder rules ("a wrong digit â¦ or a missing row is a MAJOR-to-BLOCKER defect"), eight missing tick labels plus a wrong surface shape are unambiguous blockers.
+
+**FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'**

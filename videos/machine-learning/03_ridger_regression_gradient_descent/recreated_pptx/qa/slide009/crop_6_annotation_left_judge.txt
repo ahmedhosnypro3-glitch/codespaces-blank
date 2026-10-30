@@ -1,0 +1,40 @@
+# Judge transcript — slide 009, attempt 7 (zoomed crop-pair: annotation_left)
+- date: 2026-10-25 (leg run); banked 2026-10-26 from the session event log
+  (the producing subagent's live window had compacted; body below is verbatim)
+- method: direct harness image reads via an isolated subagent on the
+  kimi-images profile (owner directive 2026-10-24 precedent, as on attempt 5's
+  crop legs; visual-judge skill Tier 1). Vision-gateway legs DEFERRED/BLOCKED
+  this window: 3 probe attempts failed (see judge_attempt_7.txt header).
+- leg label: single-read (one harness read pair; no second model leg)
+- IMG1 (render crop): qa/slide009/crop_6_annotation_left_render.png
+  (396x428 px, md5 64616644aa6b4887f0176c1cd3e13c88)
+- IMG2 (original crop): qa/slide009/crop_6_annotation_left_orig.png
+  (396x428 px, md5 0318961c5c7ed2d17443d8ffdc1fb4de)
+- read order: IMG2 (original) FIRST, then IMG1 (render); plus zoomed region
+  re-reads of the same two files (foot/label/leader forensics)
+- region: frame px x150..340 y125..330 (190x205) — LEFT chart mm-annotation
+  corridor; crop scale 2.0842x/2.0878x vs target 2.0844/2.0833 (probe73: OK)
+
+DISCREPANCY LIST (crop space 396x428; region = left-chart mm-annotation corridor; coordinates are crop-relative, ~2.08x frame scale)
+
+1. MINOR (confidence: high that it is absent; the rebuild makes its absence acceptable) — The faint dashed pale-blue residual line that in IMG2 descends from the orange outlier dot (~crop 100,40) diagonally through the corridor, passes just right of the red dot (~crop 165,225) and continues to/past the blue fitted line (~crop 200,325), is not present in IMG1's corridor above the fitted line — that span is clean white canvas with only the rebuilt red arrow. The rebuilt red double-headed arrow now occupies the outlier-to-line corridor, so this reads as a consequence of the intentional annotation rebuild rather than an omission; recorded, not scored as a content defect. It is a thin auxiliary line and does not impair the region's meaning.
+
+2. MINOR (confidence: medium; partly explainable by video-capture fading in IMG2) — The "50.85² = 2585" box outline is a darker, more saturated navy in IMG1 (top-right, crop ~x140..396, y50..105) than the muted slate-blue outline in IMG2 at the same position. Border weight and box geometry match; fill is pale blue in both. Text content matches glyph-for-glyph, including the superscript 2.
+
+3. MINOR (confidence: medium; typical capture color shift) — The orange fill of the outlier point (top, crop ~91,36 in IMG1; ~100,38 in IMG2) is a slightly lighter/yellower orange in IMG1 than the deeper orange of IMG2. Dot diameter (~11-12 px), dark rim, and position match within a few pixels.
+
+No BLOCKER or MAJOR discrepancy found. Nothing garbled, no wrong digits, no missing label characters.
+
+VERIFIED AS MATCHING
+
+- Rebuilt dimension arrow per the 2026-10-25 directive: a solid red arrow runs from the orange outlier point (crop ~91,36) down-right to the blue fitted line (~crop 235,325); it is orthogonal to the blue line within a few degrees (arrow slope ~+2.0, blue line slope ~-0.45 to -0.5), and its lower arrowhead tip lands ON the blue line (verified at native resolution in the zoomed foot crop — the tip touches/overlaps the line's upper edge, tangent to the red dot's right side as in IMG2).
+- Arrowheads at BOTH ends confirmed: upper filled red triangle pointing up-left into the orange point; lower filled red triangle pointing down-right at the line foot.
+- "50.85 mm" label: red, fully legible, reads exactly "50.85 mm" (value correct), rotated and running parallel to and along the arrow's left side (crop ~x93..150, y118..208) with a clean ~20 px gap — no glyph is crossed or clipped by the arrow, the dot, or the box. Its new orientation is the founder-mandated correction, not a discrepancy.
+- Short leader beside the outlier: red, no arrowhead, running from crop ~50,61 up-right to the orange dot at ~89,42; measured slope ~-0.49 matches the blue fitted line's slope (~-0.49, i.e. parallel) — matches the directive exactly.
+- Orange outlier point present at the same position and size in both crops; red outlier dot (~crop 170,232, d≈46-50 px) matches IMG2's position and diameter within a few pixels.
+- Blue fitted line trajectory and stroke weight match (enters bottom-left, exits right edge at the same height in both crops).
+- Light-gray grid spacing (~40 px) and gridline weight match; white canvas matches.
+- Vertical/horizontal registration of the corridor content (box top edge, dot, line crossing) matches between the two crops — no scale or offset drift.
+- IMG2's faded pale-rose sloped dimension line, its detached single arrowhead, and the old label orientation are absent from IMG1 by design (founder directive), and are not counted as discrepancies per the GROUND RULES.
+
+FINAL VERDICT: PASS

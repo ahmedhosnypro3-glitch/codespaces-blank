@@ -1,0 +1,33 @@
+# Judge transcript — slide 046, attempt 4, region zmatrix (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 07:00
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_zmatrix_orig.png    md5=7fb5c29b7892994aa9b76ac2f5a9c1fb
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_zmatrix_render.png  md5=870544213e30e10fcf12bacc9e948a9e
+- region (frame px, +padding): x590..664, y54..120 — "Z1 Z1 Z1" header and the three parenthesised class-check columns
+- scale audit: render crop 154x137 px for 74x66 frame px = 2.0811 / 2.0758; original resized LANCZOS to the same 154x137 = 2.0811 / 2.0758 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes; crop pair re-cut from this render, bytes identical to the pre-fix render for this region)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR of one region, same region/effective scale.
+(b) House chrome (white canvas, gray E9E9E7 panel, C00000 L/R/bottom strokes only, FDFD96/6A5ACD badge) is intentional, never a discrepancy.
+(c) Typed-vs-handwritten at most MINOR.
+(d) Professional 2D equation rendering is mandatory; a linear original is not a discrepancy.
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison (crop-relative)
+- Field colour: both cream (the top-box tint) — MATCH.
+- Header row: three "Z1" labels in the same three columns, same order, italic Z with a lowered subscript 1 in BOTH; same y band (crop y≈15..50). MATCH.
+- Column 1: paren pair with values 0 over 0 — BOTH exact. MATCH.
+- Column 2: paren pair with values 7 over 6 — BOTH exact (the frame's real values; the analysis JSON's "0 0 7 / 0 6 2" is wrong and is NOT reproduced). MATCH.
+- Column 3: paren pair with values 3 over 2 — BOTH exact. MATCH.
+- Delimiters: each column's parens span BOTH digit rows (top edge above the upper digit, bottom edge below the lower digit) and clear the digits horizontally in BOTH images; same stretched-paren shape style (thin, bulged mid). MATCH (PIL selfcheck: parens y 81..111 vs digit rows 83..91 / 99..107 for every column; digit x 601.2..606.0 vs parens 597.4/609.9 — inside with >3 px clearance).
+- Vertical centring: digits sit centred between the parens in BOTH; no top-hugging.
+- Glyph shapes: all digits and the Z glyphs are correct and ungarbled in the render; no missing/extra character.
+
+## Discrepancies
+1. MINOR (font style) the original's Z/digits are a serif math font; the render uses the deck's Arial/DejaVu mechanism (all 17 certified deck-03 slides use this). Same characters, same sizes (±1 px), same positions. Deck-consistent style, not a content difference. DISMISSED (deck mechanism precedent; selfcheck measures identical extents).
+2. MINOR (stroke rendering) render paren strokes are 1.5-2 crop px vs the original's 2 px, with the same curvature and span. Within the JPEG/antialias band. DISMISSED (measurement).
+
+No BLOCKER, no MAJOR: three columns, three headers, six values all present and correct.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

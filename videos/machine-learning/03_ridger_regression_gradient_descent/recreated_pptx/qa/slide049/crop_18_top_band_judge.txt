@@ -1,0 +1,33 @@
+# Slide 049 â top_band zoomed crop comparison (attempt 18)
+
+## Cell-by-cell verification
+
+**Six-column table (left):**
+| Column | IMG1 (render) | IMG2 (original) | Match |
+|---|---|---|---|
+| xâ | (1 / 1), class Câ | (1 / 1), class Câ | â |
+| xâ | (2 / 1), class Câ | (2 / 1), class Câ | â |
+| xâ | (1 / 2), class Câ | (1 / 2), class Câ | â |
+| xâ | (5 / 4), class Câ | (5 / 4), class Câ | â |
+| x6 / 5), class Câ | (6 / 5), class Câ | â |
+| xâ | (6 / 6), class Câ | (6 / 6), class Câ | â |
+
+**Initial W vector (center-left):** label "Initial W =" with 3-row column (4 / â2 / â2) to its right in both. Values match exactly, sign of both â2 entries correct. Parentheses in IMG1 span all three rows without touching the glyphs (crop-relative ~x 570â600). â
+
+**Header line (center-top):** black underlined italic *REPEAT* + red "using Step Î· = 1" present in both, correct colors, underline only on REPEAT. â
+
+**Right block:** "Check classes of" + Zâ Zâ Zâ headers with columns (0 / 0), (7 / 6), (3 / 2). All six values and all three subscripts match; parentheses span both rows of each column. â
+
+**Bottom line:** "Câ positive Câ negative Zero is unaccepted" â Câ red, Câ dark blue, Zero green; all present and correctly colored in both. â
+
+## Discrepancy list
+
+1. **MINOR** â Font family/weight of math labels: IMG1 uses a bold sans-serif italic for xââ¦xâ, Câ/Câ, W; IMG2 uses a serif (Computer Modernâstyle) italic. Same glyphs, same subscripts, same colors. Confidence: high. (Inherent rendering-style difference, â¤ MINOR per rules.)
+2. **MINOR** â "negative" in the bottom line is italic in IMG2, upright in IMG1 (~x 530â590 in the bottom band). Same word, same color context. Confidence: medium-high.
+3. **MINOR** â "Initial W =" styling: IMG2 renders "Initial" upright with an italic underlined *w*; IMG1 renders the whole label italic without underline. The founder-mandated region spec fixes the label as "Initial W = (no underline)", so this is settled chrome, noted only for completeness. Confidence: medium.
+4. **NO DISCREPANCY** â Cream/off-white tint and soft edges in IMG2 are video-capture/JPEG artifacts per ground rules (e), not content.
+5. **NO DISCREPANCY** â Slightly wider word spacing around "Î· = 1" in IMG2; spacing-only, no character change.
+
+No wrong digits, no swapped table values, no missing rows, no truncated subscripts, no delimiter-span failures, no stroke breaks detected.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

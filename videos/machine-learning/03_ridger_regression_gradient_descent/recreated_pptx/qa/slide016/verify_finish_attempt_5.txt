@@ -1,0 +1,67 @@
+original (960, 540)  render_1 (2001, 1125)  render_4 (2001, 1125)  scale=2.0833
+
+========================================================================
+DEFECT (a) — MISSING BAND: original L7-L10, frame y332..447, x88..828
+========================================================================
+  original ink px            = 9612
+  render_1 (attempt-1) ink px = 0   <- the BLOCKER baseline
+  render_4 (current) ink px   = 8568
+  FIX VERIFIED: True  (current render carries the band)
+    line b3a: y(330, 350)  original 2439 px  render_4 2510 px
+    line b3b: y(355, 376)  original 2907 px  render_4 2258 px
+    line b4a: y(406, 426)  original 3133 px  render_4 2940 px
+    line b4b: y(432, 448)  original 1263 px  render_4 920 px
+
+  blue key-term spans in the band (colour px, native render resolution):
+    L2 regularization (b3b): render blue px = 643  at x250..395 y355..376
+    L1 regularization (b4b): render blue px = 552  at x250..395 y432..448
+
+========================================================================
+DEFECT (b) — UNDERLINE CROSSING THE INNER BOX BORDER (x830)
+========================================================================
+  inner box border: original x82..83 / x832..833; render x82..83 / x832..833 (selfcheck_4)
+    render_1 y=495: wide dark runs (x>20px): []
+    render_1 y=496: wide dark runs (x>20px): []
+    render_1 y=498: wide dark runs (x>20px): []
+    render_1 y=499: wide dark runs (x>20px): [(np.int64(545), np.int64(580)), (np.int64(756), np.int64(788))]
+    render_1 y=500: wide dark runs (x>20px): [(np.int64(488), np.int64(875))]   <-- CROSSES BOX BORDER x830 (DEFECT)
+    render_1 y=501: wide dark runs (x>20px): []
+    render_1 y=502: wide dark runs (x>20px): []
+    render_1 y=503: wide dark runs (x>20px): []
+    render_1 y=504: wide dark runs (x>20px): []
+    render_1 y=505: wide dark runs (x>20px): [(np.int64(140), np.int64(161)), (np.int64(272), np.int64(293))]
+    render_1 y=530: wide dark runs (x>20px): [(np.int64(95), np.int64(829))]
+    render_4 y=495: wide dark runs (x>20px): []
+    render_4 y=496: wide dark runs (x>20px): []
+    render_4 y=497: wide dark runs (x>20px): []
+    render_4 y=498: wide dark runs (x>20px): []
+    render_4 y=499: wide dark runs (x>20px): []
+    render_4 y=525: wide dark runs (x>20px): [(np.int64(109), np.int64(162))]
+    render_4 y=532: wide dark runs (x>20px): [(np.int64(95), np.int64(833))]   <-- CROSSES BOX BORDER x830 (DEFECT)
+  red underline under 'customized weigh factor' (original x110..300, y296..297):
+    render_4 red underline x110..299 y294..298 (inside original extent 110..300)
+  dark underline under 'Length' (original x109..163, y525):
+    render_4 dark underline x109..188 y523..527 (DEVIATES)
+
+========================================================================
+WORDING — attempt-4 MAJOR: original b2b 'regularization term' or 'generalization term'?
+========================================================================
+  original b2b clusters: [(110, 158, 49), (162, 221, 60), (229, 250, 22), (257, 310, 54), (314, 363, 50), (370, 403, 34), (411, 421, 11), (428, 471, 44), (479, 491, 13), (498, 519, 22), (526, 595, 70), (602, 629, 28), (637, 698, 62), (705, 737, 33), (744, 750, 7)]
+  render_4 b2b clusters: [(111, 224, 114), (232, 255, 24), (263, 368, 106), (375, 408, 34), (417, 427, 11), (434, 481, 48), (489, 502, 14), (509, 532, 24), (539, 608, 70), (615, 645, 31), (651, 712, 62), (719, 749, 31), (757, 765, 9)]
+
+  calibration: first cluster original x110..158 w=49 | render x111..224 w=114
+  synth 'generalization' @18px em: w=111
+    synth 'the'              w = 25
+    synth 'regularization'   w = 106
+    synth 'generalization'   w = 111
+    synth 'term'             w = 35
+    synth 'is'               w = 12
+    synth 'added'            w = 49
+
+  DISPUTED WORD cluster: original x229..250 w=22 (frame px)
+  (render clusters for mapping: [(111, 224, 114), (232, 255, 24), (263, 368, 106), (375, 408, 34), (417, 427, 11), (434, 481, 48), (489, 502, 14), (509, 532, 24), (539, 608, 70), (615, 645, 31), (651, 712, 62), (719, 749, 31), (757, 765, 9)])
+  synthesis scale from first word: 0.4414 (orig first 49 / synth 111)
+    regularization     predicted at original scale =   46.8 px  | measured 22 | err  24.8
+    generalization     predicted at original scale =   49.0 px  | measured 22 | err  27.0
+
+VERIFICATION SCRIPT COMPLETE

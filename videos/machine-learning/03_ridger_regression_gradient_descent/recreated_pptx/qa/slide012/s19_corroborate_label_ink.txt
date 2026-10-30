@@ -1,0 +1,42 @@
+S19 corroborating PIL evidence for adjudication_crop_confirm.txt C2
+(row-label ink) — measured independently by agent-19 before the carrier's
+close landed; banked here for task slide_012_label_ink_residual.
+
+Measurement (unique_slides/slide_012.jpg vs render_6.png, frame-eq px):
+
+  ORIGINAL T1 label column (x206..242, value rows y162..250), ink<150:
+    183 px, median (75,77,74) — channel spread 3 = ACHROMATIC; 0 blueish px
+  ORIGINAL T2/T3 label columns (same x, rows y298..391 / y437..530):
+    medians (39,41,38) / (44,44,44) at ink<110 — achromatic, 0 blueish px
+  ORIGINAL same table, odd DATA columns (blue class per F4):
+    X1 (38,26,147)  X3 (44,36,146)  X5 (36,25,152) — B-R = +110..116
+  RENDER all three label columns: pure (0,0,255), ~113 frame-eq px/table,
+    dark px = table border only.
+
+Force of the comparison: the same JPEG that mutes the odd columns' blue to
+(38,26,147) still shows hue spread B-R > +110 there, while the label column
+in the SAME frame reads B-R = -1. JPEG muting cannot erase hue this way —
+the original's row-label ink is a genuinely different (achromatic) class
+from the data-column blue. This refutes judge_attempt_3.txt finding 6's
+"likely the same two-color scheme" hypothesis for the label column
+specifically (it holds for the odd DATA columns, where F3/F4 proved blue
+ink). C2 is a real ink-class deviation, as the carrier concluded.
+
+Fix recipe (if the orchestrator executes the residual):
+  - cellOpts in build/components/slide_012.js AND the inline copy in
+    build/slide_012.js: isLabel ? BLUE -> isLabel ? BLACK (BLACK = "000000",
+    already used for the test-table label cells; original label ink
+    (75,77,74) ~ test-table ink (77,78,76), same class).
+  - CASCADE-NEUTRAL, proven in sources: 013 re-maps every cell color after
+    calling 012's makeTrainTable (components/slide_013.js:150, ci0 -> BLACK);
+    017 same (slide_017.js:30 + 133); 018 same (slide_018.js:87 + 91,
+    ci0 -> C.BLACK). 012's cellOpts color never reaches a descendant render.
+  - Cost: 012 rebuild + re-render + re-judge BOTH legs (2 vision calls);
+    descendants untouched.
+
+Provenance note: this agent briefly applied the fix, then REVERTED it to
+honor the carrier's banked acceptance (corrections never patch certified
+pixels post-hoc). Revert verified: scratch rebuild of the reverted
+build/slide_012.js produces slide1.xml byte-identical to the deliverable's
+(transient scratch: scratch/tmp/revertcheck/). The build tree again
+generates certified content.

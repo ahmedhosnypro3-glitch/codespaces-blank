@@ -1,0 +1,22 @@
+Discrepancies (severity / confidence):
+
+1. **MAJOR / conf ~0.85 â Bottomârow captions are transposed.** The multiâextremum 3D surface (bottomâleft), which literally carries the onâplot labels *Global Minima / Local Minima / Local Maxima / Global Maxima*, is captioned **âGradient Descent Path to reach Minima.â** The singleâvalley surface with the black descent path (bottomâright) is captioned **âNonâConvex Multiple Minima.â** In the original, the multiâextremum surface is the *NonâConvex Multiple Minima* case and the pathâterrain is the gradientâdescent case. The two caption blocks belong with the opposite figures.
+
+2. **MAJOR / conf ~0.8 â The originalâs thin red cell borders around each plot are omitted.** Image 2 encloses all four charts in thin red rectangles (one per quadrant). Image 1 has only the permitted house strokes (L/R/B) and places the plots directly on the panel â the four perâplot red frames are gone. (Caveat: partly template normalization, but it is a visible layout/region difference vs. the original.)
+
+3. **MAJOR / conf ~0.65 â Bottomâleft surface axis data differ.** Original nonâconvex plot uses x,y â [â3, 3] (tick step 1.5, with a âyâ axis label) and z from â4 to 8; the recreation uses x,y â [â2, 2] and z topping at 6. The inâplot extremum annotations are also not placed identically (Global/Local Minima/Maxima positions).
+
+4. **MINOR / conf ~0.55 â Topâright convex plot scaling.** The original zâaxis is scaled Ã10â´ (ticks 1, 1.5, 2) for a single convex minimum; the recreation shows roughly 0 / 0.5 / 1.5 with no Ã10â´ factor. Worth verifying the surface reads as *one convex minimum* and not as a ridge/saddle under the chosen camera roll.
+
+5. **MINOR / conf ~0.6 â Caption placement/wrapping.** The originalsâ captions sit in the gutters (e.g., âConvex Function / One Minimaâ centered between the two top figures; âConcave Function / One Maximaâ), whereas the recreation tucks each caption immediately beside its plot in a narrower box, forcing earlier wraps (e.g., âConcave Function One / Maxima,â âConvex Function One / Minimaâ) and changing plot widths/gaps.
+
+6. **MINOR / conf ~0.5 â Styling drift.** Caption blue is a brighter/more saturated blue than the originalâs muted ribbon; the bottomâright descent path lacks the originalâs visible arrowheads/lighter mesh look.
+
+Not raised (per ground rules): absent top stroke, badge â25â (file number 025), typedâvsâhandwritten, any cursor/Processing artifacts â none are defects.
+
+Visualâquality defects in Image 1:
+- No ink crosses or touches the house panel L/R/B strokes (xâ54 / xâ903 / yâ540); all four plots, captions and the badge sit fully inside. No clipping/overflow detected.
+- Blue caption text is vertically centered within its boxes; wording is verbatim where the caption is correctly placed; title âTypes of Loss function shapesâ and badge match.
+- Minor: axis tick labels on the matplotlib surfaces are small/dense (inherent), and the topâright roll should be sanityâchecked against item 4.
+
+FINAL VERDICT: FAIL

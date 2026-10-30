@@ -1,0 +1,43 @@
+**Findings â region: slideâ¯018 bandâ2 strip**
+
+I compared IMG1 (150â¯dpi recreation crop) against IMG2 (originalâframe crop) at matched scale, going cellâbyâcell and glyphâbyâglyph as required.
+
+1. **Left Train table**  
+   - Header row `Xââ¦Xâ` matches exactly: `Xâ` blue, `Xâ` dark red, `Xâ` blue, `Xâ` dark red, `X, `Xâ` dark red, `Xâ` blue, `Xâ` dark red. Subscripts are intact.  
+   - Row `Xâ`: `1, 2, 3, 4, 8, 9, 10, 30` â every digit correct; trailing `30` is inside the yellowâhighlighted `Xâ` cell as in the original.  
+   - Row `Xâ`: `1, 3, 5, 6, 16, 7, 5, 3` â no swapped or transposed values.  
+   - Row `y`: `2, 4, 30, 8, 16, 18, 20, 22` â no missing cell.  
+   - Cellâtext colors consistently follow the columnâheader hue (blue/red alternation), and the row labels are bold black as in the original.  
+   - Table rules are continuous, crisp, and evenly weighted in IMG1.
+
+2. **Middle `W` box**  
+   - `W` is underlined and sits vertically centered to the left of the stacked column vector.  
+   - Vector stack `0.54 / 0.73 / 0.81` matches exactly; all three entries are fully inside the parentheses.  
+   - The delimiter parentheses span the full height of the three vector lines without touching them or the `=`/norm line, matching the original geometry.  
+   - Norm line `âWâÂ² = 1.48`: superscript `2` is present and correctly placed; the norm line is on its own baseline and does not collide with the vector stack or the closing delimiter.  
+   - Red stroke of the enclosing box matches the darkâred house chrome.
+
+3. **Right Test table**  
+   - Header row: `Testâ` red, `Testâ` blue, `Testâ` red â subscripts intact and correctly colored.  
+   - Row `xâ`: `30, 40, 50` â values and colors match.  
+   - Row `xâ`: `15, 20, 25` â values and colors match.  
+   - Row `y`: `34.6, 46.4, 57.4` â mint fill spans the row; the decimal digits (`.6`, `.4`, `.4`) are exact, and the color mapping (red/blue/red) is preserved.  
+   - Cell borders are continuous; rowâlabel glyphs are unchanged.
+
+4. **Interstitial blue arrows**  
+   - Both rightâpointing arrows are present, blue, and occupy the same positions between Train table â `W` box and `W` box â Test table. Stroke continuity and arrowhead geometry align.
+
+**Medium / template notes (not discrepancies, per rules)**  
+- Typedâink vs. any handwritten degradations in IMG2 are inherent capture/medium differences.  
+- Professional 2D stacked vector presentation is the mandated formatting upgrade; the originalâs looser layout is not a content mismatch.  
+- Soft JPEG halo/edge bleed visible in IMG2 is videoâcapture artifact.  
+- House chrome (white canvas, gray panel, `C00000` left/right/bottom strokes, yellow highlight family) is intentional and appears in both crops.
+
+**Discrepancy list**
+- BLOCKER: none  
+- MAJOR: none  
+- MINOR: none  
+
+**Confidence:** high â all numbers, symbols, subscript/superscript positions, delimiter spans, cell fills, and stroke weights are faithful.
+
+**FINAL VERDICT: PASS**

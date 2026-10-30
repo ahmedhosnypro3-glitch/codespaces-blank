@@ -1,0 +1,48 @@
+# Slide 003 â Paren-Curve Audit (bottom-left expanded matrix equation, crop-pair)
+
+Scope: delimiter geometry only in this region â y-vector column parens (far left), big matrix parens (center), w/b-vector parens (right). Crop-relative coordinates given; IMG1 â 980Ã330 px crop.
+
+## Delimiter geometry findings
+
+**1. BLOCKER â Outer matrix delimiters rendered as vertical rules, not paren curves (left side).**
+IMG1 (~x 220â225, spanning y 45â295): the left delimiter of the big matrix is a nearly straight vertical bar with only token curvature at the extremes. IMG2 shows an unmistakable curved paren "(" bulging left of the digit column. A vertical rule in place of a paren changes the mathematical notation (absolute-value/determinant reading vs. matrix enclosure). This is exactly the class of defect this audit exists to catch. Confidence: high.
+
+**2. MAJOR â Right side of matrix has a doubled delimiter.**
+IMG1 (~x 630 and ~x 652, y 45â295): two separate strokes â a straight black vertical bar plus a thin paren curve to its right. IMG2 has a single curved closing paren. The doubled stroke is asymmetric with the left side and the outer curve crowds the "N Ã d+1" label zone (~x 645, y 283). Confidence: high.
+
+**3. MAJOR â Per-row parentheses in the original are missing in the recreation.**
+IMG2 shows each matrix row individually wrapped in small parens: "(1 xââ xââ â¦ xâd)", "(1 xââ â¦ xâd)", and likewise for the pink row â small "(" at each row's left edge and ")" at each row's right end, inside the big outer parens. IMG1 has no per-row parens at all; the highlight bands just terminate. An entire delimiter set present in the source is absent. Confidence: medium-high.
+
+**4. MAJOR â Highlight bands collide with the y-vector closing paren.**
+IMG1: the yellow (yâ) and pink (yâ) fills extend right to ~x 95, and the closing paren curve (~x 82â90) passes through/behind both fills. IMG2 keeps the color bands narrow enough that both parens sit clear of the fills. Delimiters must span their lines *without touching* the enclosed content â here the enclosure intersects the content boxes. Confidence: medium-high.
+
+**5. MINOR â yâ subscript clipped at the fill edge.**
+IMG1 (~x 88, y 85): the subscript "1" of yâ straddles the yellow band's right boundary, partly on white. In IMG2 the subscript sits fully within the band. Tied to finding #4. Confidence: medium.
+
+**6. MINOR â Row-3 ellipsis dot count.**
+IMG2 row 3 uses four-dot ellipses ("â¦.") in the x-columns; IMG1 (~y 210) uses standard three-dot "â¦". Same intent, different glyph. Confidence: medium.
+
+**7. MINOR â "d+1 Ã 1" label placement and color.**
+IMG1 places the label centered *below* the w-column (~x 825, y 318) in a purple/indigo tone; IMG2 places it beside w_d on the same baseline, in blue. Content correct; placement/hue off. Confidence: medium.
+
+**8. MINOR â Equals sign weight.**
+IMG1 (~x 135, y 128) "=" is noticeably heavier/larger than IMG2's. Styling-level only. Confidence: high.
+
+## Verified correct (no action)
+- All matrix entries cell-by-cell: 1 / xââ xââ xâd / 1 / xââ xââ xâd / 1 + ellipsis row / 1 / x_{n1} x_{n2} x_{nd} â every subscript present, correct order, no truncation.
+- yâ yâ â¦(red) yâ column, red "N Ã 1", black "N Ã d+1", red **b**, blue wâ wâ â¦ w_d â all characters correct.
+- Row fills (yellow/teal/white/pink) match; w-column paren pair spans b through w_d without touching glyphs; the garbled "b"/subscripts in IMG2 are capture artifacts per rule (e) and are not held against the recreation; typed-vs-handwritten ink and linear-vs-2D differences per rules (c)/(d) not raised; template chrome at the crop's right edge per rule (b) not raised.
+
+# Summary
+| # | Issue | Severity |
+|---|-------|----------|
+| 1 | Left matrix delimiter = vertical bar, not paren | BLOCKER |
+| 2 | Right matrix delimiter doubled (bar + paren) | MAJOR |
+| 3 | Missing per-row parentheses around each matrix row | MAJOR |
+| 4 | Yellow/pink fills collide with y-vector closing paren | MAJOR |
+| 5 | yâ subscript clipped at fill edge | MINOR |
+| 6 | 3-dot vs 4-dot ellipses in row 3 | MINOR |
+| 7 | "d+1 Ã 1" placement/color | MINOR |
+| 8 | Equals-sign weight | MINOR |
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â the outer matrix delimiters are the wrong glyph class (bar vs. paren) with a doubled stroke on the right, and the original's per-row parentheses are missing entirely; both are precisely the delimiter-geometry defects this audit was commissioned to catch.

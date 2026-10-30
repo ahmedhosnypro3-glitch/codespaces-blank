@@ -1,0 +1,13 @@
+GROUND-TRUTH EXTRACTION (single original lecture-video frame; NOT a comparison; nothing to judge or score).
+
+IMG: the COMPLETE 960x540 original lecture frame (1 px = 1 pt = 1/72 in). Expect: white outer canvas, light-gray panel, thin red strokes on left/right/bottom edges, a yellow slide-number badge top-right.
+
+Produce a DETAILED structured description in EXACTLY these sections:
+
+1. LAYOUT MAP — name every visible region and give its bounding box in frame px (x0..x1, y0..y1). Include an ASCII sketch of the 960x540 canvas with the region names placed in position.
+2. VERBATIM TEXT — transcribe EVERY glyph exactly, in reading order (top-to-bottom, left-to-right): table cells, captions, equations (digit by digit, including parentheses/brackets/fraction bars), arrows, punctuation, subscripts. Annotate each fragment with its ink color (e.g. [red], [blue], [green], [black], [white-on-red]) and its frame-px position. Do NOT paraphrase and do NOT normalize notation — transcribe exactly what is printed.
+3. COLORS — per element, the ink/fill colors as RGB or hex: table headers, class labels (C1/C2), captions, equations, matrix digits, badges, box borders/fills, arrows, backgrounds.
+4. MEASURED GEOMETRY — px measurements for: table column centres and row bands, box border positions, glyph row bands (top/bottom px per text line), matrix parenthesis spans, arrow positions, badge centre and diameter.
+5. AMBIGUITIES — anything unreadable or ambiguous at this resolution, each flagged [?] with its px position and the candidate readings (e.g. "1 vs 7").
+
+Rules: Do NOT judge quality or fidelity. Do NOT compare with anything. Describe ONLY what is actually printed on this image. Matrix/vector contents: transcribe digit by digit; if a glyph is genuinely ambiguous, flag it in section 5 instead of guessing.

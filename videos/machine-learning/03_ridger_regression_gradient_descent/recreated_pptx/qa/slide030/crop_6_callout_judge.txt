@@ -1,0 +1,40 @@
+## Ground rules settled first (not raised as discrepancies)
+
+- Crop-pair of one region (purple callout) at matched effective scale â accepted.
+- House-template chrome (white canvas, E9E9E7 panel edges, thin darkâred C00000 strokes on right, darkâblue bottom rule, yellow badge) treated as intentional.
+- Typed-vs-handwritten ink difference treated as inherent (â¤ MINOR).
+- No equations or tables occur in this crop, so the professional-2D-equation and table-cell rules do not apply here.
+- JPEG softness/haloing in IMG2 (upscaled capture) treated as artifact, not content.
+
+## Content verification (exactness checks)
+
+| Check | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|
+| Wording | "Reach Minimum after 11 Steps" | "Reach Minimum after 11 Steps" | Identical |
+| Number | "11" | "11" | Correct, no digit error |
+| Capitalization | Reach / Minimum / Steps capitalized, "after" lower | Same | Identical |
+| Garbled/missing/extra chars | None | None | Pass |
+| Box fill / ring | Pale lavender fill, violet (6A5ACDâfamily) ring | Same family of fill and ring | Pass |
+| Text centering | Vertically centered in box, single line | Vertically centered, single line | Pass |
+
+## Discrepancies (every one found)
+
+**1. Typeface / glyph shapes differ (most visible item) â MINOR, confidence MEDIUM**
+Recreation uses a uniform, flat-terminal oblique sans-serif (Arial/Helvetica Bold-Italic-like), e.g. "R", "a", "f", "11" in the text band at roughly x 52â472, y 28â50. The original's italic shows modulated stroke weight, different terminal/serif treatment, and what reads as a descender-like tail under the "f" of "after" (â x 245â275, below the baseline at y â 47). The capture is blurred and upscaled, so the exact source face can't be named, but the rendered letterforms are clearly not the same face.
+
+**2. Text slightly smaller in recreation â larger inner padding â MINOR, confidence MEDIUM**
+Recreation text spans â 420 px inside a â 487 px-wide box (â 32â33 px left/right padding, x â 52 start / x â 472 end). Original text spans â 440 px in the same-width box (â 22â25 px padding, x â 40 start / x â 480 end). Net effect: the original callout text is ~4â6% larger relative to its container; the recreation reads slightly undersized/underfilled within the box.
+
+**3. Callout box height slightly greater in recreation â MINOR, confidence MEDIUM-LOW**
+Recreation box: top edge â y 10, bottom edge â y 68 (â 58 px tall), width â x 20â505. Original box: top edge â y 8, bottom edge â y 62 (â 54 px tall), same width â x 18â505. At matched scale the recreation's panel is ~4 px (â7%) taller, so the text-to-box proportion differs slightly from the original.
+
+**4. Small hue shift in text and fill â MINOR, confidence LOW**
+Recreation text reads as a cooler indigo/violet; the original reads marginally warmer / more plum. Recreation fill looks marginally more saturated lavender vs. the original's slightly lighter, noisier lavender. Part of this is attributable to JPEG chroma noise in IMG2, so it is flagged only as a possible minor tint difference.
+
+No BLOCKER or MAJOR defects: no wrong digit, no swapped/missing element, no truncated characters, no delimiter or line-spacing problem, and the callout remains fully legible and correctly worded.
+
+## Recommendation
+
+If higher fidelity is wanted, the single highest-value fix is item 1: substitute the original's italic face (or its closest match) and bump the text size ~5% so the inner padding matches (items 2â3 follow from that one change).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

@@ -1,0 +1,29 @@
+SLIDE 049 — PIL ADJUDICATION (worker-fresh-049f2, 2026-10-24)
+render_6 (render px/frame px: sx=2.0844 sy=2.0833) vs unique_slides/slide_049.jpg
+FINDING #2 d(xi) matrix — stacked(2D) vs inline. text-bands in x283..437 per row:
+  row      orig(bands,vspan)   render(bands,vspan)  verdict
+  d(x1)   orig=3bands/21px    render=1bands/23px    REAL(inline)
+  d(x2)   orig=2bands/21px    render=1bands/23px    REAL(inline)
+  d(x3)   orig=3bands/21px    render=1bands/23px    REAL(inline)
+  d(x4)   orig=3bands/24px    render=1bands/23px    REAL(inline)
+  d(x5)   orig=3bands/21px    render=1bands/23px    REAL(inline)
+  d(x6)   orig=2bands/16px    render=1bands/23px    REAL(inline)
+  => all render rows single-band/inline; originals multi-band stacked (#2 REAL, MAJOR)
+
+FINDING #3 'Initial W=[4,-2]' (x257..470 y56..100) bands:
+  orig=2bands/37px render=2bands/45px -> MATCH (both inline table text, NOT stacked column) => REFUTED
+
+FINDING #1 'stray Initial on left half of header' (x68..230):
+  render RED 'Initial' x-extent(frame)= (233, 531) (header col position ~x239..253, NOT left)
+  render dark ink LEFT of data table x68..88 (header band): 0 px  (0 => no stray glyph)
+  source: build slide_049.js places 'Initial'(x233)+'Initial W=[4,-2]'(x257..423); original
+  analysis regions[0] header 'x1..x6, Initial' + data cell 'Initial W=[4,-2]' => NO left-half Initial
+  => REFUTED (no stray 'Initial'/'l' on the left; extra dark px is JPEG-vs-PNG sharpness artifact)
+
+FINDING #4 bottom-left spacing ('No change in W','Stop Iterations'):
+  'No change in W'  gaps(>6px): orig=[7, 7, 11] render=[15, 17, 8]
+  'Stop Iterations' gaps(>6px): orig=[] render=[7]
+  build places phrases in separate text boxes at measured gaps => spacing preserved => REFUTED (MINOR)
+
+NET: only finding #2 is REAL (d(xi) matrices inline vs original stacked 2D) -> BUILD FIX required;
+     #1,#3,#4 refuted (PIL + source-confirmed). Per law: fix ONLY #2, then re-render + re-run BOTH legs.

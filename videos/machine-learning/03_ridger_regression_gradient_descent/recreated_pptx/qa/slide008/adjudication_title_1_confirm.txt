@@ -1,0 +1,32 @@
+ADJUDICATION RECORD — slide 008, S19 payload-exact CONFIRMATION leg, Template B crop-pair "title"
+Date: 2026-10-25 | Worker: S19-payload-confirm (pool run 299640)
+
+Judge transcript: qa/slide008/crop_1_title_judge_confirm.txt (FINAL VERDICT: PASS).
+This leg re-judged the SAME banked pair (crop_1_title_render.png / crop_1_title_orig.png, bytes
+unchanged since certification) with the correctly substituted frozen Template B payload
+(payload_B_N008_confirm.txt, md5 41febfa9faf3fa413eb0fa83a33f15d5; tplB md5 d137335f924c3d7e8ff77bdcc68e8c6e
+with the single contracted substitution "of slide NNN" -> "of slide 008") — closing S16 HIGH #4's
+payload-integrity concern for this lane.
+
+Four MINOR findings raised; PIL-first adjudication (measurements on this pair, red-ink mask
+R>120, R>G+40, R>B+40):
+
+(1) "Red hue slightly brighter in IMG2, JPEG halo" (MINOR, high) — ground-ruled capture artifact
+    (Template B rule (e)); the judge itself cites the rule. No content difference. NOT A FIX TRIGGER.
+(2) "Glyph stroke weight reads lighter/softer in IMG2" (MINOR, medium-high) — typed-vector vs
+    upscaled-video medium difference, explicitly "rendering sharpness, not a different font weight"
+    (the judge's own words) — ground rules (c)/(e) class. NOT A FIX TRIGGER.
+(3) "IMG2 tracking marginally tighter, ~1-2% narrower line" (MINOR, medium) — REFUTED, DIRECTION
+    INVERTED. PIL red-ink bbox: IMG1 render x21..1500 (w 1480), IMG2 original x18..1506 (w 1489) —
+    the ORIGINAL is wider by 0.6% (not narrower by 1-2%), and the delta is the original's outward
+    JPEG/upscale bleed (its ink box also bleeds 2-3 px vertically: y17..88 vs y19..85). Matches the
+    certified selfcheck's frame-space measurement: title cols 107..817 (original) vs 107.0..817.0
+    (render) = 0 px delta. NOT A FIX TRIGGER.
+(4) "'[1]' bracket height proportion marginally taller in IMG2" (MINOR, low-medium) — the judge
+    states brackets "fully enclose the '1' with clearance on both sides and do not touch it";
+    sub-visible proportion nuance inside the capture bleed measured in (3). NOT A FIX TRIGGER.
+
+--- Conclusion ---
+Verdict PASS on the payload-exact confirmation leg; all four MINORs are ground-ruled capture
+artifacts or PIL-refuted. The region is CLEAN. S16 HIGH #4 (slide 008 literal-NNN crop bank)
+is CLOSED for the title leg.

@@ -1,0 +1,13 @@
+GROUND-TRUTH EXTRACTION (zoomed crop of a single original lecture-video frame; NOT a comparison; nothing to judge or score).
+
+IMG: a zoomed crop of a 960x540 original lecture frame (1 px = 1 pt), LANCZOS-upscaled x4 for readability. The crop covers SLIDE-SPACE x=50..276, y=134..312. To map a position in THIS image back to slide space: slide_x = 50 + img_x/4, slide_y = 134 + img_y/4. Report geometry in BOTH image px and slide-space px.
+
+Produce a DETAILED structured description in EXACTLY these sections:
+
+1. LAYOUT MAP — name every visible sub-region and give its bounding box (image px AND slide-space px). Include an ASCII sketch with the region names.
+2. VERBATIM TEXT — transcribe EVERY glyph exactly, in reading order: table cells, captions, equation fragments (digit by digit, including parentheses/brackets/bars), arrows, punctuation, subscripts. Annotate each fragment with its ink color (e.g. [red], [blue], [green], [black], [white-on-red]) and its slide-space px position. Do NOT paraphrase and do NOT normalize notation — transcribe exactly what is printed.
+3. COLORS — per element, ink/fill colors as RGB or hex.
+4. MEASURED GEOMETRY — px measurements: column centres, row bands (top/bottom px per text line), parenthesis/bracket spans, box borders, arrow positions, glyph heights.
+5. AMBIGUITIES — anything unreadable or ambiguous, each flagged [?] with its position and candidate readings (e.g. "1 vs 7", "5 vs 6").
+
+Rules: Do NOT judge quality or fidelity. Do NOT compare with anything. Describe ONLY what is actually printed on this image. Matrix/vector contents: transcribe digit by digit; if a glyph is genuinely ambiguous, flag it in section 5 instead of guessing.

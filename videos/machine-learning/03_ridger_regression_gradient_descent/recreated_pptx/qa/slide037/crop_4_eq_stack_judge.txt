@@ -1,0 +1,15 @@
+Scope note: I compared only region content. White/gray panel, red side/bottom strokes, and lack of top stroke are treated as intentional template and are not listed.
+
+| # | Crop-relative location | Discrepancy: original vs recreation | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Equation explanation, right half of first equation row | Original keeps the explanation on one line: ââ (W^T X_i) takes positive and negative values and Î´_i has the same sign.â Recreation wraps it: ââ¦and Î´_i hasâ then a separately positioned second line âthe same sign,â leaving a large empty left area and pushing the following âSummation is always positiveâ line downward. | MAJOR | High |
+| 2 | Equation terms Î´_i W^T X_i; also parenthesized (W^T X_i), left-center/right-center of equation row | Original renders Î´_i and X_i in green. Recreation renders them black/default. This is not just handwriting-vs-typed; it is a semantic color mismatch on the key equation terms. | MAJOR | High |
+| 3 | Implication arrow between Î´_i W^T X_i and (W^T X_i), center of equation row | Original arrow is blue. Recreation uses a red/dark-red â. Same operator, different color. | MAJOR | High |
+| 4 | W^T X_i and parenthesized W^T X_i, equation row | Original shows underlined emphasis on the key W^T X_i / (W^T X_i) terms. Recreation has no corresponding underlines. | MAJOR | Medium-High |
+| 5 | âpositiveâ, ânegativeâ in explanation line; âpositiveâ in bottom line | Original red emphasis words are underlined in addition to being red/italic. Recreation keeps red/italic but omits the underlines. | MINOR | High |
+| 6 | Top heading âRedefine Error function as:â | Original heading is underlined. Recreation heading is not underlined. | MINOR | Medium-High |
+| 7 | Whole equation/limit block | Typed/handwritten differences in the shapes of Î´, â, X, W, and subscript strokes are inherent medium differences. No missing, garbled, or incorrect characters found: âall misclassified vectors (i)â is intact, numerator/term order is correct, subscript i appears on Î´_i and X_i, and parentheses span their contents. | MINOR | High |
+
+No BLOCKER-level defects found: no wrong digits, no truncated glyphs, no garbled text, and no missing equation terms.
+
+FINAL VERDICT: FAIL

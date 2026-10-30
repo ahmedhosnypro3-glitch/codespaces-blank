@@ -1,0 +1,99 @@
+**REPORT â ZOOMED CROP (slide-space x55..140, y160..535; upscaled 3Ã Lanczos)**  
+*Crop space: 255 px (W) Ã 1125 px (H). All coordinates below are in crop px [left, top, right, bottom].*
+
+---
+
+### 1. LAYOUT MAP
+
+| Region | Box [L,T,R,B] | Description |
+|--------|---------------|-------------|
+| `LEFT_RED_STRIP` | [0, 0, 6, 1125] | Thin red vertical intrusion at far-left edge (adjacent slide/content). |
+| `PANEL_OUTER` | [14, 12, 240, 1098] | Main white content panel; hollow blue border rectangle. |
+| `HEADER` | [28, 30, 174, 82] | Title text âOutlierâ. |
+| `LABEL` | [88, 94, 166, 146] | Variable label âXââ. |
+| `BLOCK_1` | [44, 168, 202, 394] | First stacked triplet (11 / 3 / 22) with yellow highlight. |
+| `BLOCK_2` | [44, 452, 202, 678] | Second stacked triplet (30 / 3 / 22) with yellow highlight. |
+| `BLOCK_3` | [44, 736, 202, 962] | Third stacked triplet (60 / 3 / 22) with yellow highlight. |
+| `HIGHLIGHT_1` | [64, 306, 176, 362] | Yellow rectangle behind first â22â. |
+| `HIGHLIGHT_2` | [64, 590, 176, 646] | Yellow rectangle behind second â22â. |
+| `HIGHLIGHT_3` | [64, 874, 176, 930] | Yellow rectangle behind third â22â. |
+| `RIGHT_RED_STRIP` | [249, 0, 255, 1125] | Thin red vertical strip at far-right edge (adjacent content). |
+
+*Note: Inner vertical gaps between blocks â 58â60 px; bottom margin below block 3 â 136 px.*
+
+---
+
+### 2. VERBATIM TEXT
+
+Exact strings (top to bottom):
+
+| Position | Text | Notes |
+|----------|------|-------|
+| Header | `Outlier` | Capital O, lowercase remainder. |
+| Label | `Xâ` | `X` with subscript `s`. Subscript glyph appears as lowercase âsâ. |
+| Block 1, top | `11` | Blue. |
+| Block 1, middle | `3` | Blue. |
+| Block 1, bottom | `22` | Green on yellow highlight. |
+| Block 2, top | `30` | Red. |
+| Block 2, middle | `3` | Blue. |
+| Block 2, bottom | `22` | Green on yellow highlight. |
+| Block 3, top | `60` | Red. |
+| Block 3, middle | `3` | Blue. |
+| Block 3, bottom | `22` | Green on yellow highlight. |
+
+No punctuation, decimal points, or other symbols are visible.
+
+---
+
+### 3. COLORS
+
+| Element | Estimated Hex | Remarks |
+|---------|---------------|---------|
+| `Outlier` text | `#2E3B96` | Dark indigo/blue. |
+| `Xâ` text | `#2E3B96` | Same dark blue as header. |
+| Numbers `11`, `3` | `#2E3B96` | Dark blue. |
+| Numbers `30`, `60` | `#D32F2F` | Saturated red. |
+| Numbers `22` | `#558B2F` | Medium green. |
+| Yellow highlight fill | `#FFF176` | Pale yellow, no visible stroke. |
+| Panel outer border | `#3F51B5` | Medium blue. |
+| Panel interior fill | `#FFFFFF` | White. |
+| Side red strips | `#E53935` | Bright red, likely adjacent slide bleed. |
+| Tall delimiters (left) | `#2E3B96` | Same dark blue as header text. |
+
+*No multi-color runs within a single word; each number is uniform color.*
+
+---
+
+### 4. GEOMETRY
+
+- **Outer panel border:** Hollow rectangle, #3F51B5, stroke â 4 px (crop px), sharp/square corners, enclosing the full panel region.
+- **Left tall delimiters:** One per block, dark blue (#2E3B96), curved like tall parentheses or brackets, stroke â 2 px, height â 210 px each, positioned at x â 46â58 px. They span vertically across each triplet.  
+  *Right-hand counterparts are not clearly resolved within this crop; they may be absent or lie just outside the right edge.*
+- **Yellow highlight rectangles:** Fill #FFF176, no visible border, approx. 112 Ã 56 px, rounded corners (radius â 4 px), horizontally centered behind each â22â.
+- **Internal horizontal rules:** None.
+- **Internal vertical rules:** None besides the left tall delimiters.
+- **Gaps:** White inter-block gap â 58 px; white gap between label and first block â 22 px.
+
+---
+
+### 5. TYPOGRAPHY
+
+| Class | Font style | Weight | Approx. glyph height (crop px) | Alignment |
+|-------|------------|--------|-------------------------------|-----------|
+| `Outlier` | Sans-serif, italic | Bold | Cap height â 48 px | Left-aligned within panel column (x â 30) |
+| `X` (in `Xâ`) | Sans-serif | Regular | â 34 px | Centered under header |
+| `s` (subscript) | Sans-serif | Regular | â 20 px | Subscript, baseline lowered â 8 px |
+| `11`, `30`, `60` | Sans-serif | Bold | â 42 px | Centered horizontally at x â 110 |
+| `3` | Sans-serif | Regular | â 30 px | Centered horizontally at x â 110 |
+| `22` | Sans-serif | Bold | â 38 px | Centered horizontally at x â 110 |
+
+All numeric rows are vertically centered within their respective blocks; the green â22â sits inside its yellow cell.
+
+---
+
+### 6. ANOMALIES
+
+- **Mouse cursor:** None visible.
+- **JPEG / Lanczos artifacts:** Slight chroma smear and color fringing (cyan/yellow halos) along high-contrast edges, especially where dark blue/red text meets white background and along the blue panel border.
+- **Ambiguous digits:** None; all numerals (`11`, `30`, `60`, `3`, `22`) are crisp and unambiguous.
+- **Edge intrusion:** Thin red vertical strips at both extreme left (x = 0â6) and extreme right (x = 249â255) indicate content from adjacent slides or frame borders encroaching into the crop. The main panelâs right edge is not sharply defined within the visible crop area.

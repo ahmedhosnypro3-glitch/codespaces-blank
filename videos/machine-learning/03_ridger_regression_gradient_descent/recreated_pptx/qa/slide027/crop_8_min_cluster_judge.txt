@@ -1,0 +1,23 @@
+Checking IMG1 (recreation) against IMG2 (original) at matched scale, looking only at this crop, and treating the white canvas / gray E9E9E7 panel / red C00000 bottom-and-side strokes / yellow-badge chrome as intentional per the rules.
+
+Content checks that PASS (no discrepancy):
+- Dot count matches exactly along the descent chain: **8 purple dots + 1 yellow minimum dot**, same leftâtoâright order and spacing, dots sitting on the parabola, yellow dot on the vertex. (No missing/dropped ball, no extra dot.)
+- "Minimum" spelled correctly in both, similar placement upperâright of the vertex.
+- "Random initial value" correct and stacked over two lines in both; the dashed vertical initialâÎ¸ marker is present and lands on the Î¸âaxis in both.
+- The faint gray "+" is present at the same intermediate position (between "initial value" and Î¸Ì) in both.
+- Î¸Ì with caret is present and aligned under the vertex/yellow dot in both; no truncated/garbled subscript or glyph.
+- Red C00000 bottom stroke with no top stroke â matches house template; background/panel differences suppressed per rule (b). JPEG halos/soft edges in IMG2 ignored per rule (e).
+
+Discrepancies found (all in the farâleftâvertex diagonal band and the fill shades):
+
+1. Descentâpath connector arcs (the gray "rolling" humps between purple dots): IMG1 draws them in a **lighter gray and finer weight** than IMG2, where they read at a consistent medium gray. The arcs are geometrically in the same places and connect the same dot pairs, so nothing is missing or misplaced â but the upperâthird arcs (roughly xâ0.30â0.50, yâ0.10â0.35) are noticeably lowerâcontrast in IMG1 than in the original. **Severity: MINOR** (stroke color/weight on a figure element; affects path legibility, not content). **Confidence: HIGH** on the lighter gray; this is the most significant of the minors. I specifically could **not** confirm the presence/absence of small arrowheads on these arcs in IMG1 at this zoom, so I am **not** raising a missingâfeature defect for them.
+
+2. General stroke weight: the black parabola, the dark Î¸âaxis, and the dashed initialâÎ¸ line all render a touch **finer/lighter in IMG1** than their (partly captureâdarkened) IMG2 counterparts. Same geometry, same endpoints. **Severity: MINOR.** **Confidence: MEDIUM** (some of the IMG2 heaviness is inherent to the photographed screen).
+
+3. Yellow minimumâdot fill: IMG1 is a **soft/pale yellow**, while IMG2 reads more saturated. Noted as a small fill difference; I am **not** scoring it against the recreation because the house palette yellow (FDFD96 family) may be the intended fill â flagging only for visibility. **Severity: MINOR (low).** **Confidence: MEDIUM.**
+
+4. The "+" glyph weight/color: IMG1 renders it as a clearly **faint gray** plus (which matches the intended description of this region), whereas IMG2's plus reads darker/charcoal. Per the stated content of the region ("faint gray '+'") I treat IMG1 as correct; the IMG2 darkness is consistent with capture/JPEG of the same mark. **Not counted as a recreation defect.** **Confidence: MEDIUM.**
+
+No MAJOR or BLOCKER issues in this region: no wrong digit, no swapped/missing value, no missing row, no truncated subscript, and no delimiterâgeometry concern (none in scope). Text is spelled correctly in both; typedâvsâoriginal ink differences are inherent/atâmostâminor per rule (c) and do not change any glyph.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region; only minor weight/contrast/fillâshade differences remain (item 1 being the one worth touching up if the file is reopened).

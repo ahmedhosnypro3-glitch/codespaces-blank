@@ -1,0 +1,45 @@
+==============================================================================
+ADJUDICATION — slide 009 attempt-3 Template A FAIL (both images, frame px)
+==============================================================================
+
+FINDING 1 — 'red vertical double-headed arrow + "50.85" label + dotted
+            connector' in the LEFT panel (MAJOR, confidence high)
+  (a) vertical structure: red columns with contiguous run >= 60px
+      LEFT ORIG  : [(126, 290), (127, 291)]
+      LEFT RENDER: [(126, 285)]
+      RIGHT ORIG  : [(540, 291), (541, 112)]
+      RIGHT RENDER: [(539, 285)]
+  (b) rose columns (annotation-stroke family) run >= 50px
+      LEFT ORIG  : [(125, 284), (127, 200), (128, 198)]
+      LEFT RENDER: [(125, 282)]
+      RIGHT ORIG  : [(538, 59), (539, 238), (541, 283)]
+      RIGHT RENDER: []
+  (c) horizontal red runs >= 40px (the claimed dotted connector / arrow)
+      LEFT ORIG  : [(434, 309), (435, 307)]
+      LEFT RENDER: [(433, 310), (434, 310)]
+      RIGHT ORIG  : [(434, 308), (435, 307)]
+      RIGHT RENDER: [(433, 309), (434, 309)]
+  (d) dark glyph ink in the chart OUTSIDE the equation box
+      (a '50.85' / '63.64' label would appear here — settled refuted):
+      LEFT ORIG dark px=9   RENDER dark px=0
+      RIGHT ORIG dark px=32   RENDER dark px=2
+  => The ONLY tall red/rose columns in either image are the measured axes
+     (LEFT x126-127, RIGHT x540-541) present in BOTH; no second tall
+     column, no extra long horizontal run, and no glyph ink exists in
+     either image outside the equation box. VERDICT: REFUTED — the
+     double-headed arrow, the value labels and the dotted connectors do
+     not exist on the frame; drawing them would fabricate content.
+
+FINDING 2 — same claim for the RIGHT panel (MAJOR). Same census, same
+            result (paired rows above). VERDICT: REFUTED.
+
+FINDING 3 — 'extraneous red diamond in LEFT panel' (MINOR)
+  LEFT box x168..206 y136..174: ORIG red=92 px  RENDER red=130 px
+  RIGHT box x585..619 y132..166: ORIG red=95 px  RENDER red=109 px
+  => Red ink exists in the ORIGINAL at exactly the render's mark boxes, and
+     the render carries as much or more. VERDICT: REFUTED — not an added
+     element; it is frame ink reproduced.
+
+ATTEMPT-2 FINDING 4 (caption enclosure) — NOT re-raised by attempt 3,
+  confirming the caption-box fix landed (cream fill + rose open-top outline
+  now matches the frame census; see the render_3 addendum in worker_report.md).

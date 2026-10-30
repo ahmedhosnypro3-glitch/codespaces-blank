@@ -1,0 +1,20 @@
+RENDER INTEGRITY VERIFICATION (slide 045)
+==========================================
+Question: does the banked render_1.png correspond to the CURRENT
+slide_045_recreated.pptx on disk (i.e. is the judge evaluating the true build)?
+
+Method:
+  1. libreoffice --headless --convert-to pdf of the on-disk pptx  (TMPDIR=project scratch/tmp)
+  2. pdftoppm -r 150 -png  -> fresh 150dpi PNG
+  3. md5 compare fresh PNG vs banked qa/slide045/render_1.png
+
+Result:
+  scratch/tmp/045verify/slide_045_recreated.pdf
+  scratch/tmp/045verify/r150-1.png = 157283 bytes
+  md5(fresh)  = 76797174e4b4f231d320550458991f30
+  md5(banked) = 76797174e4b4f231d320550458991f30
+  => IDENTICAL (md5 match). render_1.png IS the render of the current pptx.
+  The earlier LO->PDF->150dpi pipeline is deterministic for this build.
+
+Consequence: judge_attempt_1.txt and the crop certificates are valid for the
+shipped pptx; no re-render is needed before the visual legs are run.

@@ -1,0 +1,21 @@
+**Discrepancy Audit â Zoomed Crop 030 (IMG1 recreation vs IMG2 original)**
+
+| # | Location (crop-relative) | Discrepancy | Severity | Confidence |
+|---|--------------------------|-------------|----------|------------|
+| 1 | Top red box, equation line | Operator spacing: IMG1 renders wider mathematical spacing around `=`, `-`, and `+` (`f(x) = (x - 5)Â² + 1`), whereas IMG2 is tighter (`f(x)=(x-5)Â²+1`). The glyph inventory and equation structure are otherwise identical. | MINOR | High |
+| 2 | Top red box, minus sign | Glyph shape: IMG1 uses a true mathematical minus; IMG2 appears to use a hyphen-width minus. Same semantic value, slightly different glyph metrics. | MINOR | Medium |
+| 3 | Top red box, font style | IMG1 equation is set in an italic math-serif style (professional MathType/Eqn editor look); IMG2 equation appears in a simpler sans-serif math style. Both are typed media, so this is a presentation-format variation, not an ink-medium difference. | MINOR | High |
+| 4 | Bottom green box, line 2 | Space after `f(x)`: IMG1 has a slightly wider gap before âMinimumâ; IMG2 appears tighter. Wording and word order are identical. | MINOR | Medium |
+| 5 | Both boxes, stroke & text colors | Exact stroke red/green shades and text blues/reds vary by a few RGB points due to render-vs-video-capture lighting; no hue or role change (red X/5, blue f(x)/1.0, green/red strokes all map correctly). | MINOR | Low |
+
+**Critical checks (all clear):**
+- **Equation:** `f(x) = (x â 5)Â² + 1` â correct structure, correct superscript `2`, correct constants, parentheses span the subexpression cleanly in both.
+- **Solution row:** `X = 5` â correct symbol, correct digit, correct red assignment.
+- **Final row:** `f(x) Minimum value is 1.0` â correct text, correct capitalization, correct `1.0`, correct blue emphasis on `f(x)` and `1.0`.
+- **Line count/order:** Two lines inside the green enclosure in both; vertical centering and separation match.
+- **Missing/garbled glyphs:** None detected.
+- **Swapped values:** None detected.
+
+No MAJOR or BLOCKER defects found. All observed differences are typographic rounding/spacing/font-voice choices that are consistent with the mandated professional equation rendering and video-capture fidelity.
+
+**FINAL VERDICT: PASS**

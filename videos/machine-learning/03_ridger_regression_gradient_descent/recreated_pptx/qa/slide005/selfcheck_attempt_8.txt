@@ -1,0 +1,64 @@
+# slide 005 FINAL selfcheck (attempt 8) — render_9.png 2001x1125 (150dpi) vs slide_005.jpg 960x540
+# sx = 2.084375  sy = 2.083333 render px/frame px ; TOL 8 frame px
+# build: recreated_pptx/slide_005_recreated.pptx md5 58de0cb2c39c5ef004e60d9f000a48a9 (getbest containment fix; eq5 band reverted)
+
+== CHECK 3: EQUATIONS/TEXT EXIST (ink present in every region on the RENDER) ==
+  eq1        ink present
+  eq2        ink present
+  eq3        ink present
+  eq4        ink present
+  eq5        ink present
+  pinkfrac   ink present
+  rem1       ink present
+  rem2       ink present
+  green      ink present
+  title      ink present
+  rememberU  ink present
+  rememberL  ink present
+  getbest    ink present
+  => 0 empty regions: []
+
+== INK-BAND DELTAS vs the ORIGINAL ==
+  eq1        dx0=+1.35 dy0=+0.48 dx1=+0.01 dy1=+0.72 worst=1.35 <=TOL
+  eq2        dx0=-0.09 dy0=-0.68 dx1=-0.07 dy1=+0.56 worst=0.68 <=TOL
+  eq3        dx0=+0.87 dy0=+0.44 dx1=-0.06 dy1=+0.20 worst=0.87 <=TOL
+  eq4        dx0=+0.91 dy0=-0.60 dx1=-0.02 dy1=-2.40 worst=2.40 <=TOL
+  eq5        dx0=-0.53 dy0=+0.36 dx1=+0.08 dy1=-1.44 worst=1.44 <=TOL
+  pinkfrac   dx0=+0.68 dy0=+0.28 dx1=+0.56 dy1=-0.08 worst=0.68 <=TOL
+  rem1       dx0=-0.98 dy0=-0.24 dx1=-0.36 dy1=+2.04 worst=2.04 <=TOL
+  rem2       dx0=-0.65 dy0=-0.32 dx1=+0.68 dy1=+0.88 worst=0.88 <=TOL
+  green      dx0=-0.19 dy0=-0.40 dx1=-0.44 dy1=-0.16 worst=0.44 <=TOL
+  title      dx0=+1.12 dy0=+1.12 dx1=-0.56 dy1=-2.60 worst=2.60 <=TOL
+  rememberU  dx0=+1.74 dy0=+1.24 dx1=-1.78 dy1=-3.64 worst=3.64 <=TOL
+  rememberL  dx0=-0.65 dy0=-1.08 dx1=-0.93 dy1=+2.68 worst=2.68 <=TOL
+  getbest    dx0=+0.70 dy0=+0.24 dx1=-0.09 dy1=-2.32 worst=2.32 <=TOL
+  WORST ink-band deviation = 3.64 frame px (TOL 8)
+
+== CHECK 2: HOUSE-FRAME CONTAINMENT ==
+  left of left stroke (x<58)       0 px OK
+  right of right stroke (x>902)    0 px OK
+  above panel top (y<44)           0 px OK
+  below bottom stroke (y>539.5)    0 px OK
+  => total house-frame overflow px: 0
+
+== CHECK 2b: PER-BOX CONTAINMENT (element ink stays inside its box border) ==
+  cream_upper   border L71.5 R892.4 T101.3 B277.9 | ink x96.9..882.8 y108.5..271.2  INSIDE OK
+  blue_upper    border L675.0 R882.8 T133.4 B239.0 | ink x679.8..871.7 y138.2..235.2  INSIDE OK
+  pink          border L72.4 R506.6 T287.5 B344.2 | ink x78.7..499.9 y293.3..338.4  INSIDE OK
+  cream_lower   border L71.5 R892.4 T357.6 B523.2 | ink x95.5..879.4 y371.5..502.6  INSIDE OK
+  blue_lower    border L655.4 R872.7 T371.5 B422.9 | ink x660.1..867.4 y376.3..420.0  INSIDE OK
+  green_outline border L687.0 R879.4 T463.7 B499.2 | ink x689.4..877.0 y466.1..496.8  INSIDE OK
+  => boxes with content ink outside their border: []
+
+== CHECK 4: DELIMITER GEOMETRY (stacked-fraction horizontal bars present) ==
+  pinkfrac  densest row y+318.2 fp: 143 ink px of 195 cols (73%) -> fraction bar PRESENT
+  eq1       densest row y+128.1 fp: 244 ink px of 964 cols (25%) -> fraction bar PRESENT
+  eq2       densest row y+183.2 fp: 112 ink px of 1141 cols (10%) -> fraction bar PRESENT
+  eq3       densest row y+240.2 fp: 88 ink px of 918 cols (10%) -> fraction bar PRESENT
+  eq4       densest row y+389.1 fp: 188 ink px of 1064 cols (18%) -> fraction bar PRESENT
+  eq5       densest row y+474.1 fp: 209 ink px of 1243 cols (17%) -> fraction bar PRESENT
+
+== CHECK 8: LINE SPACING ==
+  every textbox in build/slide_005.js sets explicit lineSpacing (17.4/18/14/12 pt) -> OK
+
+OVERALL SELFCHECK attempt 8: PASS

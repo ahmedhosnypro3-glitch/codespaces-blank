@@ -1,0 +1,72 @@
+# Crop judge transcript — slide 036, attempt 8, region "eq_stack"
+- date: 2026-10-24 06:51
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL_CROP: recreated_pptx/qa/slide036/crop_8_eq_stack_orig.png
+  md5=441376694dd8b7ef8e4af2e3dcc4ea41
+- IMG_RENDER_CROP:   recreated_pptx/qa/slide036/crop_8_eq_stack_render.png
+  md5=5b80d5d6d3e5b95bb3b17c2fbc62668b
+- SOURCE RENDER: recreated_pptx/qa/slide036/render_8.png md5=ad8676e60fbd305096dce60dc0b16c5a
+- REGION (slide space, frame px): x60..890, y320..430 = box 3: heading, composite Error
+  equation (Sigma + lower limit, first W^T X_i term, double arrow, second (W^T X_i) group,
+  trailing phrase) and the red X mark. Crop 1730x229 px each side.
+- SCALE AUDIT (cut_crops_8.txt): render 2.0843 x 2.0818 px per frame px; original upscaled
+  LANCZOS to the same 1730x229 -> identical effective scale on both sides.
+- read order: ORIGINAL crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region, same region and effective scale on both sides.
+(b) House chrome (white canvas, E9E9E7 panel, C00000 strokes on left/right/bottom only, no top
+    stroke, FDFD96 badge with 6A5ACD ring) is intentional and never a discrepancy.
+(c) Typed-vs-handwritten ink: n/a.
+(d) Equations in the recreation use the professional 2D format; a linear original would be a
+    mandated upgrade — here the original is already 2D, so structure is compared 1:1.
+(e) JPEG halos/soft edges in the original crop are video-capture artifacts, not content.
+
+## Comparison (element by element, crop coordinates are frame-px inside the region)
+- Heading "Define Error function as:" — verbatim, same x origin (ink x79/80) and baseline band
+  as the original (render baseline y355 vs original y353; <3 px).
+- "Error =" — present, same ink span (84..150 vs 84..151) and baseline (390); original is bold
+  serif, recreation regular sans (discrepancy 1).
+- Sigma — same position and size: ink x219.8..240.5 y368.6..396 vs original x220..239
+  y369..396; display-style glyph with the lower limit beneath it.
+- Lower limit "all misclassified vectors(i)" — verbatim, italic, pinned under the Sigma: ink
+  x162.2..296.6 y402.2..413.8 vs original x162..297 y400..413. Red parts match the original's
+  coding: "misclassified" red and "(i)" red (original 34 red px x179..297; render 771 red px
+  x178..297 — same x band, so the same words carry the red).
+- First term "W^T X_i" — NO parentheses, matching the original's ink-run census
+  (original runs W 305..322, T 326..332, X 338..350, i 354..356; render ink 304.3..354.7 with
+  the same order). Superscript T is raised (top y369.6 vs original y371); the subscript i is a
+  true lowered glyph (no underscore character anywhere).
+- Double arrow — present between the terms, ink 396.5..411.4 vs original 396..410 (glyph shape
+  differs: original prints a thick two-bar arrow, recreation uses U+21D2 — discrepancy 3).
+- Second group "(W^T X_i)" — both parentheses present and spanning the enclosed glyphs
+  (strokes y374.8..394.5 vs glyphs y369.6..393.6; original strokes y376..392 vs glyphs
+  y374..395). No stroke sits on a glyph; the raised T peeks above the paren in both images.
+- Trailing phrase "take positive and negative values" — verbatim, italic, ink x507.4..732.5 vs
+  original 507..733; a real gap follows the closing paren (7.7 px vs the original's 9 px) — no
+  ")take" collision.
+- Red X mark — present at the region's right, ink 766.6..786.2 y365.8..387.4 vs original
+  763..785 y367..389; correct colour (FF0000), size and position.
+- Nothing missing between the pieces; no overlaps; every glyph of the equation is present.
+
+## Discrepancies
+1. [MINOR] Glyph weight/family — the original's equation uses a bold serif face with italic
+   superscript/subscript glyphs; the recreation uses the deck's ratified sans face. Positions,
+   sizes and spacing match within ~2 px; this is the deck-standard typographic substitution
+   (same treatment as certified siblings 012/035), not a content defect.
+2. [MINOR] Vector underlines — the original underlines W, X and the subscript i bars; the
+   recreation omits the underline strokes. Deck-level styling convention; no content loss.
+3. [MINOR] Arrow glyph shape — thick two-bar "=>"-style arrow (original) vs "⇒" (render);
+   same meaning, same place, ink width 14 vs 15 px.
+4. [MINOR] The subscript i is smaller in the recreation (original i ink 3x9 px; render ~2x7 px)
+   and the parentheses are single-weight sans strokes vs the original's thin serif parens —
+   both within the same typographic substitution.
+
+## Findings raised by earlier attempts — status on these bytes
+- Unmatched opening paren before the first W: GONE (census shows W at 304 with no paren ink;
+  original has none either).
+- Literal "_"+"i" subscript text: GONE (true lowered italic i).
+- ")take" with no gap: GONE (7.7 px gap).
+- Black upright summation limit: GONE (italic; "misclassified" and "(i)" red).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

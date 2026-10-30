@@ -1,0 +1,14 @@
+render: paren-window red ink y 326.9..362.4 frame px (height 36.5)
+original: paren-window red ink y 326.0..364.0 frame px (height 39.0)
+
+render paren height 36.5 frame px vs original 39.0 frame px; raw delta -2.5; expected original = render + ~3.0 (wash, 1.5px/edge) -> delta -3.0
+=> render paren is WITHIN 2.0px of the wash-adjusted original height.
+
+ADJUDICATION of crop_1_line2_judge.txt MINOR #1 ('parentheses in the recreation read taller /
+reaching the ascender, while the original's read shorter, centered near x-height', confidence
+low-medium, PASS): REFUTED by pixels. The render's paren vertical extent matches the
+original's minus the JPEG-wash allowance (~3px) within tolerance, i.e. the two parens are the
+same Arial 38pt glyph at the same size and extent; the judge's 'shorter in the original' read
+is washing/upscale softening of the original's thin paren tips (the tips also sit right of the
+paren's mid-height bulge, which makes a naive leftmost-columns probe read the original's paren
+as taller than it is). Region PASSed; no fix, finding retained as judge context only.

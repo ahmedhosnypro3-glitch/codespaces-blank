@@ -1,0 +1,57 @@
+# Slide 042 â Legend Row Crop Comparison (attempt 25)
+
+## Region inventory (both crops)
+Legend row containing: **Câ** (red) + "positive" (black), **Câ** (blue) + "negative" (black), **Zero** (green), "is unaccepted" (black). A fragment of the equation above intrudes into the top of the crop in both images.
+
+---
+
+## Discrepancies
+
+### 1. Delimiter fragment of the equation above â vertical bars vs. parentheses
+- **Location:** top edge of crop, left-of-center (~x 150â260 in IMG1; ~x 210â300 in IMG2).
+- IMG1 shows the remnant as **two vertical strokes** with a hyphen-minus: `| -2|` (bar-like / floor-style terminals).
+- IMG2 shows the same remnant as **curved parentheses**: `( â2` with a visible bowl on the left and a rounded terminal fragment on the right.
+- This is a **delimiter geometry difference** in the parent equation, not JPEG noise â the glyph shapes are categorically different (straight vs. curved). Even though only the bottom sliver of the delimiters is visible, bar-vs-paren is a structural equation difference.
+- **Severity: MAJOR** (belongs to the equation above this crop, so it does not by itself fail the legend region, but it must be fixed in the source slide).
+- **Confidence: ~75%** (crop truncates the glyphs; possible the full determinants differ more than just this sliver suggests).
+
+### 2. Minus sign in the intruding fragment
+- IMG1 uses a short **hyphen** `-2`; IMG2 uses a proper, wider **minus** `â2` with correct math spacing.
+- **Severity: MINOR** (top fragment; same root cause as #1).
+- **Confidence: high.**
+
+### 3. Font style of the legend words â upright vs. italic
+- IMG2's "positive", "negative", "is unaccepted" are **italic serif**; IMG1 renders them **upright**. "C" and "Zero" are also italic in the original vs. upright in the recreation.
+- Typed-vs-typed, same characters, so this is styling only.
+- **Severity: MINOR.**
+- **Confidence: high.**
+
+### 4. Word spacing around "Zero"
+- IMG1 has a noticeably **wide gap** between "Zero" and "is unaccepted" (~2 em); IMG2 uses a normal single space.
+- **Severity: MINOR.**
+- **Confidence: high.**
+
+### 5. Subscript size/weight
+- IMG2's subscripts "â" and "â" are slightly **larger and bolder**, sitting a touch lower relative to the C; IMG1's subscripts are smaller and ride slightly higher.
+- Legibility and color (red â, blue â) match.
+- **Severity: MINOR.**
+- **Confidence: medium.**
+
+---
+
+## Verified as matching (no discrepancy)
+- All legend **text content character-for-character**: "Câ positive", "Câ negative", "Zero", "is unaccepted" â no missing, swapped, or garbled glyphs.
+- **Colors**: C and subscript 1 red; C and subscript 2 blue; "Zero" green; remaining words black â all correct in both.
+- Subscript placement (below-baseline, right of C) correct in both.
+- Legend row baseline alignment and ordering of the four items correct.
+
+---
+
+## Summary
+- BLOCKER: none
+- MAJOR: 1 (delimiter shape in the intruding equation fragment â bars vs. parentheses; source is above this crop)
+- MINOR: 4 (hyphen-vs-minus in fragment, upright vs. italic legend font, oversized gap after "Zero", subscript size/weight)
+
+The legend row itself â the target of this region â is content-complete and color-correct; all defects are either minor styling or belong to the equation above the crop boundary.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

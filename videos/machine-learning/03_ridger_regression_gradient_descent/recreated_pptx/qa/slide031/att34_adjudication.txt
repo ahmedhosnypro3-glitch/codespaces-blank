@@ -1,0 +1,56 @@
+# att34 (Template A, full-slide) adjudication — PIL-first per judging law
+
+Leg: `dispatch_A_34.log` / `judge_attempt_34.txt` — completed 1033s, FINAL VERDICT: FAIL,
+2 MAJOR findings, both about the bottom table's colors. Adjudicated 2026-10-26 01:13Z
+by `att34_adjudicate_pil.py` (this dir) on `unique_slides/slide_031.jpg` vs
+`render_34.png` (pixel-identical re-render verified earlier, scale 2.0844).
+
+## MAJOR #1 — "x-delta / f(x-delta) row bands pale green in original, lavender in recreation" → REFUTED
+
+- ORIG band2 (y389..405 + y411..423, x140..870, ink/white excluded): median
+  (213,178,246) / (214,178,245) — violet (B−G ≈ +67). 18,897 px classified
+  violet=100%, green=0, red=0.
+- REND same region: median (191,157,218) = exactly BF9DDA (the build's fill),
+  violet hue 269° vs original's 267° — same family.
+- The judge's claimed original "#D3EFC8–#D9F2D0 pale green/olive" is contradicted by
+  ZERO green-family pixels in the original band. Only delta is video-JPEG brightness
+  lift on the light fill (capture artifact — excluded by ground rules).
+
+## MAJOR #2 — "big-table outer frame dark red in original, dark blue/purple in recreation" → REFUTED
+
+- ORIG frame top strip (y333..338, x150..800): 1300 navy-class px vs 5 red px;
+  core row y335 median (51,45,135) — deep navy/indigo. Per-row profile shows the
+  single navy line row at y335 flanked by violet-tinted antialiasing.
+- ORIG left strip (x62..67, y350..510): 319 navy px, 0 red px.
+- REND strips: navy line present (4B459F), 0 red px.
+- The judge's claimed original "#B00000/#C00000" is contradicted by ~0 red pixels.
+  Original core (51,45,135) vs build 4B459F(75,69,159): same navy/indigo family;
+  line-core darkness delta is video capture, not a family change. Matches the
+  banked attempt-30 census (NAVY core (75,69,159)/(34,22,120)).
+
+## Verdict
+
+att34's two MAJORs are both refuted on pixel evidence → the full-slide leg stands
+effectively CLEAN (the transcript itself confirms: all content matches, no BLOCKER
+omissions, no clipping/collision/legibility defects). Record this with the crop-leg
+certification: `visual_check=PASS` may cite judge_attempt_34.txt + this adjudication.
+
+## Remaining for 031 certification (next carrier)
+
+Crops are already cut (02:24, matched scale): `crop_34_{topblock,graph,table}_{orig,render}.png`.
+Run sequentially (ONE leg per Bash call, background+wait, gate <8 concurrent):
+```
+cd recreated_pptx/qa/slide031 && bash judge_attempt_34_w1200.sh topblock   # then graph, then table
+```
+Transcripts → `crop_34_<name>_judge.txt`. Adjudicate any findings PIL-first
+(known prior adjudications: att33 4 MINORs — #1 fixed, #2 PIL-refuted
+att33_m2_terminus.txt, #3/#4 accepted-if-reraised).
+Then certify:
+```
+VIDEO=machine-learning/03_ridger_regression_gradient_descent python3 scripts/15_progress.py set 31 gen_status passed
+... set 31 visual_check PASS
+... set 31 visual_transcript recreated_pptx/qa/slide031/judge_attempt_34.txt
+... set 31 visual_attempts 34
+... release 31 kimi-s5-fresh-1026
+... get 31   # verify
+```

@@ -1,0 +1,57 @@
+## Element-by-Element Fidelity Comparison
+
+### Chrome (per ground rules â not scored)
+Gray panel, red left/right/bottom strokes (no top stroke), yellow "31" badge at upper right â all present and correct in both. Original's mouse cursor near the green dots is a video artifact and is correctly omitted.
+
+---
+
+### DISCREPANCIES
+
+**1. Title text color mismatch â MAJOR (confidence: high)**
+Original: "Convex Function," red + "Learning Rate =0.3, Start at X=3" all green. Recreation: "Start at X=3" is rendered **blue** while only "Learning Rate =0.3," is green. Wrong color on a verbatim text run.
+
+**2. Title spacing â MINOR (confidence: high)**
+Recreation reads "=0.3,Start" (missing space after comma); original reads "=0.3, Start".
+
+**3. Green text box â verbatim content altered â MAJOR (confidence: high)**
+Original line 1: "**X** is in between **4.8** and color red bold **5.1**" (the literal string "color red bold" is part of the original slide text). Recreation omits "color red bold" entirely and inserts a stray "(5,1)" label (which belongs on the chart, see #5) into the box. Verbatim text does not match.
+
+**4. Green text box â emphasis formatting â MAJOR (confidence: high)**
+Original bolds/reds **4.8**, **5.1**, **1.04**, and **1.01**. Recreation renders 4.8, 1.04, 1.01 in plain black; only 5.1 is red/bold.
+
+**5. Chart annotations missing â MAJOR (confidence: high)**
+Original chart carries five text annotations the recreation omits entirely: the two "3" labels above the horizontal black line's endpoints, "(7,7)" at the line's right end, "2.19" on the left near yâ10, and "(5,1)" beside the green dots. Per rule 6 these are absent (not restyled) â major missing elements.
+
+**6. Parabola geometry clipped â MAJOR (confidence: medium)**
+In the original the parabola's vertex at (5, 1) is fully visible above the x-axis, with the green dots sitting on the vertex. In the recreation the blue curve is cut off at the bottom edge of the plot area â the vertex never renders, and the green dots float detached below the truncated curve ends.
+
+**7. Left pointer arrow shape â MAJOR (confidence: high)**
+Original: a large hollow (white-filled, red-outlined) block arrow angling down-right into the table's first data cell. Recreation: a small solid red triangle plus two orphan black slash strokes â a different shape, fill style, and size.
+
+**8. Small parameter table fill colors â MINOR (confidence: medium)**
+Original: "delta" label cell is yellow and value "3" is highlighted pink. Recreation: "delta" label is pink and all value cells are white/uncolored.
+
+**9. "Bouncing" callout styling â MINOR (confidence: high)**
+Original: pink fill with black italic text; recreation: lilac fill with purple bold text.
+
+**10. Green highlight rectangle around x/f(x) rows â MINOR (confidence: low)**
+Original draws a green outline box around the top two table rows (in addition to the blue table outline); the recreation shows only the blue outer rectangle.
+
+### Verified correct
+- Big table: all 8 rows Ã 18 columns match value-for-value (3/3.3/3.6â¦; 5/3.89/2.96â¦; 2.9/3.2â¦; 5.41/4.24â¦; 3.1/3.4â¦; 4.61/3.56â¦; â8/â6.8â¦; 3.3/3.6â¦), row fill colors (olive header, purple, lavender, peach, gray, green, salmon) all match.
+- Equation f(x) = (xâ5)Â² + 1 in red-bordered box: matches; professional 2D format is a mandated upgrade per rule (e).
+- Four blue hollow arrows over the table: count and placement match.
+- Chart axes (â5â¦15, 5/10/15), red dashed line at x=5, red dot on left branch, horizontal black line with end ticks: present.
+- Slide number "31" matches file number.
+
+---
+
+### Visual-quality defects in the recreation
+- Parabola clipped at plot bottom; vertex and green-dot anchoring broken (see #6).
+- The "(5,1)" label floats awkwardly mid-line inside the text box, colliding visually with the gap before "5.1".
+- Two stray black slash marks beside the red triangle (leftover arrow-shaft fragments) read as artifacts.
+- Red-bold "5.1" is vertically centered fine, but the inserted "(5,1)" breaks the line's rhythm vs. the original.
+
+---
+
+**FINAL VERDICT: FAIL** â the recreation drops multiple chart annotations, alters the green text box's verbatim content and emphasis, mis-colors the title tail, and misrenders both pointer arrows; usable only after those fixes.

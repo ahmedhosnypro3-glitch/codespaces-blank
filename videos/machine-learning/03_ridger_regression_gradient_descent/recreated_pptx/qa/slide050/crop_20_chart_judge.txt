@@ -1,0 +1,28 @@
+# Region Comparison â Slide 050, scatter chart crop (matched scale)
+
+## Point-by-point content audit
+
+**Axis labels (all verified, crop-relative positions):**
+- Y-axis 7â0 down left side (~xâ85 in IMG1): 7, 6, 5, 4, 3, 2, 1, 0 â all present, correct order, correct positions. The "5" label is partially overlapped by the decision line in **both** images (matching behavior, not a defect).
+- X-axis 0â8 along bottom (~yâ565 in IMG1): 0, 1, 2, 3, 4, 5, 6, 7, 8 â all present, correctly spaced. â
+
+**Data markers (cell-by-cell against IMG2):**
+- Blue squares: (1,2), (1,1), (2,1) â all three present, correct positions and color (dark navy) in both. â
+- Magenta diamonds: (5,4), (6,5), (6,6) â all three present, correct positions in both. â
+- Red downward triangles: (0,0), (3,2), (7,6) â all three present, correct positions in both. â
+- No missing, extra, or displaced markers. Gridlines faint gray, correct count and placement in both. â
+
+**Decision line & annotation:**
+- Line runs top-left (~y=5.2 at left edge) to bottom-right, exiting the plot area below the axis at ~x=5.7 â same trajectory and endpoints in both. â
+- "+ve" label with small red arrow pointing down-left from the line â present and correctly placed in both. â
+
+## Discrepancy list
+
+1. **MINOR** â Decision line color/weight: IMG1's line is a darker, slightly brownish red (C00000-family) and noticeably thicker (~9â10px at this scale) vs. IMG2's brighter pure red, thinner stroke (~7px). Trajectory is identical. Confidence: high.
+2. **MINOR** â Red triangle markers: IMG1's triangles (e.g., at crop ~(880,152) and ~(437,406)) are slightly larger and darker red than IMG2's smaller, brighter red triangles. Shape and position match. Confidence: high.
+3. **MINOR** â Magenta diamond hue: IMG1's diamonds lean slightly purple-magenta vs. IMG2's more saturated pure magenta. Same size and placement. Confidence: medium (could be JPEG shift in IMG2).
+4. **MINOR** â "+ve" label: IMG1's rendering is marginally larger/bolder with slightly different letterform spacing than IMG2's; same text, same color, same position relative to the line. Confidence: medium.
+
+No wrong/missing/garbled characters, no swapped or missing data points, no structural defects. All differences are cosmetic color/weight/size deltas well within tolerance for a zoomed crop-pair.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

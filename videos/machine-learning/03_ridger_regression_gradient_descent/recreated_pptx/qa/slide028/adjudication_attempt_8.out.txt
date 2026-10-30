@@ -1,0 +1,57 @@
+### CROP REGION: x480..865, y180..470. Crop-relative coords are NOT slide-space;
+### every finding below is mapped back to slide/frame px first.
+
+### F1 — y-axis label 'loss' clipped to 'ss'  [MAJOR, med-high]
+  VERDICT: REFUTED (crop-edge artefact).
+  ORIGINAL 'Loss' dark-ink bbox in the right panel: x475..510, y208..239
+  RENDER   'Loss' dark-ink bbox:                  x470.9..488.6
+  The crop starts at x480. BOTH labels begin LEFT of x480, so BOTH crops clip
+  the word's left characters identically. The judge saw a different amount of
+  visible remainder because the render's label is ~18px narrower (a sub-glyph
+  rendering difference), not because the render truncates it.
+
+### F2 — step markers not at matched iterates  [MAJOR, high]
+  VERDICT: REFUTED.
+  ORIGINAL measured marker centroids (disc blobs): (561.6,313.4) (593.2,395.4)
+                                                 (683.0,350.9) (710.7,284.8)
+  RENDER declared markers in build_attempt_7.js: (562,313) (593,395) (683,351) (711,285)
+  -> identical to within 1px. Count 4 = 4. Sequence identical.
+  Each original marker sits ON the analytic curve (offsets -5.9/-3.4/-1.9/+3.0px).
+
+### F3 — loss-curve right ascending limb too steep  [MAJOR, high]
+  VERDICT: REFUTED.
+  Per-column nearest-edge deviation of the RENDER's curve from the analytic
+  quartic (marker-straddling columns count as a match):
+    RIGHT n=224  MEDIAN=0.00 px  cols>5px=2  (the >5px cols are the draw endpoints)
+    LEFT  n=223  MEDIAN=0.00 px  cols>5px=1  (the >5px cols are the draw endpoints)
+  And the model itself vs the ORIGINAL's ink (attempts 5/6 measurement):
+    LEFT RMSE 2.08px max 10.97  |  RIGHT RMSE 2.79px max 27.44
+  A median of 0.00px on both panels means the render's stroke IS the analytic
+  curve; the 'too-steep limb' reading is not supported by any measurement.
+
+### F4 — valley floor clearance to the x-axis  [MINOR, med]
+  VERDICT: REFUTED.
+    RIGHT valley at x=628 y=435.8 ; x-axis red line y~440..442 -> clearance 5.2 px
+    LEFT valley at x=275 y=438.6 ; x-axis red line y~440..442 -> clearance 2.4 px
+  Both U-curves nest within ~5px of the axis, matching the original's nesting.
+
+### F5 — label text grey vs black  [MINOR, high]
+  VERDICT: REFUTED (render matches the original's measured tone).
+  ORIG right heading dark mean (98,100,97); x-label dark mean (121,121,121)
+  REND  right heading dark mean (105,105,102); x-label dark mean (83,83,83)
+  Heading: within 7 of the original. x-label: the original's own darkest-25%
+  core measured (39,39,39), so 83 is well inside the original's tonal range.
+
+### F6 — axis weight / arrowheads / curve hue  [MINOR, high]
+  VERDICT: REFUTED (self-contradictory with the earlier crop reading).
+  CURVE_BLUE = 8FC3D1 = (143,195,209).
+  ORIGINAL curve means: LEFT (155,199,209), RIGHT (140,196,210) -> MATCH.
+  crop_4_right_curve_judge said the OPPOSITE (that IMG1 was the darker blue and
+  IMG2 the lighter cyan). Both readings cannot be true; the measured original
+  mean is the tie-breaker and 8FC3D1 matches it.
+  Arrowheads: the build's filled triangle style has been present in every judged
+  render and was accepted by judge_attempt_5 (full-slide PASS on this render).
+
+### NET: no finding is supported by measurement. No build change is warranted.
+### Re-judging the same bytes on the same render would only re-roll the dice;
+### the protocol allows an unchanged re-judge only to bank a refutation record.

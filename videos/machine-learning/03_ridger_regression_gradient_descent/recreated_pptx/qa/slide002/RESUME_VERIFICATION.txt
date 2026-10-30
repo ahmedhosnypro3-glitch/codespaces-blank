@@ -1,0 +1,60 @@
+RESUME VERIFICATION — slide 002, worker w4-s002-20261020T1857 (2026-10-20)
+Resumed after multiple predecessors died during the Nvidia vision-upstream outage.
+Every banked claim below was re-verified on disk BEFORE any judge dispatch.
+
+1. render_1.png IS CURRENT vs the pptx on disk.
+   Re-rendered slide_002_recreated.pptx (private scratch + LO profile
+   scratch/lo_slide002_render, TMPDIR=project scratch) at 150dpi:
+   fresh render vs banked render_1.png -> 0 of 2,251,125 pixels differ (max channel diff 0).
+   Sizes match (2001x1125). The banked render is current; no rebuild needed.
+
+2. "All measured line deltas <= 1.4 frame px" — VERIFIED (worst = 1.36).
+   Recomputed render-vs-original title-line deltas in frame px (strokes excluded):
+     L1 "Revision of Standard Linear": dx0 -0.68  dx1 +0.48  dy0 +0.68  dy1 +0.40 -> max 0.68
+     L2 "Regression Model":           dx0 -1.36  dx1 +0.68  dy0 +1.04  dy1 -0.08 -> max 1.36
+   Original frame (measure_original.py, re-run): L1 x197..756 y199..230; L2 x298..655 y274..314.
+   Baseline pitch: original 74.0, render 73.52 (delta -0.48).
+
+3. house_chrome_check — PASS (re-run on the banked render_1.png):
+   "HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present,
+    top bare; badge center (1824,152) d=68; all within tol 8)"
+   Independent PIL confirmation of the top band: 0 red px above the panel (y0..45);
+   panel-top band (y45..50) only 32 anti-aliasing px. NO top stroke — build clean.
+   Chrome vs deck law (AGENTS.md): panel E9E9E7 x54..903; C00000 L/R/bottom; badge circle
+   d~35 centered (876,73). Original frame confirms: gray panel x53..906 y42..539,
+   left stroke x58..59, right stroke x900..902, badge x860..893 y59..89 center (876.5,74.0).
+
+4. 8-item self-check — PASS (re-run: output identical to the banked selfcheck_attempt_1.out.txt).
+   Containment OK (title ink x195.8..757.0 y199.2..313.9, clearances L141.8 R146.0 T154.2 B226.1);
+   title bands = 2 (expect 2); pitch 74.52 vs target 75.0; title core rgb (172,34,48) vs C00000;
+   plus core (140,142,139) vs 808080; badge numeral dark ink 254 px (>40);
+   equations=none, delimiters=none, tables=none asserted per spec + frame census.
+
+5. Judge payloads byte-for-byte from judge_protocol_03.md — VERIFIED.
+   judge_payload_A.txt vs Template A payload: identical after stripping the closing shell
+   quote (4115 chars both). crop_payload_B.txt vs Template B payload: identical
+   (1914 chars both). No hand-rolled prompt.
+
+6. Crop pairs for BOTH dense regions — VERIFIED, re-cut and md5-matched.
+   Re-ran make_crop_pairs_1.py logic into scratch and compared md5s:
+     title:     render (1199,274) orig (1199,274) — md5 identical to banked; frame 576x132;
+                effScale render (2.0816,2.0758) == orig (2.0816,2.0758) MATCHED.
+     badgeplus: render (337,118) orig (337,118) — md5 identical to banked; frame 162x57;
+                effScale render (2.0802,2.0702) == orig (2.0802,2.0702) MATCHED.
+   Regions (frame px, ~8px padding): title x189..764 y191..322 (two-line red title = densest
+   content); badgeplus x747..908 y47..103 (badge numeral 2 + plus-sign small-text cluster).
+
+7. Judge attempt numbering: NO judge transcript existed on disk (checked qa/slide002/ for
+   *judge*.txt / *transcript* files before dispatch). DB visual_attempts was reset to 0
+   under the outage ruling (dispatches that die with NO transcript do not consume budget).
+   Attempt numbering therefore starts at 1. probe_1.txt (Oct 19 16:38) is the banked probe.
+
+8. Vision-outage storm resilience actually encountered:
+   19:11:58 probe (transcript probe_1_w4.txt) -> hung, RC=124, no transcript.
+   19:30:49 probe after a 10-min storm sleep (probe_1_w4b.txt) -> hung, RC=124, no transcript.
+   Peer-recovery signal observed in the fleet: slide022/probe_1.txt (Oct 20 19:27) and
+   slide038/probe_1.txt (Oct 20 19:28) held VALID bodies — upstream recovering.
+   19:36:28 probe (probe_1_w4c.txt) -> SUCCESS, valid 3436-byte body; gateway window open.
+   All offline work was completed before these dispatches, per the outage ruling.
+
+CONCLUSION: banked state is fully current and verified. Only the judge legs remained.

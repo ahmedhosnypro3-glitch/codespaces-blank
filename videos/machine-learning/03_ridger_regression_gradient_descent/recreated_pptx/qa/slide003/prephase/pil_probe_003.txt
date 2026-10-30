@@ -1,0 +1,23 @@
+# pil_probe_003.txt — local PIL probes for slide 003 prephase (2026-10-25, agent-28)
+
+Source frame: unique_slides/slide_003.jpg (960x540 RGB). No vision calls — pure
+pixel census. Run with PIL only; complements delta_vs_related.md.
+
+## §1 — method
+red   pixel: r>140, g<100, b<100, (r-g)>60
+blue  pixel: b>140, r<100, g<100, (b-r)>60
+black pixel: r<90, g<90, b<90
+
+## §2 — y-vector label row colors (delta G14 sanity)
+Region x460..520 (w-vector zone; y-vector colors were measured at build time
+and are not re-probed here; see build/slide_003.js const y_colors).
+
+## §3 — w-vector entry-1 color (settles delta G17 / build comment conflict)
+Rows probed in x460..520:
+  y348..376 (entry-1 "b"):    red=84  blue=0  black=0   -> entry-1 is RED
+  y386..412 (entry-2 "w_1"):  red=31  blue=18 black=0   -> blue glyph + red bleed
+  y414..440 (entry-3 "w_2"):  red=0   blue=21 black=0   -> blue
+Conclusion: the ORIGINAL draws the w-vector's first entry in RED. Build's
+FF0000 bold "b" is correct; the "(b, blue)" note in build/slide_003.js:319 is
+stale. The crop judge (orig_sideboxes leg) still owns the glyph-identity
+transcription ("b" vs "w_0").

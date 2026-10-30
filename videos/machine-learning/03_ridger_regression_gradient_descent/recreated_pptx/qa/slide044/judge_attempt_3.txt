@@ -1,0 +1,45 @@
+# Fidelity Check â Slide 44 Recreation vs Original Lecture Frame
+
+House chrome (gray panel, red left/right/bottom strokes only, yellow "44" badge) verified as intentional and correct â not listed below. Original IMG2 is a content-bearing slide, so content fidelity is fully assessed.
+
+## Discrepancies (renderable content)
+
+**1. BLOCKER â d(xâ) computed value wrong.** Original: d(xâ) = (1 1 2)Â·(12, â6, â4) = **â2**. Recreation: d(xâ) = [1 1 2; â6; â2] = **â4**. Both the result and the intermediate vector's last component (â2 vs â4) differ. Confidence: high.
+
+**2. BLOCKER â d(xâ) computed value wrong.** Original: d(xâ) = (1 6 6)Â·(14, â4, 0) = **â112** (as printed). Recreation: **â4**. Also the recreation's own displayed operands ([1 6 6; â14; â4]) do not arithmetic-produce â4. Confidence: high.
+
+**3. MAJOR â Augmented Vectors matrix, row 3 data error.** Original row 3: (1)(**1**)(2)(4)(5)(6). Recreation row 3: (1)(**2**)(4)(5)(6)(6) â the xâ column entry is 2 instead of 1. Confidence: high.
+
+**4. MAJOR â "Update Weight" equations downgraded and numerically altered.** Original shows full 3-component stacked column vectors, e.g. W = (8, â12, â8) + 2Â·(1, 1, 1) = (10, â10, â6). Recreation shows linear 2-component typed form: "W = [4; â2] + 2\*[3; â2] = [10; â6]". Founder rule (e) does **not** apply here â it mandates 2D format in the recreation; the recreation is the *linear* side while the original is already professional 2D. The addend values ([3; â2] vs (1, 1, 1)) also differ. Confidence: high.
+
+**5. MAJOR â "Keep same Weight" W vectors truncated.** Original: W = (14, **â4, 0**) â 3 components. Recreation: W = [14; â4] â the third component 0 is missing in all three of xâ, xâ. Confidence: high.
+
+**6. MAJOR â d(xáµ¢) equations omit the first W component.** Original brackets show full 3-vectors ((8, â12, â8), (10, â10, â6), etc.); recreation brackets show only two values ([1 1 1; â12; â8]). For x values are also *wrong*, not just truncated: recreation [1 6 5; â14; â10] vs original (14, â4, 0). Confidence: high.
+
+**7. MAJOR â Red "â" result arrows missing.** Original places a red left-pointing arrow at the right end of the xâ, xâ, xâ boxes. Recreation omits them entirely (rule 6: entirely absent visual element). Confidence: medium-high.
+
+**8. MAJOR â Left panel title not verbatim.** Original: "**Ugmented** Vectors ( from Top )". Recreation: "**Upgraded** Vectors (from Top)". Verbatim rule requires matching the original's text, including its typo. Confidence: high (that it differs); medium (on severity, since it corrects an original typo).
+
+**9. MINOR â "Check classes of(0)" spacing collision.** Recreation runs "of" into "(0)" with no space; original has "Check classes of" cleanly separated from the Z vectors. Confidence: high.
+
+**10. MINOR â Z-check vectors layout.** Original renders Zâ, Zâ, Zâ over 2D column vectors (0,0), (7,6), (3,2); recreation flattens them to two linear rows "(0) (7) (3) / (0) (6) (2)". Content present, format differs. Confidence: high.
+
+**11. MINOR â "Zero is unaccepted" styling.** Original: "Zero" in green, "positive"/"negative" italic. Recreation: all black, non-italic. Confidence: high.
+
+**12. MINOR â Initial W delimiter style.** Original uses tall parentheses around (4, â2, â2); recreation uses vertical bars |4 â2 â2|. Values match; delimiter shape differs from original style (rule 7(iii)). Confidence: high.
+
+**13. MINOR â WÌ² underlines.** Original underlines W in the xâ "keep same" rows; recreation does not. Confidence: medium.
+
+**14. MINOR â Box styling.** Original: six individually blue-bordered rectangles; recreation: gray divider lines / gray-bordered sections. Content and ordering match. Confidence: high.
+
+## Visual-quality defects in the recreation
+
+- Line spacing inside the xââxâ boxes is cramped: the blue "W = â¦" line sits tight under the red "â Update Weight" line, tighter than the original's roomy layout (MINOR, medium confidence).
+- No text overflow or frame-containment violations detected; all content sits inside the house panel and its sub-boxes.
+- House geometry (panel, strokes, badge position/size, "Iteration 3" badge) matches.
+
+## Summary
+
+Text is largely verbatim and layout regions correspond, but the recreation alters multiple *data values* (d(xâ), d(xâ), augmented-vector matrix row 3, update-equation operands), truncates the 3-component weight vectors to 2, drops the red result arrows, and inverts the founder's own 2D-format mandate (original 2D â recreation linear). Under rules 6 and 8 these are blocking-level data and missing-element defects.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation."

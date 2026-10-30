@@ -1,0 +1,24 @@
+**Comparison basis:** IMG1 = recreated zoom crop; IMG2 = original lecture-frame crop, same slide-space region, matched effective scale (both â500Ã220 px). Coordinates below are crop-relative.
+
+**Content verification (what checks out):**
+- Label equation: `X^T X` â present in both, with the `T` correctly raised as a superscript between the two X glyphs, in the same red family, same relative size/position (IMG1 â x 20â115, y 8â60; IMG2 â x 20â115, y 15â65). No truncation of the superscript, no wrong symbol.
+- Table structure: 3 columns Ã 3 rows, full rectangular grid with top/left/right/bottom strokes, column boundaries at x â 20 / 166 / 310 / 460 in both images; row boundaries at y â 97 / 133 / 169 / 205 (IMG1) and â 95 / 133 / 169 / 203 (IMG2). Row and column count, order, and aspect match.
+- Cell values, cell by cell:
+ - Row 1: **14 | 10 | 15** â match (IMG2 row 1, middle cell also carries the pointer artifact noted below).
+ - Row 2: **10 | 40 | 46** â match.
+ - Row 3: **20 | 80 | 92** â match.
+ No swapped, wrong, missing, or extra digits; no truncated glyphs.
+- Text centering: every value is horizontally centered in its cell and vertically centered within its row band in both images; line separation between rows is equivalent.
+
+**Discrepancies (complete list):**
+
+1. **MINOR â Missing red underline beneath the `X^T X` label.** IMG2 shows a red underline stroke running under the first X (â x 18â52, y 57â64) and under the second X (â x 74â112, y 57â64), skipping the superscript T; IMG1 has no underline at all. Consistent with a marker/annotation made on the original during the lecture, so low impact on usability. Confidence: high that the strokes exist in IMG2; medium that they are slide content rather than an annotation.
+2. **MINOR â Missing small pen/pointer glyph in row 1, middle cell.** IMG2 shows a diagonal pen-tip/cursor mark at â x 275â300, y 100â125, immediately right of the "10" in the top-middle cell; IMG1 has no such mark. This appears to be a live pointer overlay from the original capture rather than slide content. Confidence: high on the visual difference; medium that it is non-content.
+3. **MINOR â Table gridline weight/tone.** IMG1's gridlines are thin, light-medium gray (~1 px); IMG2's are visibly heavier and darker (near black-gray, ~2â3 px with video softness). Cell borders are otherwise complete and continuous in both. Confidence: high.
+4. **MINOR â Typeface of the label glyphs.** IMG1 renders the X's and the superscript T in a sans-serif face; IMG2 uses a serif italic X with a serif superscript T, giving slightly different stroke contrast and terminals. Same glyph identity and same baseline/superscript geometry. Confidence: high.
+5. **MINOR â Table digit typeface.** IMG1's digits are clean sans-serif; IMG2's digits carry faint serif-like terminals (partly confounded by JPEG softness). Numerals themselves are identical in form and value. Confidence: medium.
+6. **MINOR â Label red hue.** IMG1's label reads slightly brighter/more orange-red; IMG2's is a deeper, more saturated crimson. Small enough not to affect identity of the mark. Confidence: medium.
+
+No BLOCKER or MAJOR issues: no wrong digit, no swapped cell value, no missing/extra row or column, no garbled glyph, no mis-set superscript, and no delimiter/bracket problems (this region contains no enclosing delimiters).
+
+**FINAL VERDICT: PASS** â the recreation is a faithful, usable rendering of this region; all nine table values, the `X^T X` superscript structure, and the grid geometry match, with only minor cosmetic differences (annotation underline, capture pointer, gridline weight, and typeface/hue).

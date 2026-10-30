@@ -1,0 +1,40 @@
+# Crop-pair judge transcript — slide 037, attempt 6, region "def_lines" (box-1 implication lines)
+- date: 2026-10-24 07:02
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1_RENDER: recreated_pptx/qa/slide037/crop_6_def_lines_render.png md5=f81d053dddd09453c5f09f472abfccb2 (1647x140)
+- IMG2_ORIG:   recreated_pptx/qa/slide037/crop_6_def_lines_orig.png   md5=8a64cd66f45cfdc7990ba99da1384f9d (1647x140)
+- region: frame bbox (70,135)-(860,202), 790x67; effective scale 2.0848 px/frame-px (x) and
+  2.0896 (y, <=0.25 % vs render_6's 2.084375) — equal for both images (same crop size).
+- read order: ORIG crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of ONE region: IMG1 = recreation crop, IMG2 = original crop of the same
+region at the same effective scale. (b) House chrome (white canvas, gray E9E9E7 panel,
+C00000 left/right/bottom strokes, NO top stroke, FDFD96 badge with 6A5ACD ring) is
+intentional and never a discrepancy. (c) Typed-vs-handwritten is at most MINOR. (d) 2D
+professional equation format is a mandated upgrade. (e) JPEG halos/soft edges in IMG2 are
+capture artifacts.
+
+## Comparison
+- TEXT: both lines verbatim:
+  "If X ∈ class I and misclassified as Class II then d(X) will be <0 ⇒ δ_i = -1 ⇒ d(X) δ_i > 0"
+  "If X ∈ class II and misclassified as Class I then d(X) will be >0 ⇒ δ_i = +1 ⇒ d(X) δ_i > 0"
+  No wrong/missing/garbled character. MATCH.
+- COLOURS: class I RED / Class II BLUE (line 1); class II BLUE / Class I RED (line 2);
+  "misclassified" BLACK bold italic underlined; "<0"/">0" RED; "⇒" black; d of d(X) GREEN;
+  δ_i GREEN with RED subscript; X underlined. MATCH cell-for-cell against IMG2.
+- GLYPHS: "⇒" in the recreation is a heavier double arrow than IMG2's thin one; the
+  subscript i is smaller (~6 px vs ~9 px). Both are glyph/medium differences (rule c/d).
+- SEPARATION: the two lines' baselines and the gap between them match IMG2 (render rows
+  141.0..170.3 / 168.9..189.0 vs frame 142..169 / 170..191).
+- No clipping, no overlap, no stroke touching the text.
+
+## Discrepancies
+1. [MINOR] Arrow glyph weight — recreation ⇒ is bolder than the frame's — confidence high —
+   font glyph availability; same character, same colour, same position.
+2. [MINOR] Subscript i size — smaller than the frame's (~6 px vs ~9 px) — confidence high —
+   LibreOffice's 58 % escapement on the explicitly sized subscript run; position correct.
+3. [MINOR] Word spacing around "and" is slightly tighter than IMG2 — confidence medium —
+   Liberation Serif metrics; content verbatim.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

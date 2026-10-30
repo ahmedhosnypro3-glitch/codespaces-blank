@@ -1,0 +1,51 @@
+Here is the discrepancy list for the zoomed crop-pair (IMG1 = recreation, IMG2 = original), with locations given approximately by row within the region.
+
+**Row 1 â $d(x_1)$**
+1. **Missing leading weight component on LHS.** IMG1 shows `[1 1 1; -10; -8]`, omitting the leading `4` that appears in IMG2âs dot-product vector `\begin{pmatrix} 4 \\ -10 \\ -8 \end{pmatrix}`.  
+   Severity: **MAJOR** â missing glyph in an equation. Confidence: **High**.
+
+**Row 2 â $d(x_2)$**
+2. **Garbled assignment operator.** IMG1 shows `/ =` where IMG2 clearly shows `\underline{W} =`.  
+   Severity: **MAJOR** â wrong/missing character. Confidence: **High**.
+3. **Missing leading weight component on LHS.** IMG1 shows `[1 2 1; -8; -6]`, omitting the leading `6` present in IMG2.  
+   Severity: **MAJOR**. Confidence: **High**.
+4. **Wrong increment-vector component.** IMG1 shows `2 * [1; 2; -2]` (third component `-2`); IMG2 shows the increment vector as `\begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}` (third component `1`).  
+   Severity: **MAJOR** â wrong digit. Confidence: **High**.
+5. **Wrong result-vector component.** IMG1 result is `[8; -4; -10]`; IMG2 result is `\begin{pmatrix} 8 \\ -4 \\ -4 \end{pmatrix}`.  
+   Severity: **MAJOR** â wrong digit. Confidence: **High**.
+
+**Row 3 â $d(x_3)$**
+6. **Missing leading weight component on LHS.** IMG1 shows `[1 2 1; -4; -4]`, omitting the leading `8` present in IMG2.  
+   Severity: **MAJOR**. Confidence: **High**.
+7. **Wrong increment-vector component.** IMG1 shows `2 * [1; 1; -3]` (third component `-3`); IMG2 shows `\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}` (third component `2`).  
+   Severity: **MAJOR** â wrong digit. Confidence: **High**.
+8. **Wrong result-vector component.** IMG1 result is `[10; -2; -10]`; IMG2 result is `\begin{pmatrix} 10 \\ -2 \\ 0 \end{pmatrix}`.  
+   Severity: **MAJOR** â wrong digit. Confidence: **High**.
+
+**Row 4 â $d(x_4)$**
+9. **Missing leading weight component on LHS.** IMG1 shows `[1 5 4; -2; 0]`, omitting the leading `10` present in IMG2.  
+   Severity: **MAJOR**. Confidence: **High**.
+10. **Wrong decision text.** IMG1 says `Keep same Weight`; IMG2 says `=> Update Weight`.  
+    Severity: **MAJOR**. Confidence: **High**.
+11. **Missing / incorrect weight-update equation.** IMG1 only shows `W = [10; -2; 0]` and omits the update calculation entirely. IMG2 shows `W = [10; -2; 0] - 2*[1; 5; 4] = [8; -12; -8]`. IMG1âs displayed weight is therefore stale/wrong relative to the original.  
+    Severity: **BLOCKER** â missing row/equation and wrong final weight value. Confidence: **High**.
+
+**Row 5 â $d(x_5)$**
+12. **Missing leading weight component on LHS.** IMG1 shows `[1 6 5; -12; -8]`, omitting the leading `8` present in IMG2.  
+    Severity: **MAJOR**. Confidence: **High**.
+
+**Row 6 â $d(x_6)$**
+13. **Missing leading weight component on LHS.** IMG1 shows `[1 6 6; -12; -8]`, omitting the leading `8` present in IMG2.  
+    Severity: **MAJOR**. Confidence: **High**.
+
+**Region-wide / annotation differences**
+14. **Missing red direction arrows.** IMG2 shows a red double arrow `â` at the far right of rows 1â4; IMG1 lacks these entirely.  
+    Severity: **MINOR**. Confidence: **High**.
+15. **Extra annotation in recreation.** IMG1 row 4 includes a blue arrow/cursor overlay not present in IMG2.  
+    Severity: **MINOR**. Confidence: **High**.
+16. **Lost color coding.** IMG2 uses red for input-vector entries and green for weight-vector entries; IMG1 renders all equation text in black.  
+    Severity: **MINOR**. Confidence: **High**.
+
+Rows 5 and 6 otherwise match IMG2 in values (`W = [8; -12; -8]`), but the systematic omission of the leading weight component in the LHS bracketed notation (items 1, 3, 6, 9, 12, 13) makes the recreationâs equations incomplete relative to the original.
+
+FINAL VERDICT: FAIL

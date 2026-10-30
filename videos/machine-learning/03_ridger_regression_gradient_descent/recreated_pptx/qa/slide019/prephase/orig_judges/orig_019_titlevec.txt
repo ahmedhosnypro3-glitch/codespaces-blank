@@ -1,0 +1,103 @@
+# GROUND-TRUTH EXTRACTION REPORT â Slide 019 crop, "Test Data" region (S20b prephase)
+
+Crop space â 1232 Ã 351 px (slide-space X0=58, Y0=50; scale 3Ã, so 3 crop px = 1 pt). All coordinates below are CROP px.
+
+---
+
+## 1. LAYOUT MAP
+
+| Region | Bounding box (crop px) | Content |
+|---|---|---|
+| R1 â Slide-edge sliver (left) | x 0â30, y 0â351 | Dark slide-edge artifact column, outside main box |
+| R2 â Top edge strip | x 0â1232, y 0â10 | Thin multi-color line at frame top |
+| R3 â Main boxed panel | x â 32â1130, y â 45â325 | Blue-stroked rectangle, white fill, containing all content |
+| R4 â "Test Data" label | x â 60â265, y â 85â130 | Bold blue heading, top-left inside box |
+| R5 â Equation 1 (zâ column vector) | x â 290â500, y â 90â240 | Red zâ= + 2Ã1 parenthesized vector (30 / 15) |
+| R6 â Equation 2 (zâ column vector) | x â 575â765, y â 90â240 | Red zâ= + vector (40 / 20) |
+| R7 â Equation 3 (zâ column vector) | x â 855â1055, y â 90â240 | Red zâ= + vector (50 / 25) |
+| R8 â Bottom answers row | x â 300â1055, y â 245â310 | Three blue "y=â¦" equations, one under each vector |
+
+White (unfilled) gap bands separate R5/R6/R7 horizontally; R4 sits left of R5.
+
+---
+
+## 2. VERBATIM TEXT
+
+| Region | String (exact) |
+|---|---|
+| R4 | `Test Data` |
+| R5 | `zâ = ( 30 / 15 )` â i.e. **z** with subscript **1**, equals sign, tall opening parenthesis, `30` upper row, `15` lower row, tall closing parenthesis |
+| R6 | `zâ = ( 40 / 20 )` â z with subscript **2** |
+| R7 | `zâ = ( 50 / 25 )` â z with subscript **3** |
+| R8 (under R5) | `y=60` |
+| R8 (under R6) | `y=80` |
+| R8 (under R7) | `y=100` |
+
+Notes:
+- Subscripts 1, 2, 3 are true lowered subscripts, colored red like their z.
+- The z glyphs are italic serif style (math italic), each followed by a short red **underline** segment directly beneath the z only (not under the subscript â underline sits at the subscript's baseline level, spanning the z's width, x-extent â the z glyph width).
+- Equals signs are plain, unspaced: rendered as `zâ=`, `y=60` with minimal gap around `=`.
+- No uncertain glyphs; all digits are crisp: 30, 15, 40, 20, 50, 25, 60, 80, 100.
+
+---
+
+## 3. COLORS
+
+| Element | Estimated hex |
+|---|---|
+| Box border (R3) | #2A2AA5 (medium blue, slightly dark) |
+| "Test Data" text | #1F1FB0 (bold blue, same family as border) |
+| z glyphs, subscripts, z underlines | #C00000â#CC0000 (strong red) |
+| Vector digits (30/15/40/20/50/25) | #000000 (black) |
+| Tall parentheses | #4A4A4A (dark gray, lighter than digits â anti-aliased thin strokes) |
+| `y=60`, `y=80`, `y=100` (whole run, including `=` and digits) | #2A2AA5 (same blue as heading) |
+| Panel fill | #FFFFFF (white) |
+| Outside-panel background (above/below/right of box) | #FFFFFF |
+| Left slide-edge sliver R1 | top ~y0â35: #3A3A3A dark gray with a #8B0000 dark-red patch at x0â8, y0â15; below yâ35 down to bottom: alternating #F0F0F0 / #E0E0E0 pale gray |
+| Top strip R2 | thin dark line, #3A3A3A on left half, transitioning to #A03030 reddish toward the right end |
+
+---
+
+## 4. GEOMETRY
+
+1. **Main rectangle (R3):** stroke-only box, no fill (white). Stroke thickness â 4â5 crop px (â1.5 pt). Approx corners: left edge x â 32, right edge x â 1130, top edge y â 45, bottom edge y â 325. Uniform blue #2A2AA5, no corner radius (sharp 90Â° corners), no breaks.
+2. **z underlines:** three short horizontal red rules, thickness â 4â5 px, length â 55â65 px each:
+   - zâ underline: x â 292â352, y â 188
+   - zâ underline: x â 578â638, y â 188
+   - zâ underline: x â 858â918, y â 188
+   These sit below the z baseline, above/at the subscript baseline.
+3. **Parentheses (vectors):** six tall curved glyphs (2 per equation), gray, spanning y â 100â235, i.e. wrapping both stacked digits. Not brackets â smooth round parentheses. Width â 25 px each.
+   - Eq1: open paren x â 400â425; close paren x â 475â500
+   - Eq2: open paren x â 682â707; close paren x â 742â765
+   - Eq3: open paren x â 957â982; close paren x â 1030â1055
+4. **No arrows, circles, filled shapes, or additional rules** anywhere in the panel.
+5. **Column alignment:** the three equation groups are evenly pitched; group left edges (red z) at x â 292, 578, 858 â pitch â 283 px (â94 pt). The three blue y-equations are left-aligned under their respective vector groups at x â 300, 600, 880 (approx.).
+
+---
+
+## 5. TYPOGRAPHY
+
+| Text | Cap/x-height (crop px) | Style | Alignment |
+|---|---|---|---|
+| "Test Data" | cap height â 38 px (â12â13 pt) | **Bold**, sans-serif, upright, blue | Left-aligned, baseline y â 125 |
+| z (red) | glyph height â 48 px, italic serif (math italic) | Bold-appearing; with subscript digit â 30 px tall, lowered | Left element of each equation |
+| Vector digits | digit height â 45 px (â15 pt), serif (Times-like), upright, black | Regular weight | Centered inside parentheses; upper row baseline y â 155, lower row baseline y â 225; vertical gap between rows â 25 px |
+| y=60 / y=80 / y=100 | x-height â 30 px, full height â 55 px with descender of y; serif, italic y, upright `=` and digits, blue | Regular weight | Left-aligned under each vector; baseline y â 290 |
+
+Equals signs in both the z and y equations are full-size (not subscripted), height â 25â30 px, vertically centered on the variable baseline.
+
+---
+
+## 6. ANOMALIES
+
+1. **Slide-edge artifacts (R1, R2):** dark gray/red slivers at the crop's left edge and top edge are from the original video frame's slide boundary / background, not slide content. Exclude from recreation.
+2. **Chroma smear:** mild JPEG/Lanczos color bleed around the red z glyphs and red underlines (faint pink halo extending ~3â5 px). No structural ambiguity.
+3. **Underline-vs-subscript collision:** the red underline under each z sits at nearly the same y as the subscript digits; it reads as an underline of the z only. Reproduce as a short red rule under z, with the digit subscript to its right.
+4. **Parenthesis gray tone:** parentheses render lighter than the black digits due to thin strokes + antialiasing; do not color them black.
+5. **No mouse cursor** visible in this crop.
+6. **No ambiguous digits** â all numerals are high-confidence.
+
+---
+
+### PowerPoint reconstruction summary
+White slide area; one blue-stroked rectangle (no fill) at slide-space â x68â435, y65â158 pt. Inside: bold blue "Test Data" top-left; three groups of [red italic bold **z** + subscript + short red underline + black 2-row parenthesized column vector (30/15, 40/20, 50/25)]; beneath each group a blue serif "y=60", "y=80", "y=100" respectively.

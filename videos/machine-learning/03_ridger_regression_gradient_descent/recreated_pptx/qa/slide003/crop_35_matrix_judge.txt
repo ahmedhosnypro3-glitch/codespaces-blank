@@ -1,0 +1,22 @@
+Applying the ground rules first: this is a same-scale crop-pair of one region; the recreation's house chrome (white canvas, gray E9E9E7 panel, dark-red C00000 strokes on left/right/bottom with no top stroke) is intentional and is not scored; typed-vs-handwritten ink is medium only; professional 2D equation formatting is mandated; and IMG2's JPEG softness is capture artifact.
+
+Verified cell/line/row by row (crop-relative leftâright):
+
+- Left y-column (crop-left third): yâ (yellow), yâ (cyan), red italic "â¦" , yâ (purple), label "N Ã 1." Matches original (yâ/yâ/yâ, red "â¦", "N x 1"). yârow color coding is preserved: yâ=yellowârow 1 yellow; yâ=cyanârow 2 cyan; yâ=purpleârow 4 purple. Row 3 is correctly unhighlighted in both (it is the generic ellipsis output row).
+- Equals sign: present, single "=", black, vertically mid â matches.
+- Matrix delimiter geometry: one tall left paren and one tall right paren span row 1ârow 4 without overshooting into the colored bars and without touching the glyphs; "N Ã d+1" sits outside the right paren at roughly the same vertical position as the original. Matches.
+- Matrix contents row by row:
+  - Row 1: 1, xââ, xââ, â¦, xâd â matches (subscripts 11/12/1d intact, no truncation).
+  - Row 2: 1, xââ, xââ, â¦, xâd â matches.
+  - Row 3: 1, â¦, â¦, â¦, â¦ â ellipsis-only interior row, matches (leading "1" present).
+  - Row 4: 1, xââ, xââ, â¦, xâd â matches (subscripts n1/n2/nd intact).
+  - No swapped second-index, no nâm substitution, no missing row; leading bias column "1" present in all four rows.
+- Right w-column (crop-right): b in red at top (first entry, inside the delimiter), then wâ, wâ (blue), red/dark "â¦", w_d (blue); label "(d+1) Ã 1" outside the delimiter. Order bâwââwâââ¦âw_d and the three-label set (NÃ1, NÃ(d+1), (d+1)Ã1) are consistent and multiply correctly ((NÃ(d+1))Â·((d+1)Ã1)=NÃ1). Matches original.
+
+Differences observed â all explicitly excluded by the ground rules, so not counted as defects:
+- Typeset Ã (U+00D7) and stacked/aligned subscripts in IMG1 vs handwritten "x" and inline ink in IMG2 â mandated professional-format upgrade (rule d), at most medium-ink, not a discrepancy.
+- Cleaner vector stroke weight and flat fill edges in IMG1 vs slightly softer, JPEG-haloed edges in IMG2 â capture artifact (rule e), not content.
+
+No BLOCKER, MAJOR, or MINOR discrepancies found in glyph shapes, every table value/subscript, equation structure, delimiter spanning, line separation, vertical centering, or fill/text colors of this region. (Confidence: high for all positive matches; the only uncertainties are the excluded-rule items above, which I am not allowed to score.)
+
+FINAL VERDICT: PASS for "faithful, usable recreation of this region."

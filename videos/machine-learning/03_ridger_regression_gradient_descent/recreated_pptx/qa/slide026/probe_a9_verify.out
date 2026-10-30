@@ -1,0 +1,26 @@
+=== 'L' stems: Least (now BOLD in render_9) vs Linear (regular) ===
+  ORIG  Least L : (111.0, 113.0, 33, 11)
+  ORIG  Linear L: (231.0, 232.0, 22, 11)
+  REN9  Least L : (110.4, 112.3, 130, 26)
+  REN9  Linear L: (222.0, 222.0, 13, 26)
+  REN8  Least L : (110.4, 111.4, 78, 26)  (was regular)
+
+=== phrase densities (x-height band, thr 430/550/650) ===
+  thr 430: ORIG LS=0.3845 REG=0.2637 BOLD=0.3628 | REN9 LS=0.5115 REG=0.3889 BOLD=0.4654 | ORIG_LS/REN9_LS=0.75 (bold-class match expected ~0.78)
+  thr 550: ORIG LS=0.5034 REG=0.3995 BOLD=0.4923 | REN9 LS=0.5398 REG=0.4190 BOLD=0.4965 | ORIG_LS/REN9_LS=0.93 (bold-class match expected ~0.99)
+  thr 650: ORIG LS=0.5807 REG=0.4852 BOLD=0.5813 | REN9 LS=0.5626 REG=0.4391 BOLD=0.5242 | ORIG_LS/REN9_LS=1.03 (bold-class match expected ~1.11)
+
+=== render_9 vs render_8 changed pixels (prove the change is N1-band only) ===
+  changed px: 20190  bbox frame x 109.9..769.1 y 341.6..357.9
+
+=== REN9 word spaces (N1 line) — phrase windows re-derived ===
+  REN9: [(105.0, 109.8), (154.4, 159.2), (227.8, 234.5), (282.5, 287.8), (368.4, 374.1), (443.2, 448.0), (509.0, 517.1), (530.1, 535.8), (544.9, 550.2), (610.7, 615.5), (684.1, 690.8)]
+  ORIG: [(105.0, 110.0), (114.0, 119.0), (153.0, 159.0), (224.0, 230.0), (233.0, 241.0), (279.0, 284.0), (362.0, 372.0), (442.0, 448.0), (510.0, 522.0), (534.0, 539.0), (548.0, 553.0), (609.0, 615.0), (682.0, 688.0)]
+
+=== density with REN9's own phrase windows (LS / REG / BOLD) ===
+  thr 430: REN9 LS=0.5172 (x109..227.8) REG=0.4000 (x234.5..508.1) BOLD=0.4748 (x517.1..667.1)
+        ORIG LS=0.3845 REG=0.2637 BOLD=0.3628 -> REN9 LS/REG=1.293  ORIG LS/REG=1.458  REN9 BOLD/REG=1.187  ORIG BOLD/REG=1.376
+  thr 550: REN9 LS=0.5469 (x109..227.8) REG=0.4305 (x234.5..508.1) BOLD=0.5066 (x517.1..667.1)
+        ORIG LS=0.5034 REG=0.3995 BOLD=0.4923 -> REN9 LS/REG=1.270  ORIG LS/REG=1.260  REN9 BOLD/REG=1.177  ORIG BOLD/REG=1.232
+  thr 650: REN9 LS=0.5698 (x109..227.8) REG=0.4521 (x234.5..508.1) BOLD=0.5309 (x517.1..667.1)
+        ORIG LS=0.5807 REG=0.4852 BOLD=0.5813 -> REN9 LS/REG=1.260  ORIG LS/REG=1.197  REN9 BOLD/REG=1.174  ORIG BOLD/REG=1.198

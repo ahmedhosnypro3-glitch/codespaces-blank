@@ -1,0 +1,38 @@
+# Discrepancy Report â Slide 049, top_band crop (attempt 12)
+
+Per ground rules, template chrome, typed-vs-handwritten ink, linear-vs-2D equation formatting, and JPEG artifacts are excluded. Only content/structure/glyph defects in the crop region are listed.
+
+## Discrepancies
+
+1. **BLOCKER â Class-label row replaced by wrong content (bottom-left of region, ~yâ150â165).**
+ Original bottom row under the six x-vectors reads **Câ Câ Câ Câ Câ Câ** (Câ triple in red, Câ pair in blue, italic with subscripts). The recreation instead shows a plain black numeric row **"1 1 2 4 5 6"** â which is not the class assignment at all (it coincidentally matches the vectors' second components). The entire semantic row (which points belong to class 1 vs class 2) is missing and replaced by incorrect data. Confidence: very high.
+
+2. **MAJOR â Wrong delimiter on the Initial w vector (~xâ555â605, left of "Initial W").**
+ Original: column (4; â2; â2) enclosed in **parentheses**. Recreation: same column enclosed in **vertical bars** | 4; â2; â2 |, which denotes a determinant/absolute value, not a vector. A wrong delimiter type is a mathematical meaning change. Confidence: very high.
+
+3. **MAJOR â "w =" missing from the Initial equation (~xâ630â760).**
+ Original reads "Initial **w** = (4, â2, â2)" â a labeled equation with an equals sign and a bold, underlined *w*. Recreation shows only underlined italic "Initial W" immediately followed by the bar-delimited column; the **=** sign and the bold *w* symbol are absent. Confidence: very high.
+
+4. **MAJOR â Missing parentheses on the Z-grid columns (right side, ~xâ1210â1330).**
+ Original wraps each Z column in parentheses: (0;0), (7;6), (3;2). Recreation shows the six values (0,0 / 7,6 / 3,2 â values themselves all correct) as bare stacked numbers with **no enclosing delimiters**. Column vectors without delimiters are structurally wrong per the delimiter rule. Confidence: high.
+
+5. **MAJOR â Subscripts missing on Z labels (top right, ~xâ1210â1330, yâ45â60).**
+ Original: *Z*â *Z*â *Z*â (italic with subscripts). Recreation: bold upright "Z1 Z2 Z3" with the indices set as full-size characters rather than subscripts (truncated/absent subscript form). Confidence: high.
+
+6. **MINOR â "REPEAT" not underlined (~xâ790â900, yâ25â45).**
+ Original underlines the red bold italic "REPEAT"; the recreation's "REPEAT using Step Î· = 1" is correctly red/bold/italic with correct Î· and "= 1", but lacks the underline emphasis. Confidence: medium-high.
+
+7. **MINOR â Underline scope on "Initial" (~xâ630â760).**
+ Recreation underlines the whole phrase "Initial W"; the original underlines only the *w*. Confidence: medium-high.
+
+8. **MINOR â "W" capitalized vs original lowercase *w* (same location).** Confidence: high (visible), low impact.
+
+## Verified correct (no action)
+- All six x-vectors: values (1,1)(2,1)(1,2)(5,4)(6,5)(6,6) match cell-for-cell; parentheses span both lines correctly; xââ¦xâ headers with subscripts correct.
+- Z-grid values 0/0, 7/6, 3/2 all correct.
+- "C1 positive C2 negative Zero is unaccepted" â colors (red C1, blue C2, green *Zero*) and italics match.
+- "REPEAT using Step Î· = 1" text, Î· glyph, and value correct; "Check classes of" present and correctly placed.
+
+## FINAL VERDICT: FAIL
+
+The recreation of this region is not faithful: the class-label row is replaced by wrong numeric content (BLOCKER), the Initial-w vector uses determinant bars instead of parentheses and drops the "w =", the Z columns lack parentheses, and the Z labels lack subscripts.

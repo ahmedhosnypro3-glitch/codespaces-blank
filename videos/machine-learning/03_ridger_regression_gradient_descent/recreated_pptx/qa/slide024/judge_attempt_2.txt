@@ -1,0 +1,22 @@
+**Element-by-element fidelity (renderable content only)**
+
+| Element | Original (IMG2) | Recreation (IMG1) | Result |
+|---|---|---|---|
+| Title text | âGradient Descent (GD)â bold darkâred sans | Same string, same bold darkâred (âC00000) sans, inline â(GD)â | Verbatim â |
+| Connector line | âandâ (bold red, centered, smaller than title) | Identical string/size/centering | Verbatim â |
+| Subtitle | âHow to apply to minimize Loss functionâ (bold red, one line) | Identical string, one line, same casing (âLossâ capital, âminimizeâ lower) | Verbatim â |
+| Line order / breaks | 3 lines: title / âandâ / subtitle | Same 3 lines, same order, same relative size steps (title > âandâ â subtitle) | Match â |
+| Horizontal alignment | All three lines centered on panel midâx (â panel center) | Centered on panel center x â 478; title â x250â710, âandâ centered, subtitle centered | Match â |
+| Vertical placement | Block optically centered, sitting slightly low in the panel with a large clear margin above the bottom stroke (cursor visible in that low area) | Same optical placement: block roughly yâ240â410 vs panel center yâ292 (block center â325), leaving a comparable clear band above the y=540 bottom stroke | Match (no visible centering/lineâspacing error) â |
+| Line separation | Tight, even stepping between the three lines | Same tight/even stepping; no collision or crowding | Match â |
+| Delimiter geometry â(GD)â | Singleâline parentheses, âGDâ vertically centered inside | Same singleâline parentheses, âGDâ centered | Match â (rule 2 satisfied) |
+| Frame containment (rule 5) | All ink inside panel | All three text lines fully inside gray panel; nearest text (subtitle â yâ410) well clear of the y=540 red bottom stroke and of left/right strokes; nothing crosses/touches a stroke | Match â |
+| Missing elements (rule 6) | No equations/tables/charts/diagrams on this title slide | None omitted; no empty equation region | None missing â |
+| House chrome (rule a) | White canvas, gray panel, red left/right/bottom strokes (no top), topâright â24â badge | Same house chrome by mandate (incl. purple ring, no top stroke) | Intentional â not a discrepancy â |
+| Bottomâcenter cursor/pen mark | Present in video (â x495, yâ505) | Small dark diagonal mark present at same spot | Per rule (c) this is a capture/OS cursor, not renderable slide content; excluded from assessment â not a content defect |
+
+**Discrepancies:** None. No BLOCKER, MAJOR, or MINOR content deviations found. Text is verbatim, order/line breaks identical, alignment and containment are correct, and no original element is omitted.
+
+**Visualâquality defects in recreation:** None material. No text overflow/clipping, no wrong wrapping, no misalignment, no collisions; contrast/legibility of darkâred on E9E9E7 is good. (The tiny bottomâcenter mark is a capture cursor, addressed above under rule (c).)
+
+FINAL VERDICT: PASS â faithful, usable recreation.

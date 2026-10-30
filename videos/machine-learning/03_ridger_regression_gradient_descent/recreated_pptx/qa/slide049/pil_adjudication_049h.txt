@@ -1,0 +1,131 @@
+PIL ADJUDICATION — slide 049 — legA attempt 10 verdict (judge_attempt_10.txt)
+Method: pixel-level measurement on unique_slides/slide_049.jpg (960×540) vs
+recreated_pptx/qa/slide049/render_9.png, scripts pil_adjud_049h.py + _r2.._r7,
+raw outputs pil_adjud_049h_raw.txt / _r2.._r7_raw.txt (this dir).
+Scale: both frames 960×540; render maps 1:1 (sx≈2.0844 was for the 2000px render_9
+upscale used only in early rounds; r4+ used raw 960 render_9.png → 1:1).
+Adjudicator: S7 worker 11075. Date: 2026-10-25.
+
+Disposition: 6 findings upheld (4 MAJOR + 2 MINOR... see per-item), 1 minor
+accepted-as-typed-medium, 1 minor refuted (F8 judge mismeasure). All upheld items
+go to the rebuild.
+
+---------------------------------------------------------------------
+F1 (MAJOR) "Initial W = [4, -2]" — REAL. Wrong values AND wrong construct.
+  ORIG: high-bracket COLUMN (4; −2; −2) — brackets x330..352 spanning y59..104
+  (left stroke x330..332, right x351..353; tips converge y59/y104), "4" y62..71
+  x337..345, minus bar x335..341 y82..83 + "2" y78..87, minus bar y97..98 + "2"
+  y93..102 (r4 frame x326..356). Label "Initial" DARK x365..417 y61..72 + wide
+  "W" x425..444 y64..71 (r7 x415..445 comps) — column drawn LEFT of its label,
+  all dark, NO red anywhere in x255..425 (r7 red census n=0).
+  RENDER: red "Initial" x234..276 (r2 zone bitmap y68..77, redn>0) with wrapped
+  "l" x234..238 y72..79 (F4's orphan), then inline "[4, -2]" — wrong values
+  (missing the second −2), linear not column, wrong color, wrong x-position.
+  ANALYSIS JSON "Initial W = [4, -2]" is a misread of the original frame; the
+  attempt-7 approval of it was JSON-only (circular).
+  FIX: dark "Initial W" label + 3-value bracket column (4; −2; −2) at
+  x≈330..352, label to its RIGHT; delete red header + orphan "l".
+
+F2 (MAJOR) d(x) rows as 2×4 matrix PNGs — REAL. All six rows wrong construct.
+  ORIG per row i (row bands y140..197/206..263/272..329/338..395/404..461/
+  470..528; all measured r2/r3/r7):
+    d(xᵢ) =  · bare row of THREE digits (no brackets, top-aligned y≈149..157
+              rel band start +9): x333..341 / x350..357 / x368..375
+            · HIGH-BRACKET 3-COLUMN (5; −1; −1) x378..404 (L stroke x379..382,
+              R x401..404, span ≈ band_start+7 .. +48)
+            · = result: rows 1-3 "+3" (plus bar x404..417 y165..168 wait —
+              plus bar x404..417 y165..168 + "3" x420..427 y162..171; rows 2-3
+              same "+3" x409..427); row 4 "−4" (bar x422..430 + "4" x432..439);
+              row 5 "−6"; row 6 "−7" (bar x421..430 + "7" x431..438)
+            · ⇒ (x497..508 rows1-2, x510..519 rows4-6)
+            · "Keep same Weight" — VERIFIED GLYPH-BY-GLYPH for rows 4 AND 6
+              (r7-ascii readback): identical words as rows 1-3, blobs
+              x529..623 rows 4-6 vs x517..611 rows 1-3 (±11px x-shift only)
+            · W = bracket column (5; −1; −1) x695..749 rows 1-3, x708..759
+              rows 4-6
+  Math check: [1,a,b]·(5,−1,−1) = 5−a−b → +3,+3,+3,−4,−6,−7 ✓; all verdicts
+  "Keep same Weight" consistent with "No change in W / Stop Iterations" box.
+  RENDER: rows 1-3 embed a 2×4 matrix PNG x349..405 (results glued inside the
+  matrix, second −1 of the W column lost — r3 render comps show only two
+  digits y165..173/y180..188 beside square-bracket glyphs x722..746); rows 4-6
+  drift right by a full column (bare row at x~403..481 instead of ~333..375,
+  ⇒/text at x~611..712 instead of ~509..623 — r4 row4 census).
+  ANALYSIS JSON equations (2×4 arrays incl. the W column glued into the matrix)
+  are a systematic misread. FIX: rebuild all six rows to the construct above.
+
+F3 (MAJOR) top-table + aug-table brackets — REAL (partially; row-3 brackets
+  REFUTED, see F9).
+  ORIG top table (y74..127): SIX value columns x89..215, each = 2-value stack
+  inside a tall bracket pair spanning y77..107 (h≈29-31; bracket comps x88..92,
+  x102..104, x110/124, x134, x155/171, x177/194, x200..204, x205..216 — r5/r6
+  comp census), plus a THIRD value below the brackets at y113..124.
+  Header row y64..73: x₁..x₆ small labels (r7 comps x91..101, x113..124,
+  x135..146, x157..169, x180..192, x203..215).
+  Values (JSON rows, bracketed pair = rows 1-2, below = row 3):
+    x1 (1;1)+1  x2 (2;1)+1  x3 (1;2)+2  x4 (5;4)+4  x5 (6;5)+5  x6 (6;6)+6
+  ORIG aug table (y163..228): six 3-value columns, tall bracket pairs x93/107,
+  x115/128, x137/159?, x160/173, x182/196, x205/218 spanning y179..225
+  (r4 tall-vertical census + r2), value rows y180..193 / 195..210 / 212..225
+  (r7 row census), header row y166..175, C1/C1/C1/C2/C2/C2 tags y231..243
+  (r7 tag comps).
+  RENDER: per-digit short parens (1 2 1) style in both tables — construct
+  wrong. FIX: tall multi-row bracket pairs both tables.
+
+F4 (MAJOR) red "Initial" header + orphan "l" — REAL. Merged into F1's fix
+  (dark label, no red, no wrap).
+
+F5 (MINOR) REPEAT line wrap — REAL.
+  ORIG: single line x426..529 y61..73 (red census r7), continuing the same
+  text line as "Initial W" (one baseline y61..73).
+  RENDER: "REPEAT using Step η = 1" wrapped to two lines y57..77 (r2 bitmap
+  rows 57-64 + 70-77) with "= 1" on line 2. FIX: single line, right of
+  "Initial W".
+
+F6 (MINOR) legend colors — REAL.
+  ORIG: "Zero" is SATURATED GREEN x395..423 y110..121, n=198 px,
+  meanRGB(166,217,151) ≈ #A6D997-body (core ≈ #92C881); "is unaccepted" dark
+  x431..508 (r2 legend tail: green G-class runs ONLY at x396..423).
+  RENDER: all-black legend (r2: all k-class). 051 judge independently read
+  "Zero is unaccepted" as green italic on the original — corroborates.
+  FIX: recolor "Zero" green (~#8FC880), keep "is unaccepted" dark.
+
+F7 (MINOR) calc-table rules — REAL.
+  ORIG: full-ruled grid x274..853: top y140, DOUBLE separators 9px apart
+  (y197+206, y263+272, y329+338, y395+404, y461+470), bottom y528, left
+  vertical x274 (y140..514, gap-tolerant r6), NO right vertical (r7 ink
+  census x846..861: n≤15 noise) — right edge open.
+  Top band: y46 thin full line x57..902 (orig-only), triple band borders
+  y54..56 / y128..130 x68..719. Left aug box x70..246: rules y140+y255, left
+  vertical x70 y140..255 (r6).
+  RENDER: zero rules in y135..505 (r2 rule scan: none) — table borderless.
+  FIX: draw the grid per measured geometry (6 rows, 5 double separators,
+  left border, open right edge).
+
+F8 (MINOR, judge) subscript baselines — ACCEPTED AS TYPED-MEDIUM: render's
+  d(xᵢ) subscript sits on the text baseline instead of a true subscript.
+  Non-blocking per deck ground rules (typed-medium text rendering); no fix
+  trigger. (If trivial in the rebuild, render xᵢ as real subscript anyway.)
+
+F9 (MINOR, judge) "top table row 3 also bracketed" — REFUTED as stated, with
+  correction: r6 top-table comp census shows row-3 digits (y113..124) as
+  separate comps OUTSIDE the bracket spans (brackets end y107). Only the
+  2-stack rows carry brackets. The aug table (3-row columns y179..225) IS
+  fully bracketed — F3 covers it.
+
+House chrome: render passes (top stroke absent, band borders/badge correct —
+r5: render y53..54/y129..130 + x59/x900..901 only).
+
+REBUILD TARGETS (all in ORIG pixel coords, 1px = 1pt):
+  - Top band: 6 bracketed 2-stack columns + below-values + x₁..x₆ headers
+    (y64..124, cols at x89..215 pitch ≈22.5); dark "Initial W" + (4;−2;−2)
+    column x330..352 + red "REPEAT using Step η = 1" single-line x426..529
+    y61..73; legend y110..124 with green "Zero" + dark "is unaccepted".
+  - Aug box x70..246 y140..255: title y147..159, header y166..175, six
+    3-row bracketed columns y179..225, C1/C2 tags y231..243.
+  - Iteration-2 red box x84..213 y278..394 (red n=2845) with white text.
+  - Calc grid x274..853 y140..528 per F7; six d-rows per F2 with correct
+    results (+3,+3,+3,−4,−6,−7), verdicts "Keep same Weight", W=(5;−1;−1)
+    columns (rows 4-6 shifted +13px right, per census).
+  - House chrome unchanged.
+After rebuild: LO re-render → house_chrome_check.py → PIL self-check →
+crops re-cut → legA re-judge (both certificates required by deck law).

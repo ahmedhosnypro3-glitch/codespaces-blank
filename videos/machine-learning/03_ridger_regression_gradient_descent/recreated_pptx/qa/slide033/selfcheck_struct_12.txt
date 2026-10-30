@@ -1,0 +1,24 @@
+1) EQUATION REGIONS — ink density % (must be non-zero)
+   main equation box  x449-585 y182-230 ORIG  11.7  RENDER   9.3   OK
+   callout box        x244-599 y252-301 ORIG  20.4  RENDER  15.3   OK
+   annotation line1   x250-590 y278-292 ORIG  17.4  RENDER  11.3   OK
+   annotation line2   x250-590 y288-301 ORIG  28.7  RENDER  13.9   OK
+
+2) FRAME CONTAINMENT — house frame (150dpi) vs content ink
+   dark ink bbox in 150dpi render: x 135..1823, y 131..1071
+   inside the house frame (x>=40, x<=1960, y>=40, y<=1085): OK
+   house chrome: shared_patterns/house_chrome_check.py -> PASS (separate run)
+
+3) PLOT BOX EDGES — white box + gridline leakage (attempt-6 fix)
+   ORIG plot box mean RGB (238, 240, 241)
+   RENDER plot box mean RGB (240, 241, 244)
+   white fraction: ORIG 71%  RENDER 82%  -> OK
+
+4) TRAJECTORY MARKERS — ink present at each measured position (ORIG ink | RENDER ink)
+   red initial-point dot  ORIG  33.6  RENDER   9.1   OK
+   orange arrowhead      ORIG   6.4  RENDER   0.0   FAIL (missing)
+   green square (min)    ORIG   9.4  RENDER   4.4   OK
+   pink callout          ORIG  13.2  RENDER  10.0   OK
+   pink callout text     ORIG  14.2  RENDER   8.1   OK
+
+SELFCHECK: FAIL

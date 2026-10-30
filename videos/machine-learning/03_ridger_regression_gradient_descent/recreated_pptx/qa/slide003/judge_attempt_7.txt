@@ -1,0 +1,42 @@
+## Discrepancy List (recreation vs original)
+
+**BLOC5ER**
+
+1. **Right-side equation box is missing two whole lines.** Original (IMG2) right box contains three stacked lines: `Y = X W` (underlined), `Where: X_{NÃd+1} is a matrix`, and `Y_{NÃ1} is labels vector`. The recreation (IMG1) shows only `Y = X W` â the entire "Where:" explanatory block and the matrix/vector dimension statements are absent. Confidence: **High** (certain by direct comparison).
+
+**MAJOR**
+
+2. **Top sample diagram stripped of all interior content.** In the original, each column (Xâ, Xâ, â¦, Xâ) explicitly lists its vector entries (xââ, xââ, â¦ xâd; xââ â¦ xâd; xââ â¦ xâd) and includes a separate "â¦" column between Xâ and Xâ. The recreation renders the three columns as empty colored bars with only Xâ / Xâ / Xâ headers and yâ / yâ / yâ footers â all xáµ¢â±¼ entries and the ellipsis column are omitted entirely. Confidence: **High**.
+
+3. **Middle matrix omits its dimension label "N Ã d+1".** Original carries three dimension annotations under the bottom equation: `NÃ1` (y-vector), `NÃd+1` (augmented X matrix), `d+1Ã1` (w-vector). The recreation shows only `N Ã 1` and `d+1 Ã 1`; the `NÃd+1` label under the augmented matrix is missing. Confidence: **High**.
+
+4. **Bottom entry "w_d" of the weight vector is omitted.** Original's third vector reads b, wâ, wâ, â¦ , **w_d** (with w_d sitting just above the `d+1Ã1` label). The recreation's third vector ends at "â¦" on the bottom row â the terminal w_d entry is gone. Confidence: **High**.
+
+5. **Delimiter geometry â augmented X matrix has NO enclosing brackets.** The original's large middle matrix is fully wrapped in `[ â¦ ]` spanning all four rows. In the recreation, the rows `1 xââ â¦ / 1 xââ â¦ / 1 â¦ / 1 xââ â¦` are drawn with no enclosing bracket strokes at all (the only bracket pair present `[ â¦ ]` belongs to the y-vector, left of the "="). Confidence: **High**.
+
+6. **Delimiter geometry â y-vector bracket does not span all its lines.** The original's y-vector bracket encloses yâ â¦ yâ (topmost row yâ down to yâ). In the recreation the `[ â¦ ]` glyph sits only over the yâ/â¦/yâ region â the top line yâ falls outside/above the bracket span. Confidence: **Medium-High**.
+
+7. **Delimiter geometry â w-vector bracket covers only part of the vector.** The original bracket wraps b â¦ w_d (all entries). The recreation's bracket `[ wâ ]` survives only around the wââwâ rows; b (top) and the bottom entry are outside the delimiters. Confidence: **Medium-High**.
+
+**MINOR**
+
+8. **Superscript "T" formatting lost in the Remember box.** Original shows `y = WáµX = XáµW` with raised superscript T's; the recreation renders T at baseline (`W T`, `X T`). Underline coverage also appears to differ (underline hugs W/T rather than Wáµ, X, Xáµ, W). Confidence: **Medium**.
+
+9. **Underline set on `Y = X W` is incomplete.** Original underlines Y, X, and W; the recreation underlines only W. Confidence: **Medium**.
+
+10. **Title wraps incorrectly.** Original title sits on one line ("â¦Classification (N-Samples)"); the recreation breaks it as "(N-" / "Samples)" across two lines. Confidence: **High** (minor because text remains verbatim/legible).
+
+11. **"N Training Samples" color split differs.** Recreation appears to color the "N" blue and "Training Samples" red; original has the phrase in a single dark treatment with "N" accented red. Confidence: **Low-Medium** (color readings are imprecise at this resolution).
+
+## Visual-quality defects in the recreation
+
+- Title text wrapping produces an awkward orphan line "Samples)".
+- The w-vector bracket is visibly too small for its contents, leaving "b" and the bottom entry unsheathed â visually inconsistent with every other delimiter on the slide.
+- Bottom equation relies on inline "1" tokens rather than a visually separated first column of 1s (minor spacing/alignment drift vs the original's column layout).
+- No frame-containment violations found: all content (diagram, boxes, arrow, equation block) sits inside the gray panel and the intentional house strokes; no ink crosses the panel boundary.
+
+## Summary
+
+The recreation captures the title, slide chrome, the Remember/In-General boxes, the arrow, the basic labels (Xââ¦Xâ, yââ¦yâ, N Training Samples), and the core values of the bottom equation, but it loses a whole text block ("Where: â¦"), all column-interior entries in the top diagram, two data/annotation items (NÃd+1 label, w_d), and badly mismanages delimiter spanning/bracketing on the main equation. Combined with the missing explanatory text block, this is not a faithful render.
+
+FINAL VERDICT: FAIL

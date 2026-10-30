@@ -1,0 +1,15 @@
+Discrepancies (crop-relative positions approximate; region is the full train-table â W-box â test-table strip):
+
+1. **Wrong row-label case in Train table** â At the far-left row headers of the train table, around **x â 0â5%, y â 12â18% and y â 40â48%**, IMG1 shows **`Xâ` and `Xâ`** with capital X, while IMG2/original shows lowercase **`xâ` and `xâ`**. The row variables are therefore rendered with the wrong letter case.  
+   - Severity: **MAJOR** â Confidence: **High**
+
+2. **Superfluous underlining under `W` inside the W-box** â Near the central W-box definition, around **x â 44â50%, y â 20â28%**, and similarly inside the norm term **`||W||Â²`** around **x â 44â52%, y â 78â88%**, IMG1 draws an underline beneath the W letters. The original crop does not show this underline.  
+   - Severity: **MINOR** â Confidence: **Medium**
+
+3. **Norm-line text color differs** â Inside the lower part of the W-box, around **x â 44â58%, y â 80â90%**, IMG1 renders **`||W||Â² = 2.45`** in the same red as the rest of the box, whereas the original crop appears to render that norm line in blue.  
+   - Severity: **MINOR** â Confidence: **Medium**
+
+4. **Arrow graphic fill style differs** â At the two blue connectors between tables, around **x â 34â40%, y â 44â55%** and **x â 58â66%, y â 44â55%**, IMG1 uses mostly outlined/hollow arrows, while IMG2/original uses solid blue-filled arrows. This is a connector-fill discrepancy, not a data/content error.  
+   - Severity: **MINOR** â Confidence: **High**
+
+FINAL VERDICT: **FAIL** â the region is very close, but the train-table row labels are not faithful: `Xâ`/`Xâ` are used instead of the original lowercase `xâ`/`xâ`, which is a wrong-character/table-label issue at the level this comparison must catch.

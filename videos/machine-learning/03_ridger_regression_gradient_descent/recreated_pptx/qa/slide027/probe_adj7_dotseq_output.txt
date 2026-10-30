@@ -1,0 +1,92 @@
+ATTEMPT-7 PIL-FIRST ADJUDICATION — dot_sequence crop FAIL item 1 (worker w10-s027-a7-20261021T1945
+Crop window (frame px): x245..415 y225..440 ; crop 355x448 -> effective scale 448/215 = 2.084
+Crop-relative coords cited by the judge translated to frame px:
+    fan origin (0.20,0.12)       -> ( 279.0,  250.8)
+    ray ends (0.85,0.55)         -> ( 389.5,  343.2)
+    missing band lo (0.75,0.62)  -> ( 372.5,  358.3)
+    missing band hi (0.95,0.72)  -> ( 406.5,  379.8)
+
+=== TEST 0 — SENSITIVITY CONTROL: the same walk on the genuinely-curved black curve ===
+    (if this control shows no drift, the metric is blind and TEST 1 proves nothing)
+    curveA (261, 262)->(292, 322)
+        original peak-offset by t: t0.2=-6.0  t0.5=-6.0  t0.8=-6.0
+        render_7 peak-offset by t: t0.2=-6.0  t0.5=-4.5  t0.8=-6.0
+    curveB (392, 398)->(428, 404)
+        original peak-offset by t: t0.2=-6.0  t0.5=-6.0  t0.8=-6.0
+        render_7 peak-offset by t: t0.2=-6.0  t0.5=-6.0  t0.8=-6.0
+    curveC (436, 406)->(470, 403)
+        original peak-offset by t: t0.2=-6.0  t0.5=-6.0  t0.8=-6.0
+        render_7 peak-offset by t: t0.2=-6.0  t0.5=-6.0  t0.8=-6.0
+
+=== TEST 1 — STRAIGHTNESS: peak perpendicular-offset drift along each stroke ===
+    straight stroke -> peak offset identical at every t; curved -> monotone drift
+    (offsets in fpx, + = toward the concave/down-right side of the chord)
+    id    | ORIGINAL peak@t(0.2/0.5/0.8) | RENDER_7 peak@t(0.2/0.5/0.8) | orig drift / r7 drift
+    -------------------------------------------------------------------------------------------
+    id14  |  -3.0  -3.0  -1.5 ( 7px)     |  +1.5  +3.0  +5.0 ( 7px)     | 1.5 / 3.5
+    id17  |  -6.0  -6.0  -6.0 ( 0px)     |  -6.0  -6.0  -6.0 ( 3px)     | 0.0 / 0.0
+    id18  |  -6.0  -6.0  -6.0 ( 0px)     |  -3.0  -3.0  -6.0 ( 4px)     | 0.0 / 3.0
+    id19  |  -2.5  -3.5  -2.0 ( 7px)     |  +1.5  +3.0  +5.0 ( 7px)     | 1.5 / 3.5
+    id20  |  -6.0  -6.0  -6.0 ( 0px)     |  -6.0  -6.0  -5.5 ( 2px)     | 0.0 / 0.5
+    id21  |  -6.0  -6.0  -6.0 ( 0px)     |  -6.0  -6.0  -6.0 ( 0px)     | 0.0 / 0.0
+    id22  |  -2.0  -1.5  -2.0 ( 7px)     |  +1.0  +3.0  +5.0 ( 7px)     | 0.5 / 4.0
+    id23  |  -6.0  -6.0  -6.0 ( 0px)     |  -6.0  -6.0  -6.0 ( 0px)     | 0.0 / 0.0
+    id24  |  -6.0  -6.0  -6.0 ( 0px)     |  -6.0  -6.0  -6.0 ( 0px)     | 0.0 / 0.0
+    id30  |  -2.0  -2.0  -1.5 ( 7px)     |  +1.0  +3.0  +4.5 ( 7px)     | 0.5 / 3.5
+    id31  |  -1.5  -1.5  -6.0 ( 7px)     |  +1.5  +3.5  +5.5 ( 7px)     | 4.5 / 4.0
+    id32  |  -0.5  -1.5  -1.0 ( 7px)     |  +1.0  +2.0  -6.0 ( 4px)     | 1.0 / 8.0
+    id33  |  -0.5  -1.5  -1.0 ( 7px)     |  +1.0  +3.0  +4.5 ( 7px)     | 1.0 / 3.5
+
+=== TEST 2 — WIDER-THAN-SHAFT INK: gray px at |perpendicular offset| > 3.5 fpx ===
+    a 2-3 fpx shaft has none; a 7-fpx-wide head has plenty; count summed over t
+    id14   original ink beyond +/-3.5:   3   render_7:  15
+    id17   original ink beyond +/-3.5:   0   render_7:  17
+    id18   original ink beyond +/-3.5:   0   render_7:   0
+    id19   original ink beyond +/-3.5:   6   render_7:  17
+    id20   original ink beyond +/-3.5:   0   render_7:  21
+    id21   original ink beyond +/-3.5:   0   render_7:   0
+    id22   original ink beyond +/-3.5:   0   render_7:   6
+    id23   original ink beyond +/-3.5:   0   render_7:   0
+    id24   original ink beyond +/-3.5:   0   render_7:   0
+    id30   original ink beyond +/-3.5:   0   render_7:  10
+    id31   original ink beyond +/-3.5:   0   render_7:  22
+    id32   original ink beyond +/-3.5:   0   render_7:   0
+    id33   original ink beyond +/-3.5:   0   render_7:  21
+
+=== TEST 3 — PRESENCE per interval (judge claims absence over dot6->dot7, dot7->dot8) ===
+    interval windows in frame px; gray-chain ink pixel counts in BOTH images
+    dot1->dot2     window x268..296 y258..308:  original    97 px   render_7   194 px
+    dot2->dot3     window x280..316 y302..340:  original    83 px   render_7   124 px
+    dot3->dot4     window x303..335 y336..364:  original    59 px   render_7   104 px
+    dot4->dot5     window x318..357 y346..382:  original   103 px   render_7   210 px
+    dot5->dot6     window x352..377 y372..388:  original    16 px   render_7    55 px
+    dot6->dot7     window x376..394 y374..394:  original    32 px   render_7    68 px
+    dot7->dot8     window x394..413 y386..400:  original    25 px   render_7    63 px
+    dot8->dot9     window x413..429 y390..402:  original    22 px   render_7    31 px
+    dot9->yellow   window x429..452 y394..412:  original    34 px   render_7    55 px
+
+=== TEST 3b — components (area>=12) in the judge's cited missing band x372..407 y356..382 ===
+    original: 1 component(s) area>=12 -> area 21 px at frame (378,379)..(387,381)
+    render_7: 1 component(s) area>=12 -> area 12 px at frame (378,380)..(380,381)
+
+=== TEST 4 — HEAD CHECK: footprint of the largest original component near each landing ===
+    original chain-window components (area, w, h, fill=area/(w*h), bbox origin fpx):
+        area  108   34x20  fill 0.16  at (339,357)
+        area   96   15x34  fill 0.19  at (274,264)
+        area   83   19x24  fill 0.18  at (295,310)
+        area   65   20x15  fill 0.22  at (318,342)
+        area   38   14x 5  fill 0.54  at (431,393)
+        area   36    4x10  fill 0.90  at (261,313)
+        area   36    4x10  fill 0.90  at (261,327)
+        area   36    4x10  fill 0.90  at (261,341)
+        area   36    4x10  fill 0.90  at (261,384)
+        area   36    4x10  fill 0.90  at (261,398)
+        area   35    4x 9  fill 0.97  at (261,356)
+        area   34    4x 9  fill 0.94  at (261,285)
+        area   33    4x 9  fill 0.92  at (261,299)
+        area   32    4x 9  fill 0.89  at (261,370)
+        area   32   12x 6  fill 0.44  at (378,379)
+        area   25    9x 4  fill 0.69  at (399,386)
+        area   22    9x 4  fill 0.61  at (417,391)
+    SOLID triangular-head candidates (fill>=0.75 AND area>=40): 0
+    (a 5x7 filled triangle = area ~17 fpx; the biggest original blobs are listed above)

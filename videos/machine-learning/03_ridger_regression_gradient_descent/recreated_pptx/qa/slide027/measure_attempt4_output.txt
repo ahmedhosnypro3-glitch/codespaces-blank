@@ -1,0 +1,42 @@
+==========================================================================
+SLIDE 027 attempt-4 fresh PIL adjudication  (w9-s027-20261021T0400)
+frame 960x540 -> render 2001x1125  scale x=2.0844 y=2.0833
+==========================================================================
+
+(A) FABRICATED inter-dot 'learning-step arrows' — 8-corridor diff
+    extra unexplained original ink beyond render curve/dots (+3 fpx halo)
+
+    gap             lum<120 extra px   comp>=4   maxcomp
+    dot1->dot2                 0          0       0.0
+    dot2->dot3                 0          0       0.0
+    dot3->dot4                 0          0       0.0
+    dot4->dot5                 0          0       0.0
+    dot5->dot6                 0          0       0.0
+    dot6->dot7                 0          0       0.0
+    dot7->dot8                 0          0       0.0
+    dot8->dot9                 0          0       0.0
+    TOTAL 8 gaps               0   (0 = no arrow/fin geometry anywhere)
+
+    sensitivity sweep (what a looser threshold would leave behind):
+      lum<150: 0 unexplained px across all 8 gaps (render dil 3 fpx)
+      lum<177: 5 unexplained px across all 8 gaps (render dil 3 fpx)
+      lum<205: 9 unexplained px across all 8 gaps (render dil 3 fpx)
+
+    CONTROL (test is not blind): inject 2 synthetic 14x3-fpx fins into ORIGINAL
+      injected-fin gap now: 26 unexplained px, 1 comp>=4, max 26 px  => test fires
+
+(A3) min_cluster venue 'gray curved step-arrows' — inter-dot corridors
+    (392,396)->(411,404): 0 unexplained px, 0 comp>=4
+    (411,404)->(426,404): 0 unexplained px, 0 comp>=4
+    (426,404)->(444,407): 0 unexplained px, 0 comp>=4
+    chain-band relative-ink budget (dash-leader gray IS present in both):
+
+(B) RIGHT-EDGE termination MINOR #2 — blue-dot chain extent, both images
+    ORIGINAL blue-chain (band y230..412): x 257.2..435.1 fpx, ink 5911
+    RENDER_4 blue-chain (band y230..412): x 254.8..432.7 fpx, ink 6050
+    rightmost-blue delta = 2.4 fpx  | orig-vs-render ink ratio 0.977
+    yellow-min px (vertex band): ORIGINAL 600  RENDER_4 622
+    render dark-curve x-extent in y300..412 band: 58..901 fpx (right branch CONTINUES past last dot 426; no dots needed there)
+    ORIGINAL dark-curve x-extent  y300..412 band: 58..901 fpx
+
+DONE.

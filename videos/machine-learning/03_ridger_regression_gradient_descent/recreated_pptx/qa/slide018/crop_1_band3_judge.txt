@@ -1,0 +1,30 @@
+**Comparison scope:** Slide 018 bandâ3 strip â Train table (left), W box (center), Test table (right), plus the two blue arrows. IMG1 = 150 dÐ¿Ð¸ render crop; IMG2 = same slideâspace region from the original frame, upscaled to match. Scale is matched, so coordinates are cropârelative.
+
+**Cellâbyâcell value check (all match IMG1 â IMG2):**
+
+*Left (Train) table:*
+- Header Xââ¦Xâ: identical subscripts and order in both.
+- Row Xâ: 1, 2, 3, 4, 8, 9, 10, **60** (yellow cell, column Xâ) â identical.
+- Row Xâ: 1, 3, 5, 6, 16, 7, 5, 3 â identical.
+- Row y: 2, 4, 60 (plain white cell under Xâ, not highlighted), 8, 16, 18, 20, 22 â identical. Only the Xâ/Xâ cell is yellowâfilled; the yârow 60 under Xâ is correctly not highlighted.
+
+*Center W box:*
+- W = column vector (0.82 / 0.33 / 1.1) â all three values identical; tall left/right delimiters span all three lines without touching the numerals in both images.
+- âWâÂ² = 1.92 â double bars, superscript 2, and â1.92â identical in both.
+- Red box chrome (left/right/bottom strokes, no top stroke) matches and is intentional per ground rule (b).
+
+*Right (Test) table:*
+- Header Testâ (red), Testâ (blue), Testâ (red) â identical.
+- Row Xâ: 30, 40, 50 â identical.
+- Row Xâ: 15, 20, 25 â identical.
+- Row y: **26.8 / 35.4 / 44.1** on mint fill â all three values and the mint fill identical; âyâ label cell remains white.
+
+*Arrows and fills:* both blue arrows identical in shape/direction; yellow badge fill (FDFD96) and mint yârow fill identical; text colors (red/blue per column) match cell for cell.
+
+**Excluded / nonâdiscrepancies:** IMG2 shows the expected videoâcapture JPEG softness/halos and slightly softer edges versus the crisp 150 dpi render â excluded by ground rule (e). House template chrome (white canvas, gray panel, red left/right/bottom strokes, no top stroke, yellow badge/purple ring) is intentional â excluded by ground rule (b). No typedâvsâhandwritten ink issue here (ground rule (c) N/A). Equation formatting is consistent between the two (both use the tallâdelimiter column vector), so no ruleâ(d) format discrepancy.
+
+**Discrepancies found:** None. No wrong/garbled glyphs, no swapped or missing table values, no truncated subscripts, no delimiter spanning failure, no missing row, no value digit error.
+
+**Confidence:** High â every number, symbol, fill, and delimiter geometry was compared directly and matches.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region.

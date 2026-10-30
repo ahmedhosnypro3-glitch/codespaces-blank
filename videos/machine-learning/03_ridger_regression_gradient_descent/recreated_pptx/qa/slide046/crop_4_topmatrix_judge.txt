@@ -1,0 +1,32 @@
+IGNORED per rules: template chrome, JPEG/capture softness, and nonlinear-vs-typed equation rendering differences.
+
+### Cell-by-cell / glyph check
+
+| Region | IMG1 recreation | IMG2 original | Result |
+|---|---:|---:|---|
+| Left header | `xâ xâ xâ xââ` | same | match |
+| xâ vector | `(1 / 1)` | same | match |
+| xâ vector | `(2 / 1)` | same | match |
+| xâ vector | `(1 / 2)` | same | match |
+| xâ vector | `(5 / 4)` | same | match |
+ vector | `(6 / 5)` | same | match |
+| xâ vector | `(6 / 6)` | same | match |
+| Class row | `Câ Câ Câ Câ Câ Câ`; Câ red, Câ blue | same | match |
+| Middle initialization | `Initial W = (4 / -2 / -2)` with underlined `W` | same | match |
+| Step size | `Step Î· = 2` | same | match |
+| Right caption | `Check classes of` | same | match |
+| Right header | `Zâ Zâ Zâ`; repeated subscript `1` is present in BOTH | same | faithfully reproduced, not a discrepancy |
+| z-table vectors | `(0/0)`, `(7/6)`, `(3/2)` | same | match |
+| Bottom caption | `Câ positive Câ negative Zero is unaccepted`; Câ red, Câ blue, `Zero` green | same | match |
+
+Delimiter checks: all left/right parenthesised column-vector parentheses span both enclosed numeric rows and do not touch the glyphs. Middle `W` parentheses span all three entries. No missing row, swapped value, wrong digit, truncated/garbled subscript, or dropped negative sign was found.
+
+### Discrepancies
+
+- **BLOCKER:** none
+- **MAJOR:** none
+- **MINOR:** none
+
+Only residual differences are allowed capture/raster artifacts: IMG2 blur/JPEG halos, slight antialiasing/font-raster differences, and minor stroke-weight rendering.
+
+**FINAL VERDICT: PASS**

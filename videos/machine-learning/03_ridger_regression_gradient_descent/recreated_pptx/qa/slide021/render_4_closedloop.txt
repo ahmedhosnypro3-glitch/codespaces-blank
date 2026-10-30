@@ -1,0 +1,38 @@
+=== RENDER_4 CLOSED-LOOP vs ORIGINAL (frame px; render = 150dpi /2.0833) ===
+TOL: 4px positions, 8px widths (the pipeline's closed-loop standard).
+
+element         ORIG x0..x1 y0..y1 (w,h)           RENDER                             dx  dy  dw   verdict
+xtx label       x  98..139  y134..153 ( 41,19) x   98..140   y134..153 (  42,20)   -0   -0    1  OK
+det0 eq         x 346..387  y188..207 ( 41,19) x  342..434   y187..212 (  93,25)   -4   -1   52  <<< CHECK
+regmat          x 171..197  y304..321 ( 26,17) x   90..255   y300..332 ( 166,32)  -81   -4  140  <<< CHECK
+lambda3         x 246..288  y304..320 ( 42,16) x  245..288   y305..318 (  43,13)   -1    1    1  OK
+d5685 eq        x 343..383  y354..376 ( 40,22) x  337..448   y355..375 ( 110,21)   -6    1   70  <<< CHECK
+invexpr         x 237..262  y470..487 ( 25,17) x  154..290   y466..492 ( 136,25)  -83   -4  111  <<< CHECK
+P1 table        x  97..303  y173..227 (206,54) x   97..303   y173..232 ( 205,59)    0   -0   -1  OK
+P2 table        x  89..295  y340..395 (206,55) x   89..295   y335..400 ( 206,65)    0   -5   -0  OK
+P3 table        x 421..626  y457..511 (205,54) x  421..626   y457..515 ( 204,59)    0   -0   -0  OK
+singular txt    x 492..626  y192..212 (134,20) x  493..619   y196..214 ( 126,18)    1    4   -8  OK
+no inverse      x 704..794  y193..207 ( 90,14) x  704..795   y195..208 (  91,14)    0    2    1  OK
+nonsingular     x 495..693  y358..378 (198,20) x  496..646   y362..378 ( 150,16)    0    4  -48  <<< CHECK
+inverse exist   x 761..876  y359..373 (115,14) x  761..877   y361..374 ( 116,14)    0    2    1  OK
+P1 arrow1       x 460..476  y196..206 ( 16,10) x  460..476   y198..204 (  16, 6)    0    2   -0  OK
+P1 arrow2       x 660..677  y196..206 ( 17,10) x  660..676   y198..204 (  16, 6)    0    2   -1  OK
+P2 arrow1       x 489..505  y363..372 ( 16, 9) x  489..504   y366..371 (  16, 5)   -0    3   -0  OK
+P2 arrow2       x 728..744  y363..373 ( 16,10) x  728..744   y365..371 (  16, 6)   -0    2   -0  OK
+P3 arrow        x 364..380  y475..484 ( 16, 9) x  364..380   y477..482 (  15, 5)    0    2   -1  OK
+
+--- containment: every element inside its block's blue strokes ---
+  P1: ink LEFT of block = 807, RIGHT of block = 807 (0 = contained)
+  P2: ink LEFT of block = 816, RIGHT of block = 816 (0 = contained)
+  P3: ink LEFT of block = 588, RIGHT of block = 588 (0 = contained)
+
+--- key claim re-checks from judge attempt 3 ---
+  det0 red ink in P1 window: (np.float64(341.5), np.float64(187.2), np.float64(434.2), np.float64(212.2), 1644)  (must be present -> claim 'det0 displaced above title' must be FALSE)
+  red ink in y46..76 outside the house L/R strokes: cols NONE
+     -> CLEAN: no equation above the title
+  red ink in P1 x330..450 (where det0 now lives): n=1644 (det0 present; det5685 must NOT be here)
+  det5685 red ink in P2 window: (np.float64(337.2), np.float64(354.6), np.float64(447.6), np.float64(375.2), 1778) (must be present -> claim 1 must be FALSE)
+  lambda=3 green ink: (np.float64(245.3), np.float64(304.6), np.float64(288.0), np.float64(318.0), 507) (must be y300..326 -> claim 3 must be FALSE; was y214..225 in P1 on render_3)
+  P1 arrow1 blue ink: (np.float64(460.3), np.float64(198.2), np.float64(476.1), np.float64(203.9), 196) (claim 6: arrows must be blue)
+
+VERDICT: elements to check: ['det0 eq', 'regmat', 'd5685 eq', 'invexpr', 'nonsingular']

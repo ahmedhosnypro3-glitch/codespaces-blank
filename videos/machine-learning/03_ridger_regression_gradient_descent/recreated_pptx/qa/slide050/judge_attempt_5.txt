@@ -1,0 +1,35 @@
+# Fidelity Check: Slide 050 Recreation vs. Original
+
+## House-chrome & ground-rule items (settled, not counted as defects)
+- Gray E9E9E7 panel with C00000 strokes on left/right/bottom only (no top stroke â correct), yellow slide badge "50" at top right: all match the mandated template and are accepted.
+- Original is a content-bearing lecture slide, so full content matching is required.
+
+## Element-by-element comparison
+
+**Matching (verified):**
+- Left data table: header Xââ¦Xâ, rows (1)(2)(1)(5)(6)(6) and (1)(1)(2)(4)(5)(6) â verbatim â
+- "Augmented Vectors (from Top)" table: rows (1)(1)(1)(1)(1)(1), (1)(2)(1)(5)(6)(6), (1)(1)(2)(4)(5)(6) â verbatim â
+- "Initial W" â W = (4, â2): recreation renders stacked 2-D fraction â mandated format upgrade per rule (e), not a defect â
+- "Check classes of" Zâ/Zâ/Zâ vectors (0,0)(7,6)(3,2) â present and correct â
+- "Iteration 2" (red box), "No change in W", "Stop Iterations" ("Stop" in red) â verbatim, correct layout â
+- Graph: axes 0â8 / 0â7, dark-red downward line with arrowhead, blue squares (1,1)(2,1)(2,2), magenta diamonds (5,4)(6,5)(6,6), red triangle (7,6), red origin dot, "+ve" indicator â all present, correct positions and approximate colors â
+- Badge, panel strokes, overall region layout: correct â
+
+## Discrepancies
+
+| # | Item | Severity | Confidence |
+|---|---|---|---|
+| 1 | **W vector truncated**: pink box top-right shows **W = (5, â1)** (2 components). Original shows **W = (5, â1, â1)** (3 components). The third component "â1" is omitted ENTIRELY â changes the displayed data. | **BLOCKER** | High |
+| 2 | **"Î· = 1" missing**: line reads "REPEAT using Step **Î· = 1**" in the original; the recreation renders only "REPEAT using Step". The step-size parameter is absent entirely. | **BLOCKER** (missing visual element per rule 6) | High |
+| 3 | **Extra class label in legends**: both table legends show **six** C-labels in the recreation (Câ Câ Câ Câ Câ Câ); the original shows **five** (Câ Câ Câ Câ Câ). An extra red Câ was added in each. | MINOR | Medium-high |
+| 4 | **Cursor artifact reproduced**: a stray "+" mark sits in the left margin below "Stop Iterations" in the recreation. Per ground rule (c), the original's cursor artifact should have been omitted; its inclusion is a blemish. | MINOR | Medium |
+
+## Visual-quality defects in the recreation
+- No text overflow, clipping, or collisions detected; graph and tables sit fully inside the house panel and inner frames.
+- Stacked equation and vector notation are clean, centered, and legible.
+- Only blemish: the stray "+" mark noted in #4.
+
+## Summary
+Two BLOCKER-level content omissions (truncated W vector, missing "Î· = 1") plus minor label/artifact deviations. The overall layout, palette, and chart are faithful, but the missing mathematical content makes the slide factually incomplete.
+
+**FINAL VERDICT: FAIL**

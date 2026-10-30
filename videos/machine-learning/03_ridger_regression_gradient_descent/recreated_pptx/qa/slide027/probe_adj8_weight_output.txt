@@ -1,0 +1,52 @@
+ADJUDICATION — min_cluster item 1 'arcs lighter gray / finer weight in IMG1'
+worker w10-s027-a7-20261021T1945; band = 8..30 fpx ABOVE the curve, x268..448,
+discs+curve cores removed; all samples in FRAME px (render px / S=2.08333).
+
+=== 1. luminance distribution of the chain-ink band ===
+  [ORIGINAL frame]
+    ORIGINAL: n=2497  lum p1/p5/p10/p25/p50/p75/p90/p95/p99 = 158/185/228/250/254/255/255/255/255
+        median RGB (253,254,252)  mean spread 2.2  frac spread<=6: 0.99
+        frac lum <= 200: 0.066
+        frac lum <= 190: 0.056
+        frac lum <= 180: 0.043
+        frac lum <= 170: 0.032
+        frac lum <= 160: 0.014
+        frac lum <= 150: 0.001
+        frac lum <= 140: 0.000
+  [RENDER_8 (attempt-8 2pt ACACAD arcs)]
+    RENDER_8: n=2925  lum p1/p5/p10/p25/p50/p75/p90/p95/p99 = 172/172/248/255/255/255/255/255/255
+        median RGB (255,255,255)  mean spread 0.1  frac spread<=6: 1.00
+        frac lum <= 200: 0.076
+        frac lum <= 190: 0.074
+        frac lum <= 180: 0.073
+        frac lum <= 170: 0.000
+        frac lum <= 160: 0.000
+        frac lum <= 150: 0.000
+        frac lum <= 140: 0.000
+  [RENDER_7 (attempt-7 1pt chords) — for contrast]
+    RENDER_7: n=2925  lum p1/p5/p10/p25/p50/p75/p90/p95/p99 = 172/255/255/255/255/255/255/255/255
+        median RGB (255,255,255)  mean spread 0.0  frac spread<=6: 1.00
+        frac lum <= 200: 0.024
+        frac lum <= 190: 0.022
+        frac lum <= 180: 0.021
+        frac lum <= 170: 0.000
+        frac lum <= 160: 0.000
+        frac lum <= 150: 0.000
+        frac lum <= 140: 0.000
+
+=== 2. per-column ink WIDTH in the band (extent of lum<=200 contiguity) ===
+  [ORIGINAL] columns in x268..448 with band ink: 71/181; ink-height per column mean 0.92 fpx (excludes disc/curve cores)
+  [RENDER_8] columns in x268..448 with band ink: 94/181; ink-height per column mean 1.27 fpx (excludes disc/curve cores)
+  [RENDER_7] columns in x268..448 with band ink: 40/181; ink-height per column mean 0.38 fpx (excludes disc/curve cores)
+
+=== 3. control — the SAME measurement on a known-matched element ===
+    (the judge's own item 2 says the BLACK parabola and theta-axis read finer/lighter
+     in IMG1 too, MEDIUM confidence, i.e. it treats that as capture darkening)
+    black core luminance of the curve, both images:
+      ORIGINAL: on-curve window lum p5 50 p25 81 median 101 (n=306)
+      RENDER_8: on-curve window lum p5 0 p25 89 median 89 (n=306)
+
+=== 4. what ACACAD actually is ===
+    ACACAD = (172,171,173); luminance 0.299*172+0.587*171+0.114*173 = 171.5
+    panel background E9E9E7 lum = 232.8; white FFFFFF = 255.0
+    => ACACAD vs panel contrast ratio (Weber fraction) = 0.263

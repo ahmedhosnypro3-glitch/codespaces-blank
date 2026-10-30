@@ -1,0 +1,33 @@
+RESUME VERIFICATION 2 — slide 024 (worker w4-s024-20261023T1712, 2026-10-23)
+
+RESUME STATE
+- DB row taken over from 'w4-s024-20261023T140000' (heartbeat 222 min stale —
+  a dead claim; takeover lawful, no live peer stood down).
+- Banked evidence from three predecessors was reused, never deleted. The
+  2026-10-20 worker's full-slide judge PASS (judge_attempt_1.txt) and two
+  clean crop certificates (crop_1_title/subtitles) judged render_1.png; the
+  icon crop attempt 1 was PIL-adjudicated (ICON_ADJUDICATION.txt, both MAJORs
+  refuted) and its re-roll (crop_1_icon_judge2.txt) NEVER LANDED — the worker
+  died in the outage window.
+
+OCT 23 STATE FOUND
+- Deliverable pptx rebuilt 15:11 from the live build script (byte-identical to
+  build_attempt_1.js and build_attempt_2.js — diff exit 0 for both) and
+  re-rendered 15:13 as render_2.png. Three crop_2_* pairs were cut 15:28;
+  crop_2_icon_render.png is an all-black 335-byte image (min=max=0 on all
+  channels) — a broken cut, unusable as evidence.
+
+REBUILD-AND-VERIFY (judging.md: identify the render by MEASUREMENT)
+- Rebuilt the pptx from the live script: md5 b4f23342... -> 08529029...
+  (pptxgenjs zip-entry timestamp stamps only; content unchanged).
+- Rendered at 150dpi: soffice private profile (-env:UserInstallation=
+  file://.../scratch/tmp/s024_rebuild/lo_slide024), pdftoppm -png -r 150,
+  TMPDIR=/workspaces/codespaces-blank/ai_llm_slides/scratch/tmp.
+- RESULT: the fresh render is BYTE-IDENTICAL to the banked render_2.png
+  (both md5 fcb312e2f4636e352248e4bb055ce4f9, 2001x1125).
+  => render_2.png IS the render of the CURRENT deliverable pptx, proven by
+     pixel identity. The attempt-2 judges judge render_2.png against the
+     live build/slide_024.js.
+- render_1 vs render_2 measured delta: 5853 frame px differ >16 (title 3132,
+  s2 2231, "and" 307, badge numeral 76, icon 0, chrome 0) — pure sub-pixel
+  text/antialias jitter, identical ink counts both sides. No content change.

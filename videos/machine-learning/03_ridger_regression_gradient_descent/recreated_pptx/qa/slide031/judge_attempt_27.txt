@@ -1,0 +1,68 @@
+# Element-by-Element Comparison â Slide 031
+
+## Chrome (per ground rules â not discrepancies)
+- White canvas, gray panel, red left/right/bottom strokes, no top stroke: â present in recreation.
+- Yellow badge "31" at top-right with purple ring: â matches.
+
+## Title
+- "Convex Function," (red) + "Learning Rate =0.3," (green) + "Start at X=3" (blue): â verbatim, colors match, position and approximate size match.
+
+## Parameter table (step / initial X / delta)
+- Values 0.3 / 3 / 0.1: â verbatim.
+- **MINOR â delta row fill color:** original delta row is clearly YELLOW; recreation renders it pink/salmon (same family as "initial X"). Confidence: high.
+
+## Equation box
+- f(x) = (x â 5)Â² + 1 in red-bordered box: â present, superscript 2 rendered correctly, red frame matches. (Linear-vs-2D format not applicable here â both show the same form.)
+
+## Text box (green border)
+- Line 1 original verbatim: "X is in between 4.8 and color red bold 5.1" â the original contains a broken markup artifact ("color red bold"). Recreation renders "(5,1)" in that slot and bolds "5.1" in red. The intent (red bold 5.1) is honored, but the literal string differs.
+  - **MINOR â verbatim text deviation** ("(5,1)" substituted for the artifact string "color red bold"). Confidence: medium-high (the "(5,1)" annotation actually belongs on the chart near the green dots in the original, where it is missing â see below).
+- Line 2 "f(x) is in between 1.04 and 1.01": â verbatim, bolding matches.
+- Green border, box width, position: â approx match.
+
+## Chart
+- Parabola, dashed red vertical line at x=5, red dot on left branch, black horizontal segment at y=10, green dot at minimum: â present.
+- Axis labels 15/10/5 and â5/0/5/10/15: â match.
+- **MINOR â missing chart annotations:** original shows "3" and "3" labels above the black segment's tick marks, "(7,7)" label at right end of segment, and "(5,1)" beside the green minimum dot. Recreation omits all of these (the "(5,1)" was relocated into the text box). Confidence: high.
+- **MAJOR â chart frame geometry:** original chart is enclosed by a red rectangular border on all four sides. Recreation shows only a red stroke on the RIGHT side, and that stroke overshoots the chart's bottom edge, extending down past the x-axis labels (~60â70px past the frame bottom). Missing left/top/bottom chart border plus a stroke crossing its own frame boundary. Confidence: high.
+
+## Pointer arrows
+- **MAJOR â left pointer arrow style:** original is a large hollow white block arrow with red outline pointing down-right into the table. Recreation renders a thin black diagonal line with a small solid red triangle â a completely different shape/weight. Confidence: high.
+- **MAJOR â "Bouncing" down-arrows:** original shows 4 hollow blue DOWN-ARROWS (with arrowheads) pointing at the oscillating table columns. Recreation renders 4 tall hollow blue RECTANGLES with no arrowheads at all â they read as empty boxes, not arrows. Confidence: high.
+- "Bouncing" pink box with purple text: â present, position approx correct.
+
+## Table (18 data columns Ã 8 rows)
+- Header x row (3, 3.3, 3.6 â¦ 4.8, 5.1 alternating): â exact.
+- x-delta row (2.9 â¦ 5 alternating): â exact.
+- f(xâdelta) row (5.41, 4.24, 3.25, 2.44, 1.81, 1.36, 1.09, 1, â¦): â exact.
+- x+delta row (3.1, 3.4, â¦ 5.2): â exact.
+- f(x+delta) row (4.61, 3.56, 2.69, 2, 1.49, 1.16, 1.01, 1.04, â¦): â exact.
+- slope row (â8, â6.8, â5.6, â4.4, â3.2, â2, â0.8, 0.4, â¦): â exact.
+- next x row (3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8, â¦): â exact.
+- **MAJOR â f(x) first value wrong:** original shows **5** under x=3 (correct: (3â5)Â²+1 = 5, and consistent with f(xÂ±delta)=5.41/4.61). Recreation shows **9**. One wrong table data value. Confidence: high.
+- Row colors (yellow header, purple x-delta, peach x+delta, green slope, pink next x, white f rows): â approx match. Cell text vertically centered â. No cell overflow at panel edges â.
+
+## Frame containment
+- Table fits inside panel â; chart, boxes fit except the chart's right red stroke overshoot noted above.
+- **MINOR â blue enclosing frame:** original draws a full blue rectangle around the Bouncing/arrows/table region. Recreation shows only the top blue rule; left/right/bottom of that frame are absent. Confidence: medium (bottom may be cropped by the slide edge, but the original's frame is visible on all sides).
+
+---
+
+## Summary of Discrepancies
+| # | Defect | Severity | Confidence |
+|---|--------|----------|------------|
+| 1 | f(x) first cell = 9, original/dataset = 5 | MAJOR | high |
+| 2 | Chart red frame: only right stroke present, and it overshoots below the frame | MAJOR | high |
+| 3 | Left pointer: hollow block arrow â thin line + triangle | MAJOR | high |
+| 4 | Four blue down-arrows rendered as arrowhead-less rectangles | MAJOR | high |
+| 5 | "(5,1)" placed in text box instead of "color red bold" artifact string / chart position | MINOR | med-high |
+| 6 | Missing chart annotations "3", "3", "(7,7)" | MINOR | high |
+| 7 | delta row fill pink instead of yellow | MINOR | high |
+| 8 | Blue enclosing frame incomplete (top rule only) | MINOR | medium |
+
+## Visual-quality defects in recreation
+- The four hollow rectangles in the Bouncing row collide visually with the blue rule and read as rendering errors rather than arrows.
+- Chart right red stroke crossing its own frame boundary (overflow past x-axis label zone).
+- No text clipping, wrapping, or legibility problems elsewhere; table metrics and centering are clean.
+
+FINAL VERDICT: FAIL

@@ -1,0 +1,29 @@
+CROP JUDGE ATTEMPT 1, region "title" — slide 029 (dispatch record; Procedure B of
+judge_protocol_03.md, Template B; executed by the worker via Bash per the
+orchestrator-approved fallback).
+
+Region: frame-px bbox (125,180)-(840,403) — the slide's single dense content
+region (all three bold-red title lines, incl. the '(GD)' parens, the colon, and
+descenders). Pair banked by crop_prep_1.py at MATCHED effective scale
+(1490x465 both; 2.0839 x / 2.0852 y px per frame px, dx=dy=0.00000).
+
+Binding: crop attempt 1 judges the crops of render_2.png (same deliverable
+render as full-slide judge attempt 1). -p payload = Template B byte-for-byte
+with NNN->029 (banked at crop_payload_1_title.txt; NAME=title substituted in
+paths only — the payload's only token is NNN). Same script-path resolution as
+judge_prompt_1.txt (skill moved 2026-10-11).
+
+COMPARISON (the crop judge; same walls as Template A):
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/crop_1_title_render.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/crop_1_title_orig.png \
+  --view "Slide 029 zoomed crop title — render vs original at matched scale (attempt 1)" \
+  --capture "IMG1=zoomed crop of a 150dpi PPTX render; IMG2=the SAME slide-space region cropped from the original lecture frame and upscaled to match IMG1's effective scale; region: the three-line bold red title block 'Example: Obtain Minimum Value' / 'of a function using' / 'Gradient Descent (GD)' with colon and (GD) parentheses" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/crop_1_title_judge.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/crop_payload_1_title.txt)"
+
+Verdict only from the crop transcript's winner body (crop_1_title_judge.txt);
+crop findings map back to slide space via (125,180) + crop scale before any edit.

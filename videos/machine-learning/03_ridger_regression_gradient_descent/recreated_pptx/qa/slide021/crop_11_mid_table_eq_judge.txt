@@ -1,0 +1,20 @@
+Comparison is restricted to the named zoomed crop (expression label + Î» annotation + full 3Ã3 regularized matrix + diagonal highlights). IMG1 = recreation; IMG2 = original at matched scale.
+
+Glyph/number audit (cell-by-cell and symbol-by-symbol):
+- Expression label `(X^T X + Î»I)`: present in both, with opening `(` and closing `)` flanking a single line. X glyphs + superscript T in red, `+` black, `Î»` and `I` blue in both. Superscript T is raised, not truncated; no garbled/missing symbol.
+- Green annotation: in both, green `Î»`, `=`, `3`.
+- Matrix, value by value:
+  - Row1: `17` | `10` | `15` â match.
+  - Row2: `10` | `43` | `46` â match.
+  - Row3: `20` | `80` | `95` â match.
+  No wrong/extra/missing digit, no swapped cell, no missing row; columns/rows align and numbers look vertically centered in cells.
+- Highlights: exactly three FDFD96 highlight bands on the stated diagonal â 17 at r1c1 (upper-left), 43 at r2c2 (center), 95 at r3c3 (lower-right). Count, positions and targets all match. Fill/purple-ring styling is house chrome per ground rule (b); IMG2 simply reads warmer on capture.
+
+Discrepancies:
+1. Green annotation spacing â MINOR â Medium confidence. Recreation renders the upper-right annotation with spaces around the equals (`Î» = 3`); the original presents it tight (`Î»=3`). Content is identical (Î»=3); this is a cosmetic spacing infidelity in a small label, not a math change.
+
+Explicitly NOT raised as discrepancies (ground-rule items or not confirmed as content): typed glyph shapes (c); possible faint baseline smear under the X glyphs in IMG2 consistent with capture soft-edges (e), not a genuine underline difference; highlight fill chroma/purple-ring treated as intentional FDFD96 chrome (b) versus camera warm-shift.
+
+No BLOCKER or MAJOR defects in this region.
+
+FINAL VERDICT: PASS

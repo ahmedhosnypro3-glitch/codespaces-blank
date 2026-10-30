@@ -1,0 +1,42 @@
+# Crop-pair judge transcript — slide 037, attempt 6, region "eq_stack" (box-2 error equation)
+- date: 2026-10-24 07:03
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1_RENDER: recreated_pptx/qa/slide037/crop_6_eq_stack_render.png md5=a8fd199df4ed50ba388dae8b847142b5 (1551x117)
+- IMG2_ORIG:   recreated_pptx/qa/slide037/crop_6_eq_stack_orig.png   md5=1922ebf4f3a5a1f3a1625f5e4a7e2831 (1551x117)
+- region: frame bbox (140,250)-(884,306), 744x56; effective scale 2.0847 px/frame-px (x),
+  2.0893 (y, <=0.25 % vs 2.084375) — equal for both images.
+- read order: ORIG crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of ONE region at matched effective scale. (b) House chrome is
+intentional. (c) Typed-vs-handwritten at most MINOR. (d) 2D professional equation format is a
+mandated upgrade. (e) JPEG halos in IMG2 are artifacts.
+
+## Comparison
+- HEADING (top edge of the crop): "…e Error function as:" black bold UNDERLINED in both —
+  same underline weight and position. MATCH.
+- "Error =" bold black — present in both at the same left position.
+- SIGMA: large black Sigma, ink 20 x 26 frame px in both (render 202.0..221.6 x 261.9..287.9
+  vs frame 202..221 x 262..287). MATCH in size/position; the recreation's Sigma is a lighter
+  stroke weight than the frame's bold serif glyph.
+- LIMIT under the Sigma: "all misclassified vectors (i)" — "all" black italic,
+  "misclassified" RED bold italic UNDERLINED, "vectors" black italic, "(i)" black italic.
+  Same words, same colours, same underline, centred under the Sigma. MATCH.
+- TERMS: "δ_i W^T X_i" — δ/W/X GREEN, W and X underlined, T BLUE superscript, δ's subscript
+  i RED, X's subscript i GREEN. MATCH; the recreation's superscript T is smaller.
+- IMPLICATION ARROW: BLUE bold double arrow between the terms and the explanation — MATCH
+  (recreation's glyph is heavier).
+- EXPLANATION: "(W^T X_i) takes positive and negative values and δ_i has the same sign" —
+  verbatim, italic, W/X underlined, T blue, "positive"/"negative" black italic (not red),
+  final δ_i green/red. MATCH; recreation is ~2.5 % wider (font metrics) and still 11 px
+  inside the panel's right edge.
+
+## Discrepancies
+1. [MINOR] Sigma stroke weight — recreation glyph is lighter than IMG2's bold Sigma —
+   confidence high — mathtext DejaVu glyph; size and position match to <=1 px.
+2. [MINOR] Superscript T and subscript i sizes — smaller than IMG2's (~0.6x) — confidence
+   high — LO 58 % escapement; positions correct (superscript up, subscript down).
+3. [MINOR] Explanation line width +2.5 % — confidence high — Liberation Serif metrics; no
+   wrap, no overflow (panel edge 891).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

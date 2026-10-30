@@ -1,0 +1,43 @@
+## Fidelity comparison â Slide 041 (recreation IMG1 vs. original lecture frame IMG2)
+
+### 1. House chrome (settled by ground rules â not scored)
+White canvas, E9E9E7 panel (x54â¦903, y45â¦540), dark-red C00000 left/right/bottom strokes with correctly **no** top stroke, and the yellow FDFD96 / purple 6A5ACD badge circle at ~(876,73) with bold 333333 numeral "41". Both images carry the same badge numeral. **No discrepancy raised.**
+
+### 2. Element-by-element check
+
+| Element | Original | Recreation | Assessment |
+|---|---|---|---|
+| Header blue box | Navy 1-pt rectangle, ~x64â¦673, y47â¦115 | Same navy box, ~x64â¦670, y45â¦115 | Match |
+| xââ¦xâ header row | 6 sub-scripted labels, centered over columns | Same 6 labels, same order/positions | Match |
+| x-table data | (1,1) (2,1) (3,2) (4,4) (5,5) (6,5) | (1,1) (2,1) (3,2) (4,4) (5,5) (6,5) | Match |
+| Table class row | C1 C1 C1 (red) / C2 C2 C2 (blue), bold italic, under respective columns | Same colors, same order, same 6-item row | Match |
+| Table delimiter | Tall parens span both data rows, not overlapping digits | Same span and clearance | Match |
+| "Initial W =" + vector | (4, â2, â2) column vector, parens span all 3 lines | Same 3 entries, same delimiter span | Match |
+| "Step Î· = 2" | Red, bold, italic, between W-vector and Z-block | Red, bold, italic, same horizontal slot | Match |
+| "Check classes of" | Present, left of Z-table | Present, same slot | Match |
+| Zâ Zâ Zâ table | Headers Zâ, Zâ, Zâ; column vectors (0,0), (7,3), (6,2) | Same headers, same three vectors, same values | Match |
+| Inline legend | "Câ positive, Câ negative, Zero is unaccepted" (Câ red, Câ blue, Zero green), one line | Same text, same colors, single line, no wrap | Match |
+| Chart frame | Red rectangle ~x293â¦772, y155â¦443 | Red rectangle ~x293â¦772, y145â¦418 | Deviation (see D-1) |
+| Chart type / axes | Scatter, 0â8 x-axis, 0â7 y-axis, horizontal gridlines + right-edge vertical line | Same scatter, same axis ranges, same gridline scheme | Match |
+| Data points | Squares (1,2), (1,1), (2,1); triangles (0,0), (3,2), (7,6); diamonds (5,4), (6,5), (6,6) | Identical markers at identical data coordinates | Match |
+| Marker colors/shapes | Navy squares, red down-triangles, magenta diamonds | Navy squares, red down-triangles, magenta diamonds | Match |
+
+### 3. Discrepancies
+
+**D-1 â Chart region vertical placement and plot scaling. Severity: MINOR. Confidence: medium-high.**
+The recreation's chart block sits ~10 px higher and its red frame is ~15 px shorter (recreation y145â¦418 vs. original y155â¦443). Within the frame the recreation's x-axis baseline sits at ~y376 vs. ~y398 in the original, and the unit grid spacing is ~27 px vs. ~29.5 px (~8 % compressed). Data values, tick labels and marker-to-gridline registration are all internally correct in the recreation â this is a region/scale geometry offset, not a data error.
+
+**D-2 â Typeface substitution in the header block. Severity: MINOR. Confidence: medium-high.**
+The original renders "Initial W =", "Step Î· = 2", "Check classes of", the Z-headers and the matrix numerals in a Times/serif face; the recreation uses a sans-serif (Arial-like) face throughout. Letterforms, weights, italic/bold styling, capitalization and subscripting of xââ¦xâ, Zâ Zâ Zâ, Câ/Câ are preserved, so this is a stylistic (font-family) deviation rather than a content change.
+
+### 4. Visual-quality defects in the recreation
+- No text overflow, clipping, bad wrapping, collisions, or illegibility. Multi-line vector cells are vertically centered inside their parentheses; delimiters span every enclosed line and clear the glyphs.
+- All content sits fully inside the blue header frame and inside the chart red frame; no ink crosses or touches the inner frame or the house panel/strokes.
+- The only cosmetic weaknesses are the sans-for-serif substitution (D-2) and the slightly compressed/raised chart geometry (D-1).
+
+### 5. Missing elements
+None. Every text block, vector, table cell, legend item, gridline and data marker present in the original is present in the recreation with matching values.
+
+---
+
+**FINAL VERDICT: PASS** â faithful, usable recreation; only minor typeface and chart-region geometry deviations remain.

@@ -1,0 +1,16 @@
+Comparing IMG1 (recreation crop) to IMG2 (original crop, same slide-space region, same effective scale). Honors: template chrome in IMG1 is intentional; 2D-vs-linear equation format and typed-vs-hand ink are not counted.
+
+DISCREPANCIES
+
+1) BLOCKER (confidence: High) â Missing intercept/ones column in the design matrix X.
+Every data row in IMG2 begins with a leading constant â1â inside the matrix â row 1: `( 1  xââ xââ â¦ xâd )`, row 2: `( 1  xââ xââ â¦ xâd )`, ellipsis row: `( 1 â¦ â¦ â¦ â¦ )`, row n: `( 1  xââ xââ â¦ xâd )`. In IMG1 each corresponding band begins directly with `xáµ¢â` â the whole leftmost â1â column is absent in all four bands (top yellow, second cyan, middle ellipsis, bottom pink), i.e. the leftmost entry of every row. The matrix is still labelled **N Ã d+1**, but only d feature columns are shown, so the augmentation is internally inconsistent and the mathematical object (augmented design matrix with bias column) is changed. This is a systematic content omission, not a formatting choice.
+
+2) MAJOR (confidence: MediumâHigh) â Continuation symbol in the left y-column is wrong.
+In IMG2 the y-column reads `yâ / yâ / â¦ / yâ` (middle white row is an ellipsis). In IMG1 the third row of the left enclosure (left column, between the cyan yâ row and the pink yâ row) is rendered as a bare letter âyâ (no ellipsis, no subscript). The neighboring X-matrix ellipsis band and the right w-vector both correctly show ââ¦â, so this is a garbled/missing continuation symbol inside an enclosure rather than a deliberate layout element.
+
+3) MINOR (confidence: Medium) â Color of the leading âbâ (and the â=â) vs original.
+The top entry of the right-hand vector is blue in IMG1, matching the wâs; in IMG2 the âbâ is distinctly darker/red compared with the blue w entries (loss of the emphasized bias glyph). Likewise the central â=â reads dark/black in IMG1 but red in IMG2. These are small ink-color/emphasis differences (partly compounded by the JPEG capture), so MINOR. Region: right column top cell; edge between left y-column and X matrix.
+
+Checked and matching (not flagged): dimension labels NÃ1, NÃd+1, d+1Ã1; row order yâ,yâ,â¦,yâ and xâ*,xâ*,â¦,xâ*; the ellipsis row of X; right-vector sequence b,wâ,wâ,â¦,w_d with intact subscripts 1/2/d; braces/brackets span their stacked lines without touching the text and the color-band layout (yellow / cyan / none / pink) is reproduced on both the y-column and X; equation structure and reading order y = XÂ·w agree. Parenthesis-vs-square delimiter shape is treated as notation, not a defect.
+
+FINAL VERDICT: FAIL â the recreation drops the entire ones/intercept column of the design matrix (BLOCKER) and substitutes a bare âyâ for the y-column ellipsis (MAJOR), so this region is not a faithful, usable recreation.

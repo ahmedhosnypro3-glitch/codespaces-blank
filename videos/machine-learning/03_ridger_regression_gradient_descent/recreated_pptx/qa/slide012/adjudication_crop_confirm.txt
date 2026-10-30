@@ -1,0 +1,87 @@
+============================================================================
+SLIDE 012 — S19 crop-leg confirm adjudication (fresh carrier agent-46,
+agent-zq2at9bw, 2026-10-25) — closes the last pending 012 leg
+============================================================================
+Transcript: crop_4_perfect_table_judge_confirm.txt (complete, 2815B, full
+cell-by-cell + verdict). Payload payload_B_N012_confirm.txt, md5
+e4ba29ce23e90049011c62185be546cd = tplB + mandated NNN->012 substitution
+only (verified against the frozen template via payload md5 chain in
+README.txt). Pair: crop_4_perfect_render.png (767x292, cut from render_6;
+r6-vs-r4 crop diff = 0 per crop_4_gen_note.txt, so the Fix-2 rebuild did
+not move the region) vs crop_4_perfect_orig.png (frame window 203,120,571,260
+LANCZOS-upscaled to pair size — matched effective scale by construction).
+Judge verdict: PASS, 4 MINORs. Adjudication per the standing rules
+(attempt-5/6 re-raises governed by adjudication_confirm_legA.txt +
+ADDENDUM + adjudication_confirm_legA6.txt; only a NEW real defect triggers
+a fix loop, ONE cycle max):
+
+C1  MINOR "subscript flattening (header + row labels)" — certified-accepted
+    (F-N5/F5: three banked certified adjudications — crop_2 finding 2,
+    crop_4 finding 2, judge_attempt_3 finding 4). Not reopened. No fix.
+
+C2  MINOR "row-label ink: render bold blue vs original dark/gray" — NEW
+    observation (not present in crop_2, crop_4, or any legA attempt-3/4/6
+    finding list). PIL-adjudicated REAL (fresh-carrier measurement, both
+    sides of the banked pair):
+      ORIGINAL perfect-table label cells (x205..242, rows X1/X2/y):
+        ink 212 px, median (130,132,129), Q1 (86,88,85), Q3 (166,168,165)
+        — channel spread 3 = ACHROMATIC dark gray; blue-classified px = 0.
+      RENDER same cells: pure (0,0,255) bold, ~3x ink px (201/251/106 per
+        row), dark px = 0.
+      Outlier tables 1+2 label cells: original dark-only (0 blue px every
+        row); render blue (0,0,255). Deviation is systematic across all
+        three training tables (9 glyphs).
+    Disposition: ACCEPTED MINOR, no fix. Grounds:
+      a) This slide's own banked precedent for the same deviation family:
+         certified crop_4_perfect_table_judge.txt finding 1 (header "X"
+         glyph ink dark-in-original vs colored-in-render, MINOR, no fix)
+         and judge_attempt_3.txt finding 6 (recreation saturated blue vs
+         JPEG-muted original blue, accepted). The certified lane's
+         materiality bar for a fill fix (Fix 1) was a whole 84px row in
+         the wrong color CLASS at full-slide scale; 9 small label glyphs
+         with verbatim-identical text are sub-materiality by that bar.
+      b) Fix cost is disproportionate: the label color lives in
+         makeTrainTable/cellOpts (components/slide_012.js + inline copies
+         in build/slide_012.js) — editing it re-opens certified
+         descendants 013/017/018 (cascade law) for a MINOR, and the
+         confirm round has no judge budget left to re-certify (vision
+         gate saturated by orphaned legs).
+      c) The build's source comment "training tables: label column BLUE
+         bold — confirmed by measurement" is a certification-era
+         mis-measurement (the original labels are achromatic). Recorded
+         here; the certified deliverable is not silently altered by this
+         note (corrections never patch certified pixels post-hoc).
+    Banked as open task slide_012_label_ink_residual in the mission DB
+    for the orchestrator (possible shared-pattern note for 013/017/018 —
+    their own originals not checked in this leg).
+
+C3  MINOR "typeface sans vs serif math face" — ground rule (c)
+    typed-vs-medium allowance (transcript cites the rule itself). No fix.
+
+C4  MINOR "grid weight/chrome heavier in render" — rule (e) capture
+    softness + certified crop_4 finding 3 disposition (same finding, same
+    region, certified-accepted). No fix.
+
+============================================================================
+DISPOSITION
+============================================================================
+No NEW fix-triggering defect. C1/C3/C4 certified-accepted; C2 is a NEW
+real MINOR, PIL-confirmed, banked as an accepted residual + orchestrator
+task (consistent with this slide's certified precedent for dark-vs-colored
+small-glyph ink). The confirm judge's PASS verdict stands.
+Crop leg = PASS. legA = PASS by adjudication (adjudication_confirm_legA6.txt).
+Slide 012 S19 payload-exact confirmation: ALL LEGS CLEAN.
+
+Carrier verification addendum (this session, zero vision):
+  - payloads byte-frozen (md5s above + payload_A_confirm.txt 9387f5fb...);
+  - Fix 2 verified in build sources (colW [50,50,51,53], label cells
+    align left/valign middle in BOTH build/slide_012.js:175 and
+    components/slide_012.js drawTestBlock);
+  - makeTestTable untouched; 013/017/018 components + root scripts load
+    clean; their deliverables byte-match the final-deck ledger md5s
+    (468d84817c02 / 7374f15e4637 / 51a57bb11d5c);
+  - deliverable md5 superseded 886a3536228f0fc7b65ff6cf57bd83ff ->
+    c65c53b5e1dae8dd23516c1adc28a8f2 by a carrier-side no-op rebuild
+    (root cause + content-identity proof: INCIDENT_deliverable_md5_supersession.md;
+    fresh LO render = render_6.png byte-identical, md5 e5432e50d1ac6176f43eb57712a56408,
+    0 of 2,251,125 px differ).

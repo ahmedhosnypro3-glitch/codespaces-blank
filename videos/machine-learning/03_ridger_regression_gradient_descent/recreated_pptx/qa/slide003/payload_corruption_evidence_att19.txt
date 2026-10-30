@@ -1,0 +1,19 @@
+BANKED 2026-10-24 by judge-slide003-att19 — corrupt-payload forensics
+
+Template A payload (4115 bytes) extracted from shared_patterns/judge_protocol_03.md
+and compared with every banked prompt in this dir:
+
+judge_prompt_5_a.txt        4115 bytes  differs from protocol (3 raw-K chars -> 5)
+judge_prompt_8.txt          4115 bytes  CLEAN == protocol
+judge_prompt_14.txt         4119 bytes  CORRUPTED: BLOCKER->BLOC14ER x4 (+4 bytes, from a global K->14 substitution)
+judge_prompt_5_crop.txt     1914 bytes  differs from protocol (3 raw-K chars -> 5)
+judge_prompt_14_crop.txt    1916 bytes  CORRUPTED: BLOCKER->BLOC14ER x2 (+4 bytes, from a global K->14 substitution)
+
+CONSEQUENCE: judge_attempt_16.txt (the FAIL that spawned the attempt-16/17/18
+fix lane) was produced from judge_prompt_14.txt = a CORRUPTED payload. Its
+substantive findings still stand (they are about content, and PIL confirms
+every one below), but the payload is not the frozen protocol text, so the
+leg is re-run here from the byte-exact protocol payload as judge_prompt_19.txt.
+
+LAW RE-CONFIRMED: substitute only \bK\b / NNN. A bare s/K/14/ hits the K in
+BLOCKER and silently deletes the BLOCKER severity class from the payload.

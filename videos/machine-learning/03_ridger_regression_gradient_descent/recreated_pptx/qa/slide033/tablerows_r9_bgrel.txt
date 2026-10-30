@@ -1,0 +1,18 @@
+TABLE CELL INK CENSUS — slide 033, render_9 vs unique_slides/slide_033.jpg
+ink = fraction of cell pixels differing from the LOCAL band background by >40
+in any channel (scale-fair, so it works for both the 960px JPEG frame and the
+2001px LO render). 19 columns (0 = label, 1..18 = data) x 8 text rows.
+
+                     0         1         2         3         4         5         6         7         8         9        10        11        12        13        14        15        16        17        18
+x            15/  9o    14/ 13o    14/ 12o    12/ 11o    14/ 13o    14/ 12o    12/ 11o    13/ 13o    12/ 13o    12/ 12o     9/  9o    11/ 12o    12/ 12o    13/  7o     8/  6o     6/  8o    23/ 11o     9/ 11o    26/ 17o  
+f(x)         24/ 19o    26/ 22o    24/ 21o    25/ 21o    25/ 21o    25/ 21o    26/ 21o    24/ 21o    25/ 21o    25/ 23o    25/ 21o    23/ 21o    25/ 23o    20/ 25o    10/ 23o    11/ 27o    35/ 21o    26/ 23o    27/ 17o  
+x-delta      18/ 10o    14/ 10o    19/ 12o    21/ 12o    16/ 13o    18/ 12o    19/ 12o    17/ 13o    16/ 11o    17/ 13o    19/ 11o    15/  8o    18/ 12o    15/ 10o    17/  8o    18/ 12o    14/ 10o    17/  9o    29/ 17o  
+f(x-delta)   32/ 31o    30/ 32o    32/ 32o    32/ 32o    32/ 33o    32/ 32o    32/ 32o    33/ 34o    30/ 31o    31/ 33o    33/ 33o    32/ 31o    30/ 32o    36/ 32o    33/ 32o    31/ 33o    33/ 33o    31/ 31o    27/ 16o  
+x+delta      22/ 11o    21/ 13o    21/ 10o    23/ 11o    22/ 13o    20/ 10o    22/ 10o    22/ 13o    20/ 10o    17/  9o    19/  9o    19/  9o    17/  9o    18/  9o    17/  9o    19/ 11o    19/  9o    18/  9o    29/ 17o  
+f(x+delta)   45/ 29o    44/ 30o    46/ 29o    46/ 29o    45/ 31o    47/ 30o    44/ 28o    46/ 30o    45/ 30o    43/ 30o    44/ 28o    46/ 29o    48/ 31o    44/ 28o    46/ 30o    45/ 30o    47/ 30o    44/ 29o    25/ 16o  
+slope        58/ 21o    54/ 22o    55/ 21o    55/ 22o    54/ 22o    52/ 20o    56/ 21o    54/ 22o    54/ 19o    52/ 20o    49/ 18o    50/ 17o    51/ 20o    55/ 17o    50/ 22o    55/ 19o    51/ 22o    57/ 20o    29/ 14o  
+next x       37/ 20o    39/ 22o    38/ 20o    39/ 21o    37/ 22o    37/ 21o    40/ 21o    39/ 22o    36/ 19o    36/ 19o    36/ 19o    36/ 18o    32/ 20o    38/ 19o    34/ 17o    35/ 20o    33/ 19o    35/ 18o    28/ 17o  
+
+render-only cells (X): 0
+RESULT: every cell in every row carries ink in BOTH images — the table's
+19x8 cell population matches. No missing-ink BLOCKER, no stray-content MAJOR.

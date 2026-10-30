@@ -1,0 +1,18 @@
+Region: single-line chart annotation, crop-relative layout is â50.85Â²â on the left, ââ/=â in the middle, â2585â on the right, all inside one rectangular box.
+
+Discrepancies found:
+
+1. Exponent color â MINOR â medium confidence.
+   In IMG2 (original) the superscript â2â after 50.85 reads with a faint red/maroon cast, unlike the neutral black of â50.85â and â2585â in the same crop. In IMG1 (recreation) the exponent â2â is the same black as the rest of the string. If the tint is real (not a JPEG/chroma artifact per ground rule e), the original colors the exponent and the recreation does not.
+
+2. Spacing around â=â â MINOR â high confidence.
+   IMG1 renders â50.85Â² = 2585â with space on both sides of the equals. IMG2 renders â50.85Â²= 2585â with the â=â tight against the exponent and space only after it. Glyph content is identical; only horizontal kerning differs.
+
+3. Annotation-box fill/border shade â MINOR â medium-high confidence.
+   IMG1 uses a light-blue fill with a noticeably darker blue border; IMG2 uses a much paler/whiter fill with a thinner, lighter blue-purple border. Border is continuous with no missing/extra strokes in either, and weight is consistent within each image, so this is a fill/stroke shade difference rather than a geometry or continuity defect.
+
+No other issues: every digit matches (50.85, superscript 2, 2585), the superscript â2â is present and not truncated, there are no brackets/parentheses to span lines, the text is vertically centered in both boxes, line separation is N/A (single line), and the rounded value â2585â is reproduced identically in both crops (so the truncation of the true 50.85Â² = 2585.7225 to â2585â is consistent and not a mismatch).
+
+None of the findings affect a number, symbol, equation structure, or delimiter span, so nothing rises to MAJOR/BLOCKER.
+
+FINAL VERDICT: PASS

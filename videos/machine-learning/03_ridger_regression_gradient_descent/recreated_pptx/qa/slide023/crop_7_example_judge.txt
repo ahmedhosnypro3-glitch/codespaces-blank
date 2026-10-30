@@ -1,0 +1,47 @@
+# Judge transcript — slide 023, crop example (verbatim example lines), attempt 7
+- date: 2026-10-24 06:54
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide023/crop_7_example_render.png  (from render_7.png md5=3fd468fde9de1430c203a1e82293b782)
+- IMG2 (original crop): qa/slide023/crop_7_example_orig.png  (from unique_slides/slide_023.jpg md5=bc5c99ae61ea467f9531374bbab98d76)
+- region: frame px x84..872, y358..424 — the two example lines inside the blue box,
+  including the red numerals
+- scale: render crop 1642x137 @ GM=2.0833; original crop 1642x137 (same frame bbox,
+  LANCZOS-upscaled) → identical output dims → equal effective px/frame-px per axis
+  (crop_7_scale_audit.txt: identical_dims=True). Reading order: IMG2 first, then IMG1.
+
+## Ground rules acknowledged
+(a) House template (panel/strokes/badge, no top stroke) is intentional chrome, never a
+    discrepancy. (b) This is a zoomed crop-pair of one region, not a whole slide.
+(c) Typed-vs-captured ink is a medium difference — at most MINOR. (d) Professional-2D
+    equation rendering is mandated. (e) JPEG halos/soft edges in IMG2 are capture artifacts.
+    Glyph-level exactness is required — every character, digit and comma.
+
+## Comparison (crop-relative)
+- Line 1: "For Example: if Features vector is of size 1000 then Inverse calculation is" —
+  character-for-character match (capital F in "Features", capital I in "Inverse", the
+  phrase "is of size"), same break after "is". Red "1000" in both: IMG1 x530..579 vs
+  IMG2 x528..577 (d +2 px, measured).
+- Line 2: "or order 1000,000,000 which is impractical" — character-for-character match,
+  including the frame's non-standard grouping with EXACTLY TWO commas. Comma ink below the
+  baseline in IMG1 at x239..240.5 and x284.6..286.1 vs IMG2 x238..240 and x283..285;
+  numeral run IMG1 x186..327 vs IMG2 x189..327. The attempt-7 frame correction replaced the
+  spec's three-comma "1,000,000,000" with the frame's verbatim "1000,000,000". MATCH.
+- Colours: black body, red numerals in both; no red elsewhere on these lines.
+- Vertical: two lines at 34.1 px pitch in IMG1 vs 35 px in IMG2; same band position inside
+  the blue box; no clipping or collision.
+- Horizontal: line 1 ink x98..856 vs x96..853 (+2.8 px right edge, Arial advance);
+  line 2 ink x97..535 vs x96..541 (tail −6.2 px: the Arial prefix "or order " is narrower
+  than the frame's face — measured, selfcheck_attempt_7.txt).
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — the frame's body face is oblique (≈ −8°); IMG1
+   is upright Arial (M1: no installed face matches slant + single-storey 'a' + Arial
+   advance — adjudication_attempt_1_minors.txt). No glyph/word/digit/comma change. ACCEPTED.
+2. MINOR (accepted, measured) — line-2 tail ends 6.2 px left of IMG2 after the verbatim
+   numeral correction (Arial prefix advance; the red numeral itself matches within 3 px on
+   the left and 0 px on the right). ACCEPTED.
+No BLOCKER/MAJOR findings: no wrong/missing digit, no extra or missing comma, no wrong
+word, no enclosure fault.
+
+FINAL VERDICT: PASS — faithful, usable recreation of this region (verbatim text, numerals
+and comma grouping now match the frame exactly).

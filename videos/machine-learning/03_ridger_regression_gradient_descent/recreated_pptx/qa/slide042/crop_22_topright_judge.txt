@@ -1,0 +1,23 @@
+# Slide 042 â Top-right crop-pair review (attempt 22 vs original)
+
+**Reference (IMG2) content of this region:** inside the pale-yellow box with blue border, there is a caption fragment "â¦es of" (end of e.g. "values of"), followed by **three labeled column vectors**: zâ = (0; 0), zâ = (7; 6), zâ = (3; 2) â each label z with subscript 1, each vector a 2Ã1 stacked column inside tall parentheses spanning both numeric rows. The gray E9E9E7 panel and the box's blue border frame the region.
+
+**Recreation (IMG1) content of the same region:** only the label rendered as "z," and the very top of a single vertical delimiter stroke below it. Nothing else.
+
+## Discrepancies
+
+1. **BLOCKER â Vector/matrices content missing.** In IMG2 the region contains three complete 2Ã1 column vectors with numeric values **(0, 0), (7, 6), (3, 2)** (crop-relative: center/right of region, below the top border). In IMG1, at matched effective scale, none of these numerals appear â only a "z," glyph near the top-left of the box interior and the topmost sliver of one delimiter. Every numeric value in the region (0, 0, 7, 6, 3, 2) and two of the three vectors are absent from view. Confidence: high.
+
+2. **MAJOR â Massive scale/overflow mismatch of the equation block.** The single "z," label in IMG1 occupies roughly the same pixel height as an entire label-plus-two-row vector in IMG2. The recreation has rendered this equation block at several times the original size (or shifted it so far down/right that only its top-left corner falls in the region). Either way, the region does not correspond spatially to the original. Confidence: high.
+
+3. **MAJOR â Subscript rendered as a comma-like glyph.** The label in IMG1 reads "z," â the subscript mark sits on the baseline like a comma rather than a raised/small "â" as in IMG2's "zâ" labels. A garbled/wrong character at label level. Confidence: medium-high (small glyph, but shape at this zoom reads as a comma, not a subscript 1).
+
+4. **MAJOR â Caption text missing.** IMG2 shows the text fragment "â¦es of" just left of the first vector (crop-relative: left edge, mid-height). IMG1 shows no text outside/at the left of the box interior. Confidence: medium (could fall just outside IMG1's tighter framing, but at matched scale it should be visible).
+
+5. **MINOR â Border color/weight.** The box border in IMG1 is a darker, more saturated blue-indigo and slightly heavier than the brighter medium blue of IMG2's border (top border, crop-relative yâ0 in both). Small but visible at this zoom. Confidence: medium (IMG2 JPEG softness partially confounds).
+
+6. **Delimiters unverifiable but suspect.** In IMG1 only the top of one vertical stroke is visible; the parenthesis pair that in IMG2 must span two rows per vector cannot be confirmed to exist or span correctly. Given items 1â2, treat as not faithfully rendered. Confidence: medium.
+
+Template chrome (yellow box fill, blue border existence, gray panel, no top stroke) is per house style and not flagged.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region'.

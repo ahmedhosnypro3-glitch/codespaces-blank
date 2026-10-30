@@ -1,0 +1,29 @@
+## Comparison notes (crop-relative)
+
+**Verified correct before discrepancies (baseline):**
+- Six rows, correct order: "Update Weight" then five "Keep same Weight" rows. No missing/swapped rows.
+- All numeric values match cell-for-cell: Wâ = (4, â2, â2), update vector (1, 1, 1), coefficient "1", result (5, â1, â1); the math is internally consistent (4+1=5, â2+1=â1), and rows 2â6 all show W = (5, â1, â1). No wrong digits, no truncated subscripts.
+- Delimiter geometry is clean in IMG1: each bracket spans all three enclosed lines with clearance above/below (no touching the text) â no span defects found.
+- Red right-pointing "â" action arrows at the left of every row are present in both.
+
+## Discrepancies
+
+1. **Spurious "x" column inside every weight vector (all 8 vectors in the region).** In IMG1 every bracket block reads as a 3Ã2 matrix whose left column is the letter "x" (e.g. `|x 4| / |x â2| / |x â2|`), while IMG2's vectors are single numeric columns `(4, â2, â2)`, `(1,1,1)`, `(5, â1, â1)`. The numbers themselves are correct, but an extra glyph column exists throughout: rows 1 (three matrices), rows 2â6 (one matrix each). Sits across the whole equation band (roughly xâ0.3â1.0 of the crop, left edge of each bracket). **Severity: MAJOR. Confidence: High.**
+
+2. **Wrong delimiter glyph: determinant bars instead of parentheses.** IMG1 encloses each column vector in vertical bars "| |"; IMG2 uses parentheses "( )" that span the three lines. Bars on a column vector are incorrect notation (determinant undefined), and they change every equation in the region. **Severity: MAJOR. Confidence: High.** (Note: the bars *do* span correctly â the span is fine; the glyph choice is wrong.)
+
+3. **Missing right-edge annotation arrow.** IMG2 has a red left-pointing double arrow "â" at the far right of row 1, adjacent to the result vector's top (approx. xâ0.93â1.0, yâ0.03â0.12 of the crop). IMG1 has no such glyph. **Severity: MINOR. Confidence: High.**
+
+4. **Stray standalone "x" before "W =" in every row.** Just right of each label (âx â0.27â0.32, one per row, rows 1â6), IMG1 shows an isolated italic "x"; IMG2 shows that spot empty (proven by row 1, where the full equation follows the label directly with no glyph). If this "x" is a placeholder for the slide's left-hand d(xáµ¢) dot-product expressions, the dot-product content is garbled/absent rather than merely extra. **Severity: MINOR (extra ink) â flagged MAJOR-risk if it was meant to carry the dot-product values. Confidence: Medium-High.**
+
+5. **Label line-breaking.** IMG1 wraps both labels onto two lines ("Update / Weight", "Keep same / Weight"); IMG2 keeps them on one line, vertically centered in each row box. Wording and characters are identical, so this is layout only. **Severity: MINOR. Confidence: High.**
+
+6. **Multiplication operator glyph.** Between the coefficient and the update vector, IMG1 uses a middle dot "Â·"; IMG2 uses "*" (asterisk). Same operation, minor notation mismatch. **Severity: MINOR. Confidence: High.**
+
+7. **Color accents dropped.** IMG2's equation ink appears to use at least one non-black accent (best read at this zoom: the multiplier "1" and/or the resulting "5" carry colored ink, e.g., green/red); IMG1 renders the entire equation in uniform black typed text. Secondary confirmation is not possible at this magnification, and typed-vs-handwritten is an inherent medium difference. **Severity: MINOR. Confidence: Medium.**
+
+*(Non-issues: hyphen "â"/minus "â" glyph shape and W's underline style fall under inherent typed-ink medium difference; row count, order, and all digit values are exact.)*
+
+**Net assessment:** the region's core content â the weight-vector evolution â is misrepresented in every row: correct numbers sitting inside wrongly-structured, wrongly-delimited vectors with extra glyphs, plus a lost annotation arrow.
+
+FINAL VERDICT: FAIL

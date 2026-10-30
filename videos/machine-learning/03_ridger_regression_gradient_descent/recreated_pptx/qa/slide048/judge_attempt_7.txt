@@ -1,0 +1,54 @@
+## Element-by-Element Fidelity Check
+
+### House chrome (per ground rules â NOT discrepancies)
+- Gray panel E9E9E7, red left/right/bottom strokes, **no top stroke** â present and correct in recreation. â
+- Yellow badge "48" at top-right, purple ring, bold numeral â matches. â
+- (Image 2's small cursor artifact near "unaccepted" is a video artifact â correctly omitted.) â
+
+### Content comparison
+
+**1. Top blue-bordered box**
+- Six column vectors xââ¦xâ with values (1,1,1)(2,1,2)(1,2,2)(5,4,4)(6,5,5)(6,6,6) â values match. â
+- C1/C1/C1 (red) C2/C2/C2 (blue) labels â match. â
+- **"Initial W =" ordering â MAJOR (confidence 0.9):** In the original the order is `Initial W = (4,â2,â2)` then `REPEAT using Step Î· = 1`. In the recreation the W column vector (4,â2,â2) is rendered **to the LEFT of** "Initial W =", i.e. before its own label. Element ordering is inverted.
+- **Stray "x" glyphs in every vector â MAJOR (0.95):** Every column vector in the recreation renders as `|x 4; x â2; x â2|` â a spurious "x" character prefixes each vector row. The original vectors contain only the numbers. This artifact repeats in *every* vector on the slide (top box, all six d(xáµ¢) rows, all W results).
+- **Z-vector table truncated â MAJOR (0.9):** Original shows three stacked rows: Zâ=(0,0,0), Zâ=(7,7,6), Zâ=(3,3,2). Recreation shows only **two rows** ("0 7 3" / "0 6 2") â the middle element of each vector (0, 7, 3) is missing entirely. Per rule 8 this is a missing table row.
+- "Check classes of" placement and "REPEAT using Step Î· = 1" (red, italic, bold, underlined) â match. â
+- "C1 positive, C2 negative, Zero is unaccepted" â recreation inserts commas ("C1 positive, C2 negative,â¦") where the original reads "Câ positive Câ negative Zero is unaccepted" â **MINOR** (0.6; punctuation-level only).
+
+**2. "Ugmented Vectors (from Top)" box** (typo "Ugmented" faithfully preserved â; values 1/1/1, 1/2/1, 1/1/2, 1/5/4, 1/6/5, 1/6/6 â; C1 red / C2 blue â)
+- **Text collision / clipping â MAJOR (0.95):** The wrapped second line "Top)" collides with and is overprinted by the "Xâ Xâ â¦" header row â the parenthetical is illegible. Clear text-on-text overlap defect.
+
+**3. "Iteration 1" red box** â present, correct fill/typography, position matches. â
+
+**4. Six computation rows** â all d-values correct: d(xâ)=0, d(xâ)=2, d(xâ)=2, d(xâ)=â4, d(x, d(xâ)=â7; all row vectors [1 1 1], [1 2 1], [1 1 2], [1 5 4], [1 6 5], [1 6 6] correct; "Update Weight" / "Keep same Weight" labels correct; red â arrows present; W-update row includes "+1Â·" term and result (5,â1,â1). â on data.
+- **Stray "x" before/inside every equation â MAJOR (0.95):** Each row reads `x d(xáµ¢) âx [ â¦ ]x |x â¦|` â spurious "x" tokens before d(xáµ¢), around the equals sign, and inside every vector (see above). Not present in original.
+- **Delimiter style mismatch â MAJOR (0.9):** Original encloses all column vectors in **round parentheses ( )**; recreation renders them with **vertical bars | |** (determinant-style). Per rule 7(iii) delimiter shape must match the original's style.
+- **Missing red â arrow â MAJOR (0.85):** Original row 1 ends with a prominent red left-pointing arrow (â) after the updated W = (5,â1,â1); the recreation omits this element entirely (rule 6).
+- The first-row W equation "W = (4,â2,â2) + 1â(1,1,1) = (5,â1,â1)" is otherwise complete and correct in values. â
+
+### Not counted (founder mandates)
+- Professional 2D stacked vector rendering vs original's notation â mandated format upgrade, not a discrepancy.
+- Typed vs handwritten ink â medium difference only.
+- No top stroke on panel â intentional house chrome.
+
+## Visual-quality defects in the recreation
+1. "Top)" line overprinted by the Xââ¦Xâ header (collision/illegibility) â MAJOR.
+2. Stray "x" glyphs repeated in ~20 locations (top box, all six rows, all W vectors) â systematic rendering artifact â MAJOR.
+3. Z-vector block vertically incomplete (2 rows vs 3), leaving the "Check classes of" region visually short â MAJOR.
+4. W column vector mis-ordered before its "Initial W =" label in the header box.
+
+## Discrepancy summary
+| # | Issue | Severity | Confidence |
+|---|-------|----------|------------|
+| 1 | Stray "x" glyphs in/around every column vector and equation | MAJOR | 0.95 |
+| 2 | Vector delimiters rendered as bars \| \| instead of parentheses ( ) | MAJOR | 0.90 |
+| 3 | Zâ/Zâ/Zâ table missing middle row (0,7,3) | MAJOR | 0.90 |
+| 4 | W vector placed before "Initial W =" label (ordering inverted) | MAJOR | 0.90 |
+| 5 | "Top)" text collision with column-header line in augmented-vectors box | MAJOR | 0.95 |
+| 6 | Missing red â arrow after first-row updated W | MAJOR | 0.85 |
+| 7 | Comma insertion in "C1 positive, C2 negative,â¦" | MINOR | 0.60 |
+
+All slide data values (vector contents, d(xáµ¢) results, W updates, class labels, iteration box) are numerically correct; the defects are rendering/ordering/omission defects.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation'

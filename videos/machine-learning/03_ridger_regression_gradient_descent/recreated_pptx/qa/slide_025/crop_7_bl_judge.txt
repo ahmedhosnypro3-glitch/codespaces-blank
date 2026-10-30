@@ -1,0 +1,25 @@
+COMPARISON SUMMARY
+IMG1 (recreation crop) and IMG2 (original crop) are not the same chart. IMG1 shows a filled, smoothly shaded rainbow surface with no coordinate axes, while IMG2 shows a wireframe mesh plot with a full 3D axis box (Z: â6 to 8; X: â3 to 3) and numeric tick labels. Every annotation is in a different location, and the extremum markers differ. The region is not faithfully reproduced.
+
+DISCREPANCIES
+
+1. BLOCKER â Confidence: High â Plot/rendering style mismatch. IMG1 renders a filled, continuously shaded rainbow surface (no visible mesh/grid lines). IMG2 renders a wireframe mesh surface with explicit grid lines across the surface. These are fundamentally different visualizations of the same region.
+
+2. BLOCKER â Confidence: High â Missing 3D coordinate axes and all numeric tick labels in IMG1. IMG2 (left/lower edges of crop) shows a complete axis box: Zâaxis with ticks â6, â4, â2, 0, 2, 4, 6, 8; Xâaxis with ticks â3, â2, â1, 0, 1, 2, 3; plus a Yâaxis. IMG1 contains none of these axis lines, axis titles, or numeric labels anywhere in the crop. Because this is defined as the SAME slideâspace region, the axis layer is entirely absent from the recreation.
+
+3. BLOCKER â Confidence: High â Annotation text positions completely rearranged between the two crops:
+   â¢ "Global Maxima": IMG2 places it topâcenter above the tallest peak; IMG1 places it lowerâcenterâleft below midâheight.
+   â¢ "Global Minima": IMG2 places it bottomâright by the deep valley; IMG1 places it upperâright.
+   â¢ "Local Maxima": IMG2 places it upperâright; IMG1 places it midâleft.
+   â¢ "Local Minima": IMG2 places it lowerâleft; IMG1 places it near center.
+   The recreation did not preserve label placement.
+
+4. BLOCKER â Confidence: High â Extremum marker style differs. IMG2 marks extrema with prominent red "X" glyphs adjacent to the text labels. IMG1 uses tiny red dot/markers with thin black leader lines extending from the labels. The marker geometry (red "X" vs. small red dot + leader line) is not preserved.
+
+5. MAJOR â Confidence: High â Horizontal red reference line vertical offset. Both images contain a horizontal red line, but its position relative to the surface features and to the annotations differs (in IMG2 it sits near the z=0 midâplane; in IMG1 it cuts across a different band of the surface with different features above/below).
+
+6. MAJOR â Confidence: Medium â Surface feature layout differs. IMG1 shows numerous scattered small peaks and valleys across the domain; IMG2 shows two dominant peaks and two dominant valleys clearly separated. The underlying surface topology visible in the crop is not matched.
+
+7. MINOR â Confidence: High â Text rendering medium. IMG1 text is clean vectorârendered sansâserif; IMG2 text is soft/videoâcaptured. Per ground rule (c) this inherent medium difference is at most minor and is not a content defect.
+
+FINAL VERDICT: FAIL â The recreation is not a faithful, usable reproduction of this region. It uses a different plot type (filled surface vs. wireframe), omits the entire 3D axis/tick layer, relocates all four extremum annotations, and changes the extremum markers. Multiple BLOCKERâlevel defects prevent faithful reproduction.

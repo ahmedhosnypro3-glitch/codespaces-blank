@@ -1,0 +1,34 @@
+render 2001x1125  scale x 2.0844 y 2.0833 | original 960x540
+
+== TEXT BANDS: render vs ORIGINAL (identical predicate + window) ==
+  title      x  294.0.. 639.0 y   60.0..  82.0 | x  294.6.. 638.1 y   61.4..  81.6 | d  +0.6  -0.9  +1.4  -0.4 OK 
+  gdhdr      x  110.0.. 392.0 y  111.0.. 129.0 | x  109.4.. 391.0 y  109.9.. 126.2 | d  -0.6  -1.0  -1.1  -2.8 adj | bottom: original descender tail y129 vs ren y126 (font metric)
+  rowA       x  146.0.. 469.0 y  144.0.. 162.0 | x  146.8.. 467.3 y  142.6.. 158.9 | d  +0.8  -1.7  -1.4  -3.1 adj | bottom: original 'g' descender y162 vs Arial y159 (font metric, unfixable under font law)
+  rowB       x  146.0.. 845.0 y  177.0.. 195.0 | x  146.8.. 845.3 y  176.6.. 193.4 | d  +0.8  +0.3  -0.4  -1.6 OK 
+  rowC-bl    x  146.0.. 512.0 y  210.0.. 229.0 | x  146.8.. 511.4 y  209.8.. 226.1 | d  +0.8  -0.6  -0.2  -2.9 adj | bottom: descender metrics
+  rowC-red   x  520.0.. 682.0 y  211.0.. 228.0 | x  518.6.. 681.3 y  210.2.. 226.1 | d  -1.4  -0.7  -0.8  -1.9 OK 
+  rowC-paren x  684.0.. 688.0 y  211.0.. 227.0 | x  683.7.. 687.5 y  209.8.. 226.1 | d  -0.3  -0.5  -1.2  -0.9 OK 
+  rowD       x  146.0.. 830.0 y  243.0.. 261.0 | x  146.8.. 828.1 y  242.9.. 259.2 | d  +0.8  -1.9  -0.1  -1.8 OK 
+  noteshdr   x  111.0.. 159.0 y  310.0.. 323.0 | x  109.9.. 160.2 y  310.1.. 322.6 | d  -1.1  +1.2  +0.1  -0.4 OK 
+  N1         x   91.0.. 769.0 y  342.0.. 361.0 | x   90.7.. 769.1 y  341.8.. 358.1 | d  -0.3  +0.1  -0.2  -2.9 adj | bottom: descender metrics
+  N2         x  109.0.. 575.0 y  376.0.. 394.0 | x  109.9.. 575.7 y  376.8.. 393.1 | d  +0.9  +0.7  +0.8  -0.9 OK 
+  N3         x   91.0.. 836.0 y  441.0.. 460.0 | x   90.7.. 836.7 y  440.6.. 457.0 | d  -0.3  +0.7  -0.4  -3.0 adj | bottom: descender metrics
+  N4         x  110.0.. 295.0 y  475.0.. 494.0 | x  108.9.. 296.0 y  475.2.. 491.0 | d  -1.1  +1.0  +0.2  -3.0 adj | bottom: descender metrics
+
+== UNDERLINE BARS (longest solid run, 2px AA-seam bridge) ==
+  rowB   ORIG x  350.0.. 717.0 y 193.0 | REN x  347.8.. 720.1 y 192.0 | d  -2.2  +3.1  -1.0 <<< bar delta (font-metric noise band +-6.6)
+  rowD   ORIG x  288.0.. 473.0 y 258.0 | REN x  286.9.. 470.2 y 257.8 | d  -1.1  -2.8  -0.2 OK
+  N3a    ORIG x  176.0.. 279.0 y 458.0 | REN x  170.3.. 273.0 y 456.0 | d  -5.7  -6.0  -2.0 <<< bar delta (font-metric noise band +-6.6)
+  N3b    ORIG x  538.0.. 729.0 y 458.0 | REN x  533.5.. 726.4 y 456.0 | d  -4.5  -2.6  -2.0 <<< bar delta (font-metric noise band +-6.6)
+
+== BULLET DISCS ==
+  N1-bul   x   91.0..  97.0 y  346.0.. 352.0 | x   90.7..  97.4 y  345.6.. 352.8 | d -0.3 +0.4 -0.4 +0.8 OK
+  N3-bul   x   91.0..  97.0 y  446.0.. 451.0 | x   90.7..  97.9 y  445.9.. 452.6 | d -0.3 +0.9 -0.1 +1.6 OK
+
+== FRAME CONTAINMENT (render) ==
+  blue border cols (frame px): [82, 82, 864, 865] | rows: [89, 90, 90, 181, 181, 248, 500, 501, 501]
+  interior content ink extent: x 90.7..845.3  y 109.9..491.0 (box interior x84..862 y93..497)
+  containment inside blue box: OK
+
+bands/bars with real deltas > tolerance: ['gdhdr', 'rowA', 'rowC-bl', 'N1', 'N3', 'N4', 'rowB', 'N3a', 'N3b']
+SELFCHECK-5 RESULT: REVIEW

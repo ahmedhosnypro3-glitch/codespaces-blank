@@ -1,0 +1,27 @@
+## Comparison â Slide 049, legend region ("C1 positive C2 negative Zero is unaccepted")
+
+**Region layout check:** Both crops show the single-line class legend with colored tokens (red **C**â, blue **C**â, green **Zero**), the tail of the "| -2 |" fragment from the line above intruding at the top of the crop, and (in IMG2) a thin horizontal rule near the bottom.
+
+### Discrepancies
+
+1. **MINOR â Missing thin blue horizontal rule at bottom of region** (bottom edge, full width; e.g., y â 95â100 in the crop). IMG2 shows a distinct thin blue/navy horizontal line just below the legend; IMG1 does not render it (or renders it too faint to see at this scale). If this line is slide content (e.g., a divider above the next element), its absence is a real omission; if it is template chrome, it's covered by the ground rules. Confidence: medium (60%). Note: the house template's bottom stroke is specified as dark red C00000, and this line reads blue â so it does not appear to be the template's bottom stroke, which argues it is content and its absence is genuine.
+
+2. **MINOR â Font style: italic vs upright.** IMG2 renders the legend in italic (serif-leaning) type ("*C*â*positive* *C*â*negative*"); IMG1 renders it upright sans-serif. Letterforms and glyph identity are otherwise identical â no wrong, missing, or garbled characters. This is a styling difference, not a content one. Confidence: high.
+
+3. **MINOR â Word spacing.** IMG2's gaps between "Zero" and "is" and around "unaccepted" read slightly wider than IMG1's tight spacing (right half of line, x â 320â540). Cosmetic only; token order and all words are correct. Confidence: medium.
+
+4. **MINOR â Slight color shifts.** IMG2's red "C" and green "Zero" appear marginally darker/desaturated versus IMG1's brighter C00000 red and green; the blue Câ matches well. Consistent with JPEG/video-capture softening in IMG2 per ground rule (e). Confidence: low that it's a true content difference.
+
+### Verified as correct
+- Token sequence and wording: "Câ positive Câ negative Zero is unaccepted" â identical in both, no typos or dropped characters.
+- Token colors correct: Câ red, Câ dark blue, Zero green in both.
+- Subscripts 1 and 2 present and attached to the correct C in both.
+- Top-of-crop fragment "| -2 |" appears in both (crop-window artifact, not a content difference).
+- No delimiters, tables, or equations in this region; nothing is truncated.
+
+### Severity summary
+- BLOCKER: none
+- MAJOR: none
+- MINOR: 4 (missing bottom rule â the only one worth a second look; font style; spacing; slight color shift)
+
+FINAL VERDICT: **PASS** â the legend is a faithful, usable recreation of this region; all glyphs, tokens, colors, and subscripts match, with only cosmetic styling differences and one ambiguous thin rule to verify against the full slide.

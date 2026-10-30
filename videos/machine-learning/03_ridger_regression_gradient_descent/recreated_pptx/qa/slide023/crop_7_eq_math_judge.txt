@@ -1,0 +1,53 @@
+# Judge transcript — slide 023, crop eq_math (equation band), attempt 7
+- date: 2026-10-24 06:51
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide023/crop_7_eq_math_render.png  (from render_7.png md5=3fd468fde9de1430c203a1e82293b782)
+- IMG2 (original crop): qa/slide023/crop_7_eq_math_orig.png  (from unique_slides/slide_023.jpg md5=bc5c99ae61ea467f9531374bbab98d76)
+- region: frame px x96..468, y142..196 (green-box equation band W = (X^T X + λI)^-1 X^T Y)
+- scale: render crop 775x112 @ GM=1125/540=2.0833; original crop 775x112 (same frame bbox,
+  LANCZOS-upscaled) → identical output dims → equal effective px/frame-px per axis
+  (crop_7_scale_audit.txt: identical_dims=True). Reading order: IMG2 first, then IMG1.
+
+## Ground rules acknowledged
+(a) The house template (white canvas; gray E9E9E7 panel; C00000 strokes left/right/bottom
+    only — no top stroke on this deck; FDFD96 badge with 6A5ACD ring) is intentional
+    chrome, never a discrepancy. (b) This is a zoomed crop-pair of ONE region, not a whole
+    slide. (c) Typed-vs-captured ink is a medium difference — at most MINOR. (d) Equations
+    are rendered in professional 2D format; a linear/typed rendering in the original is a
+    mandated upgrade. (e) JPEG compression halos/soft edges in IMG2 are capture artifacts,
+    not content. Content is judged at glyph level: characters, numbers, equation structure
+    (numerator/denominator order, limits, sub/superscripts), delimiter geometry, line
+    separation/centering, stroke continuity/weight, small colour differences.
+
+## Comparison (crop-relative)
+- Glyphs: IMG2 "W = ( X^T X + λI )^{-1} X^T Y" and IMG1 carry the same glyph sequence —
+  W, =, (, X, superscript T, X, +, λ, I, ), raised −1, X, superscript T, Y. No wrong,
+  missing, garbled or doubled character; no truncated sub/superscript; the −1 sits on the
+  closing paren in both (single exponent, not spread).
+- Underlines: W carries a bar in both; Y carries a bar in both (IMG1 bars sit at the same
+  relative offset under the glyph; IMG2's bars are the frame's thick underline). No
+  underline under X^TX in either (the green-box bottom border is the only continued bar
+  below the band, in both).
+- Colours: λ and I green in both (IMG2 G−B strongly positive; IMG1 same); exponent −1 red
+  in both; body ink black; box fill pale green with a green border in both.
+- Delimiter geometry: single-line parentheses; they span the enclosed expression and do
+  not touch the glyphs in either image. N/A for multi-line span.
+- Position/structure: ink bbox IMG1 (2,0)-(690,111) vs IMG2 (3,0)-(694,111) crop px —
+  d(−1,0,−4,0) px at 2.08 px/frame-px ⇒ ≤2 frame px on every edge (crop_6/crop_7 ink
+  metrics, same geometry). Equation structure and inter-symbol order identical.
+- Differences: IMG2 is bold italic serif-style with a wider gap after the inverse paren;
+  IMG1 is mathtext (one weight, upright, tighter post-inverse space). These are the two
+  banked ACCEPTED MINORs (adjudication_attempt_2.md R2/R3: mathtext renders one weight;
+  adjudication_attempt_4_fullslide.md C4: the ")→X" gap 29 pt vs 16 pt; mathtext collapses
+  math-mode spaces). Glyph shapes, order, exponent, underline bars and enclosure all
+  measure correct.
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — glyph weight/typeface (bold italic frame vs
+   mathtext one-weight upright). No content or geometry effect. ACCEPTED per R2/R3.
+2. MINOR (accepted, banked measurement) — post-inverse inter-symbol gap narrower in IMG1
+   (29 pt vs 16 pt, C4). Glyphs themselves unaffected. ACCEPTED.
+No BLOCKER/MAJOR findings; no wrong digit/symbol, no missing element, no delimiter fault.
+
+FINAL VERDICT: PASS — faithful, usable recreation of this region (content, structure and
+geometry exact; two measured, banked weight/spacing residuals only).

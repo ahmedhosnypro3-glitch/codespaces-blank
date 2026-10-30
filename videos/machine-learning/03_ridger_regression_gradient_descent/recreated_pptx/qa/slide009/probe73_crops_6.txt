@@ -1,0 +1,32 @@
+render 2001x1125  scale x 2.08438 y 2.08333   original 960x540  (K=6)
+prescribed original upscale H_render/540 = 2.08333
+
+eq_left          region  117x43   frame px -> 243x89 crop px
+                 LEFT chart annotation box holding the black equation 50.85^2 = 2585; the founder-corrected red dimension shaft clips this box's lower-left corner
+eq_right         region  117x43   frame px -> 244x89 crop px
+                 RIGHT chart annotation box holding the black equation 63.64^2 = 4050; the founder-corrected red dimension shaft clips this box's lower-left corner
+cap_left         region  327x47   frame px -> 682x98 crop px
+                 LEFT chart's two caption lines: red 'Overfit' keyword + '(try to minimize the residuals ONLY)' over 'Fails to detect the Pattern'
+cap_right        region  312x47   frame px -> 651x98 crop px
+                 RIGHT chart's two caption lines: red 'Generalized' keyword + '(Residuals are not minimized)' over 'Successes to detect the Pattern'
+chart_left       region  386x378  frame px -> 805x787 crop px
+                 LEFT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)
+chart_right      region  400x378  frame px -> 834x787 crop px
+                 RIGHT scatter chart: navy border, 16x16 grid, red axes + arrowheads, blue fitted line, orange points, and the rebuilt red mm-annotation (double-headed arrow orthogonal to the blue line, label along the arrow, plain parallel leader beside the outlier)
+annotation_left  region  190x205  frame px -> 396x428 crop px
+                 LEFT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '50.85 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point
+annotation_right region  210x265  frame px -> 438x553 crop px
+                 RIGHT chart mm-annotation corridor: the red dimension arrow (orthogonal to the blue fitted line, foot ON the line, arrowheads at BOTH ends), the '63.64 mm' label running ALONG that arrow, the plain parallel red leader through the outlier (NO arrowhead), and the orange outlier point
+
+== matched-scale audit (re-opened from disk) ==
+  eq_left          243x89 vs 243x89  identical=True   x 2.0769 y 2.0698 (target 2.0844/2.0833)  OK
+  eq_right         244x89 vs 244x89  identical=True   x 2.0855 y 2.0698 (target 2.0844/2.0833)  OK
+  cap_left         682x98 vs 682x98  identical=True   x 2.0856 y 2.0851 (target 2.0844/2.0833)  OK
+  cap_right        651x98 vs 651x98  identical=True   x 2.0865 y 2.0851 (target 2.0844/2.0833)  OK
+  chart_left       805x787 vs 805x787  identical=True   x 2.0855 y 2.0820 (target 2.0844/2.0833)  OK
+  chart_right      834x787 vs 834x787  identical=True   x 2.0850 y 2.0820 (target 2.0844/2.0833)  OK
+  annotation_left  396x428 vs 396x428  identical=True   x 2.0842 y 2.0878 (target 2.0844/2.0833)  OK
+  annotation_right 438x553 vs 438x553  identical=True   x 2.0857 y 2.0868 (target 2.0844/2.0833)  OK
+
+crops cut: 8   scale mismatches: 0
+VERDICT: PASS

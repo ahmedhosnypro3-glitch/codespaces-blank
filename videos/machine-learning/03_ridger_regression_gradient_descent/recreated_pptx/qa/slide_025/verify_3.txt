@@ -1,0 +1,20 @@
+# slide 025 judge payload byte-for-byte verification (attempt K=3)
+
+Source: shared_patterns/judge_protocol_03.md (frozen Template A / Template B).
+Placeholders NNN/K/NAME appear ONLY in the command-line arguments
+(--view / image paths / --transcript), never inside either `-p` payload,
+so both payloads are banked and dispatched VERBATIM.
+
+Template A len 4115 chars; Template B len 1914 chars.
+judge_prompt_3.txt == Template A payload  : True
+crop_prompt_3_<name>.txt == Template B    : True
+FINAL VERDICT line present in both        : True
+
+Region descriptions used in --capture for each crop pair:
+  title      the red title text 'Types of Loss function shapes'
+  lbl_upper  the top-gutter blue caption boxes beside the TL and TR figure boxes
+  lbl_lower  the bottom-gutter blue caption boxes beside the BL and BR figure boxes
+  tl         the top-left white figure: thin red border, concave dome jet surface, two red horizontal reference lines
+  tr         the top-right white figure: thin red border, convex bowl jet surface, axis ticks with x10^4 scale, two red reference lines
+  bl         the bottom-left white figure: thin red border, non-convex multi-extremum surface, red reference line, four black Global/Local annotations
+  br         the bottom-right white figure: thin red border, valley jet surface, black gradient-descent path with arrowheads

@@ -1,0 +1,57 @@
+# att34 topblock + table crop adjudication (PIL-first) — 2026-10-26, carrier kimi-s5-fresh-1026b
+
+Inputs: crop_34_topblock_judge.txt (FAIL: 1 MAJOR + 4 MINORs),
+crop_34_graph_judge.txt (PASS, 4 low-conf MINORs = att33 #3/#4 class, accepted),
+crop_34_table_judge.txt (PASS, 1 low-conf MINOR). Full-slide A leg =
+judge_attempt_34.txt (both MAJORs already PIL-refuted in att34_adjudication.txt).
+
+## topblock MAJOR #1 — "title segments 2/3 wrong color, original all dark red" — REFUTED
+PIL ink census, title row y64..87 (unique_slides/slide_031.jpg):
+- seg2 "Learning Rate =0.3," x259..438: mean RGB (105,169,131) — ALL 1423 ink px
+  green-dominant. seg3 "Start at X=3" x446..557: mean (104,97,194) — ALL 915 px
+  blue-dominant. The original IS three-colored (red/green/blue), exactly as the
+  build draws it (C00000/008000/0000FF, build lines 97-111). The judge's claim is
+  backwards (upscale blur misread). Render census matches: (28,139,28)/(40,40,251).
+
+## topblock MINOR #2 — "thin blue/cyan rectangle outlining the initial-X row" — CONFIRMED, ACCEPTED WITH RECORD
+PIL: the original DOES carry a thin cyan rectangle around the initial-X VALUE cell
+(top line y202-203 x163..217, right line x216-217 y204..224, partial bottom
+y225-228; 175 cyan px, line core (135,184,189)); render_34 lacks it (10 navy px
+only). ACCEPTED, not fixed, because: (a) judge severity MINOR ("optional polish");
+(b) fleet precedent — certified slide 032's original carries the identical element
+(205 cyan px, same region) and 032's certified deliverable omits it too (att25
+PASS); fixing 031 alone would desync the certified sibling pair; (c) smallest-
+correct-change + attempt-economy (a fix forces re-running the effectively-clean
+att34 A leg). Banked here for any future polish pass.
+
+## topblock MINOR #6 — "Bouncing badge: pinker fill, italic serif" — REFUTED
+PIL: badge fill orig (241,203,242) vs render (255,215,255) — hue-identical
+lavender-pink (F4C7FE family; delta = video-JPEG brightness lift, same family as
+the refuted att34 band MAJOR). Text slant: orig top-half centroid 31.5 vs bottom
+33.7 = -2.2px (NOT italic; italic would be top RIGHT of bottom); render +0.4px
+upright. Consistent with the earlier refutation of the "black italic" reading
+(build line 50-51: ink census purple (128,32,128)).
+
+## topblock MINOR #7 — "(2, 10)" label nudged left at crop edge — REFUTED
+PIL ink bbox in slide space: orig x620..657 y128..149; render x620.6..657.6
+y128..149.1 — identical within 0.6px. The "clipped vs not" difference is purely
+the crop boundary at x648 cutting ink in both images; upscale softness did the rest.
+
+## topblock MINOR #8 — "red outlined arrow larger/thicker" — REFUTED
+Matched-scale ink area: orig 259 red px in a 45x39 frame-px window ≈ 1124 at
+render scale; render window (same slide-space region) 1139 red px — 1.3% delta.
+Bbox orig x151..173 y314..350 vs render x151.6..173.2 y319..350.8 (top 5px is the
+asset's embedded margin, known). Same size, same weight; "heavier" = crisp render
+vs JPEG-softened original.
+
+## table MINOR #1 — "band tint mapping reversed (x band vs f(x) band)" — REFUTED
+PIL medians: orig band1 (215,225,119) / render (208,217,124) — matched olive;
+orig band2 (213,178,245) / render (191,157,218) — matched violet hue with the
+known uniform video-JPEG brightness lift (the exact finding PIL-refuted in
+att34_adjudication.txt). No reversed mapping exists in the data.
+
+## Disposition
+- A leg att34: effectively clean (2 MAJORs refuted, banked att34_adjudication.txt).
+- topblock: MAJOR refuted; MINORs refuted (#6,#7,#8) or confirmed-and-accepted (#2).
+- graph: PASS. table: PASS (MINOR refuted).
+All three crop legs + A leg clean or PIL-adjudicated → certify 031 on att34.

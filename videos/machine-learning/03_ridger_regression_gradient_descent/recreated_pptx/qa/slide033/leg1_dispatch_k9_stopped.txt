@@ -1,0 +1,6 @@
+2026-10-24 17:10 — lane w033-fresh-20261024 stopped the inherited driver (pid 667628)
+after 7 probes in 113 min (3 HangErrors at 1230s + 4 fast upstream 504s, zero verdicts),
+per the orchestrator max-2-probes/hour discipline. try#8 had already fired at 17:10:54
+(real_clients=2); it was left to complete — it carries the byte-verified payload
+(md5 9387f5fb...) and the mandated wall, and the gate is nearly empty. No NEW call is
+fired until try#8 resolves; this lane's own probes start after, spaced per the law.

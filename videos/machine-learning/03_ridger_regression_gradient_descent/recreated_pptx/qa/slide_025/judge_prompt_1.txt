@@ -1,0 +1,32 @@
+Template A — full-slide comparison judge (slide 025, attempt K=1)
+
+NOTE ON PATHS: judge_protocol_03.md's frozen templates use the historical
+/home/ahmed/Projects/ai_llm_slides prefix. This workspace lives at
+/workspaces/codespaces-blank/ai_llm_slides, so the SAME relative paths were
+used from that cwd (byte-identical payload otherwise, only NNN/K substituted):
+
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide025/render_1.png
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_025.jpg
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide025/judge_attempt_1.txt
+
+Invocation (cwd=/workspaces/codespaces-blank/ai_llm_slides):
+
+export TMPDIR=/workspaces/codespaces-blank/ai_llm_slides/scratch/tmp
+timeout 1700 scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  <render_1.png> <unique_slides/slide_025.jpg> \
+  --view "Slide 025 recreation — fidelity check vs original lecture frame" \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript <judge_attempt_1.txt> \
+  -p "<payload byte-for-byte from Template A of shared_patterns/judge_protocol_03.md>"
+
+NOTE: a Template A probe was dispatched first twice and both runs were killed by
+the 16-slot fleet flock before the client reached the model (the gateway was
+verified healthy independently: a direct ungated analyze_image.py analysis call
+returned a coherent body in 72.9s). With the window proven open the comparison
+was dispatched without re-probing (the probe's only job is to open it).
+
+Status: comparison DISPATCHED 2026-10-23 23:0x; verdict pending in
+judge_attempt_1.txt.

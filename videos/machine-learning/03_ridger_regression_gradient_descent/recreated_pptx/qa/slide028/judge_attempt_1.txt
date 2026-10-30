@@ -1,0 +1,39 @@
+**1) Verbatim text**
+
+IMG1 (recreation render):
+- âEffect of small and large Learning Rateâ
+- â28â
+- âSmall Learning Rateâ
+- âLarge Learning Rateâ
+- âLOSSâ (rotated/vertical, red) â appears at the yâaxis of both panels
+- âValue of weightâ â xâaxis label, both panels
+
+IMG2 (original lecture frame):
+- âEffect of small and large Learning Rateâ
+- â28â
+- âSmall Learning Rateâ
+- âLarge Learning Rateâ
+- âLossâ (rotated/vertical, dark) â yâaxis of both panels
+- âValue of weightâ â xâaxis label, both panels
+
+Nothing else is legible; no other text is readable in either frame.
+
+**2) Similarities**
+- Same didactic purpose: show how learningârate size changes the lossâversusâweight trajectory.
+- Same threeâregion layout: centered red title at top, â28â badge in a yellow circle at topâright, and two equal sideâbyâside chart panels beneath.
+- Each panel has the same anatomy: a panel heading, a rotated yâaxis label (âLossâ), a red yâaxis arrow, a Vâshaped loss curve with discrete marker dots, and the xâaxis caption âValue of weight.â
+- Left panel is headed âSmall Learning Rate,â right panel âLarge Learning Rateâ; the conceptual point (small LR descends to the minimum; large LR misbehaves near the minimum) is intended in both.
+- Title capitalization/wording and the â28â badge match.
+
+**3) Differences**
+- Yâaxis label: IMG1 renders it as red, allâcaps âLOSSâ; IMG2 uses neutral dark âLoss.â Different color and case.
+- Axis styling: IMG1 uses blue axis lines with blue filledâtriangle arrowheads (including extra triangles at the axis ends); IMG2 uses red/maroon arrowed axes consistent with the red title accent.
+- Frame nesting: IMG1 adds an outer red rectangle around the entire slide plus an inner blue chart box (doubleâboxed look). IMG2 has a single blue chart frame on a light background and no red outer border.
+- Curve/marker styling: IMG1 uses thin blue lines with small blue dots; IMG2 uses thicker teal lines with light/white circular markers.
+- âLarge Learning Rateâ content (most important): IMG2 correctly shows the steps crossing back and forth across the valley (down â up over to the right â back down â up), i.e. oscillation/divergence. IMG1 instead descends, then draws an implausible flat horizontal segment along the bottom before rising â it loses the crossâvalley bounce and reads more like convergence than divergence.
+- Extra annotation only in IMG1: a small black filled triangle/pointer with a leader line sits near the minimum of the âSmall Learning Rateâ panel; it is unexplained and resembles a stray callout.
+- Capture artifact only in IMG2: a mouse cursor is visible near the bottom center (over the left panelâs xâaxis area).
+- Resolution/defects: IMG1 is the cleaner 150 dpi render (crisper type, no cursor); IMG2 is a lowerâresolution video frame (slightly softer, cursor present).
+
+**4) Verdict**
+IMG2 (the original lecture frame) is the better image on content correctness and design intent, despite being the lowerâresolution capture. Concrete evidence: IMG2âs âLarge Learning Rateâ panel shows the correct textbook behavior â optimizer points stepping over the minimum and back (down, up across to the upperâright, down again, up) â which is the entire point of the slide, whereas IMG1âs recreation replaces that with an inaccurate flatâbottomed plateau that no longer communicates divergence. IMG2 also keeps the axis label as neutral âLossâ and uses red arrowed axes that match the title accent, while IMG1 introduces a red allâcaps âLOSS,â blue triangle axis glyphs, an extra red outer frame around the blue chart frame, and an unexplained black pointer at the left minimum. IMG1âs only real advantages are raster sharpness (150 dpi) and the absence of the mouse cursor; those do not offset the altered âLarge Learning Rateâ geometry and the added styling/annotation inconsistencies.

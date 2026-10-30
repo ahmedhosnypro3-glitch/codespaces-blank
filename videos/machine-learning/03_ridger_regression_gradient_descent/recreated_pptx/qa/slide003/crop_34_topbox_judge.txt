@@ -1,0 +1,37 @@
+# Slide 003 â Top Matrix-Notation Box, Zoomed Crop-Pair Review (attempt 34)
+
+## Ground-rule dispositions (settled first, not re-raised below)
+- Crop-pair framing, house template chrome, the blue border on both images, and the dark bottom stroke visible in IMG1: **intentional chrome â not counted.**
+- Typed-vs-handwritten ink weight differences: **MINOR at most â not counted as a defect.**
+- JPEG halos/soft edges in IMG2 (e.g., fuzzy paren edges): **capture artifact â not counted.**
+- 2D stacked layout of subscripts (xââ etc.) in both images: consistent, no format-upgrade issue here.
+
+## Content audit (all correct)
+Checked cell-by-cell, both images:
+- Column headers: **Xâ, Xâ, â¦, Xâ** â all present, correct glyphs, correct italic/bold styling, subscripts correctly offset. â
+- Column 1 (yellow): **xââ, xââ, â¦, xâd** â every subscript digit/letter correct, ellipsis row present. â
+- Column 2 (cyan): **xââ, xââ, â¦, xâd** â all correct. â
+- Column 3 (dots column): three ellipsis rows â all present. â
+- Column 4 (magenta): **xâ1, xâ2, â¦, xâd** â all correct. â
+- Red y-labels: **yâ, yâ, yâ** â all present in red at column bottoms, subscripts correct. â
+- Vertical span/centering: entries vertically centered inside each band; delimiters span all enclosed lines (top of first entry to bottom of last) **without touching any text** in both images. â
+
+## Discrepancies
+
+1. **MAJOR â Delimiter glyph shape mismatch in the three colored bands (high confidence).**
+   - IMG1 (crop-relative): the yellow band (~x 60â135), cyan band (~x 215â315), and magenta band (~x 515â605) each use **straight vertical bars "|"** as left/right delimiters (left bar ~x 65, right bar ~x 130 in the yellow band, running ~y 105â315).
+   - IMG2: the same three bands use **curved parentheses "(" ")"** â clearly bowed, with outward hooks at top and bottom (yellow band parens at ~x 60 and ~x 135, ~y 85â320).
+   - This is not merely a rendering-weight difference: straight bars are a different delimiter character (determinant/absolute-value style) vs. the original's parentheses. Compounding it, the recreation **is internally inconsistent**: the center dots column in IMG1 (~x 385â425) *does* use curved parens, correctly matching the original. So three of four delimiter pairs in the same figure deviate from the original and from the figure's own fourth column.
+   - Per the mandate on delimiter geometry, this is a MAJOR defect: the delimiters do span their lines and don't touch text, but their glyph identity is wrong for 3 of 4 columns.
+
+2. **MINOR â y-label subscript overflow below band edge (medium confidence).**
+   - IMG1: the subscripts of yâ (~x 105, y â 385) and yâ (~x 270, y â 385) descend to/below the bottom edge of the colored bands; in IMG2 the y-labels sit fully inside the band bottoms. Cosmetic; no content impact.
+
+3. **MINOR â yâ color shade (low confidence).**
+   - IMG2's yâ (~x 565, y â 375) reads slightly darker/maroon vs. the brighter red of yâ/yâ; IMG1 renders all three in uniform red. Likely a video-capture color shift, so flagged only tentatively.
+
+No wrong digits, no missing rows, no garbled glyphs, no swapped values, no truncation anywhere in the region.
+
+## FINAL VERDICT: FAIL
+
+The mathematical content is fully faithful (every entry, subscript, header, and y-label verified correct), but the delimiter geometry defect is exactly the class of zoom-visible error this review is mandated to catch: three of the four column delimiters are rendered as straight bars instead of the original's curved parentheses â and inconsistently with the recreation's own (correct) center column. Fix the three paren pairs and this region passes.

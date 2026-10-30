@@ -1,0 +1,19 @@
+## Comparison â Slide 042, top-centre "Initial W" matrix region (crop-relative coords, ~250Ã125 px each)
+
+### Delimiter geometry
+1. **MAJOR â Wrong delimiter type (both sides of the matrix).** In IMG1 (recreation), the matrix is enclosed in **square brackets** `[ 4 / â2 / â2 ]`. In IMG2 (original), the enclosure is a pair of **tall parentheses** `( 4 / â2 / â2 )` â matching the region spec ("tall black parens spanning three digit rows"). Square brackets vs parentheses is a wrong-symbol defect, not a styling nuance; the glyph shapes are clearly distinguishable at this zoom (flat terminal strokes with serifs in IMG1 vs curved hooks in IMG2). Confidence: **high** (unambiguous at this scale).
+
+2. **MAJOR â Right delimiter collides with content.** In IMG1, the right square bracket passes **through/touching the â2 digits** at rows 2 and 3 (crop x â 110â120, y â 55â100); the bracket's vertical stroke visually overlaps the "2" glyphs rather than standing clear of them. In IMG2, the right paren runs alongside the â2 entries with only minimal clearance but does not strike through them. Delimiters must span all enclosed lines **without touching the text**. Confidence: **medium-high** (overlap is visible but the crop compression makes the exact clearance slightly fuzzy).
+
+### Text / symbols
+3. **MINOR (inherent medium) â Typed vs handwritten ink.** IMG2's "Step Î·" and digits are handwritten-style; IMG1's are typeset. Per ground rule (c), this is at most MINOR and not charged as a defect. Confidence: high.
+
+4. **Content check â PASS.** The numeric content matches cell-for-cell: top row **4**, middle row **â2**, bottom row **â2**, negative signs present and correctly placed in both images. The red italic "Step Î·" label is present in both, correctly positioned to the right of the matrix, with correct red italic styling. No missing, garbled, or swapped characters. The trailing "=" and "2" of "Î· = 2" fall at/over the right crop edge in both images equally, so no discrepancy there.
+
+### Color
+5. **MINOR â Red hue slightly shifted.** IMG1's "Step Î·" red reads a touch brighter/more saturated than IMG2's slightly warmer red-orange; consistent with JPEG/video-capture artifacts in IMG2 (ground rule e). Confidence: low-medium. Not charged beyond MINOR.
+
+### Summary
+The equation content, row values, sign placement, label text, and color are all faithful. The two real defects are delimiter-related: **square brackets instead of the mandated tall parentheses** (wrong glyph â MAJOR) and the **right delimiter striking through the â2 entries** (MAJOR). Both are exactly the class of "delimiter geometry" defect flagged as MAJOR-to-BLOCKER at this zoom, and both would be visible as wrong characters/overlap even at moderate scale.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region."

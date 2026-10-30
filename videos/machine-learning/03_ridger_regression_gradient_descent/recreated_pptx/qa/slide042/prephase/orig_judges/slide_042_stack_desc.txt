@@ -1,0 +1,151 @@
+# 1. LAYOUT MAP
+
+Five full-width white rectangular boxes stacked vertically on a light-gray background, each containing one equation row. A thin red vertical line runs along the far right edge. A mouse cursor sits between boxes 2 and 3.
+
+```
++------------------------------------------------------------------------+ |
+| ROW1-BOX: d(x2)= |1 2 1|(6,0,0)=6   â Keep same Weight   W=(6,0,0)     | |
++------------------------------------------------------------------------+ |
+| ROW2-BOX: d(x3)= |1 1 2|(6,0,0)=6   â Keep same Weight   W=(6,0,0)     | |
++------------------------------------------------------------------------+ |
+         (mouse cursor)
++------------------------------------------------------------------------+ |
+| ROW3-BOX: d(x4)= |1 5 4|(6,0,0)=6  â Update Weight                     | |
+|           W=(6,0,0) - 2 *(1,5,4) = (4,-10,-8)            â (red)       | |
++------------------------------------------------------------------------+ |
+| ROW4-BOX: d(x5)= |1 6 5|(4,-10,-8)=-96 â Keep same Weight W=(4,-10,-8) | |
++------------------------------------------------------------------------+ |
+| ROW5-BOX: d(x5?)[?]= |1 6 6|(4,-10,-8)=-104 â Keep same Weight         | |
+|                                              W=(4,-10,-8)              | |
++------------------------------------------------------------------------+ |
+                                                                              <- RED EDGE LINE
+```
+
+Bounding boxes (image px â slide-space px):
+
+| Region | Image px (x1,y1)-(x2,y2) | Slide px (x1,y1)-(x2,y2) |
+|---|---|---|
+| ROW1-BOX | (35,5)-(1770,172) | (275.7,207.7)-(854,263.3) |
+| ROW2-BOX | (35,196)-(1770,368) | (275.7,271.3)-(854,328.7) |
+| ROW3-BOX | (35,386)-(1770,563) | (275.7,334.7)-(854,393.7) |
+| ROW4-BOX | (35,590)-(1770,762) | (275.7,402.7)-(854,460.0) |
+| ROW5-BOX | (35,790)-(1770,965) | (275.7,469.3)-(854,527.7) |
+| MOUSE CURSOR | (920,350)-(960,410) | (570.7,322.7)-(584,342.7) |
+| RED EDGE LINE | (1918,0)-(1932,996) | (903.3,206)-(908,538) |
+| Gray background band between boxes | (0,172)-(1932,196) etc. | â |
+
+# 2. VERBATIM TEXT
+
+**ROW1-BOX** (text line band img yâ75â110, slide yâ231â243; digits of first bracket img yâ38â72):
+- `d ( xâ ) =` â [black, italic d and x] â img x 55â185, slide x 282.3â325.7
+- `|` (vertical bar) â [red] â img xâ190, slide xâ327.3
+- `1` `2` `1` â [red] â img x 205â340, y 40â70; slide x 332.3â377.3, y 219.3â229.3
+- `|` (vertical bar) â [red] â img xâ345, slide xâ379
+- `(` tall paren â [green] â img xâ355, slide xâ382.3
+- `6` `0` `0` (stacked 3 rows, img yâ38/80/140) â [green] â img xâ370â390, slide xâ387.3â394
+- `)` tall paren â [green] â img xâ400, slide xâ397.3
+- `= 6` â [black] â img x 405â462, slide x 399â418
+- `â` â [black] â img x 672â702, y 80â108; slide x 488â498
+- `Keep same Weight` â [black] â img x 730â1015, y 78â108; slide x 507.3â602.3
+- `W =` (W with underline bar beneath) â [black] â img x 1270â1335, y 75â110; slide x 687.3â709
+- `(` â [black] â img xâ1350; slide xâ714
+- `6` `0` `0` stacked â [black] â img xâ1365â1385, y 35â155; slide xâ719â725.7
+- `)` â [black] â img xâ1395; slide xâ729
+
+**ROW2-BOX** (band img yâ268â300):
+- `d ( xâ ) =` â [black] â img x 55â185; slide x 282.3â325.7
+- `|` â [red] â img xâ192; slide xâ328
+- `1` `1` `2` â [red] â img x 205â335, y 232â262; slide x 332.3â375.7, y 283.3â293.3
+- `|` â [red] â img xâ340; slide xâ377.3
+- `(` â [green] â img xâ355; slide xâ382.3
+- `6` `0` `0` stacked â [green] â img y 228â345; slide y 282â321
+- `)` â [green] â img xâ400; slide xâ397.3
+- `= 6` â [black] â img x 405â462; slide x 399â418
+- `â` â [black] â img x 672â702; slide x 488â498
+- `Keep same Weight` â [black] â img x 730â1015; slide x 507.3â602.3
+- `W =` â [black] â img x 1270â1335; slide x 687.3â709
+- `(` `6` `0` `0` `)` â [black] â img x 1350â1395, y 228â348; slide x 714â729, y 282â322
+
+**ROW3-BOX** (band img yâ455â490; bracket digits img yâ425â455; vectors img yâ410â560):
+- `d ( xâ ) =` â [black] â img x 55â190; slide x 282.3â327.3
+- `|` â [blue] â img xâ200; slide xâ330.7
+- `1` `5` `4` â [blue] â img x 210â370, y 425â455; slide x 334â387.3, y 347.7â357.7
+- `|` â [blue] â img xâ378; slide xâ390
+- `(` â [green] â img xâ385; slide xâ392.3
+- `6` `0` `0` stacked â [green] â img y 418â545; slide y 345.3â387.7
+- `)` â [green] â img xâ425; slide xâ405.7
+- `= 6` â [black] â img x 430â480; slide x 407.3â424
+- `â` â [red] â img x 648â682, y 462â492; slide x 480â491.3
+- `Update Weight` â [black] â img x 710â935, y 462â492; slide x 500.7â575.7
+- `W =` â [black] â img x 1035â1100; slide x 609â630.7
+- `(` `6` `0` `0` `)` â [black] â img x 1110â1160, y 408â558; slide x 634â650.7, y 342â392
+- `-` `2` `*` â [blue] â img x 1175â1255, y 465â495; slide x 655.7â682.3
+- `(` `1` `5` `4` `)` â [black] â img x 1268â1315, y 408â558; slide x 686.7â702.3, y 342â392
+- `=` â [black] â img x 1332â1352; slide x 708â714.7
+- `(` â [green] â img xâ1360; slide xâ717.3
+- `4` `â` `1` `0` `â` `8` stacked (3 rows: `4`, `â10`, `â8`) â [green] â img x 1385â1450, y 415â560; slide x 725.7â747.3, y 344.3â392.7
+- `)` â [green] â img xâ1458; slide xâ750.7
+- `â` (double left arrow) â [red] â img x 1522â1580, y 458â495; slide x 771.3â790.7
+
+**ROW4-BOX** (band img yâ655â695; bracket digits img yâ620â650; vectors img yâ605â755):
+- `d ( x` â [black] â img x 55â190; slide x 282.3â327.3
+- `|` â [blue] â img xâ195; slide xâ329
+- `1` `6` `5` â [blue] â img x 205â365, y 618â650; slide x 332.3â385.7, y 412â422.7
+- `|` â [blue] â img xâ372; slide xâ388
+- `(` â [green] â img xâ382; slide xâ391.3
+- `4` `â10` `â8` stacked â [green] â img y 612â748; slide y 410â455.3
+- `)` â [green] â img xâ445; slide xâ412.3
+- `= â96` â [black] â img x 455â562, y 658â692; slide x 415.7â451.3
+- `â` â [black] â img x 775â808; slide x 522.3â533.3
+- `Keep same Weight` â [black] â img x 828â1118; slide x 540â636.7
+- `W =` â [black] â img x 1368â1432; slide x 720â741.3
+- `(` `4` `â10` `â8` `)` â [black] â img x 1445â1542, y 602â755; slide x 745.7â778, y 406.7â457.7
+
+**ROW5-BOX** (band img yâ855â892; vectors img yâ802â952):
+- `d ( x?] =` â [black] â img x 55â190; slide x 282.3â327.3 (subscript ambiguous, see Â§5)
+- `|` â [blue] â img xâ195; slide xâ329
+- `1` `6` `6` â [blue] â img x 205â365, y 818â850; slide x 332.3â385.7, y 478.7â489.3
+- `|` â [blue] â img xâ372; slide xâ388
+- `(` â [green] â img xâ382; slide xâ391.3
+- `4` `â10` `â8` stacked â [green] â img y 808â945; slide y 475.7â521
+- `)` â [green] â img xâ445; slide xâ412.3
+- `= â104` â [black] â img x 455â582, y 855â890; slide x 415.7â458
+- `â` â [black] â img x 790â823; slide x 527.3â538.3
+- `Keep same Weight` â [black] â img x 845â1135; slide x 545.7â642.3
+- `W =` â [black] â img x 1385â1448; slide x 725.7â746.7
+- `(` `4` `â10` `â8` `)` â [black] â img x 1460â1558, y 800â955; slide x 750.7â783.3, y 472.7â524.3
+
+# 3. COLORS
+
+| Element | Color |
+|---|---|
+| Box fill | white #FFFFFF |
+| Box border (thin, 1â2 px) | light gray-blue â #AEB8C2 |
+| Page background between boxes | light gray â #E9E9E9 |
+| `d ( x ) =`, `= 6`, `= â96`, `= â104`, `â Keep same Weight`, `Update Weight`, `W =` and black vectors | black â #000000 |
+| Row 1 & 2 absolute-value digits `1 2 1`, `1 1 2` and their bars | red â #C00000 |
+| Rows 3â5 absolute-value digits `1 5 4`, `1 6 5`, `1 6 6` and bars | blue â #0000CC |
+| `- 2 *` in row 3 | blue â #0000CC |
+| All green column vectors `(6,0,0)`, `(4,â10,â8)` incl. parentheses | green â #00A050 |
+| Red `â` (row 3) and red `â` (row 3 right) | red â #CC0000 |
+| Far-right vertical edge line | red â #C00000 |
+| Mouse cursor | black outline / white fill |
+
+# 4. MEASURED GEOMETRY
+
+- **Column centres (image px):** LHS equation cluster â x 55â465 (centre â 260); arrow+verdict text â x 648â1135 (centre â 880â890); `W =` + vector â x 1035â1580 (centre â 1300 for rows 1â2, â 1100â1500 for row 3, â 1400â1560 for rows 4â5).
+- **Row text bands (image px, top/bottom of lowercase+x-height line):** Row1 â 78â110; Row2 â 268â300; Row3 â 460â492; Row4 â 658â692; Row5 â 855â890. Slide-space: 232â242.7; 295.3â306; 359.3â370; 425.3â436.7; 491â502.7.
+- **Glyph heights:** digits â 28â32 img px (â 9.7â10.7 slide px); italic `d`/`x` â 35 img px; stacked vector columns span â 115â150 img px (â 38â50 slide px) covering 3 rows.
+- **Parenthesis / bar spans:** tall `(` `)` pairs span â 120â150 img px vertically (e.g. row 1: img y 35â155; row 3: y 408â558; row 5: y 800â955). Absolute-value bars `|â¦|` are short, matching digit height â 30â35 img px (only as tall as the digit row, not the vector).
+- **Subscripts** (`â â `) sit â 18â22 img px below baseline, glyph height â 14 img px.
+- **Row 3 update equation:** black vector at img x 1110â1160; blue `- 2 *` at x 1175â1255; black `(1,5,4)` at x 1268â1315; `=` at x 1332â1352; green result vector at x 1360â1458; red `â` at x 1522â1580.
+- **Vector column pitch:** within each stacked vector, row spacing â 45â48 img px (â 15â16 slide px).
+- **Inter-box gray gaps:** â 24 img px between rows 1â2, â 18 px between 2â3, â 27 px between 3â4, â 28 px between 4â5.
+
+# 5. AMBIGUITIES
+
+1. **[?] Row-5 subscript, img (155, 860â895) / slide (315.7, 492.7â504.3):** the subscript reads as `5` or possibly `6` â glyph is small and slightly degraded. Candidates: `d (` (same as row 4, which would be unusual but is what it resembles) vs `d ( xâ )` (expected sequence xâ, xâ, xâ, xâ). Flagged rather than guessed.
+2. **[?] Row-2 subscript, img (150, 272â300) / slide (314, 296.7â306):** reads as `3`; could be misread as `5` at low resolution, but `3` is the more consistent reading (sequence xâ, xâ, xâ).
+3. **[?] Mouse cursor, img (920â960, 350â410) / slide (570.7â584, 322.7â342.7):** a small cursor/pointer icon overlapping the gray gap between rows 2 and 3; its exact arrowhead orientation is partially ambiguous, and a tiny dot artifact appears just above it at img â (935, 358) â cursor graphic, not slide ink.
+4. **[?] Minus signs in green vectors** (`â10`, `â8`), e.g. img (1385â1420, 480â510) / slide (725.7â737.3, 366â376): rendered as short dashes; read as minus signs rather than hyphens based on context, but stroke length â hyphen width. Candidates: `â10` vs `-10`; `â8` vs `-8`.
+5. **[?] Row-3 `*` glyph, img (1240â1258, 465â495) / slide (677.3â683.3, 361â371):** reads as multiplication asterisk `*`; could alternatively be a small `Ã`, but the raised five-pointed/star form matches `*`.

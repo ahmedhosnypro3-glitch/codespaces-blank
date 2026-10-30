@@ -1,0 +1,40 @@
+# Judge transcript — slide 009, attempt 5 (zoomed crop-pair: cap_left)
+- date: 2026-10-24 07:00
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide009/crop_5_cap_left_render.png
+- IMG2 (original crop): qa/slide009/crop_5_cap_left_orig.png
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- region: frame px 87..441 x 476..534 (LEFT caption block + its open-top box); both crops
+  738x120 px — identical effective scale (cut_crops_5.txt). Render bytes: render_5.png
+  md5=84c8bf3179992d74717fa070f5f8c607.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair, same region/effective scale. (b) House chrome intentional.
+(c) Typed-vs-handwritten ink at most MINOR. (d) Equation-format clause N/A here.
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison
+- Line 1: 'Overfit' red bold + ' (try to minimize the residuals ONLY)' near-black regular —
+  spelling, punctuation, capitalization of ONLY, parentheses, and the red/black split match.
+- Line 2: 'Fails to detect the Pattern' — spelling, capital P, single centred line; matches.
+- Line separation/pitch: the render's line-1 ink y487.5..503 and line-2 y507.4..518.2 vs the
+  original's y488..504 / y507..520 (selfcheck_attempt_5.txt §4) — same band and gap.
+- Box geometry: cream fill, open top, left/right verticals, bottom rule at the same measured
+  coordinates (x95..434, y479..529); no top stroke in either.
+- Horizontal centering: both lines centred on the chart (centre 264 frame px); no collision with
+  the box strokes; no wrap.
+- Colors: red keyword matches (frame JPEG core darker, same family); near-black remainder in
+  both; cream fill FBFCEC vs frame median 251,252,236.
+
+## Discrepancies
+1. [MINOR] Ink weight/antialiasing — the render's typed serif is crisper and marginally heavier
+   than the frame's JPEG-blurred ink. Medium difference (ground rule (c)); glyph shapes,
+   advances and band positions match within 2px. MATCHING.
+2. [MINOR] Rose stroke tint of the box outline — frame cores (226,198,195)/(220,187,187), render
+   E2C6C3/DCBBBB at the same 2px width. Same hue family; JPEG halo accounts for the residual.
+   MATCHING.
+
+## Visual-quality defects
+- None: no clipping/wrap, no stroke-over-text, legible.
+
+FINAL VERDICT: PASS

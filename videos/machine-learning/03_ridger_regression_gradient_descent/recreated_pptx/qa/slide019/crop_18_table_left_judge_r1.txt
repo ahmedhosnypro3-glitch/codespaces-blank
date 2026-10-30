@@ -1,0 +1,33 @@
+# Discrepancy Report â Slide 019, middle band (test tables + W vectors), crop-pair at matched scale
+
+## Verified correct (cell-by-cell / glyph-by-glyph)
+
+- **Outlier Xs panel:** "Outlier X_s" blue with subscript; values 11 / 3 / 22 present in correct order; 22 sits on the yellow highlight in both. â
+- **Header 1:** "NO Regularizer with (as if Î»=0)" â all words, parens, and Î» present; red in both. â
+- **NO-Reg vector 1:** W = (0, 2, 0) â all three entries correct, tall parens span all three lines without touching glyphs. â
+- **NO-Reg table 1:** Test1 (red) / Test2 (blue) / Test3 (red) headers; xâ = 30/40/50, xâ = 15/20/25, y = 60/80/100 â every value and the red/blue/red color alternation match. â
+- **NO-Reg vector 2:** W = (2.7, 0.67, â¦) â visible entries match (third entry cropped in both). â
+- **NO-Reg table 2:** Test1/2/3, xâ = 30/40/50, partial xâ = 15/20/25 â match. â
+- **Ridge vector 1:** W = (0.1, 1.95, 0.03), âWâÂ² = 3.8 â all correct. â
+- **Ridge vector 2:** W = (1.2, 0.72, â¦) â match. â
+- âWâÂ²=4, block arrows, underlined red W labels, "=" placement â all match. â
+
+## Discrepancies
+
+1. **MAJOR â "Ridge Regularizer" header color wrong.** In IMG2 (original, top-right of crop, ~85â100% width, ~10â20% height) the header is **blue** (matching the Test2/blue accent). In IMG1 it is rendered in the template **red (C00000)**. A wrong text color on a visible header at this zoom. Confidence: 0.75 (dark red vs blue is clearly distinguishable even with JPEG softening).
+
+2. **MINOR â yellow highlight band extent.** In IMG2 the yellow band at the y-row level is one continuous swipe running from the table's y-row through into the Ridge panel, sitting **behind "âWâÂ²=3.8"** (~60â95% width, ~55â65% height). In IMG1 the yellow is confined to the table's y-row; "âWâÂ²=3.8" sits on white. Confidence: 0.7.
+
+3. **MINOR â âWâ glyph detail.** In IMG2 the W inside both âWâÂ² norms is **underlined** (consistent with the underlined W = labels); in IMG1 the norm W appears underlined for "=4" but the underline on the Ridge "âWâÂ²=3.8" is faint/absent. Low visual weight. Confidence: 0.5.
+
+4. **MINOR â Outlier delimiter shape.** IMG2 shows the 11/3/22 column enclosed by a large curved **parenthesis**; the left-edge glyph in IMG1 reads as a thicker, straighter bracket-like fragment (partially cropped in both). Possible delimiter shape mismatch at the crop edge. Confidence: 0.4 (crop truncation may explain it).
+
+5. **MINOR â header typeface.** IMG2 headers are bold italic serif (Times-like); IMG1 uses bold sans. Per ground rule (c)/(d) this is medium/format, not content. Confidence: 1.0, severity capped at MINOR.
+
+Not discrepancies (per ground rules): typed vs. handwritten ink weight, JPEG halos in IMG2, white/gray panel chrome, red border styling, the linear-to-2D equation formatting.
+
+## Summary
+
+All numeric content â every table cell, both vector sets, both norms â is exactly reproduced, and delimiter geometry is sound. The single substantive defect is the **Ridge Regularizer header rendered red instead of blue** (MAJOR), plus minor highlight-extent and glyph-detail nits.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â one MAJOR color defect on a visible header must be corrected (a one-line fix); everything else is PASS-grade.

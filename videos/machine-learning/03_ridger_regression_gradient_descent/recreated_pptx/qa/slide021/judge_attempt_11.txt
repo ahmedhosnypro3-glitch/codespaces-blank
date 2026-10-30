@@ -1,0 +1,27 @@
+## Elementâbyâelement fidelity check (IMG1 recreation vs IMG2 original)
+
+**Chrome (per ground rules â not scored):** gray house panel, C00000 left/right/bottom strokes (no top stroke â correct), yellow "21" badge. All intentional and not treated as discrepancies.
+
+### What matches well
+- **Title:** "Inverse Problem of Singular Matrix" â verbatim, red bold serif, centered above panel 1 (IMG1 sits ~4 px lower, immaterial).
+- **Panel 1:** red italic "X^T X" label at panel topâleft; 3Ã3 table with values 14/10/15, 10/40/46, 20/80/92 â exact; determinant chain "|X^T X| = 0 â Singular Matrix â No Inverse" with correct coloring (red matrix term, blue arrows, black "Singular Matrix", red italic "No Inverse"). The diagonal mouseâcursor stroke visible in IMG2 over the firstârow "10" cell is a capture artifact and is correctly omitted.
+- **Panel 2 header:** "(X^T X + Î»I)" plus green "Î» = 3" â present, same colors, same baseline, same xâposition (~232 px) as the original.
+- **Panel 2 table:** values 17/10/15, 10/43/46, 20/80/95 â exact; all three highlighted entries (17, 43, 95) marked yellow as in the original.
+- **Panel 2 equation:** "|X^T X| = 5685 â Non-Singular Matrix â Inverse Exists" â all text and value 5685 verbatim; colors correct.
+- **Panel 3:** "(X^T X + Î»I)â»Â¹" with red matrix term, blue Î»I, red superscript â1; blue â; 3Ã3 table 0.07/0.04/â0.03, â0.01/0.23/â0.11, â0.01/â0.2/0.11 â exact.
+- **Frame containment:** all tables, equations, arrows and labels sit fully inside their blue rectangles; no ink crosses a panel edge. No clipping, no missing elements, no delimiterâgeometry problems.
+
+### Discrepancies found
+1. **MAJOR (mediumâhigh confidence) â Gap/collision in panel 2 equation.** In IMG1 the "â" preceding "NonâSingular Matrix" is jammed against (and visually overlaps) the leading "N": the row renders as "5685 âNonâSingular Matrix". In IMG2 there is a clear gap (arrow â462 px, text starting â482 px). Cause: the recreation sets "5685" and the following labels at a slightly larger type size than the original, so the text run overruns the arrow's space and the arrowhead merges with the "N" stroke. This is a visible gap/alignment deviation and a collision/legibility defect (founder directive 2026â10â10 â MAJOR), even though the text itself is verbatim.
+2. **MINOR (high confidence) â Highlight shape mismatch.** The yellow emphasis on 17, 43 and 95 is a hardâedged rectangle filling the cell in IMG1, but a soft oval/ellipse in IMG2. Data values are correct; only the mark geometry differs.
+3. **MINOR (medium confidence) â Weight of "Inverse Exists".** In IMG1 it renders noticeably heavier (semiâbold italic) than the original's plain italic red serif.
+4. **MINOR (medium confidence) â Panelâ2 table left edge.** The table in IMG2 starts at xâ83 px, flushâish with the "(X^T X + Î»I)" label; in IMG1 it starts at xâ91 px, ~8 px right of the label, breaking the original's left alignment (panelâ1 and panelâ3 tables do align correctly).
+5. **MINOR (low confidence) â Vertical compression.** IMG1's three blue panels are packed ~8â10 px tighter vertically than IMG2's (panel gaps 26/25 px vs 28/20 px; panel 3 bottom sits very close to the frame edge), making the lower region feel slightly cramped relative to the original.
+
+### Visualâquality defects in the recreation
+- Text collision at the "â / NonâSingular Matrix" junction (item 1) â the only legibility problem.
+- No text overflow, no clipping, no wrapping errors, no missing glyphs, no misaligned table cells; all table data, equation regions and diagram elements are present and correct.
+
+---
+
+**FINAL VERDICT: FAIL** â the recreation is structurally complete and the data is fully faithful, but the panelâ2 arrow/label collision (plus the ellipseâvsârectangle highlight mismatch) prevents it from being a faithful, usable match at this fidelity level.

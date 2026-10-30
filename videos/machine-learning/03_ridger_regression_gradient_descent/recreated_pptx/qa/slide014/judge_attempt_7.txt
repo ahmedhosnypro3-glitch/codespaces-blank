@@ -1,0 +1,35 @@
+# Fidelity Check â Slide 014 (recreation attempt 7) vs original lecture frame
+
+## Element-by-element comparison
+
+**House chrome (per ground rules, not discrepancies):** Gray panel, dark-red strokes on left/right/bottom only (no top stroke â correct), yellow badge with purple ring and "14" â all present and correct. Title text, colors (blue "LOSS"/"MINIMIZES", dark-red remainder), and centering match the original. â
+
+**Discrepancies found:**
+
+1. **MAJOR â Text collision in right box (high confidence).** In the recreation, the blue "Predicted Labels" line directly overlaps the black "from Model Å¶ = W" line â "Labels" is printed on top of "from Model," making both partially illegible. In the original, "Predicted Labels" and "from Model Å¶ = XÌ² WÌ²" are on two cleanly separated lines with no overlap. This is a hard collision, not a spacing nit.
+
+2. **MAJOR â Missing element "X" in the model equation (medium-high confidence).** Original right box reads "from Model Å¶ = **XÌ² WÌ²**" (bold underlined X and W). The recreation shows "Å¶ =" then "WÌ²" on the next line; the matrix **X** is not visible anywhere in that expression. An omitted symbol from an equation is a missing element.
+
+3. **MAJOR â Line-wrap mismatch in left box (high confidence).** Original: "Original Labels" / "from Training Samples" â two lines. Recreation wraps to three lines: "Original Labels" / "from Training" / "Samples". The line breaks do not match the original (root cause: the oversized delimiters consume horizontal space and squeeze the text column).
+
+4. **MAJOR â Delimiter geometry/style mismatch in both vectors (medium confidence).** Original column vectors use thin, compact black parentheses hugging a 4-row stack. Recreation uses very large, very thick red parentheses that dominate the box, and the bottommost entry (yâ / Å·â) sits extremely low, nearly touching the bottom curve of the delimiter. Per rule 7(iii) the curvature/weight/shape style does not match the original; the near-contact of yâ with the closing stroke is borderline overlap. (Related MINOR: the recreation uses a vertical ellipsis "â®" for row 3 where the original uses a horizontal dotted "â¦".)
+
+5. **MINOR â Missing wide inter-phrase spacing in the first navy bar (high confidence).** Original has generous gaps: "Å¶=Y â£â£ and â£â£ ||W|| is minimum â£â£â£â£ This is calledâ¦". The recreation packs these tightly with single spaces. All words and colors are otherwise correct.
+
+6. **MINOR â Missing underlines in the "Define Loss" box (medium confidence).** Original underlines the bold **Å¶** and **Y** in "between Å¶ and Y"; the recreation shows them bold but not underlined.
+
+7. **MINOR â Spacing in the bottom objective-function box (medium-high confidence).** Recreation renders "â¦(YâÅ¶) + Î»W áµW]" with "Î»" jammed against "W" and a slightly uneven gap before "+" compared to the original's balanced "(YâÅ¶)  +  Î» Wáµ W". Content and professional 2D formatting are correct (format upgrade per rule e â not a discrepancy).
+
+**Correct elsewhere:** "Loss Term = ||YâÅ¶||Â² = (YâÅ¶)áµ(YâÅ¶)" matches verbatim with matching colors/border; "Regularization Term R = ||W||Â² = WáµW" matches; second navy bar text matches verbatim (spacing slightly tighter, MINOR-adjacent); all box fills (peach, yellow-green, light cyan) and border colors approximate the original; Nx1 subscripts present in both vectors; frame containment is respected â every box sits inside the gray panel, and the bottom cyan box clears the bottom red stroke.
+
+## Visual-quality defects in the recreation
+- Overlapping text in right box ("Labels" Ã "from Model") â illegible collision (covered in #1).
+- Three-line wrap of "from Training Samples" changes block height vs original (#3).
+- yâ/Å·â entries sit at the extreme bottom of the oversized delimiters, visually cramped (#4).
+
+## Summary
+- BLOCKER: none strictly (no fully absent equation region), but #2 (missing X) borders on BLOCKER.
+- MAJOR: #1 collision, #2 missing X, #3 wrap mismatch, #4 delimiter geometry.
+- MINOR: #5, #6, #7, and â® vs â¦.
+
+FINAL VERDICT: **FAIL** for "faithful, usable recreation" â the text collision in the "Predicted Labels" box and the missing **X** in "Å¶ = XÌ²WÌ²" alone make this slide unusable as a faithful recreation, independent of the wrap and delimiter-style mismatches.

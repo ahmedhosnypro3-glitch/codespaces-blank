@@ -1,0 +1,23 @@
+## Discrepancy List â Slide 048, top band (crop-relative coordinates)
+
+**1. BLOCKER â W vector garbled and misplaced (center-left of band, ~x 550â615, y 20â130).**
+In IMG2 the structure is: *Initial* **W** = ( 4 ; â2 ; â2 ) â a clean 3-row parenthesized column vector sitting to the RIGHT of the equals sign, followed by "REPEAT using Step Î· = 1". In IMG1 the vector is rendered as a **bar-delimited 3Ã2 table with extraneous "x" row labels** ("| x 4 / x â2 / x â2 |") and it appears to the LEFT of "Initial W =", i.e. before the equals sign. Three independent faults: (a) wrong delimiter geometry â vertical bars instead of parentheses enclosing the three lines; (b) garbled/spurious "x" glyphs in the left column that do not exist in the original; (c) reversed order â vector before "Initial W =" instead of after the "=" sign. Confidence: high. This alone fails the region.
+
+**2. MAJOR â Check-classes grid missing enclosing parentheses (right edge, ~x 1200â1310, y 60â140).**
+IMG2 shows three 2-element column vectors, each wrapped in parentheses: (0;0), (7;6), (3;2). IMG1 shows the same values (0/0, 7/6, 3/2 â digits themselves correct) but as bare numbers with no delimiters at all. Per the ground rules, a delimiter that fails to span its lines is major; here the delimiters are absent entirely. Confidence: high.
+
+**3. MINOR â "REPEAT" styling (center, ~x 770â940, y 30â55).**
+Original: bold italic **underlined** red "REPEAT". Recreation: bold red, italic, but no underline. Low impact, but it is a visible formatting difference in a prominent red callout. Confidence: high.
+
+**4. MINOR â Legend typography (bottom-left/center, ~x 90â960, y 140â165).**
+(a) Recreation uses "C1"/"C2" without subscripts; original has proper subscripts Câ/Câ. (b) Recreation inserts a comma after "positive," which the original lacks. (c) In the original the word "negative" appears in blue matching Câ; in the recreation it is black. (d) Original legend is italic; recreation is roman. Confidence: high.
+
+**5. MINOR â W styling (center, ~x 655, y 55).** Original shows **W** underlined; recreation's *W* is italic only. Confidence: medium-high.
+
+**6. MINOR / low confidence â Z header subscripts (right, ~x 1210â1300, y 55â75).** Original headers appear as italic Z with small subscripts (possibly all Zâ, or Zâ Zâ Zâ at this resolution); recreation uses bold roman "Z1 Z2 Z3". The values underneath are correct in both. Confidence: low â flagging only because subscripts are hard to resolve in the upscaled capture.
+
+**What checks out:** all six x-column values are cell-by-cell correct in both images (xâ:(1,1), xâ:(2,1), xâ:(1,2), xâ:(5,4), x,5), xâ:(6,6)); the C1/C1/C1/C2/C2/C2 color assignment (red Ã3, navy Ã3) matches; "Initial W =", "REPEAT using Step Î· = 1", "Check classes of", and "Zero is unacceptable" text is present and correct; Î· = 1 correct; green "Zero" correct.
+
+**Note per ground rules:** typed-vs-ink differences, the missing top stroke, JPEG softness in IMG2, and the linear vs 2D equation formatting are not counted. None of the items above fall under those exemptions â item 1 is glyph garbling plus reversed composition, not a format upgrade.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation of this region'.

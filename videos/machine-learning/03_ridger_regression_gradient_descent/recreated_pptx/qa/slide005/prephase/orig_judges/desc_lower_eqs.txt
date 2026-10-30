@@ -1,0 +1,163 @@
+# GROUND-TRUTH DESCRIPTION â slide005, lower cream box region (crop 1672 Ã 360 px = slide-space 836 Ã 180 at x=64..900, y=350..530; 1 crop px = 0.5 slide px)
+
+Conversion used throughout: **slide_x = crop_x/2 + 64, slide_y = crop_y/2 + 350.**
+
+---
+
+## 1. LAYOUT MAP
+
+| # | Region | Crop px (x,y â x,y) | Slide space |
+|---|--------|---------------------|-------------|
+| R1 | Cream background panel (fills nearly whole crop; top-left corner shows a sliver of the slide's grey/white margin and the panel's thin border) | (10,0)â(1672,358); panel edge visible at top edge yâ0â8 and left edge xâ10â14 | (69,350)â(900,529) |
+| R2 | **Row-1 equation** (derivative chain, unsimplified): âLoss/âW = 0 = Â½[(XW)^T(X) + (X)^T(XW) â 2(X)^T Y] | (65,40)â(1110,160) | (96.5,370)â(619,430) |
+| R2a | Fraction âLoss/âW (numerator "âLoss", bar, denominator "âWÌ²") | (65,40)â(197,150) | (96.5,370)â(162.5,425) |
+| R2b | "= 0 =" text cluster | (205,68)â(298,114) | (166.5,384)â(213,407) |
+| R2c | Stacked Â½ fraction | (320,42)â(352,150) | (224,371)â(240,425) |
+| R2d | Tall "[" bracket | (354,50)â(374,160) | (241,375)â(251,430) |
+| R2e | Term "(XÌ²WÌ²)^T" | (376,40)â(524,155) | (252,370)â(326,427.5) |
+| R2f | Term "(X)" | (525,52)â(602,152) | (326.5,376)â(365,426) |
+| R2g | "+" | (612,70)â(648,114) | (370,385)â(388,407) |
+| R2h | Term "(X)^T" | (652,40)â(756,152) | (390,370)â(442,426) |
+| R2i | Term "(XÌ²WÌ²)" | (744,52)â(866,152) | (436,376)â(497,426) |
+| R2j | "â 2" | (886,70)â(938,114) | (507,385)â(533,407) |
+| R2k | Term "(X)^T" | (938,40)â(1040,152) | (533,370)â(584,426) |
+| R2l | "YÌ²" with underline | (1044,60)â(1090,130) | (586,380)â(609,415) |
+| R2m | Tall "]" bracket | (1088,50)â(1108,160) | (608,375)â(618,430) |
+| R3 | **Blue "Remember" box** (rectangle, light-blue fill, thin blue border) | (1186,30)â(1584,150) | (657,365)â(856,425) |
+| R3a | Label "Remember" (red, bold, italic, red underline) | (1202,44)â(1352,92) | (665,372)â(740,396) |
+| R3b | Equation "X^T (XÌ²WÌ²) = (XÌ²WÌ²)^T XÌ²" | (1196,92)â(1570,142) | (662,396)â(849,421) |
+| R4 | **Row-2 equation** (simplified chain): âLoss/âW = 0 = Â½[2X^TXÌ²WÌ² â 2X^TYÌ²] â (X^T X)WÌ² = X^T YÌ² â green box | (65,200)â(1608,315) | (96.5,450)â(868,507.5) |
+| R4a | Fraction âLoss/âW (identical form to R2a) | (65,202)â(197,308) | (96.5,451)â(162.5,504) |
+| R4b | "= 0 =" cluster | (205,232)â(298,278) | (166.5,466)â(213,489) |
+| R4c | Stacked Â½ fraction | (320,204)â(352,308) | (224,452)â(240,504) |
+| R4d | Tall "[" bracket | (354,212)â(374,312) | (241,456)â(251,506) |
+| R4e | "2X^TXÌ²WÌ²" (bold 2, X with sup T, X, underlined W) | (378,215)â(550,290) | (253,457.5)â(339,495) |
+| R4f | "â 2 X^T YÌ²" | (556,215)â(700,290) | (342,457.5)â(414,495) |
+| R4g | Tall "]" bracket | (700,212)â(718,312) | (414,456)â(423,506) |
+| R5 | **Hollow block arrow #1** (white fill, dark-red outline, points right) | (728,240)â(818,290) | (428,470)â(473,495) |
+| R6 | Equation "(X^T X)WÌ² = X^T YÌ²" | (820,225)â(1140,300) | (474,462.5)â(634,500) |
+| R7 | **Hollow block arrow #2** (same style as R5) | (1148,240)â(1238,290) | (638,470)â(683,495) |
+| R8 | **Green-outlined final box** (light-green fill, green border): "WÌ² = (X^T X)^â1 X^T YÌ²" | (1256,220)â(1604,314) | (692,460)â(866,507) |
+| R9 | **Mouse cursor** (black arrow pointer with white outline, overlapping the "X" and superscript area inside the green box) | (1476,248)â(1514,308) | (802,474)â(821,504) |
+
+---
+
+## 2. VERBATIM TEXT (reading order)
+
+All math text is in a **serif (Times/Cambria-style) italic bold** for variable letters; "=" , "0", "2", "+", "â", digits are upright/roman. Cap height of full-size glyphs â **30â34 crop px (â15â17 slide px)**; superscript glyphs â **20â22 crop px cap height**. All text colour **#000000** (black) unless noted.
+
+1. "â" + "Loss" â numerator, row-1 fraction; x(68â195), y(42â88); "Loss" italic serif; â30 px cap height.
+2. "â" + "WÌ²" (W with subscript-position underline beneath) â denominator, row-1 fraction; y(98â148); underline bar at yâ143â146.
+3. "=" â xâ210â240, yâ78â110.
+4. "0" â xâ252â278, yâ74â112.
+5. "=" â xâ288â298â¦300, yâ78â110. (Cluster reads "= 0 =".)
+6. "1" â numerator of Â½; x(326â348), y(44â88).
+7. "2" â denominator of Â½; x(326â350), y(100â146).
+8. "[" â tall bracket, x(356â372), y(52â158).
+9. "(" â x(378â395), y(55â150).
+10. "X" â bold italic, x(400â436), y(60â118).
+11. "WÌ²" â bold italic with underline (yâ124â127); x(440â480).
+12. ")" â x(482â498), y(55â150).
+13. "T" **as superscript** â x(500â524), y(42â68), top-aligned to the closing paren.
+14. "(" "X" ")" â x(525â602), y(55â150); X at x(546â580).
+15. "+" â x(612â648), y(72â112).
+16. "(" "X" ")" â x(652â732); "T" **as superscript** x(732â756), y(42â68).
+17. "(" "XÌ²" "WÌ²" ")" â x(744â866); X x(766â800); W x(805â845) with underline yâ124â127.
+18. "â" â x(886â912), y(86â104).
+19. "2" â x(916â938), y(72â112).
+20. "(" "X" ")" â x(938â1016); "T" **as superscript** x(1016â1040), y(42â68).
+21. "YÌ²" â bold italic, underlined (yâ124â127); x(1046â1088), y(60â118).
+22. "]" â x(1088â1108), y(52â158).
+23. "Remember" â **red #C00000, bold, italic, red underline** (underline yâ86â90); x(1202â1352), y(46â88); cap height â30 crop px.
+24. "X" â Remember-box equation; x(1200â1234), y(96â140).
+25. "T" **as superscript** â x(1234â1256), y(92â116).
+26. "(" "XÌ²" "WÌ²" ")" â x(1262â1380); X x(1282â1316); W x(1322â1362), underline yâ138â141.
+27. "=" â x(1398â1430), y(106â132).
+28. "(" "XÌ²" "WÌ²" ")" â x(1438â1500).
+29. "T" **as superscript** â x(1502â1524), y(92â116).
+30. "XÌ²" â x(1530â1566), y(96â140), underlined.
+31. "âLoss / âWÌ²" â row-2 fraction, identical to items 1â2; numerator y(206â248), bar yâ252â255, denominator y(258â304), W-underline yâ297â300.
+32. "= 0 =" â x(205â298), y(234â276).
+33. "1" / "2" stacked Â½ â x(326â350), numerator y(206â250), denominator y(258â304).
+34. "[" â x(354â372), y(212â312).
+35. "2" â **bold upright**, x(380â404), y(230â274).
+36. "X" â x(412â446), y(228â274); "T" **as superscript** x(446â468), y(214â240).
+37. "X" â x(472â504), y(228â274).
+38. "WÌ²" â bold italic, underlined (yâ277â280); x(510â548).
+39. "â" â x(556â582), y(240â258); "2" â x(586â608), y(230â274).
+40. "X" â x(612â646); "T" **as superscript** x(646â668), y(214â240).
+41. "YÌ²" â underlined (yâ277â280); x(670â702), y(228â274).
+42. "]" â x(700â718), y(212â312).
+43. "(" "X" "T-sup" "X" ")" â x(820â990), y(228â298); sup T at y(214â240).
+44. "WÌ²" â x(995â1032), underlined (yâ281â284).
+45. "=" â x(1052â1086), y(246â280).
+46. "X" â x(1096â1130); "T" **as superscript** x(1130â1152), y(214â240).
+47. "YÌ²" â x(1156â1192), underlined. *(Note: cluster R6 ends âx1192.)*
+48. "WÌ²" â green-box formula, bold italic, underlined (yâ295â298); x(1280â1318), y(238â290).
+49. "=" â x(1340â1374), y(250â282).
+50. "(" â x(1392â1410), y(232â300).
+51. "X" â x(1414â1448), y(240â288); "T" **as superscript** x(1448â1470), y(224â250).
+52. "X" â x(1472â1504), y(240â288).
+53. ")" â x(1506â1524), y(232â300).
+54. "â1" **as superscript, in RED #FF0000** â x(1520â1552), y(220â248).
+55. "X" â x(1552â1584), y(240â288); "T" **as superscript** x(1578â1600), y(224â250).
+56. "YÌ²" â bold italic, underlined (yâ293â296); x(1600â1638), y(240â288). *(Extends to right edge of green box / near crop right edge.)*
+
+---
+
+## 3. COLORS (approx hex, JPEG tolerance Â±10)
+
+| Element | Fill | Border | Text |
+|---|---|---|---|
+| Cream panel (R1) | **#FFFFE1** (pale cream-yellow) | top/left edges show faint **#D8D8D8** slide-margin grey | â |
+| All equations (R2, R4, R6) | none | none | **#000000** |
+| Remember box (R3) | **#DAE3F3** (light periwinkle blue) | **#4472C4**, ~2 crop px (1 slide px) stroke | â |
+| "Remember" label | â | red underline **#C00000** | **#C00000** (dark red) |
+| Hollow arrows (R5, R7) | **#FFFFFF** (white) | **#A04030**-ish brick/maroon-red outline, ~3 crop px | â |
+| Green box (R8) | **#E2F0D9** (very light green) | **#00B050** (medium green), ~4 crop px (2 slide px) | **#000000**; superscript "â1" in **#FF0000** |
+| Mouse cursor (R9) | white outline | â | black body |
+
+---
+
+## 4. GEOMETRY MEASUREMENTS
+
+**Fractions âLoss/âW (R2a and R4a, identical):**
+- Bar: horizontal line x 65â197 crop (length â132 crop px = 66 slide px), thickness â3 crop px; row-1 bar at yâ93â96; row-2 bar at yâ252â255.
+- Numerator "âLoss" centred above bar (gap bar-to-numerator baseline â5 crop px); denominator "âW" below; total fraction height â110 crop px (55 slide px).
+- Underline beneath "W": x 100â152, thickness â3 crop px, sits â3 crop px below W baseline.
+
+**Â½ fractions (R2c, R4c):** bar x 322â352 (length 30 crop px), thickness â3 crop px; numerator "1" centred above, denominator "2" below; total height â105 crop px.
+
+**Tall square brackets [ ] (R2d/m, R4d/g):** vertical stroke with short top and bottom horizontal serifs (~12 crop px each) pointing right (for "[") / left (for "]"); height â108 crop px (54 slide px), stroke â6 crop px.
+
+**Parentheses:** curved, height â95 crop px in row 1 (y 55â150), â68 crop px in row 2 / green box; stroke â6 crop px.
+
+**Remember box (R3):** rectangle (not visibly rounded), 1186â1584 Ã 30â150 crop = 398Ã120 crop px (199Ã60 slide px); border stroke â2 crop px; inner padding â14 crop px left, â10 top. Label baseline yâ86; equation baseline yâ138; gap labelâequation â10 crop px.
+
+**Hollow arrows (R5, R7), identical:** total bbox â90Ã50 crop px (45Ã25 slide px). Shaft: rectangle â50 crop px long Ã 22 crop px tall, white fill, maroon outline â3 crop px. Head: open triangle â35 crop px long, extending full 50 crop px height, apex pointing right; head joins shaft with slight inward notches (classic PowerPoint block-arrow outline). Arrow 1 shaft centre yâ265; Arrow 2 same y.
+
+**Green box (R8):** rectangle 1256â1604 Ã 220â314 crop (348Ã94 crop = 174Ã47 slide px); border â4 crop px; text baseline yâ288; padding â22 crop px left, â16 crop px top.
+
+**Inter-element gaps (row 2):** "]" â arrow1 â10 crop px; arrow1 â "(X^T X)" â5 crop px; "YÌ²" â arrow2 â5 crop px; arrow2 â green box â18 crop px. Row-1 baseline band yâ60â150; row-2 yâ205â310; vertical gap between rows â50 crop px (25 slide px).
+
+**Underlines:** thickness â3 crop px everywhere; offset â3â5 crop px below baseline; run exactly the width of the underlined glyph.
+
+---
+
+## 5. MATH RENDERING (2D arrangement)
+
+**Row 1:** âLoss/âW rendered as a true stacked fraction (numerator "âLoss" above a full-width horizontal bar, denominator "âWÌ²" below). Then inline: "= 0 =" at mid-bar height, then stacked Â½ ("1" over bar over "2"), then a tall "[" spanning both numerator and denominator heights. Inside: "(XÌ²WÌ²)" â italic bold letters with underline under W â followed by ")^T" where the superscript T sits at the TOP-RIGHT of the closing paren, its top â13 crop px above the paren top region; then "(X)"; "+"; "(X)^T" (T again on the closing paren); "(XÌ²WÌ²)"; "â 2"; "(X)^T"; "YÌ²"; tall "]". All parens in row 1 are full-height (â95 crop px) because of the adjacent Â½ fraction.
+
+**Remember box:** single-line inline equation X^T(XÌ²WÌ²) = (XÌ²WÌ²)^T XÌ², superscript T raised so its top aligns â24 crop px above the main cap-top; every bold variable (X, W) carries a thin underline directly beneath.
+
+**Row 2:** identical stacked âLoss/âW fraction and Â½; then inline "2X^TXÌ²WÌ² â 2X^TYÌ²" where superscript T attaches to the upper right of each X (T top â14 crop px above X cap top, shifted right â0 crop px overlap). After "]" a hollow block arrow â separates it from "(X^TX)WÌ² = X^TYÌ²" â here the superscript T is on the X INSIDE the parentheses, and WÌ² stands outside the closing paren at baseline. A second hollow arrow â leads to the green box containing WÌ² = (X^TX)^â1 X^T YÌ², where the superscript "â1" is stacked at the top-right of the closing paren, rendered in red, in a smaller size (â20 crop px cap height vs 30 for main glyphs), with the minus sign directly above the "1".
+
+---
+
+## CROP-EDGE NOTES
+
+- **Right edge:** the green box's final "YÌ²" (and the box's right border at âx1604) ends just inside the crop; no truncation of glyphs, but the cream panel continues past the right crop edge.
+- **Top edge:** the crop's top 0â8 crop px shows the boundary between the slide's grey margin and the cream panel â the panel's top border line is at/just above the crop top; the "â" of row 1 begins ây42 and is fully visible.
+- **Bottom edge:** row-2 fraction bottom and green-box bottom border (yâ314) end â45 crop px above the crop bottom; nothing is cut.
+- **Left edge:** a â10 crop px sliver of the grey slide background/margin and the cream panel's left border is visible; all glyphs start âx65 and are complete.
+- The **mouse cursor (R9)** is an artefact overlapping the green-box content near the closing paren/superscript â it is part of the source frame, not the slide design.

@@ -1,0 +1,45 @@
+# Slide 041 â Zoomed Crop-Pair Comparison: Scatter Plot Region (Attempt 5)
+
+## Ground-Rule Confirmations
+- Red border on the panel = house template chrome, not a discrepancy.
+- White canvas / gray surround = template, not a discrepancy.
+- JPEG softness in IMG2 edges = capture artifact, ignored.
+
+## Content-by-Content Verification
+
+**Axes & tick labels (checked glyph by glyph):**
+- X-axis: 0, 1, 2, 3, 4, 5, 6, 7, 8 â all present, correct order, correct digits, evenly spaced in both. â
+- Y-axis: 0, 1, 2, 3, 4, 5, 6, 7 â all present, correct digits, correct order. â
+- No garbled, missing, or substituted characters in either image. â
+
+**Gridlines:** Horizontal gridlines at each integer 0â7 present in both; vertical gridlines at integers present in both, same light-gray weight. â
+
+**Markers (all 9, position by position):**
+| Marker | IMG1 (render) | IMG2 (original) | Match |
+|---|---|---|---|
+| Red down-triangle | (0, 0) lower-left | (0, 0) | â |
+| Red down-triangle | (3, 2) | (3, 2) | â |
+| Red down-triangle | (7, 6) upper-right | (7, 6) | â |
+| Dark-blue square | (1, 1) | (1, 1) | â |
+| Dark-blue square | (1, 2) | (1, 2) | â |
+| Dark-blue square | (2, 1) | (2, 1) | â |
+| Magenta diamond | (5, 4) | (5, 4) | â |
+| Magenta diamond | (6, 5) | (6, 5) | â |
+| Magenta diamond | (6, 6) | (6, 6) | â |
+
+All 9 markers: correct series, correct colors (dark red ~C00000, dark blue ~1F4E79, magenta ~FF00FF), correct shapes (down-triangles, squares, diamonds), correct data coordinates. No missing or extra points. â
+
+## Discrepancies Found
+
+1. **MINOR** â Plot-area width right of x=8: IMG1's plot frame extends further right (a vertical gridline at x=8 is fully inside the plot, with extra white plot area beyond it, right edge ~95â100% of crop width), whereas IMG2's plot area ends almost immediately at x=8. This is a plot-frame margin/proportion difference, not a data or label difference. Confidence: high.
+
+2. **MINOR** â Marker sizing: markers in IMG1 are slightly larger relative to the plot area than in IMG2 (e.g., diamonds at (6,6)/(6,5) upper-right, triangles at (0,0) and (3,2)). Consistent slight scale difference, no shape distortion. Confidence: medium-high.
+
+3. **MINOR** â Vertical centering of y-tick labels: in IMG1 the y labels sit marginally lower relative to their gridlines than in IMG2 (e.g., "7" top-left, "0" bottom-left). Subtle; possibly an artifact of crop alignment. Confidence: low-medium.
+
+No MAJOR or BLOCKER defects: every digit, tick, gridline, marker value, marker color, and marker shape is correct.
+
+## Final Assessment
+The recreation reproduces the scatter region faithfully â all 9 data points at identical coordinates, correct axis ranges and labels, correct series styling. Differences are limited to plot-frame margins and small sizing nuance.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

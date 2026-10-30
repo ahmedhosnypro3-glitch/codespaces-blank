@@ -1,0 +1,54 @@
+# Judge transcript — slide 023, crop recall_note (dimension-note line), attempt 8
+- date: 2026-10-24 06:53
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide023/crop_8_recall_note_render.png  (from render_8.png md5=587c850172f7008eb636315d0a83e59f)
+- IMG2 (original crop): qa/slide023/crop_8_recall_note_orig.png  (from unique_slides/slide_023.jpg md5=bc5c99ae61ea467f9531374bbab98d76)
+- region: frame px x96..760, y190..223 — the dimension-note line inside the green Recall
+  box, the red implication arrow, and the green box bottom border
+- scale: render crop 1383x69 @ GM=2.0833; original crop 1383x69 (same frame bbox,
+  LANCZOS-upscaled) → identical output dims → equal effective px/frame-px per axis
+  (crop_8_scale_audit.txt: identical_dims=True). Reading order: IMG2 first, then IMG1.
+
+## Ground rules acknowledged
+(a) House template (panel/strokes/badge, no top stroke) is intentional chrome, never a
+    discrepancy. (b) This is a zoomed crop-pair of one region. (c) Typed-vs-captured ink
+    is a medium difference — at most MINOR. (d) Professional-2D equation rendering is
+    mandated. (e) JPEG halos/soft edges in IMG2 are capture artifacts. Glyph-level
+    exactness is required: every character, number, superscript/underline, delimiter and
+    colour.
+
+## Comparison (crop-relative)
+- Part 1 "if Feature vectors are of dimension d": same words and order in both; the
+  trailing "d" is RED in both (IMG1 x401..409 vs IMG2 x400..409); line ink x104..409 vs
+  x103..409. MATCH (face obliqueness = banked M1 residual below).
+- Implication arrow: red DOUBLE-SHAFT "⇒"; IMG1 ink x437..456 y200..210 vs IMG2
+  x439..454 y200..209 (19x10 frame px, two shaft bars + solid head; selfcheck 6
+  full-width bar rows, ink_px 294). MATCH.
+- Part 2 "(X^T X) is of size d+1 x d+1" — the attempt-7 fixes verified at zoom:
+  * the parenthetical is "(X" + a TRUE RAISED SUPERSCRIPT T + " X)" — IMG1 T ink
+    x529..536 y192..200 vs IMG2 x529..535 y192..200; there is no caret in either image.
+    MATCH.
+  * the first X carries an UNDERLINE bar in BOTH images: IMG1 bar at y213 x512..525;
+    IMG2 bar at y212..213 x512..526. MATCH (IMG1 bar 1 px thinner — MINOR below).
+  * "is of size" ink x571.8..647.2 vs x572..645; "d+1 x d+1" x663..746 vs x661..747.
+    MATCH (word-space drift ≤2 px).
+- Enclosure: the green-box bottom border runs continuously under the whole line in both
+  (render y~218, original y218..219); no glyph crosses, touches or is clipped by it.
+- Colours: black body, red "d"/"d+1 x d+1"/arrow, green fill and border — match.
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — the frame's body face is oblique (≈ −8°); IMG1
+   renders part 1 and part 2 upright Arial. M1: no installed face reproduces the frame's
+   slant AND single-storey 'a' AND Arial advance (adjudication_attempt_1_minors.txt).
+   ACCEPTED.
+2. MINOR (accepted, measured) — IMG1's underline bar under the first X is 1 px thinner
+   than IMG2's 2 px bar (LO single-underline weight; sngHeavy renders no underline in LO —
+   measured on the render_7 iteration, see build_attempt_7.js). Position/span match.
+   ACCEPTED.
+3. MINOR (accepted, measured) — part-2 word-space drift ("size" ends +2 px; Arial space
+   advance). Salient clusters (parenthetical, arrow, d+1 runs) pinned at measured x.
+   ACCEPTED.
+No BLOCKER/MAJOR findings: no wrong/missing glyph, no extra caret, no missing underline,
+no delimiter or enclosure fault.
+
+FINAL VERDICT: PASS — faithful, usable recreation of this region.

@@ -1,0 +1,41 @@
+==============================================================================
+SELF-CHECK slide 036 attempt 4 (s240-4 hi-res measurement render)
+==============================================================================
+[PASS] FRAME CONTAINMENT box1: orig ink x69..868 y94..211 | render x69..868 y94..211 (frame x69..869 y94..212)
+[PASS] FRAME CONTAINMENT box2: orig ink x69..868 y226..313 | render x69..868 y226..313 (frame x69..869 y226..314)
+[PASS] FRAME CONTAINMENT box3: orig ink x69..868 y328..420 | render x69..868 y328..420 (frame x69..869 y328..421)
+[PASS] FRAME CONTAINMENT box4: orig ink x69..868 y437..538 | render x69..868 y437..538 (frame x69..869 y437..539)
+[PASS] FRAME CONTAINMENT content-in-panel: orig (59, 46, 899, 538) | render (59, 45, 899, 538) (panel interior x59..900 y45..539)
+[PASS] EQUATION REGION has ink: render ink (84, 369, 731, 412) vs original (84, 369, 733, 413)
+[PASS] EQUATION piece sigma: 2120 ink px in x214..244 y366..397
+[PASS] EQUATION piece X_i#1: 769 ink px in x333..358 y375..397
+[PASS] EQUATION piece X_i#2: 988 ink px in x474..500 y375..397
+[PASS] EQUATION piece subscript: 4109 ink px in x158..300 y398..415
+       paren1 orig paren stroke y=375..391
+       paren1 rend paren stroke y=374..393
+       paren2 orig paren stroke y=376..392
+[N/A ] TABLE DATA: no table on this slide (four bordered text boxes)
+[TODO] ZOOMED CROP VISION ANALYSIS: dispatched separately (Template B legs)
+[PASS] LINE WRAP box1: 4 ink bands (expect == number of text lines)
+[PASS] LINE WRAP box2: 3 ink bands (expect == number of text lines)
+[PASS] LINE WRAP box3: 3 ink bands (expect == number of text lines)
+[PASS] LINE WRAP box4: 4 ink bands (expect == number of text lines)
+[PASS] EXPLICIT LINE SPACING: 4 explicit lineSpacing declarations in source; every addText block (helper `line()` covers all 12 body lines with LS; title T_LS; X mark X_LS) pins its pitch — no auto line pitch anywhere
+[PASS] RENDER BASELINES box1 (<=4px): render [118, 150, 178, 207] vs original [117, 149, 177, 206] -> delta [1, 1, 1, 1]
+[PASS] RENDER BASELINES box2 (<=4px): render [249, 280, 308] vs original [248, 279, 307] -> delta [1, 1, 1]
+[PASS] RENDER BASELINES box3 (<=4px): render [355] vs original [353] -> delta [2]
+[FAIL] RENDER BASELINES box4 (<=4px): render [467, 494, 521] vs original [461, 487, 514] -> delta [6, 7, 7]
+       box1 original baseline pitch: [32, 28, 29]
+       box2 original baseline pitch: [31, 28]
+       box4 original baseline pitch: [26, 27]
+       orig: 'class' core [144, 24, 34] | 'Class' core [20, 3, 115] | 'd(X)' core [20, 119, 11]
+       rend: 'class' core [192, 0, 0] | 'Class' core [0, 0, 254] | 'd(X)' core [0, 128, 0]
+[PASS] COLOR CODING (red/blue/green present): render cores: 'class' red-channel=192 (expect dominant), 'Class' blue-channel=254 (expect dominant), 'd(X)' green-channel=128 (expect dominant)
+[PASS] EQUATION INK BAND alignment (<=4px per side): render vs orig: dx=0 dy=0 dw=-2 dh=-1
+[PASS] RED X MARK present: orig (763, 367, 785, 389) render (766, 365, 786, 387)
+       'W^T' superscript region orig: y=129..134
+       'W^T' superscript region rend: y=132..135
+[PASS] SUPERSCRIPT T raised in 'W^T X': orig raised-T top y=129 (main row starts ~127) | render raised-T top y=132 -> raised, matching the original's structure
+==============================================================================
+RESULT: FAIL -> ['RENDER BASELINES box4 (<=4px)']
+==============================================================================

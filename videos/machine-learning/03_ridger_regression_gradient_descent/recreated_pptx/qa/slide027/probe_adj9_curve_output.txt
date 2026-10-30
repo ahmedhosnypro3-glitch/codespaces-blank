@@ -1,0 +1,26 @@
+dark px (original, box): 6115
+dark px after exclusions: 1131
+
+=== the black cost curve: robust quadratic fit of the ORIGINAL ===
+  columns traced: 193 of 405
+  fit: y = -0.0033522913 * (x - 448.3136)^2 + 408.5316
+     i.e. y = -0.0033522913 x^2 +3.0057552 x -265.229
+  residual: mean |r| 1.722 fpx, median 1.617, p95 4.320, max 8.389
+  RMS 2.260 fpx  (stroke is ~2.5 fpx wide)
+    left-top  x 246..300: n  14 mean|r| 1.761 max 3.299
+    mid       x 300..400: n  32 mean|r| 2.429 max 7.950
+    bottom    x 400..460: n  11 mean|r| 1.264 max 2.112
+    right-mid x 460..550: n  89 mean|r| 1.165 max 3.609
+    right-top x 550..651: n  47 mean|r| 2.392 max 8.389
+  RIPPLE of the original's traced centre-line |2nd diff|: mean 1.277, median 0.507, p95 4.501, max 27.523 fpx
+    the same metric on the FITTED quadratic sampled at the same columns: max 15.3985 (pure quadratic = analytic d2 = 2a*step^2 = -0.00670 fpx at 1-fpx steps)
+    largest |d2| 27.52 fpx at x 337..362 (y 359.6, 386.2, 385.3)
+  worst-residual columns: x335: traced 357.5 fit 365.5 (r -7.9), x337: traced 359.6 fit 367.0 (r -7.4), x610: traced 315.6 fit 320.9 (r -5.3), x611: traced 314.0 fit 319.8 (r -5.9), x612: traced 311.9 fit 318.7 (r -6.9), x613: traced 311.2 fit 317.6 (r -6.4), x614: traced 309.1 fit 316.5 (r -7.4), x615: traced 307.0 fit 315.4 (r -8.4)
+
+=== render_8 (the artifact the founder reviewed) ===
+  own fit: y = -0.0033154314*(x-447.9919)^2+408.1805
+  residual vs the ORIGINAL's fit: mean |d| 1.615 fpx, max 7.651
+  RIPPLE of render_8's traced centre-line |2nd diff|: mean 0.922, median 0.257, p95 3.683, max 27.513 fpx
+    largest |d2| 27.51 at x 262..286: y 289.2, 289.2, 316.7
+
+  fit banked to scratch/curve_fit_adj9b.json for the build

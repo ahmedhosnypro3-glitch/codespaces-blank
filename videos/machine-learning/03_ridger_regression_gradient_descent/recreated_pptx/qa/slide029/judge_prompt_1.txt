@@ -1,0 +1,43 @@
+JUDGE ATTEMPT 1 — slide 029 (dispatch record; executed by the worker via Bash
+per the orchestrator-approved fallback — no subagent-spawn tool in this toolset).
+Frozen source: shared_patterns/judge_protocol_03.md Template A.
+
+BINDING: attempt 1 judges render_2.png (the deliverable render of the current
+build/slide_029.js). render_1.png is the banked PRE-JUDGE engineering
+iteration (its closed-loop selfcheck banked the +1.9px LO baseline correction;
+no judge was dispatched on it). Renders and attempts number independently
+(judging.md law). The -p payload is byte-for-byte Template A (banked at
+judge_payload_1.txt; the payload contains no NNN/K tokens).
+
+PATH RESOLUTION: the frozen template names .agents/image-analysis/scripts/
+analyze_image.py — the skill's pre-2026-10-11 location, moved by the skill's
+own 2026-10-11 amendment to .agents/skills/image-analysis/. The working path is
+used below; the -p payload and all flags are unchanged.
+
+PROBE (opens the gateway window):
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 150 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py analysis \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/render_2.png \
+  --view "Slide 029 recreation attempt 1 — probe" \
+  --capture "150dpi PNG render of a 13.33x7.5in PPTX" \
+  --timeout 120 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/probe_1.txt
+
+COMPARISON (the real judge):
+cd /home/ahmed/Projects/ai_llm_slides && scripts/16_vision_gate.sh timeout 1700 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py comparison \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/render_2.png \
+  videos/machine-learning/03_ridger_regression_gradient_descent/unique_slides/slide_029.jpg \
+  --view "Slide 029 recreation — fidelity check vs original lecture frame" \
+  --capture "IMG1=150dpi PNG render of a 13.33x7.5in PPTX; IMG2=original lecture video frame" \
+  --thinking high --max-tokens 65536 \
+  --timeout 600 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/judge_attempt_1.txt \
+  -p "$(cat videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide029/judge_payload_1.txt)"
+
+Walls per the frozen protocol: probe timeout 150 / --timeout 120; comparison
+timeout 1700 / --timeout 600. A valid probe body opens the window; a hang
+means sleep 300 and re-probe ONCE. One hard-wall HangError retry (W4) is
+protocol, not an attempt. Degenerate winner body = no evidence, re-invoke
+(new attempt count only if coherent), max 3 garbage re-invokes. Verdict comes
+only from the comparison winner body (judge_attempt_1.txt).

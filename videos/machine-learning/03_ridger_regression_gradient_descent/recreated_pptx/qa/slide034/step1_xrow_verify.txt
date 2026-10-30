@@ -1,0 +1,45 @@
+STEP 1 — fresh PIL verification of the ORIGINAL's x-row c16/c18 (960x540, 1px=1pt)
+Worker: worker-fresh-034b   Date: 2026-10-24
+
+METHOD
+  Table located by luminance scan. Horizontal gridlines (dark row, >50% of cols 85..875):
+  320/321, 330/331, 349, 366/367, 373/374, 409/410, 416-418, 435, 453/454, 459-462,
+  472/473, 477/478, 483/484, 501/502, 517.
+  x-row text band isolated at rows 333..347 (ink peak 238/733 at r341, flanked by
+  gridlines at 330/331 and 348/349).
+  x-row contains 18 data cells; group spans (widest row r342):
+    c13 641-651, c14 682-692, c15 725-734, c16 765-775, c17 807-817, c18 843-853
+  Units digit classified by NCC of the right-digit bitmap (rows 333..346) against
+  c14 (known '6', value 9.6) and c15 (known '8', value 9.8).
+
+CONTROLS
+  c14 -> corr vs c14=1.000, vs c15=0.888  => '6'  (expected 6) OK
+  c15 -> corr vs c14=0.888, vs c15=1.000  => '8'  (expected 8) OK
+  Both reference cells classify correctly, so the method is validated.
+
+RESULT — UNKNOWN CELLS
+  c16 : corr vs '6'=0.303..0.911 ; corr vs '8'=0.798..0.800   INCONCLUSIVE
+        (method A, 6-wide right-digit window, aligned: 0.303 vs 0.798 -> reads 8
+         method B, whole-group 12-wide window            : 0.911 vs 0.800 -> reads 6
+         The two extractions straddle the reference cells; disagree. NOT decidable.)
+  c17 : 0.168 vs 0.566 (A) ; 0.869 vs 0.928 (B)   -> '8'  CONSISTENT across both
+  c18 : 0.512 vs 0.423 (A) ; 0.819 vs 0.903 (B)   -> MIXED ('6' by A, '8' by B)
+        Visual read of A's 7-wide bitmap for c18 shows a closed top bowl and a
+        full-width crossbar row (r342) -- the '8' signature, not '6's open top.
+
+CONCLUSION / ADJUDICATION
+  The frame does NOT refute the banked ruling:
+   - c17 = 9.8 is confirmed by the frame and matches the build.
+   - c16 and c18 cannot be read decisively at 6px glyph height from this JPEG
+     frame; the two independent extractions disagree, so there is no hard
+     frame-based refutation in either direction.
+   - The analysis JSON (OCR of the original) reads the tail as four 9.8s
+     (9.6, 9.8, 9.8, 9.8, 9.8) which is the classic collapse of an alternating
+     series -- the frame's own next-x row and x-delta row alternate 9.6/9.8.
+  Decision: KEEP the banked fix (x c16=9.6, c18=9.6). It is (a) not refuted by
+  the frame, (b) forced by four independent rows of the slide's own table
+  (f(x)=-10.03 = f(9.6), x-delta=9.5, slope=-0.7, next-x=9.6), and (c) the banked
+  orchestrator ruling. No build change required -- the current build already
+  carries x = [..., 9.4, 9.6, 9.8, 9.6, 9.8, 9.6].
+
+Banked scripts: measure_plot_5.py (plot measurement), this file (x-row verification).

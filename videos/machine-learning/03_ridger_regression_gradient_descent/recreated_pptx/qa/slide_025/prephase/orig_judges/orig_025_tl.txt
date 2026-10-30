@@ -1,0 +1,96 @@
+# GROUND-TRUTH EXTRACTION REPORT â Slide 025 crop TL (S20b prephase)
+
+Crop space: ~1245 Ã 570 px (slide-space x55..470, y105..295, Ã3 Lanczos). Background: uniform light gray **#E6E6E6** (slight JPEG mottling).
+
+---
+
+## 1. LAYOUT MAP
+
+| Region | Bounding box (crop px) | Description |
+|---|---|---|
+| A. Left edge rule | x 0â8, y 0â570 | Vertical dark-red rule at crop's left edge, full height |
+| B. Plot frame (red border box) | x ~100â622, y ~42â536 | Red-bordered hollow rectangle containing 3D surface plot |
+| C. 3D surface mesh | x ~165â560, y ~140â465 | Concave paraboloid mesh, multicolor (yellowâgreenâtealâblue) |
+| D. Contour rings | x ~230â500, y ~330â460 | Concentric ellipses (yellow/cyan/teal) under surface |
+| E. Annotation red lines (3) | see Â§4 | Horizontal red lines crossing plot, extending right of box |
+| F. Navy text box | x ~648â1056, y ~98â218 | Filled dark-blue rectangle, 2 lines of bold text |
+| G. Bottom red rule | x ~88â982, y ~558â570 | Partially cropped horizontal red line at bottom |
+| H. Axis tick labels | scattered, see Â§2 | "0, -5, 2, 0, -2, -2, 0, 2" in black |
+
+---
+
+## 2. VERBATIM TEXT
+
+All text inside plot region (axis labels, black, single glyphs/numbers):
+
+- "0" â near x 128â150, y 108â140 (z-axis top label)
+- "-5" â near x 122â160, y 252â282 (z-axis middle label)
+- "2" â near x 128â152, y 382â412 (z-axis lower label)
+- "0" â near x 210â238, y 440â472 (x-axis front-left label)
+- "-2" â near x 282â322, y 482â515 (x-axis label)
+- "-2" â near x 352â390, y 485â518 (y-axis label)
+- "0" â near x 452â480, y 448â480 (y-axis label)
+- "2" â near x 562â590, y 405â438 (y-axis right label)
+
+Text in navy box (two lines, centered):
+
+- Line 1: **"Concave Function"** â "Concave" in yellow, "Function" in white; single space between words.
+- Line 2: **"One  Maxima"** â all white; appears to have a double/wide space between "One" and "Maxima".
+
+No other strings visible. No equation text in this crop.
+
+---
+
+## 3. COLORS
+
+- **Background gray:** #E6E6E6
+- **Plot frame border / red annotation lines / left & bottom rules:** bright crimson red, ~#CC0000 (some pixel variation #C00000â#D40000 from JPEG)
+- **Navy box fill:** #1A1A96 â visually dark navy ~#000090; edges slightly darker #000070
+- **"Concave":** yellow, ~#FFFF00
+- **"Function", "One  Maxima":** white, ~#FFFFFF
+- **Axis labels:** black, ~#000000
+- **Mesh surface:** multi-color colormap â apex yellow #E8D820, upper shoulders orange/green #7CA82A â mid teal/green #2E8B6A â lower cyan/teal #1E9E9E â valleys/edges deep blue #1E3E9E / #2238B0; mesh gridlines darker versions of local fill
+- **Contour rings:** innermost yellow #E0D840, then cyan #40C8D8, outer teal #28A0A8, on white floor
+- **Plot interior background:** white #FFFFFF (visible above surface, top-left ~x110â330, y50â140)
+
+---
+
+## 4. GEOMETRY
+
+**A. Left vertical rule:** x â 0â8 (â8 px wide), spans full crop height y 0â570, solid dark red #B00000. Continues off-crop (it is a slide-level rule, cropped at edge).
+
+**B. Plot frame:** rectangle, left edge x â 100, right edge x â 622, top y â 42, bottom y â 536. Border stroke â 4â5 px (â1.5 pt), color #CC0000, hollow (white/gray interior â interior white where plot backdrop is, gray outside). Corners square.
+
+**E. Red annotation lines (3 horizontal lines, all #CC0000, thickness â 7â8 px crop):**
+1. Line 1: y â 185â192, from x â 196 to x â 645 (starts inside plot over upper mesh, extends ~23 px past box right edge).
+2. Line 2: y â 238â245, from x â 166 to x â 682 (longest; extends ~60 px past box).
+3. Line 3: y â 282â290, from x â 150 to x â 658.
+Lines 2 and 3 nearly merge visually at left; they pass over the mesh surface and extend rightward over the gray background toward (but not touching) the navy box. Left endpoints are staggered (196 / 166 / 150).
+
+**F. Navy text box:** rectangle x â 648â1056, y â 98â218, solid fill #000090, **no visible border**. Text line 1 baseline ~y 160, line 2 baseline ~y 205, horizontally centered.
+
+**G. Bottom red rule:** horizontal band y â 558â570 (bottom edge of band cut by crop), from x â 88 to x â 982, solid #CC0000. This is the top edge of a larger element continuing below the crop.
+
+**C/D. Mesh geometry:** dome/concave surface â apex at ~x 355, y 145; surface descends to 4 corner feet at approx (170, 340), (555, 385), (330, 465), and left foot (170, 385). Wireframe mesh with visible quad grid, cell ~10â14 px. Contour ellipses centered ~x 355, y 395, concentric, ~7 rings, major axis ~250 px, minor ~110 px, drawn on the implied floor plane.
+
+No arrows, no brackets, no circles (other than contour ellipses).
+
+---
+
+## 5. TYPOGRAPHY
+
+- **Axis labels:** sans-serif (MATLAB-plot default style), regular weight, cap/digit height â 30â32 crop px (â10 pt at full-frame scale), black, left-aligned near axis ends. The "-5" and "-2" minus signs are short hyphens at mid-height.
+- **Navy box text:** bold serif (Times New Roman Bold appearance), cap height â 36â38 crop px (â12â13 pt full-frame), centered alignment. "Concave" yellow bold; "Function" white bold, same size, same line. Line 2 "One  Maxima" white bold, centered under line 1.
+- No italics anywhere.
+
+---
+
+## 6. ANOMALIES
+
+1. **JPEG chroma smear:** strong yellow fringe around "Concave" glyph edges against navy fill; color mottling in mesh (yellow/green dithering).
+2. **Red lines 2 & 3** nearly touch at left (xâ150â166, yâ240 vs yâ285) â verify in source whether they are two lines or one thick line broken by mesh occlusion; I read **two distinct lines**.
+3. **Line 1 right end (xâ645)** overlaps the gray background just left of the navy box; gap between line end (x 682 max) and box left edge (x 648) â line 2 actually appears to end at/under the box left edge; confirm exact termination.
+4. **Bottom rule** is cropped mid-element at y=570 â its full height and any attached content lie below this crop.
+5. **Left vertical rule** is clipped at x=0 â the element continues left of the crop.
+6. Mesh gridlines are anti-aliased and blur at the dark-blue base; exact cell count approximate.
+7. No mouse cursor visible in this crop.

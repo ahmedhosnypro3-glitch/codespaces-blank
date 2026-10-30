@@ -1,0 +1,57 @@
+## Scope note (per founder ground rules)
+
+House chrome (white canvas, E9E9E7 panel, C00000 left/right/bottom strokes, absence of a top stroke, yellow 33 badge with purple ring) is treated as intentional and is **not** scored. The 2D-stacked fraction for *f(x)* (rule e) is a mandated upgrade, not a discrepancy. Mouse/cursor artifacts in IMG2 are ignored. The two captures are at slightly different effective scales (â1.05Ã for IMG2), so absolute pixel offsets are only scored where an element breaks its own frame or its relative position to an adjacent element changes.
+
+## Element-by-element comparison
+
+| Element | IMG1 (recreation) | IMG2 (original) | Assessment |
+|---|---|---|---|
+| Title âNon-Convex Functionâ (red bold) | present, correct color/weight | present | Match |
+| âMay reach different minimum value based on:â | present, red, correct wording | present | Match |
+| âinitial point and learning rateâ | blue / red / blue run correct | same | Match |
+| Formula box (red border) + *f(x)* | present, boxed, 2D fraction | present, boxed, inline/linear | Match (rule e) |
+| Plot frame (red box), axes, grid, teal curve, orange arrow, red dot, green dot | present | present | Curve stretched â see D6 |
+| âReach Local Minimumâ pink callout | present, 2 lines, magenta italic, bottom-left of plot | same | Match |
+| Mini âstep / initial X / deltaâ table | present, 3 rows, values 0.1 / â11 / 0.1 | present, same values | Values match; fills/width differ (D5) |
+| Red arrow from mini table toward the big table | present | present | Match |
+| Green summary box (2 lines, X/â9.7/â9.6 red bold; f(x)/â8.08/â8.011 blue) | present, wording verbatim | present, wording verbatim | Match |
+| Big table: 8 rows (X, f(x), xâdelta, f(xâdelta), x+delta, f(x+delta), slope, next x), 16 numeric columns, row-band colors | present; labels and cell values read identically column-for-column (sequence â11ââ9.6 plus trailing cells; f(x) 1.15â¦â8.08; slopes â24.3â¦0.2, â1.5; nextâx row) | same | Data match |
+| Green âconvergedâ cell highlights (X row â9.7/â9.6; f(x) â8.08/â8.11; slope 0.2 / â1.5) | partially present | present | Extent differs (D4) |
+| Dashed rounded-rectangle callout around converged columns | **absent** | present, blue dashed, enclosing â9.7/â9.6 down through the slope row | Missing (D2) |
+| Outer blue/violet frame around the whole big table | **absent** (only black cell gridlines) | present | Missing (D3) |
+
+## Discrepancies
+
+**D1 â MAJOR, high confidence â graph axis label âxâ breaks out of its frame.**
+In IMG1 the *x* axis label sits at the far right, roughly xâ795 px, i.e. **outside/right of the plotâs red rectangle border** (border at âxâ788) â the label crosses the boundary of the frame it belongs to (rule 5). In IMG2 the âxâ is clearly **inside** the red plot frame, immediately right of the axis arrow. Both the containment violation and the label-to-frame relative position differ.
+
+**D2 â BLOCKER, high confidence â dashed rounded-rectangle callout annotation entirely missing.**
+IMG2 shows a blue dashed rounded rectangle over the big table enclosing the converged columns (â9.7 / â9.6) and extending down through the f(x) and slope rows, framing the highlighted result. IMG1 contains only solid green cell fills in that area; **no dashed callout of any kind is present**. Under the founderâs missing-element rule, an omitted visual element is a BLOCKER (an annotation region that renders empty).
+
+**D3 â MAJOR, medium-high confidence â enclosing blue/violet frame around the big table missing.**
+IMG2 wraps the entire table region (label column through the last numeric column, all 8 rows) in a blue/indigo outer rectangle that is distinct from the black cell gridlines. IMG1âs table has only black/grey gridlines and no such outer frame, so the table regionâs enclosing structure differs from the original.
+
+**D4 â MINOR, medium confidence â extent of green âconvergedâ cell highlighting differs.**
+IMG2 highlights a paired set of cells (X row â9.7 and â9.6; f(x) row â8.08 and â8.11) plus slope-row cells 0.2 and â1.5. IMG1âs green fill covers only part of that paired region in the X/f(x) rows (a single narrower cell band), so the highlight footprint does not correspond to the originalâs convergence columns.
+
+**D5 â MINOR, medium confidence â mini step-table styling/width deviates.**
+Original: green-tinted âstep / deltaâ label text, pale yellow-green value cells, ââ11â in bold red on a light yellow/green fill, table noticeably narrower. Recreation: label text black, the âinitial X / â11â row filled rose/pink, the âdeltaâ row yellow, and the table ~10â15 % wider relative to slide scale (â90 px vs â75 px at the originalâs scale). Values (0.1, â11, 0.1) are correct.
+
+**D6 â MINOR, medium confidence â plot curve is vertically over-extended to the frame edge.**
+In IMG1 the teal curveâs left and right ends reach and graze the **top red border** of the plot frame (curve tops at ây = 52, border at ây = 52), and the y-axis arrowhead is jammed against that border. In IMG2 the curve tops stop with visible clearance (~8 px) below the frame top. This changes the plotâs effective y-range versus the original and creates ink-on-boundary contact.
+
+**D7 â MINOR, low confidence â apparent lower-block vertical offset.**
+Elements below the title (mini table, green box, big table) sit â13 px higher in IMG1 relative to IMG2, and the plot frame is â15 px shorter in height. This is largely explained by the â1.05Ã scale/crop difference between the two captures, so it is not treated as a layout defect, but the plot-frame height ratio (â215 px vs â229 px, i.e. IMG1 â6 % shorter) is marginally beyond pure scaling and is flagged at low confidence only.
+
+## Visual-quality defects in the recreation
+
+- Graph *x*-axis label overlaps/sits outside the plotâs red frame (touching-boundary overflow).
+- Teal curve and top y-axis arrowhead make contact with the plot frameâs top stroke (potential clipping/overflow at the extreme edges).
+- Table body type is very small (â5â6 pt effective), matching the originalâs density but leaving the numeric rows only marginally legible at 100 % zoom â acceptable parity, not a defect.
+- No text is visibly clipped, no word wrap errors, no collisions between the mini table, red arrow, green summary box, or big table; all in-frame elements except those listed above sit fully inside their frames.
+
+## Verdict
+
+Two structural elements of the original (the dashed convergence callout and the blue outer table frame) are entirely absent, and the graphâs *x* label overflows its enclosing frame â the table region that is supposed to carry the lectureâs âconvergence reachedâ annotation does not read as it does in the original.
+
+**FINAL VERDICT: FAIL**

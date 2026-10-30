@@ -1,0 +1,73 @@
+## 1. Glyph-by-glyph transcription, left â right (slide-x positions)
+
+Reading the crop literally, it contains **W = (4; â2; â2) + 1 * (1; 1; 1) = (5; â1; â1) â**, drawn as a column-vector layout, not semicolon text:
+
+| # | Glyph | Slide-x | Slide rows | Color |
+|---|-------|---------|-----------|-------|
+| 1 | **W** (underlined) | ~617â628 (+ underline ~617â628 at rows 178â180) | ~163â176 | black |
+| 2 | **=** | ~630â638 | ~167â174 | black |
+| 3 | **(** big opening paren | spine x643, curve ~642â648 | 156â188 | black |
+| 4 | **4** | ~649â657 | ~151â159 | black |
+| 5 | **â2** | ~648â662 | ~166â174 | black |
+| 6 | **â2** | ~648â662 | ~175â182 | black |
+| 7 | **â2** | ~648â662 | ~184â191 | black |
+| 8 | **)** closing paren | ~662â668 | 156â188 | black |
+| 9 | **+** | full ~678â686 (vertical stroke x681â683) | ~166â174 (bar at ~170) | **RED** |
+| 10 | **1** | ~689â694 | ~166â174 | **RED** |
+| 11 | **\*** (asterisk) | ~701â708 | ~165â172 | black |
+| 12 | **(** opening paren | spine x707 | 157â184 | black |
+| 13 | **1** (top) | ~713â719 | ~152â160 | black |
+| 14 | **1** (middle) | ~713â719 | ~168â176 | black |
+| 15 | **1** (bottom) | ~713â719 | ~184â191 | black |
+| 16 | **)** closing paren | spine x721 | 156â185 | black |
+| 17 | **=** | ~728â737 | ~167â174 | black |
+| 18 | **(** GREEN opening paren | ~738â745 | ~152â188 | **GREEN** |
+| 19 | **5** | ~746â755 | ~151â159 | **GREEN** |
+| 20 | **â1** | ~745â760 | ~166â174 | **GREEN** |
+| 21 | **â1** | ~745â760 | ~175â183 | **GREEN** |
+| 22 | **â1** | ~745â760 | ~184â191 | **GREEN** |
+| 23 | **)** GREEN closing paren | ~757â765 | ~152â188 | **GREEN** |
+| 24 | **â** | ~784â800 | ~163â176 | **RED** |
+
+## 2. The verticals x643 / x707 / x721
+
+- **x707 and x721 form a pair**, enclosing the stacked digits **1, 1, 1** (the column vector with entries 1).
+- **x643 is a lone opening parenthesis** â its closing partner (~x663â667, around the 4/â2/â2 stack) was **not captured by the census** (the census's "digit cluster x657..666" appears to have merged part of it with digit ink).
+- They are **parentheses (round)**, not square brackets (no horizontal top/bottom bars) and not braces (no mid-height knobs or double-curve). Shape: a thin, smooth arc; x643 and x707 bulge **leftward** (concave toward the enclosed digits = opening), x721 bulges **rightward** (closing). Vertical extents: x643 rows 156â188 (tallest, ~32 rows), x707 rows 157â184 (~28 rows), x721 rows 156â185 (~29 rows).
+
+## 3. The dashed vertical at x714â715
+
+It is **not a dashed rule, bracket fragment, or arrow part** â it is the **stacked stems of the three digit "1" glyphs** of the vector (1;1;1). Each "on" segment (~9 rows: ~152â160, ~168â176, ~184â191) is exactly one digit-1's ink (stem plus a tiny top-left flag/serif), and each ~7-row gap is the leading between vector rows. At this resolution three short vertical stems in one column read as "3 dashes, 9 on / 7 off." Most plausible identity: **the column of 1s itself**.
+
+## 4. The RED ink at x681â683 and x691â692
+
+- **x681â683** is the **vertical stroke of the red "+"** (its horizontal bar, ~x678â686 at row ~170, extends beyond the census box).
+- **x691â692** is the **red digit "1"** â the scalar multiplier.
+- They read, in order: **"+ 1"** (add operator + multiplier 1), both red, rows 166â174.
+- **Between x666 and x702 sits exactly this red "+ 1"** (plus whitespace). The census's "digits at x702..706 (row 168)" is actually the **black asterisk \*** of "1 * (â¦)", not a digit.
+
+## 5. The red glyph at x785â799
+
+It is a **leftwards double arrow "â"** (`\Leftarrow`): two parallel horizontal shafts with a single arrowhead at the **left** end. It is **immediately preceded by the green closing parenthesis of the result vector** (green ")" at ~x757â765, with green "â1" beside it) and **followed by nothing but blank margin** out to the crop edge at x810 â it terminates the line.
+
+## 6. Style and cap heights (slide rows)
+
+- **W**: bold, *italic*, **underlined**; height ~13â14 rows (163â176). The only italic/bold glyph in the line.
+- All other glyphs: **upright, regular weight**.
+- **= signs** (both): two short bars, ~7-row span (167â174).
+- Big parentheses: ~28â32 rows tall, thin stroke.
+- Digits 4, â2, â2, 5, â1, â1: ~8 rows each.
+- Red **+** and red **1**: ~8â9 rows (166â174).
+- Asterisk *: ~6â7 rows (~165â172), regular.
+- Stacked **1**s: ~8â9 rows each.
+- Red **â**: ~13â14 rows (163â176), noticeably **heavier stroke** than body text (looks semi-bold).
+
+## 7. Ink NOT covered by the census
+
+- **Closing parenthesis of the first vector**, ~x662â668, rows 156â188.
+- The first vector's contents: **"4"** (~x649â657, rows 151â159) and the three **"â2"** entries (~x648â662; rows ~166â174, 175â182, 184â191) â only partially/mis- captured as "digit cluster x657..666".
+- The **"=" between the two vector expressions**, ~x728â737, rows 167â174 (the census's "digits at x725..730" clips only its left edge â these are "=", strokes, not digits).
+- **The entire green result vector**: both green parentheses (~x738â745 and ~x757â765) and the green digits **5, â1, â1** (~x745â760) â completely absent from the census.
+- The **underline beneath W** (rows ~178â180), if the census's "word x618..636" did not include it.
+- Census misidentifications to correct: "x702..706 digits" = the **asterisk**; "word x618..636" = **"W" + "="** (W is a single letter, not a word).
+- Between **x590 and ~x617: blank** â no ink. After ~x800 to x810: blank as well.

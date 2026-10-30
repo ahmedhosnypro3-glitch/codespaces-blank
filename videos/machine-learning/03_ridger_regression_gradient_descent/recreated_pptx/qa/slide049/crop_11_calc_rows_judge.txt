@@ -1,0 +1,42 @@
+## Pre-flight (ground rules applied)
+- Zoomed crop-pair of the right calculation panel of slide 049; template chrome (white canvas, panel strokes, etc.) not at issue here since the crop is inside the six calculation rows.
+- Typed-vs-handwritten and linear-vs-2D equation format differences are discounted per rules (c)/(d). Both images here use 2D column vectors, so format is comparable.
+
+## Cell-by-cell content audit (all six rows)
+
+Row triplets, vectors, results, verdicts, and W columns match value-for-value in both images:
+- Row 1: 1 1 1 | (5, â1, â1) | = 3 | Keep same Weight | W = (5, â1, â1) â
+- Row 2: 1 2 1 | = 2 â
+- Row 3: 1 1 2 | = 2 â
+- Row 4: 1 5 4 | = â4 â
+- Row 5: 1 6 5 | = â6 â
+- Row 6: 1 6 6 | = â7 â
+
+No wrong digits, no missing rows, brackets in the render span all three vector lines without touching glyphs. That part is clean.
+
+## Discrepancies
+
+1. **Row 1 label: d(xâ) in original vs d(xâ) in render** â IMG2 left edge (~yâ55) clearly reads *d(xâ)*; IMG1 (~yâ60) reads *d(xâ)*. Even if the original contains a typo, a faithful recreation must reproduce the label as shown. **MAJOR**, confidence high.
+
+2. **Row 6 label:) in original vs d(xâ) in render** â IMG2 bottom row (~yâ740) reads *d; IMG1 (~yâ745) reads *d(xâ)*. Same class of mismatch. **MAJOR**, confidence high.
+
+3. **Missing vertical-bar delimiters around the 3-digit row vector (all six rows)** â original shows the triplet enclosed between two full-height vertical bars (e.g., "|1 1 1|", crop-left ~xâ120â220); the render shows a bare "1 1 1" with no delimiters. Delimiter geometry is explicitly in scope. **MAJOR**, confidence high.
+
+4. **Missing color coding of the triplet digits** â original rows 1â3 have the triplet (and its bars) in red; rows 4â6 in blue/violet. Render shows all triplets in plain black. Six instances. **MAJOR**, confidence high.
+
+5. **W-vector delimiter shape: parentheses vs square brackets** â original uses tall parentheses for the W column (right side ~xâ940 in IMG2); render uses square brackets in all six W columns. Shape of an enclosing delimiter differs throughout. **MAJOR**, confidence high.
+
+6. **W label formatting** â original shows bold, underlined **WÌ²**; render shows plain italic *W* with no underline (six instances, ~xâ890 in IMG1). **MAJOR**, confidence medium-high.
+
+7. **â arrow color** â render's double arrow is red (C00000-ish); original's â/â appears black/dark. Six instances (~xâ470â500). Per the mandate to be exact about symbol color, but it's a single glyph, not content: **MINOR**, confidence medium (could be intentional emphasis styling).
+
+8. **Spacing around '=' and 'â' in results** â original has thin spaces ("= 3", "= â 4"); render is tighter ("=3", "=â4"). Cosmetic. **MINOR**, confidence high.
+
+9. **IMG2 row 1, third vector entry (â1) partially obscured by a mouse-cursor artifact** (~xâ980, yâ95) â video-capture artifact per rule (e); noted, **not a discrepancy**.
+
+10. *Possible* green tint on the row-1 column vector (5, â1, â1) in IMG2 â low confidence due to JPEG softening; flagged only as **MINOR, confidence low**, for a second look.
+
+## What checks out
+All 60+ numeric values, all six "Keep same Weight" verdicts, row separation/gray row banding, vertical centering inside all vector enclosures, bracket span and non-contact with text, stroke continuity, and overall layout/alignment of the four columns.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â the two subscript-label mismatches (xâ/xâ, xâ), the missing vertical-bar delimiters and red/blue color coding on the triplets, and the paren-vs-bracket / WÌ²-formatting differences are all zoom-visible content divergences from the original region.

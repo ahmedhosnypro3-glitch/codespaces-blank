@@ -1,0 +1,49 @@
+=== closed-loop title geometry (frame px; orig measured vs render measured) ===
+line                                     edge    orig  render   delta
+L1 'Gradient Descent (GD)'               x0     230.0   230.3    +0.3
+L1 'Gradient Descent (GD)'               y0     176.0   181.0    +5.0  <-- OVER TOL
+L1 'Gradient Descent (GD)'               x1     718.0   714.8    -3.2  <-- OVER TOL
+L1 'Gradient Descent (GD)'               y1     220.0   221.8    +1.8
+L1 'Gradient Descent (GD)'               cx     474.0   472.6    -1.4
+L2 'vs'                                  x0     444.0   442.3    -1.7
+L2 'vs'                                  y0     263.0   267.8    +4.8  <-- OVER TOL
+L2 'vs'                                  x1     491.0   488.4    -2.6  <-- OVER TOL
+L2 'vs'                                  y1     289.0   291.4    +2.4  <-- OVER TOL
+L2 'vs'                                  cx     467.5   465.4    -2.1
+L3 'Stochastic Gradient Descent (SGD)'   x0      96.0    96.4    +0.4
+L3 'Stochastic Gradient Descent (SGD)'   y0     332.0   337.0    +5.0  <-- OVER TOL
+L3 'Stochastic Gradient Descent (SGD)'   x1     851.0   848.2    -2.8  <-- OVER TOL
+L3 'Stochastic Gradient Descent (SGD)'   y1     376.0   377.8    +1.8
+L3 'Stochastic Gradient Descent (SGD)'   cx     473.5   472.3    -1.2
+
+=== red/blue split per line (frame px) ===
+  L1 'Gradient Descent (GD)'               red  : orig x 230..597       render x 230.3..595.4
+  L1 'Gradient Descent (GD)'               blue : orig x 625..718       render x 623.7..714.8
+  L2 'vs'                                  red  : orig x 444..491       render x 442.3..488.4
+  L2 'vs'                                  blue : orig x none           render x none
+  L3 'Stochastic Gradient Descent (SGD)'   red  : orig x 96..713        render x 96.4..711.5
+  L3 'Stochastic Gradient Descent (SGD)'   blue : orig x 729..851       render x 727.8..848.2
+
+=== [2] FRAME CONTAINMENT: all title ink inside panel/stroke box ===
+  title ink (frame px): x 96.4..848.2, y 181.0..377.8
+  clear of strokes L58.5 R901 bottom538.5 and inside panel: True
+
+=== [7] LINE/BOX WRAP: per-band ink confined, no bleed into neighbor band ===
+  L1 'Gradient Descent (GD)'              : render ink rows 181.0..221.8 inside band [160,245): True
+  L2 'vs'                                 : render ink rows 267.8..291.4 inside band [248,322): True
+  L3 'Stochastic Gradient Descent (SGD)'  : render ink rows 337.0..377.8 inside band [325,405): True
+  gap 245..248 between lines: clean (no stray ink)
+  gap 322..325 between lines: clean (no stray ink)
+
+=== house chrome (house_chrome_check.py, run 2026-10-19 17:41) ===
+  HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom
+  present, top bare; badge center (1824,152) d=68; numeral ink present; tol 8)
+
+SELFCHECK: FAIL
+  - L1 'Gradient Descent (GD)' y0: orig 176.0 vs render 181.0 (delta +5.0 frame px)
+  - L1 'Gradient Descent (GD)' x1: orig 718.0 vs render 714.8 (delta -3.2 frame px)
+  - L2 'vs' y0: orig 263.0 vs render 267.8 (delta +4.8 frame px)
+  - L2 'vs' x1: orig 491.0 vs render 488.4 (delta -2.6 frame px)
+  - L2 'vs' y1: orig 289.0 vs render 291.4 (delta +2.4 frame px)
+  - L3 'Stochastic Gradient Descent (SGD)' y0: orig 332.0 vs render 337.0 (delta +5.0 frame px)
+  - L3 'Stochastic Gradient Descent (SGD)' x1: orig 851.0 vs render 848.2 (delta -2.8 frame px)

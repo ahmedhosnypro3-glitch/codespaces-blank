@@ -1,0 +1,66 @@
+## Groundârule settlement (applied first)
+
+- House chrome (white canvas, E9E9E7 panel x54â903 / y45â540, left/right/bottom C00000 strokes **only**, no top stroke, FDFD96 badge with 6A5ACD ring, "25" numeral) is treated as **intentional and correct**; the missing top stroke is **not** flagged.
+- IMG2 is a contentâbearing slide (four lossâsurface figures), so rule (b) does not apply â content fidelity is required.
+- No cursor artifacts to reconcile.
+- No linearâvsâ2D equation issue arises on this slide.
+- **Verdict is renderableâcontent fidelity only.**
+
+---
+
+## Elementâbyâelement discrepancy list
+
+**A. Title**
+1. **MINOR / MEDIUM** â Title text is verbatim ("Types of Loss function shapes") and red/bold, but the recreation's title is set ~1â2 px smaller (spans ~x246â548 vs original ~x240â550) and sits ~2 px higher relative to the panel.
+
+**B. Topâleft figure ("Concave Function / One Maximum")**
+2. **MAJOR / HIGH** â **Chart type substituted.** The original is a 3âD wireâframe/mesh paraboloid (surface plot) with 3âD gridlines and a receding axis floor; the recreation renders a flat 2âD rainbowâfilled bell crossâsection. The visual semantics (3âD surface, viewing angle, mesh segmentation) are not the same figure.
+3. **MAJOR / HIGH** â **Axis tick text omitted.** Original carries numeric labels "0, â5, 2 / 0, â2, 0, 2" around the plot; the recreation shows no numeric ticks at all.
+4. **MAJOR / MEDIUM** â **Containment/overflow.** The recreation's bell apex (~x170, y105) sits essentially on/through the top red frame (frame top yâ103); the original dome has clear margin (peak ây143 inside a frame top of y111).
+5. **MAJOR / MEDIUM** â The recreation's figure is overâscaled (fills nearly the whole frame, ~88â246 x / 105â250 y) versus the original's inset dome (~95â230 x / 140â255 y), so the two red reference lines now cut the curve at different relative heights (recreation yâ147/172 vs original yâ157/175).
+
+**C. Topâright figure ("Convex Function / One Minima")**
+6. **MAJOR / HIGH** â **Different view of the same surface.** Original is a side 3âD bowl (rise ~2Ã10â´, walls rising left/right); the recreation is rendered as a nearâplan/oblique top view (flat rainbow square with a darkâblue center hole). The "shape" communicated is materially different.
+7. **MAJOR / HIGH** â **Axis/scale text lost.** Original shows the "Ã10â´" multiplier at upperâleft plus zâaxis ticks (2, 1.5, 1, 0.5, 0) and full xâaxis ticks (100, 50, 0, â50, â100, â100, 0, 50, 100). The recreation retains only fragments ("0", "100 â100", an ambiguous "2Ã10â¦" at upperâleft); the scale notation and most ticks are missing/misplaced.
+8. **MAJOR / MEDIUM** â **Reference red lines collapsed.** Original's two red horizontal guides are clearly separated (ây180 and ây218, straddling the bowl floor). In the recreation they are nearly coincident (ây200 and ây207), so the second guide line is effectively lost.
+
+**D. Bottomâleft figure (nonâconvex surface)**
+9. **MAJOR / MEDIUMâHIGH** â **Label text appears wrong:** the recreation labels the tall global peak "Global Minima" (âx265, y325), whereas the original labels that peak "Global Maxima" (âx222, y281) with a corresponding arrow. A second "Global Maxima" appears midâfigure in the recreation, i.e. the globalâmax/globalâmin labelling is inconsistent with the original.
+10. **MAJOR / HIGH** â **Figure cropped/clipped.** The recreation's surface image is cut off exactly at the box bottom (yâ461) â no bottom axis numbers, no lower frame margin â while the original continues to yâ488 with axis ticks ("1", "3", etc.) visible. The recreation's plot is also zoomed in so peaks are cut at the top edge of the visible surface.
+11. **MAJOR / MEDIUM** â **Missing axis numeric labels** (original shows 6, 6, 4, 2, 0, â2, â4, â6 on the left and 2, 0, â2â¦ along the bottom); recreation shows none.
+12. **MINOR / LOW** â Arrow callouts are placed differently (recreation arrows sit at different angles/positions relative to their peaks).
+
+**E. Bottomâright figure (gradientâdescent path)**
+13. **MAJOR / HIGH** â **Path geometry differs.** Original shows a continuous black trajectory entering from the tall peak and curving down the right wall into the basin, plus a faint reflected shadow of the surface below the box. The recreation shows a nearâstraight black stroke down the centre with a short detached segment and **no reflection/shadow**, so the descent path is not the same diagram.
+14. **MINOR / MEDIUM** â Surface rendering differs (recreation bowl is smoother with a steep red/orange right wall; original is a more lobed, detailed surface).
+15. **MINOR / LOW** â A stray red tick/mark appears just **outside** the frame's right border at â(827, 390) in the recreation (no counterpart in the original).
+
+**F. Blue callout boxes (text and placement)**
+16. **MAJOR / HIGH** â **"Gradient Descent" label line breaks differ.** Original: line 1 "Gradient Descent", line 2 "Path to reach Minima". Recreation: line 1 "Gradient Descent Path to", line 2 "reach Minima". Verbatim lineâbreak requirement violated.
+17. **MAJOR / HIGH** â **"NonâConvex" label line breaks differ.** Original: line 1 "NonâConvex", line 2 "Multiple Minima". Recreation: line 1 "NonâConvex Multiple", line 2 "Minima".
+18. **MAJOR / MEDIUM** â **"NonâConvex" label position/size off:** recreation box â(357, 394)â(486, 428) vs original â(363, 423)â(487, 455) â ~25 px too high and ~6 px too far left, and the type is smaller.
+19. **MAJOR / MEDIUM** â **"Convex Function / One Minima" box** is ~13â19 px too high (recreation â(441, 159)â(571, 193) vs original â(440, 172)â(568, 212)) and its type is ~15 % smaller (box height 34 vs 40).
+20. **MINOR / MEDIUM** â **"Concave Function" box** ~7 px too high (recreation top y121 vs original y128).
+21. **MINOR / MEDIUMâLOW** â Possible verbatim mismatch on the second line: recreation reads "One Maximum", original appears to read "One Maxima" (single final character). Flagged with reduced confidence.
+
+**G. Wholeâslide layout**
+22. **MINORâtoâMAJOR / HIGH** â **Systematic vertical drift of the lower half.** All lowerârow elements are raised relative to the original: bottomâleft box top â16 px / bottom â27 px; bottomâright box top â21 px / bottom â26 px; topâright box bottom â16 px. Because the panel is fixed house chrome, the recreation now leaves a ~45 px dead band at the bottom of the panel where the original has almost none â the composition is not centred the same way.
+
+---
+
+## Visualâquality defects in the recreation
+
+- Bottomâleft surface image is **hardâclipped at the frame's bottom stroke** (ink terminates on the border; no axis labels), and its peak is cropped by the frame edge.
+- Topâleft bell curve **touches/crosses the inner top frame** at its apex.
+- Two blue callouts have **wrong wrapping** ("Gradient Descent Path to / reach Minima", "NonâConvex Multiple / Minima"), producing unbalanced boxes and ragged alignment against the figure they annotate.
+- Smallâtype blue label text (â9â10 pt equivalent) in "Convex Function" and "NonâConvex" boxes is less legible than the original's larger type.
+- The gradientâdescent black path in the bottomâright panel is a **thin, sparse stroke** that reads as an accidental line rather than the original's continuous trajectory.
+- The stray red mark at â(827, 390) sits outside the bottomâright frame.
+
+---
+
+## Summary
+
+All four principal figures, the title, and the four callouts are **present**, so there is no absolute BLOCKER omission. However, the recreation substitutes a different rendering/orientation for the topâleft and topâright surfaces, drops most axis/scale text, alters the globalâmax/globalâmin labelling, clips the bottomâleft plot, redraws the descent path incorrectly, and changes the line breaks and placement of two callouts. These are multiple MAJOR content and geometry deviations.
+
+**FINAL VERDICT: FAIL** â not a faithful, usable recreation of the original lecture frame.

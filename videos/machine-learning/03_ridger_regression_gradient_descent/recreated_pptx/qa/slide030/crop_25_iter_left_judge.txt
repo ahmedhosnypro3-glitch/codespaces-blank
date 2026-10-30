@@ -1,0 +1,11 @@
+Discrepancies found (crop-relative locations; values checked cell-by-cell across all 8 rows and the fully visible columns):
+
+**D1 â Leading "3" glyph color (MINOR, confidence ~65%).**  
+Location: top data row, first value cell just right of the "x" label column (upper-left of crop). IMG1 renders the initial x = **3** in red emphasis text; IMG2 renders the same "3" in dark/neutral text. The digit itself is correct (no wrong/missing value); only the emphasis color differs. Single glyph, no effect on readability or computation.
+
+**D2 â Right-edge column coverage (MINOR, confidence high).**  
+Location: far right edge of crop. IMG1 shows the final column (x = 4 â¦ next x = 4.2) complete with its right cell border. IMG2's capture terminates mid-way through that final column, so the last digits are cut off at the image boundary. The overlapping portions match IMG1 digit-for-digit; this is an original-side crop boundary, not a wrong value.
+
+Everything else checked: all 8 rows (x / f(x) / x-delta / f(x-delta) / x+delta / f(x+delta) / slope / next x) and every visible numeric cell match IMG2 digit-for-digit (no wrong/missing/swapped values, no missing row). Row band colors (yellow-green / purple / peach / green / pink), gridline strokes, outer frame, label text ("x", "f(x)", "x-delta", "f(x-delta)", "x+delta", "f(x+delta)", "slope", "next x"), and vertical centering are consistent. No equations are present in this region, so the equation-format ground rule does not apply. JPEG softness in IMG2 is excluded per ground rule (e).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

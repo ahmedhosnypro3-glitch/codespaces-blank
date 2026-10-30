@@ -1,0 +1,35 @@
+# Fidelity Check â Slide 043 (Perceptron Iteration 2)
+
+## Element-by-element comparison
+
+**House chrome (per ground rules, not scored):** white canvas, gray panel, red left/right/bottom strokes only (no top stroke â correct), yellow "43" badge at upper right with purple ring â all present and correctly placed in the recreation.
+
+**Header (yellow box):** xââxâ labels, value rows (1)(2)(1)(5)(6)(6) / (1)(1)(2)(4)(5)(6), CâCâCâCâCâCâ, "Initial w = (4, â2, â2)", red italic "Step Î· = 2", "Check classes of" with z-vectors (0,0)(7,6)(3,2), legend "Câ positive / Câ negative / Zero is unaccepted" â all present, verbatim, correct colors (red/blue C labels, green "Zero"). â
+
+**Left panel:** "Ugmented Vectors ( from Top )" box with the six augmented column vectors (1,1,1)(1,2,1)(1,1,2)(1,5,4)(1,6,5)(1,6,6) and class labels â matches original, including the original's "Ugmented" typo (correctly preserved). "Iteration 2" red box matches. The pen/cursor artifact next to "Iteration 2" in IMG2 is correctly omitted (ground rule c). â
+
+**Rows 1, 3, 4, 5, 6:** d-values (â14, â4, 0, â104, â112), update arithmetic, vector colors (green results rows 1â4, black rows 5â6), blue index digits rows 4â6, red bar delimiters, â/â arrows, "Update Weight"/"Keep same Weight" text â all match. â
+
+## Discrepancies
+
+1. **MAJOR â d(xâ) result value mismatch.** Original reads d(xâ) = (1 2 1)Â·(6, â8, â6) = **â14**; recreation shows **â16**. (Confidence: high that they differ; note â16 is the arithmetically correct dot product, so the recreation appears to have silently corrected an original typo â but per directive the original's displayed value is authoritative.) The downstream update W = (8, â4, â4) is identical in both, so only this scalar differs.
+
+2. **MAJOR â bottom frame containment / clipped stray element.** In the recreation, below the d(xâ) box there is a partial extra box edge (sliver at the very bottom, ~yâ1100â1122px) that is cut off by the slide/panel bottom red stroke. The original has clean whitespace between the d(xâ) box and the panel bottom. Content stack overflows its region and a clipped fragment renders at the frame boundary. (Confidence: high.) Related: the six row boxes are taller than the original's, consuming the bottom margin the original reserves.
+
+3. **MINOR â right-edge clearance of row boxes.** The white row boxes' right edges sit essentially flush against the right red panel stroke in the recreation; the original leaves a visible gap (~25px scaled). (Confidence: medium â touching, not clearly crossing.)
+
+4. **MINOR â "Initial w =" equals-sign placement.** In the recreation the "=" sits at mid-vector height immediately against the parenthesis, visually reading as "=-2" on the middle row; the original shows clear separation "w = (â¦)". (Confidence: medium.)
+
+5. **MINOR â subscript legibility.** Subscripts (xââ¦xâ, Câ/Câ, zââ¦) in the recreation render noticeably smaller relative to the base glyphs than in the original, bordering on illegible at small zoom. (Confidence: medium.)
+
+## Visual-quality defects in the recreation
+
+- Clipped box sliver at bottom edge (see #2) â the most visible artifact.
+- Row-box vertical rhythm slightly looser than original, causing the whole stack to run ~40px lower than the original's layout.
+- No text clipping, collisions, or wrapping errors inside the row boxes themselves; vectors are vertically centered in their delimiters; delimiters span all three rows.
+
+## Missing elements
+
+None â every equation region, vector, label, and arrow in the original is present in the recreation. No BLOCKER under rule (6).
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation' â driven by the â16 vs â14 value deviation and the clipped overflow sliver at the panel's bottom boundary. Both are fixable in one pass (restore "â14", delete/reposition the stray bottom box or tighten row heights).

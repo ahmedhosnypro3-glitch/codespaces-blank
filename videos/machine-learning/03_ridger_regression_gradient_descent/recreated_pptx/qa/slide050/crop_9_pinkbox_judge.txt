@@ -1,0 +1,27 @@
+## Comparison (cropârelative coordinates)
+
+| Feature | IMG1 (recreation) | IMG2 (original) |
+|---|---|---|
+| `W` | xâ22â48, yâ50â68, italic sansâserif, with a separate underline at yâ70 | xâ20â60, yâ65â100, bold upright serif; no clearly separable underline |
+| `=` | xâ55â72, yâ54â63 | xâ62â85, yâ70â90 |
+| Left delimiter | xâ86â95, yâ32â78 (thin stroke, spans both visible rows) | xâ100â110, yâ28â135 (thicker, spans all three rows) |
+| Vector body | row 1: `5` at xâ115â133, yâ31â52; row 2: `â1` at xâ100â145, yâ55â72 | row 1: `5` at xâ130â155, yâ30â55; row 2: `â1` at xâ115â160, yâ60â85; row 3: `â1` at xâ115â160, yâ95â118 |
+| Right delimiter | xâ148â157, yâ32â78 (spans both visible rows) | xâ170â180, yâ28â135 (spans all three rows) |
+| Highlight | flat pink fill, no visible outline, extends far below the formula | handâdrawn magenta/pink rectangle outline (xâ8â190, yâ8â135) with pale pink interior, tightly wrapping the formula |
+
+## Discrepancies
+
+1. **MAJOR â Missing third row of the column vector.** IMG2 shows a **threeâentry** column vector, `(5, â1, â1)áµ`: `5` on top, then `â1`, then a second `â1`. IMG1 shows only **two** entries, `(5, â1)áµ`. The bottom `â1` (IMG2 at xâ115â160, yâ95â118, i.e. the lowest line inside the rightâcenter parenthesis) is absent in the recreation; in IMG1 the region below the visible `â1` (roughly x 100â145, y 80â100) is blank pink. This changes the vector's dimension from 3 to 2 and therefore the mathematical content, not merely the formatting. Confidence: **high**.
+
+2. **MINOR â `W` glyph/underline treatment.** The recreation's `W` is an italic sansâserif with a distinct horizontal underline stroke beneath it (IMG1 xâ21â49, yâ70â72). The original's `W` is an upright bold serif with no clearly resolvable underline (it may be merged into the capture's dark halo). Glyphâshape/medium differences are capped at minor, but the underline is a real strokeâlevel difference. Confidence: **mediumâlow** (halo ambiguity).
+
+3. **MINOR â Pink highlight outline missing.** The original region is enclosed by a visible magenta handâdrawn rectangle (IMG2 border at xâ8, xâ190, yâ8, yâ135). The recreation renders the same area as an edgeâtoâedge flat pink fill with no border stroke. Confidence: **medium**.
+
+4. **MINOR â Highlight padding / vertical extent.** In IMG2 the formula fills the highlight box vertically (box yâ8â135, content yâ28â135). In IMG1 the pink field continues well below the formula (pink down to yâ215+), leaving a large empty pink area beneath the vector. This compounds the visual impression of the missing third row. Confidence: **mediumâlow** (could partly be a crop/scale artifact).
+
+5. **MINOR â Delimiter stroke weight/character.** IMG2's parentheses are noticeably heavier, smoothly curved hand strokes; IMG1's are thin, lighter strokes with a slight angular seam around midâheight. Both do span all the lines they enclose and do not touch the text, so the geometry requirement is met; only weight/smoothness differs. Confidence: **medium**.
+
+## Notes on nonâdiscrepancies
+The darkâred bottom/right strokes, the white/gray background, and the pink fill itself are houseâtemplate chrome and are not counted. The recreation's stacked (column) arrangement with tall enclosing parentheses is the mandated 2âD equation formatting and is not itself penalized â the issue is purely the omitted row.
+
+**FINAL VERDICT: FAIL**

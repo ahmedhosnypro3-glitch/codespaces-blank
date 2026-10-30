@@ -1,0 +1,39 @@
+# Region Comparison â Slide 003 crop (matrix equation region)
+
+## What matches (verified cell-by-cell / glyph-by-glyph)
+
+- **Left vector:** yâ (yellow highlight), yâ (cyan highlight), "â¦" (no highlight), yâ (pink highlight) â all present, correct subscripts, correct highlight colors, in both images. Large parens span all four lines in both.
+- **"=" sign:** present, correctly placed between left vector and matrix.
+- **Matrix row 1 (yellow):** 1, xââ, xââ, â¦, xâð â all entries and subscripts correct.
+- **Matrix row 2 (cyan):** 1, xââ, xââ, â¦, xâð â correct.
+- **Matrix row 3 (white):** 1, â¦, â¦, â¦, â¦ â correct (four ellipsis columns after the leading 1 in both).
+- **Matrix row 4 (pink):** 1, xââ, xââ, â¦, xâð â correct.
+- **Right vector:** b (red), wâ, wâ, â¦, wð (blue), with ellipsis between wâ and wð â correct in both; enclosing parens span the full column.
+- **Dimension labels:** "N Ã 1" beside yâ, "N Ã d+1" beside matrix bottom-right, "d+1 Ã 1" beside wð â all present and correctly positioned in both.
+- **Row highlight bands** (yellow/cyan/white/pink) match in color and coverage.
+
+## Discrepancies
+
+1. **MAJOR â Missing inner per-row parentheses in the matrix.** In IMG2 (original), each highlighted row of the big matrix carries its own small parentheses "(" before the leading "1" and ")" after the last entry (clearly visible on the yellow row at ~(280,105)â(660,125), the cyan row at ~(280,180)â(660,200), and the pink row at ~(280,300)â(660,320); faintly on the white row too). IMG1 (recreation) shows only the single large outer parens spanning all rows â the per-row delimiters are absent. Missing delimiter glyphs are content omissions. Confidence: ~0.7 (they are distinct dark curved glyphs inside the highlight bands in IMG2, though video softening leaves some room for doubt).
+
+2. **MINOR â Label color mismatch on "N Ã 1".** Recreation renders it in purple (~crop (120,300)); original renders it in red/scarlet (IMG2 ~(130,315)). The other two labels ("N Ã d+1" dark red, "d+1 Ã 1" red) match. Confidence: high.
+
+3. **MINOR â Multiplication glyph style.** Original uses a letter-style "x" in "N x 1" / "d+1 x 1"; recreation uses a true "Ã". Same mathematical content â a formatting refinement, at most minor.
+
+4. **MINOR â "b" glyph rendering.** Original's "b" (top of right vector, ~(830,75)) is a hand-drawn/scribbled red glyph; recreation's is clean typed bold red. Per rule (c) this is an inherent medium difference, minor.
+
+5. **MINOR â Highlight band extent.** In IMG2 the colored bands extend under/behind the inner row parentheses; in IMG1 they cover only the cell content. Cosmetic, follows from item 1.
+
+## Items checked and explicitly NOT discrepant
+
+- No top stroke in either image's frame â consistent with house template (rule b).
+- Equation is in clean professional 2D layout with spatially aligned subscripts in the recreation vs. softer typeset in original â mandated upgrade per rule (d).
+- JPEG halos/softness throughout IMG2 â capture artifact, ignored (rule e).
+- All subscripts (11, 12, 1d, 21, 22, 2d, n1, n2, nd, 1, 2, d on w) verified character-by-character â no truncation or wrong digits anywhere.
+- Delimiter span: the large outer matrix parens and both vector parens in IMG1 correctly span all enclosed lines without touching text.
+
+## Summary
+
+Content (every number, subscript, ellipsis, label, and highlight) is faithfully reproduced. The single substantive defect is the omission of the inner per-row parentheses visible in the original â a missing-delimiter omission, MAJOR.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region" (driven solely by the missing per-row parentheses; all other differences are MINOR).

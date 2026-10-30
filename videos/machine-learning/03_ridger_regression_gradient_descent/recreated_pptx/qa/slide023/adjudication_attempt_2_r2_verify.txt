@@ -1,0 +1,61 @@
+# Independent PIL verification by worker-s023-r2 (read-only; did NOT take the lane)
+
+Identity / ownership decision:
+- Lane 23 is held by LIVE worker `w2-s023-20261023` (DB claim fresh < 40 min).
+  `15_progress.py claim 23 worker-s023-r2` was REFUSED (live peer). This agent did
+  NOT force-claim, heartbeat, rebuild, re-cut crops, or dispatch vision, to avoid
+  colliding with w2's in-flight recovery. Everything below is read-only measurement
+  on banked pixels + w2's own artifacts. It is additive evidence, not an override.
+
+This file is r2's OWN record (distinct from w2's `fix_record_*, crop_verdicts.md`).
+
+## 1. eq_zoom crop-pair MAJOR #1 — "missing underline on the final Y"  => CONFIRMED, then FIXED by w2
+
+PIL measurement (script: adjudication_attempt_2_yprofile.py) on the crop pair
+re-cut from render_2.png (22:15) vs the original, terminal-Y vertical ink profile:
+
+| image | Y glyph body | underline bar under Y |
+|---|---|---|
+| RENDER (render_2) | rows 31..79 | rows 93..96, ~25px wide |
+| ORIGINAL          | rows 33..75 | rows 80..82, ~25px wide |
+
+- ORIGINAL genuinely carries a thin horizontal bar under the terminal Y
+  (mean-adjusted response vector, matching the underlined W). Matches w2's
+  fix_record (orig rows 78..82 ~40px; render_2 rows 93..96 ~37px; r2's crop is a
+  slightly tighter window so widths read ~25px — same bar, agrees on PRESENCE).
+- Old render_1.png LACKED the bar (the eq_zoom FAIL was correct, not a false
+  positive). Root cause per w2: eq_023_main mathtext ended `X^T Y`, not
+  `X^T \\underline{Y}`; the builder's own stated intent was both underlined.
+- w2 fixed it: build_eq_023_ws.py -> \\underline{Y}; rebuilt eq_023_main.png
+  (22:05) and slide_023_recreated.pptx -> render_2.png (22:07); re-cut crops (22:15).
+- r2 independent verification: render_2.png DOES now carry the Y bar. Fix confirmed.
+  Note: r2 did not run Template A on render_2 (w2 owns the re-judge). r2 only
+  confirms, via PIL, that render_2 matches the original on this specific finding.
+
+## 2. Template-A attempt_2 MINOR #2 — "underline on (X^T X) (dim line)"
+Status of r2's first draft measurement (adjudication_attempt_2_new.py ADJ-new-A):
+  the wide band (frame-y 216..300) was MIS-ANCHORED — it overlapped the blue
+  paragraph (blue L1 top ~y242), so its "250px run" is paragraph text, NOT an
+  underline. NOT a valid refutation/confirmation. Needs a tight re-scan of only
+  x505..560, y215..238 (below dim baseline 211, above blue L1 top 242). Left for
+  the lane owner; flagged here so it is not mistaken for a finished adjudication.
+
+## 3. Template-A attempt_2 MINOR #3 — "red/bold 'Matrix inversion' highlight"
+PIL REDUTED (REFUTED) — r2 measurement (adjudication_attempt_2_new.py ADJ-new-B):
+  solution-box interior (frame x90..872 y436..528, the banked M2 window):
+    RENDER   : red px = 0  (navy 14841)
+    ORIGINAL : red px = 0  (navy 2718)
+  No red highlight exists in the ORIGINAL solution box; both are uniformly navy.
+  The attempt_2 "red" reading is REFUTED (consistent with attempt_1 M2/M3).
+  "Bold" sub-claim: line ink at matched scale is within ~1-4% (selfcheck M3:
+  SOL1/SOL2), i.e. no weight break that the original also lacks — no build change.
+
+## Lane state observed (nothing changed by r2)
+- gen_status=building, visual_check=null, visual_attempts=0, owner w2-s023-20261023.
+- render_2.png present (22:07) = new certification render (Y-underline fixed).
+- w2 in-flight vision dispatches at 22:04 and 22:07 (sessions 753887, 758840) +
+  a heartbeat/sleep loop (764153) — w2 is alive and re-judging BOTH legs per protocol.
+- The 3 previously-empty crop logs (recall_eq, solution, blue_body):
+  first batch (render_1, 19:26-21:01) = 0/4 under the storm; w2 re-cut all four
+  from render_2 at 22:15 and is re-dispatching. eq_zoom has landed once (FAIL,
+  then fixed). recall/solution/blue_body verdicts on render_2 are PENDING w2.

@@ -1,0 +1,75 @@
+=== ADJUDICATION VERDICT: crop_9_graph FAIL (render_9 "(7, 7)") ===
+
+Question answered by this record: what does the ORIGINAL slide_032 actually print
+at the right-hand end of the black y=10 chord (frame x727..756, y136..154)?
+
+ANSWER: the original prints "(?, ?)" — a deliberately blank to-be-filled
+coordinate. The render now prints "(?, ?)". The crop_9_graph FAIL is SUPERSEDED
+by a real fix, not merely refuted.
+
+--- Evidence 1: the vision judge read the ORIGINAL as "(?, ?)" (two legs) ---
+- crop_9_graph_judge.txt line 5 (the FAILING crop leg, run on render_9):
+    "IMG1 (recreation) prints '(7, 7)' by the right-hand black dot; IMG2
+     (original) prints '(?, ?)' at the same spot. The original is left as a
+     blank/to-be-filled coordinate; the recreation replaces it."
+  The judge's own complaint is that the recreation SUBSTITUTES text where the
+  original has a blank — i.e. the original's ink at that spot is a placeholder,
+  not a numeric pair. It also notes f(7)=5 for f(x)=(x-5)^2+1, so "(7, 7)" was
+  geometrically impossible regardless of which coordinate pair the original shows.
+- judge_attempt_10.txt line 28 (the full-slide PASS leg, run on render_10):
+    "horizontal gradient-descent segment with labeled '(?, ?)'"
+  The same judge passed the full slide while reading BOTH images as "(?, ?)".
+
+--- Evidence 2: PIL ink measurements, original vs both builds ---
+adjudicate_23_ab.py = the A/B bitmap over the label bbox. Summary:
+  Label ink bbox (region x727..756, y136..154; black chord/dot excluded):
+    thr170: orig 20w x 7h  | r9 39w x 18h (render px) | r10 36w x 18h
+    thr190: orig 20w x 9h  | r9 39w x 18h              | r10 37w x 18h
+    thr210: orig 22w x 10h | r9 39w x 18h              | r10 37w x 18h
+  IoU(original ink vs render ink):
+    best 0.1146 (thr210 vs r9) and 0.1026 (thr210 vs r10) — low for both because
+    the original is a faint handwritten placeholder and the render is typed
+    serif; this measure alone does not settle the reading (documented, not hidden).
+  render_9 vs render_10 diff bbox = render px (1516,298,1553,318)
+    = frame x 727.3..744.6, y 143.0..152.2 → the ONLY pixel difference between
+    the two builds is this label, so the A/B is valid and isolated.
+  Original glyph structure (adjudicate_13_label.txt / adjudicate_15_components.txt,
+  thr<190 window x727..756):
+    - Left cluster x729..737 (9w x 8h): NO full-width top bar, NO descending-left
+      diagonal → NOT the digit 7 (a serif/handwritten 7 needs a wide top bar).
+      Reads as "(" + a curved "?" hook.
+    - Right cluster x742..748 (7w x 9h): wide left stem rows 143-148 with a tail
+      curving right at rows 149-151 → also NOT a 7.
+    - Two clusters of DIFFERENT widths (9 then 7) span only 20 frame px total, with
+      a 4px gap at x738..741 — consistent with 5 small glyphs of a "(?, ?)"
+      placeholder (parenthesis, question mark, comma, space, question mark,
+      parenthesis) at ~9-10pt, and inconsistent with two equal-width digits whose
+      ink would be wider and more evenly distributed.
+    - At thr<170 the same area dissolves into fragments of 1-4px
+      (adjudicate_15_components.txt: blobs x729 (1x4), x732..735 (4x4),
+      x743..745 (3x5), x747..748 (2x6)) → this is Faint handwritten ink, not the
+      dense typed digits that "(7, 7)" would produce.
+    - The gray-blue stroke at x722..727 y130..161 is the CURVE
+      (RGB ~150,164,173 — adjudicate_17_runs.py), not text.
+  Corroboration from earlier PIL work: adjudicate_9_graph_label.py,
+  adjudicate_9i_finalglyph.py, adjudicate_9j_iou.py — no glyph template for "7"
+  matched the original's ink; the "(2, 10)" control label (a real typed pair in
+  the same frame, box w40 at x619) shows the ink density a genuine coordinate pair
+  leaves behind, which the right label does not.
+
+--- Verdict ---
+- The FAIL's claim about the original ("prints '(?, ?)'") is CONFIRMED against the
+  original frame by the vision judge itself, twice, on two different legs.
+- The build defect (render_9's "(7, 7)") was real and was fixed:
+  build/slide_032.js line 206 now emits gLabel("(?, ?)", 724, 140, 30, 13, "left").
+- Verdict: the crop_9 FAIL is SUPERSEDED. No phantom ink was removed, no
+  rebuild is pending, and the failing build is retained as evidence (render_9.png,
+  crop_9_*). The current deliverable renders "(?, ?)".
+
+--- Render currency ---
+  scratch/tmp/s032b/render-1.png md5 6f79115004f067f5d036a78d6e961345
+    = qa/slide032/render_10.png (the leg-A PASS render) — identical bytes.
+  Therefore leg A (Template A, full-slide) needs no re-run: its PASS is provably
+  about the exact pixels now deliverable. Leg B (Template B, crop pairs) must be
+  re-run because crop_11's graph --capture text still asserted the false "(7, 7)"
+  reading; attempt 12 re-cuts the pairs with a neutral region description.

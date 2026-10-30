@@ -1,0 +1,47 @@
+## Fidelity review â Slide 014 (recreation vs. original)
+
+### Scope note
+House chrome (gray panel, left/right/bottom red strokes, no top stroke, yellow "14" badge), the video cursor artifact, and the typed-vs-handwritten difference in the vector notation are treated as nonâdiscrepancies per the founder rules. All findings below concern renderable content.
+
+---
+
+### Discrepancies (every item, with severity + confidence)
+
+| # | Element | Original (IMG2) | Recreation (IMG1) | Severity | Confidence |
+|---|---------|------------------|--------------------|----------|------------|
+| 1 | First yellow band, text layout | Single line inside a blueâoutlined paleâyellow box (yâ228â264): "Objective is Å¶ = Y and âWâ is minimum" on the left, then "This is called **Ridge Regularization**" (green, bold) to its right at xâ535â790 | "Objective is Å¶ = Y and âWâ is minimum" (yâ232) and "This is called **Ridge Regularization**" (green, bold) at xâ160, yâ240 â the two runs are stacked and **physically overlap**; the green run also starts at midâband instead of rightâaligned | **MAJOR** (collision, illegible text, wrong layout) | High |
+| 2 | Topâleft box, label block position | "**Original Labels**" (red bold) and "from Training Samples" sit to the **right** of the Yâvector, top line + second line, vertically centered in the box | Both lines are relocated to the **lowerâleft**, under "Let Y =", leaving the right half of the box empty | **MAJOR** (region arrangement / labelâagainstâvalue alignment) | High |
+| 3 | Topâleft box, label color | "Original Labels" is **red bold** | "Original Labels" is **black bold** | **MAJOR** (emphasis color lost) | High |
+| 4 | Topâleft box, vector scale/placement | Red vector column spans nearly the full box height (yâ,yâ,â¦,yâ with NÃ1, â95 px tall), vertically centered beside "Let Y =" | Vector column is shrunk to â45 px and pushed to the top edge of the box; the enclosing parenthesis/brace is cramped and visually crowded against the top border | **MAJOR** (delimiter/matrix scale + vertical alignment) | Mediumâhigh |
+| 5 | Topâleft box, "Let Y =" styling | Black upright serif | Red italic, smaller | MINOR | High |
+| 6 | Topâright box, label block position | "**Predicted Labels**" (blue bold) and "from Model Å¶ = XW" sit to the **right** of the Å¶âvector | Both lines relocated to the **lowerâleft**, under "Let Å¶ =", right half of box empty | **MAJOR** | High |
+| 7 | Topâright box, label color | "Predicted Labels" is **blue bold** | "Predicted Labels" is **black bold** | **MAJOR** | High |
+| 8 | Topâright box, vector color | Vector column is **red** | Vector column is **blue** | MINORâMAJOR | High |
+| 9 | Topâright box, vector scale | Red Å¶âvector column â100 px tall, full box height | Blue Å¶âvector column â45 px, topâanchored; "N Ã 1" subscript floats detached at yâ157 | **MAJOR** (scaling + delimiter/note alignment) | Mediumâhigh |
+| 10 | Topâright box, "Let Å¶ =" styling | Black upright | Blue italic | MINOR | High |
+| 11 | "Define Loss function as squared distanceâ¦" | "squared distance" in **blue** | "squared distance" in **green** | MINOR | High |
+| 12 | Lossâterm box, label + equation color | "**Loss Term**" **blue bold**; the equation "= âYâÅ¶âÂ² = (YâÅ¶)áµ(YâÅ¶)" in **red bold** | "Loss Term" **red**; equation **black** | MINOR (emphasis hierarchy lost) | High |
+| 13 | Regularizationâterm box, equation color | "R = âWâÂ² = WáµW" in **green** | Same equation in **black** | MINOR | High |
+| 14 | Box outlines on the middle rows | Distinct blueâoutlined yellow boxes (rows 1â2), redâoutlined peach box (Define Loss), redâoutlined Loss Term box, blueâoutlined Regularization box | Only bottom rules are drawn (blue at yâ235/295/410, red at yâ341); left/right/top borders of these boxes are absent, and the yellow fills extend wider (xâ60â838) than the original's boxed region (xâ80â818) | MINORâMAJOR (container geometry not reproduced) | Mediumâhigh |
+| 15 | Bottom box, "Objective function" label | Bold label **indented** at xâ165, followed by a gap and then the equation | Label flush to the box's left edge (xâ93) with almost no gap before the equation | MINORâMAJOR (horizontal alignment of label vs. value) | High |
+| 16 | Bottom equation typography/size | Stacked Â½ fraction, red bracketed term, green WáµW; spans xâ350â735 | Inline "Â½" glyph, smaller type, equation ends at xâ475 leaving a large empty right half of the box | MINOR (format downgrade relative to the mandated 2âD stacked form; size/extent mismatch) | High |
+| 17 | Overall vertical placement | Content stack begins at yâ95 and ends at yâ492 | Content stack begins â10 px higher and is vertically compressed (~15â25 px offset rowâbyârow) | MINOR | Medium |
+| 18 | Leftâhand vector entries | yâ, yâ, â¦, yâ (unhatted) | Last row appears to carry a hat glyph | MINOR (possible symbol error) | Low |
+
+---
+
+### Visualâquality defects in the recreation
+- **Text collision (blockerâlevel readability):** the black "Objective is Å¶ = Y and âWâ is minimum" and the green "This is called Ridge Regularization" in the first yellow band are drawn on top of one another; characters are overstruck and hard to read. This is the single worst defect.
+- **Misâplaced/emptied regions:** both top boxes have their entire right halves empty while the left column is overâcrowded; the reading order ("Let Y =" â description) no longer matches the original's horizontal composition.
+- **Cramped matrix delimiters:** the small stacked vectors in both top boxes have parentheses/braces that are close to the enclosed glyphs and to the box top edge, degrading legibility.
+- **Missing container strokes:** the middle rows read as loose horizontal bands rather than the original's discrete bordered boxes.
+- **Uneven emphasis:** multiple colored emphasis cues (red "Original Labels", blue "Predicted Labels", blue "squared distance", blue/red "Loss Term", green regularization equation) are replaced by black, flattening the hierarchy and reducing fidelity of the colored original.
+- **Loose rightâhand whitespace** in the bottom equation box due to the shrunken equation, and a flushâleft "Objective function" label that breaks the original's labelâequation alignment.
+- No element in the recreation appears to cross the house panel or its red strokes; frame containment of the house chrome is acceptable.
+
+---
+
+### Rationale
+All text content is present (no BLOCKER omission), but the recreation fails on the mandated MAJOR criteria: overlapping/colliding text in the first band, and reâarranged, reâcolored label blocks in both top label boxes with misâscaled vector notation and misâaligned delimiters. Color and outline fidelity also diverges across every middle row.
+
+**FINAL VERDICT: FAIL**

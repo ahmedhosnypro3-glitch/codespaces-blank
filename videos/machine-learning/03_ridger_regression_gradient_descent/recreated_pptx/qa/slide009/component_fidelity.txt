@@ -1,0 +1,49 @@
+
+== 1. fresh equal-command renders ==
+cert render  (1280, 720)
+probe render (1280, 720)
+
+== 2. pixel diff (identical command, identical raster path) ==
+same geometry: True
+pixels differing        : 0 of 921600
+pixels differing >8     : 0
+max channel delta        : 0
+PIXEL-IDENTICAL: True
+
+== 3. container member diff ==
+members 41 / 41, same names: True
+  differs: docProps/core.xml (first divergence at char 618)
+    A: >
+		<cp:revision>1</cp:revision>
+		<dcterms:created xsi:type="dcterms:W3CDTF">2026-10-21T04:54:21Z</dcterms:created>
+		<dcterms:modified xsi:type="dcterms:W3CDTF">2026-10-21T04:54:21Z</dcterms:modified>
+	</cp:corePropert
+    B: >
+		<cp:revision>1</cp:revision>
+		<dcterms:created xsi:type="dcterms:W3CDTF">2026-10-21T05:19:40Z</dcterms:created>
+		<dcterms:modified xsi:type="dcterms:W3CDTF">2026-10-21T05:19:40Z</dcterms:modified>
+	</cp:corePropert
+  differs: ppt/slides/slide1.xml (first divergence at char 14082)
+    A:  id="41" name="Shape 39"></p:cNvPr><p:cNvSpPr/><p:nvPr></p:nvPr></p:nvSpPr><p:spPr><a:xfrm flipV="1"><a:off x="1790700" y="2527300"/><a:ext cx="3708400" cy="1943100"/></a:xfrm><a:prstGeom prst="line"><a:avLst></a:avLst><
+    B:  id="41" name="Shape 39"></p:cNvPr><p:cNvSpPr/><p:nvPr></p:nvPr></p:nvSpPr><p:spPr><a:xfrm><a:off x="1206500" y="1397000"/><a:ext cx="4699000" cy="4597400"/></a:xfrm><a:prstGeom prst="rect"><a:avLst></a:avLst></a:prstGeo
+container diff limited to metadata + shape ORDER (geometry/content equal): True
+
+== 4. shape-order invariant (why order-only is safe) ==
+cert   sp=121 pic=2
+probe  sp=121 pic=2
+xfrm multiset equal (same shapes, same boxes, only sequence differs): True
+  cert xfrms=122 probe xfrms=122
+
+== 5. skip / only / numeral hooks (the contract child 010 uses) ==
+  (full, default)                sp=121 pic=2
+  only:{chrome}                  sp=  6 pic=0
+  skip:{captions}                sp=117 pic=2
+  only:{chrome,panels,axes}      sp= 82 pic=0
+  numeral override 42            sp=121 pic=2
+
+== VERDICT ==
+pixel-identical to certified deliverable : True
+container diff = metadata + shape order  : True
+same xfrm multiset (order-only)          : True
+skip/only/numeral hooks gate correctly    : True
+COMPONENT FIDELITY: PASS

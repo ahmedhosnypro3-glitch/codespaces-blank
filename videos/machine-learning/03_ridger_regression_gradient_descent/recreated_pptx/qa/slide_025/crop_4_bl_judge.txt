@@ -1,0 +1,29 @@
+Comparing IMG1 (recreation crop) to IMG2 (original crop) of the same region:
+
+**Matches (not discrepancies):** thin red border present in both; red horizontal reference line at z = 0 spanning the region in both; all four black text labels ("Local Maxima", "Local Minima", "Global Maxima", "Global Minima") exist in both; multi-extremum surface with jet coloring present in both.
+
+**Discrepancies:**
+
+1. **MAJOR â High confidence** â Vertical (z) axis on the wrong side and wrong range.  
+   *Original (IMG2):* z-axis on the **left**, ticks 8 â â6 (visible down to **â6**).  
+   *Recreation (IMG1):* z-axis on the **right**, visible ticks 8 â â4 only (stops at â4; the **â6** tick is absent).  
+   *Where:* right edge / left edge of the crop. A missing lowest tick and a change of axis side is a wrong/missing axis value per the ground rules.
+
+2. **MAJOR â High confidence** â Wrong annotation glyph at the two minima.  
+   *Original:* each minimum is marked with a bold red **"X" cross** (one at the Local Minima valley lower-left, one at the Global Minima deep valley lower-right).  
+   *Recreation:* those locations carry only two tiny red **arrows/flags** (small red arrow near lower-left center pointing left; small red arrow near lower-right pointing up-right) â no bold red X crosses.  
+   *Where:* lower-left valley (~20% from left, ~75% down) and lower-right valley (~65% right, ~80% down). Wrong symbol at an annotated extremum.
+
+3. **MAJOR â Medium-High confidence** â Labels not anchored to the same extrema (labelâfeature mapping inconsistent/swapped).  
+   *Original:* "Global Maxima" sits at top over the tallest peak; "Local Maxima" upper-right over the secondary peak; "Local Minima" at the lower-left valley; "Global Minima" at the lower-right deepest valley.  
+   *Recreation:* "Global Minima" text sits high (upper-right, ~z = 4 level) while "Global Maxima" sits center-low with its leader pointing toward a low area, and "Local Minima" text is placed up high rather than at a low valley. The labels do not correspond to the same features as the original.  
+   *Where:* center to upper-right of the crop.
+
+4. **MINOR â Medium confidence** â Missing bottom axis titles.  
+   *Original:* bottom axes show axis titles **"X"** and **"Y"** with symmetric tick labels.  
+   *Recreation:* bottom edge shows only scattered numbers ("â3" far left, "3" and "0" right) with no clear X/Y axis titles.  
+   *Where:* bottom edge of the crop.
+
+**Final verdict:** multiple MAJOR defects (axis side/range with missing â6 tick; red X crosses replaced by arrows; labels not matched to the correct extrema) make the region not a faithful recreation.
+
+FINAL VERDICT: FAIL

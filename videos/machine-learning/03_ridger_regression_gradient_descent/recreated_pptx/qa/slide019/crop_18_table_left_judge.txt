@@ -1,0 +1,38 @@
+Crop-relative coordinates are approximate; âleft/middle/rightâ refer to the visible region.
+
+**Discrepancies:**
+
+1. **Bottom row group, lower-left W vector â second entry is truncated/garbled**  
+   - **Location:** lower-left W vector, crop coords. approx. x=45â145, y=430â470.  
+   - **Recreation (IMG1):** appears to read `0.67` (second row inside the lower W bracket).  
+   - **Original (IMG2):** the same slot reads only `0.67` in the visible low-res capture, but it is partially cut/jpeg-soft, so an exact comparison cannot confirm the recreationâs decimal precision clearly.  
+   - **Severity:** **MINOR** / confidence **medium** â suspicious rather than definitively wrong due to the visible crop boundary.
+
+2. **Blue vertical banding/outline weight differs between the two table systems**  
+   - **Location:** around the central âNO Regularizerâ column and the outliner table, full crop height.  
+   - **Recreation (IMG1):** outer table strokes are heavy and uniform, especially the vertical rules.  
+   - **Original (IMG2):** outer table strokes are thinner and slightly irregular due to capture softness.  
+   - **Severity:** **MINOR** / confidence **high** â likely rendering/capture difference, not content mismatch.
+
+3. **The lower arrow to the lower right-hand table is slightly truncated in IMG1 relative to IMG2**  
+   - **Location:** between the lower W vector and lower right table, crop coords. approx. x=150â260, y=440â455.  
+   - **Recreation (IMG1):** arrow shaft/shape is visible but appears shortened.  
+   - **Original (IMG2):** same arrow reads longer/more complete.  
+   - **Severity:** **MINOR** / confidence **medium** â may be crop-edge effect rather than true recreation defect.
+
+4. **Lower right table rows are largely absent/cropped in the visible recreation crop**  
+   - **Location:** bottom/right, crop coords. approx. x=580â760, y=430 onward.  
+   - **Recreation (IMG1):** only the upper part of the lower right test result table is visible.  
+   - **Original (IMG2):** the same lower table is also mostly outside/cut in the supplied crop, so there is not enough evidence to call this a recreation error.  
+   - **Severity:** **MINOR** / confidence **low** â noted for completeness, not a definite content mismatch.
+
+**Key content values that match:**  
+- Outlier `X_s`: `11`, `3`, green `22`, and upper/lower context around `30` are consistent.  
+- Upper W vector: `0`, `2`, `0`.  
+- Upper `||W||Â² = 4` matches.  
+- Upper test table row 1: `Test1=30`, `Test2=40`, `Test3=50` matches.  
+- Upper test table row 2: `15`, `20`, `25` matches.  
+- Highlight band A `y` row: `60`, `80`, `100` matches.  
+- Lower W vector first entry: `2.7` matches.
+
+FINAL VERDICT: **PASS** â the region is a faithful, usable recreation; the remaining concerns are minor rendering/crop artifacts, not clear content defects.

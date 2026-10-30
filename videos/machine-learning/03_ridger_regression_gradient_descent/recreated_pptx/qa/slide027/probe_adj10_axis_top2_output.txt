@@ -1,0 +1,39 @@
+scale orig 1.00000 render 2.08438
+
+### y-axis shaft: column census in frame y 300..420, x 195..245
+(a = pure black, b = mid grey) — three ink classes by luminance
+  ORIG lum<70  : none
+  ORIG 70..150 : col runs (frame px) [(np.float64(222.0), np.float64(224.0))]
+  ORIG 150..255: col runs (frame px) [(np.float64(195.0), np.float64(221.0)), (np.float64(225.0), np.float64(244.0))]
+  REND lum<70  : col runs (frame px) [(np.float64(221.9), np.float64(222.8))]
+  REND 70..150 : col runs (frame px) [(np.float64(221.4), np.float64(221.4)), (np.float64(223.3), np.float64(223.3))]
+  REND 150..255: col runs (frame px) [(np.float64(195.0), np.float64(220.9)), (np.float64(223.8), np.float64(244.4))]
+
+### shaft tone/width at its own column, frame y 320..410 (no labels, no curve)
+  ORIG: axis centre x=223.00 | drawn width 3.00 fpx | ink(<200) n=270 mean RGB (106,107,105) | core(<90 lum) n=90 mean RGB (80,81,79) | core lum p50 81
+  REND: axis centre x=222.35 | drawn width 2.40 fpx | ink(<200) n=935 mean RGB (36,36,36) | core(<90 lum) n=935 mean RGB (36,36,36) | core lum p50 0
+
+### 'Cost' label position (dark-red ink, frame x 195..270, y 168..200)
+  ORIG: none
+  REND: none
+
+### arrowhead ink, window frame x 214..232 y 200..220 (below 'Cost', above base)
+### the filled triangle apex is (223,206), base row 222, in the render
+  ORIG lum<60  : n=0
+  ORIG 60..140 : n=   83 bbox x218.0..228.0 y206.0..219.0 mean RGB (96,98,95)
+  ORIG 140..215: n=   33 bbox x217.0..229.0 y204.0..219.0 mean RGB (178,180,177)
+  REND lum<60  : n=  315 bbox x218.3..227.0 y205.8..219.7 mean RGB (1,1,1)
+  REND 60..140 : n=   15 bbox x217.8..227.4 y207.7..219.7 mean RGB (100,100,100)
+  REND 140..215: n=   21 bbox x217.8..227.4 y205.8..219.2 mean RGB (186,186,186)
+
+### left branch centre-line (relaxed ink: lum<120 & spread<45), frame x 244..300
+### band +-12 fpx around the render's analytic quadratic as the anchor, EXCLUDING
+### the dashed-leader collar x 261..264, and the dot-1 disc x 256..270
+  ORIG: n_cols=40 | residual rms 1.978 max 5.220 fpx | 2nd-diff rms 0.5165 max|d2| 2.193 (quantisation floor ~0.30) | chord x244..300 len 99.3 bow 3.32 fpx
+       x 244..252: slope +1.60
+       x 272..286: slope +1.35
+       x 288..300: slope +1.91
+  REND: n_cols=42 | residual rms 0.636 max 1.655 fpx | 2nd-diff rms 0.1598 max|d2| 0.382 (quantisation floor ~0.30) | chord x244..300 len 96.8 bow 1.99 fpx
+       x 244..252: slope +1.60
+       x 272..286: slope +1.28
+       x 288..300: slope +1.23

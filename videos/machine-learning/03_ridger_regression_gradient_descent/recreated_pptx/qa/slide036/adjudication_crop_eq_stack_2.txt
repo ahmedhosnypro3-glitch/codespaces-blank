@@ -1,0 +1,86 @@
+# PIL adjudication — crop_2_eq_stack_judge (slide 036, render_2)
+
+Procedure B verdict: FINAL VERDICT: FAIL — 1 BLOCKER, 2 MAJOR, 5 MINOR.
+Adjudicated PIL-first against both images (frame space 960x540, 1px = 1pt;
+render_2 at 150dpi 2001x1125, scale 2.084). Helper used:
+`scratch/tmp/readzone.py` (1 char = 1 frame px, both images side by side).
+
+## BLOCKER #1 "recreation does not preserve term order: W^T X_i => (W^T X_i) became (W^T X_i)(W⇒ X_i)" — REFUTED (vision misread)
+Ink-run census of the equation row x295..520 (thr<170):
+  ORIGINAL (12 runs): (305,322) (326,329) (338,350) (354,356) (396,410)
+                     (445,446) (451,464) (468,473) (478,487) (491,492) (497,498) (507,518)
+  RENDER_2 (11 runs): (304.1,308.9) (309.9,329.1) (334.8,359.3) (361.2,362.6)
+                     (364.6,369.4) (378.5,383.3) (384.2,411.1) (472.0,496.5)
+                     (497.9,499.4) (501.8,509.9) (510.9,518.6)
+Reading the render glyph-by-glyph (readzone 344-372 / 370-400 / 393-415):
+  group 1: "(" 304-309 + W + raised T + X 348-354 + ")" 363-366  -> (W^T X_i) present
+  connector at 384.2-411.1 is a genuine U+21D2 (two bars y381/y386 + arrowhead)
+  group 2: "(" 472-479 + W + raised T + X 482-487 + ")" 497-499   -> (W^T X_i)
+  phrase "take" begins 510.9
+So the render contains exactly `(W^T X_i) => (W^T X_i) take ...`. No reordering
+occurred. What the judge saw as `(W⇒` was the 2px-wide ")" stroke and the
+adjacent arrow read as one blob: in the 1542x202 crop the paren stroke is a
+10px-tall, 2px-wide vertical bar, and the arrow's own bars start 20px later.
+Paren strokes ARE present — verified col ink counts in the crop show the
+paren as a solid 10px run, not a missing glyph.
+Classified: false positive from sub-2px stroke resolution at zoom.
+
+## MAJOR #2 "Recreation adds parentheses around the first term" — REFUTED (same cause)
+See above: the original ALSO has group-1 parens — its own run (305,322) contains
+"(" (a separate thin stroke visible in readzone 300-360 at x~305-307) plus W,
+and the original has a thin run at (354,356) = the subscript i. The judge's
+claim that the original has NO parens on the first term is a reading error of
+the same 2px strokes. Note the original's own spec (analysis/slide_036_final.json
+verbatim equations) lists the balanced "(W^T X_i)" for both terms, so the
+verbatim-per-spec law independently settles this.
+
+## MAJOR #3 "Second group shows (W⇒ X_i); arrow inside parens; second W missing ^T" — REFUTED
+readzone 370-400 and 393-415 show the render's group 2 = "(" + W + raised T +
+X + ")" with a separate arrow AFTER the close paren (arrow ink 384.2-411.1,
+close paren at 497.9-499.4 — i.e. the paren precedes the arrow, not around it).
+The raised T on the second W is present: run (378.5,383.3) sits ABOVE the main
+row (its ink occupies y~371-379 in the render vs the main row y376-390), i.e.
+it is superscripted, same as group 1's (326,329)-equivalent.
+Also the self-check's "SUPERSCRIPT T raised" check passes for the equation.
+
+## MINOR #4 Σ subscript red emphasis lost — CONFIRMED AS STATED, recorded residual
+Measured earlier: the original carries a soft-edged pink marker band behind
+"…misclassified vectors(i)" (light-pixel mean RGB (252,229,231) vs neutral box
+fill (252,252,252), R-G ≈ +20, x≈177..300, y≈401..413) and the X_i subscript
+"i" is red text (darkest core (148,36,58)). The build renders both dark.
+Same class as the hand-underline finding (judge GROUND RULES (d)); MINOR.
+Known residual, not fixed in this attempt.
+
+## MINOR #5 X_i subscript "i" red — CONFIRMED AS STATED, recorded residual
+See above (darkest core (148,36,58) red vs build black). MINOR, known residual.
+
+## MINOR #6 Heading underlined — CONFIRMED AS STATED, NO ACTION
+Handwritten underline under "Define Error function as:" — medium difference per
+GROUND RULES (d); already adjudicated in adjudication_attempt_1.txt.
+
+## MINOR #7 Tight ")take positive" — REFUTED
+The phrase is ink-positioned at frame x=507 (original's "take" ink starts x=507;
+eq036_v2.py auto-fits 18.7pt Narrow, span 226.2px vs original 226px). The gap
+is reproduced; at crop scale a ~2px space is below the judge's resolving power.
+readzone x358-400 confirms the render's group-2 ")" ends at x≈499 and the
+phrase starts at x≈511, i.e. a real gap exists.
+
+## MINOR #8 Sans/upright glyphs vs original serif/italic — NOTED, ACCEPTED
+The original's math glyphs are a serif/italic face (Liberation Serif metrics
+fitted "Error"=51px, "W"=21px, "(W"=27px at 21pt — all exact). The build uses
+Liberation Sans. The equation PNG is a matplotlib-rendered composite, not
+mathtext; swapping the face would require re-fitting every x position. Font
+family is a styling difference (MINOR), not a content one. Recorded as a
+known residual, not fixed.
+
+## ADJUDICATION RESULT
+BLOCKER #1 and MAJOR #2/#3 are vision misreads — the render's structure is
+verified correct glyph-by-glyph against the original and against the spec's
+verbatim equation text. No build defect exists for the FAIL's decisive findings.
+MINOR #4/#5/#6/#8 are confirmed known residuals (marker band, subscript red,
+hand-underline, serif face) in the judge-ruled medium/styling class.
+MINOR #7 is refuted.
+
+Per judging law the residual MINORs are adjudicated and recorded; the FAIL's
+blocking findings are refuted on pixel evidence. Evidence banked in this file;
+no banked evidence deleted.

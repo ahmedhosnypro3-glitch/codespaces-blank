@@ -1,0 +1,40 @@
+=== 1. FRAME / REGION CONTAINMENT ===
+  house frame: content must stay within x 0.15..13.18in / y 0.15..7.35in (frame px 10..910 / 10..498)
+  [whole slide] ink x 0..902  y 0..539  (frame px)
+  [parameter table] ink x 76..208  y 178..250  (frame px) INSIDE
+  [graph] ink x 570..811  y 65..285  (frame px) INSIDE
+  [equation callout column] ink x 380..552  y 183..317  (frame px) INSIDE
+  [iteration table] ink x 297..599  y 328..527  (frame px) INSIDE
+  [title] ink x 81..810  y 65..92  (frame px)
+
+=== 2. EQUATION REGION HAS INK ===
+  equation PNG ink px in measured band: 1038 (*** TOO SPARSE ***)
+
+=== 3. TABLE DATA CELL INK (all 56 cells non-empty) ===
+  row 0: [5, 41, 85, 90, 75, 84, 42]
+  row 1: [125, 45, 129, 120, 108, 112, 36]
+  row 2: [266, 91, 85, 73, 74, 83, 88]
+  row 3: [408, 115, 143, 133, 113, 118, 116]
+  row 4: [284, 78, 82, 87, 77, 65, 71]
+  row 5: [400, 121, 122, 103, 116, 119, 114]
+  row 6: [244, 61, 108, 104, 91, 91, 50]
+  row 7: [205, 87, 93, 75, 82, 44, 0]
+  empty/sparse cells: 2 (*** FIX ***)
+
+=== 4. SMOOTH-CURVE SECOND-DIFFERENCE RIPPLE CHECK (parabola) ===
+  *** too few blue samples ***
+
+=== 5. MARKER POSITIONS (render, converted to frame px) ===
+  green (5,1): measured frame px (683.1,249.6) n=238
+  red (2,10): measured frame px (648.6,141.6) n=209
+
+=== 6. CROSS-CHECK vs ORIGINAL: ink density per region ===
+  title        render ink= 24.4%  original ink= 50.4%  diff= 26.1pp
+  param table  render ink= 51.9%  original ink= 97.6%  diff= 45.7pp
+  graph        render ink=  9.3%  original ink= 30.2%  diff= 21.0pp
+  eq box1      render ink= 16.9%  original ink= 51.9%  diff= 35.0pp
+  eq box2      render ink=100.0%  original ink= 99.3%  diff=  0.7pp
+  eq box3      render ink=100.0%  original ink=100.0%  diff=  0.0pp
+  iter table   render ink=100.0%  original ink= 87.4%  diff= 12.6pp
+
+SELF-CHECK COMPLETE

@@ -1,0 +1,24 @@
+## Discrepancy Report â Slide 025, TR surface-plot region (zoomed crop-pair, attempt 12)
+
+**Scope check:** Comparing the TR surface plot ("Convex Function One Minima" plot area) in IMG1 (recreation crop) vs IMG2 (original crop) at matched effective scale. Template chrome (white canvas, dark-red frame strokes, navy/blue title box with yellow "Convex" + white text) is per ground rules and not evaluated.
+
+### Findings
+
+1. **MAJOR â X-axis (left/lower-left) tick order and values are wrong/inverted.** Original (IMG2) runs **100 â 50 â 0 â â50 â â100** top-to-bottom along the left edge (inverted axis, per region spec). Recreation (IMG1) runs **â100 â â50 â 0 â 50** top-to-bottom (crop-relative: â100 sits just below the z=0 tick at left edge ~55% down; 50 near bottom-left ~85% down). The 100 tick is missing from its correct top position and the sequence is reversed. Confidence: HIGH.
+
+2. **MAJOR â Garbled, overlapping tick labels at bottom center.** In IMG1 at the bottom of the plot (~95% down, centered), two "100"-type labels collide into an illegible "100_100" blob. Original shows clean, separated "â100 â100" corner labels on both lower axes. Overlapping/garbled characters are a mandated BLOCKER-class issue at zoom; grading MAJOR-to-BLOCKER. Confidence: HIGH.
+
+3. **MAJOR â Right (lower-right) y-axis tick set incomplete/misordered.** Original shows **100, 50, 0, â50, â100** descending from upper-right; recreation shows only **â50, 0, 50** clearly (right half, ~75â90% down), with the 100 values collapsed into the garbled overlap at bottom center and no 100 at the top-right corner. Confidence: HIGH.
+
+4. **MAJOR â Surface spike geometry misplaced.** Original: tall red spike at the **back/far corner** of the plot reaching above the zlim top (crop-relative ~30% from left, ~10% from top), plus a smaller central red peak (~55% left, ~45% down). Recreation: a single large central spike (dark-red cap, ~62% left, ~15% down) with no separate back-corner spike; the surface's central red peak of the original is absorbed into the spike. Plot geometry does not match. Confidence: MEDIUM-HIGH.
+
+5. **MINOR â Gridline style mismatch.** Original uses **dotted** gridlines on the panes; recreation uses thin **solid** light-gray gridlines. Confidence: HIGH.
+
+6. **MINOR â Faint floor contour projections missing.** Original shows faint concentric contour ellipses projected on the floor beneath the bowl (~55â75% down, centered-right). Recreation's floor shows only gridlines; no contour projections visible. Confidence: MEDIUM (they are very faint in IMG2, but absent in IMG1).
+
+7. **MINOR â Red reference-line layout differs.** Original: long diagonal line (left ~0.85 â right ~1.25 on z-scale), two nearly-coincident horizontal lines at ~zâ0.5â0.55 spanning full width, plus a short thick red segment at the central peak (~55% left). Recreation: diagonal present and comparable; horizontals present but separated more widely (~zâ0.75 and ~zâ0.55); the short red segment at the peak is not clearly reproduced. Confidence: MEDIUM.
+
+8. **MINOR â Medium difference (per ground rule c):** recreation plot strokes/labels are cleanly typed vs. the original's compressed video-soft MATLAB rendering; JPEG halos in IMG2 ignored per ground rule (e). Not counted against fidelity.
+
+### What matches
+- Z-axis ticks 2, 1.5, 1, 0.5, 0 and the "Ã10â´" exponent label â all correct and correctly placed (top-left above z-axis). plot background, dark-red frame, blue title box with yellow "Convex" and text "Convex Function / One Minima" â faithful- Overall surface colormap (blue bowl, green/yellow ridges, red high points) and general "convex bowl" character. Diagonal red reference line present with similar trajectory**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region' â the inverted/misordered and garbled axis tick labels (#1â#3) and the misplaced surface spike (#4) are content-level errors that survive zoom inspection.

@@ -1,0 +1,133 @@
+##########################################################################
+# RIGHT chip — the decisive glyph
+##########################################################################
+  ORIGINAL (frame, 1 char = 1 px):
+--- ORIG right chip (frame x742..762 y138..157) ---
+  138                     
+  139    .                
+  140    .                
+  141                     
+  142 ....                
+  143 .++....             
+  144 +.++.+.             
+  145 ..++.++.      .     
+  146 ..+..++.. .  ....   
+  147 ..+. .+.      .     
+  148 .+.. .+             
+  149  ....++             
+  150  ....+.             
+  151    ...              
+  152    .                
+  153                     
+  154                     
+  155                     
+  156                     
+
+  RENDER (downsampled to frame scale from 2.0833x):
+--- REND9 right chip (frame x742..762 y138..157) ---
+  138                     
+  139                     
+  140                     
+  141                     
+  142                     
+  143                     
+  144  ..                 
+  145   +                 
+  146   +.                
+  147   +.                
+  148   +.                
+  149   +.                
+  150   +                 
+  151  ..                 
+  152                     
+  153                     
+  154                     
+  155                     
+  156                     
+
+  font templates that fitted, scored by ink-IoU into each image:
+    IoU ORIG 1.000  REND 1.000   '.' size 13
+    IoU ORIG 1.000  REND 1.000   '.' size 12
+    IoU ORIG 1.000  REND 1.000   '.' size 11
+    IoU ORIG 1.000  REND 1.000   '.' size 10
+    IoU ORIG 1.000  REND 1.000   '.' size 9
+    IoU ORIG 1.000  REND 1.000   '.' size 8
+    IoU ORIG 1.000  REND 0.833   '1' size 8
+    IoU ORIG 0.800  REND 0.579   '1' size 11
+    IoU ORIG 0.739  REND 0.571   '1' size 12
+    IoU ORIG 0.588  REND 0.583   '?' size 9
+    IoU ORIG 0.667  REND 0.500   '9' size 8
+    IoU ORIG 0.600  REND 0.538   '?' size 10
+    IoU ORIG 0.600  REND 0.538   '1' size 10
+    IoU ORIG 0.600  REND 0.538   '1' size 9
+
+##########################################################################
+# LEFT chip of the same label — control (render draws '7' there too)
+##########################################################################
+  ORIGINAL:
+--- ORIG left chip (frame x729..744 y138..157) ---
+  138                
+  139                
+  140                
+  141                
+  142     ..       ..
+  143 ....++.     ..+
+  144 .+.++++.    .+.
+  145 +....++.    ...
+  146 +....++.  .  ..
+  147 +. .++       ..
+  148 +.  ..  .    .+
+  149 +.  .. ...    .
+  150 .+.    ...    .
+  151 ..      .      
+  152                
+  153                
+  154                
+  155                
+  156                
+
+  RENDER:
+--- REND9 left chip (frame x729..744 y138..157) ---
+  138                
+  139                
+  140                
+  141                
+  142                
+  143 ...      ...   
+  144 +++      ++++ +
+  145   .        .. .
+  146  ..        +   
+  147  .        ..   
+  148 ..        .    
+  149 +   +.   ..    
+  150     +.        .
+  151     .         +
+  152                
+  153                
+  154                
+  155                
+  156                
+
+    IoU ORIG 1.000  REND 1.000   '.' size 13
+    IoU ORIG 1.000  REND 1.000   '.' size 12
+    IoU ORIG 1.000  REND 1.000   '.' size 11
+    IoU ORIG 1.000  REND 1.000   '.' size 10
+    IoU ORIG 1.000  REND 1.000   '.' size 9
+    IoU ORIG 1.000  REND 1.000   '.' size 8
+    IoU ORIG 0.643  REND 1.000   '7' size 8
+    IoU ORIG 0.917  REND 0.500   '1' size 8
+    IoU ORIG 0.727  REND 0.667   '?' size 8
+    IoU ORIG 0.706  REND 0.643   '7' size 10
+    IoU ORIG 0.667  REND 0.667   '?' size 9
+    IoU ORIG 0.625  REND 0.615   '?' size 10
+    IoU ORIG 0.667  REND 0.500   '?' size 12
+    IoU ORIG 0.588  REND 0.571   '2' size 8
+
+##########################################################################
+# shape distance ORIG-right vs REND-right, both normalized to the same box
+##########################################################################
+Traceback (most recent call last):
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide032/adjudicate_9d_glyphmatch.py", line 127, in <module>
+    d = (pa ^ sb).sum() / max(1, (pa | sb).sum())
+         ~~~^~~~
+TypeError: ufunc 'bitwise_xor' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''

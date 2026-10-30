@@ -1,0 +1,64 @@
+**Fidelity check â Slide 025 ("Types of Loss function shapes")**
+
+Reference geometry used throughout: original frames are topâleft (82â245, 102â250), topâright (580â823, 103â275), bottomâleft (82â350, 262â455), bottomâright (580â823, 305â465); captions at (255â380, 118â158), (445â555, 160â200), (445â580, 315â355), (368â488, 400â440). Title baseline â y68 in both.
+
+---
+
+### BLOCKERS
+
+**B1. All four 3âD figures: MATLAB axis boxes, tick numerals and wireframe meshes are entirely absent â and surface topology/data differ. Confidence: High.**
+- Topâleft: original = a mesh dome sitting over a wireframe bowl, inside a 3âD axis box with tick numerals (0, â5, 2, 0, 2, â2) and a black mesh grid. Recreation = a smooth, unâmeshed jetâcoloured single peak on a blank white field; no axis box, no ticks, no grid.
+- Topâright: original = a bowl with a tall red spike at the back centre and a small red peak midâfield, zâaxis scale "Ã10â´" with ticks 0, 0.5, 1, 1.5, 2, and full x/y ticks (â100â¦100 on both axes). Recreation = a shallow blue basin with flat green/yellow rim, **no red spike at all**, no zâticks, only a partial x tick set (â100, 0, 100). Chart data values cannot be reconciled.
+- Bottomâleft: original = mesh surface inside a grey 3âD axis box with numeric ticks (â6â¦6, â3â¦3). Recreation = smooth surface, no axis box, no tick text.
+- Bottomâright: original = full multiâhump ridge landscape, meshed, with axis box and a translucent coloured groundâshadow plane. Recreation = a smooth basin, unâmeshed, no shadow plane.
+Per the "missing element" rule, the omitted axis frames/tick numerals/mesh structures are absent elements, and the red spike/ridge topology in the rightâhand plots is a data mismatch.
+
+**B2. Bottomâright figure is cropped and overflows its frame. Confidence: High.**
+The recreation's surface runs into and is cut by the top inner border of its frame (ink touches the border along x â 610â790 at y = 287). The original shows the entire landscape with white margin inside the frame. Content is both truncated and touching/crossing the enclosing frame â overflow + omitted content.
+
+**B3. Bottomâleft plot: labelâtoâfeature associations are swapped. Confidence: MediumâHigh.**
+In the recreation, "Global Minima" (â x270â305, y305â312) is tied by a leader to the tall **red** peak at upper right, and "Global Maxima" (â x185â230, y352â360) points into a **blue** low region. In the original, the tall red peak is labelled "Global Maxima" (label at â 235, 270, top) and the deep blue trough is "Global Minima" (â 295, 405). The recreation therefore attaches minimum/maximum labels to the wrong values.
+
+---
+
+### MAJOR
+
+**M4. All four plot frames are shorter and shifted upward relative to the original. Confidence: High.**
+Topâleft bottom edge 237 vs 250; topâright 260 vs 275; bottomâleft 245â437 vs 262â455; bottomâright 287â440 vs 305â465. Vertical offsets of 7â18 px and 15â25 px of lost height mean the four content regions do not register with the original layout.
+
+**M5. Every blue caption has the wrong line break. Confidence: High.**
+- "Concave Function One / Maxima" vs original "Concave Function / One Maxima"
+- "Convex Function One / Minima" vs original "Convex Function / One Minima"
+- "Gradient Descent Path to / reach Minima" vs original "Gradient Descent / Path to reach Minima"
+- "Non-Convex Multiple / Minima" vs original "Non- Convex / Multiple Minima" (original also has a space after the hyphen)
+
+**M6. Bottom two caption boxes are displaced ~15â20 px upward and the text is markedly smaller. Confidence: High.**
+"Gradient Descentâ¦" box 292â325 vs original 315â355; "Nonâ Convexâ¦" box 376â410 vs original 400â440. Line height inside the boxes is â8â9 px vs â13 px in the original, so line separation and padding inside the boxes do not match.
+
+**M7. Topâleft figure: the third red horizontal guide line present in the original (three at y â 147, 163, 176) is absent; only two are rendered. Confidence: Medium.**
+
+**M8. Bottomâleft figure: original's red pointer/arrow markers at the minima (â (160,390), (180,395), (255,428)) and its black leaderâline style are not reproduced. Confidence: MediumâHigh.**
+
+---
+
+### MINOR
+
+**m9. Caption first lines are white in the recreation but yellow/gold in the original; font family differs (sansâserif vs bold serif). Confidence: Medium.**
+**m10. Stray black hook/curve artifact in the recreation's bottomâleft figure (â x183â200, y368â395) with no counterpart in the original. Confidence: High.**
+**m11. Topâright recreation: a small tick label at the right edge (â 800, 160) is partially clipped and collides with the frame border. Confidence: Medium.**
+**m12. Bottomâleft red guide line sits at y â 348 vs the original's y â 372 (â0.48 vs â0.57 of the frame height). Confidence: Medium.**
+
+---
+
+### Recreation visualâquality defects
+- Bottomâright plot cropped at its top frame border (overflow).
+- Bottomâleft plot contains a stray hook stroke and misâwired leader lines.
+- Topâright plot has clipped/edgeâcolliding tick text.
+- All four chart images are lowerâresolution/smoother than the originals (no mesh detail), reducing legibility of the surface structure.
+- Caption text is too small for the blue boxes relative to the original.
+
+House chrome (white canvas, E9E9E7 panel, left/right/bottom C00000 strokes with no top stroke, badge circle "25") matches and is not counted.
+
+---
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation' â the four chart regions omit axis boxes, tick numerals and wireframe meshes (and the topâright/bottomâright surface topologies do not match), the bottomâright figure is cropped/overflowing, and all four caption line breaks differ from the original.

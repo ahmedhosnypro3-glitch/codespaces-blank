@@ -1,0 +1,35 @@
+# pil_probe_005.txt — local PIL probes for slide 005 prephase (2026-10-25, agent-28)
+
+Source frame: unique_slides/slide_005.jpg (960x540 RGB). No vision calls — pure
+pixel census. Complements delta_vs_related.md G2/G10/G11.
+
+## §1 — red-½ question (LIVE per brief; now PIL-SETTLED)
+Method: red = r>140, g<100, b<100, (r-g)>60; black = r<90,g<90,b<90.
+Bands probed (frame px):
+  eq1 loss1   x98..545  y108..151:  black=921   red clusters=8, ALL in
+      x150..169 y100..149 (peak cells (160,110)=20, (160,120)=15) — a single
+      vertical cluster spanning the band height = the stacked 1/2 glyph.
+      => eq1's 1/2 IS RED on the frame. Nothing else red in eq1.
+  eq2 loss2   x97..630  y173..215:  black=1239  red clusters=0
+  eq3 loss3   x98..524  y229..272:  black=983   red clusters=0
+      => eq2/eq3 1/2 glyphs are BLACK; all-black assets are CORRECT.
+  pinkfrac    x79..165  y294..339:  black=230   red clusters=0
+  eq4 deriv1  x96..594  y374..421:  black=1184  red clusters=0
+  eq5 deriv2  x96..638  y460..503:  black=1036  red clusters=0
+
+Asset check (eq_005_loss1.png 3715x392 RGBA): red opaque px span x586..777 =
+15.8%..20.9% of ink width — the 1/2 position after "Loss = ". Asset red =
+#AC4E4E (172,78,78), 9286 px. Matches frame red placement. CORRECT.
+
+RISK recorded: eq_005_loss1.json "color": "000000" underrecords the red 1/2.
+An OMML re-render from the sidecar alone would drop the red 1/2. Any OMML
+manifest for loss1 must carry a red run for the 1/2 (or keep the PNG fallback).
+
+## §2 — "Get Best W" red W (delta G11)
+Adjudication banked by the lane (worker_report.md item 4): red frame cluster
+x279..295 = the W; render had 1 red px. Graded MINOR, left black per frozen
+recreation_brief. Not re-probed here; settled.
+
+## §3 — eq1 band red cells, raw list (for reproducibility)
+(160,100):2 (150,120):2 (150,130):1 (150,140):3 (160,110):20 (160,120):15
+(160,130):7 (160,140):13  [10px-bucket counts]

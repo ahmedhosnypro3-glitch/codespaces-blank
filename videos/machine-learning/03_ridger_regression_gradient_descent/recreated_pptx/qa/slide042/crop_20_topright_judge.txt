@@ -1,0 +1,32 @@
+## Comparison: Slide 042, top-right zoomed crop (attempt 20)
+
+### What the region should contain (per IMG2, original)
+Three labeled column vectors at the top-right of a matrix block:
+- Headers: **Zâ  Zâ  Zâ** (italic uppercase Z, each with subscript "1")
+- Three 2Ã1 column vectors, each enclosed in tall parentheses:
+  - **( 0 / 0 )** with parentheses
+  - **( 7 / 6 )** with parentheses
+  - **( 3 / 2 )** with parentheses
+- Left edge of a pale-yellow panel, dark stroke along the top/right edge of the crop.
+
+### What IMG1 (recreation crop) shows
+- Headers rendered as plain lowercase **z  z  z** â **no subscript "1"** on any of them.
+- The vector columns **0/0, 7/6, 3/2** are present as stacked numbers, but rendered as **bare stacked digits with no parentheses** â the delimiter geometry is entirely absent.
+
+### Discrepancies
+
+| # | Item | Location (crop-relative) | Severity | Confidence |
+|---|------|--------------------------|----------|------------|
+| 1 | **Missing parentheses on all three column vectors.** IMG2 shows tall parens spanning both rows of each vector ((0/0), (7/6), (3/2)); IMG1 shows the digits floating with no delimiters at all. A vector without its enclosing brackets is structurally wrong â this is exactly the "delimiter does not span its lines" class of defect, here total absence. | Center of crop, three columns at ~xâ55â110, yâ55â90 | **MAJOR** (borderline BLOCKER) | High |
+| 2 | **Header glyphs wrong: "z" instead of "Zâ".** All three headers are lowercase plain z with **no subscript 1**; original is italic uppercase Z with subscript 1. Case is wrong AND the subscript character is missing on all three instances (garbled/missing character Ã3). | Top of crop, ~yâ30â45, three positions xâ55, 75, 100 | **MAJOR** | High |
+| 3 | Header style: original headers are italic serif; recreation headers appear upright sans/serif plain. | Same as #2 | MINOR | Medium |
+
+### Notes
+- Panel chrome (pale-yellow fill, blue/dark border edge) matches; no discrepancy raised per ground rules.
+- The digit values themselves (0/0, 7/6, 3/2) are **correct cell-by-cell** â no wrong or swapped numbers.
+- The typed/2D-format allowance does not apply here: this isn't a linear-vs-stacked rendering of one equation, it's the complete loss of the vector delimiters and the header subscripts.
+
+### Verdict rationale
+Two independent MAJOR defects affecting every glyph group in the region: all three vector delimiters are missing, and all three headers are wrong (wrong case, missing subscript). At this zoom these are unmistakable, and mathematically the region reads differently (bare number columns vs. named vectors Zâ).
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation of this region'.

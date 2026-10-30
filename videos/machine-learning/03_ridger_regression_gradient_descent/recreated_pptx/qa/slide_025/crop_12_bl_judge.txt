@@ -1,0 +1,31 @@
+## Setup acknowledgment
+
+Zoomed crop-pair comparison of the lower-left 3D surface plot region of slide 025. IMG1 = recreation's crop; IMG2 = original's crop of the same slide-space region, scale-matched. House chrome (white canvas, red border strokes, blue side boxes) is intentional and not scored.
+
+## MANDATED AXIS-DIRECTION CHECK (left-edge tick order, top â bottom, verbatim)
+
+**IMG2 (original), left edge:** the left edge carries the **Z-axis**. Sequence topâbottom: **8, 6, 4, 2, 0, [-2 obscured by the horizontal red rule], -4, -6**. Below it, the lower-left diagonal edge reads (topâbottom): **2, 0, -2**, ending at the corner near "-3"; the bottom edge carries the X ticks **-3, -2, -1, 0, 1, 2, 3** with axis titles "Y" (lower left) and "X" (bottom center).
+
+**IMG1 (render), left edge:** there is **no vertical Z-axis on the left edge at all** â the Z ticks have migrated to the **right edge**, reading topâbottom: **8, 6, 4, 2, 0, [-2 obscured by the red rule], -4, -6**. The render's lower-left diagonal edge reads topâbottom: **-3, -2, -1, 0, 1, 2, 3** â i.e., ascending where the original's corresponding edge region descends.
+
+**Conclusion of check:** the tick *values* per axis are correct (8â¦-6, 3â¦-3), but the entire plot is **mirrored/rotated relative to the original** â Z-axis right vs. left, and the horizontal axis direction is reversed.
+
+## Discrepancy list
+
+1. **MAJOR (confidence: high) â Plot orientation flipped.** Original: Z-axis on the left with 8 at top; render: Z-axis on the right. The horizontal axes run in opposite directions (render bottom-left diagonal: -3â3 top-to-bottom; original: 2â-2 / -3â3 in the mirrored sense). The surface appears rotated ~180Â° about the vertical axis versus the original. Content values are right; the framing is not.
+
+2. **MAJOR (confidence: high) â Extremum marker/label wiring is wrong.** In the original, each label has a short arrow to the *correct* feature: Global Maxima â tall left peak; Local Maxima â right peak; Local Minima â left valley; Global Minima â deep right valley. In the render, the leader lines cross in mid-plot: the "Global Maxima" line runs *down* to a red X sitting at/inside a valley region (~crop 395, 325), while the "Global Minima" and "Local Minima" lines run *up* to red X markers above the peaks (~crop 290, 140 and 430, 135). The chart as rendered associates maxima labels with minima positions and vice versa â a semantic error, not just cosmetic.
+
+3. **MINOR (confidence: high) â Missing axis titles.** Original shows "Y" and "X" axis labels below the plot; the render has none.
+
+4. **MINOR (confidence: medium) â Colliding tick labels.** In the render, at the bottom-right corner (~crop 435â455, 490â500), the ticks "3" and "-3" from the two horizontal axes nearly overlap ("3  -3"); in the original these are well separated. Legibility blemish, no wrong value.
+
+5. **MINOR (confidence: medium) â Surface rendering style.** Original: smooth, finely-meshed shaded surface. Render: coarser mesh with visible pane/grid walls behind. Colormap (jet-style blueâcyanâgreenâyellowâred, red peaks, blue valleys) and two-peak/two-valley topology are correctly reproduced.
+
+6. **MINOR (confidence: high) â Blue box text spacing.** Original "Non- Convex" (hyphen + space); render "Non-Convex". Trivial.
+
+Tick values themselves (8/6/4/2/0/-2/-4/-6; 3â¦-3; 2/0/-2), all four extremum labels verbatim, the red horizontal rule, and the red X markers are all present and correct â no wrong digits or missing rows anywhere.
+
+## FINAL VERDICT: FAIL
+
+Faithful in data values, labels, and colormap, but the flipped axis orientation and â decisively â the leader lines connecting maxima labels to minima markers (and vice versa) make the chart convey incorrect information. Not a faithful, usable recreation of this region until #1 and #2 are fixed.

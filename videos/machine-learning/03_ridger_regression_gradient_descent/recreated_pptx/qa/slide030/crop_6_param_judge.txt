@@ -1,0 +1,16 @@
+Region checked (cropârelative): outer frame runs the full perimeter; header row â top third, pink row â middle third, yellow row â bottom third; left column â 8â45% width, rightâcolumn values â 62â80% width.
+
+Cellâbyâcell content (the founderâflagged critical items):
+- Row 1: "step" | "0.2" â identical in both.
+- Row 2: "initial X" | "3" â identical in both (italic X matches).
+- Row 3: "delta" | "0.1" â identical in both.
+No wrong digits, no swapped values, no missing/extra rows, no garbled characters. Cell fills (lightâgreen / pink / yellow), internal grid lines, and vertical centering match.
+
+Discrepancies:
+1. Outer frame/stroke â MAJOR, High confidence. IMG1 uses a single darkânavy border that hugs the table tightly on all four sides (top included). IMG2 shows a purple outer frame sitting outside the table with a clear white gap/padding between frame and colored cells (looks doubled on top/left). Different stroke color and geometry (tight navy vs padded purple frame). Decorative framing only; no data impact.
+2. Glyph weight/rendering â MINOR, Medium confidence. IMG2 strokes ("0.2", "3", "delta", "initial X") render slightly bolder/softer with compression softness versus IMG1's cleaner edges; consistent with videoâcapture (ground rule e), not different characters.
+3. Rowâheight proportion â MINOR, LowâMedium confidence. Header row looks slightly shorter relative to the data rows in IMG1 than in IMG2; within normal rendering variance.
+
+No BLOCKER defects (no wrong digit, swapped value, missing row, truncated subscript, or delimiter failure).
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region' â all parameter values/cells are exact and usable; the only differences are presentational stroke/font styling (notably the tight navy vs padded purple outer frame), with no dataâblocking errors.

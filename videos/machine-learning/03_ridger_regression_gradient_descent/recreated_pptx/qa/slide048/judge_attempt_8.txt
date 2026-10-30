@@ -1,0 +1,52 @@
+# Fidelity Check â Slide 048
+
+## Ground-rule dispositions (settled first)
+- House chrome (gray panel, red C00000 strokes on left/right/bottom only, no top stroke, yellow "48" badge at ~(876,73)): **present and correct in both images** â not discrepancies. â
+- Image 2 is a real content slide (not a placeholder), so content matching is required. â
+- The mouse cursor visible in IMG2 near "unaccepted" is a video artifact â correctly omitted. Not a discrepancy. â
+- 2D stacked-fraction/vector format in IMG1 is a mandated upgrade; IMG2 also uses stacked column vectors, so format is essentially equivalent. Not a discrepancy. â
+
+## Element-by-element comparison
+
+**Top banner (blue-bordered box)**
+1. **Ordering of "Initial W =" and the W vector â MAJOR (confidence 0.95).** Original reads "Initial **W** = (4; â2; â2)" then "REPEAT using Step Î· = 1". The recreation places the (4; â2; â2) column vector to the **LEFT** of the text "Initial W = REPEAT using Step Î· = 1", inverting the reading order.
+2. **Banner fill color â MINOR (0.9).** Original banner is pale cream/yellow (~FFFFCC); recreation banner is white.
+3. **z-vector rendering â MINOR (0.85).** Original shows zâ zâ zâ as three small column vectors in parentheses (0;0), (7;6), (3;2). Recreation shows bare rows "0 7 3 / 0 6 2" with **no delimiters** and plain "Z1 Z2 Z3" (no subscripts). Values correct; presentation differs.
+
+**Left panel ("Ugmented Vectors")**
+4. **Clipped/occluded caption â MAJOR (0.95).** The recreation's second caption line ("Top") is clipped/collides with the xââ¦xâ header row â only a sliver of "T..." glyphs is visible. Original shows "Ugmented Vectors ( from Top )" fully legible. (Note: the "Ugmented" typo is faithfully reproduced â good.)
+5. Vector columns (1,1,1)â¦(1,6,6) and Câ red / Câ blue labels: match. â
+
+**"Iteration 1" button**: red fill, white bold text, position â match. â
+
+**Iteration table rows (d(x) equations, â action, W result)**
+6. **W-column vector rendering is severely broken â BLOCKER (0.95).** In the recreation the large "W = (5; â1; â1)" column vectors have their three components spread across roughly **three row-heights**, so the vertical delimiter bars run continuously through multiple table rows and the components collide with the horizontal row separators and with neighboring rows' digits. Visible garbage artifacts result: "â25" in row 1 (the â2 component of the initial W colliding with the result "5"), "â51", "â51", "51", "â51" straddling rows 2â5. The equations are effectively illegible and the bars cross the row-box boundaries â a frame-containment violation (rule 5) and a broken equation region (rule 6/7 territory). Original shows each W = (5; â1; â1) compactly inside its own row.
+7. **Row 1 update equation overflow/collision â BLOCKER (0.95).** Original: W = (4; â2; â2) + 1 â (1; 1; 1) = (5; â1; â1), all contained in row 1. Recreation: the (4; â2; â2) and (1; 1; 1) vectors overlap each other and the result vector; components intersect the equals signs and the row separator. The bottom component of row 1's result ("â1") collides with row 2's W block.
+8. **Missing red "â" arrow â MAJOR (0.9).** Original has a prominent red left-pointing double arrow at the right edge of row 1. The recreation omits it entirely (rule 6: omitted visual element).
+9. d(x) equation values: d(xâ)=[1 1 1]Â·(4,â2,â2)=0; d(xâ)=[1 2 1]Â·(5,â1,â1)=2; d(xâ)=[1 1 2]Â·(5,â1,â1)=2; d(xâ)=[1 5 4]Â·(5,â1,â1)=â4;)=[1 6 5]Â·(5,â1,â1)=â6; d(xâ)=[1 6 6]Â·(5,â1,â1)=â7 â **all values verbatim and correct**. â
+10. "Update Weight" / "Keep same Weight" labels with red â: present, correct wording and order. â
+11. Column-vector delimiters inside the d(x) equations: bars span all three components, but components sit tight against the bars/equals sign (row 1 especially) â borderline, subsumed under item 7.
+
+**Colors**: Câ red, Câ navy/blue, "Zero" green, "REPEATâ¦Î· = 1" red bold â match. Row boxes thin blue/gray borders â match. â
+
+## Visual-quality defects in the recreation
+- Giant W-vector bars cross multiple row separators (containment + delimiter-geometry failure) â the dominant defect.
+- Numeric collisions producing phantom values ("â25", "â51", "51") â illegible content.
+- Clipped caption text in left panel.
+- Initial-W matrix transposed to the wrong side of its label.
+- Missing red â arrow in row 1.
+
+## Summary
+| # | Defect | Severity | Confidence |
+|---|--------|----------|------------|
+| 1 | W-column vectors span/cross multiple table rows, components collide (garbled "â25","â51","51") | BLOCKER | 0.95 |
+| 2 | Row 1 update equation overlapping/illegible, crosses row boundary | BLOCKER | 0.95 |
+| 3 | Red â arrow in row 1 missing | MAJOR | 0.90 |
+| 4 | "Ugmented Vectors (from Top)" caption clipped by header row | MAJOR | 0.95 |
+| 5 | "Initial W =" vector placed left of its label (order inverted) | MAJOR | 0.95 |
+| 6 | Banner fill white vs cream | MINOR | 0.90 |
+| 7 | zâzâzâ shown as bare rows, no delimiters/subscripts | MINOR | 0.85 |
+
+All textual and numeric content is verbatim-correct; the failure is geometric â the W result column rendering destroys legibility and violates frame containment.
+
+**FINAL VERDICT: FAIL** for 'faithful, usable recreation'.

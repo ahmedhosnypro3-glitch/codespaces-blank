@@ -1,0 +1,63 @@
+## Element-by-element fidelity review (IMG1 recreation vs IMG2 original)
+
+**Chrome (exempt per ground rules):** yellow "30" badge with purple ring, gray house panel, and the left/right/bottom C00000 strokes all present as specified â not counted. The original's mouse cursor (top-center) is correctly omitted.
+
+---
+
+### Discrepancies found
+
+**1. Missing "X" column header in the large table â MAJOR (confidence: high)**
+- Original (IMG2): the header row's first cell contains the italic label **"X"** (left of the red "3" column, directly under the red arrow).
+- Recreation (IMG1): that first header cell is **empty**. Every other header cell (3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5) is present.
+- This is an omitted table element â an entire header label is absent.
+
+**2. Title metrics/placement â MAJOR (confidence: high on size, medium on weight)**
+- Original: bold **serif** (Times-like) title, visibly larger, left edge at âx75, i.e. â25 px inside the panel's left border.
+- Recreation: bold **Arial/sans** title at a smaller size (cap height â17 px vs â22 px) and left edge flush at the panel stroke (âx54), so the "C" of "Convex" sits with essentially zero padding against the left border line (containment risk).
+- Text is verbatim and the red/green color segmentation is preserved, but the font family, size, and left alignment differ noticeably from the original.
+
+**3. Small parameter table styling â MINOR (confidence: high)**
+- Original: **blue** outer/inner border strokes; row fills â pale green ("step"), **yellow** ("initial X"), yellow ("delta").
+- Recreation: **black/dark-gray** border strokes; "initial X" row filled **pink** instead of yellow. Values (0.2 / 3 / 0.1) are correct.
+
+**4. "Reach Minimum after 11 Steps" banner styling â MINOR (confidence: high)**
+- Original: magenta/pink **italic serif** text on a **white/unfilled** band.
+- Recreation: dark blue-purple **bold italic sans** text on a **light-lavender filled** band. Text is verbatim.
+
+**5. Graph (chart region) â MINOR (confidence: medium-high)**
+- Gridlines: recreation light **blue**; original light **pink/grey**.
+- Recreated plot is ~10 px shorter in height (bottom ây272 vs ây285) and slightly narrower than the original frame.
+- The x-axis tick label **"5"** (under the dashed line) is not legible in the recreation â it is crowded/overlapped by the green vertex marker and the "(5, 1)" annotation; the original shows "5" clearly below the axis.
+- Curve type (parabola), blue stroke, red dashed vertical at x=5, red sample point at â(3,7), black points at (2,10)/(8,10) with the "?" callout, and green vertex at (5,1) all match.
+
+**6. Systematic vertical offset of the content blocks â MINOR (confidence: medium-high)**
+- Recreation blocks sit higher than the original: small table yâ172 vs 183; equation box â163 vs 170; "X = 5" box â205 vs 218; banner â253 vs 272; main table â283 vs 303 (bottom â463 vs 482). This leaves an oversized empty band at the panel bottom (~30 px vs ~8 px). Relative ordering and internal spacing are preserved.
+
+**7. Title color of "=0.2," / "Start at X=3" â MINOR (confidence: low)**
+- The segment after the green "Learning Rate" reads as a different accent (bluish/darker) in the original versus red in the recreation; the resolution of the supplied frame makes this borderline. Flagged only as a possible color mismatch.
+
+**Verified as matching (no discrepancy):** all table numbers in every row (X sequence, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x incl. final "stop" cell), the small table's values, the equation `f(x) = (x â 5)Â² + 1` inside its red-outlined box, the green-bordered "X = 5 / f(x) Minimum value is 1.0" box (f(x) and 1.0 blue/bold), the red hollow down-left arrow pointing at the table header, and the overall region arrangement.
+
+---
+
+### Visual-quality defects in the recreation
+- No ink crosses the house panel/strokes, and nothing is clipped or truncated.
+- The large-table header row's empty first cell leaves an unlabeled column header (the defect in #1).
+- Table type is very small and bold (~5â6 px glyph height at this raster); legible at full render but tighter than the original.
+- The title's zero-padding left placement against the panel's left stroke is the closest call to an edge-containment issue.
+- The vertex label "(5, 1)" collides with the axis tick region, hiding the "5".
+
+---
+
+### Summary
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | "X" header label missing in main table | MAJOR | High |
+| 2 | Title font family/size/left offset | MAJOR | High/Medium |
+| 3 | Small table border color + pink vs yellow row | MINOR | High |
+| 4 | Banner fill and text color/font | MINOR | High |
+| 5 | Graph grid color, size, hidden "5" axis label | MINOR | Medium-high |
+| 6 | ~12â20 px upward shift of all content blocks | MINOR | Medium-high |
+| 7 | Title accent color of "=0.2,"/"Start at X=3" | MINOR | Low |
+
+**FINAL VERDICT: FAIL** â the recreation is content-complete in its data and structure, but an entire table header label ("X") is missing and the title's typography/placement deviates measurably from the original; both are MAJOR renderable-content defects.

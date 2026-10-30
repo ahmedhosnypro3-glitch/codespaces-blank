@@ -1,0 +1,36 @@
+## Element-by-element comparison (IMG1 recreation vs IMG2 original)
+
+**Title.** Same wording, same segment order, same colors (red "Convex Function," / green "Learning Rate =0.2," / red "Start at X=3"), same baseline band. Differences: original is bold **serif** (Times-like), recreation is bold **sans** (Arial); recreation's title is ~15â18 % smaller (original title spans âx74â525 of the frame, recreation âx54â443) and is flush to the panel's left stroke instead of indented â20 px, so it ends â80 px short of the graph's left edge that it nearly abuts in the original. Verbatim text â.
+
+**Small step table (left).** "step | 0.2", "initial X | 3", "delta | 0.1" â verbatim, same 3-row structure, same fills (pale yellowâgreen / pink / bright yellow), same 2-column split. Border colour of the small table reads blue in the original vs black/dark in the recreation (low-res). Position is â12 px higher in the recreation.
+
+**Equation box.** "f(x) = (x â 5)Â² + 1" in a thin red-outlined box, matching content, superscript, and box proportions; serifâsans only.
+
+**Green result box.** "X = 5" (red) over "f(x) Minimum value is 1.0" (blue *f(x)*, black words, bold blue "1.0") â verbatim, correct colour coding, both lines inside the green frame, vertically stacked the same way. Sits â10 px higher.
+
+**Purple caption.** "Reach Minimum after 11 Steps", italic, purple on a purple frame â (original shows a slightly wider inter-word gap: "11  Steps"). â15 px higher.
+
+**Graph (right).** Same chart type: blue parabola, fine grid, axes with â5/0/5/10/15 (x) and 5/10/15 (y), red dashed vertical at x = 5, black horizontal chord at y = 10 with black end dots at (2,10) and (7,Â·), red marker dot on the left branch, green marker at the vertex with "(5, 1)". All marks present in the recreation; only micro-offsets: the "(2, 10)" label sits closer to the left dot than in the original (original leaves a gap), and the "(5, 1)" label reads green in the recreation vs grey/black in the original. Cursor in IMG2 correctly omitted (rule c).
+
+**Iteration table (bottom).** Row-for-row, column-for-column exact: header x = 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5 (last "5" red in both); f(x) = 5, 4.24, 3.56, 2.96, 2.44, 2, 1.64, 1.36, 1.16, 1.04, 1; xâdelta = 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.5, 4.7, 4.9; f(xâdelta) = 5.41, 4.61, 3.89, 3.25, 2.69, 2.21, 1.81, 1.49, 1.25, 1.09, 1.01; x+delta = 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.5, 4.7, 4.9, 5.1; f(x+delta) = 4.61, 3.89, 3.25, 2.69, 2.21, 1.81, 1.49, 1.25, 1.09, 1.01, 1.01; slope = â8, â7.2, â6.4, â5.6, â4.8, â4, â3.2, â2.4, â1.6, â0.8, 0; next x = 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, "stop". Row labels, label-column right alignment, fill colours (yellow / light-yellow / lavender / lavender / peach / peach / green / pink) and blue outer frame all match; text is vertically centred in every cell, no clipping or truncation.
+
+## Discrepancies
+
+| # | Item | Severity | Confidence |
+|---|---|---|---|
+| 1 | Global typeface: original is a bold serif face (Times-like) for title, equation, boxes and table; recreation is sans-serif (Arial) throughout | MINOR | High |
+| 2 | Title ~15 % smaller and shifted left (flush to panel stroke vs â20 px indent; right end â80 px short of the graph) | MINOR | Medium-high |
+| 3 | Mid/left blocks (small table, equation box, green box, purple caption) and the large iteration table sit â10â22 px (â0.15â0.3 in) higher than in the original; the original's table bottom nearly touches the panel's bottom stroke, the recreation leaves ~24 px clearance | MINOR | Medium-high |
+| 4 | Small step-table outer border colour reads blue in the original, dark/black in the recreation | MINOR | Medium (low-res) |
+| 5 | Red connector arrow: recreation's is upright with the tip stopping at the table's top border; the original's is tilted and its tip enters the header row, pointing into the "3" column | MINOR | Medium |
+| 6 | Graph label micro-placement: "(2, 10)" sits closer to/onto its dot; "(5, 1)" label is green in the recreation vs grey in the original | MINOR | Low-medium |
+| 7 | Purple caption word spacing ("11  Steps" in the original) | MINOR (trivial) | Medium |
+
+No BLOCKER items: no equation, graph, table row, label, or visual element is absent; no missing values; the mouse cursor in IMG2 is a capture artifact correctly omitted (rule c).
+
+## Recreation visual-quality check
+No text overflow, no clipping, no wrapping errors, no cell collisions. Every element (title, both boxes, equation frame, small table, large table, graph, arrow) sits fully inside the grey house panel and inside its own frames; the large table is fully inside its blue border; all table text is legible at 150 dpi with correct row shading and vertical centring; the graph's axes, grid, parabola, dashed guide, markers and labels all render cleanly. House chrome (panel, left/right/bottom strokes, no top stroke, "30" badge) is as mandated and is not counted.
+
+The deviations are typographic and sub-inch placement offsets; all renderable content is present, correct, and usable.
+
+FINAL VERDICT: PASS

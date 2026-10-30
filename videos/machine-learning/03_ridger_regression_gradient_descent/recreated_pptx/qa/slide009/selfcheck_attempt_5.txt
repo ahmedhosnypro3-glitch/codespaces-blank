@@ -1,0 +1,47 @@
+render_4 2001x1125   scale x 2.08438 y 2.08333   original (540, 960)
+
+== 1. HOUSE FRAME / CONTAINMENT ==
+   ORIG top-band red px (y44..46): 0
+PASS no top stroke: render top-band red px = 0 (frame 0)
+PASS panel gap clean: ink px in x468..483 (border halos excluded) = 0 (expect 0)
+PASS chart->caption gap clean: ink px in y476..477 (below chart border y474) = 0 (expect 0)
+PASS nothing left of house panel: ink px left of x=54 = 0
+
+== 2. EQUATION INK + DELIMITER GEOMETRY ==
+   LEFT eq ink bbox frame px: x 228.6..312.0  y 157.2..168.2  (n=756)
+PASS eq LEFT ink present: dark ink px = 756
+PASS eq LEFT inside box: ink inside x216..318 y148..175
+PASS eq LEFT box border: navy border px on top edge = 4
+   RIGHT eq ink bbox frame px: x 645.0..729.0  y 157.7..168.2  (n=749)
+PASS eq RIGHT ink present: dark ink px = 749
+PASS eq RIGHT inside box: ink inside x631..735 y148..175
+PASS eq RIGHT box border: navy border px on top edge = 4
+
+== 3. ATTEMPT-4 ANNOTATION GROUP (labels / arrowheads / connectors) ==
+PASS L label ink bbox: render (np.float64(198.1), np.float64(189.1), np.float64(223.0), np.float64(235.2)) vs frame (196, 188, 222, 238) (±6)
+PASS R label ink bbox: render (np.float64(625.0), np.float64(213.9), np.float64(648.9), np.float64(259.5)) vs frame (623, 210, 650, 265) (±6)
+PASS L dim head: head bbox (np.float64(243.3), np.float64(284.2), np.float64(249.0), np.float64(291.4)) (tip target (249, 292))
+PASS R dim head: head bbox (np.float64(670.4), np.float64(315.2), np.float64(681.4), np.float64(331.5)) (tip target (682, 324))
+PASS L callout head: head bbox (np.float64(183.3), np.float64(150.2), np.float64(190.0), np.float64(157.4)) (tip target (191, 150))
+PASS R callout head: head bbox (np.float64(599.3), np.float64(144.2), np.float64(606.0), np.float64(151.0)) (tip target (607, 144))
+PASS LEFT residual connectors: 10/10 sampled perpendicular paths carry periwinkle dash ink
+PASS RIGHT residual connectors: 6/6 sampled perpendicular paths carry periwinkle dash ink
+
+== 4. CAPTION BANDS + EXPLICIT LINE SPACING ==
+PASS LEFT caption bands: ink y 487.5..518.2 (frame 488..519), inter-line gap rows [4]
+PASS RIGHT caption bands: ink y 487.5..518.2 (frame 488..519), inter-line gap rows [5]
+PASS explicit lineSpacing in build: captionLine sets lineSpacing: size * 1.2 (pinned per line, not auto)
+
+== 5. TABLE DATA ==
+   N/A — slide 009 has no table (two scatter charts + 4 caption lines + 2 equations).
+
+== 6. CROP-PAIR SCALE AUDIT (crop_5_*) ==
+PASS crop eq_left scale: 243x89 vs 243x89; x 2.0769 y 2.0698 (target 2.0844/2.0833)
+PASS crop eq_right scale: 244x89 vs 244x89; x 2.0855 y 2.0698 (target 2.0844/2.0833)
+PASS crop cap_left scale: 738x120 vs 738x120; x 2.0847 y 2.0690 (target 2.0844/2.0833)
+PASS crop cap_right scale: 742x120 vs 742x120; x 2.0843 y 2.0690 (target 2.0844/2.0833)
+PASS crop chart_left scale: 805x787 vs 805x787; x 2.0855 y 2.0820 (target 2.0844/2.0833)
+PASS crop chart_right scale: 834x787 vs 834x787; x 2.0850 y 2.0820 (target 2.0844/2.0833)
+
+RESULT: 0 checks, 0 FIX
+VERDICT: PASS

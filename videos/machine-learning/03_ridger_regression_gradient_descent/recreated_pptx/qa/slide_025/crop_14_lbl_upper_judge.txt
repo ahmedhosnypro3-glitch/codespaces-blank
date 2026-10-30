@@ -1,0 +1,31 @@
+## Region Comparison: lbl_upper (navy label boxes, slide 025)
+
+**Layout verification (crop-relative coordinates):**
+
+| Element | IMG1 (render) | IMG2 (original) | Match? |
+|---|---|---|---|
+| Top box ("Concave") | ~x18â305, y14â100 | ~x22â300, y16â100 | â |
+| Bottom-right box ("Convex") | ~x448â735, y112â195 | ~x448â738, y125â200 | â (minor vertical offset) |
+| Left red tick strokes | 2â3 short C00000 marks at x0â45 | same marks, same positions | â |
+| Panel background | light gray E9E9E7 | same (JPEG-softened) | â |
+
+**Content verification:**
+
+- Top box line 1: "Concave" in yellow + " Function" in white â both images, correct spelling. â
+- Top box line 2: "One Maxima" in white â correct in both. â
+- Bottom box line 1: "Convex" in yellow + " Function" in white â correct in both. â
+- Bottom box line 2: "One Minima" in white â correct in both. â
+- No missing, garbled, or truncated characters anywhere in the region. â
+- Navy box fill (dark blue, ~000080) matches in both; yellow highlight present on the correct word in both boxes. â
+- Two-line centering inside each box is correct; lines are properly separated, no clipping at box edges. â
+
+**Discrepancies found:**
+
+1. **MINOR â Font family of label text.** IMG1 renders the labels in a sans-serif face (Arial-like); IMG2's original uses a serif face (Times-like, visible on "Concave Function," "One Maxima"). Confidence: high. Typed-vs-source medium/template difference; legibility and content identical.
+2. **MINOR â Yellow hue of highlighted words.** IMG1's "Concave"/"Convex" is a bright pure yellow; IMG2's reads slightly olive/darker. Confidence: medium â this is consistent with JPEG/video desaturation in IMG2 rather than a fill-color error.
+3. **MINOR â Vertical placement of "Convex" box.** IMG2's bottom box sits ~10px lower in the crop than IMG1's. Confidence: medium-high. Sub-1% of slide height; no overlap or collision with other elements.
+4. **MINOR â Inter-word spacing.** IMG2 shows slightly wider word spacing in "One Maxima" / "One Minima" (serif metrics). Confidence: high. Cosmetic only.
+
+No BLOCKER or MAJOR defects: every word, highlight, box, and stroke is present, correctly spelled, and correctly positioned within the region.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

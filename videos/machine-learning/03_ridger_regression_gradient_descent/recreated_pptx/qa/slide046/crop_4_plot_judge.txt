@@ -1,0 +1,38 @@
+# Judge transcript — slide 046, attempt 4, region plot (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 06:59
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_plot_orig.png    md5=38efcda2818c41031af9b8f3a6b475e6
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_plot_render.png  md5=8b0ca6878bb4b4d2d5430a34e300b75f
+- region (frame px, +padding): x304..833, y165..490 — red-bordered scatter plot, axes 0..8 / 0..7, decision line, 9 markers, "+ve" arrow
+- scale audit: render crop 1102x677 px for 529x325 frame px = 2.0832 / 2.0831 px per frame px; original crop resized LANCZOS to 1102x677 = 2.0832 / 2.0831 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes; plot asset unchanged from the previous build — crop bytes identical; crop pair re-cut from this render, bytes identical to the pre-fix render for this region)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR of one region, same region/effective scale in both images.
+(b) House template (white canvas, gray E9E9E7 panel, C00000 left/right/bottom strokes only — no top stroke; FDFD96/6A5ACD badge) is intentional chrome, never a discrepancy.
+(c) Typed-vs-handwritten ink is at most MINOR.
+(d) Equations are rendered in professional 2D format — a linear original is a mandated upgrade, not a discrepancy.
+(e) JPEG halos / soft edges in IMG2 are video-capture artifacts, not content.
+
+## Comparison (crop-relative)
+- Outer border: 1 px red rectangle along the crop edge in BOTH; corner radii and thickness match (frame x312..825, y173..482 → crop 17..1086, 17..661). MATCH.
+- Data frame: light-gray spines at x=0 (left), x=8 (right), y=0 (bottom), y=7 (top); BOTH show all four, same positions (crop x≈115/1085, y≈100/560). MATCH.
+- Gridlines: eight horizontal light-gray rules at y=0..7; BOTH show the same eight rows at the same y positions (PIL: render rows 214.7/245.4/276.2/306.7/337.7/368.2/398.7/429.7 frame px vs frame 214.5/245/276/306.5/337.5/368/398.5/429.5; max Δ 0.5 px). MATCH.
+- Tick labels: 0..8 below the x axis, 0..7 left of the y axis, dark digits; same count, same positions, same order. Render glyphs are crisper (600 dpi source); sizes within 1-2 px. MATCH.
+- Decision boundary: vertical red line at data x≈3.48 in BOTH, overshooting the y=7 and y=0 spines top and bottom, ending at the same heights. PIL: render line at frame x=545.1 vs frame 546 (Δ0.9 px); stroke width render 3 crop px vs original 2-3 crop px (Δ≤1 px, antialias). MATCH.
+- "+ve" annotation: red text above the y=7 line, left of the boundary, with a LEFT-pointing red arrow whose tail touches the decision line in BOTH. Same text, same direction, same row (y≈6.85). MATCH.
+- Markers, cell by cell:
+  * blue squares (1,2)(1,1)(2,1) — BOTH present at the same coordinates (render centres 414.7/368.4, 414.7/399.1, 467.5/399.1 vs frame 416/367.8, 416.1/398.5, 469.1/398.9; Δ≤1.6 px).
+  * magenta diamonds (5,4)(6,5)(6,6) — BOTH present, same coordinates (render 625.9/306.7, 678.6/276.0, 678.6/245.3 vs frame 626.5/306.5, 679/276, 679/245.1; Δ≤0.6 px).
+  * red down-triangles (3,2)(7,6)(0,0) — BOTH present, same coordinates (render 520.5/367.6, 731.4/244.2, 363.1/428.5 vs frame 520.6/366.7, 731.5/243.8, 362.7/427.9; Δ≤0.9 px).
+  * marker shapes/colors: square=dark blue, diamond=magenta, triangle=red — BOTH, same shapes, same fills. MATCH.
+- Cursor artifact: the original crop shows a black diagonal cursor at the top of the plot; it is absent in the render — correct per ground rule (c).
+- Colors: white plot field, red border, red decision line, light-gray rules, black labels — all match; JPEG softness in IMG2 only.
+
+## Discrepancies
+1. MINOR (stroke weight) decision line — render 3 crop px vs original 2-3 crop px — PIL-measured above; within the JPEG/antialias band of the source, no content difference. DISMISSED (measurement).
+2. MINOR (glyph crispness) tick labels / "+ve" — render source is 600 dpi PNG, original is a compressed video frame; shapes, sizes and positions agree within 2 px. Consistent with ground rule (e). DISMISSED (medium difference).
+
+No BLOCKER, no MAJOR, no missing element: all nine markers, the boundary, the annotation and every axis label are present at the frame's coordinates.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

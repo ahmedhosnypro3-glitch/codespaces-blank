@@ -1,0 +1,29 @@
+## Comparison findings â Slide 043 top band (crop-relative coords)
+
+**Matched content (verified cell-by-cell / element-by-element):**
+- 6-column table: headers x1âx6; row 1 = (1)(2)(1)(5)(6)(6); row 2 = (1)(1)(2)(4)(5)(6); class row = C1 C1 C1 C2 C2 C2 (red/blue). All values, colors, and column-to-class assignment identical in both.
+- Z1 class-check matrix: Z1 Z1 Z1 labels; stacked pairs (0/0), (7/6), (3/2). Identical, and each column's parent pair correctly spans both stacked entries (single tall paren per column, no touching).
+- Legend line "C1 positive, C2 negative, Zero is unaccepted" â identical text, red/blue/green coloring.
+- "Step Î· = 2" â identical text, red, italic Î·; vertical separator strokes present in both and aligned similarly.
+- Table per-cell parentheses correctly enclose each single entry; no delimiter-span or line-separation defects observed anywhere except as noted below.
+
+## Discrepancies
+
+**1. Missing component in the Initial W column vector â MAJOR (high confidence)**
+- Location: center-left of the region (~x 0.44â0.62, first two text lines), immediately right of the x6 column's separator bar.
+- IMG2 (original): three entries â 4 / â2 / â2 â with the bracket spanning all three lines.
+- IMG1 (recreation): only two entries â 4 / â2 â bracket closes after the second line. The third component (â2) is absent, not clipped or overlapped.
+- This silently changes the mathematical object (2-vector vs. 3-vector). Borderline BLOCKER under the "missing row/element" rule.
+
+**2. Content-band background fill color differs â MINOR (medium confidence)**
+- Whole band (~x 0.00â1.00, y 0.05â0.95): recreation shows a pale yellow/cream fill; the original is a pale blue/lavender fill. Not part of the authorized chrome description (white canvas / gray panel). Could be capture white-balance, but flagged per the fill-color rule.
+
+**3. Index subscript rendering uncertain â MINOR (low confidence)**
+- Table headers (~x 0.03â0.36, top line) and the Z1 labels (~x 0.88â0.97, top line): the original clearly subscripts the digits (xâ, Zâ); in the recreation crop the digits appear near baseline/full height. Cannot be fully resolved at this zoom â recommend a full-resolution check for true subscript formatting vs. flattened "x1"/"Z1".
+
+**4. Red shade variance â MINOR (low confidence, nitpick)**
+- "Step" and the "C1" class labels (~x 0.03â0.10 bottom, ~x 0.52 top line): recreation red reads slightly warmer/purer than the original's red. Too close to call definitively here.
+
+Everything else â all table values, class row, matrix data, legend wording/colors, equation label, delimiter geometry and spanning, vertical centering within cells/enclosures, and separator strokes â is faithful.
+
+FINAL VERDICT: FAIL (missing â2 component in the Initial W vector is a substantive content error; remaining items are minor).

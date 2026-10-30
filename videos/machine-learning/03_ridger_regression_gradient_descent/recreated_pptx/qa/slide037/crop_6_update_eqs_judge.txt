@@ -1,0 +1,43 @@
+# Crop-pair judge transcript — slide 037, attempt 6, region "update_eqs" (box-3 update equation 1)
+- date: 2026-10-24 07:04
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1_RENDER: recreated_pptx/qa/slide037/crop_6_update_eqs_render.png md5=3818b5ff1ec8335afbaf22359227f5dd (1491x136)
+- IMG2_ORIG:   recreated_pptx/qa/slide037/crop_6_update_eqs_orig.png   md5=e4d4de23451bdf3c325d041c78a1a6b4 (1491x136)
+- region: frame bbox (75,395)-(790,460), 715x65; effective scale 2.0853 px/frame-px (x),
+  2.0923 (y, <=0.4 % vs 2.084375) — equal for both images.
+- read order: ORIG crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of ONE region at matched effective scale. (b) House chrome is
+intentional. (c) Typed-vs-handwritten at most MINOR. (d) 2D professional equation format is a
+mandated upgrade (and here IMG2 is 2D too). (e) JPEG halos in IMG2 are artifacts.
+
+## Comparison
+- "W^(updated) = W^old − η": verbatim; W underlined in both occurrences; "(updated)" and
+  "old" raised superscripts; η RED bold italic. MATCH (recreation's superscripts smaller).
+- FRACTION 1 (after η): "∂Error" over a horizontal rule over "∂W", W underlined — both
+  images show a STACKED fraction at the same x (render ink 266.7..336.3 x 403.0..449.1 vs
+  frame 267..336 x 403..448) with the bar at the same height. MATCH. The frame's numerator is
+  bold; the recreation's is regular italic (glyph weight only).
+- "where": bold italic, same position (render 408.8..460.6 x 415.5..430.3 vs frame
+  409..463 x 415..431). MATCH.
+- FRACTION 2: same stacked form as fraction 1 (render 510.5..582 x 403..449 vs frame
+  511..580 x 403..448). MATCH.
+- "=": same x (589.6..600 vs 591..600). MATCH.
+- SIGMA: large black Sigma, ink 27 x 33 frame px (render 650.6..677.9 x 408.8..441.9 vs frame
+  651..677 x 409..441). MATCH.
+- LIMIT under the Sigma: "misclassified vectors" — "misclassified" RED bold italic,
+  "vectors" black bold — same words, colours, position (render 609.3..715.3 x 439.9..455.3 vs
+  frame 610..716 x 441..453). MATCH.
+- TERMS: "δ_i X_i" — δ green with RED subscript, X green UNDERLINED with green subscript.
+  MATCH (subscripts smaller in the recreation).
+- No truncated glyphs, no wrong digits, no missing terms, no delimiter overlap.
+
+## Discrepancies
+1. [MINOR] Superscript "(updated)"/"old" smaller than IMG2's — confidence high — LO 58 %
+   escapement on the explicitly sized run; raised position correct.
+2. [MINOR] Fraction numerator weight — frame "Error" is bold italic; recreation is regular
+   italic — confidence high — mathtext glyph weight; same content/structure/position.
+3. [MINOR] Subscript i size — smaller than IMG2's — confidence high — as above.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

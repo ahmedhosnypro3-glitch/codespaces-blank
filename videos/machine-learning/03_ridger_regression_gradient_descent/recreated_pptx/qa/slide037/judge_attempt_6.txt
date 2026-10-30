@@ -1,0 +1,126 @@
+# Judge transcript — slide 037, attempt 6 (full-slide)
+- date: 2026-10-24 06:58
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_037.jpg  md5=cb3a7373fac99019a41b9434ef5895a3
+- IMG_RENDER:   recreated_pptx/qa/slide037/render_6.png  md5=7251b2caec4d74e5ff199aa98a814fe8
+- GM: render_H/540 = 2.0833 (2001x1125 @150dpi)
+- read order: ORIGINAL first, then RENDER (both read directly)
+- deck template: shared_patterns/judge_protocol_03.md (Template A substance quoted below)
+
+## Ground rules acknowledged
+(a) House chrome for THIS deck (measured 2026-10-19): white canvas; gray E9E9E7 panel
+x54..903, y45..540; thin dark-red C00000 1pt strokes on LEFT x58.5, RIGHT x901 and BOTTOM
+y538.5 only — there is INTENTIONALLY NO top stroke (the original has none; a top stroke
+would be the defect); yellow badge circle centred (876,73) d~35 fill FDFD96 ring 6A5ACD,
+bold numeral 333333 Arial 18pt = the file number (37). These are intentional house chrome,
+not discrepancies. Verified on this render by shared_patterns/house_chrome_check.py ->
+PASS (house_chrome_check_attempt_6.txt).
+(b) Not a placeholder slide: image 2 has full content.
+(c) Mouse cursor / video-capture artifacts in image 2 are correctly omitted (the small
+pen/arrow mark inside the green box under "W(old)" is such an annotation mark).
+(d) Typed-vs-handwritten ink is an inherent medium difference — at most MINOR.
+(e) Equations are rendered in PROFESSIONAL 2D FORMAT (stacked fractions with a horizontal
+bar, large Sigma with limits set below, spatially aligned sub/superscripts) per founder
+directive 2026-10-09; linear notation in the original would be a mandated upgrade, not a
+discrepancy. Here the original itself is 2D, and the recreation matches it in 2D.
+(f) The verdict is about fidelity of renderable content only.
+
+## Comparison (element by element)
+- TITLE: "Problem Formulation", dark red bold serif, ink x 351.7..629.0 rows 65.7..86.8 vs
+  original 353..629 rows 63..85 — same extent, same centre (491), same colour/size. MATCH.
+- BADGE: numeral 37 (house chrome), PASS.
+- PANEL CHROME: P1 white 68..870 x 108..210 square corners; P2 cream 66..891 x 229..341
+  rounded; P3 tan 66..891 x 348..531 rounded with BROWN border 865E3A (original border is
+  brown, not red); green highlight roundRect 80..485 x 462..520 fill DFFFEE. All MATCH the
+  measured frame geometry (render border rows/cols within 1 px).
+- BOX 1 (definition):
+  * heading "Define δ_i as :" dark red bold — MATCH (render 77.2..; frame 77..184).
+  * line 1 "If X ∈ class I and misclassified as Class II then d(X) will be <0 ⇒ δ_i = -1
+    ⇒ d(X) δ_i > 0" — VERBATIM match; frame styling matched exactly: "class I" RED bold
+    italic, "Class II" BLUE bold italic, "misclassified" BLACK bold italic underlined,
+    "<0" RED, "⇒" BLACK, d of d(X) GREEN, "δ_i" GREEN with RED subscript, "= -1" BLACK,
+    X underlined. Rows 141.0..170.3 vs frame 142..169 (<=1 px).
+  * line 2 "...class II ... Class I ... >0 ⇒ δ_i = +1 ⇒ ..." — VERBATIM; class II BLUE,
+    Class I RED (frame's swapped colouring reproduced). Rows 168.9..189.0 vs 170..191.
+  * line width 826 vs frame 846 (-20 px, 2.4 %) — Liberation Serif metrics; content verbatim.
+- BOX 2 (redefined error):
+  * heading "Redefine Error function as:" BLACK bold UNDERLINED (frame band has zero
+    saturated-red ink) — MATCH (render 76.8..299.4 rows 242.3..258.1 vs 75..298 rows 242..257).
+  * "Error =" bold, ink 80.1..147.3 rows 269.6..283.5 vs 80..142 rows 268..282 — MATCH.
+  * Sigma glyph: render ink 202.0..221.6 rows 261.9..287.9 vs frame 202..221 rows 262..287 —
+    MATCH (size and position within 1 px).
+  * limit "all misclassified vectors (i)": all=black italic, misclassified=RED bold italic
+    underlined, vectors=black italic, (i)=black; render 152.6..269.1 rows 293.1..302.7 vs
+    frame 150..272 rows 290..303 — MATCH (width -3 px, 4 px lower top).
+  * terms "δ_i W^T X_i": green δ/W/X with RED subscript i, W and X underlined, T blue
+    superscript — render 278.7..351.7 rows 264.8..286.9 vs frame 279..342 rows 264..289;
+    MATCH (+10 px width from the superscript metrics).
+  * arrow: BLUE bold ⇒ at render 360.8..376.1 rows 272.5..280.7 vs frame 363..377 rows
+    272..281 — MATCH.
+  * explanation "⇒ (W^T X_i) takes positive and negative values and δ_i has the same sign":
+    ONE line, italic, W/X underlined, T blue, "positive"/"negative" BLACK italic (frame
+    measurement), δ_i green/red — render 392.9..879.9 rows 268.2..287.9 vs frame
+    394..869 rows 266..288. MATCH; +11 px width, inside panel (right edge 891).
+  * "Summation is always positive": "positive" RED bold italic UNDERLINED — render
+    77.2..301.3 rows 309.4..326.7 vs frame 75..295 rows 309..327. MATCH (+6 px width).
+- BOX 3 (gradient descent):
+  * heading italic, "Gradient Descent" BLUE bold italic, "η" RED bold — render 82.5..546.9
+    rows 362.2..381.4 vs frame 83..541 rows 362..381. MATCH.
+  * update eq 1 "W^(updated) = W^old - η ∂Error/∂W where ∂Error/∂W = Σ_{misclassified
+    vectors} δ_i X_i":
+    - left text with W underlined (both), η RED: render 83.0..235.6 rows 414.5..434.2 vs
+      frame 83..250 rows 408..436 (superscript top 6 px lower; baseline/underline within 2 px).
+    - STACKED fraction 1: render 266.7..336.3 rows 403.0..449.1 vs frame 267..336 rows
+      403..448 — MATCH (numerator ∂Error, bar, denominator ∂W, W underlined).
+    - "where" bold italic: 408.8..460.6 rows 415.5..430.3 vs 409..463 rows 415..431 — MATCH.
+    - STACKED fraction 2: 510.5..582 rows 403..449 vs frame 511..580 rows 403..448 — MATCH.
+    - "=" at 589.6..600 vs frame 591..600 — MATCH.
+    - Sigma glyph: 650.6..677.9 rows 408.8..441.9 vs frame 651..677 rows 409..441 — MATCH.
+    - limit "misclassified vectors" (red misclassified, black vectors): 609.3..715.3 rows
+      439.9..455.3 vs frame 610..716 rows 441..453 — MATCH.
+    - terms "δ_i X_i" green with RED subscript and underlined X: 721.6..764.3 rows
+      415.0..436.6 vs frame 723..762 rows 415..438 — MATCH.
+  * update eq 2 (inside green box): "W^(updated) = W^old - η Σ_{misclassified vectors ONLY
+    (i)} δ_i X_i" — left text 83.0..235.6 rows 473.5..493.2 vs frame 84..~251 rows 471..496;
+    Sigma 330.6..355.0 rows 471.6..501.8 vs 331..354 rows 472..501; limit 245..444 vs
+    246..444 rows 503..518; terms 421.7..485.0 vs 420..489. MATCH (verbatim, same colours,
+    ONLY red underlined, (i) black).
+- LAYOUT/REGIONS: three stacked panels + green highlight exactly at the frame's measured
+  coordinates; no element moved between regions.
+- COLORS: title/headings C00000; class II / Gradient Descent / T / arrow blue family
+  (frame (14,0,167), render 0000A8); terms green (frame (40,132,40), render 288428); values
+  and η C00000-red family; panel fills FFFFFF / FEFFE8 / EADBC8 / DFFFEE; brown P3 border.
+  MATCH.
+- FRAME CONTAINMENT: PIL (selfcheck_attempt_6.txt §1) — every panel's content ink sits
+  inside its frame with positive margins (P1 9.2/4.7/43.9/21.0 px; P2 10.8/13.3/11.1/14.3;
+  P3 13.2/14.2/126.7/10.9; green box 2.0/1.9/2.4/2.3). NO overflow, NO collision, NO
+  clipping; all text legible.
+- EQUATION REGIONS: all five (Sigma1, frac1, frac2, Sigma2, Sigma3) contain ink
+  (895 / 3496 / 3496 / 1566 / 1267 px) — none empty.
+- DELIMITERS: explanation parens span the enclosed W^T X main glyphs (268.7..284.5 vs
+  268.2..283.5) without touching; subscripts hang below the paren exactly as in the frame.
+- TABLES: none on this slide (n/a).
+
+## Discrepancies
+1. [MINOR] Box-1 implication line width — render 826 vs frame 846 px (-2.4 %) — confidence
+   high — PIL-measured (selfcheck_attempt_6.txt §5). Cause: Liberation Serif advance widths
+   vs the frame's narrower serif at equal cap height. Content verbatim, position identical;
+   no reflow, no containment risk. Accepted as a font-metric medium difference.
+2. [MINOR] Explanation line width — render 392.9..879.9 (487 px) vs frame 394..869 (475 px,
+   +2.5 %) — PIL-measured; text stays inside the panel (11 px margin). Same font-metric cause.
+3. [MINOR] Update-equation superscript "(updated)"/"old" and the i subscripts — render sits
+   slightly lower/smaller than the frame's hand-typeset math (superscript ink top 414.5 vs
+   408; subscript i ~6 px vs ~9 px) — PIL-measured. Structure (raised super, lowered sub) and
+   horizontal placement are correct; LibreOffice applies a 58 % escapement to baseline-shifted
+   runs. Accepted as a metric difference; no containment or legibility impact.
+4. [MINOR] Sigma glyph weight — the mathtext Sigma is lighter than the frame's bold serif
+   Sigma; ink boxes match within 1 px (202..221.6/261.9..287.9 vs 202..221/262..287 etc.).
+   Glyph-shape/medium difference; size, position and the stacked limits are faithful.
+5. [MINOR] The small pen/arrow mark under "W(old)" inside the green box in image 2 is a
+   lecturer annotation/cursor artifact; correctly omitted per ground rule (c).
+
+## Visual-quality defects
+None: no text overflow or clipping, no wrong wrapping, no misalignment of label vs value, no
+delimiter overlap, no collisions, no illegibility. All five equation regions render.
+
+FINAL VERDICT: PASS

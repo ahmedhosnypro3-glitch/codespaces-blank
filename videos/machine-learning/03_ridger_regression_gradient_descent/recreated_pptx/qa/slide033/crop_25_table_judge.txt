@@ -1,0 +1,35 @@
+## Comparison scope
+Both crops contain the same table: 8 label + 18 value columns (x / f(x) / xâdelta / f(xâdelta) / x+delta / f(x+delta) / slope / next x), the threeâcolumn cyan insert, the green "slope" callout, the red "next x" callout, and the red pointer arrow over the "â11" cell.
+
+## Data audit (valueâbyâvalue, both images)
+I transcribed every cell of all 8 rows in IMG1 and IMG2 and compared them column by column:
+
+* **x row:** â11, â10.9, â10.8, â10.7, â10.6, â10.5, â10.4, â10.3, â10.2, â10.1, â10, â9.9, â9.8, â9.7, â9.6, â9.7, â9.6, â9.7 â **identical**.
+* **f(x):** 1.15, â0.04, â1.19, â2.26, â3.27, â4.19, â5.03, â5.77, â6.41, â6.95, â7.39, â7.72, â7.96, â8.08, â8.11, â8.08, â8.11, â8.08 â **identical**.
+* **xâdelta:** â11.1, â11, â10.9, â10.8, â10.7, â10.6, â10.5, â10.4, â10.3, â10.2, â10.1, â10, â9.9, â9.8, â9.7, â9.8, â9.7, â9.8 â **identical**.
+* **f(xâdelta):** 2.39, 1.15, â0.04, â1.19, â2.26, â3.27, â4.19, â5.03, â5.77, â6.41, â6.95, â7.39, â7.72, â7.96, â8.08, â7.96, â8.08, â7.96 â **identical**.
+* **x+delta:** â10.9 â¦ â9.8, â9.7, â9.6, â9.5, â9.6, â9.5, â9.6 â **identical**.
+* **f(x+delta):** â0.04, â1.19, â2.26, â3.27, â4.19, â5.03, â5.77, â6.41, â6.95, â7.39, â7.72, â7.96, â8.08, â8.11, â8.05, â8.11, â8.05, â8.11 â **identical**.
+* **slope:** â24.3, â23.4, â22.2, â20.8, â19.3, â17.6, â15.8, â13.8, â11.8, â9.8, â7.7, â5.7, â3.6, â1.5, 0.3, â1.5, 0.3, â1.5 â **identical** (including the alternating Â±1.5/0.3 pattern at the right).
+* **next x:** â10.9 â¦ â9.8, â9.7, â9.6, â9.7, â9.6, â9.7, â9.6 â **identical**.
+
+No wrong digit, swapped value, missing row, dropped column, garbled character, or truncated sign/decimal point was found. Row count (8), column count (18 values + label), label text ("x", "f(x)", "xâdelta", "f(xâdelta)", "x+delta", "f(x+delta)", "slope", "next x"), row order, cell alignment and vertical centering all match. The cyan insert covers the same three columns (â9.7 / â9.6 / â9.7 in row 1 and â8.08 / â8.11 / â8.08 in row 2) in both.
+
+## Discrepancies found
+
+1. **MINOR â Red pointer arrow over the "â11" cell is largely absent.** In IMG2 a thick red handâdrawn arrow descends from the top edge (roughly x â 140â175, y â 0â30) and points directly at the first "â11" cell. In IMG1 only a tiny red sliver is visible at the extreme top edge (x â 145â165, y â 0â6); the arrowhead that touches the "â11" cell is not rendered inside the crop. The highlighted cell it targets is present and correct, so this is a lost (outâofâcrop) annotation rather than lost content. Confidence: high on the observation, moderate on the exact cropâoffset cause.
+
+2. **MINOR â Cyan insert callout: corner geometry, dash weight and fill hue.** IMG2's cyan insert (x â 955â1160, y â 12â95) is a **roundedâcorner** red dashed rounded rectangle (radius â 10 px, chunky dashes) with a bright aqua/cyan translucent wash that also tints the enclosed numerals teal and softens the cell dividers. IMG1's version (x â 963â1160, y â 28â88) uses **square corners**, finer dashes, and a duller greenâcyan fill; the enclosed text stays black rather than tealâtinted, and the overlay does not wash over the internal grid line. Position and column span of the insert are correct. Confidence: high.
+
+3. **MINOR â "next x" row enclosure stroke weight/shape.** IMG2 has a heavy handâdrawn red rounded rectangle (~4 px marker stroke, rounded ends) around the pink "next x" row (y â 245â282). IMG1 has a thin (~2 px), sharpâcornered red rectangle in the same position. Content and extent match; only weight/rounding differ. Confidence: high.
+
+4. **MINOR â "slope" row green enclosure stroke weight/shape.** IMG2 shows a thick, handâdrawn green rounded rectangle around the slope band (y â 205â243) with slightly bulging sides. IMG1 shows a thin, squareâcornered green rectangle. Same band, same cells, same fill pattern (tan cells, yellowâgreen 0.3 cells). Confidence: high.
+
+5. **MINOR â Fillâband hue drift.** The top (x / f(x)) band is a paler, greener yellow in IMG1 versus a more olive/saturated yellow in IMG2; the purple band is slightly more violet and lighter in IMG1 versus the mauveâpink of IMG2; the peach band is creamier/paler in IMG1 versus the warmer peach of IMG2. Small, uniform shifts only (no misplaced or wrongly coloured cells). Confidence: medium (partly attributable to the capture's JPEG/lighting).
+
+6. **MINOR â Table frame/grid stroke rendering.** IMG1's outer frame and internal gridlines read slightly darker/crisper than the soft, thin, videoâcompressed strokes in IMG2. Within the stated halo/softâedge tolerance, but the recreation is a touch heavier. Confidence: medium.
+
+## Notes
+No equations, fractions, summation limits, or bracketed enclosures appear in this crop, so no structural checks of that kind apply; no delimiter/bracket geometry issues exist. The typed glyphs versus handwritten originals are the inherent medium difference (c) and are not counted. No houseâtemplate chrome (panel strokes, badge) is implicated here.
+
+**FINAL VERDICT: PASS**

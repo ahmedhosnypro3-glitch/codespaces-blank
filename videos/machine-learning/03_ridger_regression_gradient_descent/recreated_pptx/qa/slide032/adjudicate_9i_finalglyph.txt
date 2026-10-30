@@ -1,0 +1,206 @@
+==========================================================================
+1. FONT TEMPLATES (Liberation Serif, the build's family)
+==========================================================================
+--- template '(' @ 10pt (3x9) ---
+     +
+    + 
+   .+ 
+   +. 
+   +. 
+   +. 
+   .+ 
+    + 
+     +
+
+--- template '(' @ 11pt (3x10) ---
+     .
+    +.
+    + 
+   .+ 
+   ++ 
+   ++ 
+   .+ 
+    + 
+    +.
+     .
+
+--- template ')' @ 10pt (2x7) ---
+   + 
+   .+
+    #
+    #
+    #
+   .+
+   + 
+
+--- template ')' @ 11pt (2x8) ---
+   +.
+   .+
+    #
+    #
+    #
+    #
+   .+
+   +.
+
+--- template '7' @ 10pt (4x7) ---
+   ++++
+     ..
+     + 
+    .. 
+    +  
+    .  
+   +   
+
+--- template '7' @ 11pt (4x8) ---
+   ####
+      +
+     ..
+     + 
+    .. 
+    +  
+    +  
+   +.  
+
+--- template '?' @ 10pt (4x7) ---
+   .+++
+      #
+     .+
+    .+ 
+    .. 
+       
+    .. 
+
+--- template '?' @ 11pt (5x8) ---
+   .+++ 
+   .  +.
+      +.
+     .# 
+    .+  
+     .  
+        
+    .+  
+
+--- template '3' @ 10pt (5x7) ---
+   .+++ 
+   .  +.
+      + 
+    .++ 
+      .+
+   .  .+
+   .+++ 
+
+--- template '3' @ 11pt (5x8) ---
+   .+++.
+   .. .+
+      +.
+     ++.
+       #
+       #
+   .   #
+   .+++.
+
+--- template ',' @ 10pt (2x3) ---
+   .+
+    +
+   ..
+
+--- template ',' @ 11pt (1x2) ---
+   #
+   +
+
+--- template '1' @ 10pt (3x7) ---
+    + 
+   +# 
+    + 
+    + 
+    + 
+    + 
+   .#+
+
+--- template '1' @ 11pt (3x8) ---
+    +.
+   ++.
+    +.
+    +.
+    +.
+    +.
+    +.
+   .++
+
+==========================================================================
+2. LABEL GROUPS (1 px per frame px)
+==========================================================================
+         \    \ 
+         3      
+--- ORIG group1 (x727..837) (10x12) ---
+             
+        ...  
+     ...+++. 
+     ++.++++.
+   ..++...++.
+   ..+...+++.
+   ..+. .++. 
+    .+.  +.  
+    .+.  .. .
+     ++.    .
+     ...     
+             
+
+--- REND9 group1 (x723..737) — ground truth '(' + '7' (15x12) ---
+   +.             
+   +.             
+   +#.            
+   +##. ++++      
+   ####..  +      
+   ####+  +.      
+   ####   +       
+   ##+   ..       
+   ##+   +   ..   
+     +  ..   +.   
+     ..      ..   
+      .           
+
+       \    \    \
+       4         5
+--- ORIG group3 (x739..750) (12x12) ---
+         .     
+      ......   
+     .+++....  
+     .++++.+.  
+     ...++.++. 
+   .....++.++..
+      .++. ++. 
+      .++. ++. 
+      .....++  
+       ....+.  
+         ..+.  
+        ..     
+
+--- REND9 group3 (x735..748) — ground truth ',' + '7' + ')' (14x12) ---
+                 
+                 
+                 
+      ++++.+     
+      . .+ .+    
+        +.  +.   
+        +   +.   
+       +.   +.   
+      .+    +.   
+      ..   .+    
+           +.    
+          ..     
+
+==========================================================================
+3. SHAPE DISTANCE (0 = identical, 1 = disjoint) vs every template
+==========================================================================
+Traceback (most recent call last):
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide032/adjudicate_9i_finalglyph.py", line 112, in <module>
+    rows = sorted((dist(g, t), ch, sz) for (ch, sz), t in T.items())
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide032/adjudicate_9i_finalglyph.py", line 112, in <genexpr>
+    rows = sorted((dist(g, t), ch, sz) for (ch, sz), t in T.items())
+                   ~~~~^^^^^^
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide032/adjudicate_9i_finalglyph.py", line 75, in dist
+    inter = (Ap & Bs).sum(); union = (Ap | Bs).sum()
+             ~~~^~~~
+ValueError: operands could not be broadcast together with shapes (16,14) (13,7) 

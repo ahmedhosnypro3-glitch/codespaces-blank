@@ -1,0 +1,40 @@
+## Comparison scope
+
+Region checked: the iteration table's rightâhalf cells (the six visible column pairs of the yellow/purple/tan/green/pink bands), all eight rows, cellâbyâcell, at matched scale. Approximate cropârelative landmarks used below: yellow band yâ30â112, purple band yâ115â200, tan band yâ203â290, green row yâ295â345, pink row yâ350â398; rightâmost column center xâ497; column boundaries xâ90/180/270/360/450/540.
+
+## Cellâbyâcell value audit (all values verified identical)
+
+| Row | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|
+| Yellow r1 | 4, 4.2, 4.4, 4.6, 4.8, **5** | 4, 4.2, 4.4, 4.6, 4.8, 5 | values match (color differs, see D1) |
+| Yellow r2 | 2, 1.64, 1.36, 1.16, 1.04, 1 | same | match |
+| Purple r1 | 3.9, 4.1, 4.3, 4.5, 4.7, 4.9 | same | match |
+| Purple r2 | 2.21, 1.81, 1.49, 1.25, 1.09, 1.01 | same | match |
+| Tan r1 | 4.1, 4.3, 4.5, 4.7, 4.9, 5.1 | same | match |
+| Tan r2 | 1.81, 1.49, 1.25, 1.09, 1.01, 1.01 | same | match |
+| Green | -4, -3.2, -2.4, -1.6, -0.8, 0 | same | match (minus signs, decimal points, trailing zeros all correct) |
+| Pink | 4.2, 4.4, 4.6, 4.8, 5, stop | same | match (lowercase "stop" identical) |
+
+No wrong digits, no swapped values, no missing/extra rows, no garbled glyphs, no truncated characters, no missing subscripts. All 48 values and both wordâcells are correct. Row order and row pairing (xârow above derivative row) are identical.
+
+## Discrepancies
+
+**D1 â MINOR (confidence: high).** The "5" in the topâright yellow cell (âx497, y50) is rendered **red/bold** in IMG1 but **black** in IMG2. Value and glyph shape are correct; this is purely an added color emphasis on one table cell (not the C00000 chrome, which is exempt). Does not affect usability or correctness.
+
+**D2 â MINOR (confidence: mediumâhigh).** Bandâboundary rules differ in color/character: in IMG1 the boundaries between the yellowâpurple, purpleâtan, and tanâgreen bands are thin *saturated colored* hairlines (magenta at yâ115, orange at yâ203, green at yâ295), whereas IMG2 shows darker, neutral grayâblack horizontal rules of slightly heavier weight at the same boundaries. Geometry (one continuous rule at each boundary) is preserved, so this is a strokeâstyle/weight mismatch, not a structural error.
+
+**D3 â MINOR (confidence: lowâmedium).** Fill saturation is marginally stronger in the recreation than in the capture: the purple band reads slightly more violet in IMG1 vs. a paler lavender in IMG2, and the tan band in IMG1 is a touch warmer/pinker than IMG2's more neutral beige. The yellow, green, and pink fills are effectively equivalent. Small fillâtone drift only; all values remain fully legible.
+
+**D4 â MINOR (confidence: low).** Internal vertical column rules in IMG1 are finer/lighter hairlines (especially within the yellow and tan bands) than the more assertive, blurred gray rules in IMG2. Part of the apparent weight difference is the capture softness (exempt under the JPEGâartifact rule), so this is reported only as a lowâconfidence residual.
+
+## Nonâdiscrepancies (per ground rules)
+
+- IMG2's general softness, haloing, and smeared rule edges are videoâcapture/JPEG artifacts (rule e), not content differences.
+- The houseâtemplate chrome (white canvas, gray panel, darkâred left/right/bottom strokes, no top stroke; purple/blue slide border visible above the table) is intentional and exempt.
+- Typed vs. handwritten glyph rendering and the 2Dâequation formatting rule are not applicable/penalized here; all text is typed table content in both images.
+
+## Conclusion
+
+Every table value, row, and glyph in this region is correct and legible; the only contentâlevel deviation is one recolored cell (the red "5"), with residual differences limited to rule coloring/weight and slight fill saturation. No BLOCKER or MAJOR defect exists in this crop.
+
+FINAL VERDICT: PASS

@@ -1,0 +1,54 @@
+original (960, 540)  render (2001, 1125)  SCALE=2.0844
+
+==========================================================================
+FINDING 1 (MAJOR): outlier label text 'X5 is Outlier' verbatim
+==========================================================================
+is-Outlier #1: ORIGINAL white-ink px=   22  bbox x80..166 y332..340  (w=87, h=9)
+is-Outlier #1: RENDER   white-ink px=  787  box fill median=(255, 0, 0)
+is-Outlier #2: ORIGINAL white-ink px=   25  bbox x80..166 y454..462  (w=87, h=9)
+is-Outlier #2: RENDER   white-ink px=  787  box fill median=(255, 0, 0)
+-> render text is the literal string 'X5 is Outlier' (verified in ppt/slides/slide1.xml,
+   2 occurrences). The original's 960x540 glyphs are at the noise floor for a
+   per-character read; both judges (attempt 2 full-slide + crop judge) read 'X5'
+   with high confidence and gave a coherent semantic account.
+
+==========================================================================
+FINDING 2 (MINOR): 'Test Data' label — unfilled text vs solid box
+==========================================================================
+ORIGINAL  region median RGB=(3, 0, 166)   ink frac vs own median=0.313
+RENDER    region median RGB=(0, 0, 255)   ink frac vs own median=0.097
+ORIGINAL  per-column std over rows: min=17.6 max=103.4 mean=82.7
+-> low per-column std over rows = a uniform filled rect dominates;
+   a bare caption on the gray panel would show large std where glyphs sit.
+RENDER    per-column std over rows: min=41.0 max=127.0 mean=121.3
+
+==========================================================================
+FINDING 3 (MINOR): test-table colour scheme (y-row red, headers greenish)
+==========================================================================
+ORIGINAL cell ink (median colour of non-background pixels in each cell):
+   Test1=(194, 127, 135)  Test2=(125, 117, 199)  Test3=(195, 128, 135)
+   30=(184, 104, 114)  40=(96, 87, 192)  50=(189, 110, 121)
+   15=(189, 120, 128)  20=(102, 94, 191)  25=(185, 111, 122)
+   60=(174, 123, 114)  80=(72, 96, 182)  100=(171, 116, 109)
+RENDER cell ink (same cells, scaled by S):
+   Test1=(50, 50, 255)  Test2=(255, 46, 46)  Test3=(47, 47, 255)
+   30=(62, 62, 255)  40=(255, 67, 67)  50=(53, 53, 255)
+   15=(57, 57, 255)  20=(255, 62, 62)  25=(56, 56, 255)
+   60=(65, 63, 239)  80=(255, 57, 44)  100=(54, 52, 241)
+
+==========================================================================
+FINDING 4 (MINOR): cell fill tint (white vs faint green-grey)
+==========================================================================
+orig cell (X1 row, col1): ORIGINAL cell median RGB=(252, 254, 253)
+orig train cell (T1 row1 col1): ORIGINAL median RGB=(254, 255, 253)
+orig train cell (T1 row1 col1): RENDER   median RGB=(255, 255, 255)
+
+==========================================================================
+FINDING 5 (MINOR): arrow anchor near the X6/X7 header area
+==========================================================================
+ORIGINAL: red px in gap x575..710 y255..405 = 134
+    red bbox x707..709 y270..316 (frame px)
+    red cols present in band y265..404: x70..835 (frame px)
+RENDER: red px in gap x575..710 y255..405 = 1614
+    red bbox x575..709 y270..316 (frame px)
+    red cols present in band y265..404: x58..901 (frame px)

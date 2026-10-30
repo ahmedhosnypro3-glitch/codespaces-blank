@@ -1,0 +1,33 @@
+## Cell-by-cell comparison (crop-relative coordinates)
+
+### Train table (left, ~x 0â780)
+- Header Xââ¦Xâ: subscripts, blue/red alternation (Xâ,Xâ blue; Xâ,Xâ,Xâ,Xâ,Xâ red) â **match**.
+- Xâ "60" black on yellow highlight â **match**.
+- Row Xâ: 1, 2, 3, 4, 8, 9(red), 10, 60 â values and per-cell blue/red coloring **match**.
+- Row Xâ: 1, 3, 5, 6, 16, 7, 5, 3 â **match** (blue/red pattern identical).
+- Row y: 2, 4, 6, 8, 16, 18(red), 20, 22(red) â **match**.
+
+### W box (center, ~x 880â1130)
+- Red-bordered box, underlined red **W**, big parens spanning all three lines, 1.77 / 0.32 / 0.99 â **match**; delimiter geometry correct, no clipping, proper vertical centering.
+- âWâÂ² = 4.2 line present, W underlined â **match**. (Small cursor artifact over "4.2" in IMG2 is a capture artifact â ignored per rules.)
+
+### Test table (right, ~x 1240â1660)
+- Header Testâ Testâ Testâ (red, subscripts) â **match**.
+- Xâ row: 30(red), 40(blue), 50(red) â **match**.
+- Xâ row: 15(red), 20(blue), 25(red) â **match**.
+- y row on mint fill: 26.2(red), 34.4(blue), 42.5(red) â **match**.
+
+### Blue arrows
+- Both outlined block arrows present, correct position and style â **match**.
+
+## Discrepancies
+
+1. **MAJOR** (confidence: high) â Train table, header row (~x 90â780, y 20â95 in crop): IMG2 has a **red rectangular border enclosing the entire Xââ¦Xâ header row**; IMG1's recreation has only the plain gray gridlines there â the red header box is missing entirely.
+2. **MAJOR** (confidence: high) â Test table, header row (~x 1320â1660, y 25â85): same defect â IMG2 shows a red rectangular border around the Testâ/Testâ/Testâ header row; IMG1 lacks it.
+3. **MINOR** (confidence: medium) â Table gridline tint: IMG2's interior cell gridlines in both tables read as light red/pink, while IMG1's are neutral gray. Could partly be JPEG bleed from the red borders in IMG2, but combined with items 1â2 it suggests the red table framing was dropped as a set.
+
+No wrong digits, no missing rows, no swapped values, no garbled glyphs, no delimiter problems â all content matches exactly.
+
+## FINAL VERDICT: FAIL
+
+The data, equations, colors, and layout are faithfully reproduced, but the red rectangular borders around both table header rows â clearly present in the original â are missing, and those are visible structural elements of this region even at a glance.

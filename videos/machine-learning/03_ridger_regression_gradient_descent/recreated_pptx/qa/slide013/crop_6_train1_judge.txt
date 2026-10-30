@@ -1,0 +1,52 @@
+# Judge transcript — slide 013, attempt 6 (zoomed crop train1)
+- date: 2026-10-24 07:02
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_RENDER: recreated_pptx/qa/slide013/crop_6_train1_render.png  md5=aa589151787452010ae45c95150d1d32
+- IMG_ORIGINAL: recreated_pptx/qa/slide013/crop_6_train1_orig.png  md5=d7d56915c963559f71a9be4b454876aa
+- region: band-1 training table (frame bbox 84,118..467,257); render crop scale =
+  render_H/540 = 2.083333, original crop upscaled to the same 798x289 px
+- read order: original crop first, then render crop
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR comparison of ONE region; same region, same effective scale.
+(b) House template is intentional chrome — never a discrepancy.
+(c) Typed-vs-handwritten ink: at most MINOR (both typed).
+(d) Professional 2D equation format mandate — not applicable inside this table.
+(e) JPEG halos / soft edges in IMG2 are capture artifacts, not content.
+
+## Comparison (region contents: 9-column training table, header row + X1 + X2 + y)
+
+- Grid: 10 vertical rules and 5 horizontal rules in both. PIL (render): columns at
+  92,133,174,214,255,296,337,377,419,459; rows at 126,157,188,219,249 — identical to the
+  measured original.
+- Header row: empty corner cell, then X1..X8. Alternating BLUE(odd)/RED(even) ink in both;
+  text sits LEFT of each cell centre in both (measured original X1 ink starts 9px into the
+  cell; render 140.8 vs cell edge 133). Subscript index digits present in both, sitting on
+  the same baseline (no subscript drop).
+- Row-label column: X1, X2, y — BLACK bold in both (the frame's labels are black, not blue);
+  left-aligned in both.
+- Data values, cell by cell:
+  X1: 1 2 3 4 8 9 10 11 — match, in order, no missing/extra cell.
+  X2: 1 3 5 6 16 7 5 3 — match.
+  y : 2 4 6 8 16 18 20 22 — match.
+  Column ink phase (blue/red alternation) matches in every row.
+- Cell fills: white in both; no stray highlight in this band (correct — the yellow X8 cell
+  belongs to bands 2/3).
+- Vertical centring: digits sit centred in their rows in both (PIL row 158..188: ink
+  167..179 original, 166..179 render).
+- Border: light gray rules in both (render CED0CD; original measured 206,208,205).
+
+## Discrepancies
+1. [MINOR] Glyph advance widths — the render's serif is Liberation Serif Bold (metric-
+   compatible substitute; Times New Roman Bold is not installed), so digits are ~0.5-2.8px
+   wider at the same height ('30' 18.8x13.5 vs 18.0x13.0; '100' 28.8x14.4 vs 26.0x14.0 with
+   a COMMON threshold) — confidence high; PIL adjudication banked in
+   adjudicate_minors_attempt_6.txt: heights match within 0.5px, all ink stays inside its
+   cell, no alignment shift. Disposition: font-substitution artifact; not a fix trigger.
+2. [MINOR] Header X glyphs render ~1px shorter than the frame's X (cap 13.0 vs 14.0) —
+   confidence medium; PIL: same 20pt line box, subscript baseline-aligned; no layout effect.
+
+## Visual-quality defects
+- None: no clipped glyph, no wrapped cell, no wrong value, no missing row/column.
+
+FINAL VERDICT: PASS

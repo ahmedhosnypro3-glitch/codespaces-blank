@@ -1,0 +1,12 @@
+You are producing a GROUND-TRUTH DESCRIPTION of a ZOOMED CROP of a lecture-slide frame for a pixel-faithful PowerPoint recreation. Description task, NOT a judgment: describe only what is in the image, with measurements.
+
+This crop covers slide-space (60,50)-(610,330) of a 960x540 px lecture frame (1 image px = 1 pt), zoomed 2x. To convert: x_slide = 60 + x_crop/2, y_slide = 50 + y_crop/2. REPORT ALL GEOMETRY IN SLIDE PX.
+
+It shows the LEFT BLOCK: title, two instruction lines, an equation box, a small parameter box, and explanatory text. Report exhaustively:
+1. Title: verbatim; color runs (text + hex + px x-span + y-band); font size; typeface (serif vs sans-serif).
+2. Two instruction/subtitle lines under it: verbatim each, color hex, bold?, px boxes.
+3. Equation box: px box, border color + width per side, equation verbatim in plain-text math (sub/superscripts as printed, e.g. x^4 - 3x^2 + 2x).
+4. Small parameter box (3 rows): px box, border color + width per side, per row: label verbatim, value verbatim, fill hex, text color. Rows may have different fill colors (e.g. green/pink/yellow) — give each.
+5. Any other explanatory text: verbatim, color, px, and whether it is inside a box (if boxed: border colors per side + fill).
+6. Any arrows/dashed lines/small shapes: type, colors, px endpoints, rotation.
+Transcribe every piece of text verbatim; unreadable -> [?].

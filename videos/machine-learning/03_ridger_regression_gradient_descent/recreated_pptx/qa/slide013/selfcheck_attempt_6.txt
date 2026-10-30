@@ -1,0 +1,77 @@
+render 2001x1125  scale=2.084375 (expect 2001/960 = 2.084375)
+
+== 1. frame containment ==
+  left margin dark ink bbox: None
+  right margin dark ink bbox: None
+  top band dark ink bbox: None
+PASS no ink left of the left stroke: x<57 clear
+PASS no ink right of the right stroke (badge is y<45..100 x850..901): badge/test table measured below
+PASS containment title: ink bbox (np.float64(154.0), np.float64(67.75712143928035), np.float64(813.6701649175412), np.float64(101.34032983508246), 24938) inside (154,62)-(814,102)
+PASS containment train band1: ink bbox (np.float64(99.67616191904048), np.float64(134.63568215892053), np.float64(447.9820089955022), np.float64(244.50074962518738), 12725) inside (92,126)-(459,249)
+PASS containment train band2: ink bbox (np.float64(99.67616191904048), np.float64(273.63568215892053), np.float64(458.0569715142429), np.float64(383.98050974512745), 17346) inside (92,265)-(459,389)
+PASS containment train band3: ink bbox (np.float64(99.67616191904048), np.float64(411.11544227886054), np.float64(458.0569715142429), np.float64(521.9400299850075), 17427) inside (92,402)-(459,527)
+PASS containment test band1: ink bbox (np.float64(719.0), np.float64(128.0), np.float64(871.5637181409295), np.float64(251.77811094452773), 12665) inside (719,128)-(872,252)
+PASS containment test band2: ink bbox (np.float64(719.0), np.float64(266.0), np.float64(871.5637181409295), np.float64(389.2983508245877), 12669) inside (719,266)-(872,390)
+PASS containment test band3: ink bbox (np.float64(719.0), np.float64(403.0), np.float64(871.5637181409295), np.float64(526.2983508245877), 12386) inside (719,403)-(872,527)
+PASS containment wbox band1: ink bbox (np.float64(506.0), np.float64(127.0), np.float64(622.5817091454273), np.float64(251.7376311844078), 18089) inside (506,127)-(623,252)
+PASS containment wbox band2: ink bbox (np.float64(506.0), np.float64(265.0), np.float64(622.5817091454273), np.float64(389.25787106446774), 18817) inside (506,265)-(623,390)
+PASS containment wbox band3: ink bbox (np.float64(506.0), np.float64(403.0), np.float64(622.5817091454273), np.float64(527.2578710644677), 18608) inside (506,403)-(623,528)
+PASS containment label Train: ink bbox (np.float64(96.0), np.float64(97.0), np.float64(159.32833583208395), np.float64(124.34632683658171), 7114) inside (96,97)-(160,125)
+PASS containment label Test: ink bbox (np.float64(802.0), np.float64(97.0), np.float64(865.328335832084), np.float64(124.34632683658171), 7291) inside (802,97)-(866,125)
+
+== 2. equation ink ==
+PASS vector band1 has ink: dark ink bbox (np.float64(560.0), np.float64(134.95952023988005), np.float64(585.4272863568216), np.float64(211.24137931034483), 1209)
+PASS ellipse text band1 has ink: olive text bbox (np.float64(528.2308845577211), np.float64(210.0), np.float64(602.1139430284858), np.float64(241.66416791604198), 1189)
+PASS vector band2 has ink: dark ink bbox (np.float64(560.0), np.float64(272.47976011994), np.float64(611.3343328335832), np.float64(349.72113943028484), 2185)
+PASS ellipse text band2 has ink: olive text bbox (np.float64(518.1559220389805), np.float64(348.0), np.float64(614.5877061469265), np.float64(379.664167916042), 1484)
+PASS vector band3 has ink: dark ink bbox (np.float64(560.0), np.float64(410.0), np.float64(611.3343328335832), np.float64(487.72113943028484), 2053)
+PASS ellipse text band3 has ink: olive text bbox (np.float64(520.5547226386807), np.float64(486.0), np.float64(618.9055472263868), np.float64(517.1844077961019), 1471)
+
+== 3. delimiter geometry (parens span all 3 values, no overlap) ==
+PASS band1 parens span digits: L(np.float64(564.9190404797602), np.float64(135.2368815592204), np.float64(567.3178410794603), np.float64(213.9175412293853), 288) R(np.float64(582.47976011994), np.float64(135.2368815592204), np.float64(585.3583208395802), np.float64(211.99850074962518), 285) digits(np.float64(570.9190404797602), np.float64(141.9535232383808), np.float64(579.5547226386807), np.float64(206.24137931034483), 628)
+PASS band1 paren clearance: left-paren right edge -> digit left edge = 3.6px
+PASS band2 parens span digits: L(np.float64(564.9190404797602), np.float64(272.23688155922036), np.float64(567.3178410794603), np.float64(351.87706146926536), 289) R(np.float64(609.47976011994), np.float64(272.23688155922036), np.float64(611.3988005997002), np.float64(348.9985007496252), 277) digits(np.float64(569.95952023988), np.float64(278.9535232383808), np.float64(606.9010494752624), np.float64(344.2008995502249), 1612)
+PASS band2 paren clearance: left-paren right edge -> digit left edge = 2.6px
+PASS band3 parens span digits: L(np.float64(564.9190404797602), np.float64(409.75712143928035), np.float64(567.3178410794603), np.float64(487.47826086956525), 282) R(np.float64(609.47976011994), np.float64(409.75712143928035), np.float64(611.3988005997002), np.float64(486.51874062968517), 277) digits(np.float64(569.95952023988), np.float64(416.4737631184408), np.float64(606.4212893553223), np.float64(481.72113943028484), 1479)
+PASS band3 paren clearance: left-paren right edge -> digit left edge = 2.6px
+
+== 4. table grid + data ==
+PASS train cols: [92, 133, 174, 214, 255, 296, 337, 377, 419, 459]
+PASS test cols: [719, 770, 820, 821, 872]
+PASS train band1 rows: [126, 157, 188, 219, 249]
+PASS train band2 rows: [265, 296, 327, 358, 389]
+PASS train band3 rows: [402, 434, 465, 496, 527]
+PASS test band1 rows (tol +-2px): [128, 160, 190, 221, 252] vs original [128, 160, 190, 221, 252]
+PASS test band2 rows (tol +-2px): [266, 298, 328, 359, 390] vs original [266, 298, 328, 359, 390]
+PASS test band3 rows (tol +-2px): [403, 435, 465, 496, 527] vs original [403, 435, 466, 497, 527]
+  build TRAIN_ROWS: [[['X1', 1, 2, 3, 4, 8, 9, 10, 11], ['X2', 1, 3, 5, 6, 16, 7, 5, 3], ['y', 2, 4, 6, 8, 16, 18, 20, 22]], [['X1', 1, 2, 3, 4, 8, 9, 10, 30], ['X2', 1, 3, 5, 6, 16, 7, 5, 3], ['y', 2, 4, 6, 8, 16, 18, 20, 22]], [['X1', 1, 2, 3, 4, 8, 9, 10, 60], ['X2', 1, 3, 5, 6, 16, 7, 5, 3], ['y', 2, 4, 6, 8, 16, 18, 20, 22]]]
+  build TEST_ROWS: [[[30, 40, 50], [15, 20, 25], [60, 80, 100]], [[30, 40, 50], [15, 20, 25], [32.4, 42.3, 52.3]], [[30, 40, 50], [15, 20, 25], [24.4, 31.2, 38]]]
+PASS train data verbatim: 3 bands x 3 rows x 9 cols
+PASS test data verbatim: 3 bands x 3 rows x 3 cols
+PASS train header: ['', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8']
+PASS test header: ['Test1', 'Test2', 'Test3']
+PASS every table cell has ink: empty cells: []
+
+== 5. line boxes / no wrap ==
+PASS title single line: ink (np.float64(155.75712143928035), np.float64(67.95352323838081), np.float64(791.91904047976), np.float64(95.77961019490255), 23779) (band height 27.8px < 34)
+PASS test header 0 single line: ink (np.float64(726.2773613193403), np.float64(138.11544227886057), np.float64(761.7796101949025), np.float64(150.10944527736132), 773)
+PASS test header 1 single line: ink (np.float64(776.7976011994003), np.float64(138.11544227886057), np.float64(812.7796101949025), np.float64(150.10944527736132), 779)
+PASS test header 2 single line: ink (np.float64(827.7976011994003), np.float64(138.11544227886057), np.float64(863.7796101949025), np.float64(150.10944527736132), 799)
+PASS train header 1 single line: ink (np.float64(140.75712143928035), np.float64(134.67616191904048), np.float64(159.46776611694153), np.float64(147.62968515742128), 412)
+PASS train header 2 single line: ink (np.float64(181.75712143928035), np.float64(134.67616191904048), np.float64(200.46776611694153), np.float64(147.62968515742128), 421)
+PASS train header 3 single line: ink (np.float64(221.27736131934034), np.float64(134.67616191904048), np.float64(240.46776611694153), np.float64(147.62968515742128), 420)
+PASS train header 4 single line: ink (np.float64(262.75712143928035), np.float64(134.67616191904048), np.float64(281.4677661169415), np.float64(147.62968515742128), 434)
+PASS train header 5 single line: ink (np.float64(303.27736131934034), np.float64(134.67616191904048), np.float64(321.9880059970015), np.float64(147.62968515742128), 424)
+PASS train header 6 single line: ink (np.float64(344.27736131934034), np.float64(134.67616191904048), np.float64(363.4677661169415), np.float64(147.62968515742128), 437)
+PASS train header 7 single line: ink (np.float64(384.75712143928035), np.float64(134.67616191904048), np.float64(403.4677661169415), np.float64(147.62968515742128), 408)
+PASS train header 8 single line: ink (np.float64(426.27736131934034), np.float64(134.67616191904048), np.float64(445.4677661169415), np.float64(147.62968515742128), 442)
+
+== 6. crop scale audit ==
+  render_H/540 = 2.083333; render_W/960 = 2.084375; delta = 0.001042
+PASS crop scale equal on both axes (1px rounding tol): 2.083333 vs 2.084375
+
+== 7. house chrome ==
+  HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present, top bare; badge center (1824,152) d=68; all within tol 8)
+PASS house chrome check: HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present, top bare; badge center (1824,152) d=68; all within tol 8)
+
+RESULT: PASS

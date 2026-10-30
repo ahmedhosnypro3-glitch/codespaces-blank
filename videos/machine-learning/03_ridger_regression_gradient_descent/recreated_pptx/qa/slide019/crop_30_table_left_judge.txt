@@ -1,0 +1,47 @@
+# Region Comparison: Slide 019 â Outlier column + NO Regularizer column, row groups 1â2, highlight band A
+
+## Cell-by-cell content audit
+
+**Outlier column (left strip):**
+- "Outlier" red label: present both. â
+- X with subscript (X_s): present both; subscript glyph in IMG2 is blur-ambiguous (s/8) but recreation's "s" is consistent with the deck's notation. â
+- Group 1 vector: **11** (red), **3** (blue) in tall parens â matches IMG2 exactly. â
+- **22** green-on-yellow badge â matches. â
+- Group 2: **30** (red), **3** (blue, crop-truncated) â matches. â
+
+**NO Regularizer header:** "NO Regularizer with (as if Î»=0)" â text, parenthesization, Î», and "=0" all correct in IMG1; italic serif look in IMG2 is the handwritten-medium difference (per rule c). â
+
+**W vector box group 1:** W = (0, 2, 0) â all three entries correct, parens span all three rows without touching glyphs. "W" underlined red, matches. â
+
+**Table 1 (row by row):**
+- Headers: Testâ / Testâ / Testâ (red, subscripts correct) â â
+- xâ: 30 / 40 / 50 â â
+- xâ: 15 / 20 / 25 â â
+- y (highlighted): 60 / 80 / 100 â â
+- No missing rows, no swapped values.
+
+**âWâÂ² = 4:** value and superscript 2 correct; W underlined. â
+
+**Group 2 (partial):** W = (2.7, 0.67, â¦crop), table header + xâ = 30/40/50 â matches. â
+
+**Ridge column sliver (right edge):** W = (0.1, 1.95, 0.03); âWâÂ² = 3.8 highlighted; group 2 (1.2, 0.72) â all match. â
+
+**Highlight band A:** yellow band position matches â spans the y row and extends right behind âWâÂ²=3.8 in both images. â
+
+**Block arrow** between W box and table: present, correctly positioned at the xâ row level in both. â
+
+## Discrepancies found
+
+1. **MINOR** â âWâÂ²=4 placement (crop-relative ~x150, y250 in IMG1): recreation places it *below/outside* the red box around the W vector; original has it *inside* the box's lower portion. Content identical; only containment differs. Confidence: medium-high.
+2. **MINOR** â y-row values 60/80/100 (~x470, y255 IMG1): render in black in IMG1; in IMG2 they read dark red/maroon on the yellow band. Could partly be JPEG color bleed on yellow. Confidence: low-medium.
+3. **MINOR** â header typography: recreation uses bold upright sans; original is italic serif/handwritten style. Mandated medium difference (rule c), listed for completeness only. Confidence: high (that it's not a real defect).
+
+No wrong digits, no swapped values, no missing/garbled characters, no delimiter-span failures, no stroke breaks, no missing rows detected anywhere in the region.
+
+## Checks against zoom-mandates
+- Delimiter geometry: parens on (0,2,0) and outlier vectors span all enclosed lines cleanly. â
+- Vertical centering in table cells: values centered in all audited cells. â
+- Stroke continuity: red box borders and table grid continuous; outer dark-red frame consistent (no top stroke â house template, rule b). â
+- Equation format: âWâÂ² rendering is professional inline form; no structural issue. â
+
+FINAL VERDICT: PASS

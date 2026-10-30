@@ -1,0 +1,60 @@
+# Judge transcript — slide 028, attempt 8 (zoomed crop-pair, right_curve)
+- date: 2026-10-24 07:05
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL (crop): recreated_pptx/qa/slide028/crop_8_right_curve_orig.png
+  md5=35aa26682d33fc0dffc824bc1ee62026  (frame bbox x498..792 y205..466, LANCZOS x2.0850)
+- IMG_RENDER (crop):   recreated_pptx/qa/slide028/crop_8_right_curve_render.png
+  md5=3c9749151d81fc5f24d4d5a1ac9db891  (same slide-space bbox at 150dpi scale 2.0850)
+- source render: qa/slide028/render_8.png md5=13c175d4dc6637f63d2b4f4a7acab8a0
+- effective scale: 2.0850 render px / frame px on BOTH axes for both images
+  (orig 613x544, render 613x544 — exact match)
+- read order: IMG_ORIGINAL first, then IMG_RENDER
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region; house template (white canvas, E9E9E7 panel, C00000
+    L/R/B strokes with NO top stroke, FDFD96/6A5ACD badge 28) is chrome.
+(b) Contentless placeholder — n/a.
+(c) Capture artifacts in IMG2 are correctly omitted.
+(d) Typed-vs-handwritten ink is medium — at most MINOR.
+(e) JPEG halos / soft edges in IMG2 are capture artifacts, not content.
+    (f) No equation, table or delimiter in this region.
+
+## Comparison (crop-relative, mapped back to frame px)
+- Curve: U stroke, left shoulder (514,234), valley bottom x628-634 y436, right arm top
+  (735,246); both images agree; valley nests ~5px above the x-axis in both.
+- Markers: FOUR filled saturated-cyan discs at (562,315) (593,395) (683,351) (710,284);
+  render measured (561.5,314.6) (592.5,394.6) (682.4,350.6) (709.4,283.6) — max offset
+  0.7px. Disc diameter 9-10 frame px in both.
+- Connectors (the point of this leg): the original draws THREE grey step segments —
+  A(upper-left 562,315)->D(upper-right 710,284), A->C(mid-right 683,351) and
+  C->B(lower-left 593,395); measured chord ink coverage 1.00 / 1.00 / 1.00, while A-B is
+  only the curve and B-D reads 0.05. render_8 reproduces exactly this set in this order
+  (A-C 1.00, A-D 1.00, B-C 1.00, A-B 0.00, B-D 0.01). Attempt 7 drew A->B->C->D and
+  had no A-C/A-D segment — that defect is closed.
+- Axes: red L-axes with small terminators; geometry matches (x510 / y437.5).
+- "Value of weigh(t)" enters bottom-right, bold in both; the render's ink ends at x798,
+  the original's at x797.
+- Top-left: only the last column of the original's "Loss" word touches the crop edge
+  (the word's full ink is x475..498 frame = entirely LEFT of the crop start x498); the
+  render's "Loss" ink is x471..489 (entirely left of the crop too). Neither crop shows a
+  complete word; this is a crop-edge artifact, not a truncation on the slide.
+
+## Discrepancies
+1. [MINOR] Axis stroke tone/weight — original 1px cores (125,0,19)/(126,63,71); render
+   #C00000 at 1.25pt. PIL refutation: the original's own house strokes (mandated
+   #C00000) measure core (126,0,20)/(113,40,51) in the same frame — same red family,
+   1px JPEG dilution. No fix.
+2. [MINOR] Arrowhead style — render filled triangles (10x13px), original thin heads
+   (10x10px measured). MINOR, medium/capture allowance; extents within 3px.
+3. [MINOR] Connector tone — render band mean (181,199,201) vs original (170,191,193);
+   the CORE values (render #A6BCBE = 166,188,190; original (164,187,187)) agree within
+   1-3 units, so the difference is the 1px line's antialias, not the colour.
+4. [MINOR] Original curve bloom — the original's stroke reads 3-5px wide (JPEG bloom),
+   the render's 2.4-2.9px core (2.5pt). Weight now matches within the bloom allowance.
+
+## Visual-quality defects
+- No wrong/missing/garbled glyphs; no truncated digits; no collisions; both labels and
+  all four discs are fully inside the frame; the three connectors are continuous and
+  legible; no empty region.
+
+FINAL VERDICT: PASS

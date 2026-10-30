@@ -1,0 +1,117 @@
+render 2001x1125  scale 2.083333 (expect 2.083333)
+== CHROME ==
+  OK   no top stroke  0 red px
+  OK   left stroke present
+  OK   right stroke present
+  OK   bottom stroke present
+   badge red ring region orig: (881, 46, 902, 100) render: (np.float64(900.7), np.float64(46.2), np.float64(901.2), np.float64(100.0))
+  OK   badge ring region ink present
+
+== TITLE ==
+  OK   title ink bbox  orig (178, 60, 880, 99) render (np.float64(176.2), np.float64(60.0), np.float64(879.9), np.float64(98.9))
+   orig RED: [(178, 278), (380, 724)]
+   rend RED: [(176.2, 276.6), (380.7, 541.5), (550.6, 577.5), (587.1, 630.8), (642.3, 726.3)]
+   orig BLUE: [(289, 369), (746, 866)]
+   rend BLUE: [(289.5, 369.2), (745.5, 879.9)]
+  FAIL title RED groups aligned  count 2 vs 5
+  FAIL title BLUE groups aligned  (746..866 vs 746..880)
+
+== GRIDLINES (tables) ==
+   train B1 v-centres: [90, 133, 174, 214, 255, 296, 337, 377, 418, 461]
+   train B1 h-rows:     [123, 157, 187, 219, 248]
+  OK   train B1 vertical gridlines  missing []
+  OK   train B1 horizontal gridlines  missing []
+   train B2 v-centres: [90, 133, 174, 214, 255, 296, 337, 377, 418, 461]
+   train B2 h-rows:     [262, 296, 327, 358, 389]
+  OK   train B2 vertical gridlines  missing []
+  OK   train B2 horizontal gridlines  missing []
+   train B3 v-centres: [90, 133, 174, 214, 255, 296, 337, 377, 418, 461]
+   train B3 h-rows:     [399, 434, 465, 495, 527]
+  OK   train B3 vertical gridlines  missing []
+  OK   train B3 horizontal gridlines  missing []
+   test B1 v-centres: [666, 719, 770, 821, 874]
+   test B1 h-rows:     [125, 160, 190, 221]
+  OK   test B1 vertical gridlines  missing []
+  FAIL test B1 horizontal gridlines  missing [251]
+   test B2 v-centres: [666, 719, 770, 821, 874]
+   test B2 h-rows:     [263, 298, 328, 359]
+  OK   test B2 vertical gridlines  missing []
+  FAIL test B2 horizontal gridlines  missing [389]
+   test B3 v-centres: [666, 719, 770, 821, 874]
+   test B3 h-rows:     [400, 435, 465, 496]
+  OK   test B3 vertical gridlines  missing []
+  FAIL test B3 horizontal gridlines  missing [527]
+
+== per-cell ink presence ==
+  OK   train cell ink both sides
+  OK   test cell ink both sides
+
+== ink PHASE per column (train ci1..8 / test ci1..3, X1 row) ==
+  OK   train ink phase matches
+  OK   test ink phase matches
+
+== LABEL BOXES ==
+  OK   Train label blue box  render (np.float64(96.0), np.float64(97.0), np.float64(159.4), np.float64(124.8))
+  OK   Test label blue box  render (np.float64(802.5), np.float64(97.0), np.float64(865.8), np.float64(124.8))
+
+== ARROWS ==
+  OK   arrow B1L  render (np.float64(463.4), np.float64(185.3), np.float64(503.3), np.float64(211.2))
+  OK   arrow B1R  render (np.float64(626.4), np.float64(185.3), np.float64(666.3), np.float64(211.2))
+  OK   arrow B2L  render (np.float64(463.4), np.float64(318.3), np.float64(503.3), np.float64(344.2))
+  OK   arrow B2R  render (np.float64(627.4), np.float64(318.3), np.float64(667.2), np.float64(344.2))
+  OK   arrow B3L  render (np.float64(463.4), np.float64(451.2), np.float64(503.3), np.float64(477.2))
+  OK   arrow B3R  render (np.float64(626.4), np.float64(451.2), np.float64(666.3), np.float64(477.2))
+
+== W BOXES ==
+  OK   Wbox B1 red border  render (np.float64(504.4), np.float64(126.0), np.float64(624.0), np.float64(252.7))
+  OK   Wbox B1 border bbox  render (np.float64(504.4), np.float64(126.0), np.float64(624.0), np.float64(252.7)) expected (505,127,624,251)
+  OK   Wbox B1 W glyph present both  orig (521, 163, 539, 179) render (np.float64(520.6), np.float64(165.6), np.float64(540.3), np.float64(181.4))
+  OK   Wbox B1 W glyph bbox  orig (521, 163, 539, 179) render (np.float64(520.6), np.float64(165.6), np.float64(540.3), np.float64(181.4))
+  OK   Wbox B1 vector present both  orig (554, 142, 605, 239) render (np.float64(554.0), np.float64(136.8), np.float64(607.8), np.float64(241.4))
+  OK   Wbox B1 vector bbox  orig (554, 142, 605, 239) render (np.float64(554.0), np.float64(136.8), np.float64(607.8), np.float64(241.4))
+  OK   Wbox B1 norm present both  orig (520, 220, 606, 243) render (np.float64(519.7), np.float64(223.6), np.float64(608.0), np.float64(244.8))
+  OK   Wbox B1 norm bbox  orig (520, 220, 606, 243) render (np.float64(519.7), np.float64(223.6), np.float64(608.0), np.float64(244.8))
+  OK   Wbox B1 no yellow ellipse in either  orig 0 render 0
+  OK   Wbox B2 red border  render (np.float64(504.4), np.float64(264.4), np.float64(624.0), np.float64(391.2))
+  OK   Wbox B2 border bbox  render (np.float64(504.4), np.float64(264.4), np.float64(624.0), np.float64(391.2)) expected (505,265,624,389)
+  OK   Wbox B2 W glyph present both  orig (527, 300, 544, 317) render (np.float64(526.4), np.float64(303.6), np.float64(545.6), np.float64(319.4))
+  OK   Wbox B2 W glyph bbox  orig (527, 300, 544, 317) render (np.float64(526.4), np.float64(303.6), np.float64(545.6), np.float64(319.4))
+  OK   Wbox B2 vector present both  orig (554, 279, 617, 376) render (np.float64(554.0), np.float64(274.8), np.float64(617.8), np.float64(380.8))
+  OK   Wbox B2 vector bbox  orig (554, 279, 617, 376) render (np.float64(554.0), np.float64(274.8), np.float64(617.8), np.float64(380.8))
+  OK   Wbox B2 norm present both  orig (520, 357, 618, 381) render (np.float64(520.6), np.float64(363.1), np.float64(618.1), np.float64(384.2))
+  OK   Wbox B2 norm bbox  orig (520, 357, 618, 381) render (np.float64(520.6), np.float64(363.1), np.float64(618.1), np.float64(384.2))
+  OK   Wbox B2 no yellow ellipse in either  orig 0 render 0
+  OK   Wbox B3 red border  render (np.float64(504.4), np.float64(402.0), np.float64(624.0), np.float64(528.7))
+  OK   Wbox B3 border bbox  render (np.float64(504.4), np.float64(402.0), np.float64(624.0), np.float64(528.7)) expected (505,403,624,527)
+  OK   Wbox B3 W glyph present both  orig (521, 439, 539, 455) render (np.float64(520.6), np.float64(441.6), np.float64(540.3), np.float64(457.4))
+  OK   Wbox B3 W glyph bbox  orig (521, 439, 539, 455) render (np.float64(520.6), np.float64(441.6), np.float64(540.3), np.float64(457.4))
+  OK   Wbox B3 vector present both  orig (554, 417, 605, 518) render (np.float64(554.0), np.float64(412.8), np.float64(608.2), np.float64(518.8))
+  OK   Wbox B3 vector bbox  orig (554, 417, 605, 518) render (np.float64(554.0), np.float64(412.8), np.float64(608.2), np.float64(518.8))
+  OK   Wbox B3 norm present both  orig (520, 495, 606, 518) render (np.float64(519.7), np.float64(501.1), np.float64(608.5), np.float64(522.2))
+  OK   Wbox B3 norm bbox  orig (520, 495, 606, 518) render (np.float64(519.7), np.float64(501.1), np.float64(608.5), np.float64(522.2))
+  OK   Wbox B3 no yellow ellipse in either  orig 0 render 0
+
+== YELLOW X8 HIGHLIGHT CELLS ==
+  OK   B2 X8 yellow fill both  orig 935 render 4215
+  OK   B3 X8 yellow fill both  orig 938 render 4163
+
+== TEST MINT Y-ROW ==
+  OK   mint y-row B1  orig 2312 render 12325
+  OK   mint absent in test row 1 B1  orig 0 render 0
+  OK   mint absent in test row 2 B1  orig 0 render 0
+  OK   mint absent in test row 3 B1  orig 0 render 0
+
+== FRAME CONTAINMENT ==
+  FAIL no ink left of left stroke
+  OK   no ink right of right stroke
+  OK   no ink above panel top
+  OK   no ink below slide bottom
+  OK   badge numeral ink  373 px
+
+RESULT: FAIL (6)
+  - title RED groups aligned count 2 vs 5
+  - title BLUE groups aligned (746..866 vs 746..880)
+  - test B1 horizontal gridlines missing [251]
+  - test B2 horizontal gridlines missing [389]
+  - test B3 horizontal gridlines missing [527]
+  - no ink left of left stroke 

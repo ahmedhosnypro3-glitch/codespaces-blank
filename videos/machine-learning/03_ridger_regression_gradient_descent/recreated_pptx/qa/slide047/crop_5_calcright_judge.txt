@@ -1,0 +1,43 @@
+# Judge transcript — slide 047, attempt 5 — crop CALCRIGHT
+- date: 2026-10-24 07:03
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): recreated_pptx/qa/slide047/crop_5_calcright_render.png  (cut from render_9.png md5=1e73a453ca54f0d45455780b109857af)
+- IMG2 (original crop): recreated_pptx/qa/slide047/crop_5_calcright_orig.png (frame bbox 470,131,730,338 upscaled to the identical pixel size)
+- scale: identical per axis by construction (audit: crop_5_scale_audit.txt); region = the sign statements and class outcomes of the three calculation boxes.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region at matched effective scale.
+(b) House chrome intentional, never a discrepancy.
+(c) Typed-vs-handwritten ink at most MINOR.
+(d) Professional 2D math formatting is the mandated rendering.
+(e) JPEG halos/soft edges + the screen-recording pointer in IMG2's middle band are capture
+    artifacts (the pointer is correctly omitted from the recreation).
+Exactness required on: glyph shapes, every character of the sign statements, class labels and
+their colours, line separation, alignment against the enclosing boxes.
+
+## Comparison
+- Box 1: "⇒ Positive > 0" and "Class I" (red bold) on both; original wording, spacing and
+  colours reproduced; the statement is on ONE line on both.
+- Box 2: "⇒ Negative < 0" and "Class II" (blue bold) on both; one line on both.
+- Box 3: "⇒ Negative < 0" and "Class II" (blue bold) on both; one line on both.
+- Sign statements are BLACK on both (not red/blue) — measured in the original.
+- Class labels are red for Class I and blue for Class II on both.
+- Horizontal placement: the arrow glyph starts at x507.7 on the render vs x508 on the original;
+  the class labels start at 663.4/677.4/670.6 vs 663/677/670 — sub-pixel agreement.
+- Vertical placement: render sign band 162.2..171.3 vs original 162..171 on box 1; same for
+  boxes 2-3 within 1 px.
+
+## Discrepancies
+1. [MINOR] The render's sign statements are slightly heavier (bold at 14 pt, Liberation Serif
+   bold) than the original's medium-weight bold; same characters, same one-line layout, same
+   width within 4 px ("⇒ Positive > 0" 82.1 px vs 85 px).
+2. [MINOR] The "⇒" glyph is marginally smaller and vertically centred slightly differently
+   than the original's arrow; same character, same position.
+
+## Checked as matching
+All six text strings (three sign statements + three class labels), the ">" / "<" comparisons
+and the zero values, the one-line layout (no wrapping), the black sign colour, the red/blue
+class colours, and the box-to-box alignment — no wrong character, no missing statement, no
+swapped class label.
+
+FINAL VERDICT: PASS

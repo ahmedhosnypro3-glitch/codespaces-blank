@@ -1,0 +1,29 @@
+## Discrepancy List (crop-relative coordinates)
+
+**Left box ("Let Y"):**
+1. **MINOR** â Ellipsis row (~y=170, left matrix): original shows the dots with a tiny secondary dot cluster beneath (stacked-dot style, "â±"-ish texture); recreation shows a plain single-row "...". Same meaning, slightly different glyph treatment. Confidence: medium (IMG2 compression makes the exact dot pattern fuzzy).
+2. **MINOR** â Dimension subscript (~x=230, y=215): recreation uses a true multiplication sign "N Ã 1"; original uses an italic letter "N x 1" (Times italic x). Semantically identical; glyph choice differs. Confidence: high.
+
+**Right box ("Let Å¶"):**
+3. **MINOR** â Same "N Ã 1" vs "N x 1" multiplication-sign difference (~x=975, y=225). Confidence: high.
+4. **MINOR** â "Å¶=XÌ²W" inline equation (~x=1190, y=150): in the original, the bold serif **X** and underlined W are set in the slide's serif math font with a heavier bold X; the recreation's X is slightly lighter/less bold. Same characters, same underline placement under W, same order (Å¶ = XÌ²W). Confidence: medium.
+
+**Checked and matching (no discrepancy):**
+- All matrix entries correct and in order: left box yâ, yâ, â¦, y_n; right box Å·â, Å·â, â¦(ellipsis), Å·_n â no wrong, missing, or garbled characters.
+- Hats on Å·/Å¶ rendered correctly and centered in both boxes.
+- Delimiters: tall red parens/brackets in both matrices span all rows (yâ through y_n / Å·â through Å·_n) without touching the glyphs â geometry correct in both.
+- "NÃ1" subscript correctly positioned outside the delimiter at the bottom row in both.
+- Text content exact: "Let **Y** =" / "Let **Å¶** =", "Original Labels" (red) / "Predicted Labels" (blue), "from Training Samples" / "from Model Å¶=XÌ²W" (black).
+- Colors match: red matrix ink, red heading, blue heading, black subtitles, red box borders on all four sides of each box.
+- Vertical centering of "Let â¦ =" line vs. matrix and captions is comparable.
+- The small red tick above the left box top edge appears in both images (intentional).
+- Typed-vs-handwritten and JPEG softness in IMG2 disregarded per ground rules.
+
+## Severity Summary
+- BLOCKER: 0
+- MAJOR: 0
+- MINOR: 4 (ellipsis dot treatment Ã1, "Ã" vs italic "x" Ã2, bold weight of X Ã1)
+
+All discrepancies are glyph-stylistic; every character, symbol, label, color, and the delimiter geometry are correct.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

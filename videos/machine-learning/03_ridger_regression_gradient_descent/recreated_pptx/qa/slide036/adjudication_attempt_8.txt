@@ -1,0 +1,56 @@
+# Adjudication record — slide 036, attempt 8 (PIL-first, direct reads)
+- date: 2026-10-24 06:54
+- Task: adjudicate the attempt-8 judge MINORs before certification; confirm no
+  BLOCKER/MAJOR is being waved away.
+- Inputs: render_8.png (md5 ad8676e60fbd305096dce60dc0b16c5a), slide_036.jpg
+  (md5 a75911bb68fa4865ded5cd329891f76e), audit_8.txt, selfcheck_attempt_8.txt,
+  crop_8_{eq_stack,delta_lines,class_lines}_{orig,render}.png.
+
+## A. Findings that are real deviations but adjudicated MINOR (deck-standard typography)
+The original slide is set in a BOLD SERIF face with italic emphasis and vector underline
+bars. The recreation uses the deck's ratified Arial (sans, regular weight) — the same
+substitution the deck's certified slides use, e.g.:
+  - slide 012 (certified 2026-10-23): original table headers/row labels are italic serif;
+    the certified render (qa/slide012/render_3.png) draws them upright sans.
+  - slide 035 (certified): original title face is a light sans; the certified render uses the
+    deck's Arial bold — accepted.
+Measured effect on 036 (audit_8.txt §1): per-line ink-width ratios render/original span
+0.907..1.021 (excluding the two windows contaminated by box borders), i.e. no line grows
+enough to wrap or collide; all baselines are within 2 px (selfcheck_attempt_8.txt).
+Consequence: the MINORs "typeface/weight/italics" and "vector underlines omitted" are
+classified as a MEDIUM substitution, not a content, geometry, colour, value or structure
+defect. They are recorded as OPEN DECK-LEVEL DEBT (see worker_report.md) — fixing them on 036
+alone would diverge from the 17 already-certified slides and is a fleet-level decision.
+
+## B. Implication-arrow glyph/spacing (box 4)
+Original arrow ink ~12 px wide with 22/9 px (line 2) and 23/18 px (line 3) clear space;
+recreation's U+21D2 in DejaVu is ~21 px wide with ~8/8 px gaps. Same symbol, same order, no
+overlap; the following "= -1"/"= +1" groups sit 7-15 px earlier than the original's. This is
+bound to the same font substitution (the original's narrow serif arrow); classified MINOR and
+folded into the open typographic debt. NOT a missing/duplicated token.
+
+## C. Findings checked and PIL-REFUTED (would have been defects, are not)
+1. "First term's opening parenthesis missing/unmatched" (attempt-7 defect) — REFUTED for
+   attempt 8: the original has NO parentheses on the first W^T X_i term (ink-run census: W
+   305..322, T 326..332, X 338..350, i 354..356; no paren strokes between Σ and the arrow);
+   the attempt-8 asset has none either (render term1 ink 304.3..354.7). The second group
+   keeps both parens, spanning its glyphs (strokes y374.8..394.5 vs glyphs y369.6..393.6).
+2. "Literal underscore subscript" (attempt-7 defect) — REFUTED for attempt 8: the subscript is
+   a true lowered italic glyph (subscript baseline 394, no "_" glyph anywhere in the asset;
+   eq036_v5.py draws "i" at 9 pt).
+3. "No gap before 'take'" (attempt-7 defect) — REFUTED for attempt 8: closing paren ends at
+   499.7, phrase ink starts 507.4 (7.7 px gap; original 9 px).
+4. "Summation limit uncoloured" (attempt-7 defect) — REFUTED for attempt 8: "misclassified"
+   and "(i)" are red (render 771 red px in x178..297; original 34 red px in x179..297 — the
+   larger count is a resolution difference, same words/region).
+5. Box4 lower-case "class I" target token (attempt-7 defect) — REFUTED for attempt 8: both
+   box2 line 3 and box4 line 2 now print capital "Class I" (build_attempt_8.js lines 302/512).
+6. Title centring — measured original centre x491.0 (ink 354..628), render centre 491.1
+   (ink 362.4..620.2): centred; the width delta (16 px) is font substitution, not misalignment.
+7. Red X mark — present, FF0000, ink 766.6..786.2 y365.8..387.4 vs original 763..785
+   y367..389: within 3 px, inside box 3, clear of the equation.
+
+## D. Result
+No BLOCKER and no MAJOR remains. Both legs PASS with the MINORs above documented and
+measured. Certification proceeds with attempts=8; the typographic MINORs are recorded as
+deck-level debt, not slide-036 defects.

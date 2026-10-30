@@ -1,0 +1,117 @@
+LAYOUT MAP (crop space, approx. 825 Ã 1125 px)
+
+| Region | Bounding box (xâ..xâ, yâ..yâ) | Description |
+|--------|------------------------------|-------------|
+| TITLE_BANNER | 45..760, 15..105 | Top title strip |
+| LEFT_PANEL | 30..285, 105..1005 | Column containing all three W-boxes |
+| BOX_W1 | 38..278, 112..382 | First weight matrix block |
+| BOX_W2 | 38..278, 418..688 | Second weight matrix block |
+| BOX_W3 | 38..278, 724..994 | Third weight matrix block |
+| ARROW1 | 292..352, 238..298 | Right-pointing arrow for row 1 |
+| ARROW2 | 292..352, 544..604 | Right-pointing arrow for row 2 |
+| ARROW3 | 292..352, 850..910 | Right-pointing arrow for row 3 |
+| TABLE_PANEL | 355..815, 105..1005 | Column containing all three result tables |
+| TABLE1 | 360..810, 112..382 | Top result table |
+| TABLE2 | 360..810, 418..688 | Middle result table |
+| TABLE3 | 360..810, 724..994 | Bottom result table |
+| Y_ROW_HL1 | 360..810, 307..372 | Yellow âyâ row highlight in table 1 |
+| Y_ROW_HL2 | 360..810, 613..703 | Yellow âyâ row highlight in table 2 |
+| Y_ROW_HL3 | 360..810, 919..1009 | Yellow âyâ row highlight in table 3 |
+
+Vertical table grid lines (all tables): x â 360, 450, 570, 690, 810  
+Horizontal table grid lines (table 1): y â 112, 177, 242, 307, 372 (tables 2 & 3 shifted by row pitch â 306 px)
+
+---
+
+VERBATIM TEXT
+
+**Title:**  
+`NO Regularizer with (as if Î»=0)`
+
+**BOX_W1:**  
+`W =`  
+`0`  
+`2`  
+`0`  
+`âWâÂ² = 4`
+
+**BOX_W2:**  
+`W =`  
+`2.7`  
+`0.67`  
+`0.64`  
+`âWâÂ² = 8.11`
+
+**BOX_W3:**  
+`W =`  
+`4`  
+`0.29`  
+`0.78`  
+`âWâÂ² = 16.7`
+
+**TABLE1 / TABLE2 / TABLE3 (identical headers & x-rows):**  
+Header: (blank cell) `Testâ` `Testâ` `Testâ`  
+Row `xâ`: `30` `40` `50`  
+Row `xâ`: `15` `20` `25`
+
+**TABLE1 y-row:** `y` `60` `80` `100`  
+**TABLE2 y-row:** `y` `32.4` `42.3` `52.3`  
+**TABLE3 y-row:** `y` `24.4` `31.2` `38`
+
+*(No mouse cursor visible. No text appears truncated except possibly the rightmost edge of table 3, where `38` sits close to the crop boundary but is fully readable.)*
+
+---
+
+COLORS (estimated hex)
+
+| Element | Text / Fill / Border | Notes |
+|---------|----------------------|-------|
+| Title `NO Regularizer with` | #2040C0 (blue) | Bold italic sans-serif |
+| Title `(as if Î»=0)` | #C00000 (red) | Bold italic; Î» is Greek lambda |
+| Left-box `W` glyph | #C00000 (red) | Bold |
+| Left-box `=` after W | #000000 (black) | |
+| Matrix entries (0, 2, 2.7, etc.) | #000000 (black) | Regular weight |
+| Norm line `âWâÂ² = â¦` | #2040C0 (blue) | Matches title blue |
+| Table header `Testâ`, `Testâ` | #C00000 (red) | Bold |
+| Table header `Testâ` | #2040C0 (blue) | Bold |
+| Row labels `xâ`, `xâ`, `y` | #000000 (black) | Regular |
+| Data column under `Testâ` (30, 15, 60, 32.4, 24.4) | #C00000 (red) | In xâ/xâ rows; y-row values appear dark on fill |
+| Data column under `Testâ` (40, 20, 80, 42.3, 31.2) | #2040C0 (blue) | In xâ/xâ rows |
+| Data column under `Testâ` (50, 25, 100, 52.3, 38) | #C00000 (red) | In xâ/xâ rows |
+| `y` row label-cell fill | #FFF200 (yellow) | Solid |
+| `y` row value-cell fill | #E6FF99 (pale green) or yellow with JPEG variance | Appears slightly greener than label cell |
+| Left W-box borders | #C00000 (red) | Thin, ~2â3 px crop |
+| Table grid lines | #B05050 (muted red/pink) | ~1 px crop |
+| Arrow outline | #2040C0 (blue) | ~2 px crop |
+| Arrow fill | #FFFFFF (white) | |
+| Page background outside boxes | #FFFFFF (white) | |
+| Background gutter between panels | #F0F0F0 (light gray) | |
+
+---
+
+GEOMETRY
+
+- **Left W-boxes:** Hollow rectangles with thin red borders (#C00000), ~2â3 px thick in crop space. No fill (white interior).
+- **Tables:** Grid of thin muted-red lines (#B05050), ~1 px thick. Header row separated from data rows by full horizontal rules. Vertical rules separate the four columns.
+- **`y` row highlight:** Rectangular yellow fill (#FFF200) spanning the full width of the table (x â 360..810) across the entire `y` row height. Within that row, value cells appear to have a pale-green fill (#E6FF99) distinct from the label cellâs yellow.
+- **Arrows:** Three identical right-pointing block arrows, each ~60 px wide Ã ~60 px tall, centered vertically in their row gap. Blue outline (#2040C0), white fill, no shaftâstandard âblock arrowâ shape.
+- **No circles, brackets, or dashed rules** are present.
+
+---
+
+TYPOGRAPHY
+
+- **Title:** Sans-serif (Calibri-like), bold italic. Cap height â 44â48 px in crop space. `NO`, `Regularizer`, `with` share the same blue run; `(as if Î»=0)` is a separate red italic run.
+- **Box math (`W=`, matrix, norm):** Sans-serif. `W` is bold red italic â 36 px cap height. Matrix entries are regular black â 30 px. Norm expression `âWâÂ² = â¦` is blue â 30 px, with the superscript `Â²` at ~60% size.
+- **Table headers:** Sans-serif, bold, â 28â30 px cap height. Subscript numerals (`â`, `â`, `â`) â 16â18 px, baseline-shifted.
+- **Row labels (`xâ`, `xâ`, `y`):** Sans-serif regular black â 26â28 px; subscript `â`/`â` smaller.
+- **Data values:** Sans-serif regular â 26â28 px; column-colored (red/blue/red). `32.4`, `42.3`, etc. include decimal points.
+- **Alignment:** Header text centered in cells. Data values centered. Row labels (`xâ`, `xâ`, `y`) appear left-aligned or near-left within their narrow label column.
+
+---
+
+ANOMALIES
+
+- **Mouse cursor:** None visible in the crop.
+- **JPEG chroma smear:** Noticeable color fringing along high-contrast edges (red `W`, blue title text, red table borders), especially around the title baseline and the right edges of table cells.
+- **Ambiguous digits:** Bottom-right cell of TABLE3 reads `38` with no visible decimal; it sits very close to the right crop edge but appears complete. No other digits are ambiguous. `16.7`, `8.11`, `0.67`, `0.29`, `0.78` are all legible.

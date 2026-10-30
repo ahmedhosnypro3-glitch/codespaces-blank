@@ -1,0 +1,104 @@
+# Judge transcript — slide 009, attempt 5 (full-slide)
+- date: 2026-10-24 06:56
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG_ORIGINAL: unique_slides/slide_009.jpg  md5=2090fa4ae260aac3cf56b75c29af4a7d
+- IMG_RENDER:   recreated_pptx/qa/slide009/render_5.png  md5=84c8bf3179992d74717fa070f5f8c607
+- GM: render_H/540 = 2.08333  (2001x1125, 150 dpi)
+- build: recreated_pptx/build/slide_009.js (md5 dbb694bc840268f9e8008cf1307aa0ab, copied to qa/slide009/build_attempt_5.js)
+- attempt history: render_1..render_3 judged as attempts 1-3; render_4 was a build round whose
+  PRE-JUDGE selfcheck caught the equation containment/high-placement defect, superseded before
+  judging (render_4.png banked untouched); render_5 = attempt-4 build with the equation fix and
+  is the first judged render after the attempt-3 fixes.
+- read order this round: original frame FIRST, then render_5 (protocol §7).
+
+## Ground rules acknowledged
+(a) House chrome values (this deck): white canvas; gray E9E9E7 panel x54..903, y45..540; C00000
+    1pt strokes on LEFT/RIGHT/BOTTOM only — NO top stroke intended; badge circle d~35 centered
+    (876,73), fill FDFD96, purple ring 6A5ACD, numeral 9 = the file number. Intentional chrome,
+    not discrepancies.
+(b) Contentless-placeholder match: not applicable (the original has full content).
+(c) Mouse cursor / video-capture artifacts: omitted correctly.
+(d) Typed-vs-handwritten ink: medium difference, at most MINOR.
+(e) Equations: professional 2D format mandate — not applicable beyond the superscript, which is
+    spatially raised in both images.
+(f) Fidelity of renderable content only.
+
+## Comparison (element by element)
+- Title: NO title/subtitle ink exists on the original; none drawn. Match.
+- Left chart frame/layout: navy 1pt border x95..466 y107..474, white interior F5F5F5, 16x16
+  light-gray grid, red L-shaped axes with triangular heads at the measured positions. Match
+  (selfcheck_attempt_5.txt: panel gap clean, no top stroke, axis/line ink banks).
+- Right chart frame/layout: navy border x486.5..871.5 y107..474, grid/axes as left. Match.
+- Blue fitted lines: LEFT (141,351)->(433,201); RIGHT (555,387)->(849,247); 2pt blue, same
+  endpoints/angle as the original within 1px (line fit on the original: slope -0.5213 L /
+  -0.4819 R; render per-column core spans 2-3px). Match.
+- Orange points: 12 per chart, centroids identical to the original's measured blobs (PIL
+  centroid census, qa/slide009/probe41 bank + selfcheck). Match.
+- Large red disc (LEFT): solid disc d24.5 centred (232.5,241) — the original's (232.9,241.3)
+  with d~23. Match.
+- Residual connectors: light-periwinkle dashed lines from every point to its perpendicular foot
+  on the fitted line (skipped where the distance is <9px, as on the frame). Original's fine
+  periwinkle dashes; render carries the same paths (10/10 and 6/6 sampled paths bear dash ink,
+  selfcheck §3). Match (dash pitch is a sub-pixel medium artifact — see MINOR 3).
+- Rotated measurement labels: '50.85 mm' (LEFT) and '63.64 mm' (RIGHT), red, rotated ~-69 deg
+  reading bottom-to-top along the dimension line. Render ink bboxes (198.1,189.1)-(223.0,235.2)
+  and (625.0,213.9)-(648.9,259.5) vs frame (196,188)-(222,238) and (623,210)-(650,265): within
+  2.5px per edge. Match.
+- Dimension lines + arrowheads: pale-rose 1pt lines from each outlier down to the fitted line,
+  ending in solid red heads — LEFT tip (249,292), RIGHT tip (682,324); render head bboxes
+  (243.3,284.2)-(249.0,291.4) and (670.4,315.2)-(681.4,331.5) vs frame (244,286)-(249,292) and
+  (676,316)-(682,324). Match.
+- Callout arrows: pale-rose leader + solid red head pointing at each top-left outlier — render
+  head bboxes (183.3,150.2)-(190.0,157.4) / (599.3,144.2)-(606.0,151.0) vs frame
+  (184,151)-(190,159) / (600,145)-(606,154). Match.
+- Equation boxes: pale-cyan ECFDF9 fill, navy 1pt border, x216..317 / x631..734, y148..175.
+  Equation ink now inside with padding on all sides: render dark-ink bbox x228.6..312.0 y157.2..
+  168.2 (LEFT) and x645.0..729.0 y157.7..168.2 (RIGHT) vs frame x226..307 / x643..723, y155..167.
+  Glyphs '50.85² = 2585' / '63.64² = 4050' verbatim, raised superscript 2 in both. Match
+  (see MINOR 1 for the '=' sidebearing).
+- Captions: 'Overfit (try to minimize the residuals ONLY)' / 'Fails to detect the Pattern' and
+  'Generalized (Residuals are not minimized)' / 'Successes to detect the Pattern' (sic), serif,
+  red bold keyword + near-black remainder, centred in the cream open-top rose boxes
+  (x95..434 / x501..842, y479..529). Ink bands y487.5..518.2 vs frame 488..519; inter-line gap
+  matches; equal 17pt line pitch pinned with lineSpacing 1.2. Match.
+- Chrome: badge numeral 9, panel, L/R/bottom strokes, no top stroke — house_chrome_5.txt PASS.
+- Colors: navy border 000080, blue 0000FF, orange FFA500, box fill ECFDF9, caption fill FBFCEC,
+  red C00000 family, pale-rose annotation ECBAC4, periwinkle connectors B4B2D2. All families
+  match the frame's measured cores (JPEG shifts only — MINOR 4).
+- Imagery: none on either image. Match.
+- Frame containment/overflow/collisions/legibility: every element inside its panel/box; no ink
+  crosses the house panel or the chart borders (selfcheck §1: gap bands 0 ink px). Legible at
+  full scale. Match.
+
+## Discrepancies
+1. [MINOR] Equation '=' sidebearing — the frame reads '50.85²= 2585' with no space before '=',
+   the recreation '50.85² = 2585' with balanced spacing. Confidence: high that this is a
+   mathtext-vs-original-renderer kerning artifact. PIL adjudication: total equation ink width
+   now 82px vs the frame's 82px and the glyph inventory is identical (same 8 digits/2 '='),
+   so the operator's sidebearing is redistributed inside the same measured width — no content
+   or containment difference. MATCHING at the renderable-content level (content verbatim,
+   box padding restored). Not a fix trigger.
+2. [MINOR] Rotated-label typeface/weight — the frame's hand-rendered label is slightly narrower
+   with tighter tracking; the recreation uses bold Arial 11pt. PIL adjudication: label ink
+   bboxes match the frame within 2.5px per edge (selfcheck §3), same string, same rotation
+   (~-69 deg), same red family — medium difference only. MATCHING.
+3. [MINOR] Residual-connector dash pitch — the frame's connectors are 1px dashes, the render's
+   dash pitch is coarser at 150dpi. PIL adjudication: same paths/angles/endpoints; 10/10 (LEFT)
+   and 6/6 (RIGHT) sampled perpendicular paths carry periwinkle ink at the frame's positions
+   (selfcheck §3); dash pitch is below the fidelity floor for this medium. MATCHING.
+4. [MINOR] Label/dimension-line hue — frame cores (120,48,59) text / (240,190,200) line vs
+   render C00000 / ECBAC4; thin-stroke JPEG desaturation on the frame. Same red/rose family;
+   no hue-family defect. MATCHING.
+
+## Visual-quality defects
+- None detected: no text overflow/clipping, no wrong wrapping, no misalignment, no collisions,
+  no illegibility. The attempt-3 stray diamond/thick bent strokes are gone; the annotations now
+  read as deliberate dimension callouts. Equation glyphs no longer touch their box border.
+
+## Bottom line
+All typed content (4 caption lines, 2 equations, 2 'mm' labels), the full chart geometry
+(panels, grids, axes, fitted lines, 24 points, red disc), and the full annotation group
+(dimension lines with arrowheads, callout arrows, dashed residual connectors) are present and
+faithful. No BLOCKER/MAJOR. Every MINOR is matching or PIL-refuted above.
+
+FINAL VERDICT: PASS

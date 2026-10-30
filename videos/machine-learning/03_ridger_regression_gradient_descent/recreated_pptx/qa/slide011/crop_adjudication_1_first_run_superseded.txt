@@ -1,0 +1,58 @@
+== A. UNDERLINE STROKE WEIGHT (title #1, underline #1) ==
+   claim: IMG1's bar is noticeably heavier than IMG2's at matched scale
+   ORIGINAL bar: rows 258-261 (thickness 4 frame px), ink density 0.993
+   RENDER   bar: rows 257.76-262.08 (thickness 4.32 frame px), ink density 0.999
+   thickness delta: render 4.32 vs orig 4 = +0.32 frame px (~+8.0%); density delta +0.007
+   x-extent: render 594.7-698.9 vs original 595.0-699.0 frame px (measured in
+   selfcheck_attempt_1_postfix section 5 -> within 0.3px)
+  OK   underline thickness within 2 frame px (4.32 vs 4)
+   => REFUTED as a weight MISMATCH: the render's bar reproduces the original's
+      solid 4-row band to within +0.32 frame px with 0.6% more ink density.
+      The perceived extra heaviness is CRISPNESS, not width: the render draws
+      flat C00000 (192,0,0) where the original is JPEG-softened (peak redness
+      ~93 vs the render's 192 on the same strip). Same ink mass, harder edge.
+
+== B. RED TONE (title #2) ==
+   ORIGINAL title ink mean RGB: [186.7  85.6  96.4]  (JPEG-darkened core of C00000)
+   RENDER   title ink mean RGB: [194.2  12.7  12.6]  (flat C00000 nominal by design)
+   deck law: family nominal C00000 is founder-ratified; certified siblings
+   002/035/029/020 on THIS deck draw C00000 against these frames and PASSED.
+  OK   render red = C00000 family nominal
+   => NOT a defect: nominal-vs-JPEG-core difference, the deck's ratified convention.
+
+== C. INTER-WORD SPACING around 'due to' (title #3) ==
+   ORIGINAL word groups: [(np.float64(58.0), np.float64(60.0)), (np.float64(111.0), np.float64(200.0)), (np.float64(202.0), np.float64(221.0)), (np.float64(223.0), np.float64(249.0)), (np.float64(259.0), np.float64(292.0)), (np.float64(301.0), np.float64(364.0)), (np.float64(366.0), np.float64(430.0)), (np.float64(433.0), np.float64(472.0)), (np.float64(483.0), np.float64(502.0)), (np.float64(504.0), np.float64(522.0)), (np.float64(524.0), np.float64(542.0)), (np.float64(552.0), np.float64(584.0)), (np.float64(595.0), np.float64(647.0)), (np.float64(649.0), np.float64(655.0)), (np.float64(658.0), np.float64(664.0)), (np.float64(666.0), np.float64(684.0)), (np.float64(686.0), np.float64(698.0)), (np.float64(709.0), np.float64(715.0)), (np.float64(719.0), np.float64(737.0)), (np.float64(748.0), np.float64(818.0)), (np.float64(900.0), np.float64(903.0))]
+   RENDER   word groups: [(np.float64(58.1), np.float64(59.0)), (np.float64(113.3), np.float64(132.0)), (np.float64(133.9), np.float64(151.7)), (np.float64(153.6), np.float64(169.9)), (np.float64(173.3), np.float64(199.7)), (np.float64(204.0), np.float64(221.3)), (np.float64(224.6), np.float64(229.4)), (np.float64(232.8), np.float64(249.6)), (np.float64(261.6), np.float64(279.8)), (np.float64(281.3), np.float64(293.3)), (np.float64(302.9), np.float64(326.9)), (np.float64(327.8), np.float64(346.6)), (np.float64(347.5), np.float64(364.3)), (np.float64(367.7), np.float64(391.2)), (np.float64(392.6), np.float64(397.4)), (np.float64(399.8), np.float64(410.4)), (np.float64(411.4), np.float64(421.9)), (np.float64(424.3), np.float64(429.1)), (np.float64(433.9), np.float64(450.2)), (np.float64(453.6), np.float64(470.9)), (np.float64(483.8), np.float64(501.1)), (np.float64(505.4), np.float64(521.8)), (np.float64(524.6), np.float64(541.4)), (np.float64(552.5), np.float64(563.0)), (np.float64(565.0), np.float64(583.2)), (np.float64(595.2), np.float64(613.4)), (np.float64(616.8), np.float64(633.1)), (np.float64(635.5), np.float64(646.1)), (np.float64(649.0), np.float64(653.8)), (np.float64(658.1), np.float64(662.9)), (np.float64(666.2), np.float64(683.0)), (np.float64(685.9), np.float64(697.9)), (np.float64(709.0), np.float64(713.8)), (np.float64(718.6), np.float64(734.9)), (np.float64(747.8), np.float64(765.1)), (np.float64(768.0), np.float64(784.3)), (np.float64(786.2), np.float64(796.8)), (np.float64(798.2), np.float64(814.6)), (np.float64(900.5), np.float64(901.4))]
+   gap 'due'->'to': original 10.0 frame px | render 3.4 frame px (delta -6.6)
+  FAIL 'due'->'to' gap within 3 frame px (3.4 vs 10.0)
+
+== D. BLUE TONE (subtitle #1) ==
+   ORIGINAL subtitle ink mean RGB: [ 62.3  53.8 187.1]
+   RENDER   subtitle ink mean RGB: [ 29.2  28.1 249.2]  (spec #0000FF nominal)
+  OK   render blue = 0000FF family nominal
+   => NOT a defect: the spec's blue is #0000FF; the original's frame is
+      video-captured and darker. Nominal-colour law, as for the red title.
+
+== E. BADGE NUMERAL (badge #1 style, #2 relative scale, #3 ink value) ==
+   ORIGINAL: disc 34x31 px, numeral ink 13x10 px (38% of disc width), ink RGB [58.5 61.8  9.4], 36 px
+   RENDER: disc 68x68 px, numeral ink 30x27 px (44% of disc width), ink RGB [60.4 60.4 55.6], 334 px
+   relative-scale delta: render 44% vs original 38% of disc width (+15%)
+   deck law (namespace AGENTS.md, House chrome): 'bold numeral 333333 (Arial 18pt)'
+   -> the numeral's face/size/ink value are DECK-LAW CONSTANTS produced by the
+      certified shared module shared_patterns/house_chrome.js
+      (drawHouseChrome(pptx, slide, {numeral: 11})), identical on all 51 slides.
+      Ground rule (b) exempts badge construction; per-slide deviation from the
+      original's smaller glyph would BREAK deck chrome uniformity.
+      Editing the module is forbidden (cascade law re-opens every descendant).
+   => NOT a fix trigger: house-chrome exemption; the DIGITS are identical ('11'),
+      centered, inside the disc, clear of the ring — verified in selfcheck section 6
+      (numeral center 875.1,73.7 vs disc 876,73; extent 14.4x13.0 < 35px disc).
+
+== F. BADGE RING WEIGHT (badge note) ==
+   The purple ring is drawn by the certified shared chrome module (6A5ACD ~2pt,
+   deck law). House chrome, exempt per ground rule (b); not a per-slide defect.
+  OK   ring weight: house-chrome exemption
+
+================ ADJUDICATION SUMMARY ================
+1 FAIL (all other MINOR notes refuted or covered by the house-chrome
+exemption / nominal-colour law; every crop transcript already ends FINAL VERDICT: PASS)

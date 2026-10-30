@@ -1,0 +1,24 @@
+# Template B ALG crop leg — slide 026 attempt 7 (resume worker w26-r3-20261021T0538)
+# render crop: crop_7_alg_render.png (md5 182eed4137663b3089444f4d6a3d0ed5)
+# original crop: crop_7_alg_orig.png (md5 37f9afc44817bb83fa2bd0f0ccc5c900)
+# payload: crop_6_alg_prompt.txt byte-exact (md5 3d8251da32fd8ab70fe3d7d37c2fb08f)
+# cmd: bash scripts/16_vision_gate.sh python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison crop_7_alg_render.png crop_7_alg_orig.png -p "$(cat crop_6_alg_prompt.txt)" --thinking high --max-tokens 65536 --timeout 600   [inside timeout 1700]
+# date: 2026-10-21T07:22:49+03:00
+
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1100985
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/crop_7_alg_render.png, videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide026/crop_7_alg_orig.png ===
+[winner] images (round 1, attempt 1)
+Checked cell-by-cell/line-by-line at crop scale.
+
+**Discrepancies found:**
+
+| # | Discrepancy | Crop-relative location | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | IMG1 adds an underline under **âRandom Weightsâ** on the first numbered line. IMG2 shows the same phrase **without** that underline. This is an added emphasis/link-like stroke, not a text-content corruption. | First text line, top-left region; approximately **x 0.26â0.56, y 0.08â0.10** | **MINOR** | High |
+
+All visible text, numbering, punctuation, wording, parentheticals, colors, and underlined spans elsewhere match between IMG1 and IMG2. No garbled/missing characters, no swapped content, no delimiter-span issue, and no table/equation issue in this crop.
+
+**FINAL VERDICT: PASS**
+

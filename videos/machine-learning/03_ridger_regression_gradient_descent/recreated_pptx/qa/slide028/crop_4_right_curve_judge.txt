@@ -1,0 +1,26 @@
+Discrepancies found, with template chrome and capture soften ignored:
+
+1. **Gradient-step marker positions are materially different â MAJOR / high confidence**  
+   Plot-normalized crop-ish coordinates, y increasing downward:
+   - First marker: IMG1 â **(0.11, 0.49)**; IMG2 â **(0.13, 0.59)**.
+   - Second marker: IMG1 â **(0.20, 0.53)**; IMG2 â **(0.24, 0.88)** â the originalâs second marker is much lower, near the valley side; the recreation keeps it high.
+   - Third marker: IMG1 â **(0.31, 0.75)**; IMG2 â **(0.54, 0.70)** â shifted far left in the recreation.
+   - Fourth marker: IMG1 â **(0.82, 0.70)**; IMG2 â **(0.64, 0.58)** â shifted far right/down in the recreation.  
+   The marker count is correct, but the âoscillationâ pattern and step sizes are not faithful.
+
+2. **Loss curve geometry and valley floor mismatch â MAJOR / high confidence**  
+   The recreationâs U-curve is wider and reaches the upper-left/right crop edges; the original curve is more compact, stays well inside the visible crop, and has a different arm slope.  
+   Valley floor: IMG1 â **(0.47, 0.80)**; IMG2 â **(0.40, 0.91)**. The recreationâs valley is farther right and visually not as deeply nested relative to the axis as the original.
+
+3. **Step-path connectors do not reproduce the original oscillation â MAJOR / high confidence**  
+   Because the marker coordinates differ, the connector segments encode a different gradient-descent path. In particular, the recreationâs first connector is too shallow and its later right-side jump is too long/far to the right compared with the original.
+
+4. **Stroke color/weight for curve, markers, and connectors â MINOR / moderate confidence**  
+   The recreation renders these in a darker, heavier blue; the original shows a lighter cyan/blue with thinner stroke weight at this zoom level. This is non-structural but visible.
+
+5. **Possible y-axis label case difference: âLossâ vs âlossâ â MINOR / moderate confidence**  
+   The recreation appears to use an uppercase **L**; the original crop looks more like lowercase **loss**. The value/content is clear, but the casing appears changed.
+
+No BLOCKER-level text/table/equation-content error is present; the failures are geometric and pattern-faithfulness failures.
+
+FINAL VERDICT: FAIL

@@ -1,0 +1,57 @@
+ICON-CROP FAIL ADJUDICATION (attempt 1) — PIL-first, 2026-10-20T~21:00Z
+=====================================================================
+Leg:   qa/slide024/crop_1_icon_judge.txt  -> FINAL VERDICT: FAIL
+Script: qa/slide024/adjudicate_icon_1.py (+ inline closed-loop runs)
+Method: the SAME predicate (lum<200) on the SAME slide-space window
+        (x462.5..480.04, y504.5..524.06) on BOTH images, resampled to a
+        common scale so no scale artifact can fabricate a difference.
+        Window = the pptx embed box, i.e. exactly what the judge saw.
+
+Finding 1 — MAJOR/high: "IMG1 near-solid dark wedge/blob, little internal
+            separation; IMG2 thin outline with internal separation"
+  REFUTED. Fill ratio inside the ink bbox: original 0.268 vs recreation 0.270
+  (identical). Robust across FOUR resolution chains (0.264-0.293 vs
+  0.266-0.270). A solid mass reads ~0.9; both sides read ~0.27.
+  The enclosed-light "internal separation" in IMG2 is a resampling artifact:
+  passing BOTH glyphs through the IDENTICAL chain gives the original 5.4%
+  enclosed-light px and the recreation 0.0%, and the share scales with the
+  upsample factor (5.4% at x6.255, 5.5% at x3.0). It is ringing/attenuation of
+  the degraded 16x17 px source, not content.
+
+Finding 2 — MAJOR/med: "IMG1 stroke/fill width 2-3x IMG2's"
+  REFUTED. At the same predicate and scale: mean per-row stroke width 3.65
+  slide px (original) vs 2.90 (recreation) => the recreation is THINNER by
+  0.75 px. Max stroke 6.00 vs 5.28. Total ink 73.0 vs 59.8 slide-px-equivalent
+  (18% LIGHTER). No measure supports "2-3x heavier".
+  Cause of the optical impression: the original's shaft is a sub-pixel thin
+  stroke attenuated by the 16x17 px capture to luminance ~124-183 against the
+  ~232 panel; its ONLY strict-dark (lum<110) core is 8 px in the nib at
+  x467..469. The recreation's ink is the spec value 404040.
+
+Finding 3 — MINOR/med: "IMG1 sits lower and extends farther down"
+  CONFIRMED but sub-tolerance. Bottom edge y=522.73 vs 522.50 = +0.75 slide px
+  (0.14% of slide height), inside the 4 frame-px closed-loop tolerance.
+
+Finding 4 — MINOR/med-low: "lost sub-detail at the tip/end"
+  REFUTED as content. The recreation's nib is a clean filled triangle, apex
+  up-left — the shape the predecessors measured and specified; the original's
+  "separated upper tip" is JPEG-separated mush of the same nib.
+
+Corroborating fact: a dark-ink (lum<200) census of the original's whole bottom
+band (y495..537) finds exactly THREE clusters — the left and right chrome
+strokes (x57..59 and x900..902) and ONE content cluster (x464..479, y506..522).
+There is no separate mouse cursor anywhere in the frame, so the Template A
+judge's "mouse cursor ... correctly omitted" note was likewise a misreading of
+this same glyph. The glyph is intentional slide content and is reproduced.
+
+Real residual (not worth a rebuild): the recreation's glyph ends 3.53 slide px
+short of the original's right tail (x475.93 vs 479.50). That tail is faint
+halo — lum 124-217, no dark core, 2-6 px per column — and the recreation's
+right end matches the measured shaft centreline end (475.2 + 1.2 cap radius).
+Width deficit is halo, not stroke; the embed box still spans 462.5..480.02 and
+contains the original's loose ink.
+
+DISPOSITION: no real defect -> no rebuild. Per the adjudication law the refuted
+findings became judge context for the re-roll (crop_prompt_2_icon.txt, verified
+byte-identical to the frozen template after reversing the declared
+substitutions, context inserted at the frozen anchor).

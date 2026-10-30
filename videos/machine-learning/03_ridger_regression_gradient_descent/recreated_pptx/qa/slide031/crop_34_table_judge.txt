@@ -1,0 +1,21 @@
+Comparison method: cellâbyâcell across all 8 rows Ã (1 label + 16 data) of the density table, then fill/stroke/glyph check at matched scale.
+
+Cellâbyâcell value audit (16 data columns each; values listed leftâright):
+- x: 3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1 â identical in both.
+- f(x): 5, 3.89, 2.96, 2.21, 1.64, 1.25, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01 â identical.
+- xâdelta: 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5, 4.7, 5, 4.7, 5, 4.7, 5, 4.7, 5 â identical.
+- f(xâdelta): 5.41, 4.24, 3.25, 2.44, 1.81, 1.36, 1.09, 1, 1.09, 1, 1.09, 1, 1.09, 1, 1.09, 1 â identical.
+- x+delta: 3.1, 3.4, 3.7, 4, 4.3, 4.6, 4.9, 5.2, 4.9, 5.2, 4.9, 5.2, 4.9, 5.2, 4.9, 5.2 â identical.
+- f(x+delta): 4.61, 3.56, 2.69, 2, 1.49, 1.16, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04, 1.01, 1.04 â identical (incl. bare "2" in col 4).
+- slope: â8, â6.8, â5.6, â4.4, â3.2, â2, â0.8, 0.4, â0.8, 0.4, â0.8, 0.4, â0.8, 0.4, â0.8, 0.4 â identical.
+- next x: 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, 4.8, 4.8 â identical.
+
+No wrong/missing/garbled glyph; every number and symbol matches. All 8 rows present; labels ("x", "f(x)", "xâdelta", "f(xâdelta)", "x+delta", "f(x+delta)", "slope", "next x") match exactly, including the hyphen and the spelled word "delta". Row separators are continuous, floats vertically centered in cells, baseline alignment consistent. No brackets/parens enclosures or equations exist in this region, so delimiterâspan and equationâformat rules are not applicable.
+
+Discrepancies:
+1. Top two headerâband fill tints (yellow family) â MINOR â confidence: lowâmedium, may partly be capture/intended. In IMG1 (recreation), the row "x" band (crop top, fullâwidth, ~y 0â25) reads a duller yellowâgreen while "f(x)" (just below, ~y 25â50) reads a brighter yellow; in IMG2 the mapping reads reversed (x = brighter yellow, f(x) = duller yellowâgreen). Both remain in the yellow family with no effect on any value, row count, or legibility; could also be an inherent 150dpi/video tonal difference. Per rules (c)/(e) it does not rise above MINOR.
+2. Startâmarker on the first x value â not a discrepancy. The enlarged "3" with a red pointer (topâleft data cell) differs only in drawn vs typed ink; rule (c) caps this at MINOR and it is consistent between the two crops (both carry the same red pointer), so no defect.
+
+No MAJOR or BLOCKER defect found in this region: no wrong digit, no swapped table value, no missing row/column, no truncated subscript, no delimiter issue.
+
+FINAL VERDICT: PASS

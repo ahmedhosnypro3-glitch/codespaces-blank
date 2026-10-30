@@ -1,0 +1,50 @@
+## Ground-rule acknowledgements (confirmed, not discrepancies)
+- House chrome matches spec: white canvas, gray panel, thin dark-red (C00000) strokes on **left/right/bottom only â top stroke correctly absent**, yellow slide badge (876,73) with purple ring and numeral "3". â
+- No mouse cursor/artifact in image 2; nothing to omit. â
+- No handwriting in either frame. â
+
+---
+
+## Discrepancies (fidelity of renderable content)
+
+**BLOC5ER:** none.
+
+**MAJOR:**
+
+1. **Top-right "N samples" column diagram â internal cell contents omitted entirely.** The recreation shows the three columns (Xâ, Xâ, Xâ) as solid colour bars carrying only the header/footer labels. The original fills each column with its row entries: `Xââ Xââ Xâd`, `Xââ Xââ Xâd`, `Xââ Xââ Xâd`. That text is absent, not restyled. Severity **MAJOR** (borderline BLOC5ER â an entire block of content is gone, though the skeleton survives). Confidence: high.
+
+2. **Bottom-left equation â the data matrix X is unbracketed.** Recreation reads `[y] = Xâ¦ = [w]`; the original reads `[y] = [X] = [w]`, with a bracket pair spanning all four matrix rows (outer `[` before the bias column, matching `]` after `x_{1d}`/`x_{2d}`/`x_{nd}`). A required delimiter rendered invisibly is a MAJOR defect per the founder rules. Confidence: medium-high.
+
+3. **Bottom-right panel â "Where:" annotation omitted entirely.** Original: *"Where: X_{NÃd+1} is a matrix; Y_{NÃ1} is labels vector"*. The recreation's right box contains only `Y = X W` and a large empty lower region. Confidence: high.
+
+**MINOR:**
+
+4. **Missing "â¦" spacers in the top diagram** â no ellipsis between the Xâ and Xâ columns, and none between yâ and yâ (original has both). Confidence: high.
+
+5. **Missing dimension label "N Ã (d+1)"** beneath the X matrix (recreation shows only `N Ã 1` and `(d+1) Ã 1`). Confidence: medium-high.
+
+6. **Title line-break mismatch.** Recreation wraps to `â¦ (N-` / `Samples)`; the original is a single line `â¦ (N- Samples)`. Confidence: high.
+
+7. **Vertical placement of the bottom equation band** sits roughly 60â70 px lower in the recreation than in the original (left/right boxes and arrow shifted downward relative to the panel). Confidence: medium.
+
+8. **"Remember" box fill** â recreation uses a pale-cyan fill; the original box reads near-white (uncertain at this capture resolution). Confidence: low.
+
+9. **Transpose superscripts** on `W^T`/`X^T` in the "Remember" equation are not clearly raised in the recreation render (may be baseline). Low confidence â flagged for verification against the native PPTX.
+
+---
+
+## Verified as matching
+- Title text verbatim and colour split ("Matrix" blue / remainder red); "N Training Samples" red, left-positioned.
+- "Remember" / `y = W^T X = X^T W` (blue bold W, T, X, T, W), red italic header; "In General: N >>> d" with red N/`>>>`/d.
+- Matrix entries in the bottom-left panel: y-column (`yâ yâ â¦ yâ`), rows `1 x_{i1} x_{i2} â¦ x_{id}`, the `â¦` row, the `=`, and the right vector `b, wâ, wâ, â¦, w_d, w_{d+1}` all verbatim; `Y = X W` with underlined X and W; labels `N Ã 1` (red) and `(d+1) Ã 1` (red); grey connector arrow.
+- Bar colours (yellow / pale-cyan / pink), blue diagram border, red vertical labels â approximate hex matches.
+- No text clipping, overflow, or collisions; all ink sits inside the house panel; no element crosses the left/right/bottom strokes.
+
+## Visual-quality defects in the recreation
+- Large empty lower area of the bottom-right box (consequence of defect 3).
+- The wrapped orphan line "Samples)" reads as an awkward title tail (consequence of defect 6).
+- Solid bars in the top diagram are clean but information-void (consequence of defect 1).
+
+---
+
+FINAL VERDICT: **FAIL** â three MAJOR content omissions (column contents, X-matrix brackets, "Where:" annotation) plus the missing ellipsis/dimension-label annotations make this an unfaithful recreation of the original frame.

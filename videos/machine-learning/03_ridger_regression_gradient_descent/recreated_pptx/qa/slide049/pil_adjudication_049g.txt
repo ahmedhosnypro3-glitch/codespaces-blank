@@ -1,0 +1,147 @@
+SLIDE 049 — PIL ADJUDICATION (fix-judge-049g, 2026-10-24, attempt 9 cycle)
+render_8 (2001x1125@150dpi -> 960x540, sx=2.0844 sy=2.0833) vs unique_slides/slide_049.jpg
+All numbers are FRAME px (1px = 1pt). Method: luminance + per-channel ink scans,
+connected-component labelling (8-conn, thr 205 on original / 150 on render),
+per-column tall-vertical detection.
+
+------------------------------------------------------------------
+ATTEMPT-8 VERDICT ITEMS (current build = render_7 / pre-fix build md5 bfede8a1…)
+------------------------------------------------------------------
+D1 "a table row present in the original's upper table is dropped"  -> REFUTED
+  ORIG upper table region x86..222 y60..132, text bands (lum<110):
+     y65..70 h6   header x1..x6
+     y80..88 h9   data row 1  (1)(2)(1)(5)(6)(6)
+     y97..104 h8  data row 2  (1)(1)(2)(4)(5)(6)
+     y114..120 h7 data row 3  (1)(1)(2)(4)(5)(6)
+     y129 h1      top-box bottom border (not a row)
+  4 lines only, no 5th/class-tag row anywhere inside the box; no ink at y124..128
+  inside x86..222, so there is no room for a dropped row. RENDER (pre-fix) had the
+  identical 4 bands: y67..73 / 82..90 / 96..105 / 111..120.
+  Source-confirmed: analysis/slide_049_final.json region "Top data table" =
+  "headers x1 x2 x3 x4 x5 x6 Initial and THREE data rows; data row 1 also contains
+  'Initial W = [4, -2]'". The C1/C1/C1/C2/C2/C2 tags the judge saw belong to the
+  AUGMENTED table beneath (measured x88..214 y230..244, present in the build).
+  => judge row-grouping error across the two tables. No fix.
+
+D2 "'W =' label and result-vector brackets omitted on all six iteration rows" -> REAL, FIXED
+  ORIG row 1 (y140..205) result-column components (thr 205):
+     x697..706  y162..170  w10 h9  -> bitmap: 2 top strokes, converging middle,
+                                         2 bottom vertices = "W" (glyph-verified)
+     x711..716  y165..166  -> "=" sign
+     x722       y160..178 + serifs y152..153 / y184..185 -> faint tall bracket "["
+                                     spanning y150..187 (the row height)
+     x732..747  groups at y149..157 / y165..173 / y181..199 -> stacked value column
+  Same structure on all six rows (row 2: y216..263; row 3: y280..322; rows 4-6 the
+  label group sits ~11px right, x709..719 — original's own jitter).
+  RENDER (pre-fix): bare 3-line numbers "5/-1/-1" at x728..736 y161..203, NO label,
+  NO brackets. Also confirmed by analysis equations field, which spells every row
+  "… => Keep same Weight, W = [[5], [-1], [-1]]".
+  FIX: build/slide_049.js — "W =" text at x706 (12pt, label line) + a 600dpi
+  transparent PNG of the 3-row bracketed column [5;-1;-1] at x728, y=r.y+10,
+  w=0.29167 h=0.63167 in (sidecar build/assets/eq_slide049_wcol.json). Generator
+  qa/slide049/render_wcol_049g.py extends the banked render_matrix049.sh bracket
+  geometry to N rows (mathtext cannot express a matrix environment — verified:
+  \begin{matrix}, \begin{array}, \genfrac all raise ParseSyntaxException).
+  VERIFIED in render_8: per row label strokes x706..716 + bracketed values
+  x721..748, ink y148..195 vs original y145..201 (row 1) — matches within 6px.
+
+D3 "'Initial W' column-vector separator [4,-2] vs [4;-2]" -> REFUTED
+  analysis verbatim_text.equations[0] = "Initial W = [4, -2]" (comma). The original
+  renders it as ordinary table text (2 bands, y65..70 + y80..88 region, inline),
+  not a stacked column. Render matches verbatim.
+
+D4 "'Iteration 2' banner styling (red fill vs lighter/boxed)" -> REFUTED
+  ORIG box interior x90..205 y282..302 colour histogram: (192,0,0) n=672,
+  (176,0,0) n=263 — a RED FILL; text pixels brightest mean (254,218,221) = white.
+  Build: RED fill + white bold text. Matches.
+
+D5 "legend colour coding / 'Zero is unaccepted' in plain black" -> REAL (minor), FIXED
+  ORIG legend line y109..126, per-column red/blue ink (r>140,g<110,b<110 /
+  r<120,g<120,b>140): red ONLY at x240..244 (+ bleed 247, 251) = the "C1" tag;
+  blue ONLY at x312..320 (+ bleed 324) = the "C2" tag. Everything from "positive"
+  onward is dark (darkest original ink (10,13,0)...(28,32,9), JPEG-washed light
+  greys 199..229 on the antialiased strokes).
+  RENDER (pre-fix) painted the WHOLE tags: red x245..317, blue x328..405.
+  FIX: legend runs now "C1"(RED) " positive"(BLACK) "C2"(BLUE) " negative"(BLACK)
+  "Zero is unaccepted"(BLACK). VERIFIED in render_8: red spans x246..262 only,
+  blue spans x328..344 only.
+
+D6 "'No change in W' W emphasis (italic/different colour vs underlined)" -> REFUTED
+  ORIG W glyph x198..216 y351..367 with a real underline rule y366..367 spanning
+  exactly x200..216 (dumped: two horizontal bar rows). W ink is the same light-grey
+  family as the rest of the line (top colours 225..230 grey) — no distinct colour
+  or italic beyond JPEG washout. Build's underlined black W is the correct reading
+  (clause (c)/(d): soft edges and typed-vs-handwritten are not content).
+
+------------------------------------------------------------------
+ATTEMPT-7 ITEMS (superseded build render_6, md5 b89c7a… = build_before_2Dfix)
+------------------------------------------------------------------
+#1 stray `Initial`/`l` in the top header -> REFUTED
+   Header interior x70..718 y56..128: dark ink LEFT of the data table (x68..88)
+   = 0 px at thr 110/150/180. "Initial" renders at x233..253 (RED) — exactly the
+   original's column-header position. No extra left-half text. (Earlier attempt-7
+   text read the underlay of the DOWNSAMPLED render as glyphs.)
+#2 d(xi) flattened 1D -> ALREADY FIXED by the prior lane (render_7):
+   attempt 8's own text: "The six d(x) 2D matrices render properly (stacked,
+   bracketed, limits/labels aligned)". Values re-checked in this session: the six
+   600dpi PNGs spell [1,1,1,5]/[-1,3], [1,2,1,5]/[-1,2], [1,1,2,5]/[-1,2],
+   [1,5,4,5]/[-1,-4], [1,6,5,5]/[-1,-6], [1,6,6,5]/[-1,-7] — identical to the
+   analysis spec (top row [1, xi2, xi3, 5], bottom [-1, result]).
+#3 Initial W flattened -> REFUTED (see D3 above).
+#4 "No change inW"/"StopIterations" word glue -> REFUTED
+   CC glyph gaps, line 1 "No change in W": ORIG (7, 1, 10)px, RENDER (3, 8, 4)px;
+   line 2: ORIG 1px, RENDER 3px. Nothing is glued in the render — the ORIGINAL's
+   own inter-word gaps are tighter (1px) than the render's. The residual pattern
+   difference is font-metric noise (typed-vs-handwritten clause).
+
+NET for attempt 9: build changed for D2 + D5 only (D1, D3, D4, D6 refuted with the
+numbers above). Render_8 (2001x1125, 150dpi) rebuilt from build/slide_049.js;
+house chrome check PASS; crops re-cut from render_8 at matched scale ~2.083.
+
+------------------------------------------------------------------
+ATTEMPT-9 CYCLE, SIZE 2 — W-column geometry re-measured on render_8 (2026-10-24)
+method: connected components on crop_9_wstack_<orig,render>.png (frame bbox
+692..760 x 135..530, 2.083x upscale), row bands = the calc-table rows.
+
+ORIGINAL W column, per row (frame px):
+  row1  W 696.3..707.8 | "=" 711.2..716.4 | "[" 721.7..724.6 (tall) | "5" 731.3..737.0
+        "-1" minus 727.3..733.7 + "1" 737.5..740.8 | "]" 743.7..746.1
+  row2  W 696.3..707.8 | "=" 710.2..715.9 | "[" 721.7..724.6 | "]" 743.7..746.1
+  row3  W 696.3..706.8 | "=" 710.7..716.4 | "[" 721.7..724.1 | "]" 743.7..746.1
+  row4  W 708.9..719.8 | "=" 722.4..728.1 | "[" 733.7..736.5 | "]" 755.8..758.6
+  row5  W 707.6..718.1 | "=" 721.2..727.0 | "[" 732.7..735.6 | "]" 754.7..757.1
+  row6  W 707.6..718.1 | "=" 721.2..727.4 | "[" 732.7..735.6 | "]" 755.2..757.1
+  => the original's own W column steps right by ~11px from row 4 down.
+  Bracket pair span 22.5pt on every row; interior (between serif tips) 17.3pt;
+  values CENTRED in the interior ("5" margins 6.7/6.7, "-1" margins 2.0/1.9);
+  bracket stroke 0.9pt, serif tips 2.2pt, bracket overshoot 1.9pt above the first
+  value line and 1.9pt below the last; value ink block 41.1pt tall, line pitch 16.4pt.
+
+RENDER (render_8, all six rows IDENTICAL — the jitter is not reproduced):
+  W 705.9..716.4 | "=" 720.7..726.5 | "[" 729.4..731.7 | "5" 733.7..738.9
+  "-1" minus 733.3..736.2 + "1" 738.0..742.8 | "]" 746.1..748.5
+
+DEFECTS MEASURED (real, both images, not phantom ink):
+  a) W label displaced: rows 1-3 +9.6pt right (706 vs 696 original W edge),
+     rows 4-6 -2pt LEFT (706 vs 709). No single x fits — the original's own
+     +11pt step at row 4 is absent from the build.
+  b) bracket column displaced +7.2pt right on rows 1-3 (729.4 vs 722.2) and
+     +0.5pt on rows 4-6 — again the missing row-4 step.
+  c) bracket pair span 18.6pt vs the original's 22.5pt (interior 14.4 vs 17.3):
+     the PNG is too narrow, so the values hug the brackets (left gap 1.6pt vs the
+     original's 2.0, right gap 3.3 vs 0.9) instead of sitting centred and clear.
+  d) bracket height 45.0pt vs the original's 42.1 (overshoot 4.4pt vs 1.9pt).
+  e) value block sits ~2pt low in the row.
+NOTE (accepted as inherent medium, NOT a fix trigger): the original's value
+glyphs and minus stroke are wider than Liberation Sans 12pt ("-1" ink 13.4pt vs
+9.5pt, minus 6.3pt vs 2.9pt) — typed-vs-handwritten clause (d). Digit ink 9.6pt
+vs 8.1pt. Only geometry is adjusted.
+
+FIX (copy-then-modify from build_before_Wfix_049g.js, md5 bfede8a1…):
+  render_wcol_049g.py v2 (v1 banked as render_wcol_049g_v1_bank.py): fixed
+  bracket frame — left serif at 18px, interior 145px, values CENTRED in it,
+  right serif at 199px, W=204, bracket overshoot px(1.3) past the value ink
+  block (H computed content-driven).
+  build/slide_049.js: per-row geometry from the measurements above —
+  rows 1-3 "W =" at fx(697) + column PNG at fx(721), y = r.y + 8;
+  rows 4-6 "W =" at fx(709) + column PNG at fx(732), y = r.y + 8.

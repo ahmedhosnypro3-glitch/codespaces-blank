@@ -1,0 +1,44 @@
+render 2001x1125  scale=2.0833
+
+=== 1. TICK-LABEL ZONE — column census, render vs original ===
+  ORIG: ink cols 40 (of 300), col ink min/max/median = 1/30/7
+       clusters: [(540.0, 552.96), (555.36, 556.8), (558.72, 558.72), (610.56, 610.56), (637.44, 637.44), (664.8, 664.8), (666.72, 666.72), (668.64, 669.6)]
+  REND: ink cols 133 (of 625), col ink min/max/median = 18/63/18
+       clusters: [(540.0, 599.52), (629.76, 630.24), (686.88, 687.84), (809.28, 810.24)]
+
+  per-column ORIG vs REND side by side (frame x -> ink px):
+    x 540: ORIG   7   REND  41
+    x 544: ORIG   7   REND  18
+    x 549: ORIG   7   REND  18
+    x 554: ORIG   0   REND  18
+    x 559: ORIG   0   REND  18
+    x 564: ORIG   0   REND  18
+    x 568: ORIG   0   REND  18
+    x 573: ORIG   0   REND  18
+    x 578: ORIG   0   REND  18
+    x 583: ORIG   0   REND  18
+    x 588: ORIG   0   REND  18
+    x 592: ORIG   0   REND  18
+    x 597: ORIG   0   REND  18
+    x 602: ORIG   0   REND   0
+    x 607: ORIG   0   REND   0
+    x 612: ORIG   0   REND   0
+    x 616: ORIG   0   REND   0
+    x 621: ORIG   0   REND   0
+    x 626: ORIG   0   REND   0
+    x 631: ORIG   0   REND   0
+    x 636: ORIG   0   REND   0
+    x 640: ORIG   0   REND   0
+    x 645: ORIG   0   REND   0
+    x 650: ORIG   0   REND   0
+    x 655: ORIG   0   REND   0
+    x 659: ORIG   0   REND   0
+    x 664: ORIG   2   REND   0
+    x 669: ORIG  30   REND   0
+    x 674: ORIG   0   REND   0
+    x 679: ORIG   0   REND   0
+Traceback (most recent call last):
+  File "/workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide032/adjudicate_8.py", line 65, in <module>
+    print(f"    x{xa:>4}: ORIG {ci_o[i]:>3}   REND {ci_r[i]:>3}")
+                                ~~~~^^^
+IndexError: index 300 is out of bounds for axis 0 with size 300

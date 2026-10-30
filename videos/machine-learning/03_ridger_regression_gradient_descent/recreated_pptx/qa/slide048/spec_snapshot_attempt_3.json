@@ -1,0 +1,220 @@
+{
+ "slide_title": "Iteration 1: Weight Update using Step η = 1",
+ "subtitle_or_header": "REPEAT using Step η = 1",
+ "verbatim_text": {
+  "bullets": [
+   "REPEAT using Step η = 1",
+   "C1 positive, C2 negative, Zero is unaccepted",
+   "Ugmented Vectors (from Top)",
+   "Iteration 1"
+  ],
+  "labels": [
+   "x1",
+   "x2",
+   "x3",
+   "x4",
+   "x5",
+   "x6",
+   "C1",
+   "C2",
+   "Initial W =",
+   "REPEAT using Step η = 1",
+   "Check classes of",
+   "Z1",
+   "Z2",
+   "Z3",
+   "C1 positive, C2 negative, Zero is unaccepted",
+   "Ugmented Vectors (from Top)",
+   "Iteration 1",
+   "d(x₁)",
+   "d(x₂)",
+   "d(x₃)",
+   "d(x₄)",
+   "d(x₅)",
+   "d(x₆)",
+   "Update Weight",
+   "Keep same Weight",
+   "48"
+  ],
+  "equations": [
+   "Initial W = [4; -2; -2]",
+   "d(x₁) = [1 1 1]·[4; -2; -2] = 0",
+   "W = [4; -2; -2] + 1·[1; 1; 1] = [5; -1; -1]",
+   "d(x₂) = [1 2 1]·[5; -1; -1] = 2",
+   "d(x₃) = [1 1 2]·[5; -1; -1] = 2",
+   "d(x₄) = [1 5 4]·[5; -1; -1] = -4",
+   "d(x₅) = [1 6 5]·[5; -1; -1] = -6",
+   "d(x₆) = [1 6 6]·[5; -1; -1] = -7"
+  ]
+ },
+ "layout": {
+  "arrangement": "No top title bar. A top band (y≈5–22%) holds exactly three clusters: the input data table at far left, the Initial-W vector plus the red REPEAT instruction at center, and the Check-classes Z table with the positive/negative/unaccepted note at right. Below, the left third (y≈30–66%) holds the 'Ugmented Vectors (from Top)' matrix and a red-boxed 'Iteration 1' header. The right two-thirds (y≈27–97%) are filled by six stacked boxed calculation rows. A yellow slide-number badge sits in the extreme top-right corner.",
+  "regions": [
+   {
+    "name": "input data table",
+    "position": "top-left, x≈4–30%, y≈5–22%",
+    "content": "Header row x1–x6 over three feature rows and a red class row C1 C1 C1 C2 C2 C2"
+   },
+   {
+    "name": "initial weight + repeat",
+    "position": "top-center, x≈31–63%, y≈5–18%",
+    "content": "Italic W column vector [4;-2;-2] labeled 'Initial W =' with red 'REPEAT using Step η = 1'"
+   },
+   {
+    "name": "check classes",
+    "position": "top-right, x≈63–91%, y≈5–22%",
+    "content": "'Check classes of' over a Z1/Z2/Z3 table (rows 0 7 3 and 0 6 2) and the note 'C1 positive, C2 negative, Zero is unaccepted'"
+   },
+   {
+    "name": "slide number badge",
+    "position": "extreme top-right, x≈92–98%, y≈2–8%",
+    "content": "Yellow circle containing 48"
+   },
+   {
+    "name": "augmented vectors",
+    "position": "mid-left, x≈4–30%, y≈30–52%",
+    "content": "Header 'Ugmented Vectors (from Top)' over a matrix with bias row of ones, two feature rows, and red class row"
+   },
+   {
+    "name": "iteration header",
+    "position": "mid-left, x≈7–28%, y≈56–66%",
+    "content": "Red-bordered white box with red text 'Iteration 1'"
+   },
+   {
+    "name": "calculation panel",
+    "position": "right/center, x≈33–97%, y≈27–97%",
+    "content": "Six stacked light-blue boxed rows showing d(xᵢ) dot products, results, ⇒ actions, and updated W vectors"
+   },
+   {
+    "name": "cursor",
+    "position": "top-right area near 'unaccepted', x≈70–76%, y≈20–26%",
+    "content": "White mouse-pointer arrow icon"
+   }
+  ],
+  "hierarchy": "The six calculation rows dominate by area and repetition. Pure red #FF0000 accents (class labels, REPEAT line, Iteration-1 box) are the secondary focus; action phrases are dark red/maroon #8B0000. The yellow '48' badge is tiny but high-contrast. Math uses italic variables with tall bracket vectors; everything is left-aligned within its cluster."
+ },
+ "visual_elements": [
+  {
+   "type": "table",
+   "description": "Input data table. Columns headed x1 x2 x3 x4 x5 x6. Rows: (1 2 1 5 6 6), (1 1 2 4 5 6), (1 2 2 4 5 6). Bottom row of class labels in red: C1 C1 C1 C2 C2 C2.",
+   "colors": [
+    "#000000",
+    "#FF0000",
+    "#FFFFFF"
+   ],
+   "position": "top-left, x≈4–30%, y≈5–22%"
+  },
+  {
+   "type": "table",
+   "description": "Check-classes table headed Z1 Z2 Z3 with two rows: (0 7 3) and (0 6 2). Sits under the caption 'Check classes of'.",
+   "colors": [
+    "#000000",
+    "#FFFFFF"
+   ],
+   "position": "top-right, x≈66–86%, y≈8–18%"
+  },
+  {
+   "type": "table",
+   "description": "Augmented-vectors matrix headed x1–x6. Rows: (1 1 1 1 1 1) bias, (1 2 1 5 6 6), (1 1 2 4 5 6); bottom red class row C1 C1 C1 C2 C2 C2.",
+   "colors": [
+    "#000000",
+    "#FF0000",
+    "#FFFFFF"
+   ],
+   "position": "mid-left, x≈6–29%, y≈33–51%"
+  },
+  {
+   "type": "highlight-box",
+   "description": "Red-outlined, white-filled rectangle containing red text 'Iteration 1'.",
+   "colors": [
+    "#FF0000",
+    "#FFFFFF"
+   ],
+   "position": "mid-left, x≈7–28%, y≈56–66%"
+  },
+  {
+   "type": "table",
+   "description": "Six stacked boxed derivation rows (no shared gridlines; each row its own light box). Columns per row: d(xᵢ) expression (1×3 row vector times current 3×1 W), scalar result, ⇒, action phrase, resulting W column vector. Row1: d(x₁)=[1 1 1]·[4;-2;-2]=0 ⇒ Update Weight; W=[4;-2;-2]+1·[1;1;1]=[5;-1;-1]. Row2: d(x₂)=[1 2 1]·[5;-1;-1]=2 ⇒ Keep same Weight; W=[5;-1;-1]. Row3: d(x₃)=[1 1 2]·[5;-1;-1]=2 ⇒ Keep same Weight; W=[5;-1;-1]. Row4: d(x₄)=[1 5 4]·[5;-1;-1]=-4 ⇒ Keep same Weight; W=[5;-1;-1]. Row5: d(x₅)=[1 6 5]·[5;-1;-1]=-6 ⇒ Keep same Weight; W=[5;-1;-1]. Row6: d(x₆)=[1 6 6]·[5;-1;-1]=-7 ⇒ Keep same Weight; W=[5;-1;-1].",
+   "colors": [
+    "#E9F2F9",
+    "#8FB3CC",
+    "#000000",
+    "#8B0000"
+   ],
+   "position": "right/center, x≈33–97%, y≈27–97%"
+  },
+  {
+   "type": "arrow",
+   "description": "Green double-lined left arrow (⇐) at the right edge of the first calculation row, pointing at its result W=[5;-1;-1].",
+   "colors": [
+    "#1E8449"
+   ],
+   "position": "far right of row 1, x≈93–97%, y≈30–36%"
+  },
+  {
+   "type": "other",
+   "description": "Yellow-filled circle with thin black border containing the number 48 (slide number).",
+   "colors": [
+    "#FFFF00",
+    "#000000"
+   ],
+   "position": "extreme top-right, x≈92–98%, y≈2–8%"
+  }
+ ],
+ "imagery": [
+  "White mouse-pointer cursor icon near the word 'unaccepted' in the top-right note, indicating a live screen capture."
+ ],
+ "colors": {
+  "background": "#FFFFFF",
+  "title_text": "#000000",
+  "body_text": "#000000",
+  "accents": [
+   "#FF0000",
+   "#8B0000",
+   "#FFFF00",
+   "#1E8449",
+   "#E9F2F9",
+   "#8FB3CC"
+  ]
+ },
+ "typography_notes": "Sans-serif (Arial/Helvetica-like) throughout. Variables W, d, x are italicized; x carries subscript numerals (x₁…x₆). Column vectors use tall square brackets with entries stacked. 'REPEAT' and 'Iteration 1' are all-caps. Class labels C1/C2, the words 'Zero' and 'REPEAT using Step η = 1', and the Iteration-1 box are red; action phrases 'Update Weight'/'Keep same Weight' are dark red/maroon; the ⇒ and ⇐ glyphs are used for implication and the green pointer. No serif text is present.",
+ "animation_state": "No build animation is evident; all six calculation rows and both matrices are fully revealed. The mouse cursor near 'unaccepted' suggests a live screen capture rather than a partial build.",
+ "recreation_brief": "1) Slide setup: white background #FFFFFF, sans-serif font (Arial/Helvetica-like), black #000000 body text; render NO title bar — this slide has none. 2) Top-left input data table (x≈4–30%, y≈5–22%): table with columns headed x1 x2 x3 x4 x5 x6 (italic x, subscripted indices, black), then three numeric rows in order (1 2 1 5 6 6), (1 1 2 4 5 6), (1 2 2 4 5 6) reproduced exactly as extracted, and a bottom class row 'C1 C1 C1 C2 C2 C2' in red #FF0000. 3) Top-center (x≈31–50%, y≈6–14%): black text 'Initial W =' followed by italic W as a 3×1 column vector [4; -2; -2] in tall square brackets with stacked entries. 4) Top-center-right (x≈50–63%, y≈6–16%): red #FF0000 text 'REPEAT using Step η = 1' with 'REPEAT' in capitals. 5) Top-right (x≈63–91%, y≈5–8%): black caption 'Check classes of'. 6) Top-right (x≈66–86%, y≈8–18%): black-on-white table headed Z1 Z2 Z3 with exactly two rows: (0 7 3) and (0 6 2). 7) Top-right (x≈63–91%, y≈18–22%): sentence 'C1 positive, C2 negative, Zero is unaccepted' with 'C1', 'C2' and 'Zero' in red #FF0000 and the remaining words black. 8) Extreme top-right (x≈92–98%, y≈2–8%): yellow #FFFF00 circle with thin black #000000 border containing black number '48'. 9) Mid-left (x≈4–30%, y≈30–33%): black header text 'Ugmented Vectors (from Top)' reproduced verbatim — do NOT correct to 'Augmented'. 10) Mid-left (x≈6–29%, y≈33–51%): matrix headed x1–x6 with rows top to bottom: bias row (1 1 1 1 1 1), (1 2 1 5 6 6), (1 1 2 4 5 6), and red #FF0000 class row 'C1 C1 C1 C2 C2 C2'. 11) Mid-left (x≈7–28%, y≈56–66%): white-filled rectangle with red #FF0000 border containing red #FF0000 all-caps text 'Iteration 1'. 12) Calculation row 1 (x≈33–97%, y≈28–39%): light-blue box, fill #E9F2F9 with thin border #8FB3CC, holding left to right: 'd(x₁) = [1 1 1]·[4; -2; -2] = 0', '⇒', 'Update Weight' in dark red #8B0000, 'W = [4; -2; -2] + 1·[1; 1; 1] = [5; -1; -1]'; the six rows are separate boxes with no shared gridlines, evenly dividing the panel y≈27–97%. 13) Calculation row 2 (x≈33–97%, y≈39–51%): same box style holding 'd(x₂) = [1 2 1]·[5; -1; -1] = 2', '⇒', 'Keep same Weight' (#8B0000), 'W = [5; -1; -1]'. 14) Calculation row 3 (x≈33–97%, y≈51–63%): same style holding 'd(x₃) = [1 1 2]·[5; -1; -1] = 2', '⇒', 'Keep same Weight' (#8B0000), 'W = [5; -1; -1]'. 15) Calculation row 4 (x≈33–97%, y≈63–75%): same style holding 'd(x₄) = [1 5 4]·[5; -1; -1] = -4', '⇒', 'Keep same Weight' (#8B0000), 'W = [5; -1; -1]'. 16) Calculation row 5 (x≈33–97%, y≈75–86%): same style holding 'd(x₅) = [1 6 5]·[5; -1; -1] = -6', '⇒', 'Keep same Weight' (#8B0000), 'W = [5; -1; -1]'. 17) Calculation row 6 (x≈33–97%, y≈86–97%): same style holding 'd(x₆) = [1 6 6]·[5; -1; -1] = -7', '⇒', 'Keep same Weight' (#8B0000), 'W = [5; -1; -1]'. 18) Far right of row 1 (x≈93–97%, y≈30–36%): green #1E8449 double-lined left arrow '⇐' pointing at the row-1 result W=[5; -1; -1]. 19) Near the word 'unaccepted' (x≈70–76%, y≈20–26%): small white mouse-pointer arrow icon (live screen-capture artifact; include only for pixel-faithful reproduction). 20) Global typography pass: italicize variables W, d, x; render x indices as subscripts (x₁…x₆); keep 'REPEAT' and 'Iteration 1' in capitals; render all column vectors with tall square brackets and stacked entries; use no serif fonts anywhere.",
+ "validation": {
+  "verdict": "PASS_WITH_FIXES",
+  "fixes_applied": [
+   "slide_title was null → filled with reconstructed catalog title 'Iteration 1: Weight Update using Step η = 1', composed only from on-slide strings ('Iteration 1', 'REPEAT using Step η = 1', 'Update Weight'); the slide has no title bar, so this string must NOT be drawn on the recreated slide.",
+   "subtitle_or_header was null → filled with the existing on-slide top instruction 'REPEAT using Step η = 1' (the only header-like line); it is placed by step 4 of the brief, not rendered as an extra subtitle.",
+   "layout.arrangement: replaced the paraphrase 'Augmented-vectors matrix' with the verbatim header text 'Ugmented Vectors (from Top)' so the arrangement matches verbatim_text.",
+   "layout.hierarchy: split the former 'Red accents' lump into pure red #FF0000 items (class labels, REPEAT line, Iteration-1 box) and dark-red/maroon #8B0000 action phrases, matching colors and typography_notes.",
+   "recreation_brief: rewritten as a 20-step numbered checklist in which every placement step states exact text, position band, fill/border/text colors, and shape; the six calculation boxes were assigned explicit y-bands (28–39, 39–51, 51–63, 63–75, 75–86, 86–97%) by evenly dividing the stated panel bounds (x≈33–97%, y≈27–97%).",
+   "Precision pass: no vague quantifiers were present; all counts verified exact against the JSON (3 top-band clusters, 6 calculation rows, 8 regions, 7 visual elements, 4 bullets, 26 labels, 8 equations).",
+   "Preserved the extracted spelling 'Ugmented Vectors (from Top)' verbatim in bullets, labels, regions, and brief (apparent truncation of 'Augmented'); flagged rather than silently corrected."
+  ],
+  "uncertain_items": [
+   "'Ugmented Vectors (from Top)' is almost certainly a truncated/misread 'Augmented Vectors (from Top)'; kept verbatim because the JSON is the single source of truth.",
+   "The input data table lists a third numeric row (1 2 2 4 5 6) that is used nowhere else: the augmented matrix contains only a bias row plus two feature rows, and all eight equations use 3-element vectors (bias + 2 features). It is either a genuine unused table row or a misextraction — verify against source frame slide_048.jpg before final render.",
+   "slide_title and subtitle_or_header are reconstructions (the slide shows no title or subtitle); treat them as catalog metadata, not on-slide text.",
+   "All coordinates are approximate percentage bands (≈); exact pixel geometry, font sizes, stroke weights, and box padding are not specified in the source JSON.",
+   "The green arrow is described only as a 'double-lined left arrow (⇐)' in #1E8449; its exact size and line weight are unverifiable from the JSON."
+  ],
+  "recreatability_score_1_to_10": 8
+ },
+ "_meta": {
+  "frame": "slide_048.jpg",
+  "model": "images",
+  "source_timestamps": {
+   "slide": 48,
+   "image": "slide_048.jpg",
+   "kept_frame": "frame_05674.jpg",
+   "start_sec": 5673,
+   "end_sec": 5673,
+   "precuration_slide": 159,
+   "provenance": "founder-curated kept frame",
+   "_reconcile_md5_snapshot": "aaa2e585ea5b8a58de38ab8af7875aa3"
+  },
+  "elapsed_s": 213.8,
+  "validated_by": "glm-5.3",
+  "validation_elapsed_s": 1066.2
+ }
+}

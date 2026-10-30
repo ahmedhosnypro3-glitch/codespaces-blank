@@ -1,0 +1,27 @@
+# Discrepancy Report â Slide 030, graph region (zoomed crop pair)
+
+## Verified as matching (no action)
+- Parabola: same blue curve, same width/vertex position, arms exiting top of crop at matched x-positions. â
+- Red dashed vertical line at x=5, running full height including below the x-axis, matching dash rhythm. â
+- Black horizontal segment at y=10 with three black dots (x=2, 5, 7) â dot positions and segment extent match. â
+- Blue-gray "3" and "3" labels above the segment at xâ3.5 and xâ6.5, same color, same positions. â
+- Red point on the left parabola arm â same position (~left-center of crop), same red fill. â
+- Green point at vertex (5, 1) â same position, same green fill. â
+- Axis ticks and labels: -5, 0, 10, 15 on x-axis; 5, 10, 15 on y-axis â all present, correctly placed. â
+- "(2, 10)" label placement below-left of left dot matches. â
+- "(?, ?)"/"(7, 7)" label at right: IMG2's glyphs are blurred by video compression; the glyph count, spacing, and layout match IMG1's "(7, 7)" exactly. Per ground rule (e), this softness is a capture artifact, not a content discrepancy.
+
+## Discrepancies found
+
+1. **MAJOR â Text color of the "(5, 1)" point label.** In IMG1 (right of the green vertex dot, lower-center of crop, ~(280, 405)) the label is rendered in **green**; in IMG2 the same label is **black/dark gray** like all other point labels ("(2, 10)", "(7, 7)"). Every other data-label in the region is neutral dark ink in both images; this is the only one recolored. Confidence: high.
+
+2. **MAJOR â Text color of the x-axis tick "5".** In IMG1 (bottom of crop, ~(255, 450)) the "5" under the dashed line is rendered **green**; in IMG2 it is **black**, matching the neighboring ticks -5, 0, 10, 15, which are correctly black in both images. This looks like a styling bleed from the "(5, 1)"/green-vertex theme into an axis tick. Confidence: high.
+
+3. **MINOR â Red dashed line weight.** The dashed line in IMG1 reads slightly heavier/more saturated than in IMG2, though IMG2 is softened by compression, so part of this is likely capture artifact. Confidence: low-medium; do not block on this alone.
+
+No wrong digits, no missing ticks, no garbled characters, no delimiter/label-position errors were found. Grid density, panel margins, and red crop-frame strokes match (frame chrome excluded per ground rules).
+
+## Impact assessment
+Both color defects are confined to two short text strings. They do not change any mathematical content, but they are clearly visible at this zoom and break the region's otherwise consistent label-color scheme (all point labels and ticks neutral dark; only points themselves are colored). They are genuine recreation choices, not medium or compression artifacts.
+
+FINAL VERDICT: **FAIL** for 'faithful, usable recreation of this region' â recolor "(5, 1)" and the x-axis tick "5" to black/dark to match the original, then this region passes.

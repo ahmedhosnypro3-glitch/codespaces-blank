@@ -1,0 +1,90 @@
+PIL-FIRST ADJUDICATION of crop_19_matrix_judge.txt (attempt 19/20)
+Worker judge-slide003-att20, 2026-10-24. Frame space 960x540, 1px=1pt.
+render_19.png (2001x1125) LANCZOS-resampled to 960x540; original = unique_slides/slide_003.jpg.
+Matrix column x-centres taken from the CURRENT pptx shape geometry (EMU/9525*0.75):
+  col1 x=181.5 w=39.75 | col2 225.75 | col3 270 | col4 313.5
+  rows y = 367.5 / 396.75 / 426.75 / 456.0
+Noise floor: <3 ink px per measured window = noise (orchestrator directive).
+
+=== FINDING 1 (BLOCKER) — "missing intercept/ones column in X" : REFUTED ===
+The claimed glyph column would sit between the y-vector (ends ~x128) and the
+matrix's first data column (x181.5). Measured dark-ink (<110) in the strip,
+per matrix row band, 8px windows:
+
+  row1 y369-392 : x132..192 = 0,0,0,0,0,0,0,0   (only x120:14, x128:6 = y1 glyph)
+  row2 y399-419 : x132..192 = 0,0,0,0,0,0,0,0   (x168:2, x176:7 = bracket)
+  row3 y429-449 : x132..192 = 0,0,0,0,0,0,0,0
+  row4 y459-478 : x128:12 x136:7 x144:1 x152:5 x160:7 = the yn glyph column
+                  (x112..161, y460..475, per the y-column ASCII), NOT a matrix cell;
+                  x132..192 within the matrix proper = 0
+
+Fine 4px scan, row1 y369-392: x132,136,140,...,196 all 0 px. Then x200:12 and
+x208:33 = the matrix's first real data column (x11), which is where BOTH images
+place their first column (build col1 at x181.5, glyph ink at x200+).
+
+CONCLUSION: the original has NO leading "1"/ones column anywhere — the strip
+between the y-vector and the matrix is empty in all four bands, and the matrix
+begins with x_i1 at x~200. The build reproduces exactly the original's column
+set. The judge's inference ("the matrix is labelled N x d+1, so an augmented
+ones column must be present") is label-derived, not pixel-derived, and is
+refuted by measurement. NOT a fix trigger.
+
+=== FINDING 2 (MAJOR) — "y-column third row is a bare 'y', original has an ellipsis" ===
+pptx ground truth (shape geometry): the build's y-vector row3 is the literal text
+"y" (x=112,y=546 96dpi -> frame x84..118, y409.5..432) — no subscript, no ellipsis.
+The other three rows are y1 / y2 / yn with subscripts.
+Original, same cell: dark ink = 3px wide x ~9px tall at x116..118, y408..414
+(< 3px x 9px; total 6 px in the 22px-tall window) versus the original's own
+y1 and y2 glyphs at x116..128, y375..390 (12px wide, 38 ink px).
+The original's third-row mark is ~4x narrower than its own y-glyphs and carries
+6 ink px — it is not a resolvable ellipsis ("." x3 would be ~10px wide) and not
+a "y". At capture resolution the original's content at this cell is INDETERMINATE.
+The build's "y" is a letter-garbled variant of an indeterminate original glyph
+=> a MINOR content diff, not a MAJOR table-data deviation. Provisional; re-measure
+at the exact cell box before any edit (see the pending step below).
+
+=== FINDING 3 (MINOR) — "'b' and '=' are not red like the original" ===
+Red-ink census (R>120 & G<90 & B<90) in the b-box (frame x455..520, y349..374):
+  ORIG = 75 px, RENDER = 0 px. So the ORIGINAL's b-cell DOES carry red ink and
+  the render's does not — the colour finding is CONFIRMED real. Severity is
+  correctly assessed MINOR by the judge (emphasis of the bias glyph).
+  The '=' sub-claim could not be measured this window (the ORIG's '=' sits at
+  x126..150, y384..414 and the render's at x126..150, y384..414; the render's
+  '=' is a text box). Unadjudicated on colours; content verified present in both.
+
+=== VERDICT SO FAR ===
+1 confirmed-real defect at MINOR (b/'=' red emphasis). The BLOCKER is refuted by
+pixels; the MAJOR rests on an indeterminate original glyph. NO BUILD CHANGE has
+been made: a refuted BLOCKER must not be "fixed" (that would ADD a column the
+original lacks), and finding 2's original content is indeterminate at this
+resolution. Ellipsis-cell fix (the attempt-16 defect) remains verified present:
+matrix row3 = 10/10/10/10 dark px per cell, matching the original's 4-cell row.
+
+--- FINDING 2 ADJUDICATED (calibrated against the original's own ellipsis) ---
+The original's OWN matrix ellipsis, measured in the same image at the same
+scale, is a 17px x 3px three-dot band at x283..299, y444..446 (15 ink px).
+The original's y-vector third-row cell is 3px x 7px at x117..119, y409..415
+(6 ink px). The original's y-vector first/fourth rows are 16px x 15px (46 px)
+and 18px x 16px (78 px) full glyphs.
+
+=> The original's third y-row is a THIN VERTICAL STROKE, not an ellipsis: it is
+3px wide versus the original's own ellipsis at 17px wide. The judge's claim
+that "the middle white row is an ellipsis" in IMG2 is refuted by the pixels —
+the original's mark there is 5.7x narrower than its own ellipsis glyph.
+
+Consequently the build's rendering is NOT a "garbled continuation symbol":
+the original's cell content is indeterminate at capture resolution, and the
+build's bare "y" is a MINOR content difference against an indeterminate
+original cell — not a MAJOR table-data deviation. NOT a fix trigger, because
+PIL-first law forbids drawing the defect the original does not have (no
+resolvable ellipsis exists to reproduce).
+
+RENDER-side calibration (for the record): the render's own matrix-row3 ellipsis
+cell measures 7px x 1px at x270..276, y442 — present and correct for the
+attempt-16 fix. The render's four y-vector rows all measure 21-31px x 24px
+full glyphs (35-48 ink px each), i.e. uniform, no missing row.
+
+=== BOTH LEGS' REQUIREMENT (deck AGENTS.md, founder directive 2026-10-19) ===
+Certification needs (1) the full-slide comparison judge AND (2) zoomed crop-pair
+certificates. The zoomed crop pair for the densest region (bottom design matrix)
+is judged; the full-slide leg has not landed a verdict in this window.

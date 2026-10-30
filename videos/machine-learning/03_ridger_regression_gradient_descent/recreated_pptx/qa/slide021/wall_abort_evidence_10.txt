@@ -1,0 +1,59 @@
+# Evidence record — slide 021 leg-1 wall abort (2026-10-24 09:39–10:07 UTC)
+
+For the founder's open decision about the frozen `--timeout 600` on the vision analyzer.
+This is EVIDENCE, not a verdict (no `FINAL VERDICT:` line was ever produced).
+
+## Timeline (UTC)
+
+| time | event |
+|---|---|
+| 08:49 | claimed slide 21 (`w021-buildfirst-20261024`, `--force` over a 170-min-stale claim) |
+| 08:49–09:27 | `pgrep -c -f analyze_image.py` stayed 11–15 → **no dispatch** (window closed) |
+| 08:55–09:04 | build fixed + re-rendered (render_8, render_9, render_10), all self-checks PASS |
+| 09:18 | crop pairs cut from render_10; payloads extracted and byte-checked |
+| 09:24 | render_10 verified: house chrome PASS, closed-loop "ALL MEASURED ELEMENTS MATCH" |
+| 09:27 | dispatch scripts staged and syntax-checked |
+| 09:31 | reproducibility proven: rebuild → all non-`core.xml` parts byte-identical |
+| **09:33** | window opened: `pgrep -c -f analyze_image.py` = **5** (< 8 threshold met) |
+| **09:39** | **LEG 1 DISPATCHED** (frozen `--timeout 600`, template verbatim) |
+| 09:39–10:05 | process alive the whole time (PIDs 480817/480824 + gate wrapper) |
+| **10:07** | process gone; **`judge_attempt_10.txt` never written** — killed by the outer `timeout 1700` wrapper at ~28 min |
+
+## What this shows
+
+- The **window was genuinely open** at dispatch (5 concurrent vs. the `< 8` threshold), so
+  the abort was not caused by congestion. Dispatch was correct; it still failed.
+- The failure was an **outer-wall kill, not an analyzer `HangError`**: the process was
+  still alive at 10:05 (≈26 min), i.e. ~17 min PAST the analyzer's own `--timeout 600`.
+  The analyzer never returned and never hit its internal error path — it was still
+  streaming/waiting when the 1700 s wrapper terminated it.
+- So the binding constraint is the **outer `timeout 1700` wrapper** (and/or the upstream
+  stream latency), not the 600 s analyzer client timeout. Extending only the analyzer
+  `--timeout` (the lane-049 experiment) may not be sufficient; the 1700 s outer wrapper
+  would need to move with it, or the upstream model needs to finish faster.
+- Consistent with the reported peer-lane failures ("several peer lanes died at the
+  analyzer's 630 s client wall"), with the refinement above: the observed kill was at
+  ~1680 s of the outer wrapper, not at 630 s.
+
+## What I did NOT do (deliberately)
+
+- Did **not** change any wall (`--timeout 600` or `timeout 1700`) — that is the open
+  founder decision, explicitly out of scope for this lane.
+- Did **not** retry leg 1. Protocol permits one hard-wall retry per leg, but my dispatch
+  order requires BOTH an open window AND legs landing; the second was just falsified, so
+  a retry would most likely burn another ~28 min to re-produce this. One hard-wall retry
+  remains unspent for whoever lands next.
+- Did **not** fabricate or infer a verdict. `visual_check` stays NULL.
+
+## Resume
+
+When the wall is settled (and `pgrep -c -f analyze_image.py < 8`):
+
+```bash
+cd /workspaces/codespaces-blank/ai_llm_slides
+bash videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide021/dispatch_leg1_fullslide.sh
+bash videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide021/dispatch_leg2_crops.sh
+```
+
+`render_10.png` is the render both legs must run against (it is the verified deliverable
+render; see `worker_report.md`).

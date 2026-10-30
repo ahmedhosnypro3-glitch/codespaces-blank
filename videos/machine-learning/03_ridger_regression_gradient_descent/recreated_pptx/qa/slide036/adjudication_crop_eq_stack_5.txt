@@ -1,0 +1,74 @@
+# PIL adjudication — crop_2_eq_stack_judge FAIL, re-run on the CURRENT render (render_5)
+
+Procedure B verdict (crop_2_eq_stack_judge.txt): FINAL VERDICT: FAIL —
+1 BLOCKER, 2 MAJOR, 5 MINOR. Pair was cut from render_2; the CURRENT render is
+render_5 (150dpi, 2001x1125, scale 2.0833) built from build/slide_036.js with the
+box-4 baselines shifted -6px (base1 464/491/518 -> 458/485/512). The box-4 shift
+does not touch the box-3 equation region, but every claim below is re-measured on
+render_5 rather than carried over.
+
+Measurement window: frame space 960x540, 1px = 1pt. Scripts + output banked:
+readjudicate_eqstack_5.txt, probe_eqstack_super.txt, probe_eqstack_arrow.txt.
+
+## BLOCKER #1 "term order not preserved: W^T X_i => (W^T X_i) became (W^T X_i)(W=> X_i)" — REFUTED
+Per-group vertical extents, x300..375 (group1) and x440..515 (group2), y355..400,
+thr<175 (identical statistic on both images):
+  ORIG  group1 (371.0, 394.0)   group2 (374.0, 395.0)
+  REND  group1 (372.3, 393.4)   group2 (373.7, 393.4)
+Both images are symmetric: each group's ink starts ~3px ABOVE the main-row top
+(y376) and ends ~4px BELOW the main-row bottom (y390). The above-row ink is the
+raised `^T`; the below-row ink is the subscript `i`. The render's group 2 carries
+BOTH, at the same offsets as the original. If the second `^T` were genuinely
+missing, group2's top would sit at the main row (~376-378) instead of 373.7.
+
+Term order (main-row ink-run census, x250..540, y376..397):
+  ORIG  group1 305..356 | arrow 396..410 | group2 445..498
+  REND  group1 304..369.5 | arrow 384.9..411.3 | group2 472.2..510.2
+Same order in both: group1 -> arrow -> group2. The arrow's right edge (411.3)
+sits 61px BEFORE group2's opening `(` (472.2); in the original it is 35px before
+(410 -> 445). The arrow is outside and preceding group 2's parens in both.
+
+## MAJOR #2 "recreation adds parentheses around the first term" — SETTLED, NOT A DEFECT
+Literally true (render emits the balanced spec form; the original's group1 omits
+the closing `)`). This is finding #6 of adjudication_attempt_2.txt: the spec's
+verbatim equation is `Error = Sum_{...} (W^T X_i) => (W^T X_i) take positive and
+negative values` (balanced), and the verbatim-per-spec law governs the build.
+Do not reopen.
+
+## MAJOR #3 "second group shows (W=> X_i); arrow inside parens; second W missing ^T" — REFUTED
+Covered by BLOCKER #1's measurements: group2's `(` is at x472.2, 61px right of the
+arrow's right edge — the arrow is not inside group 2's parens, and group2's raised
+T is present (ink top 373.7, same offset as the original's 374.0).
+
+Arrow shape (tighter window x384..415, y372..400):
+  ORIG (396.0, 410.0, 380.0, 387.0)  = 14x8
+  REND (384.0, 410.9, 374.4, 389.8)  = 27x16
+The render's double arrow is wider/taller than the original's — same class as the
+settled equation-face MINOR (adjudication_crop_eq_stack_2.txt MINOR #8: the
+equation is a mathtext composite in a sans/upright face vs the original's
+serif/italic). The whole equation's ink band is verified aligned by
+selfcheck_attempt_5 ("EQUATION INK BAND alignment: render (84,369,731,412) vs
+original (84,369,733,413) -> dx=0 dy=0 dw=-2 dh=-1"), so the arrow's extra width
+is absorbed by tighter spacing elsewhere. Styling class, not content.
+
+## MINOR #4 / #5 (Sigma subscript pink marker band, X_i subscript `i` red) — CONFIRMED RESIDUALS
+Carried over from adjudication_crop_eq_stack_2.txt: the original's subscript `i`
+is red (darkest core (148,36,58)) and a soft pink marker band (light-pixel mean
+(252,229,231) vs neutral (252,252,252), R-G ~+20, x~177..300 y~401..413) sits
+behind the Sigma subscript. The build renders both dark. MINOR / medium class per
+judge GROUND RULES (d) (typed-ink colour at 3-4px subscript scale; soft-edged
+marker-class artifact of the same family as the hand-underline finding the judge
+ruled non-reproducible). Recorded residuals, not fix triggers.
+
+## MINOR #6 (heading underline) / #7 (tight ")take") / #8 (sans vs serif face) — per the earlier adjudication
+#6 confirmed as a handwritten-ink medium difference (no action); #7 refuted (the
+phrase is ink-positioned at frame x=507, span 226.2px vs the original's 226px);
+#8 accepted as a font-face styling difference.
+
+## RESULT
+The FAIL's decisive findings (BLOCKER #1, MAJOR #2/#3) are refuted by symmetric
+pixel measurement on the CURRENT render: both W groups carry their raised `^T`
+and subscript, the term order is preserved, and the arrow precedes group 2's
+parens. The only literal deviation (first-term closing paren) is the settled
+verbatim-per-spec law item. MINORs are accepted residuals.
+No build change is warranted by this FAIL.

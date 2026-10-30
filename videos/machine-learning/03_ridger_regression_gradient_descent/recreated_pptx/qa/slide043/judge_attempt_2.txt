@@ -1,0 +1,46 @@
+# Slide 043 Fidelity Check â Recreation (IMG1) vs Original (IMG2)
+
+## Pre-flight (ground rules applied)
+- House chrome (gray E9E9E7 panel, red C00000 strokes on left/right/bottom only, no top stroke, yellow "43" badge at top-right with purple ring): present in both, matches. Not raised.
+- IMG2's mouse cursor near the "Iteration 2" button: video artifact, correctly omitted from recreation. Not raised.
+- Both images are content-bearing; contentlessness rule not triggered.
+- Equations rendered in professional 2D stacked-column format in both images â no format-upgrade conflict.
+
+## Element-by-element comparison
+
+**Header box (blue-bordered, cream fill):**
+- Column headers xââ¦xâ, data rows (1)(2)(1)(5)(6)(6) / (1)(1)(2)(4)(5)(6), class row Câ Câ Câ Câ Câ Câ with correct red/blue coloring â **MATCH**.
+- "Initial **W**= (4, â2, â2)" with underlined bold W, "Step *Î·* = 2" in red italic â **MATCH**.
+- "Check classes of" + zâ zâ zâ with column vectors (0,0), (7,6), (3,2) â **MATCH**.
+- Legend "Câ positive  Câ negative  Zero is unaccepted" with correct red/blue/green coloring â **MATCH**.
+
+**"Ugmented Vectors ( from Top )" box:** title (including the original's "Ugmented" typo â correctly preserved), 6 column vectors (1,1,1)(1,2,1)(1,1,2)(1,5,4)(1,6,5)(1,6,6), class labels colored â **MATCH**, all values verbatim.
+
+**"Iteration 2" red button:** present, white bold text, correct position â **MATCH**.
+
+**Six equation rows (white boxes):**
+
+| Row | a-vector | x-vector | dot | update | result | Arrow | Verdict |
+|---|---|---|---|---|---|---|---|
+| d(xâ) | 1 1 1 (red) | (4,â10,â8) | â14 | + 2*(1,1,1) | (6,â8,â6) | red â | MATCH |
+| d(xâ) | 1 2 1 | (6,â8,â6) | â14 | + 2*(1,2,1) | (8,â4,â4) | â | MATCH |
+| d(xâ) | 1 1 2 | (8,â4,â4) | â4 | + 2*(1,1,2) | (10,â2,0) | â | MATCH |
+| d(xâ) | 1 5 4 (blue) | (10,â2,0) | 0 | â 2*(1,5,4) | (8,â12,â8) | â | MATCH |
+| d(x 1 6 5 (blue) | (8,â12,â8) | â104 | Keep same Weight | (8,â12,â8) | â | MATCH |
+| d(xâ) | 1 6 6 (blue) | (8,â12,â8) | â112 | Keep same Weight | (8,â12,â8) | â | MATCH |
+
+All row vectors are vertically centered within their parentheses; delimiters span full vector height; "â Update Weight / Keep same Weight" and "W =" labels match; red/blue class coloring of the a-vectors matches the original. The odd "â0"/"02" glyph artifacts in IMG2 row 4 are low-resolution capture artifacts; the recreation's clean (10, â2, 0) is the correct rendering.
+
+**Frame containment:** all six equation boxes, the two side boxes, and the badge sit fully inside the gray panel; no ink crosses the red boundary strokes. The bottom row leaves a clear gap above the bottom stroke.
+
+## Discrepancies
+1. **MINOR** â Result-vector "=" hugs the opening parenthesis in the recreation (e.g., "â¦+ 2 * (1,1,1) =(6,â¦"), where the original has a slight space before the result vector. Cosmetic only. Confidence: high.
+2. **MINOR** â Class-marker vertical bar color in row 2 of the recreation reads slightly blue-tinted vs. the original's redder bar (rows are otherwise color-consistent). Low confidence â likely a rendering/anti-aliasing effect at 150 dpi. Confidence: low.
+3. **MINOR** â Subscripts (xââ¦xâ, zâ, Câ/Câ) render slightly smaller/tighter in the recreation than the original's already-tiny subscripts. Legibility is not affected. Confidence: medium.
+
+No MAJOR or BLOCKER defects: no missing elements, no table/data errors, no delimiter-geometry failures, no frame overflows, no line-spacing or vertical-centering deviations beyond the cosmetic notes above.
+
+## Visual-quality defects in the recreation
+- None beyond the minor "=" spacing noted. Text is legible, no clipping, no collisions, no misaligned labels.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

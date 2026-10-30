@@ -1,0 +1,39 @@
+ELEMENT-BY-ELEMENT FIDELITY CHECK (IMG1 recreation vs IMG2 original)
+
+House chrome (panel strokes, badge "48", no top stroke) â treated as intentional per ground rules; not scored. Content containment (rule 5): PASS â the left tables, "Iteration 1" box, and the six right-column equation rows all sit inside the gray panel; the lowest row (d(xâ)) clears the bottom red stroke; nothing crosses the left/right strokes. No empty equation regions (rule 6) and no missing structural rows â the omission list is limited to ink/diagram emphasis (see C, D).
+
+DISCREPANCIES
+
+1) "Check classes" data table â wrong cell value. MAJOR, confidence HIGH.
+- Original: Z1 Z2 Z3 / (0 7 6) / (0 6 2).
+- Recreation: Z1 Z2 Z3 / 0 7 3 / 0 6 2.
+- First row, Z3 column: recreation prints 3, original prints 6. Table data (rule 8).
+
+2) Initial-weight vector and d(xâ) result â misprinted operand and computed value. MAJOR, confidence HIGH for the value, MED-HIGH for the vector glyph.
+- Original: Initial Wáµ = â¨â2, â2, â2â©; d(xâ) = [1 1 1]Â·W = â2 â Update Weight.
+- Recreation: renders the initial W column as â¨4, â2, â2â© and d(xâ) = 0 â Update Weight.
+- Every other printed value in the flowchart matches the original exactly (d(xâ)â¦d(xâ) = â2,â2,â4,â6,â7; all resulting W = â¨5,â1,â1â©), so this is an isolated fidelity break confined to the first/initial step. Note: recreation's "Update Weight" fires on d = 0, which directly contradicts the original's printed logic ("Zero is unaccepted," where d = 0 would not update) â reinforcing that the change is a fidelity error, not just a style choice.
+
+3) Omitted handwritten annotations. MINOR, confidence HIGH.
+- Original marginalia absent from recreation: "Câ positive, Câ negative, Zero is unaccepted" and the "Check classes of" label. Capped at MINOR by rule (d) (typed-vs-handwritten ink); flagged because "Zero is unaccepted" is substantive and interacts with defect #2.
+
+4) Omitted back-arrow. MINOR, confidence MEDIUM.
+- Original shows a green â arrow pointing at the new W = â¨5,â1,â1â© after the Update step; the recreation drops it (it states the result without the return pointer). Small diagram-emphasis element missing.
+
+5) "Initial W" merged into the red heading. MINOR, confidence HIGH.
+- Original: black "Initial W = â¨â¦â©" is a separate statement; "REPEAT using Step Î· = 1" is the red banner. Recreation concatenates/recolors as one red run "Initial W = REPEAT using Step Î· = 1" with the vector beside it. All words present; run-merge and recolor are a layout/style deviation.
+
+6) Column-vector delimiter shape/style. MINOR, confidence MEDIUM (rule-7 borderline).
+- Original uses smooth round parentheses spanning the three rows; recreation renders the W columns with a straight vertical-bar delimiter that visually reads as "|x 5 / x â1 / x â1|" (a non-round glyph plus a stray "x"-like mark per row). The bracket does span all three lines and does not overlap the numerals (rule 7 iâii OK), so the defect is shape/curvature (rule 7 iii) and glyph noise, downgraded to MINOR by the equation-format rule (e).
+
+7) "Iteration 1" / "Augmented Vectors" styling. MINOR, confidence MEDIUM.
+- Recreation "Iteration 1" is a solid red fill with white text; original is a red label/outline. "Augmented Vectors (from Top)" is typed in the recreation vs red handwritten in the original. Medium-difference only (rule d).
+
+VISUAL-QUALITY DEFECTS IN THE RECREATION
+- No overflow, clipping, collisions, or wrapping faults; alignment of labels-to-values and region layout are clean; content is legible.
+- The only legibility concern is the noisy column-vector delimiter noted in #6 (stray "x"-like marks adjacent to the bar). It does not make the numerals unreadable.
+- Equation values, table structure, colors (red C00000 accents, red C-class row), arrows (red â), and the overall two-column layout match the original well.
+
+FINAL VERDICT: FAIL
+
+Rationale: despite correct house chrome, good frame containment, and near-verbatim matching of nearly all numbers and text, the recreation contains two independent MAJOR content defects â a wrong "Check classes" cell (3 vs 6) and a misprinted initial-weight vector / d(xâ) result (â¨4,â2,â2â©, d = 0 vs original â¨â2,â2,â2â©, d = â2) that also inverts the Update-on-nonpositive logic. Per founder directive 2026-10-10, any MAJOR deviation in rendered data/equations vs the original disqualifies a "faithful" recreation.

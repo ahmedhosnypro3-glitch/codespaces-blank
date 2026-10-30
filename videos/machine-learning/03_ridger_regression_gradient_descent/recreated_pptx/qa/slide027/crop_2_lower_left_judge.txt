@@ -1,0 +1,16 @@
+Ground rules applied first; within those, I compared glyph-by-glyph and line-by-line for this crop only.
+
+Content match check (the parts that would be MAJOR/BLOCKER if wrong):
+- First line word: both are âRandomâ â same letters, same capitalization, no garbled/missing glyph (crop xâ0.27â0.78, yâ0.43â0.62).
+- Second line: both are âinitial valueâ â same two words, same lowercase, no missing/garbled characters, no extra letters (crop xâ0.22â0.88, yâ0.66â0.90).
+- No numbers, table cells, fractions/â, or bracket/paren enclosures exist in this region, so none of those defect classes can fire. The only âdelimiterâ present is the short vertical tick at the x-axis left end; in both crops it rises from the axis line with a flat foot and does not overlap the text. The axis line is continuous across the crop in both.
+
+Differences found (with severity/confidence):
+1. Ink medium: IMG1 is typed sans-serif, IMG2 is handwritten lecture ink. This is explicitly an inherent medium difference per rule (c), so it is NOT a defect. If catalogued anyway: MINOR, high confidence that it is expected.
+2. Axis stroke weight/contrast: the x-axis line in IMG1 reads as a heavier, darker stroke; in IMG2 it is lighter and softer. Largely consistent with JPEG capture softness per rule (e), but there is a residual weight/darkness difference. MINOR, low confidence (could be faithful vector vs. photographed ink, or a slight emphasis change worth a look at full-slide scale).
+3. Leading between the two text lines: âRandomâ sits a touch higher relative to âinitial valueâ in IMG1 (baseline gap slightly larger) than in IMG2, where the handwritten lines run tighter). Given rule (c) handwriting variance, this is at most a spacing nuance, not a truncation or overlap: MINOR, low confidence.
+4. Left-edge gray vertical and halo/fringing in IMG2: template stroke per rule (b) plus JPEG halos per rule (e) â NOT a discrepancy (intentional chrome / capture artifact).
+
+No wrong digit, no swapped value, no missing row, no truncated subscript, no delimiter that fails to span its lines. Nothing here rises above MINOR, and the only substantive items are pre-excused medium/capture effects.
+
+FINAL VERDICT: PASS

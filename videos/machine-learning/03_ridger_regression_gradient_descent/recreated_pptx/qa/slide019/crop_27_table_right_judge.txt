@@ -1,0 +1,19 @@
+Discrepancies found in the zoomed crop pair:
+
+1. **Wrong table value in `W` matrix, Î»=3, third band (bottom row group)**  
+   - **Recreation (IMG1):** `0.98`  
+   - **Original (IMG2):** `0.99`  
+   - **Crop-relative location:** left Î»=3 column, third/bottom row group, inside the `W` vector, bottom entry.  
+   - **Severity:** **MAJOR** â a wrong digit in a displayed numeric table.  
+   - **Confidence:** 0.80 â the digit is legible at this scale, though there is a small chance of JPEG ambiguity.
+
+2. **Header text color mismatch: âRidge Regularizer with Î»=3â**  
+   - **Recreation (IMG1):** red/dark-red header text.  
+   - **Original (IMG2):** blue header text.  
+   - **Crop-relative location:** top-left of the region, above the first Î»=3 row group.  
+   - **Severity:** **MINOR** â color-only discrepancy; content and wording are correct.  
+   - **Confidence:** 0.90.
+
+No other discrepancies were found: all row groups are present, all Testâ/Testâ/Testâ values match, all y-row values match, the Î»=10 header and table contents match, subscripts are intact, and the `W` enclosure brackets span the column without touching the text.
+
+FINAL VERDICT: **FAIL**

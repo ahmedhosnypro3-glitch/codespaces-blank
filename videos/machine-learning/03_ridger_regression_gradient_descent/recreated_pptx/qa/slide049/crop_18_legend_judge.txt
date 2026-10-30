@@ -1,0 +1,29 @@
+# Slide 049 â Legend Region Crop-Pair Analysis (attempt 18)
+
+**Region:** single-line class legend "Câ positive Câ negative Zero is unaccepted", with a clipped fragment of the "( âz )" label from the line above at the top edge, and the dark-blue rule below.
+
+## What matches (cell/token by token)
+
+- **Text content â exact match, token by token:** "Câ" / "positive" / "Câ" / "negative" / "Zero" / "is unaccepted". No missing, extra, garbled, or re-ordered words. Both crops show the same clipped "( âz )" fragment at top center and the same blue horizontal rule at the bottom â correct region alignment.
+- **Token colors:**
+  - Câ: red in both (IMG1 â #C00000; IMG2 red, slightly softer due to JPEG â artifact).
+  - Câ: dark navy/blue in both.
+  - "Zero": green in both (IMG2's green is a slightly warmer/darker green, consistent with video-compression bleed; per rule (e), not a content defect).
+  - Remaining words: black in both.
+- **Subscripts:** "1" on Câ and "2" on Câ present, small, lowered, correctly colored (red "1", blue "2") in both.
+- **Bottom rule:** continuous dark-blue stroke spanning full width in both; no breaks.
+
+## Discrepancies
+
+1. **MINOR â Font style: upright sans-serif vs. italic serif.** IMG1 renders the legend in an upright sans-serif face; IMG2 (original) is in an italic serif face ("*Câ positive Câ negative Zero is unaccepted*"). All glyphs, letters, and subscripts are correct; only the typeface/slant differs. Confidence: high. (This is the closest available typeface match for the region; no characters are wrong.)
+2. **MINOR â Inter-token spacing.** IMG2 shows slightly wider gaps between "positive"/"Câ" and around "negative" than IMG1's tighter layout. Word grouping and order are identical; purely a tracking/spacing difference. Confidence: high.
+3. **MINOR â Color saturation of "Zero".** IMG1's green is a bit brighter/more saturated than IMG2's compressed green. Within acceptable tolerance for a capture artifact per rule (e). Confidence: medium.
+
+No BLOCKER or MAJOR defects: no wrong digits, no missing/garbled characters, no broken subscripts, no stroke breaks.
+
+## Per-ground-rule notes
+- Rule (a): same region, matched scale â confirmed by identical clipped "( âz )" fragment and blue rule at matching relative positions.
+- Rule (b): no template chrome visible in this crop; nothing to evaluate.
+- Rule (e): soft edges/color wobble in IMG2 treated as capture artifacts.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

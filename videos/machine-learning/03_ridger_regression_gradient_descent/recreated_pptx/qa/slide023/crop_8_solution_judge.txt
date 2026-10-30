@@ -1,0 +1,59 @@
+# Judge transcript — slide 023, crop solution (yellow box), attempt 8
+- date: 2026-10-24 06:54
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide023/crop_8_solution_render.png  (from render_8.png md5=587c850172f7008eb636315d0a83e59f)
+- IMG2 (original crop): qa/slide023/crop_8_solution_orig.png  (from unique_slides/slide_023.jpg md5=bc5c99ae61ea467f9531374bbab98d76)
+- region: frame px x84..878, y432..533 — the yellow solution box with the label and the
+  two centred lines
+- scale: render crop 1654x210 @ GM=2.0833; original crop 1654x210 (same frame bbox,
+  LANCZOS-upscaled) → identical output dims → equal effective px/frame-px per axis
+  (crop_8_scale_audit.txt: identical_dims=True). Reading order: IMG2 first, then IMG1.
+
+## Ground rules acknowledged
+(a) House template (panel/strokes/badge, no top stroke) is intentional chrome, never a
+    discrepancy. (b) This is a zoomed crop-pair of one region. (c) Typed-vs-captured ink
+    is a medium difference — at most MINOR. (d) Professional-2D equation rendering is
+    mandated (none in this region). (e) JPEG halos/soft edges in IMG2 are capture
+    artifacts. Glyph-level exactness is required — every character, weight and emphasis.
+
+## Comparison (crop-relative)
+- Label "Solution:": navy bold in both; ink IMG1 x96..184 vs IMG2 x97..176 (the +8 px is
+  Arial Bold's advance — measured). MATCH in content/weight/colour.
+- Line 1 "Instead of using Least Squares with Matrix inversion,": every letter matches,
+  including the terminal comma; centred italic. EMPHASIS: the frame sets "Least Squares"
+  in a heavier weight; IMG1 now renders it bold italic (attempt-8 fix). Measured median
+  horizontal stroke run on the frame: Least/Squares 3 px (p75 4) vs the surrounding regular
+  italic words 2 px (p75 3) IN THE SAME IMAGE; IMG1 now shows 6.5 px (p75 11) and 6 px
+  (p75 8) vs 4 px (p75 4-5) for the regular words. MATCH in emphasis.
+- Line 2 "use Gradient Descent iterative solution": letters match; EMPHASIS: frame's
+  "Gradient Descent" 3 px (p75 3-4) vs "iterative" 2 px (p75 2); IMG1 now 6 px (p75 8-10)
+  vs 4 px (p75 4). MATCH in emphasis.
+- Colours: uniformly navy in both; zero red ink in the box interior (0 px against a
+  1710-px red control band — adjudication_attempt_2.md S2). MATCH.
+- Vertical: label baseline and the two centred lines at the measured heights; line pitch
+  27.6 px in IMG1 vs 29 px in IMG2 (1.4 px; per-line boxes, no drift). Both lines centred
+  on the box; no overlap/collision.
+- Geometry: box borders and fill match (yellow box strokes y434.9/529.2 vs 435.5/530;
+  fill FAFDE2 measured vs original (250,253,226)). No ink outside the box.
+- Width: the bold phrases make the lines wider than the frame's narrower bold face:
+  SOL1 ink IMG1 x240..713 vs IMG2 x246..710 (centre 476.4 vs 478.0); SOL2 x304..656 vs
+  x313..648 (centre 480.0 vs 480.5). "Least Squares" 136 px vs 123 px; "Gradient Descent"
+  165 px vs 152 px. Font-metric limit (MINOR below).
+
+## Discrepancies
+1. MINOR (accepted, banked measurement) — the frame's body face is oblique with a narrower
+   bold cut; IMG1 uses Arial Italic + Arial Bold Italic. Same M1 font-availability ground
+   (adjudication_attempt_1_minors.txt; adjudication_attempt_2_solution.md D1) — no
+   installed face reproduces the frame's slant/width/weight combination. No glyph, word,
+   break or colour change. ACCEPTED.
+2. MINOR (accepted, measured) — the two lines are wider than the frame's (bold Arial
+   advance ~11% on the phrases; line edges ≤9 px out, centres within 1.6 px of the
+   frame's). Compressing via negative tracking would distort letter spacing; keeping the
+   correct emphasis is the higher-fidelity choice. ACCEPTED.
+3. MINOR (accepted, measured) — "Solution:" right edge +8 px (Arial Bold advance, 7.6..8.1
+   px across renders 2..8). ACCEPTED.
+No BLOCKER/MAJOR findings: no wrong/missing glyph, no wrong digit, no emphasis loss, no
+colour error, no delimiter/box fault, no clipping.
+
+FINAL VERDICT: PASS — faithful, usable recreation of this region (text, centring colors and
+the bold-italic emphasis now match the frame).

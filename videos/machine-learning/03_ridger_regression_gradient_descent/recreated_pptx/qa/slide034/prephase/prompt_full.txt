@@ -1,0 +1,23 @@
+You are producing a GROUND-TRUTH DESCRIPTION of a lecture-slide frame for a pixel-faithful PowerPoint recreation. This is a description task, NOT a quality judgment: describe ONLY what is actually in the image, with measurements; do not critique, score, or suggest fixes.
+
+The image is a 960x540 px lecture frame; 1 image px = 1 slide point (pt). Report every position/size in image px, origin TOP-LEFT, as (x_left, y_top, x_right, y_bottom) bounding boxes.
+
+For EVERY element report:
+1. Geometry: px bounding box; for lines give endpoints; for arrows give shape + endpoints + apparent rotation.
+2. Verbatim text: transcribe ALL text EXACTLY as printed (capitalization, sub/superscripts, math symbols); unreadable -> [?]; empty cell -> <empty>.
+3. Colors: estimated hex #RRGGBB for every fill, border/stroke, and text run.
+4. Line styles: solid/dashed/dotted; approximate stroke width in px.
+5. Structure: tables -> row/column boundaries (px), each cell's fill hex + verbatim content; plots -> every drawn element with color + px endpoints.
+
+Be exhaustive; this transcription is the sole ground truth a builder will have. Order top-to-bottom, left-to-right.
+
+SLIDE-SPECIFIC QUESTIONS to answer explicitly:
+(a) Title: verbatim text, color runs (hex + px x-span), font size, typeface (serif vs sans-serif).
+(b) The two instruction/subtitle lines under the title: verbatim, color hex each, bold?, px boxes.
+(c) Equation box (upper middle): px box, border color + width, equation content verbatim in plain-text math (e.g. x^4 - 3x^2 + ... as printed with sub/superscripts).
+(d) Small parameter box (3 rows: step size / initial point / similar): px box, border color, each row's fill hex + label verbatim + value verbatim, text colors.
+(e) Function plot upper-right: plot box px + border color; curve color hex + shape (how many valleys; local vs global minimum px positions); EVERY marker/annotation: point dots (count, color, px centers), dashed guide lines (color, endpoints, marked values), arrows (color, px, direction, rotation), text labels (verbatim, color, px).
+(f) Large table lower half: outer px box + border colors per side; column x-boundaries (count ~20 columns incl. label column); row y-boundaries; each row band's fill hex and whether the fill spans the full row; a highlighted cyan/green region — exact x/y extent, which rows/columns it covers, fill hex, border (color? dashed?); any yellow cells (which columns); dark horizontal rules (y + extent); dark vertical lines (x + extent) — if column separators are white/light, say so; the bottom two rows (a 'slope'/'next x' area) fills + borders.
+(g) Any arrows between blocks or decorative shapes: type, colors, px, rotation.
+(h) Corner badge: shape, center px, diameter, fill, outline, numeral, numeral color.
+(i) Any other text/elements (footers, page furniture).

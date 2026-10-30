@@ -1,0 +1,33 @@
+Content check: both crops show the same equation, `50.85Â² = 2585`, inside the same pale-cyan annotation box. No wrong digits, missing symbols, or garbled sub/superscripts are present.
+
+### Discrepancies
+
+1. **Superscript `2` ink color**  
+   - **IMG1:** superscript `2` is black/near-black.  
+   - **IMG2:** the same `2` has a noticeable reddish/maroon tint rather than pure black.  
+   - **Location:** just above/right of the final `5` in `50.85Â²`, roughly the upper-center of the equation.  
+   - **Severity:** MINOR  
+   - **Confidence:** Medium â small-superscript color can shift under video/JPEG capture, but the tint is visually real here.
+
+2. **Spacing around the equals sign**  
+   - **IMG1:** reads as `50.85Â² = 2585`, with clear space before and after `=`.  
+   - **IMG2:** reads more tightly as `50.85Â²= 2585`, with essentially no space before `=` and more space after it.  
+   - **Location:** middleware of the equation, around the equals sign.  
+   - **Severity:** MINOR  
+   - **Confidence:** High
+
+3. **Slight box frame/fill tonal difference**  
+   - **IMG1:** box stroke reads slightly darker blue/indigo; fill appears a little stronger pale-cyan.  
+   - **IMG2:** box stroke reads lighter violet/blue; fill appears marginally paler.  
+   - **Location:** the rectangle perimeter and interior of the annotation box.  
+   - **Severity:** MINOR  
+   - **Confidence:** Low-Medium â likely partly render/artifact subtlety.
+
+### Checked clean
+- Equation content: identical.  
+- Decimal point, digits, exponent, and equals sign: all present and readable.  
+- Box delimiter geometry: the rectangle spans/encloses the whole equation line in both images without touching the glyphs.  
+- Vertical centering: no defect apparent.  
+- No structural equation discrepancy.
+
+FINAL VERDICT: PASS

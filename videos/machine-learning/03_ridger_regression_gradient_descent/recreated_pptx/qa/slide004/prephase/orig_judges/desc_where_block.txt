@@ -1,0 +1,138 @@
+# GROUND-TRUTH EXTRACTION â slide004 where_block (crop 800Ã290 px = 2Ã upscale of slide rect 490..890 Ã 230..375)
+
+Conversion used throughout: slide_x = crop_x/2 + 490, slide_y = crop_y/2 + 230.
+
+---
+
+## 1. LAYOUT MAP
+
+The whole crop is a single framed box ("where block") containing 5 content regions.
+
+| # | Region | Crop px (x0,y0âx1,y1) | Slide space (x0,y0âx1,y1) |
+|---|--------|----------------------|---------------------------|
+| R1 | Red rectangular border (box frame) | (8,8)â(784,281) | (494,234)â(882,370.5) |
+| R2 | Main equation line "Å¶ = X W" | (35,45)â(190,100) | (507.5,252.5)â(585,280) |
+| R3 | Red "Predicted" tag | (365,52)â(535,95) | (672.5,256)â(757.5,277.5) |
+| R4 | Definition line 1: "Where : X_Nxd+1 is a matrix â Given" | (32,108)â(722,152) | (506,284)â(851,306) |
+| R5 | Definition line 2: "Y_Nx1 is labels vector â Given" | (165,158)â(722,205) | (572.5,309)â(851,332.5) |
+| R6 | Definition line 3: "W is Model Parameter â Required" | (148,212)â(762,258) | (564,336)â(871,359) |
+
+Sub-clusters:
+- R2a: "Å¶" glyph + hat + black underline, crop (36,45)â(72,98)
+- R2b: "=" sign, crop (78,60)â(105,90)
+- R2c: blue "X", crop (113,58)â(146,92)
+- R2d: blue "W" + red underline, crop (152,58)â(188,98)
+- R4a: blue "X" + blue subscript "N x d+1", crop (128,112)â(268,150)
+- R5a: blue "Y" + red underline + red subscript "N x 1", crop (166,162)â(258,204)
+- R6a: blue "W" + red underline, crop (148,215)â(190,256)
+- Arrows "â" (three, vertically stacked, right-aligned to each other): crop xâ563â600; line-1 arrow yâ115â140, line-2 arrow yâ168â193, line-3 arrow yâ222â247
+- Right-hand tags "Given / Given / Required" (bold black), crop xâ618â762, on the same baselines as the arrows
+
+Everything is left-aligned content in a wide box; large white gap between "matrix/labels/Parameter" column and the â/tag column at xâ460â560.
+
+---
+
+## 2. VERBATIM TEXT (reading order, with style flags)
+
+Cap heights are in crop px (divide by 2 for slide px). Font is a serif (Times New Romanâlike) throughout.
+
+1. **"Å¶"** â Y with circumflex hat above, black (#1A1A1A), **bold**, cap â30 px; hat sits at yâ45â58. A thin black underline bar runs beneath at yâ94â97, x 36â72.
+2. **"="** â black (#1A1A1A), regular, cap â22 px (glyph height).
+3. **"X"** â blue (#1F1FC8), **bold italic**, cap â30 px.
+4. **"W"** â blue (#1F1FC8), **bold italic**, cap â30 px; red underline bar beneath at yâ94â97, x 152â188.
+5. **"Predicted"** â red (#CC0000), **bold italic**, cap â28 px.
+6. **"Where"** â black (#1A1A1A), *italic*, cap â26 px.
+7. **":"** â black, regular.
+8. **"X"** â blue (#1F1FC8), **bold italic**, cap â26 px.
+9. **"N x d+1"** â subscript of preceding X; blue (#1F1FC8), *italic*, cap â14 px, baseline lowered â15 px below main baseline.
+10. **"is a"** â black, regular, cap â24 px.
+11. **"matrix"** â black, **bold**, cap â24 px.
+12. **"â"** â black, regular (double-shaft rightwards arrow glyph).
+13. **"Given"** â black, **bold**, cap â26 px.
+14. **"Y"** â blue (#1F1FC8), **bold italic**, cap â26 px; red underline bar at yâ197â200, x 168â202.
+15. **"N x 1"** â subscript of preceding Y; **red (#CC0000)**, *italic*, cap â14 px, lowered â14 px below baseline.
+16. **"is labels"** â black, regular, cap â24 px.
+17. **"vector"** â black, **bold**, cap â24 px.
+18. **"â"** â black, regular.
+19. **"Given"** â black, **bold**, cap â26 px.
+20. **"W"** â blue (#1F1FC8), **bold italic**, cap â26 px; red underline bar at yâ252â255, x 150â188.
+21. **"is Model Parameter"** â black, regular (not bold), cap â24 px.
+22. **"â"** â black, regular.
+23. **"Required"** â black, **bold**, cap â26 px.
+
+No other text present. Nothing illegible.
+
+---
+
+## 3. COLORS (JPEG source; Â±10 tolerance)
+
+| Element | Fill | Border/Stroke | Text |
+|---|---|---|---|
+| Box frame | white (#FFFFFF) | red, â#C00000â#CC0000 | â |
+| Box interior | white #FFFFFF | â | â |
+| "Å¶", "=", "is a", "matrix", "is labels", "vector", "is Model Parameter", "â", "Given", "Required" | â | â | near-black #1A1A1A (anti-aliased, could read #000000) |
+| Blue math letters X, W, Y and subscript "N x d+1" | â | â | #1F1FC8 (closest conventional: #2222CC / medium blue) |
+| "Predicted" tag, red underlines, subscript "N x 1" | â | â | #CC0000 (close to #C00000 dark red) |
+| Underline beneath Å¶ in line 1 | â | black #1A1A1A | â |
+
+---
+
+## 4. GEOMETRY MEASUREMENTS
+
+**Box frame (R1):**
+- Outer rect crop (8,8)â(784,281); stroke thickness â3 crop px (â1.5 slide pt) uniform on all four sides.
+- Slide space: rect (494,234)â(882,370.5), i.e. width â388 pt, height â137 pt.
+- Interior padding: â24â28 crop px (â12â14 pt) left, â20 crop px top before first text.
+
+**Text line geometry (baselines, crop px):**
+- Line 1 (equation): baseline yâ90; "Predicted" baseline yâ90 (same line, horizontally at x 365â535).
+- Line 2 ("Whereâ¦Given"): baseline yâ138.
+- Line 3 ("Yâ¦Given"): baseline yâ196.
+- Line 4 ("Wâ¦Required"): baseline yâ250.
+- Inter-line baseline gaps: 48 px, 58 px, 54 px (crop) â 24/29/27 pt.
+
+**Underline bars:** thickness â3 crop px each; sit â5â6 px below baseline.
+- Å¶ underline: (36,94)â(72,97), black.
+- W (line 1) underline: (152,94)â(188,97), red.
+- Y (line 3) underline: (168,197)â(202,200), red.
+- W (line 4) underline: (150,252)â(188,255), red.
+
+**Arrows (â glyphs, not drawn shapes):**
+- All three share the same horizontal band: crop xâ563â600 (slide 771.5â790), width â37 px, height â25 px, vertically centered on each definition line.
+- Vertical spacing between arrow centers: â54 crop px, matching the line pitch.
+
+**Right tag column:** "Given", "Given", "Required" left edges all at crop xâ618 (slide 799); "Required" extends to crop xâ762 (slide 871).
+
+**Subscript geometry:**
+- "N x d+1": starts at crop xâ166 (immediately right of X), top yâ130, cap-height â14 px, baseline â15 px below the parent X baseline.
+- "N x 1": starts at crop xâ205, top yâ182, cap-height â14 px, baseline â14 px below parent Y baseline.
+
+---
+
+## 5. MATH RENDERING
+
+**Line 1 â Å¶ = X W:**
+- Horizontal layout, single row, baseline-aligned: Å¶ (bold serif Y with a circumflex accent centered above the Y apex, accent â14 px wide, sitting â6 px above cap-height line) then spaced "=", then bold-italic blue "X", a wide word-space (â10 px), then bold-italic blue "W".
+- Both Å¶ and this W carry underline bars directly below (see Â§4) â Å¶ black, W red. No fraction bars, no radicals, no brackets on this line.
+- "Predicted" is not part of the equation; it is a separate red italic tag placed on the same baseline far to the right (gap of â175 px between W and "Predicted").
+
+**Line 2 â Where : X_{Nxd+1}:**
+- "X" is bold-italic blue with a baseline-shifted (lowered, reduced-size) italic blue subscript "N x d+1" placed to the lower right, no subscript parentheses. Subscript reads with spaces: "N x d+1" (with a literal "+" between d and 1).
+- No fraction, no bracket; the phrase "is a **matrix**" continues inline on the same baseline.
+
+**Line 3 â Y_{Nx1}:**
+- Bold-italic blue "Y" with a red underline bar beneath, and a lowered red italic subscript "N x 1" at its lower right. Inline continuation "is labels **vector**".
+
+**Line 4 â W:**
+- Bold-italic blue "W" with red underline bar, **no subscript**. Inline continuation "is Model Parameter" in regular weight.
+
+**Arrow glyphs:** all three are the double-stroke implication arrow "â" (two parallel horizontal shafts with a shared triangular head pointing right), rendered as a text glyph, black, â37 px wide, vertically centered on the text line.
+
+**No fractions, radicals, overbars (other than the underlines noted), or large delimiters appear anywhere in the crop.**
+
+---
+
+## EDGE / CUT-OFF NOTES
+
+- The red box border is fully contained within the crop on all four sides (left border at crop xâ8, top at yâ8, bottom at yâ281, right at xâ784); nothing is clipped.
+- All text elements are fully inside the frame; no glyph touches a crop edge.

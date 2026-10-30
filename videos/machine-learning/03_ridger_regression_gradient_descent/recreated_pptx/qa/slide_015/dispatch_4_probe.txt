@@ -1,0 +1,15 @@
+# Probe dispatch — slide 015, attempt 4 (opens the gateway window)
+# Command source: shared_patterns/judge_protocol_03.md Template A probe block.
+# Gate law: a valid body opens the window; a hang means sleep 300 and re-probe ONCE.
+# Gate law: before dispatching, run `pgrep -c -f analyze_image.py`; if it is >= 8
+# do NOT dispatch - heartbeat, sleep 240, re-probe.
+
+REPO=$(git rev-parse --show-toplevel) && cd "$REPO" && scripts/16_vision_gate.sh timeout 150 python3 \
+  .agents/skills/image-analysis/scripts/analyze_image.py analysis \
+  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide_015/render_4.png \
+  --view "Slide 015 recreation attempt 4 — probe" \
+  --capture "150dpi PNG render of a 13.33x7.5in PPTX" \
+  --timeout 120 --rounds 1 --tries 1 \
+  --transcript videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide_015/probe_4.txt
+
+# Transcript: /workspaces/codespaces-blank/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide_015/probe_4.txt

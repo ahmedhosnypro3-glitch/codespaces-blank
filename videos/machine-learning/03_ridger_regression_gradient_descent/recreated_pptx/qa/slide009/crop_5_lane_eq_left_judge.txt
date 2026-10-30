@@ -1,0 +1,48 @@
+# Judge transcript — slide 009, attempt 5 (zoomed crop-pair: eq_left)
+- date: 2026-10-24 06:58
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide009/crop_5_eq_left_render.png
+- IMG2 (original crop): qa/slide009/crop_5_eq_left_orig.png
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- region: frame px 208..325 x 140..183 (LEFT chart annotation box + equation); both crops
+  243x89 px — identical effective scale (original LANCZOS-upscaled to the render crop size;
+  cut_crops_5.txt VERDICT PASS). Render bytes: render_5.png md5=84c8bf3179992d74717fa070f5f8c607.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of one region, same slide-space bbox and same effective scale.
+(b) House template (gray panel, L/R/bottom-only red strokes, badge) intentional — not present
+    in this crop except grid/panel edges.
+(c) Typed-vs-handwritten ink: medium difference, at most MINOR.
+(d) 2D professional equation format is mandated; the square is a raised superscript in both.
+(e) JPEG halos/soft edges in IMG2 are capture artifacts, not content.
+Verdict is for 'faithful, usable recreation of this region'.
+
+## Comparison
+- Glyph string, character by character: '5' '0' '.' '8' '5' ² '=' '2' '5' '8' '5'. Every glyph
+  present and correctly formed in both; no wrong/missing/garbled character. The raised '2'
+  sits on the right shoulder of the second '5' in both, at the same height relationship.
+- Vertical centering: the equation sits inside the box with clear top and bottom padding in
+  both; the render's ink band y157.2..168.2 (frame px) vs the original's y155..167 — 2px lower,
+  fully enclosed (selfcheck_attempt_5.txt §2). No hugging of the border.
+- Horizontal containment: render ink x228.6..312.0 vs original x226..307 inside box
+  x216..317; the last '5' no longer touches the border (attempt-4 defect fixed). Clearance to
+  the border on both sides.
+- Delimiter geometry: closed 1pt navy rectangle, continuous four sides in both; no stroke over
+  the glyphs; fill pale cyan on both (render ECFDF9 vs original median 236,253,249).
+- Fill/ink color: black ink, pale-cyan fill in both. IMG2 carries a faint warm cast on the
+  superscript from JPEG; not a color defect (see MINOR).
+- Line separation / wrap: single line, no wrap in either.
+
+## Discrepancies
+1. [MINOR] '=' sidebearing — IMG2 reads '50.85²= 2585' (no gap before '='), IMG1 '50.85² = 2585'
+   (balanced gap). Confidence high. PIL adjudication: total ink width 82px in both (82 vs 83.4
+   at the AA envelope) and the glyph inventory is identical — the operator's sidebearing is
+   redistributed within the same measured width. Not a content/containment defect. MATCHING.
+2. [MINOR] Superscript tint in IMG2 (reddish) vs pure black in IMG1 — JPEG desaturation of a
+   1px-thin glyph; measured ink core and glyph shape identical. MATCHING (capture artifact,
+   ground rule (e)).
+
+## Visual-quality defects
+- None: no clipping, no overlap with the box border, no garbled glyphs, legible at zoom.
+
+FINAL VERDICT: PASS

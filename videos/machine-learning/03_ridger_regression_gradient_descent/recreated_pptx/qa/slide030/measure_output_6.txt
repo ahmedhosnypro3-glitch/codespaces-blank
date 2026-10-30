@@ -1,0 +1,37 @@
+== slide 030 measurement (w030-finish) ==
+render 2001x1125  SX=2.0844 SY=2.0833   orig 960x540
+
+== 1. ink census (ink px, frame-px equivalent) ==
+  dark   render=  5753  orig=  8763  ratio=0.66
+  red    render=  6392  orig= 14030  ratio=0.46
+  green  render=  3224  orig=  7288  ratio=0.44
+  blue   render=  5726  orig= 17646  ratio=0.32
+  purple render= 29544  orig= 24838  ratio=1.19
+  navy   render=  4724  orig=  4006  ratio=1.18
+
+== 2. region bboxes (frame px) render vs orig ==
+  title          render=(np.float64(57.6), np.float64(64.3), np.float64(599.2), np.float64(99.4))  orig=(np.float64(113.7), np.float64(54.7), np.float64(432.3), np.float64(99.4))  delta=(-56.1,+9.6) dsize=(+223.0,-9.6)
+  param_table    render=(np.float64(102.2), np.float64(198.2), np.float64(237.0), np.float64(281.3))  orig=(np.float64(89.7), np.float64(186.7), np.float64(259.1), np.float64(254.4))  delta=(+12.5,+11.5) dsize=(-34.6,+15.4)
+  upper_eq_box   render=(np.float64(398.2), np.float64(184.3), np.float64(530.1), np.float64(212.2))  orig=None  (missing on one side)
+  green_box      render=(np.float64(346.9), np.float64(232.8), np.float64(554.1), np.float64(281.3))  orig=(np.float64(431.8), np.float64(257.8), np.float64(432.7), np.float64(258.7))  delta=(-84.9,-25.0) dsize=(+206.3,+47.6)
+  callout        render=(np.float64(333.9), np.float64(291.4), np.float64(569.0), np.float64(320.2))  orig=None  (missing on one side)
+  plot_frame     render=(np.float64(570.9), np.float64(64.3), np.float64(809.8), np.float64(311.0))  orig=None  (missing on one side)
+  arrow          render=(np.float64(169.8), np.float64(304.8), np.float64(190.9), np.float64(347.0))  orig=None  (missing on one side)
+  iter_table     render=(np.float64(76.8), np.float64(324.0), np.float64(653.9), np.float64(530.4))  orig=None  (missing on one side)
+
+== 3. parabola: one smooth arc + vertex/arms ==
+  render parabola: 175 sampled cols, x span 641.3..733.4 (frame px)
+  render vertex ~ x=641.3 y=66.7 frame px
+  render second-difference ripple: max|d2|=912.000 mean|d2|=57.156 (smooth arc -> ~2*UY_per_unit^2)
+  render topmost ink y=66.7 (plot top 65)
+  orig parabola: x span 642..734  top y=70  bottom y=251
+  orig vertex-ish: min y at x=643
+
+== 4. iteration table structure ==
+  render navy-stroke cols with >35% height: 9  rows with >35% width: 8
+  orig   navy-stroke cols with >35% height: 3  rows with >35% width: 4
+
+== 5. house panel containment ==
+  content ink outside panel: left=0 right=0 above=0 below=3128 (0 expected for left/right/above)
+
+MEASUREMENT DONE

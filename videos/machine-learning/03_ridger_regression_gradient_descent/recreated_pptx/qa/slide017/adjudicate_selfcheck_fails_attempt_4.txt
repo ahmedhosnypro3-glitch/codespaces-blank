@@ -1,0 +1,50 @@
+render_4 2001x1125  S=2.083333   orig 960x540
+
+########## F1 / F2: title ink groups ##########
+  red   CHECKER REPLICA (gap 14 local px; badge included): orig 2 grp [(178, 278), (380, 724)] | rend 5 grp [(176.2, 276.6), (380.7, 541.5), (550.6, 577.5), (587.1, 630.8), (642.3, 726.3)]
+  red   SYMMETRIC (gap 14 FRAME px both sides; badge excluded): orig [(178, 278), (380, 724)] | rend [(176.2, 276.6), (380.7, 726.3)]
+  -> REFUTED: identical word runs within 4 frame px
+  blue  CHECKER REPLICA (gap 14 local px; badge included): orig 2 grp [(289, 369), (746, 866)] | rend 2 grp [(289.5, 369.2), (745.5, 879.9)]
+  blue  SYMMETRIC (gap 14 FRAME px both sides; badge excluded): orig [(289, 369), (746, 850)] | rend [(289.5, 369.2), (745.5, 849.7)]
+  -> REFUTED: identical word runs within 4 frame px
+
+########## F3/F4/F5: test-table bottom gridline (orig vs render, matched scale) ##########
+  band 1: expected bottom border at frame y=251
+    orig   rose D7BEC2 full-width rows (>80% of 213 cols): [(126.4, 204), (141.3, 174), (141.8, 201), (156.2, 199), (170.6, 200), (171.1, 194), (186.0, 204)]
+    render rose D7BEC2 full-width rows (>80% of 443 cols): [(127.9, 427), (128.4, 427), (159.6, 427), (160.0, 427), (189.8, 427), (190.3, 427), (220.5, 427), (221.0, 427), (251.7, 427), (252.2, 427)]
+    orig  border-row colour @x690 y=251 : [224 208 209]
+    rend  border-row colour @x690 y=251 : [215 190 194]
+    -> border PRESENT in the render at the measured original position (frame y 251.9 vs 251)
+  band 2: expected bottom border at frame y=389
+    orig   rose D7BEC2 full-width rows (>80% of 213 cols): [(264.4, 203), (264.9, 201), (279.3, 197), (279.8, 199), (293.7, 201), (294.2, 198), (324.0, 201)]
+    render rose D7BEC2 full-width rows (>80% of 443 cols): [(265.9, 427), (266.4, 427), (298.0, 427), (298.5, 427), (327.8, 427), (328.3, 427), (359.0, 427), (359.5, 427), (389.7, 427), (390.2, 427), (390.7, 427)]
+    orig  border-row colour @x690 y=389 : [230 214 215]
+    rend  border-row colour @x690 y=389 : [215 190 194]
+    -> border PRESENT in the render at the measured original position (frame y 389.9 vs 389)
+  band 3: expected bottom border at frame y=527
+    orig   rose D7BEC2 full-width rows (>80% of 213 cols): [(401.9, 205), (402.4, 204), (417.3, 196), (431.7, 198), (432.2, 179), (446.1, 201), (446.6, 202)]
+    render rose D7BEC2 full-width rows (>80% of 443 cols): [(402.4, 427), (402.9, 427), (403.4, 427), (434.6, 427), (435.0, 427), (464.8, 427), (465.3, 427), (495.5, 427), (496.0, 427), (526.7, 427), (527.2, 427)]
+    orig  border-row colour @x690 y=527 : [233 221 224]
+    rend  border-row colour @x690 y=527 : [215 190 194]
+    -> border PRESENT in the render at the measured original position (frame y 527.9 vs 527)
+
+########## F6: ink left of the left stroke (x<56) ##########
+  render non-white px left of x56: 4124 ; panel-gray E9E9E7: 4124 ; OTHER ink: 0
+  orig non-white px left of x56: 1480 (the original's own panel/canvas margin)
+  -> REFUTED: zero other ink (panel E9E9E7 starts at x54)
+
+########## SUPPORT: mint y-row fills, all three bands ##########
+  B1 cell1: orig [254 255 253]  rend [255 255 255]
+  B1 cell2: orig [202 255 224]  rend [204 255 225]
+  B1 cell3: orig [201 255 226]  rend [204 255 225]
+  B1 cell4: orig [202 255 221]  rend [204 255 225]
+  B2 cell1: orig [254 255 253]  rend [255 255 255]
+  B2 cell2: orig [204 255 222]  rend [204 255 225]
+  B2 cell3: orig [201 255 226]  rend [204 255 225]
+  B2 cell4: orig [203 255 221]  rend [204 255 225]
+  B3 cell1: orig [255 254 253]  rend [255 255 255]
+  B3 cell2: orig [204 255 221]  rend [204 255 225]
+  B3 cell3: orig [201 255 226]  rend [204 255 225]
+  B3 cell4: orig [203 255 222]  rend [204 255 225]
+
+ADJUDICATION COMPLETE: F1..F6 all refuted as CHECKER artifacts (no build change).

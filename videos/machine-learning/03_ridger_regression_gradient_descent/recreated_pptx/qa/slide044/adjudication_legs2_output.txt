@@ -1,0 +1,27 @@
+render_2 2001x1125 scale=2.0844 | orig 960x540
+
+== calc-area background medians (orig white ~254; v1 grey 233 was DEFECT, render_2 must be ~255) ==
+[orig] y150=(254, 255, 253) y250=(254, 255, 253) y420=(254, 255, 253) y500=(255, 255, 255)
+[render_2] y150=(255, 255, 255) y250=(255, 255, 255) y420=(255, 255, 255) y500=(255, 255, 255)
+
+== per-band equation ink extents in calc area (render narrower on right = ground-rule (e) 2D format) ==
+[orig] b1:x288..833  b2:x287..821  b3:x287..811  b4:x284..759  b5:x284..764  b6:x284..765
+[render_2] b1:x288..769  b2:x288..753  b3:x288..754  b4:x288..559  b5:x284..618  b6:x284..591
+
+== 'Check classes of' black ink (typed-vs-handwritten; <=3px y-shift = MINOR (d)) ==
+[orig] {'x0': 500, 'x1': 581, 'y0': 80, 'y1': 87, 'ink': 137}
+[render_2] {'x0': 499, 'x1': 591, 'y0': 82, 'y1': 91, 'ink': 288}
+
+== class rule line extent (orig x508 vs render x492) ==
+[orig] {'x0': 240, 'x1': 508, 'y0': 111, 'y1': 123, 'ink': 661}
+[render_2] {'x0': 240, 'x1': 491, 'y0': 110, 'y1': 121, 'ink': 746}
+
+== Initial-W bracket stack (orig y62..100 vs render y56..102) ==
+[orig] {'x0': 330, 'x1': 353, 'y0': 55, 'y1': 101, 'ink': 134}
+[render_2] {'x0': 328, 'x1': 353, 'y0': 53, 'y1': 102, 'ink': 249}
+
+== red 'Iteration 3' badge (red block + white glyph ink inside) ==
+[orig] red bbox x4..131 y3..29 px=2229 | white-glyph x16..115 y8..21 px=143
+[render_2] red bbox x2..131 y2..29 px=3285 | white-glyph x0..98 y11..27 px=162
+
+done

@@ -1,0 +1,118 @@
+2026-10-24T19:13:50Z  w005-attempt9-resume-20261024 local verification
+## fresh LO render identity (scratch/tmp/w005_attempt9_fresh/slide-1.png vs render_9.png)
+sizes (2001, 1125) (2001, 1125)
+md5 e962303d3db76119175c4242062e0db2 e962303d3db76119175c4242062e0db2
+pixels_identical True
+## DB
+{
+ "slide_id": 5,
+ "image_path": "unique_slides/slide_005.jpg",
+ "title": "Minimization of Loss function to obtain BEST model parameters",
+ "analysis_status": "ok",
+ "analysis_attempts": 0,
+ "validation_status": "ready",
+ "validation_verdict": "PASS_WITH_FIXES",
+ "recreatability_score": 9,
+ "validation_attempts": 0,
+ "gen_status": "building",
+ "pptx_path": "videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/slide_005_recreated.pptx",
+ "build_script": null,
+ "visual_check": null,
+ "visual_attempts": 0,
+ "visual_transcript": null,
+ "last_error": null,
+ "updated_at": "2026-10-24T18:00:18",
+ "worker_id": "w005-attempt9-resume-20261024",
+ "worker_heartbeat_at": "2026-10-24T19:07:30",
+ "depends_on": null,
+ "pattern_group": null,
+ "pattern_seq": null
+}
+## payload byte-fidelity
+[A] judge_prompt_9.txt          bytes_match=True  got=4115B exp=4115B
+[B] crop_prompt_9_blue_upper bytes_match=True  got=1914B exp=1914B
+[B] crop_prompt_9_eq_stack   bytes_match=True  got=1914B exp=1914B
+[B] crop_prompt_9_lower_eqs  bytes_match=True  got=1914B exp=1914B
+[B] crop_prompt_9_pink_band  bytes_match=True  got=1914B exp=1914B
+RESULT: ALL PAYLOADS BYTE-FAITHFUL
+## crop currency + effective scale
+render_9 (2001, 1125)  md5 e962303d3db7
+original (960, 540)
+
+eq_stack   render_dims=(1172, 386) banked=(1172, 386) render_md5_match=True orig_md5_match=True eff_scale=2.0854x2.0865
+blue_upper render_dims=(479, 243) banked=(479, 243) render_md5_match=True orig_md5_match=True eff_scale=2.0826x2.0769
+pink_band  render_dims=(938, 146) banked=(938, 146) render_md5_match=True orig_md5_match=True eff_scale=2.0844x2.0857
+lower_eqs  render_dims=(1743, 375) banked=(1743, 375) render_md5_match=True orig_md5_match=True eff_scale=2.0849x2.0833
+
+RESULT: ALL 4 PAIRS CURRENT + SCALE-MATCHED
+## house chrome
+HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present, top bare; badge center (1824,152) d=68; all within tol 8)
+## md5s
+58de0cb2c39c5ef004e60d9f000a48a9  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/slide_005_recreated.pptx
+01bcb967f29e502e99e80925aa320599  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/slide005/render_9.png
+6a65b1f67c4e30a27929281f02c1a214  videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/slide_005.js
+## prejudge selfcheck
+# slide 005 FINAL selfcheck (attempt 8) — render_9.png 2001x1125 (150dpi) vs slide_005.jpg 960x540
+# sx = 2.084375  sy = 2.083333 render px/frame px ; TOL 8 frame px
+# build: recreated_pptx/slide_005_recreated.pptx md5 58de0cb2c39c5ef004e60d9f000a48a9 (getbest containment fix; eq5 band reverted)
+
+== CHECK 3: EQUATIONS/TEXT EXIST (ink present in every region on the RENDER) ==
+  eq1        ink present
+  eq2        ink present
+  eq3        ink present
+  eq4        ink present
+  eq5        ink present
+  pinkfrac   ink present
+  rem1       ink present
+  rem2       ink present
+  green      ink present
+  title      ink present
+  rememberU  ink present
+  rememberL  ink present
+  getbest    ink present
+  => 0 empty regions: []
+
+== INK-BAND DELTAS vs the ORIGINAL ==
+  eq1        dx0=+1.35 dy0=+0.48 dx1=-0.47 dy1=+0.24 worst=1.35 <=TOL
+  eq2        dx0=+0.39 dy0=-0.68 dx1=-0.07 dy1=+0.56 worst=0.68 <=TOL
+  eq3        dx0=+1.35 dy0=+0.44 dx1=-0.54 dy1=+0.20 worst=1.35 <=TOL
+  eq4        dx0=+0.91 dy0=-0.60 dx1=-0.02 dy1=-2.40 worst=2.40 <=TOL
+  eq5        dx0=-0.53 dy0=+0.36 dx1=+0.08 dy1=-1.44 worst=1.44 <=TOL
+  pinkfrac   dx0=+0.68 dy0=+0.76 dx1=+0.56 dy1=-0.08 worst=0.76 <=TOL
+  rem1       dx0=-0.98 dy0=-0.24 dx1=-0.36 dy1=+2.04 worst=2.04 <=TOL
+  rem2       dx0=-0.65 dy0=-0.32 dx1=+0.68 dy1=+0.88 worst=0.88 <=TOL
+  green      dx0=-0.19 dy0=-0.40 dx1=-0.44 dy1=-0.16 worst=0.44 <=TOL
+  title      dx0=+1.12 dy0=+1.12 dx1=-0.56 dy1=-2.60 worst=2.60 <=TOL
+  rememberU  dx0=+1.74 dy0=+1.24 dx1=-1.78 dy1=-3.64 worst=3.64 <=TOL
+  rememberL  dx0=-0.65 dy0=-1.08 dx1=-0.93 dy1=+2.68 worst=2.68 <=TOL
+  getbest    dx0=+0.70 dy0=+0.24 dx1=-0.09 dy1=-2.32 worst=2.32 <=TOL
+  WORST ink-band deviation = 3.64 frame px (TOL 8)
+
+== CHECK 2: HOUSE-FRAME CONTAINMENT ==
+  left of left stroke (x<58)       0 px OK
+  right of right stroke (x>902)    0 px OK
+  above panel top (y<44)           0 px OK
+  below bottom stroke (y>539.5)    0 px OK
+  => total house-frame overflow px: 0
+
+== CHECK 2b: PER-BOX CONTAINMENT (element ink stays inside its box border) ==
+  cream_upper   border L71.5 R892.4 T101.3 B277.9 | ink x97.4..882.8 y108.5..271.2  INSIDE OK
+  blue_upper    border L675.0 R882.8 T133.4 B239.0 | ink x679.8..872.2 y138.2..235.2  INSIDE OK
+  pink          border L72.4 R506.6 T287.5 B344.2 | ink x78.7..499.9 y293.8..338.4  INSIDE OK
+  cream_lower   border L71.5 R892.4 T357.6 B523.2 | ink x95.5..879.4 y371.5..502.6  INSIDE OK
+  blue_lower    border L655.4 R872.7 T371.5 B422.9 | ink x660.1..866.9 y376.3..420.0  INSIDE OK
+  green_outline border L687.0 R879.4 T463.7 B499.2 | ink x689.9..877.0 y466.1..496.8  INSIDE OK
+  => boxes with content ink outside their border: []
+
+== CHECK 4: DELIMITER GEOMETRY (stacked-fraction horizontal bars present) ==
+  pinkfrac  densest row y+318.7 fp: 142 ink px of 195 cols (73%) -> fraction bar PRESENT
+  eq1       densest row y+128.1 fp: 223 ink px of 964 cols (23%) -> fraction bar PRESENT
+  eq2       densest row y+183.2 fp: 105 ink px of 1141 cols (9%) -> fraction bar PRESENT
+  eq3       densest row y+240.2 fp: 82 ink px of 918 cols (9%) -> fraction bar PRESENT
+  eq4       densest row y+389.1 fp: 176 ink px of 1064 cols (17%) -> fraction bar PRESENT
+  eq5       densest row y+474.1 fp: 193 ink px of 1243 cols (16%) -> fraction bar PRESENT
+
+== CHECK 8: LINE SPACING ==
+  every textbox in build/slide_005.js sets explicit lineSpacing (17.4/18/14/12 pt) -> OK
+
+OVERALL SELFCHECK attempt 8: PASS

@@ -1,0 +1,32 @@
+# Judge transcript — slide 046, attempt 4, region stopbox (zoomed crop-pair, Procedure B)
+- date: 2026-10-24 07:02
+- method: direct harness image reads (owner directive 2026-10-24); Read tool, ORIGINAL crop first then RENDER crop; no vision gateway
+- IMG_ORIG:    recreated_pptx/qa/slide046/crop_4_stopbox_orig.png    md5=a8900d77261e210483981573f240f3f8
+- IMG_RENDER:  recreated_pptx/qa/slide046/crop_4_stopbox_render.png  md5=8a530d2d55675e6ca45dfdc64660eb8d
+- region (frame px, +padding): x56..253, y270..425 — the solid-red "Iteration 4" callout and the pink "No change in W / Stop Iterations" callout
+- scale audit: render crop 410x323 px for 197x155 frame px = 2.0812 / 2.0839; original resized LANCZOS to 410x323 = 2.0812 / 2.0839 — MATCH per axis (crop_4_scale_audit.json)
+- render md5 header: render_4.png md5=a68b112d2d0866b77cc59ca82ff6378b (current bytes)
+
+## Ground rules acknowledged
+(a) ZOOMED CROP-PAIR, same region/effective scale.
+(b) House chrome (white canvas, gray E9E9E7 panel, C00000 left/right/bottom strokes only — no top stroke; badge) is intentional, never a discrepancy.
+(c) Typed-vs-handwritten at most MINOR.
+(d) Professional 2D equation rendering is mandatory.
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison (crop-relative)
+- "Iteration 4" box: solid saturated-red rectangle at the same coordinates and size in BOTH (frame x84..213, y278..304; measured interior (192,0,0) = deck C00000). No border in either. MATCH.
+- "Iteration 4" text: white bold, centred, same words; white-ink bbox render 209x32 crop px vs original 212x32 (Δ3 px in width, 0 in height) — same cap height and tracking. MATCH.
+- Stop box: light-pink fill (measured 249,215,216 = #F9D7D8) with a thin red border at the same rectangle (frame x64..245, y331..415) in BOTH. MATCH.
+- Line 1 "No change in W": black, with the W in bold italic and underlined — BOTH; same words, same line, same relative position (render ink 78.5..217.2 frame px vs frame 78..216). MATCH.
+- Line 2 "Stop Iterations": "Stop" in red bold italic + "Iterations" in black italic — BOTH reproduce the frame's two-colour split exactly (not all-red, not all-black); same order and spacing (render 84.4..208.7 vs frame 85..208). MATCH.
+- Two-line banding: line 1 and line 2 are separate, non-overlapping bands in BOTH with the same pitch (frame 350..370 then 375..394; render 350.9..369.1 then 377.3..394.6). MATCH.
+- No ink outside either box; no clipping; no collision.
+
+## Discrepancies
+1. MINOR (font style) the original's "No change in W / Stop Iterations / Iteration 4" are serif faces; the render uses the deck's Arial (all 17 certified deck-03 slides). Same weight pattern (bold/italic split), same sizes (measured above), same positions. Deck-consistent style. DISMISSED (deck mechanism precedent + measurement).
+2. MINOR (crispness) render glyph edges are crisper than the JPEG-fuzzed original; no shape or size difference beyond 1 px. DISMISSED (ground rule e).
+
+No BLOCKER, no MAJOR: both callouts, their fills, borders, both lines and all words match the frame.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

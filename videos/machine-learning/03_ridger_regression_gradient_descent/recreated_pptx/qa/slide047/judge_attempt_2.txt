@@ -1,0 +1,19 @@
+## Element-by-element comparison (IMG1 recreation vs IMG2 original)
+
+**Matches (no action):** Slide badge "47" (position/color/numeral correct); house panel with L/R/bottom strokes and correctly NO top stroke; gray panel; red "Step Î· = 2"; Initial W = [4; â2; â2]; "Check classes of" mini-table Z rows (0)(7)(3)/(0)(6)(2); all three d(Z) boxes present with correct values (14, â14, â2), arrows, class labels/colors; red "Check Classes" button; video cursor correctly omitted; equations use 2D stacked format (per directive â not a defect).
+
+**Discrepancies:**
+
+1. **Augmented Vectors table â duplicated rows.** IMG2 shows 3 vector rows: (1 1 1 1 1 1), (1 2 1 5 6 6), (1 1 2 4 5 6). IMG1 shows **5 rows** â rows 2 and 3 are duplicated. Severity: **BLOCKER** (table structure/data), confidence: high.
+2. **Augmented Vectors class row â wrong cell values.** IMG2: `Câ Câ Câ Câ Câ Câ`. IMG1: `Câ Câ Câ Câ Câ Câ`. The class assignment differs per column. Severity: **BLOCKER** (table data), confidence: high.
+3. **"Augmented" rendered as "Ugmented."** Leading "A" absent in IMG1, consistent with the title's first letter being clipped at the left border of its inner frame. Severity: **MAJOR if clipping (frame-containment), MINOR if only a missing glyph** â text fidelity either way. Confidence: high.
+4. **Missing space:** IMG1 "Cânegative" vs IMG2 "Câ negative". Severity: **MINOR**, confidence: high.
+5. **Line-break/wrapping differences:** IMG1 wraps "â Positive > 0" and "â Negative < 0" onto two lines; IMG2 has them on one line. Also "Augmented Vectors (from Top)" wraps to two lines in IMG1. Severity: **MINOR**, confidence: high.
+6. **Stylistic deviations:** uppercase `Xâ..Xâ` with blue header vs lowercase black `xâ..xâ` in IMG2; result boxes narrower than original leaving empty panel space at right; d(Z) column vectors use parentheses vs original square brackets; box backgrounds white vs original's light blue tint. Severity: **MINOR** each, confidence: medium.
+7. **Possible color deviation:** top-left C-row in IMG1 appears uniformly blue; IMG2 has Câ in red, Câ in blue (per its own legend). Severity: **MINOR**, confidence: lowâmedium.
+
+**Visual-quality defects in recreation:** clipped/missing initial letter of the block title; augmented-vector block taller than original due to duplicated rows (content still inside its border); no other overflow/collision detected â right boxes and top band sit fully within the panel.
+
+**Note:** No elements are entirely absent and no equation region renders empty, so there are no missing-element BLOCKERs.
+
+FINAL VERDICT: **FAIL** â the central "Augmented Vectors" table is materially wrong (duplicated rows, incorrect class labels), which makes this an unfaithful and misleading recreation despite correct chrome, equations, and d(Z) derivations.

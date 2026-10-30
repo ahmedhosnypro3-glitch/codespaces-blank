@@ -1,0 +1,18 @@
+VISION OUTAGE LOG — slide 024, worker w4-s024-20261020T185618
+Coordinator ruling (2026-10-20): the Nvidia vision upstream is in a confirmed
+outage window; dispatches that die with NO transcript do NOT consume the
+6-attempt budget; storm sleeps are 10-15 min.
+
+  1) probe attempt 1 (2026-10-20T19:55) — client printed its info header and
+     exited with NO transcript written. Log: probe_1_runlog.txt (run 1).
+  2) probe attempt 2 (2026-10-20T20:0x) — outer wall killed it: REAL_EXIT=124
+     (hang). Same log file (overwritten with the unmasked run): it holds
+     "REAL_EXIT=124" — the pid lines differ per run.
+     => probe HANG, no winner body, no transcript => NO attempt consumed.
+
+Static sanity while dead: /v1/models answers and lists `images`, so the router
+lane is up; the upstream combo behind `images` (nvidia/ising-calibration) is what
+is timing out — consistent with the fleet-wide reports.
+
+Per protocol: "A hang means sleep 300 and re-probe ONCE." Per the coordinator's
+storm rule, stretches are 10-15 min — using the longer of the two.

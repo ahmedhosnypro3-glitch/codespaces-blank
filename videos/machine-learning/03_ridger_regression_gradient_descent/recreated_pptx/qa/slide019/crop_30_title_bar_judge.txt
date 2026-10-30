@@ -1,0 +1,32 @@
+# Discrepancy Report â Slide 019, title-bar crop (column headers, top rule)
+
+## Region context
+Crop covers the thin navy top rule (yâ0â5), the top of the "Outlier" column header (left, xâ10â130), the "NO Regularizer with (as if Î»=0)" column header (center, xâ140â670), and the truncated "Ridge Reguâ¦l" column header (right, xâ690â880), plus the tops of the framed boxes below each header.
+
+## Findings
+
+1. **MAJOR â Font family and style mismatch across ALL column headers.**
+The original (IMG2) renders every header in an italic *serif* face (Times-like): "Outlier", "NO Regularizer with", "(as if Î»=0)", "Ridge Reguâ¦". The recreation (IMG1) renders all of them in an upright **bold sans-serif** (Arial/Calibri-like) with no italics. This affects every glyph in the region: the serif feet on "N", "R", "g", the italic slant, the single-story serif "a" vs. sans double-story "a" â all differ. Located center of crop (header text at yâ45â75) and left/right headers. Confidence: HIGH. This is not covered by the house-template carve-out (template chrome â  content typography) and not a medium/typed-vs-handwritten difference.
+
+2. **MAJOR â Red segment "(as if Î»=0)" loses italic and changes glyph construction.**
+In IMG2 the red run is italic serif with a proper serif Î» and enlarged delimiters; in IMG1 it is upright bold sans with a sans Î». At crop center-right of the middle header (xâ460â650, yâ45â75). Confidence: HIGH. (Subsumes finding 1 but called out because the red run is the visually dominant color element.)
+
+3. **MINOR â Parenthesis geometry.**
+IMG2 uses tall parentheses that extend above the cap-height and below the baseline of "as if Î»=0"; IMG1 uses normal-height parens that only just enclose the line. Content still fully enclosed (no text touching the delimiters), so this is a styling deviation, not a span failure. Confidence: MEDIUM-HIGH.
+
+4. **MINOR â Header blue shade.**
+IMG1's navy ("NO Regularizer with", "Ridge Reg") is a darker, more violet navy; IMG2's is a brighter royal blue. Small but visible at this zoom. Confidence: MEDIUM.
+
+5. **MINOR â Left panel fill.**
+The "Outlier" panel background is white in IMG1 but pale cream/yellow in IMG2 (the middle column's yellow fill appears to extend behind the left header in the original). Confidence: MEDIUM.
+
+6. **MINOR â Font weight.**
+Recreation headers are noticeably heavier (bold) than the original's medium-weight italic serif, partly independent of finding 1. Confidence: HIGH.
+
+## Content check (correct in both)
+- Text content is verbatim correct in both: "Outlier" + partially visible "Î»" below (bottom-left, cut by crop in both), "NO Regularizer with (as if Î»=0)", truncated "Ridge Reg(uâ¦)" at right crop edge in both. No wrong, missing, or garbled characters.
+- Top navy rule present and continuous in both; thin red vertical stroke at far left present in both (template chrome, not a discrepancy).
+- Column panel fills and framed-box top edges below the headers align positionally between the two crops.
+
+## FINAL VERDICT: FAIL
+The text content, colors, and layout are faithful, but the entire header typography is wrong: the original's italic serif headers are recreated as upright bold sans-serif, which changes every glyph shape in this crop. That single pervasive defect (findings 1â2) prevents a PASS for a faithful recreation of this region, even though the region remains readable and usable.

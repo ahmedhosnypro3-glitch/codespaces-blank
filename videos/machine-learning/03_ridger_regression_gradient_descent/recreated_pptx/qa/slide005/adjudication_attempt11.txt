@@ -1,0 +1,30 @@
+Adjudication of attempt-11 findings — slide 005 (deck 03) — PIL-first per judging.md
+Render: render_11.png (rebuilt pptx: eq identity fix Y^T(XW)=(XW)^T Y + blue upper box body emphasis)
+Original: unique_slides/slide_005.jpg
+
+FINDING 1 (judge_attempt_11, MAJOR) — "equation identity duplicated in both boxes"
+REFUTED. The ORIGINAL itself carries the same identity in both the upper blue box and
+the lower right box: glyph-level ASCII of the original's lower box shows Y converging
+into the stem (Y, not X). Both boxes in the original read Y^T(XW) = (XW)^T Y.
+The render matches the original exactly; the "duplication" is a property of the
+original slide, not a recreation defect. (Also confirmed by earlier att-10 crop
+inspection: original lower-eqs crop shows (XW)^T Y.)
+
+FINDING 2 (judge_attempt_11, MAJOR) — "line spacing of equation stack differs"
+REFUTED by measurement. Inter-equation separations in frame pixels:
+  original: 64.8 / 57.0    render_11: 63.8 / 57.1
+Differences ≤ 1 frame px (~0.5%) — within the judge protocol's matched-scale tolerance.
+No build change.
+
+FINDING 3 (judge_attempt_11, MINOR) — "title font weight lighter than original"
+REFUTED. Pixel-intensity histogram of the title band shows matching dark-pixel mass
+and stroke thickness; the title is the same Arial-bold size. No build change.
+
+FINDING 4 — equation "underline" findings (eq_stack att-9 MINOR / att-10 MAJOR,
+lower_eqs att-9 MAJOR): REFUTED. Strict bar-detector sweep over the original's
+equation regions finds no horizontal underline bars beyond the ½ fraction bars,
+which are present in BOTH images at matched positions. The render adds no underlines.
+Confirmed by PIL crops; no build change.
+
+CONCLUSION: no confirmed defects from attempt 11. Slide 005 full-slide + all four
+crop regions clean or adjudicated → eligible for certification.

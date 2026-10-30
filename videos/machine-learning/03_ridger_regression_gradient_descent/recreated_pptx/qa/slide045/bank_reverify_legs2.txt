@@ -1,0 +1,53 @@
+RE-VERIFICATION OF THE BANK — slide 045, worker-fresh-045-legs2, 2026-10-24 11:4x-11:5x UTC
+=========================================================================================
+(Deep-read verification before any judge dispatch. Independent of the prior lanes.)
+
+1. RENDER CURRENCY — 4-way md5 proof
+   - fresh independent re-render this run: scratch/tmp/045legs2/ (LO -> PDF -> 150dpi)
+         scratch/tmp/045legs2/fresh-1.png              = c41a7a11c8f8976bbfc31cadef99c0b1
+   - banked renders (unchanged):
+         recreated_pptx/qa/slide045/render_1.png        = c41a7a11c8f8976bbfc31cadef99c0b1
+         recreated_pptx/qa/slide045/verify2/r150-1.png  = c41a7a11c8f8976bbfc31cadef99c0b1
+         prior lane's fresh render (banked proof txt)   = c41a7a11c8f8976bbfc31cadef99c0b1
+   => render_1.png IS the render of the current recreated_pptx/slide_045_recreated.pptx
+      (md5 08cbfccce7c1be5b809e615051b799b9, 218373 B). The LO pipeline is deterministic
+      for this build. No rebuild, no re-render required.
+
+2. BUILD CURRENCY
+   - recreated_pptx/build/slide_045.js        md5 9ca5e8eb04cbd3ccd3442888104f63d8
+   - recreated_pptx/qa/slide045/build_attempt_2.js  md5 9ca5e8eb04cbd3ccd3442888104f63d8
+   => identical; the shipped build matches the last attempt-2 source.
+
+3. HOUSE CHROME CHECK on render_1.png (shared_patterns/house_chrome_check.py):
+   HOUSE CHROME CHECK: PASS (panel x 112-1882, y 94-bottom; strokes L/R/bottom present,
+   top bare; badge center (1824,152) d=68; all within tol 8)
+   = frame px panel x54..903 y45..540, badge (876,73) d~32.6. PASS.
+
+4. CROP PAIRS — all six reproduced byte-identically from render_1.png this run
+   (scratch/tmp/045legs2_cropcheck.py; region defs unchanged from build_crops_r2.py):
+   calcs     frame x266..861 y131..536 (595x405) -> 1240x844 | scale r=2.08403 o=2.08403 | both match
+   toppanel  frame x60..727  y46..137  (667x91)  -> 1390x189 | scale r=2.08396 o=2.08396 | both match
+   augtable  frame x62..254  y132..263 (192x131) ->  400x273 | scale r=2.08333 o=2.08333 | both match
+   Matched effective scale confirmed on BOTH axes for all three regions.
+
+5. PAYLOAD LEGALITY — re-derived byte-for-byte from the frozen protocol
+   (scratch/tmp/045legs_payload_check.py; substitutions ONLY NNN=045, K=1):
+   judge_prompt_1.txt            len=4115 md5=9387f5fbb94ef05a31db19f1e018dde1  IDENTICAL
+   crop_prompt_1_r2_calcs.txt    len=1914 md5=62e9518fbf738468ec888321543ed3ac  IDENTICAL
+   crop_prompt_1_r2_toppanel.txt len=1914 md5=62e9518fbf738468ec888321543ed3ac  IDENTICAL
+   crop_prompt_1_r2_augtable.txt len=1914 md5=62e9518fbf738468ec888321543ed3ac  IDENTICAL
+   No leftover placeholders. The three crop payloads are byte-identical BY DESIGN:
+   NAME and the region description live only in --view / --capture, never in -p.
+   Character check: no double quote, backslash, backtick or $ -> -p "$(cat FILE)"
+   delivers them verbatim.
+
+6. NOMENCLATURE (carried forward, confirmed again this run)
+   - render_6.png is slide 047/049's banked render; it does NOT exist for slide 045.
+     The currency-correct render for slide 045 is render_1.png.
+   - The worker report lives at recreated_pptx/qa/slide045/worker_report_legs_on.md.
+   - The Procedure B pairs carry the _r2 suffix at scale 2.0833-2.0840.
+
+7. ORIGINAL FRAME: unique_slides/slide_045.jpg, 960x540, 59104 B (present).
+
+VERDICT ON THE BANK: NO rebuild, NO re-render, NO crop re-cut, NO payload change.
+The only outstanding work is the two judge legs.

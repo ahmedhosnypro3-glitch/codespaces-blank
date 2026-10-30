@@ -1,0 +1,25 @@
+## Comparison of the augmented-vectors region (slide 049, crop-relative coordinates)
+
+### Content verification (value-by-value)
+- **Title:** "Ugmented Vectors ( from Top )" â identical text including the "Ugmented" spelling, present in both. â
+- **Headers:** xâ xâ xâ xâ xâ with subscripts â present and correct in both, six columns. â
+- **Vector values (row-by-row):**
+  - xâ = (1,1,1) â; xâ = (1,2,1) â; xâ = (1,1,2) â; xâ = (1,5,4) â; x1,6,5) â; xâ = (1,6,6) â â all 18 digits match.
+- **Class tags:** C1/C1/C1 in red, C2/C2/C2 in dark navy â colors and assignments correct in both. â
+- **Alignment:** columns evenly spaced, rows vertically centered within delimiters, delimiters span all three rows without touching text in both images. â
+
+### Discrepancies
+
+1. **Delimiter shape â square brackets vs parentheses** (delimiters throughout the vector block, e.g. crop-relative xâ60â100, 115â150, etc.): The original uses tall round **parentheses** (â¦ ) around each 3-row vector; the recreation uses **square brackets** [â¦]. Both span all three rows cleanly, but the delimiter glyph type itself is wrong. Per the ground rules a delimiter that fails to match the enclosed structure is a serious defect; here the geometry is correct but the shape is not. **Severity: MAJOR. Confidence: high.**
+
+2. **Class tags missing subscript** (bottom row of the block, yâ185â205): The original renders the class labels as **Câ** and **Câ** with a genuine subscript digit; the recreation renders them as flat **"C1" / "C2"** with full-size, baseline digits. A truncated/dropped subscript is explicitly listed as MAJOR-to-BLOCKER. **Severity: MAJOR. Confidence: high.**
+
+3. **Title styling** (top of region, yâ25â45): Original title is italic with a handwritten/serif look and a darker indigo hue; recreation is upright sans-serif violet. Typed-vs-handwritten is a mandated MINOR, but the italic/slant loss is a small styling difference beyond the medium itself. **Severity: MINOR. Confidence: medium.**
+
+4. **Header weight/size** (yâ55â75): Recreation's xââ¦xâ headers are noticeably heavier (bold) and slightly larger relative to the columns than the original's lighter italic headers. **Severity: MINOR. Confidence: medium.**
+
+### Notes
+- No wrong/missing digits, no swapped table values, no missing rows, no delimiter touching or under-spanning, no stroke breaks â the numerical content is fully faithful.
+- Rule (d) format upgrade does not apply here (no equations in this region); rule (b) chrome not visible in this crop.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region" â driven by the two MAJOR items: wrong delimiter glyph type (brackets instead of parentheses) and the missing subscripts in the Câ/Câ class tags. Both are fixable cosmetic/typographic changes; the underlying data is 100% correct.

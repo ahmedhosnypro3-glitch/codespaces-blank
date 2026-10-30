@@ -1,0 +1,74 @@
+render 2001x1125  scale=2.0844   original 960x540
+
+=== 1. FRAME CONTAINMENT ===
+  chart-area ink bbox (frame px): x89..857 y127..508
+  inside chart frame x90..858 y127..508: OK
+  ink above the house panel (y<45 frame): 0 px
+
+=== 5. LABEL BANDS (no ink outside intended band) ===
+  title band (150, 55, 760, 115): ink px=18441
+  heading L band (230, 182, 390, 205): ink px=2743
+  heading R band (580, 182, 730, 205): ink px=2652
+  Loss L band (100, 205, 155, 240): ink px=217
+  Loss R band (455, 205, 505, 240): ink px=201
+  xlabel L band (330, 445, 460, 470): ink px=1554
+  xlabel R band (670, 445, 805, 470): ink px=1505
+
+=== 2/3/4. EQUATIONS / DELIMITERS / TABLES ===
+  slide 028 has no equation, delimiter or table region (analysis JSON: equations [],
+  visual_elements = graphs + highlight-box only) -> checked as NOT APPLICABLE, not skipped.
+
+=== A. LEFT PANEL descent markers ===
+  hollow circles found: 12
+    ( 178.5, 250.4) ring=1.00 nearest-original=0.8px
+    ( 194.8, 287.4) ring=1.00 nearest-original=0.7px
+    ( 217.8, 342.5) ring=0.71 nearest-original=6.8px
+    ( 219.7, 348.8) ring=1.00 nearest-original=0.3px
+    ( 223.1, 354.1) ring=0.71 nearest-original=5.9px
+    ( 236.0, 386.7) ring=0.71 nearest-original=7.9px
+    ( 238.4, 393.4) ring=1.00 nearest-original=0.8px
+    ( 242.8, 399.6) ring=0.67 nearest-original=6.8px
+    ( 246.6, 412.6) ring=1.00 nearest-original=0.6px
+    ( 252.4, 416.9) ring=0.67 nearest-original=6.6px
+    ( 261.5, 435.6) ring=1.00 nearest-original=0.7px
+    ( 282.6, 439.5) ring=1.00 nearest-original=0.7px
+    want (179,251): nearest render circle 0.8px -> OK
+    want (195,288): nearest render circle 0.7px -> OK
+    want (220,349): nearest render circle 0.3px -> OK
+    want (239,394): nearest render circle 0.8px -> OK
+    want (247,413): nearest render circle 0.6px -> OK
+    want (262,436): nearest render circle 0.7px -> OK
+    want (283,440): nearest render circle 0.7px -> OK
+  filled saturated discs in the LEFT panel: 0 (original: 0)
+  hollow markers on the left panel's right arm (x>290): 0 (original: 0)
+
+=== B. RIGHT PANEL markers + connector topology ===
+  saturated discs: 4
+    ( 561.5, 314.6) area=97
+    ( 592.5, 394.6) area=98
+    ( 682.4, 350.6) area=97
+    ( 709.4, 283.6) area=98
+    want (562,315): nearest render disc 0.6px -> OK
+    want (593,395): nearest render disc 0.7px -> OK
+    want (683,351): nearest render disc 0.7px -> OK
+    want (710,284): nearest render disc 0.7px -> OK
+  connector chords (render_8, original's measured truth in brackets):
+    A-C: 1.00 mean=(181, 199, 201)  expected present -> OK
+    A-D: 1.00 mean=(184, 201, 203)  expected present -> OK
+    B-C: 1.00 mean=(180, 198, 199)  expected present -> OK
+    A-B: 0.00 mean=None  expected absent -> OK
+    B-D: 0.01 mean=(204, 216, 218)  expected absent -> OK
+
+=== C. CURVE RIPPLE (rendered stroke vs analytic quartic) ===
+  LEFT: columns 219, worst cyan ink distance from quartic = 3.3 frame px
+  RIGHT: columns 220, worst cyan ink distance from quartic = 0.2 frame px
+
+=== D. TEXT INK BBOXES (render_8 vs measured original) ===
+  title: render x186..691 y73..101 core=(160, 0, 16) | original x189..690 y72..101 | max edge delta 3px
+  headL: render x239..372 y187..200 core=(43, 45, 42) | original x239..374 y187..200 | max edge delta 2px
+  LossL: render x119..155 y216..228 core=(51, 51, 51) | original x122..154 y216..230 | max edge delta 3px
+  xlabL: render x367..454 y448..458 core=(51, 51, 51) | original x367..453 y448..460 | max edge delta 2px
+  xlabR: render x711..798 y450..460 core=(51, 51, 51) | original x707..797 y450..462 | max edge delta 4px
+
+=== RESULT ===
+SELF-CHECK PASS — containment, marker sets, connector topology, ripple, text boxes all within tolerance

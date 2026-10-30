@@ -1,0 +1,18 @@
+Comparison of the zoomed crop-pair shows the recreation reproduces the title string exactly at the glyph level.
+
+**Discrepancies found:**
+
+| # | Severity | Confidence | Location in crop (approx.) | Description |
+|---|----------|------------|----------------------------|-------------|
+| 1 | MINOR | High | Whole line, most visible on thick stems (e.g. the âDâ in âDimensionâ and the bracket at far-left) | Text-color hue differs slightly: IMG1 (recreation) renders in a brighter, more saturated primary red, whereas IMG2 (original) shows a marginally deeper/darker crimson-red. This is a small tonal variance, not a structural defect. |
+
+**Checks performed with no discrepancies detected**
+
+- **Character sequence / content:** `[3] Inverse of High Dimension` matches exactly. No wrong, missing, garbled, or duplicated glyphs.
+- **Bracket/delimiter geometry:** The opening `[` and closing `]` are correct square brackets; they span the â3â with normal clearance and do not collide with the surrounding glyphs or baseline.
+- **Glyph shapes:** `I`, `n`, `v`, `e`, `r`, `s`, `o`, `f`, `H`, `i`, `g`, `h`, `D`, `i`, `m`, `n`, `s`, `i`, `o`, `n` all have correct topology in both images (e.g. the `e` aperture is fully open, the `s` has the correct spine direction, the `m` has the correct low vertex).
+- **Baseline & vertical alignment:** All print sits on a single shared baseline in both images.
+- **Stroke continuity / weight:** Vector strokes in IMG1 are continuous; IMG2 strokes are continuous though softened by capture/upscaling artifacts. No broken, tapered, or doubled strokes were observed, and apparent weight is comparable at matched scale.
+- **No tables, equations, subscripts, or stacked fractions** appear in this text-only title region, so those criteria are not applicable here.
+
+**FINAL VERDICT:** PASS

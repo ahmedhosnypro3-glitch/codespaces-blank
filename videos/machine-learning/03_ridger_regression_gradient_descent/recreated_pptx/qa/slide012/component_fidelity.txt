@@ -1,0 +1,37 @@
+
+== 1. fresh equal-command renders ==
+cert render  (1280, 720)
+probe render (1280, 720)
+
+== 2. pixel diff (identical command, identical raster path) ==
+same geometry: True
+pixels differing        : 0 of 921600
+pixels differing >8     : 0
+max channel delta       : 0
+PIXEL-IDENTICAL: True
+
+== 3. container member diff ==
+members 39 / 39, same names: True
+  differs: docProps/core.xml
+container diff limited to metadata + shape ORDER: True
+
+== 4. shape geometry multiset ==
+cert   sp=24 pic=0
+probe  sp=24 pic=0
+same xfrm multiset (same shapes, same boxes): True
+  cert xfrms=24 probe xfrms=24
+
+== 5. skip / only / numeral hooks ==
+  (full, default)            sp=24 pic=0 gf=4  OK
+  only:{chrome}              sp= 6 pic=0 gf=0  OK
+  skip:{title,labels}        sp=14 pic=0 gf=4  OK
+  only:{chrome,trainTable}   sp= 6 pic=0 gf=1  OK
+  only:{testBlock}           sp= 2 pic=0 gf=1  OK
+  numeral override 42        sp=24 pic=0 gf=4  OK
+
+== VERDICT ==
+pixel-identical to certified deliverable : True
+container diff = metadata + shape order  : True
+same xfrm multiset (order-only)          : True
+skip/only/numeral hooks gate correctly    : True
+COMPONENT FIDELITY: PASS

@@ -1,0 +1,53 @@
+# Judge transcript — slide 009, attempt 5 (zoomed crop-pair: chart_right)
+- date: 2026-10-24 07:05
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1 (render crop): qa/slide009/crop_5_chart_right_render.png
+- IMG2 (original crop): qa/slide009/crop_5_chart_right_orig.png
+- read order: IMG2 (original) FIRST, then IMG1 (render)
+- region: frame px 478..878 x 102..480 (whole RIGHT scatter chart incl. its annotation group);
+  both crops 834x787 px — identical effective scale (cut_crops_5.txt VERDICT PASS). Render
+  bytes: render_5.png md5=84c8bf3179992d74717fa070f5f8c607.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair, same region/effective scale. (b) House chrome intentional.
+(c) Typed-vs-handwritten ink at most MINOR. (d) Equation clause N/A (box corner only).
+(e) JPEG halos in IMG2 are capture artifacts.
+
+## Comparison
+- Panel frame/grid: navy 1pt border x486.5..871.5 y107..474 (measured 12px wider than the LEFT
+  panel in the frame and reproduced so), white interior, 16x16 grid. Match.
+- Axes: red y-axis at x540 with head at (540,143..151); x-axis at y434 with head tip x848.
+  Match.
+- Blue fitted line: (555,387)->(849,247); original pixel fit slope -0.4819 spans (556,388)-
+  (848,249) — endpoints within 1px, same angle. Match.
+- Orange points: 12 in both (PIL census of render_5 after the downscale: 610,144 / 809,248 /
+  834,255 / 737,290 / 793,302 / 655,327 / 741,331 / 707,333 / 673,333 / 601,355 / 646,362 /
+  589,380 — identical to the original's measured centroids). No missing/extra point.
+- Dimension line + arrowhead: pale-rose 1pt line from the top outlier to the fitted line,
+  ending in a solid red head; render head bbox (670.4,315.2)-(681.4,331.5) vs frame
+  (676,316)-(682,324), tip on the line in both. Match.
+- Rotated label '63.64 mm': red, ~-68 deg, reading bottom-to-top along the dimension line;
+  render ink bbox (625.0,213.9)-(648.9,259.5) vs frame (623,210)-(650,265) — within 2.5px per
+  edge. Match.
+- Callout arrow at the outlier: pale-rose leader + solid red head below-left of the point;
+  render (599.3,144.2)-(606.0,151.0) vs frame (600,145)-(606,154). Match.
+- Residual connectors: light-periwinkle dashed lines from the points to their perpendicular
+  feet; 6/6 sampled long paths bear dash ink at the frame's positions; short residuals (<9px)
+  carry none, as on the frame. Match.
+- Equation box corner: pale-cyan fill, navy border, text fully inside (eq_right crop PASS).
+- Frame containment: all ink inside the navy frame; no element touches the panel border.
+
+## Discrepancies
+1. [MINOR] Residual-connector dash pitch (frame 1px dots, render coarser dash) — same paths/
+   endpoints/colour family; sub-fidelity-floor medium artifact (selfcheck §3). MATCHING.
+2. [MINOR] Rotated-label weight/hue (render bold C00000 vs frame's thin dark-red hand ink) —
+   bbox within 2.5px per edge, same string and rotation. MATCHING.
+3. [MINOR] Dimension-line saturation (render ECBA C4 vs frame core ~(240,190,200)) — same rose
+   family; thin-stroke JPEG desaturation on the frame. MATCHING.
+4. [MINOR] '=' sidebearing in the equation box (frame tight, render balanced) — same ink width
+   (82px) and glyph inventory; text inside the box (eq_right leg). MATCHING.
+
+## Visual-quality defects
+- None: no stray marks, no collisions, no clipping, no illegible text.
+
+FINAL VERDICT: PASS

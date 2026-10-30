@@ -1,0 +1,36 @@
+Coordinates below are approximate crop-relative percentages, with origin at top-left of the crop. The bottom rule is treated as intentional template chrome, and JPEG halos/soft edges in IMG2 are ignored.
+
+### Discrepancies
+
+1. **`C1` subscript missing / not subscripted â MAJOR, high confidence**  
+   Location: left part of the legend line, roughly xâ7â15%, yâ35â70%.  
+   IMG1 renders it as upright `C1` with the digit `1` on the normal baseline and at full text size. IMG2 renders `Câ` with a reduced, lowered subscript digit. This is a real subscript-format mismatch in a token label.
+
+2. **`C2` subscript missing / not subscripted â MAJOR, high confidence**  
+   Location: middle-left of the legend line, roughly xâ33â42%, yâ35â70%.  
+   IMG1 renders upright `C2` with the `2` baseline-aligned with `C`. IMG2 renders `Câ` with a proper lowered, smaller subscript digit.
+
+3. **Glyph style/typeface mismatch â MINOR, high confidence**  
+   Location: across the legend line.  
+   IMG1 uses an upright sans-serif letterform for the text. IMG2 uses a serif/italic-looking typographic style. All letters, numbers, and words are still present in the correct order and readable, so this is styling rather than content loss.
+
+4. **`Zero` token styling/color differs slightly â MINOR, medium confidence**  
+   Location: roughly xâ58â72%, yâ35â70%.  
+   The green semantic color is preserved, but IMG1âs `Zero` appears slightly lighter/yellow-green and upright, while IMG2âs `Zero` is a somewhat deeper green and more italic/serif in shape. The compression in IMG2 may exaggerate this.
+
+5. **`C1` red appears slightly more saturated in the render â MINOR, medium confidence**  
+   Location: same `C1` token as above.  
+   IMG1 reads as a brighter/high-intensity red; IMG2 appears slightly darker/muted, though video capture and color shift may contribute. The semantic color class is still correct.
+
+### Boundary note / outside the requested single-line region
+
+At the very top of the crop there is a cut-off adjacent line fragment: IMG1 appears to show `|-2|`, while IMG2 appears to show `(-2)`. Since the stated region is only the single-line class legend, I am not scoring that fragment in the final verdict. If it were included, the absolute-value-bar vs parentheses difference would be a **BLOCKER/high confidence** equation-delimiter mismatch.
+
+### Region-specific non-discrepancies
+
+- The wording is complete and correctly ordered: `positive`, `negative`, `is`, `unaccepted`.
+- The semantic colors for `C1`, `C2`, and `Zero` are correct in kind.
+- No missing row, no missing word, no extra character, and no garbled glyph were found in the legend line itself.
+- The bottom rule position does not create a text-clipping issue.
+
+FINAL VERDICT: FAIL

@@ -1,0 +1,30 @@
+# Slide 019 â table_right region crop-pair review (attempt 18)
+
+## Cell-by-cell value audit
+
+**Î»=3, band A:** W=(0.1, 1.95, 0.03), âWâÂ²=3.8; xâ row 30/40/50; xâ row 15/20/25; y row 59/78.7/98.4 â **match**.
+**Î»=3, band B:** W=(1.2, 0.72, **0.7**), âWâÂ²=2.45; y row 34.1/45.1/56.1 â third vector entry differs (see D1).
+**Î»=3, band C:** W=(1.77, 0.32, 0.98), âWâÂ²=4.2; y row 26.2/34.4/42.5 â **match**.
+**Î»=10, band A:** W=(0.13, 1.87, 0.09), âWâÂ²=3.5; y row 57.4/76.5/95.6 â **match**.
+**Î»=10, band B:** W=(0.54, 0.73, 0.81), âWâÂ²=1.48; y row 34.6/46/57.4 â **match**.
+**Î»=10, band C:** W=(0.82, 0.33, **1.07**), âWâÂ²=1.92; y row 26.8/35.4/44.1 â third vector entry differs (see D2).
+Headers Test1/Test2/Test3, row labels xâ/xâ/y: all present in both, correct order.
+
+## Discrepancy list
+
+**D1 â MAJOR (confidence 0.4): band B of Î»=3, wâ entry (lower-left of region, middle white equation box, third line inside parens).** IMG1 reads "0.7"; IMG2 reads "0.77". However, the stated âWâÂ²=2.45 is consistent with 0.7 (1.2Â²+0.72Â²+0.7Â²=2.448â2.45) and inconsistent with 0.77 (â2.55), so the extra "7" in IMG2 may be a compression/moirÃ© artifact of the upscaled video frame. If IMG2 genuinely reads 0.77, this is a BLOCKER-level wrong vector value.
+
+**D2 â MAJOR (confidence 0.35): band C of Î»=10, wâ entry (lower-right of region, third white equation box, third line).** IMG1 reads "1.07"; IMG2 appears to read "1.1". Again the stated âWâÂ²=1.92 corroborates 1.07 (0.82Â²+0.33Â²+1.07Â²=1.926â1.92) and contradicts 1.1 (â1.99), so IMG2's rendering is likely just a lossy "1.07". If IMG2 truly reads 1.1, this is a BLOCKER-level wrong value.
+
+**D3 â MAJOR (confidence 0.6): equation box / arrow overlaps the table's left column (all six table groups, e.g. crop-relative xâ130â190 in band A left table).** In IMG1 the white W-box is wider relative to the table and the blue arrow is drawn on top of the xâ row; the row labels xâ, xâ, y sit tight against the box edge and appear partially clipped/overlapped. In IMG2 there is clear whitespace between box, arrow, and table, and all row labels are fully visible. Overlap that can obscure cell content is a layout defect, not just spacing.
+
+**D4 â MINOR (confidence 0.5): header subscript styling.** IMG2 renders "Testâ Testâ Testâ" with true subscript digits; IMG1's "Test1/Test2/Test3" digits read at essentially full size/baseline. Same information, minor typographic downgrade.
+
+**D5 â MINOR (confidence 0.3): norm-label color/weight.** In IMG2 the "âWâÂ²=â¦" line reads slightly gray/soft; IMG1 renders it in solid black. Most likely a video-capture artifact per ground rule (e), noted only for completeness.
+
+All other numbers, headers, y-row band shading, big-paren delimiters (span all three entries, no touching), "W =" labels, blue arrows, and title lines ("Ridge Regularizer with Î»=3 / Î»=10", correct colors) match.
+
+## Summary
+Two putative digit mismatches (D1, D2) are each contradicted by the norm-consistency math, which favors the recreation's values; the main real defect is the box/arrow overlap over the row-label column (D3), plus minor subscript styling.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation of this region' â driven by D3 (equation box/arrow overlapping and clipping the table's label column in all six groups); D1/D2 should be re-verified against a cleaner source frame, as the recreation's values are the mathematically consistent ones.

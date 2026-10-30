@@ -1,0 +1,47 @@
+## Fidelity Audit â Slide 14
+
+**Verified matching (not discrepancies):** All equation *content* is verbatim and correct (Loss Term, Regularization Term, final objective function, J(W)=Loss+Î»R); term colors correct (Loss = red, "squared distance" = green, J(W) = blue, R(W) = blue, "Ridge Regularization" green); band order matches top-to-bottom; badge numeral = 14; absence of panel top stroke is correct per house template; video-cursor artifact in IMG2 correctly omitted.
+
+---
+
+### MAJOR discrepancies
+
+1. **Multi-line bracket / stacked-column geometry not reproduced (both top boxes).** IMG2 renders Y and Å¶ as **2D column vectors** â tall brackets spanning three rows (yâ over yâ over â¦ over yâ, with Å¶-vectors stacked likewise, "N xâ" as subscript mid-right of the bracket). IMG1 flattens these to inline linear text `[y1; y2; ...; yn]` with single-line brackets â the original's multi-line delimiter span (Rule 7: span all enclosed lines) is gone, and this is the *reverse* of the mandated 2D-format direction, so it is not protected. **Severity: MAJOR â confidence: high.**
+
+2. **Top two boxes grossly over-widened.** IMG2: boxes occupy roughly the left ~60% of the frame (large empty region to the right before the yellow bands). IMG1: boxes stretch to ~x810 of a 903px panel (~88%), i.e., stretched ~30% wider than the original with the right margin largely consumed. Region size/geometry mismatch (Rule 5/directive on sizes/gaps). **Severity: MAJOR â confidence: medium-high.**
+
+3. **Content not vertically centered in the two top boxes.** In IMG1 the two text lines hug the box top while the lower ~half of each rectangle wraps empty space â exactly the Rule-2 failure pattern. IMG2's boxes are filled by the 3-row vector stack. **Severity: MAJOR â confidence: high.**
+
+4. **Line break changed in first yellow callout.** IMG2 is one line: "Objective is Å¶=Y and âWâ is minimum (gap) This is called Ridge Regularization". IMG1 wraps "This is called Ridge Regularization" onto a second line, enlarging the band. Verbatim text must include line breaks. **Severity: MAJOR â confidence: high.**
+
+5. **"Loss Term" / "Regularization Term" row misaligned and over-stretched.** IMG2: two boxes side-by-side on the **same row/baseline**, the Regularization Term box ending ~68% across with white space beyond. IMG1: the Regularization Term box sits **lower** than the Loss Term row (not sharing the baseline) **and** is stretched to the panel's right red stroke (~0â5px clearance â near-touching, containment risk). Sibling-region alignment + geometry deviation. **Severity: MAJOR â confidence: medium.**
+
+6. **Title collides with slide-number badge.** "Overfitting" in IMG1 extends to xâ895, running under/into the yellow badge circle (xâ858â894, yâ55â91); the badge's lower-left quadrant overlaps the tops of "â¦ng". IMG2 keeps a clear gap. Title also comes within ~10px of the right C00000 stroke (edge-scrutiny item). **Severity: MAJOR (collision) â confidence: medium-high.**
+
+---
+
+### MINOR discrepancies
+
+1. **Title color:** "LOSS" is black in IMG1 vs red in IMG2. (MINIMIZES/Overfitting blue match.) â high
+2. **"Original Labels"** black vs red, **"Predicted Labels"** black vs blue (IMG1) vs colored key words in IMG2. â high
+3. **Final line color:** "Objective function" rendered blue in IMG1 vs black in IMG2. â medium
+4. **"This is called Ridge Regularization":** IMG1 all-green; IMG2 has "This is called" black + "Ridge Regularization" green. â high
+5. **Subscript lost:** "N xâ" rendered as flat inline "Nx1"; spacing collapsed ("Nx1Original Labelsfrom" vs "N x1 Original Labels from"). â high
+6. **Î» not blue** (both in "Î» R(W)" and "(Î» is a weighting factor)") vs blue/italic in IMG2. â low-medium
+7. **Term containers styled differently:** IMG2 uses filled boxes (orange/salmon for Loss Term, light-blue for Reg Term and the final objective line); IMG1 uses underline rules and the **final objective line lacks its light-blue filled container entirely** (text present, so not a BLOCKER). Also Loss-Term fill is light-blue vs original salmon. â medium
+8. **Box border tint:** IMG2's two top boxes appear red/navy tinted; IMG1 uses neutral black 1pt borders. â low
+
+---
+
+### Visual-quality defects in the recreation
+
+- Title â badge overlap (item 6 above); title near-touches the right stroke (~10px).
+- Two top boxes read as unbalanced: large empty bottom halves.
+- Loss Term / Regularization Term boxes staggered and the right box pinned to the panel edge.
+- No text overflow/clipping detected; no legibility problems; equation strings render cleanly.
+
+---
+
+### FINAL VERDICT: **FAIL**
+
+Blocking issue set: flattened stacked-bracket geometry (fails Rule 7 and the 2D-format mandate), over-wide top boxes, top-box vertical-centering failure, altered line break in a callout, misaligned/stretched term boxes, and a titleâbadge collision. Content is complete and verbatim, but the render is not a faithful, usable recreation without fixing the geometry above.

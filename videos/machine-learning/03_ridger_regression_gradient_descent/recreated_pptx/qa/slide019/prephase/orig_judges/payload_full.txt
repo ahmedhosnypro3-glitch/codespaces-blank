@@ -1,0 +1,12 @@
+GROUND-TRUTH EXTRACTION — description task, NOT a comparison, NOT a judging task. You are describing ONE image for a slide-recreation engineer who must rebuild it pixel-faithfully in PowerPoint.
+
+The image is a 960x540 lecture-video slide frame. 1 image px = 1 pt. Produce a DETAILED, structured report:
+
+1. LAYOUT MAP — named regions, each with its bounding box in image px (x0..x1, y0..y1), estimated from the image.
+2. VERBATIM TEXT — transcribe EVERY visible string EXACTLY, region by region: subscripts/superscripts (z1, x1, ||W||^2), Greek letters, punctuation, capitalization, word order. Do not paraphrase, correct, or omit. Mark any glyph you cannot read confidently as [?] with your best guess.
+3. COLORS — element by element: text color, fill color, border/rule color as estimated hex (e.g. #201860). Name the element, then the hex. Note two-tone text runs (which words carry which color).
+4. GEOMETRY — every vertical rule x position and every horizontal rule y position you can see, with their colors and any breaks; boxes: border color, border thickness, fill; arrows: tail/head coordinates and color; brackets: x/y span; circles/badges: center + diameter.
+5. TYPOGRAPHY — sans-serif vs serif impression, approximate glyph height in px per text class, bold/italic, alignment.
+6. ANOMALIES — mouse cursor, JPEG chroma smear, video compression artifacts, ambiguous glyphs: flag them explicitly; never silently guess.
+
+Be exhaustive and precise: measured-looking numbers over adjectives.

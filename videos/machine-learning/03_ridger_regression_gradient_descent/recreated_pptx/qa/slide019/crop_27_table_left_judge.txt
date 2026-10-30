@@ -1,0 +1,18 @@
+Crop-relative coordinate frame: x=0 left of crop, x=1 right; y=0 top, y=1 bottom.
+
+Discrepancies found (region: left Outlier column + âNO Regularizerâ column, headers, row groups 1â2, highlight band A):
+
+1) Left-header subscript glyph â recreation reads `X_s` (open italicâs); the original subscript is a smaller, more closed glyph that looks numeralâlike rather than an italic s. Location: left edge, upper block under âOutlierâ (â x 0.03â0.12, y 0.12â0.20). If the source is `Xâ` rather than `X_s`, this is a wrong subscript character. Severity: MINOR as observed, but escalates to MAJOR if the original subscript is confirmed as the digit 8. Confidence: ~0.5 (glyph is genuinely ambiguous at this zoom).
+
+2) Rowâlabel text color in the NOâRegularizer table: recreation renders `xâ`, `xâ` (and the `y` label) in green; the original shows those row labels in red/darkâred. Location: the tableâs left label column just right of the â arrow (â x 0.30â0.34; `xâ` â upperâthird, `xâ` â middle, `y` â on the yellow band). Values, positions, and subscripts are otherwise identical. Severity: MINOR (text color only). Confidence: high.
+
+Everything else matched cell-by-cell / glyph-by-glyph:
+- Outlier vectors `(11,3)` (blue) and `(30,3)` (red), with `22` in green on yellow â values, colors, and highlight consistent; parens span both lines without touching the digits.
+- `NO Regularizer with (as if Î»=0)` â wording, blue/red split, and the parenthesized Î»=0 all match.
+- W vectors and norms: `W=(0,2,0)`, `âWâÂ²=4`; `W=(2.7,0.67)` (lower block, rest cut identically); Ridge `W=(0.1,1.95,0.03)`, `âWâÂ²=3.8`; lower Ridge `W=(1.2,0.72)` (rest cut identically). Entry order, stacked order, underlineâW, and superscript Â² all match; delimiter parens span all enclosed lines with clearance.
+- Table cells (Testâ/Testâ/Testâ columns; perâcolumn red/blue/black digit coloring): header 30/40/50; xâ 30/40/50; xâ 15/20/25; y 60/80/100; groupâ2 header 30/40/50 and xâ 30/40/50 â no swapped values, no missing/extra rows, no garbled digits. Subscripted `Testâ/â/â` match.
+- Highlight band A covers the same `y` row and extends to `âWâÂ²=3.8` in both; the yellow swirl/edges in the original are handâannotation medium differences (rule c) and not counted.
+
+No wrong digit, no swapped table value, no missing row, no truncated subscript, and no delimiter that fails to span its lines was confirmed.
+
+FINAL VERDICT: PASS

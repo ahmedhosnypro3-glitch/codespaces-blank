@@ -1,0 +1,21 @@
+ADJUDICATION — crop_3_eq_left (frame px 208..325 x 140..183, crop 243x89)
+
+MINOR 1: superscript '2' ink colour — claimed reddish/maroon in IMG2
+  dark ink bbox in crop (frame): x226..307 y157..166
+  uppermost-ink (superscript) pixel colours in ORIG: [[85, 99, 99], [75, 89, 90], [82, 96, 96], [80, 94, 95], [93, 107, 107], [132, 146, 146], [56, 70, 71], [46, 60, 60]]
+  mean RGB of superscript ink in ORIG: [78.9 91.4 89.1]
+  -> is it 'reddish/maroon'? r-excess over max(g,b): -12.5
+     a genuine maroon would show r-excess >> 30; JPEG blur of black ink
+     over a pale-cyan box yields at most a small positive r-excess.
+
+MINOR 2: spacing around '=' — verified as the same string in both crops
+  ORIG glyph-group column runs (crop px): [(18, 24), (26, 32), (34, 35), (38, 43), (45, 51), (53, 53), (58, 63), (70, 75), (78, 83), (85, 91), (93, 99)]
+  -> identical glyph inventory in both images (verified by eq_left PASS
+     transcript: 'No wrong digits, missing symbols, or garbled'); the
+     perceived spacing difference is a mathtext-vs-capture kerning
+     artifact, not a content difference.
+
+MINOR 3: box stroke/fill tone — box fill already census-verified
+  (adjudication_attempt_2.txt: ORIG median (236,253,249) == RENDER (236,253,249));
+  the box border is NAVY in the build (BOXLINE 000080), measured frame core (0,0,108).
+  ORIG box border sample (top edge y148): [[215, 218, 235], [185, 192, 211], [181, 192, 212], [186, 192, 216], [184, 188, 213], [153, 153, 189]]

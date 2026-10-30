@@ -1,0 +1,38 @@
+# Crop-pair judge transcript — slide 037, attempt 6, region "green_box" (box-3 update equation 2)
+- date: 2026-10-24 07:05
+- method: direct harness image reads (owner directive 2026-10-24); no vision gateway
+- IMG1_RENDER: recreated_pptx/qa/slide037/crop_6_green_box_render.png md5=5a031d8eae04d4c5baac7e7b4de840fb (896x146)
+- IMG2_ORIG:   recreated_pptx/qa/slide037/crop_6_green_box_orig.png   md5=4fc9433ed415d488a6e31f10a1b06780 (896x146)
+- region: frame bbox (70,455)-(500,525), 430x70; effective scale 2.0837 px/frame-px (x),
+  2.0857 (y, <=0.07 % vs 2.084375) — equal for both images.
+- read order: ORIG crop first, then RENDER crop.
+
+## Ground rules acknowledged
+(a) Zoomed crop-pair of ONE region at matched effective scale. (b) House chrome is
+intentional. (c) Typed-vs-handwritten at most MINOR; pen/cursor marks in IMG2 may be capture
+artifacts. (d) 2D professional equation format is a mandated upgrade. (e) JPEG halos are
+artifacts.
+
+## Comparison
+- GREEN HIGHLIGHT: rounded rectangle, fill DFFFEE with a green edge, same corner radius and
+  same frame bbox (80..485 x 462..520) — MATCH.
+- "W^(updated) = W^old − η": verbatim inside the box; both W underlined; η RED bold italic;
+  superscripts raised. MATCH (recreation's superscripts smaller, ~0.6x).
+- SIGMA: large black Sigma centred at the frame's position (render 330.6..355.0 x
+  471.6..501.8 vs frame 331..354 x 472..501). MATCH.
+- LIMIT: "misclassified vectors ONLY (i)" — "misclassified" RED bold italic UNDERLINED,
+  "vectors" black bold, "ONLY" RED bold italic UNDERLINED, "(i)" black. Same words, colours
+  and underlines, at the same place under the Sigma. MATCH.
+- TERMS: "δ_i X_i" green, X underlined, δ's subscript RED and X's subscript green. MATCH.
+- The small pen/arrow mark visible under "W(old)" in IMG2 is a lecturer annotation/pointer
+  artifact and is correctly absent from IMG1 (ground rule (c)).
+- No truncated glyph, no wrong digit, no missing term, no text touching the green edge.
+
+## Discrepancies
+1. [MINOR] Superscript "(updated)"/"old" smaller than IMG2's — confidence high — LO 58 %
+   escapement; position correct.
+2. [MINOR] Subscript i size smaller than IMG2's — confidence high — same cause.
+3. [MINOR] The pen/arrow annotation is omitted — confidence high — rule (c) capture artifact,
+   not content.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

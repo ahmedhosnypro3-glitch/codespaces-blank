@@ -1,0 +1,93 @@
+## 1. FRAME CONTAINMENT — content ink vs the inner box (x83..833, y92..532)
+  box border columns measured: render [82 83] / [832 833] (orig [82 83] / [832 833])
+  ink between left house stroke and box (x60..81, y94..530) = 0
+  ink between box and right stroke (x835..896, y94..530)    = 0
+  ink below the box bottom border (y534..536)              = 0
+  PASS  no content ink left of the inner box (0 px)
+  PASS  no content ink right of the inner box (0 px)
+  PASS  no content ink below the inner box (0 px)
+  ink in the title band y56..91 (box top border excluded, x85..831):
+    original = 2837   render = 2459
+
+  house panel containment (panel x54..903; strokes x58.5 / x901 / y538.5):
+  PASS  no ink left of left stroke (0 px)
+  PASS  no ink right of right stroke (0 px)
+  PASS  no ink below bottom stroke (0 px)
+
+## 2. LINE TABLE — mid-y + interior ink, band-consistent with the original
+  line          band  orig ink  rnd ink    mid-y o/r         orig x   render x (interior)
+  title        59-86      2862     2480        74/74        311-622               312-620
+  PASS  title: content present (2480 px)
+  PASS  title: mid-y within 4px (orig 74 render 74)
+  h1         104-117      1188     1159      112/113        111-325               111-325
+  PASS  h1: content present (1159 px)
+  PASS  h1: mid-y within 4px (orig 112 render 113)
+  h2         129-146      1892     2019      137/138        146-513               147-520
+  PASS  h2: content present (2019 px)
+  PASS  h2: mid-y within 4px (orig 137 render 138)
+  b1         179-197      4928     4752      186/186         92-556                95-542
+  PASS  b1: content present (4752 px)
+  PASS  b1: mid-y within 4px (orig 186 render 186)
+  b2a        230-248      2904     3046      239/241         92-783                95-802
+  PASS  b2a: content present (3046 px)
+  PASS  b2a: mid-y within 4px (orig 239 render 241)
+  b2b        256-273      2801     2792      264/266        110-750               111-765
+  PASS  b2b: content present (2792 px)
+  PASS  b2b: mid-y within 4px (orig 264 render 266)
+  b2c        281-298      2144     2296      291/291        110-563               110-567
+  PASS  b2c: content present (2296 px)
+  PASS  b2c: mid-y within 4px (orig 291 render 291)
+  b3a        332-350      2445     2538      341/343         92-667                96-673
+  PASS  b3a: content present (2538 px)
+  PASS  b3a: mid-y within 4px (orig 341 render 343)
+  b3b        357-374      2907     2270      366/368        146-696               146-680
+  PASS  b3b: content present (2270 px)
+  PASS  b3b: mid-y within 4px (orig 366 render 368)
+  b4a        408-426      3136     2962      417/419         92-768                95-779
+  PASS  b4a: content present (2962 px)
+  PASS  b4a: mid-y within 4px (orig 417 render 419)
+  b4b        434-447      1286     1047      442/443        146-390               146-382
+  PASS  b4b: content present (1047 px)
+  PASS  b4b: mid-y within 4px (orig 442 render 443)
+  b5a        484-502      3393     2994      493/495         92-807                95-814
+  PASS  b5a: content present (2994 px)
+  PASS  b5a: mid-y within 4px (orig 493 render 495)
+  b5b        510-527       497      436      518/518        109-190               109-190
+  PASS  b5b: content present (436 px)
+  PASS  b5b: mid-y within 4px (orig 518 render 518)
+
+## 3. COLOR SPANS (native render resolution, 2001x1125)
+  span                                orig px  render px  location
+  red header 'Regularizers are...'       1252       3285  frame x111..325
+  PASS  red header 'Regularizers are...': colour span present in render (3285 px, frame x111..325)
+  blue 'Penalize large values of W'      1255       4762  frame x147..357
+  PASS  blue 'Penalize large values of W': colour span present in render (4762 px, frame x147..357)
+  blue 'L2 regularization' (b3b)          874       2306  frame x256..383
+  PASS  blue 'L2 regularization' (b3b): colour span present in render (2306 px, frame x256..383)
+  blue 'L1 regularization' (b4b)          768       1716  frame x256..382
+  PASS  blue 'L1 regularization' (b4b): colour span present in render (1716 px, frame x256..382)
+  red 'Squared Norm...' (b3a)            1679       5136  frame x392..666
+  PASS  red 'Squared Norm...' (b3a): colour span present in render (5136 px, frame x392..666)
+  red 'sum of Absolute...' (b4a)         2433       6136  frame x430..764
+  PASS  red 'sum of Absolute...' (b4a): colour span present in render (6136 px, frame x430..764)
+  red '(N)' (b5a)                         161        408  frame x652..668
+  PASS  red '(N)' (b5a): colour span present in render (408 px, frame x652..668)
+  red '(d)' (b5b)                         152        385  frame x171..189
+  PASS  red '(d)' (b5b): colour span present in render (385 px, frame x171..189)
+
+  yellow highlight x287..456 y176..197:
+    orig non-white px=3740 render=15898
+    render bbox frame x287..457 y176..198
+    render highlight pure-yellow px (r>200,g>200,b<120) = 11929
+
+  underlines (1pt tall wide runs; verified identical to original):
+    red underline under 'customized weigh factor'  orig  : x110-297
+    red underline under 'customized weigh factor'  render: x110-300
+    dark underline under 'Length (d)'              orig  : x109-163
+    dark underline under 'Length (d)'              render: x109-163
+
+## 4. inner box border geometry (render vs original, frame px)
+  orig  : left [np.int64(82), np.int64(83)] right [np.int64(832), np.int64(833)] top [np.int64(86), np.int64(87), np.int64(91), np.int64(92)] bottom [np.int64(532), np.int64(533)]
+  render: left [np.int64(82), np.int64(83)] right [np.int64(832), np.int64(833)] top [np.int64(86), np.int64(87), np.int64(92)] bottom [np.int64(532)]
+
+ALL SELFCHECK ASSERTIONS PASS

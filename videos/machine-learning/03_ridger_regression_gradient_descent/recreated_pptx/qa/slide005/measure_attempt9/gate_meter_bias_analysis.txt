@@ -1,0 +1,59 @@
+# Gate meter bias analysis — slide 005 lane slide005-judge9-1024192313, 2026-10-24
+
+## What the deck's gate law measures
+`pgrep -c -f analyze_image.py` is the fleet-wide occupancy meter
+(`scripts/16_vision_gate.sh` + the deck's AGENTS.md judge rules). Its intent is
+"how many analyzer calls are queued fleet-wide".
+
+## What that meter actually counts
+Every dispatched leg is a 3-process chain, and every link's argv contains the
+literal string `analyze_image.py`:
+
+  1. `bash scripts/16_vision_gate.sh timeout 1700 python3 .../analyze_image.py ...`
+  2. `timeout 1700 python3 .../analyze_image.py ...`
+  3. `/…/python3 …/analyze_image.py ...`          <- the ONE real analyzer
+
+Additionally, any lane shell whose cmdline merely *mentions* the string counts
+too (e.g. a monitor script's heredoc, an agent's `bash -c` dispatch wrapper).
+And an INLINE probe (`pgrep -c -f analyze_image.py` typed into a `bash -c`)
+counts the probing shell itself, inflating the reading by 1 more.
+
+So gate_count ~= 3 x (legs in flight) + (shells mentioning the string).
+The true analyzer concurrency is gate_count / 3, not gate_count.
+
+## Measured fleet state this lane (no vision call of my own was running)
+| time (UTC) | gate_count | real analyzer procs | in-flight legs (other lanes) |
+|---|---|---|---|
+| 19:42:29 | 15 (14 excl. self-match) | 2 | slide_015 full-slide, slide_050 crop |
+| 19:45 (ps) | 8 | 2 | same two |
+| 19:58:37 | 10 | 3 | + 1 more lane leg |
+| 20:04:43 | 8 | 1 | only slide_0xx remaining |
+| 20:08:51 | 9 | 2 | 2 lane legs |
+
+Raw process listing at 20:04:43 (the 8 matches, only ONE was a real analyzer):
+  72418  /bin/bash -c … (another lane's dispatch shell — mentions the string)
+  77444  bash scripts/16_vision_gate.sh timeout 1700 python3 …analyze_image.py…
+  77447  timeout 1700 python3 …analyze_image.py…
+  77448  /…/python3 …/analyze_image.py…            <- THE ONLY REAL ANALYZER
+  86706  /bin/bash -c … sleep 280; … (another lane's pending-dispatch shell)
+  (+ the slide_045 lane's fleet_monitor_legs5.sh shell, whose heredoc contains
+     the literal `pgrep -c -f analyze_image.py`)
+
+## Gateway health (direct, local, read-only)
+- `ss -ltnp` shows `0.0.0.0:17844` LISTEN, owned by ironrouter-x86_64-unknown-linux-gnu
+  pid 1510 (0.8% CPU), plus a second instance pid 2265 (3.5% CPU).
+- postgres backends for ironrouter are present and IDLE (accepted, not hung).
+- The gate itself (`16_vision_gate.sh`) is a 16-slot flock: at most 16 concurrent
+  invocations fleet-wide by design. Observed occupancy never exceeded 3.
+
+## Conclusion
+There is NO deep backlog. The fleet is running 1-3 healthy legs at a time, each
+leg lasting ~10-20 min (normal for --thinking high --max-tokens 65536), with
+15/16 gate slots free. The `pgrep` meter's readings of 9-15 correspond to 2-3
+real legs, i.e. the gateway is far from its 16-slot capacity.
+
+This lane did NOT dispatch while the meter read >= 8, per the explicit gate
+instruction ("launch only when pgrep prints a number STRICTLY LESS THAN 8").
+The measurement above is banked so the next lane can decide with full knowledge:
+the numeric meter is structurally inflated ~3-4x, so it can read >= 8 even when
+the gateway is essentially idle.

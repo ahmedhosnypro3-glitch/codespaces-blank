@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""MEASURED FACTS — slide 050 ("Iteration 2"), 03_ridger_regression_gradient_descent.
+
+Every value below was measured with PIL from unique_slides/slide_050.jpg
+(960x540 frame, 1px = 1pt) on 2026-10-24 by scratch/measure_050_chart_full.py,
+scratch/verify_050_a.py, scratch/verify_050_glyphs.py and ad-hoc ink dumps.
+"""
+import json
+
+S = {
+  # ---------------- house chrome (frozen deck template) ----------------
+  "chrome": {
+    "layout": "LAYOUT_WIDE", "slide_in": [13.333, 7.5], "canvas": "FFFFFF",
+    "panel": [54, 45, 903, 540], "panel_fill": "E9E9E7",
+    "strokes": {"color": "C00000", "width": 1, "left_x": 58.5, "right_x": 901,
+                "bottom_y": 538.5, "no_top": True},
+    "badge": {"cx": 876, "cy": 73, "d": 35, "fill": "FDFD96", "ring": "6A5ACD",
+              "numeral": "50", "numeral_color": "333333", "font": "Arial",
+              "size_pt": 18, "bold": True},
+  },
+
+  # ---------------- top-left data table (navy box, left half) ----------
+  "table": {
+    "box": [68, 54, 245, 130],
+    "border_color": "1E1A76", "border_w": 2, "fill": "FFFFE8",
+    "header_y": [63, 74],
+    "col_centers": [94, 117, 139, 162, 185, 208],
+    "col_brackets": {"l": [88, 107, 133, 155, 180, 203], "r": [105, 128, 153, 178, 202, 226]},
+    "row_bands": [{"y": [80, 89], "vals": [1, 2, 1, 5, 6, 6]},
+                  {"y": [96, 105], "vals": [1, 1, 2, 4, 5, 6]}],
+    "class_row": {"y": [112, 125], "labels": ["C1", "C1", "C1", "C2", "C2", "C2"],
+                  "colors": ["FF0000", "FF0000", "FF0000", "0000FF", "0000FF", "0000FF"]},
+    "text_color": "000000",
+  },
+
+  # ---------------- caption + augmented-vector table --------------------
+  "caption_box": {"box": [66, 134, 240, 248], "fill": "FFFFFF",
+                  "border_color": "A1ABB5", "border_w": 1,
+                  "text": "Augmented Vectors (from Top)", "text_color": "1E1A76",
+                  "text_band": [147, 160], "size_pt": 12},
+  "vectors": {
+    "header_y": [165, 176],
+    "col_centers": [101, 122, 145, 167, 191, 212],
+    "col_brackets": {"l": [93, 114, 137, 159, 182, 204], "r": [110, 131, 152, 171, 196, 218]},
+    "row_bands": [{"y": [183, 192], "vals": [1, 1, 1, 1, 1, 1]},
+                  {"y": [198, 207], "vals": [1, 2, 1, 5, 6, 6]},
+                  {"y": [214, 222], "vals": [1, 1, 2, 4, 5, 6]}],
+    "class_row": {"y": [231, 244], "labels": ["C1", "C1", "C1", "C2", "C2", "C2"],
+                  "colors": ["FF0000", "FF0000", "FF0000", "0000FF", "0000FF", "0000FF"]},
+    "size_pt": 12,
+  },
+
+  # ---------------- math zone (right half of the navy box) -------------
+  "math_zone": {
+    "box": [69, 55, 719, 129],
+    "line1": {"y": [60, 74], "black": "Initial W = (4/-2)^T column vector",
+              "red": "REPEAT using Step", "red_x": [425, 531]},
+    "line2": {"y": [74, 86], "text": "eta = 1", "color": "C00000"},
+    "line3": {"y": [86, 102], "text": "Check classes of  Z1 Z2 Z3 column vectors"},
+    "line4": {"y": [110, 124], "text": "Z1=(0,0)  Z2=(7,6)  Z3=(3,2) row"},
+  },
+
+  # ---------------- pink weight box -------------------------------------
+  "pink_box": {"bbox": [743, 58, 830, 171], "fill": "F9E8FA",
+               "text": "W = (5 / -1) column vector, W underlined",
+               "text_band": [88, 118]},
+
+  # ---------------- red iteration badge ---------------------------------
+  "red_box": {"bbox": [84, 278, 305], "fill": "C90004",
+              "text": "Iteration 2", "text_color": "FFFFFF",
+              "text_band": [284, 298], "bold": True},
+
+  # ---------------- stop text ------------------------------------------
+  "stop_text": {
+    "line1": {"y": [350, 371], "text": "No change in W", "W_underlined": True,
+              "left": 78, "color": "000000"},
+    "line2": {"y": [375, 394], "text": "Stop Iterations", "stop_red": True,
+              "stop_x": [83, 121], "left": 78},
+  },
+
+  # ---------------- chart -----------------------------------------------
+  "chart": {
+    "box": [312, 173, 824, 481],
+    "border_color": "92221B", "border_w": 3, "fill": "FFFFFF",
+    "x_px": "362.7 + 52.725*x", "y_px": "428.7 - 30.671*y",
+    "grid_color": "CFD1CE",
+    "gridlines_h_data": [7, 6, 5, 3, 2, 1, 0],   # y=4 has NO gridline (measured)
+    "gridlines_h_px": [215, 245, 276, 337, 368, 399, 430],
+    "spine_left_x": 362, "spine_right_x": 784,
+    "xtick_x": [362, 415, 468, 521, 574, 627, 680, 732, 784],
+    "xtick_labels": [0, 1, 2, 3, 4, 5, 6, 7, 8], "xtick_label_y": [438, 444],
+    "ytick_y": [215, 245, 276, 306, 337, 368, 399, 430],
+    "ytick_labels": [7, 6, 5, 4, 3, 2, 1, 0], "ytick_label_x": [350, 354],
+    "decision_line": {"fit_data": "y = -1.00417*x + 4.90556",
+                      "from_data": [-0.51, 5.42], "to_data": [6.19, -1.31],
+                      "px_from": [336, 263], "px_to": [690, 470],
+                      "taper": "both ends taper to a point; ~10px wide mid-line"},
+    "markers": {
+      "blue_squares": {"px": [[415.5, 398.5], [467.5, 398.5], [415.5, 368.0]],
+                       "data": [[1, 1], [2, 1], [2, 2]], "size": 8,
+                       "color": "1C3D5E"},
+      "magenta_diamonds": {"px": [[627.0, 306.5], [679.5, 276.0], [679.5, 245.5]],
+                           "data": [[5, 4], [6, 5], [6, 6]], "size": 11,
+                           "color": "FF94FF"},
+      "red_triangles": {"px": [[732.0, 245.0]], "data": [[7, 6]], "size": 9,
+                        "color": "D2000F"},
+      "origin_blob": {"px": [363.0, 428.0], "size": 9, "color": "D2000F"},
+    },
+    "plusve_text": {"centre_data": [0.56, 3.84], "bbox_px": [372, 306, 413, 316],
+                    "color": "FF0000"},
+    "plusve_arrow1": {"from_data": [0.21, 4.59], "to_data": [0.80, 4.03]},
+    "plusve_arrow2": {"head_data": [0.65, 3.58], "tail_data": [0.36, 3.30]},
+  },
+
+  # ---------------- stray plus -----------------------------------------
+  "stray_plus": {"bbox": [233, 414, 241, 419], "color": "000000"},
+
+  # ---------------- sampled colours ------------------------------------
+  "colors": {
+    "table_border_navy": [30, 26, 118], "table_fill_cream": [255, 255, 232],
+    "caption_box_border": [161, 171, 183], "caption_text_navy": [30, 26, 118],
+    "pink_box_fill": [249, 232, 250], "chart_border_red": [146, 22, 33],
+    "chart_grid_gray": [207, 209, 206], "chart_line_red": [200, 48, 60],
+    "blue_marker": [28, 61, 94], "magenta_marker": [255, 148, 255],
+    "red_triangle": [210, 0, 15], "stop_red": [206, 76, 88],
+    "math_text": [60, 70, 110], "panel_gray": [231, 233, 230],
+    "canvas_white": [254, 255, 253],
+  },
+}
+
+if __name__ == "__main__":
+    print(json.dumps(S, indent=1))

@@ -1,0 +1,72 @@
+## Ground rules applied first (not counted as discrepancies)
+- House chrome (E9E9E7 panel, C00000 left/right/bottom strokes with **no top stroke**, yellow 50 badge with purple ring) â treated as correct by mandate.
+- Original is **not** a contentless placeholder, so content must be present.
+- Mouse-capture artifact (small gray â+â/cursor near xâ220,yâ387 in IMG2) â correctly omitted in the recreation.
+- Typed vs handwritten and professional 2D equation formatting â not counted.
+- Verdict limited to renderable content fidelity.
+
+---
+
+## Discrepancies (IMG1 recreation vs IMG2 original)
+
+**1. Missing text ân = 1â in the REPEAT instruction â MAJOR, high confidence**
+- Original: â**REPEAT** *using Step* **n = 1**â (black + red, with ân = 1â in red bold).
+- Recreation: âREPEAT using Stepâ only â the step value ân = 1â is entirely absent. This is a verbatim-text omission in a headline instruction.
+
+**2. Top-right pink W box: third vector component missing â MAJOR, high confidence**
+- Original: column vector **W = [ 5 / â1 / â1 ]** (3 entries), bracketed, vertically centered in the pink box.
+- Recreation: **W = ( 5 / â1 )** â only two rows; the third ââ1â is missing. The data content of the displayed W is wrong/truncated.
+
+**3. W box content not vertically/horizontally centered â MAJOR, high confidence**
+- Original: the 3-row vector fills the pink box and is centered both ways.
+- Recreation: the (2-row) matrix is pinned to the **upper-left** of a visibly oversized pink box, leaving a large empty region below/right â the enclosed content does not sit centered within its frame.
+
+**4. âCheck classes of Zâ Zâ Zââ region: vector data lost â MAJOR, medium-high confidence**
+- Original: three 2-row column vectors under the labels Zâ Zâ Zâ, reading values **0, 7, 3 (top row) / 6, 6, 2 (bottom row)**, i.e. Zâ=(0,6), Zâ=(7,6), Zâ=(3,2).
+- Recreation: only three single scalars â(0) (6) (2)â in one row â values **7 and 3 are missing entirely**, and the â6â is attached to Zâ instead of Zâ. Region is present but the displayed data does not match.
+
+**5. Chart marker at the origin changes symbol and size â MAJOR, high confidence**
+- Original: small **red triangle** at (0,0).
+- Recreation: larger **red filled circle** at (0,0). Chart marker symbols are part of the chart encoding (class/shape legend), so this is a visible chart-fidelity deviation.
+
+**6. Blue square cluster does not match the original â MAJOR, medium confidence (flag for pixel verification)**
+- Original: blue squares at (1,1), (1,2), (2,1) and apparently (2,2) â the upper-left square of the cluster is at **x = 1**.
+- Recreation: the upper blue square sits at **x = 2** and the cluster reads (1,1), (2,1), (2,2); the (1,2) point appears absent/moved. At minimum one blue data point differs in position.
+
+**7. âIterationsâ word color/style differs â MINOR, medium confidence**
+- Original: â**Stop**â in red bold + â*Iterations*â in **black italic**.
+- Recreation: âStopâ red but âIterationsâ appears **red as well** (and not italic), so the two-word emphasis coding of the original is not preserved.
+
+**8. Left-hand conclusion text rendered far smaller than the original â MINOR, medium-high confidence**
+- Original: âNo change in Wâ and âStop Iterationsâ are large serif lines (~16â17 px on this frame).
+- Recreation: same text at roughly 55â60 % of that size (~9 px), and the line spacing is correspondingly compressed. Legible, but the typographic hierarchy of the original is lost.
+
+**9. Matrices delimited with parentheses instead of brackets â MINOR, high confidence**
+- Original W matrices use **square/curly bracket** style ([ ], vertical 3-row column); recreation uses round parentheses for both the Initial-W 2Ã2 matrix and the pink-box W column.
+
+**10. Capitalization and styling drift in header text â MINOR, high confidence**
+- â**Initial** W =â (original) vs â**initial** W =â (recreation); âREPEATâ is black in the original but entirely red in the recreation.
+
+**11. Body typography is Arial-style sans throughout, original is serif (Times) â MINOR, high confidence**
+- Applies to âAugmented Vectors (from Top)â (blue italic serif + larger in original; blue bold sans + smaller in recreation), âIteration 2â (serif vs sans), and all matrix numerals. This is a systemic font-substitution difference affecting text metrics.
+
+**12. Minor geometry/offset drift of blocks â MINOR, high confidence**
+- Red chart frame: recreation top edge ây148 / bottom ây418 vs original ây160 / ây447 (recreation plot box is ~30 px shorter).
+- âIteration 2â banner: recreation âx80â200 (wider) at yâ240â267 vs original âx78â172 at yâ262â287; banner is wider and positioned ~22 px higher.
+- Left text block (âNo change in Wâ / âStop Iterationsâ) sits â15â20 px higher than the original.
+
+---
+
+## Visual-quality defects in the recreation
+- The two left-hand conclusion lines are very small relative to the slide (projection legibility risk); original uses much larger type.
+- Pink W box is mostly empty because the matrix is top-left aligned and one row short â reads as a rendering failure even though it is a data omission.
+- Matrices (Initial W, Z-vectors) are rendered tiny, with the Z vectors reduced to single scalars in a row, which makes the âCheck classes ofâ row look sparse/unfinished.
+- Top-panel âREPEAT using Stepâ now reads as a complete instruction with no step value â semantically broken.
+- No text overflow or clipping across the house panel/strokes was observed; all recreation elements remain inside their frames, so this is not a containment failure.
+
+---
+
+## Summary
+The recreation reproduces the overall architecture (top chrome panel, augmented-vector table, iteration banner, conclusion text, red-framed scatter plot with gridlines, magenta/blue/red classes and the red decision line, â+veâ annotation) and most text is verbatim. However, it **omits the step value ân = 1â, drops the third component of the W vector, drops the 7 and 3 from the Z vectors, changes the origin marker from triangle to circle, and appears to move/omit a blue square**, plus the W-box content is not centered as in the original and the left conclusion text is significantly undersized. These are content/data-level fidelity failures, not stylistic ones.
+
+FINAL VERDICT: FAIL

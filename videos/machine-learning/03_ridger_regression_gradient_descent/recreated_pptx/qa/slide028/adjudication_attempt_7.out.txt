@@ -1,0 +1,48 @@
+### judge_attempt_4 finding 1 — 'left dots only on the left descending limb'
+    MAJOR / high confidence.  VERDICT: REFUTED.
+
+Fat marker columns (ink height >= 7px) in the original's left panel,
+clustered into markers; the U valley is at x~275:
+  7 markers measured:
+     (215, 341)  LEFT  descending limb
+     (230, 380)  LEFT  descending limb
+     (324, 366)  RIGHT ascending limb
+     (330, 352)  RIGHT ascending limb
+     (344, 321)  RIGHT ascending limb
+     (357, 290)  RIGHT ascending limb
+     (364, 271)  RIGHT ascending limb
+  => 2 markers on the left descending limb, 5 on the right ascending limb.
+     The judge's claim that none sit on the right limb is contradicted by the
+     measured ink. The render draws exactly these 7 centroids.
+
+### judge_attempt_4 finding 2 — 'bounce path overshoots past the curve / X-crossing'
+    MAJOR / medium confidence.  VERDICT: REFUTED.
+  Every measured marker sits ON the analytic curve (marker radius ~8px):
+     (562, 313.4)  curve y=319.3  offset -5.9 px
+     (593, 395.4)  curve y=398.8  offset -3.4 px
+     (683, 350.9)  curve y=352.8  offset -1.9 px
+     (711, 284.8)  curve y=281.8  offset +3.0 px
+  => no marker sits beyond the curve; nothing crosses the U. The zigzag the
+     judge read as an X is the CONNECTOR sequence between on-curve markers:
+        (561,313) -> (593,395) -> (683,351) -> (711,285)
+     i.e. down into the valley, back up past it, then out right and up — the
+     overshoot bounce. The render uses the identical sequence.
+
+### judge_attempt_4 finding 3 — subplot titles 'pure black'
+    MINOR / low confidence.  VERDICT: CONFIRMED (cosmetic) — FIXED.
+     ORIG left heading dark mean [96 98 95]  darkest [11 13 10]
+     ORIG right heading dark mean [ 98 100  97]  darkest [5 7 4]
+  The render declared 333333 (near-black); the original's antialiased grey is
+  lighter. Changed the heading tone to 62625F (measured mean).
+
+### judge_attempt_4 finding 4 — title-to-content gap
+    MINOR / low confidence.  VERDICT: REFUTED.
+  Original 1F4E79 frame top band is row 127 (762 px of frame ink).
+  render_6 puts the same band at frame y 126.7..127.2 (1601 px).
+  => the frame tops agree to 0.3px; the perceived gap is an eyeball artefact.
+
+### PREVIOUSLY CLOSED (render_6, judge_attempt_4 no longer raises them)
+  * curve colour (was MINOR): CURVE_BLUE lightened to the measured cyan 8FC3D1
+  * curve geometry / valley floor (was MAJOR): quartic RMSE 2.08/2.79px vs the
+    original's stroke, worst ink-gap from the quartic 0-1px at 150dpi
+  * right-panel marker count (was MAJOR): 4 markers, matching the measured 4
