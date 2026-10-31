@@ -115,25 +115,25 @@ for (let r = 0; r < ROWS.length; r++) {
   line(600, py, 641, py, "2040C0", 1, "dash", "triangle");
 }
 
-// ---------- OUTPUT LABELS (blue, x704..744) ----------
+// ---------- OUTPUT LABELS (blue, measured ink x704..740, y80..89 -> ~10pt) ----------
 const OUTS = ["Output 1", "Output 2", "Output 3"];
 for (let r = 0; r < 3; r++) {
   s.addText(OUTS[r], {
-    x: X(700), y: Y(ROWS[r] - 7), w: X(48), h: Y(14),
+    x: X(703), y: Y(ROWS[r] - 8), w: X(46), h: Y(16),
     align: "left", valign: "middle",
-    fontSize: 6, bold: true, color: "2020C0", fontFace: FONT, margin: 0,
+    fontSize: 10, bold: true, color: "2020C0", fontFace: FONT, margin: 0,
   });
 }
 
-// ---------- ERROR BAR (red, x759..773, y67..186) ----------
+// ---------- ERROR BAR: red OUTLINE + red glyph text (measured x762..772, y69..185) ----------
 s.addShape(pres.shapes.RECTANGLE, {
-  x: X(759), y: Y(67), w: X(14), h: Y(119),
-  fill: { color: "CC0000" }, line: { color: "CC0000", width: 1 },
+  x: X(762), y: Y(69), w: X(10), h: Y(116),
+  fill: { type: "none" }, line: { color: "C00000", width: 0.75 },
 });
 s.addText("Error Error Error", {
-  x: X(753), y: Y(72), w: X(26), h: Y(110),
+  x: X(760), y: Y(74), w: X(16), h: Y(106),
   align: "center", valign: "middle", rot: 270,
-  fontSize: 7, bold: true, color: "FFFFFF", fontFace: FONT, margin: 0,
+  fontSize: 8, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 // slide_018_attempt1.js — part 2 (appended): class labels, equation, bottom labels
 // ---------- CLASS LABELS (x781..798, 3 rows) ----------
@@ -146,14 +146,21 @@ for (let r = 0; r < 3; r++) {
   });
 }
 
-// ---------- EQUATION ∂E/∂w_ji ? (measured x830..887, y106..150; red ? at 875..887) ----------
-s.addImage({
-  path: "eq_s18b.png", x: X(830), y: Y(106), w: EQ.w_in, h: EQ.h_in,
-});
+// ---------- EQUATION ∂E/∂w_ji ? (measured ink x831..866, y107..149 in orig) ----------
+// eq_s18b.png is 199x223 px @600dpi with intrinsic ink bbox (8,8)-(191,215).
+// Target ink box in the 960x540 original: x831..866 (35 px), y107..149 (42 px).
+const TGT_W_IN = 35 / 960 * 13.33, TGT_H_IN = 42 / 540 * 7.5;
+const INK_W_IN = 184 / 600, INK_H_IN = 208 / 600;
+const EQ_S = TGT_H_IN / INK_H_IN;
+const eq_img_w = 199 / 600 * EQ_S, eq_img_h = 223 / 600 * EQ_S;
+const eq_x = 831 / 960 * 13.33 - 8 / 600 * EQ_S;
+const eq_y = 107 / 540 * 7.5 - 8 / 600 * EQ_S;
+s.addImage({ path: "eq_s18b.png", x: eq_x, y: eq_y, w: eq_img_w, h: eq_img_h });
+// red "?" — target ink bbox (874,114)-(885,134) in the original
 s.addText("?", {
-  x: X(875), y: Y(110), w: X(14), h: Y(28),
+  x: 879.5 / 960 * 13.33 - 0.17, y: 124 / 540 * 7.5 - 0.26, w: 0.34, h: 0.52,
   align: "center", valign: "middle",
-  fontSize: 14, bold: true, color: "CC0000", fontFace: FONT, margin: 0,
+  fontSize: 28, bold: true, color: "CC0000", fontFace: FONT, margin: 0,
 });
 
 // ---------- BOTTOM: white up-arrow + magenta "1" circles (measured x464..479, x499..512, x589..602) ----------

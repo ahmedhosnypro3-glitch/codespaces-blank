@@ -11,15 +11,15 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
     "max_output_tokens": 9000
   },
-  "parse_calls_spent": 4,
-  "crops_spent": 3,
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
   "degraded": {
     "chat": false,
     "reason": ""
@@ -52,8 +52,8 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-    "decision_source": "fallback",
+    "stop_note": "chat advised CROP: The Picture candidate contains garbled, merged chart text that a tighter re-cut could recover.",
+    "decision_source": "chat",
     "children": [
       "slide_032.crop01__picture"
     ],
@@ -76,142 +76,52 @@
       "box_frame_px": [
         35.6,
         40.9,
-        861.6,
+        922.5,
         475.8
       ],
       "estimated": false,
       "png": "crops/slide_032.crop01__picture.png",
-      "mean_rgb": 223.76,
+      "mean_rgb": 224.75,
       "precheck_ok": true,
       "backend": "pil",
       "parse_files": {
         "md": "crops/slide_032.crop01__picture.parse.md",
         "json": "crops/slide_032.crop01__picture.parse.json"
       },
-      "scale": 1.7912,
+      "scale": 1.7333,
       "size_px": [
         1664,
-        921
+        891
       ],
       "margin_applied": [
-        34,
+        37,
         19
       ],
-      "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
-      "children": [
-        "slide_032.crop02__picture"
-      ],
-      "transform": {
-        "origin_px": [
-          2.0,
-          22.0
-        ],
-        "scale": 1.7912,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "root",
-      "error": null
-    },
-    {
-      "id": "slide_032.crop02__picture",
-      "level": 2,
-      "class": "Picture",
-      "box_frame_px": [
-        35.5,
-        41.3,
-        861.9,
-        475.2
-      ],
-      "estimated": false,
-      "png": "crops/slide_032.crop02__picture.png",
-      "mean_rgb": 223.96,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_032.crop02__picture.parse.md",
-        "json": "crops/slide_032.crop02__picture.parse.json"
-      },
-      "scale": 1.7912,
-      "size_px": [
-        1664,
-        919
-      ],
-      "margin_applied": [
-        62,
-        34
-      ],
-      "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
-      "children": [
-        "slide_032.crop03__picture"
-      ],
-      "transform": {
-        "origin_px": [
-          2.0,
-          22.6
-        ],
-        "scale": 1.7912,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_032.crop01__picture",
-      "error": null
-    },
-    {
-      "id": "slide_032.crop03__picture",
-      "level": 3,
-      "class": "Picture",
-      "box_frame_px": [
-        35.5,
-        41.8,
-        863.7,
-        475.8
-      ],
-      "estimated": false,
-      "png": "crops/slide_032.crop03__picture.png",
-      "mean_rgb": 223.96,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_032.crop03__picture.parse.md",
-        "json": "crops/slide_032.crop03__picture.parse.json"
-      },
-      "scale": 1.7912,
-      "size_px": [
-        1664,
-        919
-      ],
-      "margin_applied": [
-        62,
-        34
-      ],
-      "stop_reason": "no-new-information",
-      "stop_note": "child lines are a subset of the parent parse",
+      "stop_reason": "too-small",
+      "stop_note": "every candidate is frame-covering or below the 40 px floor",
       "decision_source": "deterministic",
       "children": [],
       "transform": {
         "origin_px": [
-          2.0,
-          22.6
+          0.0,
+          22.0
         ],
-        "scale": 1.7912,
+        "scale": 1.7333,
         "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
       },
-      "trigger": "slide_032.crop02__picture",
+      "trigger": "root",
       "error": null
     }
   ],
   "recursion": {
-    "levels_processed": 4,
+    "levels_processed": 2,
     "backstop_hits": 0
   },
   "stats": {
-    "parse_calls": 4,
-    "chat_calls": 3,
-    "retries": 3,
-    "dedup_collapsed": 1,
-    "elements": 3
+    "parse_calls": 2,
+    "chat_calls": 1,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 2
   }
 }

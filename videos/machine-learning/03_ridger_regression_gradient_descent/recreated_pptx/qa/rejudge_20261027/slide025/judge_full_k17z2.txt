@@ -1,0 +1,40 @@
+## Elementâbyâelement comparison (rendered coordinates, ~900 px wide display)
+
+**House chrome (not scored):** gray panel + left/right/bottom C00000 strokes, no top stroke, FDFD96 badge with purple ring and "333333" 25 â all present and correct per ground rules.
+
+| Element | Original (IMG2) | Recreation (IMG1) | Status |
+|---|---|---|---|
+| Title "Types of Loss function shapes" | red bold, yâ61â78, centered | same text, same color/weight, yâ60â77 | MATCH |
+| Topâleft framed plot | x83â245, y113â272 | x81â245, y106â259 | frame ~7 px higher, ~6 px shorter |
+| "Concave Function / One Maxima" navy box | x253â380, y131â170 | x253â382, y121â160 | ~10 px higher |
+| Topâright framed plot | x580â820, y114â296 | x580â821, y106â282 | ~8 px higher, ~6 px shorter |
+| "Convex Function / One Minima" navy box | x443â574, y175â214 | x443â575, y163â202 | ~12 px higher |
+| Bottomâleft framed plot | x83â350, y278â497 | x81â351, y263â471 | ~15 px higher, ~11 px shorter |
+| "Gradient Descent / Path to reach Minima" | x443â574, y335â374 | x443â575, y319â357 | ~16 px higher |
+| "Nonâ Convex / Multiple Minima" | x390â487, y427â464 | x358â487, y406â443 | ~21 px higher; box slightly wider |
+| Bottomâright framed plot | x580â820, y327â497 | x580â823, y311â475 | ~16 px higher, ~11 px shorter |
+| Badge "25" | correct | correct | MATCH (chrome) |
+
+Text in the four navy callout boxes is **verbatim** (including the original's "Nonâ Convex" spacing and "One Maxima" wording), and the four plot panels are all present â so nothing is missing outright and there is no BLOCKER for absence.
+
+## Discrepancies
+
+1. **MAJOR (confidence: high) â Bottomâleft figure carries wrong annotation text.** In the original the top annotation reads **"Global Maxima"**; the recreation reads **"Global Minima"** (same position, ~x222â258, y270â281). Wrong label inside the embedded chart.
+2. **MAJOR (confidence: high) â Bottomâleft "Local Minima" annotation is grossly oversized and collides with a red X marker.** Original: small black label (~x133â167, y420â434), X offset below/right. Recreation: ~20 pt bold gray "Local Minima" (~x126â198, y388â420) with the red X drawn straight through the word "Local" (reads "Local **X** Minima"). Size mismatch + illegible collision.
+3. **MAJOR (confidence: high) â Topâright chart is a different figure with different data geometry.** Original: bowl with a tall red peak at the rear rim and a deep blue trough, drawn on a dotted 3âD bounding box with a 100/50/0/â50/â100/0/50/100 axis run and "x10â´". Recreation: an essentially flat, tilted yellow/orange sheet with only a shallow blue depression at centre, a surface grid instead of a dotted box, an extra **red arrow annotation (arrowhead) at upper left that has no counterpart in the original**, and the tall peak/rim is absent. Chart shape, scale and annotations do not match.
+4. **MAJOR (confidence: mediumâhigh) â Topâleft chart differs in orientation/colormap and detail.** Original: concaveâup bowl, red rim at the back, blue minimum at the bottom, contour lines on the side walls, tick labels 0, â5, â2, 0, 2. Recreation: a rounded cap/domeâlike surface with blue mesh over the lower half, different axis ticks (0, â2, 0, â2), no contour lines. The embedded image is not the original figure.
+5. **MAJOR (confidence: mediumâhigh) â Bottomâleft plot missing 3âD frame/grid and axis numerals.** The original shows the grey boxâwire grid and numeric zâaxis (â6â¦6) and x/y numerals; the recreation drops the bounding grid and all axis numbers, so the chart loses structure the original displays.
+6. **MAJOR (confidence: medium) â Systematic upward displacement of the whole content block.** All four red plot frames and all four navy callouts sit 8â21 px higher than in the original, and the plot frames are 6â11 px shorter in height. Consequently the vertical rhythm (labelâtoâframe relationships, whitespace above the panel bottom) differs from the lecture frame, even though no element leaves the panel.
+7. **MINOR (confidence: medium) â Bottomâright plot close but not identical:** surface crop/rotation differs slightly (original's red peak nearer the frame top, broader orange basin), and the black gradientâdescent path differs in shape/extent. The "Nonâ Convex" label also sits slightly left/wider in the recreation.
+8. **MINOR (confidence: lowâmedium) â Navy callout fill reads slightly brighter/more saturated in the recreation than the original's deeper navy**, and the yellow glyphs are a touch larger; line breaks themselves match.
+
+## Visualâquality defects in the recreation
+
+- **Textâmarker collision:** the red X overprints the enlarged "Local Minima" text (worst defect on the slide).
+- **Wrong text baked into the chart:** "Global Minima" in place of "Global Maxima" â a content error, not a styling one.
+- **Red horizontal guide lines** in the topâleft and bottomâleft panels extend past the right edge of their red frames (recreation â7 px past at the bottomâleft line); the original shows the same artefact, so this is consistent rather than a new error.
+- No clipping of callout text, no illegible glyphs, and **all content stays inside the house panel and the red frame edges** (the recreation actually contains the bottomâright frame above the panel's bottom stroke, where the original pushes it to the panel edge).
+
+## FINAL VERDICT: **FAIL**
+
+The slide reproduces the title, chrome, callout wording and overall layout, but three of the four substantive chart images are substituted figures with different geometry/annotations, one embedded label says "Global Minima" where the original says "Global Maxima", one annotation is blown up into an illegible collision with a red X, and the content block is systematically shifted upward. These are contentâlevel and geometryâlevel deviations, so it is not a faithful, usable recreation of slide 25.

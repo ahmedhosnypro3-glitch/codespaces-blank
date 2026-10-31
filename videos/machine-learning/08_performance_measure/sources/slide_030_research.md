@@ -11,3 +11,7 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query; 2 claims carried from slide 28/29 records under the economy law). Spec consumed: `analysis/slide_030_final.json`; frame `unique_slides/slide_030.jpg`.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Threshold=0.1 panel: matrix [[5,0],[4,2]] (TP=5, FN=0, FP=4, TN=2), TPR=5/(5+0)=1, FPR=4/(4+2)=0.66: CONFIRMED — sklearn `roc_curve` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html): thresholds decrease along the sweep so FPR/TPR are non-decreasing; with TP=5, FN=0 -> TPR=5/5=1, and FP=4, TN=2 -> FPR=4/6=0.666... which the frame prints as 0.66 (re-verified locally; 4/6 = 0.667, frame's 0.66 is a truncation, acceptable as printed). ROC point (0.66, 1) sits just below the (1,1) corner of threshold 0.0, consistent with the plotted point labeled 0.1. No corrections.

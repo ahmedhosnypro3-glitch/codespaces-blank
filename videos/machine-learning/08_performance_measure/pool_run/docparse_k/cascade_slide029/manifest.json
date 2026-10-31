@@ -1,0 +1,127 @@
+{
+  "slide": "slide_029",
+  "source_frame": "slide_029.jpg",
+  "source_md5": "a300102babed5caa6e53f6f611b1cb66",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 2,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_029.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_029.parse.md",
+      "json": "full/slide_029.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The child (empty parent) exposes ROC-curve labels such as \"TPR = TP + FN\" and \"FPR = FP FP+TN\" merged into the table text, and the positioned table block remains worth isolating with a tighter crop.",
+    "decision_source": "chat",
+    "children": [
+      "slide_029.crop01__table"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_029.crop01__table",
+      "level": 1,
+      "class": "Table",
+      "box_frame_px": [
+        34.7,
+        40.5,
+        873.8,
+        476.3
+      ],
+      "estimated": false,
+      "png": "crops/slide_029.crop01__table.png",
+      "mean_rgb": 230.68,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_029.crop01__table.parse.md",
+        "json": "crops/slide_029.crop01__table.parse.json"
+      },
+      "scale": 1.7646,
+      "size_px": [
+        1664,
+        909
+      ],
+      "margin_applied": [
+        35,
+        19
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "chat advised STOP: The child only flattens the parent table into the same labels and formulas, adding no new or refined content.",
+      "decision_source": "chat",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          0.0,
+          21.0
+        ],
+        "scale": 1.7646,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 2,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 2
+  }
+}

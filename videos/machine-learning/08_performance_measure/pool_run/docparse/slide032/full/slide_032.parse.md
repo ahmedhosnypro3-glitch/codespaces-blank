@@ -11,5 +11,6 @@ TPR=5/(5+0)=1 FPR=2/(2+4)=0.33
 Threshold=0.4
 ROC Curve for Same Model -different thresholds TPR = TP TP + FN P P N
 P FP FN
-P FPR = FP FP+TN N FP TN
-Actual<x_0.9346><y_0.957><class_Picture>
+FPR = FP FP+TN N
+Actual
+Input<x_0.998><y_0.957><class_Picture>

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Fresh 600-dpi mathtext PNGs for slide 037 rebuild (wave 3).
+"""Fresh 600-dpi mathtext PNGs for slide 037 fix-2 (display style, roomier boxes).
 
-Equations come ONLY from qa/reanalysis2/slide_037_analysis.txt section 8
-(boxes are the spec's normalized [x0,y0,x1,y1]). Assets: eq_037/s37w3_*.png.
+Equations from qa/reanalysis2/slide_037_analysis.txt section 8. Assets:
+eq_037/s37w3_*.png + s37w3_manifest.json. All rows prefixed \\displaystyle so
+summation limits stack above/below the sigma (professional 2-D format).
 """
 import json
 import os
@@ -13,32 +14,31 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 EQDIR = os.path.join(HERE, "eq_037")
 RENDER = os.path.join(HERE, "render_math.py")
 
-# name, latex row ("||" separates color:latex segments), spec box
 EQS = [
     ("s37w3_lag_orig",
-     r"#000000:L_D(\alpha) = \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j X_i^T X_j",
-     [0.1, 0.2, 0.9, 0.28]),
+     r"#000000:\displaystyle L_D(\alpha) = \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j X_i^T X_j",
+     [0.1, 0.19, 0.9, 0.285]),
     ("s37w3_w",
-     r"#000000:w = \sum_{i=1}^{N} \alpha_i y_i X_i",
+     r"#000000:\displaystyle w = \sum_{i=1}^{N} \alpha_i y_i X_i",
      [0.1, 0.3, 0.3, 0.35]),
     ("s37w3_b_orig",
-     r"#000000:b = -\frac{1}{2}\left[\max_{i:y_i=-1} w^T X_i + \min_{i:y_i=+1} w^T X_i\right]",
-     [0.35, 0.3, 0.9, 0.35]),
+     r"#000000:\displaystyle b = -\frac{1}{2}\left[\max_{i:y_i=-1} w^T X_i + \min_{i:y_i=+1} w^T X_i\right]",
+     [0.35, 0.295, 0.9, 0.355]),
     ("s37w3_cls_orig",
-     r"#000000:\mathrm{Class\ of\ vector}\ Z \Rightarrow \mathrm{sign}(w^T Z + b)",
-     [0.2, 0.4, 0.8, 0.45]),
+     r"#000000:\displaystyle \mathrm{Class\ of\ vector}\ Z \Rightarrow \mathrm{sign}(w^T Z + b)",
+     [0.2, 0.39, 0.8, 0.46]),
     ("s37w3_kernelize",
-     r"#000000:\mathrm{Kernelize\ using}\ ||#000000:K(a,b) = [a^T b + 1]^d",
+     r"#000000:\displaystyle \mathrm{Kernelize\ using}\ ||#000000:\displaystyle K(a,b) = [a^T b + 1]^d",
      [0.4, 0.5, 0.75, 0.55]),
     ("s37w3_lag_kern",
-     r"#000000:L_D(\alpha) = \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j [X_i^T X_j + 1]^d",
-     [0.1, 0.64, 0.9, 0.72]),
+     r"#000000:\displaystyle L_D(\alpha) = \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j \left[X_i^T X_j + 1\right]^d",
+     [0.1, 0.635, 0.9, 0.725]),
     ("s37w3_b_kern",
-     r"#000000:b = -\frac{1}{2}\left[\max_{i:y_i=-1} [w^T X_i + 1]^d + \min_{i:y_i=+1} [w^T X_i + 1]^d\right]",
-     [0.35, 0.73, 0.9, 0.78]),
+     r"#000000:\displaystyle b = -\frac{1}{2}\left[\max_{i:y_i=-1} [w^T X_i + 1]^d + \min_{i:y_i=+1} [w^T X_i + 1]^d\right]",
+     [0.35, 0.72, 0.9, 0.79]),
     ("s37w3_cls_kern",
-     r"#000000:\mathrm{Class\ of\ vector}\ Z\ \mathrm{is}\ \mathrm{sign}([w^T Z + 1]^d + b)",
-     [0.2, 0.83, 0.8, 0.88]),
+     r"#000000:\displaystyle \mathrm{Class\ of\ vector}\ Z\ \mathrm{is}\ \mathrm{sign}([w^T Z + 1]^d + b)",
+     [0.2, 0.82, 0.8, 0.89]),
 ]
 
 SIZE = 14.0

@@ -1,0 +1,89 @@
+ADJUDICATE_R25_FINAL — slide 019, rejudge_20261027 wave, r25 round (2026-10-31, FRESH worker)
+=====================================================================================
+Question: judge_full_r16.txt (mtime 2026-10-31 06:24:01 UTC, FINAL VERDICT: FAIL) is
+mtime-newer than judge_full_r17.txt (2026-10-31 06:21:07 UTC, FINAL VERDICT: PASS).
+Harvest agents read "newest" differently. Per W6 (contradictory reads are advisory;
+pixels decide) the r16 FAIL is adjudicated PIL-first against the CURRENT bytes:
+render.png (2001x1125 @150dpi, mtime 2026-10-31 06:15:53 UTC, WFIX build) vs
+unique_slides/slide_019.jpg (960x540).
+
+CENSUS (rejudge_adjudicate.py 019 --full -> adjudicate_r25_full.txt, run this round):
+  diff px 431,703 (19.177% of frame); ink-only-in-render 72,305; ink-only-in-orig
+  273,588 (original-heavy = handwritten-vs-typed AA, exempt per ground rules).
+  Densest cells all inside text bands y90-112 and y180-202 (header/label rows) —
+  NO localized solid block anywhere (a missing column fill or missing block of
+  content would appear as a large contiguous high-count cell in the body region
+  y200-520; none exists).
+CROP leg (rejudge_adjudicate.py 019 --crop -> adjudicate_r25_crop.txt): 24.871%
+diff, original-heavy (37,084 vs 15,305), densest cells in the x-row band
+y247-270 — diffuse AA again.
+
+r16 discrepancy list, adjudicated one by one (fresh probes: r25_probe_fresh.py ->
+r25_probe_fresh.txt, run this round on render.png 06:15:53 vs slide_019.jpg;
+plus pil_wfix_check.txt 06:19:45 and pptx XML of recreated_pptx/slide_019_recreated.pptx):
+
+D1 (MAJOR, "pink/green column colour coding absent in recreation"): REFUTED.
+  Header tints measured this round: RIDGE3 header ORIG bg RGB(242,221,214) vs
+  RENDER RGB(249,223,200) — both salmon (render = build TINTS FAE0C8 exactly);
+  RIDGE10 header ORIG RGB(224,246,241) vs RENDER RGB(231,254,232) — both mint
+  (render = E8FFE8 exactly). Bottom tint strips y516-522 also match:
+  RIDGE3 ORIG (250,223,198) vs RENDER (250,224,200); RIDGE10 ORIG (228,251,229)
+  vs RENDER (232,255,232); NO-REG strip matches too. Body interiors carry no
+  column-wide fill in EITHER image (orig body bg ~(246,237,229) warm paper,
+  render white sheet — within AA/paper-tone noise, no missing block per census).
+  The regional colour coding is present in the render.
+
+D2 (MAJOR, "wrong digits in λ=10 W-vectors: render reads 0.1/1.96/0.03 etc."): REFUTED.
+  The render's actual digits are in the pptx XML (slide_019_recreated.pptx):
+  numeric runs include exactly 0.13, 1.87, 0.09 / 0.54, 0.73, 0.81 / 0.82, 0.33,
+  1.1 — the ORIGINAL values r16 itself read from IMG2. r17 (06:21) read the same
+  values from both images cell-by-cell (all ✔). The 1:1 crop r16 asked for exists:
+  crop_dense_judge_wfix.txt (06:47:33 UTC) = PASS, "no wrong digit, no swapped
+  table value"; wfix crop pair covers the W/table region. The 29-30% pixel diff in
+  the col2 W-cells is diffuse typed-vs-handwritten AA (original-heavy), not a
+  localized digit substitution. r16's own confidence was low-medium (~0.5) and
+  self-flagged "capture-resolution limit" — misread, dismissed.
+
+D3 (MINOR, "W entries rendered red vs black in original"): CONFIRMED as MINOR.
+  Fresh ink census in all 9 W boxes: ORIG entries dark-dominant (dark 55-101,
+  red 51-62 = the red "W =" label + AA), RENDER entries red-dominant (red
+  428-737). Real colour nuance, but MINOR-class — r17 PASS and judge_full_wfix.txt
+  PASS (06:51:15) both scored it MINOR/non-blocking; content and emphasis intact.
+  Does not change the verdict.
+
+D4 (MINOR, "recreation uses round parentheses, original uses square brackets"): REFUTED
+  against CURRENT bytes. This described the pre-WFIX render (heavy black 46pt
+  paren textBoxes, sz=4600). WFIX removed them: new XML has 0 sz=4600 runs and 9
+  C00000 red box rects. pil_wfix_check.txt (06:19:45): ORIG col0 row0 delimiters
+  are straight RED bars (L cols 130..131 y200..297, R col 206 y201..297) — not
+  black parens; RENDER now L cols 128.9..129.4 y200.0..297.4 — match within 1.1px.
+  Fresh D4 probe this round: all 9 render cells have red straight side bars
+  (L ~386-388 red px, R ~398-595 red px, 0 dark paren strokes). Current render
+  matches the original's delimiter geometry.
+
+D5 (MINOR, "Test Data blue box ~35-40px too wide in recreation"): REFUTED.
+  Fresh measurement this round (blue-border pixels, y40..160): ORIG max slide-x =
+  434.0, RENDER max slide-x = 434.2 — right edges coincide within 0.2 px.
+
+D6 (MINOR low-conf, "z1 label red in recreation vs black in original"): REFUTED.
+  Fresh ink census of the z1 label region (x160-235 y88-116): ORIG red=50
+  dark=82 (dark-dominant), RENDER red=60 dark=1260 (dark-dominant typed) —
+  the render's z1 is dark like the original's; z2 comparable in both. The red
+  pixels in both are subscript/AA, not the label body.
+
+Advisory (not a discrepancy row): r16's "6-7pt legibility risk" — the wfix crop
+judge (06:47:33) found all crop text legible and cell values exact at matched
+scale; typed-vs-handwritten rendering is exempt per ground rules.
+
+VERDICT OF ADJUDICATION: of r16's 6 discrepancy rows, 1 CONFIRMED (D3, MINOR
+cosmetic colour, non-blocking) and 5 REFUTED by pixel/XML evidence (D1, D2, D4,
+D5, D6). Both MAJORs are refuted. Under W6 the contradictory reads resolve to:
+FULL = PASS (r17 06:21:07 clean PASS stands; r16 06:24 FAIL adjudicated advisory —
+its MAJORs do not survive pixels; corroborated by judge_full_wfix.txt clean PASS
+06:51:15). CROP = PASS (crop_dense_judge_wfix.txt 06:47:33 clean).
+
+Evidence cited: slide019/adjudicate_r25_full.txt, adjudicate_r25_crop.txt (this
+round), r25_probe_fresh.txt (this round), pil_wfix_check.txt (06:19:45),
+judge_full_r16.txt, judge_full_r17.txt, judge_full_wfix.txt, crop_dense_judge_wfix.txt,
+render.png (06:15:53), unique_slides/slide_019.jpg, recreated_pptx/slide_019_recreated.pptx XML.
+No git; no evidence deleted; read-only probes plus append-only evidence files.

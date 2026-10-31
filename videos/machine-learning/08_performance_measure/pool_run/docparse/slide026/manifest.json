@@ -11,18 +11,18 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
     "max_output_tokens": 9000
   },
-  "parse_calls_spent": 3,
-  "crops_spent": 2,
+  "parse_calls_spent": 1,
+  "crops_spent": 0,
   "degraded": {
-    "chat": true,
-    "reason": "chat probe failed \u2014 decisions use the deterministic-conservative fallback"
+    "chat": false,
+    "reason": ""
   },
   "root": {
     "id": "root",
@@ -51,12 +51,10 @@
       0,
       0
     ],
-    "stop_reason": null,
-    "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
-    "decision_source": "fallback",
-    "children": [
-      "slide_026.crop01__chart"
-    ],
+    "stop_reason": "no-new-information",
+    "stop_note": "chat advised STOP: The chart candidate already contains readable title and table text, and its box duplicates the current crop with no tighter subregion to isolate.",
+    "decision_source": "chat",
+    "children": [],
     "transform": {
       "origin_px": [
         0,
@@ -68,105 +66,16 @@
     "trigger": "full frame",
     "error": null
   },
-  "crops": [
-    {
-      "id": "slide_026.crop01__chart",
-      "level": 1,
-      "class": "Chart",
-      "box_frame_px": [
-        35.6,
-        41.7,
-        886.8,
-        475.0
-      ],
-      "estimated": false,
-      "png": "crops/slide_026.crop01__chart.png",
-      "mean_rgb": 228.98,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_026.crop01__chart.parse.md",
-        "json": "crops/slide_026.crop01__chart.parse.json"
-      },
-      "scale": 1.7406,
-      "size_px": [
-        1664,
-        893
-      ],
-      "margin_applied": [
-        35,
-        19
-      ],
-      "stop_reason": null,
-      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
-      "children": [
-        "slide_026.crop02__chart"
-      ],
-      "transform": {
-        "origin_px": [
-          1.0,
-          23.0
-        ],
-        "scale": 1.7406,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "root",
-      "error": null
-    },
-    {
-      "id": "slide_026.crop02__chart",
-      "level": 2,
-      "class": "Chart",
-      "box_frame_px": [
-        35.5,
-        42.2,
-        886.0,
-        475.0
-      ],
-      "estimated": false,
-      "png": "crops/slide_026.crop02__chart.png",
-      "mean_rgb": 228.98,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_026.crop02__chart.parse.md",
-        "json": "crops/slide_026.crop02__chart.parse.json"
-      },
-      "scale": 1.7406,
-      "size_px": [
-        1664,
-        893
-      ],
-      "margin_applied": [
-        62,
-        33
-      ],
-      "stop_reason": "no-new-information",
-      "stop_note": "child lines are a subset of the parent parse",
-      "decision_source": "deterministic",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          1.0,
-          23.0
-        ],
-        "scale": 1.7406,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_026.crop01__chart",
-      "error": null
-    }
-  ],
+  "crops": [],
   "recursion": {
-    "levels_processed": 3,
+    "levels_processed": 1,
     "backstop_hits": 0
   },
   "stats": {
-    "parse_calls": 3,
-    "chat_calls": 0,
+    "parse_calls": 1,
+    "chat_calls": 1,
     "retries": 0,
-    "dedup_collapsed": 1,
-    "elements": 2
+    "dedup_collapsed": 0,
+    "elements": 1
   }
 }

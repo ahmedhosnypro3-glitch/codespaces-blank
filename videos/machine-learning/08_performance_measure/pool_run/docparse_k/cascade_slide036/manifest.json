@@ -1,0 +1,172 @@
+{
+  "slide": "slide_036",
+  "source_frame": "slide_036.jpg",
+  "source_md5": "ef25b426e922a939acb758970a061335",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 2,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 3,
+  "crops_spent": 2,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_036.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_036.parse.md",
+      "json": "full/slide_036.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The child adds garbled chart text absent from the empty parent, and the Picture candidate still needs a tighter crop to recover its labels.",
+    "decision_source": "chat",
+    "children": [
+      "slide_036.crop01__picture"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_036.crop01__picture",
+      "level": 1,
+      "class": "Picture",
+      "box_frame_px": [
+        36.6,
+        41.7,
+        863.4,
+        475.0
+      ],
+      "estimated": false,
+      "png": "crops/slide_036.crop01__picture.png",
+      "mean_rgb": 216.62,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_036.crop01__picture.parse.md",
+        "json": "crops/slide_036.crop01__picture.parse.json"
+      },
+      "scale": 1.7835,
+      "size_px": [
+        1664,
+        915
+      ],
+      "margin_applied": [
+        35,
+        19
+      ],
+      "stop_reason": null,
+      "stop_note": "chat advised CROP: The child recovered threshold-0.7 rows and matrix labels the parent lacked, but the candidate picture's text is still garbled and merged (e.g., \"P P PN P FN Attual N N TN\"), so a tighter crop could isolate the blocks.",
+      "decision_source": "chat",
+      "children": [
+        "slide_036.crop02__picture"
+      ],
+      "transform": {
+        "origin_px": [
+          2.0,
+          23.0
+        ],
+        "scale": 1.7835,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    },
+    {
+      "id": "slide_036.crop02__picture",
+      "level": 2,
+      "class": "Picture",
+      "box_frame_px": [
+        35.7,
+        42.2,
+        868.3,
+        475.0
+      ],
+      "estimated": false,
+      "png": "crops/slide_036.crop02__picture.png",
+      "mean_rgb": 216.62,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_036.crop02__picture.parse.md",
+        "json": "crops/slide_036.crop02__picture.parse.json"
+      },
+      "scale": 1.7835,
+      "size_px": [
+        1664,
+        915
+      ],
+      "margin_applied": [
+        62,
+        34
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "child lines are a subset of the parent parse",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          2.0,
+          23.0
+        ],
+        "scale": 1.7835,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "slide_036.crop01__picture",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 3,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 3,
+    "chat_calls": 2,
+    "retries": 0,
+    "dedup_collapsed": 1,
+    "elements": 2
+  }
+}

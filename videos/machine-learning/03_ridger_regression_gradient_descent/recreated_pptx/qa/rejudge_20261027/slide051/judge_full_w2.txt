@@ -1,0 +1,38 @@
+## Groundârule settlements (not discrepancies)
+
+- House chrome (white canvas, gray E9E9E7 panel, C00000 left/right/bottom strokes with **no** top stroke, yellow 51 badge with purple ring at upper right) â treated as intentional, ignored.
+- The mouse arrow in the original's third row (âx620,y298) is a video artifact â correctly absent from the recreation.
+- Original is a content slide (not a "Processing" placeholder), so content must be present.
+- Professional 2âD stacked fractions/large â/aligned subâsuperscripts are mandated upgrades; the green column vectors and parenthesized tuples in the recreation are therefore judged on *values and containment*, not on typedâvsâhandwritten styling.
+
+## Discrepancies found
+
+| # | Element | Original (IMG2) | Recreation (IMG1) | Severity | Confidence |
+|---|---|---|---|---|---|
+| 1 | Left "Ungmented Vectors" panel frame | Thin gray/blue rectangle enclosing title + 6 vectors + class labels (âx65â232, y127â240) | **No enclosing rectangle at all** â the title and vectors float on the canvas; the region has no frame | **MAJOR** (missing structural element, and the region is therefore not contained) | High |
+| 2 | Leftâpanel title text | "**Un**gmented Vectors (from Top)" | "**U**gmented Vectors (from Top)" â the "n" is dropped, so the word is misspelled vs. the original | **MINOR** (verbatim text deviation, still legible) | High |
+| 3 | "Step Î· = 1" (top yellow panel) | Large bold italic red serif, cap height â15 px, baseline ây73 | Small nonâbold italic red sans, cap height â9 px, baseline ây63 (smaller *and* shifted up) | **MAJOR** (visible size/weight deviation on a key annotation) | High |
+| 4 | "Check Classes" button label | Large white **serif bold** â20 pt (â18 px cap height) filling most of the red bar | Small white **sansâserif** â11 pt (â8 px cap height), roughly half the original's letter height | **MAJOR** (size/font mismatch; label does not fill the button as in the original) | High |
+| 5 | Leftâpanel class labels under the six vectors (`Câ Câ Câ Câ Câ Câ`) | Rendered in **red/brown** | Rendered in **blue** (same blue as the topâpanel labels) | **MINOR** (color) | MediumâHigh |
+| 6 | Rightâhand row boxes (d(Zâ)/d(Zâ)/d(Zâ)) | Boxes â55 px tall, block occupying yâ129â305 (row1 129â184, row2 192â245, row3 254â305) | Boxes â47 px tall and whole block shifted up â8â20 px (row1 123â170, row2 180â228, row3 237â285), leaving a noticeably larger empty gray area below row 3 | **MAJOR** (box height/gap/vertical placement deviation, contradicting the original's rhythm) | MediumâHigh |
+| 7 | "Check Classes" button vs. rowâblock alignment | Button top ây255, aligned with the top of row 3 | Button top ây243, aligned to a point above row 3's top (ây237) because the row block is compressed and raised | **MINOR** (follows from #6) | Medium |
+| 8 | Leftâpanel title typeface | Blue bold **italic serif** | Blue bold **italic sans** (Arialâstyle) | **MINOR** | Medium |
+
+## Verified as matching (no defect)
+
+- All six augmented vectors xââ¦xâ with entries (1,1,1), (1,1,1), (1,1,1), (1,4,2), (1,5,5), (1,6,6) and their Câ/Câ/Câ/Câ/Câ/Câ labels in the top panel.
+- "Initial W = [4; â2; â2]", "Check classes of:", zâ=[0;0], zâ=[0;0], zâ=[3;2], and the "Câ positive / Câ negative / Zero is unaccepted" legend (colors and order match; spacing only slightly tighter).
+- Rowâ1 data: d(Zâ) = (1 0 0)Â·[5; â1; â1] = 5 â Positive > 0, "Class I" in red.
+- Rowâ2 data: d(Zâ) = (1 7 6)Â·[5; â1; â1] = â8 â Negative < 0, "Class II" in blue.
+- Rowâ3 data: d(Zâ) = (1 3 2)Â·[5; â1; â1] = 0 â Not > 0, Not < 0, "Undefined Class" in blue.
+- Green columnâvector brackets span all three entries (no clipped/partial delimiters); parenthesized tuples are legible and do not overlap the enclosed digits (the rowâ2 closing paren sits close to the "6" but does not touch it).
+- All content sits inside the house panel; no ink crosses the red strokes or the yellow top panel's blue border; the 51 badge and its ring are correct.
+
+## Visualâquality defects in the recreation
+
+- Missing frame around the left vector panel is the primary structural/containment problem.
+- Compressed, raised rowâbox stack leaves unbalanced whitespace in the lower half of the slide.
+- The "Step Î· = 1" and "Check Classes" labels are undersized relative to the original, reducing the visual hierarchy of two prominent callouts.
+- No clipping, wrapping faults, collisions, or illegible text; all equations remain readable.
+
+**FINAL VERDICT: FAIL** â the recreation carries the correct data, equations, class assignments and general architecture, but it omits the left panel's enclosing frame (#1), materially undersizes the two prominent callouts (#3, #4), and shifts/compresses the three row boxes relative to the original (#6), so it is not yet a faithful, usable recreation.

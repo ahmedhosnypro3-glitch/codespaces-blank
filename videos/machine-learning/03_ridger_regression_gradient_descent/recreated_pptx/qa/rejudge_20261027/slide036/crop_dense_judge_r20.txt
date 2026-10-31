@@ -1,0 +1,14 @@
+Assuming IMG1 = top render crop and IMG2 = bottom original crop:
+
+Checked and **not discrepancies** per ground rules: panel chrome/red borders with no top stroke; right-edge cropping truncating words at the crop boundary (âfunctioâ¦â, âCâ¦â, âaâ¦â); sans/typed vs handwritten italic ink and handwritten underlines; JPEG softness/halos in IMG2; spacing around inline operators. No tables or stacked equations are present in this crop; the only delimiters are single-line `d(X)` parentheses, and they are well-formed in both.
+
+Discrepancies found:
+
+| # | Location in crop | Observation | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Upper box, 4th text line, blue label around xâ150â340, yâ180â235; and lower box, last visible line, blue label around xâ150â360, yâ430â485 | IMG1 reads blue **âClass IIâ** with capital **C** in both blue lines, while IMG2 reads lowercase **âclass IIâ**. Red label remains âclass Iâ in both. This is a case/glyph mismatch, not a math error. | MINOR | High that the strings differ; medium on whether the deck cares about case |
+| 2 | Any `d(X)` around xâ80â220, yâ40â80 and xâ410â540, yâ130â235 | IMG1 appears to color the whole `d(X)` group green; in IMG2 the handwritten original seems to emphasize mainly the variable **X** in green while `d`/parens look darker. Possibly capture/anti-alias, but if real it is a small text-color mismatch. | MINOR | Lowâmedium |
+
+No wrong digits, missing rows/cells, swapped values, truncated subscripts, garbled characters, broken red border strokes, or multi-line delimiter span failures were found. Line separation and vertical centering inside the two panels look consistent.
+
+FINAL VERDICT: PASS

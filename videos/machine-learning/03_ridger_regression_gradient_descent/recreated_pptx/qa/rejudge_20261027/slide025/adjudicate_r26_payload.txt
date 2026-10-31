@@ -1,0 +1,8 @@
+TASK: OCR-style reading of two zoomed crop PAIRS of slide 025. In each pair IMG1 = crop of the RECREATION render (render_cur.png, 150dpi of the current deliverable pptx md5 736036754a8d), IMG2 = matched-scale crop of the ORIGINAL lecture frame (unique_slides/slide_025.jpg). Region A (r26_cropA_tr_axes, slide-space x615-710 y116-275) = upper-left corner of the TOP-RIGHT 3D convex-function axes box. Region B (r26_cropB_tl_ticks, x80-140 y115-300) = left tick-label strip of the TOP-LEFT 3D plot.
+
+For EACH pair report:
+1. Every numeral/glyph string you can read in IMG1 (render) and in IMG2 (orig), in reading order, with approximate crop-relative position (x,y in px of the crop). Include scale annotations like "x10^4" / "×10⁴", tick values (e.g. 0, 0.5, 1, 1.5, 2 or 0, -1, -2, -5), axis labels.
+2. Explicitly state for region A: does IMG1 contain a "x10^4"-style scale annotation? Does it contain z-axis tick value labels? List exactly which tick values are readable in IMG1 vs IMG2.
+3. Explicitly state for region B: list exactly which tick values are readable in IMG1 vs IMG2 along the left axis.
+4. Note any glyphs present in one image and entirely absent in the other.
+Be exact; do not paraphrase numbers. End with: FINAL VERDICT: PASS if both images show the same readable tick/scale text, FAIL otherwise (list the differing strings).

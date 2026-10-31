@@ -41,10 +41,11 @@ s.addText("Example", {
 const N = (v) => v * 13.33;
 const NY = (v) => v * 7.5;
 const box = (b) => ({ x: N(b[0]), y: NY(b[1]), w: N(b[2] - b[0]), h: NY(b[3] - b[1]) });
-function img(name, b, align) {  // native px/600 size, vertically centered in box
+function img(name, b, align) {  // native px/600 size, clamped to fit inside the box (no overflow/clipping)
   const m = M[name], r = box(b);
-  const x = align === "left" ? r.x : r.x + (r.w - m.w_in) / 2;
-  s.addImage({ path: EQ + m.image, x, y: r.y + (r.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+  const w = Math.min(m.w_in, r.w), h = Math.min(m.h_in, r.h);
+  const x = align === "left" ? r.x : r.x + (r.w - w) / 2;
+  s.addImage({ path: EQ + m.image, x, y: r.y + (r.h - h) / 2, w, h });
 }
 function panel(b) {
   const r = box(b);

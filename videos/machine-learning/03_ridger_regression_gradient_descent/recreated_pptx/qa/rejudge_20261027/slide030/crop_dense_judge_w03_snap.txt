@@ -1,0 +1,32 @@
+## Comparison of IMG1 (recreation crop) vs IMG2 (original crop, matched scale)
+
+**Content audit (cellâbyâcell, valueâbyâvalue):** Every visible table entry matches between the two images, with no wrong digits, swapped cells, missing rows, or truncated subscripts:
+
+- Yellow block: `x | 3 | 3.2 | 3.4 | 3.6 | 3.8` and `f(x) | 5 | 4.24 | 3.56 | 2.96 | 2.44` â identical.
+- Purple block: `x-delta | 2.9 | 3.1 | 3.3 | 3.5 | 3.7` and `f(x-delta) | 5.41 | 4.61 | 3.89 | 3.25 | 2.69` â identical.
+- Peach block: `x+delta | 3.1 | 3.3 | 3.5 | 3.7 | 3.9` and `f(x+delta) | 4.61 | 3.89 | 3.25 | 2.69 | 2.21` â identical.
+- Green block: `slope | -8 | -7.2 | -6.4 | -5.6 | -4.8` â identical (minus signs and decimal points correct).
+- Red block (bottomâclipped in both): `next x | 3.2 | 3.4 | 3.6 | 3.8 | 4` â identical, and clipped at the same height in both crops.
+- Row labels `x`, `f(x)`, `x-delta`, `f(x-delta)`, `x+delta`, `f(x+delta)`, `slope`, `next x` â identical, correct hyphenation and parenthesis placement; no garbled or clipped glyphs.
+- Band layout (yellow â purple â peach â green â red), row order, row heights, and the darkâblue outer left rule align closely between the two.
+
+### Discrepancies
+
+1. **MINOR â Header digit "3" rendered red in the recreation, black/dark in the original.** Cropârelative position: second column of the top yellow row, ~x 210â230, y 72â95 (directly under the arrow tip). The glyph shape and value are correct; only the ink color differs. Severity MINOR (cosmetic emphasis, not a content error). Confidence: medium (the original's arrow tip slightly overlaps this cell, so the capture's rendering of the digit is not perfectly crisp, but no red ink is visible around the "3" as in IMG1).
+
+2. **MINOR â Red arrow annotation differs in geometry.** In the recreation (upper center, ~x 212â265, y 0â62) the arrow is a nearâvertical, crisp 2D outline whose tip stops just above the table's top border. In the original (~x 215â275, y 0â78) the arrow is a handâdrawn outline tilted ~25â30Â° to the left with the tip descending into the top of the header row, partially over the "3" cell. Per the medium rule this is at most MINOR, but the tilt and the tip depth differ noticeably. Confidence: high on the tilt/shape difference; medium on whether the deeper tip is intentional pointing vs. capture.
+
+3. **MINOR â Topâright badge: visible text and typeface differ.** Cropârelative position ~x 550â620, y 0â35. IMG1 shows a magentaâoutlined box containing a bold sansâitalic purple "Re" (the "e" nearly touching the crop edge). IMG2 shows the same magenta box containing a serif boldâitalic purple "Red", with the "d" partially visible. The two crops are evidently offset by a few pixels and the recreation uses a different (sans) face than the original's (serif) face. Confidence: medium for the offset, high for the typeface difference.
+
+4. **MINOR (low confidence) â Internal gridline weight/contrast.** Within the yellow and purple bands the recreation's row/column separators are very thin and lowâcontrast (close to the fill color), while the original's separators read as slightly darker/heavier gray lines, most visible in the yellow band around y â 105 and in the purple band around y â 200. This may be partly a sharpness/contrast artifact of the video capture rather than a true rendering difference. Confidence: low.
+
+5. **MINOR (low confidence) â Band fill saturation.** The recreation's purple band is a lighter lavender and the yellow band a slightly paler yellowâgreen than the original's more saturated purple/yellowâgreen. This is consistent with ordinary videoâcapture whiteâbalance/compression shift, so it is flagged only as a possible very small fillâcolor difference rather than a template error (chrome colors are exempt per the ground rules). Confidence: low.
+
+### Notes on things that are *not* discrepancies
+- Sharp vector text in IMG1 vs. soft/blurred printed text in IMG2 is a capture artifact; the heavy original face vs. clean recreation face is a medium difference (MINOR at most).
+- The darkâblue outer left border, the magenta badge rule, and the green/red row borders are identical in both.
+- The house template chrome (white canvas, gray panel, colored band strokes, yellow badge with purple ring) is treated as intentional and was not counted.
+
+**Assessment:** The dense content of this region is reproduced accurately â every table value, every label, every band structure and row order is correct, with no wrong digits, swapped cells, missing rows, or broken glyphs. The only differences are cosmetic (color of one emphasized digit, arrow shape/tilt, badge typeface, faint gridline weight/band saturation), none of which impede usability.
+
+FINAL VERDICT: PASS

@@ -1,0 +1,32 @@
+pil_k17e_out.txt — assets_k17e composited at slide_025.js positions vs unique_slides/slide_025.jpg
+md5 k17e: plot_025_tl=d77ea0e08cc1172051ae36e5bfcf3ae0  plot_025_tr=b404ba0b045d4866ca6f775e15a6c9a6  plot_025_bl=8dba2c1091c99aea53ebbe420b50faa7  plot_025_br=f9c9d75d9e6944dc3887cb68d9c97fb6
+md5 k15: plot_025_tl=73cbaec1d8f2d9a6faf3aca1841b213e  plot_025_tr=375a2d7bef424fe275a6c27647d09756  plot_025_bl=5acfb177d1e4d640b2fd7a08a1f21eda  plot_025_br=500287a3f4fe98a32ee0cac44e5bd5f8
+all 4 md5 differ from k15: PASS
+
+== CHECK1: BR bottom band ==
+  band x672..816 y472..517 diff px=6480 (100.0%)  [k15 was 6342 / 97.9%]
+  BR taper y472..528 row colored% corr=0.265
+    orig : 75 74 71 72 67 55 44 44 45 43 44 43 45 42 40 39 37 34 30 34 23 18 14 11 4 5 1 100 81
+    k17e : 71 72 71 71 71 71 71 71 72 71 72 71 72 71 72 72 72 72 72 72 72 72 72 72 72 72 72 72 100
+  CHECK1 (band diff%=100.0, taper corr=0.265): FAIL
+
+== CHECK2: BL label anchors ==
+  anchor (257,312) 'Global Minima': orig ink=128 render ink=29 center=(256, 310) -> PASS
+  anchor (300,344) 'Local Maxima': orig ink=112 render ink=25 center=(301, 342) -> PASS
+  anchor (337,394) 'Local Minima': orig ink=4 render ink=30 center=(336, 393) -> PASS
+  anchor (171,454) 'Local Minima': orig ink=73 render ink=27 center=(170, 452) -> PASS
+  anchor (323,459) 'Global Minima': orig ink=121 render ink=32 center=(319, 457) -> PASS
+  CHECK2 (BL anchors): PASS
+
+== CHECK3: TR red segment (652,189)->(667,165), red-hit within 2px ==
+  orig red-hit=53.3%  k17e red-hit=50.0%  [k15 was 0%]
+  CHECK3: PASS
+
+== BR path winding (largest dark comp, frame excluded; target ~6.02, PASS >1.02) ==
+  area=267 spanx=54 len=662.3 straight=159.1 wind-ratio=4.163 -> PASS
+
+== BL red marker-like comps (target 2 at (199,445),(270,482)) ==
+  k17e markers: [(np.int64(198), np.int64(444), 12), (np.int64(269), np.int64(481), 29)] -> PASS
+  orig markers: [(np.int64(199), np.int64(445), 67), (np.int64(270), np.int64(482), 60)]
+
+SUMMARY: CHECK1 band-diff=100.0% taper-corr=0.265 | CHECK2 anchors=PASS | CHECK3 TR red-hit=50.0% | winding=4.163 | markers=[(np.int64(198), np.int64(444), 12), (np.int64(269), np.int64(481), 29)]

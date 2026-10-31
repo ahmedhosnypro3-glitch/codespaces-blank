@@ -1,0 +1,217 @@
+[info] context header injected: VIEW: Slide 002 — forensic slide analysis for a high-fidelity recreation | CAPTURE: 960x540 lecture frame (machine learning, NN training and example)
+[warn] --timeout > 600s: the gateway at localhost:17844 is shared (Stitch proxy + vision). Long-timeout retry loops SATURATE it for everyone — prefer one modest call and retry later.
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1294734
+=== unique_slides/slide_002.jpg ===
+[winner] images (round 1, attempt 1)
+## 1. VERBATIM TEXT
+
+All coordinates are given as (x, y, w, h) in the 960x540 frame. Colors are hex estimates. VIEW line ("Slide 002") and CAPTURE line (960x540) were both present, so no missing-context note is needed.
+
+**Title / subtitle block**
+1. "Neural Network Model" â (318, 47, 293, 27); ~24 pt; bold; red (#C00000); centered, top of slide.
+2. "(Each node consists of Summation + Activation)" â (210, 75, 490, 26); ~22 pt; bold; blue (#0000CC); centered directly under title.
+
+**Slide-number badge**
+3. "2" â (824, 58, 13, 18); ~16 pt; regular; black (#000000); centered inside a pale-yellow circle (#FFFF99) at (812, 49, 37, 37).
+
+**Left / right endpoint boxes**
+4. "Input" â (75, 124, 36, 11); ~9 pt; bold; black (#000000); first line of pink box at (64, 120, 58, 26).
+5. "Sample" â (71, 136, 44, 11); ~9 pt; bold; black (#000000); second line of same pink box.
+6. "Target" â (818, 121, 28, 11); ~9 pt; bold; black (#000000); first line of pink box at (809, 118, 36, 28).
+7. "Label" â (820, 134, 26, 11); ~9 pt; bold; black (#000000); second line of same pink box.
+
+**Network-column headings (row 1 only)**
+8. "Net_i" ("Net" with subscript i) â (186, 163, 37, 17); ~14 pt; bold italic; red (#FF0000).
+9. "Net_j" ("Net" with subscript j) â (340, 163, 36, 17); ~14 pt; bold italic; red (#FF0000).
+10. "Net_k" ("Net" with subscript k) â (491, 163, 36, 17); ~14 pt; bold italic; red (#FF0000).
+
+**Output labels of nodes (three rows each)**
+11. "O_i" (O with subscript i) â row 1 (266, 182, 22, 18); row 2 (266, 249, 22, 18); row 3 (266, 328, 22, 18); ~14 pt; bold italic; red (#FF0000).
+12. "O_j" (O with subscript j) â row 1 (425, 182, 22, 18); row 2 (425, 249, 22, 18); row 3 (425, 328, 22, 18); ~14 pt; bold italic; red (#FF0000).
+13. "O_k" (O with subscript k) â row 1 (569, 182, 22, 18); row 2 (569, 249, 22, 18); row 3 (569, 328, 22, 18); ~14 pt; bold italic; red (#FF0000).
+
+**Weight labels**
+14. "w_ij" (w with subscript ij) â (309, 184, 30, 15); ~12 pt; bold italic; blue (#0000FF); horizontal, on the layer-iâlayer-j edge, row 1.
+15. "w_ji" (w with subscript ji) â (306, 203, 38, 48); ~12 pt; bold italic; blue (#0000FF); rotated ~ -55Â° (slanting down-left to up-right), on a diagonal layer-iâlayer-j edge.
+16. "w_jk" (w with subscript jk) â (461, 184, 30, 15); ~12 pt; bold italic; blue (#0000FF); horizontal, on the layer-jâlayer-k edge, row 1.
+17. "w_kj" (w with subscript kj) â (462, 203, 38, 48); ~12 pt; bold italic; blue (#0000FF); rotated ~ -55Â°, on a diagonal layer-jâlayer-k edge.
+   (Subscript order on the two rotated labels is lower-confidence; see Â§7/Â§9.)
+
+**Outputs**
+18. "Output 1" â (684, 196, 52, 14); ~9 pt; bold; black (#000000); white rectangle with black border at (682, 193, 57, 20).
+19. "Output 2" â (684, 264, 52, 14); ~9 pt; bold; black; white rectangle with black border at (682, 261, 57, 20).
+20. "Output m" â (684, 338, 52, 14); ~9 pt; bold; black; white rectangle with black border at (682, 335, 57, 20).
+
+**Error column**
+21. "Error" â (755, 196, 18, 44); ~13 pt; bold; white (#FFFFFF); rotated 90Â° counter-clockwise (reads bottom-to-top); on top red bar.
+22. "Error" â (755, 250, 18, 44); same styling; on middle red bar.
+23. "Error" â (755, 300, 18, 44); same styling; on bottom red bar.
+
+**Class boxes**
+24. "Class 1" â (786, 197, 47, 13); ~11 pt; bold; dark green (#006100); light-green rectangle (#C6EFCE) with green border (#70AD47) at (780, 193, 58, 22).
+25. "Class 2" â (786, 265, 47, 13); same styling; box at (780, 261, 58, 22).
+26. "Class m" â (786, 342, 47, 13); same styling; box at (780, 338, 58, 22).
+
+**Bias legend and bias badges**
+27. "1" â (71, 411, 10, 12); ~11 pt; bold; white (#FFFFFF); inside purple circle (#9900CC) at (68, 409, 17, 17).
+28. "Node Bias" â (90, 410, 60, 13); ~10 pt; bold; magenta (#CC00CC); immediately right of the legend circle.
+29. "1" â (243, 389, 12, 14); ~12 pt; bold; white; inside purple circle (#9900CC) at (238, 386, 22, 22), under the layer-i column.
+30. "1" â (393, 389, 12, 14); ~12 pt; bold; white; inside purple circle (#9900CC) at (388, 386, 22, 22), under the layer-j column.
+
+**Layer pointers and layer caption boxes (below the panel)**
+31. "i" â (244, 425, 8, 12); ~11 pt; bold; black; centered in the silver/grey up-arrow at (238, 418, 22, 26).
+32. "Previous Layer" â (214, 452, 70, 11); ~9 pt; regular; black; line 1 of light-blue box (fill #DDEBF7, border #8EAADB) at (207, 447, 84, 29).
+33. "Layer (i)" â (222, 463, 54, 11); ~9 pt; regular; black; line 2 of same box.
+34. "j" â (400, 425, 8, 12); ~11 pt; bold; black; centered in the green up-arrow at (395, 418, 20, 26).
+35. "Current Layer" â (370, 452, 68, 11); ~9 pt; regular; black; line 1 of light-green box (fill #E2EFDA, border #A9D08E) at (362, 447, 85, 29).
+36. "(You are here)" â (370, 463, 68, 11); ~9 pt; regular; black; line 2 of same box.
+37. "k" â (553, 425, 9, 12); ~11 pt; bold; black; centered in the orange up-arrow at (546, 418, 24, 26).
+38. "Next Layer" â (532, 452, 56, 11); ~9 pt; regular; black; line 1 of light-orange box (fill #FCE4D6, border #F4B183) at (528, 447, 63, 29).
+39. "Layer (k)" â (537, 463, 46, 11); ~9 pt; regular; black; line 2 of same box.
+
+**Repeated glyph inside every node (15 node circles)**
+40. "Î£" â red summation glyph, ~14 pt, red (#FF0000), one inside each of the 15 node circles: input column (136â160, 190â214), (136â160, 254â278), (136â160, 326â350); layer-i blue column (233â257, 190â214), (233â257, 254â278), (233â257, 326â350); layer-j green column (393â417, 190â214), (393â417, 254â278), (393â417, 326â350); layer-k orange column (538â562, 190â214), (538â562, 254â278), (538â562, 326â350); output-node column (625â655, 190â214), (625â655, 254â278), (625â655, 326â350). Each "Î£" is paired with a small green activation-function curve in the right half of the same circle.
+
+**Not transcribed (non-text):** the three small grey circles used as ellipsis between columns, the four magenta bullet dots, the mouse-pointer cursor, and the black overlay band.
+
+## 2. LAYOUT MAP
+
+Reading order: title â subtitle â slide badge (top-right) â Input Sample (left) / Target Label (right) with dashed connector â main network panel (left-to-right, rows top-to-bottom) â Error column â Class boxes â bias legend + layer pointer row.
+
+| # | Element | BBox (x,y,w,h) | Type |
+|---|---|---|---|
+| 1 | Red slide frame (stroke only) | (55, 37, 791, 453) | decorative border |
+| 2 | Title "Neural Network Model" | (318, 47, 293, 27) | title |
+| 3 | Subtitle | (210, 75, 490, 26) | subtitle |
+| 4 | Slide-number circle + "2" | (812, 49, 37, 37) | badge |
+| 5 | "Input / Sample" pink box | (64, 120, 58, 26) | label box |
+| 6 | "Target / Label" pink box | (809, 118, 36, 28) | label box |
+| 7 | Dashed magenta double-headed arrow InputâTarget | (122, 131, 690, 7) | diagram connector |
+| 8 | Main network panel (beige) | (62, 160, 681, 265) | diagram / body panel |
+| 9 | Input column, 3 node circles | (132,184,36,36), (132,248,36,36), (132,318,36,36) | diagram nodes |
+| 10 | 4 magenta bullet dots, left of input column | (71,239,8,8), (71,261,8,8), (71,284,8,8), (71,305,8,8) | animation bullets |
+| 11 | Grey ellipsis dots (3 per row) after input column | (181,197,33,10), (181,261,33,10), (181,331,33,10) | diagram |
+| 12 | Layer-i blue column, 3 circles | (228,185,34,34), (228,249,34,34), (228,319,34,34) | diagram nodes |
+| 13 | Layer-j green column, 3 circles | (388,185,34,34), (388,249,34,34), (388,319,34,34) | diagram nodes |
+| 14 | Layer-k orange column, 3 circles | (533,185,34,34), (533,249,34,34), (533,319,34,34) | diagram nodes |
+| 15 | Grey ellipsis dots (3 per row) after layer-k | (578,197,34,10), (578,261,34,10), (578,331,34,10) | diagram |
+| 16 | Output white circles (black outline), 3 | (623,185,32,34), (623,249,32,34), (623,319,32,34) | diagram nodes |
+| 17 | Red arrow from output circle to Output box (3) | (668,199,12,6), (668,267,12,6), (668,341,12,6) | connector |
+| 18 | Output boxes "Output 1/2/m" | (682,193,57,20), (682,261,57,20), (682,335,57,20) | label boxes |
+| 19 | Red vertical "Error" bar stack (3 stacked bars, reads as one column) | (752,170,24,68), (752,240,24,68), (752,310,24,65) | diagram / annotation |
+| 20 | Class boxes "Class 1/2/m" | (780,193,58,22), (780,261,58,22), (780,338,58,22) | label boxes |
+| 21 | Purple "1" bias badge, layer i | (238, 386, 22, 22) | badge |
+| 22 | Purple "1" bias badge, layer j | (388, 386, 22, 22) | badge |
+| 23 | "1" + "Node Bias" legend (inside panel, bottom-left) | (68, 409, 17, 17) and (90, 410, 60, 13) | legend / badge |
+| 24 | Up-arrow pointers i / j / k | (238,418,22,26), (395,418,20,26), (546,418,24,26) | diagram arrows |
+| 25 | "Previous Layer / Layer (i)" box | (207, 447, 84, 29) | label box |
+| 26 | "Current Layer / (You are here)" box | (362, 447, 85, 29) | label box |
+| 27 | "Next Layer / Layer (k)" box | (528, 447, 63, 29) | label box |
+| 28 | Black overlay band (video artifact, not slide content) | (0, 490, 960, 50) | artifact |
+| 29 | Partially visible grey-blue rounded shape above band | (385, 486, 105, 14 visible) | artifact |
+
+Alignment notes: title and subtitle are horizontally centered on the frame; the three layer caption boxes are aligned along a common baseline (y=447) under their respective columns; the three output boxes, three error bars, and three class boxes form three vertically aligned columns to the right of the panel; all three node rows share the same y-centers (â202, 266, 336).
+
+## 3. VISUAL ELEMENTS
+
+**Charts:** none. No axes, no tick marks, no plotted data series, no legend of data series, no chart titles.
+
+**Tables:** none.
+
+**Diagram (single large network schematic, panel x=62â743, y=160â425):**
+- Five vertical node columns, each with 3 rows (y-centers â202, 266, 336):
+  - Column 1 "input": 3 white-filled circles, thin dark outline, each containing a red "Î£" (left half) and a green step/sigmoid activation curve (right half). Centers xâ150.
+  - Column 2 "layer i": 3 white-filled circles with blue outline (medium blue â#2E75B6), same Î£ + green curve. Centers xâ245.
+  - Column 3 "layer j": 3 white-filled circles with green outline (bright green â#00B050), same Î£ + green curve. Centers xâ405.
+  - Column 4 "layer k": 3 pale-orange filled circles (#FCE4D6) with orange outline (#ED7D31), same Î£ + green curve. Centers xâ550.
+  - Column 5 "output": 3 white-filled circles with black outline, same Î£ + green curve. Centers xâ640.
+- Ellipsis: three small grey-filled circles (fill #BFBFBF, outline #808080, ~9 px diameter) between column 1 and column 2 (xâ186/198/210) and between column 4 and column 5 (xâ583/595/607), repeated in all three rows.
+- Connectors: thin pink/red (#F0A0A0) solid lines forming a fully connected mesh from column 1â2, 2â3, 3â4 (9 lines per layer pair); the column 1â2 mesh is drawn as dashed magenta/pink lines (animation state); short horizontal pink lines from column 4 to column 5 in each row; small solid red right-pointing arrowheads from each column-5 circle into its "Output n" box.
+- Dashed magenta horizontal double-headed arrow spans the slide above the panel, connecting "Input Sample" (arrowhead at left, pointing left into the box) and "Target Label" (arrowhead at right, pointing right into the box).
+- Annotations: "Net_i"/"Net_j"/"Net_k" above the top node of columns 2/3/4; "O_i"/"O_j"/"O_k" immediately right of each node in columns 2/3/4, each accompanied by a small solid red dot at the node rim; blue weight labels "w_ij" and "w_jk" on the horizontal row-1 edges and "w_ji"/"w_kj" on the slanted diagonals.
+- Bias markers: purple filled circles with white "1" below layer-i and layer-j columns; a legend (purple circle "1" + magenta "Node Bias") at the panel's bottom-left.
+- Three up-arrows (silver for i, green for j, orange for k) rise from the caption boxes into the panel, each carrying its layer index letter.
+- Four magenta filled bullet dots stacked at the far-left of the panel (xâ75, yâ243, 265, 288, 309) â progressive-disclosure bullets with no adjacent text.
+
+**Images/illustrations:** none (all content is vector shapes and text).
+
+**Equations:** no equations. The only math-like glyphs are 15 red "Î£" summation symbols inside node circles and the subscripted labels "Net_i", "Net_j", "Net_k", "O_i", "O_j", "O_k", "w_ij", "w_ji", "w_jk", "w_kj" (subscripts are baseline-lowered small text, not true stacked fractions; no limits above/below, no fractions).
+
+## 4. COLORS
+
+- Slide background: white #FFFFFF.
+- Red slide frame stroke: #C00000, ~2 px, inset at (55,37)-(846,490).
+- Title text: #C00000. Subtitle text: #0000CC.
+- Main panel fill: light warm grey/beige #ECE9E3.
+- Node outlines: dark/black #000000 (input column), blue #2E75B6 (layer i), green #00B050 (layer j), orange #ED7D31 with fill #FCE4D6 (layer k), black #000000 (output column); all node interiors white #FFFFFF.
+- "Î£" glyphs: #FF0000. Activation curves inside nodes: #00B050.
+- "O_*" and "Net_*" labels: #FF0000.
+- Weight labels "w_*": #0000FF.
+- Network mesh lines: pink/red #F0A0A0 solid; dashed magenta #FF66FF for the inputâlayer-i mesh; red arrowheads #FF0000.
+- Pink endpoint boxes (Input Sample, Target Label): fill #FF99FF, border #FF00FF, text black #000000.
+- Magenta dashed header arrow, magenta bullet dots: #FF00FF. "Node Bias" text: #CC00CC.
+- Purple bias badges: fill #9900CC, numeral white #FFFFFF.
+- Class boxes: fill #C6EFCE, border #70AD47, text #006100.
+- Error bars: fill #C00000, text white #FFFFFF.
+- Output boxes: fill #FFFFFF, border #000000, text #000000.
+- Layer caption boxes: Previous = fill #DDEBF7 / border #8EAADB; Current = fill #E2EFDA / border #A9D08E; Next = fill #FCE4D6 / border #F4B183; all text #000000.
+- Up-arrow pointers: i = silver grey #A6A6A6; j = light green #92D050; k = light orange #F8CBAD; all letters #000000.
+- Ellipsis dots: fill #BFBFBF, outline #808080.
+- Slide-number circle: #FFFF99 with black numeral.
+- Overlay band: #000000; partial rounded shape above it: light grey-blue â#B8C4CE.
+- Dominant palette: white background, beige panel, red/blue/green/orange semantic coding (red = summation & outputs, blue = layer i & weights, green = layer j & activation/class, orange = layer k), magenta accents for input/target and bullets, purple for bias units.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: bold sans-serif (Arial/Calibri-like), ~24 pt, red #C00000, centered at top (yâ47), single line.
+- Subtitle: bold sans-serif, ~22 pt, blue #0000CC, centered, parenthesised, single line.
+- Slide-number badge: pale-yellow circle (812,49,37,37) with no visible outline; black numeral "2", ~16 pt, centered in the circle; positioned top-right, outside the main diagram area but inside the red frame.
+- Body/label text: Arial-like bold, 8â11 pt, black on tinted boxes; two-line stacks in the endpoint boxes and layer caption boxes.
+- Math-style labels ("Net_i", "O_i", "w_ij") are bold italic with true subscript characters in a smaller, lowered font; subscripts are colored the same as their base text (red for Net/O, blue for w).
+- "Error" labels are bold italic-ish white text rotated 90Â° counter-clockwise inside red vertical bars.
+- Decorative elements: 2 px red rectangle frame around the whole slide; beige filled panel behind the network; thin colored borders on every small box; white-outlined red dots; no shadows, no gradients.
+- Badge set: one slide-number badge (yellow circle, "2", top-right) and three purple circular "1" badges (one legend at panel bottom-left, two under layer i and layer j).
+
+## 6. NUMERIC DETAILS
+
+- "2" â slide-number badge, top-right circle at (812,49,37,37); numeral at ~(824,58).
+- "1" â purple badge legend at (68,409,17,17).
+- "1" â purple badge under layer-i column at (238,386,22,22).
+- "1" â purple badge under layer-j column at (388,386,22,22).
+- "Output 1" â output box, row 1, (682,193,57,20).
+- "Output 2" â output box, row 2, (682,261,57,20).
+- "Output m" â output box, row 3, (682,335,57,20) (m is a symbolic index, not a numeral).
+- "Class 1" â (780,193,58,22); "Class 2" â (780,261,58,22); "Class m" â (780,338,58,22).
+- "1" in "Class 1"; "2" in "Class 2"; "1" in "Output 1"; "2" in "Output 2".
+- "Layer (i)" â bottom-left caption box, (207,447,84,29); "Layer (k)" â bottom-right caption box, (528,447,63,29).
+- Layer indices in pointer arrows: "i" (238,418,22,26), "j" (395,418,20,26), "k" (546,418,24,26).
+- Subscript numerals/indices in labels: i, j, k in "Net_i/Net_j/Net_k", "O_i/O_j/O_k"; ij, ji, jk, kj in the four weight labels.
+- No axes, no tick values, no percentages, no table values, no data points anywhere on the slide.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- A solid black band (0,490,960,50) covers the bottom ~9% of the frame; it is a video/letterbox overlay, not slide content. It clips the bottom red frame line (which otherwise ends at yâ490).
+- A partially visible light grey-blue rounded shape protrudes above the black band at roughly (385,486)-(490,500), apparently an overlay control or an element hidden by the band â recreate or ignore deliberately rather than treating it as slide art.
+- The mouse cursor (small black/white arrow) is frozen inside the panel at approximately (503,216,15,18), overlapping a layer-jâlayer-k connection line â a capture artifact.
+- The input-columnâlayer-i mesh is drawn with dashed magenta/pink lines while the other meshes are solid thin pink: this is a partially drawn animation state; reproduce the dashed styling.
+- Four magenta bullet dots at the far-left of the panel have no accompanying text, implying an unfinished/progressive bullet animation.
+- The three red "Error" bars are stacked flush with no visible gap and read as one continuous red column with three rotated words; keep the word spacing (roughly y-centers 218, 272, 322) rather than centering them in thirds.
+- The "Target Label" pink box (809,118,36,28) nearly touches the red slide frame at x=846 and the right edge of the frame â avoid overlap artifacts.
+- The slanted weight labels ("w_ji", "w_kj") are rotated ~-55Â° and overlap connection lines; their subscript character order is the least legible text on the slide.
+- The row-3 node row sits lower than rows 1-2 (y-centers â336 vs 202/266), so the vertical spacing is uneven; reproduce this rather than equalizing rows.
+- Many thin connection lines pass behind node circles and labels, creating visual clutter; layer order should be panel â lines â nodes â labels.
+
+## 8. TOP-3 FIDELITY RISKS
+
+1. **Right-hand "Error" column (x 752â776, y 170â375).** Problem: it reads as one tall red bar but is three separate flush bars each carrying a rotated white "Error"; recreators often draw a single bar with one word, or wrong rotation direction. Fix: draw three stacked red rectangles of ~24 px width at y = 170â238, 240â308, 310â375, and place three white bold "Error" texts rotated 90Â° counter-clockwise (reading bottom-to-top) centered in each bar at y-centers â218, 272, 322.
+2. **The 15 node circles (x 132â655).** Problem: each node is a composite symbol â outline color changes by column (black â blue â green â orange â black), layer-k nodes are pale-orange filled while others are white, and each contains BOTH a red "Î£" and a green activation curve; omitting the curve, the fill difference, or the Î£/curve split will change the meaning. Fix: reproduce a 5-column Ã 3-row grid with the exact colors listed in Â§4, draw the red Î£ at the circle's left interior and the green step/sigmoid curve at the right interior of every circle.
+3. **Bottom layer-pointer row (y 386â476): the three purple "1" badges, the three colored up-arrows with i/j/k, and the three caption boxes.** Problem: easy to mis-order or mis-color (purple badges belong to layer i and layer j only â there is NO purple badge under layer k), and the gray i-arrow / green j-arrow / orange k-arrow must line up exactly with the column centers xâ248, 404, 558 while the caption boxes are offset left. Fix: place purple "1" circles at (238,386) and (388,386), arrows at (238,418), (395,418), (546,418), and the caption boxes (Previous Layer / Layer (i), Current Layer / (You are here), Next Layer / Layer (k)) exactly as listed in Â§2.
+
+## 9. VERDICT
+
+- Recreatability score: 8/10. All printed strings, numbers, labels and shape colors are extractable; the deduction reflects the rotated weight-label subscripts, the artifact overlays at the bottom, and the ambiguous segmentation of the red Error column.
+- Confidence in transcription: medium-high. Highest confidence: title, subtitle, slide badge, all 15 Î£ glyph locations, Output/Class/Error/Node Bias text, layer caption boxes and their i/j/k letters, purple "1" badges. Lowest confidence: the subscript order of the two rotated blue weight labels ("w_ji" and "w_kj") and the exact pixel segmentation of the three red Error bars (one continuous vs. three stacked).
+- Deliberately NOT transcribed: the grey ellipsis dots (non-text graphics), the four magenta bullet dots (non-text), the mouse-pointer cursor, the black bottom band and the partial grey-blue rounded shape (video/player overlays rather than slide content), and the internal geometry of the green activation curves (drawn strokes, not characters).
+
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully

@@ -1,50 +1,302 @@
-usage: analyze_image.py [-h] MODE ...
+[info] context header injected: VIEW: slide 028 — original lecture frame, 09_introduction_to_neural_networks | CAPTURE: 960x540 lecture slide frame, original
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1554991
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_028.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants a detailed structural reading of a lecture slide frame. I need to analyze the image carefully.
 
-Analyze images by racing vision models in parallel; first working response wins (HTTP 200, JSON parses, non-empty choices[0].message.content, no error wrapper).
+Let me look at the image:
+- It's a slide titled "Neural Network Model"
+- There's a yellow badge with number 28 in top right
+- The slide shows a neural network diagram
 
-positional arguments:
-  MODE
-    analysis    EXACTLY ONE image, one prompt -> one race, one response
-    comparison  EXACTLY TWO images, ONE API request carrying both
-    batch       ANY number of images, ONE shared prompt, ONE API request
-    per-image   PREFERRED: image+prompt pairs + master prompt; each image in
-                its OWN sequential request
+Let me go through the required sections:
 
-options:
-  -h, --help    show this help message and exit
+1. PRINTED SLIDE NUMBER: Yellow badge in top-right shows "28". I don't see other visible numbers (the Net_i, O_i etc are labels not slide numbers).
 
-modes (every arg with shape + description; details also via `MODE -h`):
-  analysis IMG -p/--prompt PROMPT
-      IMG: exactly one image path; PROMPT: question for the models
-      (default: full visual-QA description).
-  comparison IMG1 IMG2 -p/--prompt PROMPT
-      IMG1 IMG2: exactly two image paths (both in ONE API request); PROMPT
-      (default: similarities/differences/which-is-better comparison spec).
-  batch IMG [IMG ...] -p/--prompt PROMPT
-      one or more image paths sharing ONE prompt in ONE API request.
-  per-image --image IMG --prompt P (repeatable pairs) --master-prompt M (required)
-      each image gets its OWN sequential API request; prompt = M + P;
-      len(images) must equal len(prompts) >= 1.
+2. TITLE: "Neural Network Model" - appears to be in red/dark red color, centered at top. Font size estimate maybe 28-32px in a 540px tall frame... Actually the title is large, perhaps around 24-28 pt equivalent.
 
-examples (one per mode):
-  analysis    python3 scripts/analyze_image.py analysis IMG.png -p "PROMPT"
-  comparison  python3 scripts/analyze_image.py comparison IMG1.png IMG2.png -p "PROMPT"
-  batch       python3 scripts/analyze_image.py batch IMG1.png IMG2.png -p "PROMPT"
-  per-image   python3 scripts/analyze_image.py per-image \
-                  --image IMG1.png --prompt "p1" \
-                  --image IMG2.png --prompt "p2" --master-prompt "master"
+3. ALL OTHER TEXT:
+- Top left: "Input Sample" (in a pink/magenta box)
+- Top right: "Target Label" (in a box, appears purple/light color)
+- Right side vertical panel: "Class 1", "Class 2", "Class m" and vertically "Error Error" (it says "Error Error" along the vertical red strip - actually I see "Error Error" repeated vertically)
+- Labels: "Net_i", "O_i", "Net_j", "O_j", "Net_k", "O_k" (in red text above/below summation circles)
+- Weight labels: "w_ji", "w_kj", "w_kj" again... let me check. I see "w_ji", "w_kj", and another "w_kj" (should be w_kj, and maybe w_j?). Looking closely there are three weight labels: w_ji, w_kj, w_kj (duplicate?), maybe one is w_kj and one w_kj. Actually I see w_ji (green arrow?), w_kj, w_kj - possibly there's w_kj and w_kj. Let me just note what's visible: w_ji, w_kj, w_kj (two of them? There might be three: w_ji, w_kj, w_kj). The image shows at least three blue arrows pointing from previous layer to current layer with labels: w_ji, w_kj, w_kj. Hmm. Actually in standard notation, weights from layer i to j are w_ji, from j to k are w_kj. The slide has w_ji, w_kj, and another w_kj likely. I'll report w_ji, w_kj, w_kj (repeated).
+- "i", "j", "k" labels below certain summation nodes (blue arrows labeled i, j, k pointing down)
+- Bottom: "Previous Layer Layer (i)" with an up arrow/triangle below it; "Current Layer (You are here)" with arrow; "Next Layer Layer (K)" with arrow
+- Labels for arrows: "I/P Layer" (yellow box, left), "Hidden Layer(s)" (black box, center), "O/P Layer" (yellow box, right)
+- "Output 1", "Output 2", "Output m" labels on the right
+- Classes: "Class 1", "Class 2", "Class m" (in the red vertical strip)
 
-global flags (all modes):
-  --timeout N          per-request read timeout in seconds (default 600)
-  --rounds N           full-race restarts if every model fails (default 2)
-  --tries N            attempts per model per round (default 2)
-  --models M1,M2,...   comma-separated model list override (default: images)
-  --max-tokens N       max_tokens for the completion (default 8192)
-  --json               JSON-Lines output (per-image: one line per image)
-  --transcript PATH    write the winning body to PATH (a degenerate/failed
-                       run never overwrites an existing transcript)
+Reading order: The diagram has many small text elements.
 
-pacing: the gateway is SHARED (Stitch proxy + vision) — prefer per-image mode for
-multi-image workloads (sequential requests); never wrap this script in retry loops.
+Let me check for equations. The summation circles (sigma) are symbols, not really equations. There might not be explicit equations like "Net = sum..." The diagram uses sigma symbols inside circles. I should note these as mathematical expressions: the â (sigma) symbols in circles, and possibly the implied net input. But the instruction says "every equation/math expression, verbatim as printed". The printed math expressions are:
+- Net_i (with subscript)
+- O_i
+- Net_j
+- O_j
+- Net_k
+- O_k
+- w_ji
+- w_kj
+- â symbols in circles
+- The labels i, j, k
 
-[error] argument MODE: invalid choice: 'analyze', maybe you meant 'analysis'? (choose from 'analysis', 'comparison', 'batch', 'per-image')
+Hmm, should I list these as equations? They are mathematical notation. I think section 4 (EQUATIONS) should include the symbolic expressions: Net_i, Net_j, Net_k, O_i, O_j, O_k, w_ji, w_kj, w_kj, and the summation operator symbols. Position regions accordingly.
+
+4. GRAPHS/CHARTS/DIAGRAMS: This is a diagram - a neural network architecture diagram. Not data chart. Axis labels: none really; instead layer labels. I should describe it: type = directed graph / neural network schematic. Nodes: 3 columns of summation nodes (circles with â) and output nodes. Edges arrows. Colors of nodes: beige/tan circles for input layer (left), blue circles for hidden/current layer (middle), orange/red circles for next layer (right), green circles for outputs.
+
+5. TABLES/BOXES: 
+- Pink/magenta box containing "Input Sample"
+- Yellow box top-right with "28"
+- Purple/light box containing "Target Label"
+- Red vertical box on right containing "Class 1", "Class 2", "Class m" and vertical text "Error Error"
+- Black boxes at bottom: "Hidden Layer(s)" and yellow boxes "I/P Layer", "O/P Layer"
+- The red vertical strip on right side with "Error, Error" printed vertically and Class 1/2/m
+
+Wait, the right side red vertical strip contains "Class 1", "Class 2", "Class m" - and the vertical text "Error Error" is written along it. And there's a green arrow pointing to it from outputs.
+
+6. LAYOUT REGIONS:
+- Top strip: title area with Neural Network Model centered, badge 28 top right. Fraction: title y ~0.09-0.16; badge x~0.88-0.95, y~0.09-0.19.
+- Main diagram region: from x~0.07 to x~0.94, y~0.16 to y~0.82.
+- Bottom strip: layer labels and bar graph: y~0.82 to ~0.98.
+- Left column: I/P Layer label and input points.
+- Right column: outputs and class labels.
+
+7. COLORS:
+- Red/maroon (#8B0000 or #C00000?) for title "Neural Network Model" â looks like a dark red, maybe #8B0000 or #A00000. Let me estimate #8B1A1A or #B22222. The title appears dark red.
+- Yellow badge: #FFFF00 (bright yellow) with black text "28".
+- Pink/magenta box: #FF00FF-ish or light purple #DDA0DD? The "Input Sample" box is pink/magenta (#FF69B4 or #DA70D6?). Looks like a pink/purple border with white fill? Actually it looks like a purple box with black text. Maybe #C090D0.
+- Text labels Net/Net etc in red (#FF0000).
+- Weight labels w_ji etc in blue (#0000FF).
+- Arrows: blue (#0000FF), black (#000000), green (#008000).
+- Nodes: left circles beige/tan (#D2B48C or #E6D5AC), middle circles blue (#ADD8E6 light blue), right circles orange (#FFA500), output circles green (#90EE90 or #00B050).
+- Red vertical strip on right: red (#FF0000 or #C00000) with black text? The text on it is black.
+- Bottom boxes: black fill with yellow/white text for "Hidden Layer(s)", yellow boxes with black text for I/P and O/P.
+- Background: white/very light gray (#F5F5F5?).
+
+8. GEOMETRY NOTES:
+- Title centered horizontally.
+- Badge 28 at top right, roughly 40px diameter.
+- The diagram has three vertical columns of nodes: prev layer (3 nodes shown? Actually the visible left part shows partial column), current layer j has 3 nodes, next layer k has 3 nodes, output layer has 3 nodes.
+- Wait, let me count. Looking at the image:
+  - Prev Layer (i): there are nodes at top-left area (partially cut off, showing 3â and 4â etc.). Actually leftmost column seems cut off by the diagram boundary; we see edges with purple dots and partial circles.
+  - Current Layer (j): three â circles labeled O_j.
+  - Next Layer (k): three â circles labeled O_k.
+  - Output layer: three green circles labeled Output 1, Output 2, Output m.
+- Vertical spacing between node rows roughly equal.
+- "i", "j", "k" labels sit below the middle node of each column with arrows pointing down.
+- The layer labels at bottom have arrows/chevrons.
+- Vertical red strip on right: contains class labels; "Error Error" is written in two lines diagonally/curved along the strip.
+- Lines: edges from each node to all nodes in next layer (fully connected).
+- The "Error" green arrow points from Output side to the red strip.
+
+Let me now compile the answer carefully. I must be honest about what I can/cannot read.
+
+Title font size: In a 960x540 frame, the title occupies about 40 pixels height, so roughly 40px â 30pt. I'll estimate ~28-32 pt.
+
+Other text sizes: small labels ~10-12 pt.
+
+Let me write the final structured answer.
+
+Double-check the badge: yellow circle, top right, contains "28" in black.
+
+Check "Target Label": top right, inside a light purple/lavender outlined box, connected by a dotted purple arrow from Input Sample. Yes.
+
+The purple/dotted lines at top: from Input Sample to diagram (dashed light blue/purple), and from diagram to Target Label.
+
+Weights: I see three blue arrows from previous layer nodes to current layer nodes, labeled w_ji (middle), w_kj (top?), w_kj. Actually there appear to be labels: top arrow "w_ji"? Let me look again. In the diagram between column j and k, the arrows are labeled "w_kj" (two instances) and between i and j labeled "w_ji". There's also possibly "w_j" something. The image shows in blue: "w_ji" and two "w_kj". I'll report: w_ji, w_kj, w_kj (one duplicated label visible twice; possibly also an additional w_kj or w_kj). To be safe: "w_ji", "w_kj", "w_kj" (the w_kj label appears on two arrows).
+
+Hmm, but maybe there are three distinct ones: w_ji, w_kj, w_kj and another. Given resolution, I'll list what's legible.
+
+Also labels: above net circles: "Net_i" (red), "O_i" (blue? black?) â in the image Net is red, O is black/dark. I'll note color: labels Net_i/Net_j/Net_k in red; O_i/O_j/O_k in black/dark.
+
+Now section 4 equations: I'll list:
+- Net_i = w_ji Â· O_i (implied?) No, I shouldn't invent. I should only report printed. Printed are the symbols Net_i, O_i etc. The sigma circles indicate summation but no equation is explicitly printed like "Net = Î£ w O". So I'll list symbol groups and note no explicit algebraic equations; the â operator appears inside circles.
+
+Actually the user asks "every equation/math expression, verbatim as printed". The math expressions are the node labels and weights. I'll present them as math expressions.
+
+Let me finalize.
+
+For layout regions with fractions:
+- Title band: x 0.07-0.93, y 0.06-0.17.
+- Badge: x 0.89-0.96, y 0.08-0.19 (circle diameter ~0.11 of height? Actually radius ~24px of 540 â 0.045; so diameter ~0.09). I'll give approx x0.89-0.955, y0.075-0.185.
+- Input Sample box: x 0.065-0.17, y 0.19-0.245.
+- Target Label box: x 0.83-0.97, y 0.19-0.245.
+- Main diagram frame: x 0.065-0.965, y 0.16-0.81 (border dark red/maroon rectangle).
+- Node columns within: 
+  - Prev layer (i) column: x ~0.10-0.26 (partially at left edge), nodes at y ~0.30, 0.47, 0.63.
+  - Current layer (j): x ~0.36-0.44 (three â circles centered ~x0.40), y same three rows.
+  - Next layer (k): x ~0.57-0.65, same rows.
+  - Output layer: x ~0.79-0.85, three green circles.
+- Weight arrows: from x0.27-0.36 (iâj) and x0.45-0.57 (jâk).
+- Output labels: "Output 1" etc at x ~0.86-0.95, y rows.
+- Right vertical red strip: x ~0.955-0.965? Actually the red strip is inside the main frame at right edge, x ~0.955-0.97, y 0.25-0.80, containing Class 1 (top), Class 2 (middle), Class m (bottom), with vertical "Error Error" text. Wait the Class labels are to the right of outputs? Looking again: The red vertical panel is at far right (x~0.955-0.965), with "Class 1" at top, "Class 2" middle, "Class m" bottom. The vertical text "Error Error" is printed along this red strip (in black). Output labels are just left of this strip.
+- Bottom legend row: 
+  - "I/P Layer" yellow box x~0.03-0.09, y~0.88-0.96.
+  - "Hidden Layer(s)" black box x~0.35-0.63, y~0.88-0.96 with white/yellow text.
+  - "O/P Layer" yellow box x~0.91-0.97, y~0.88-0.96.
+  - Arrows beneath pointing: from I/P to Hidden (arrow), from Hidden to O/P (arrow), and the layer descriptor arrows with "Previous Layer Layer (i)", "Current Layer (You are here)", "Next Layer Layer (K)" at y~0.78-0.82 with small arrows.
+
+Layer label bands: under current layer: "Previous Layer Layer (i)" centered under prev column x~0.16 y~0.755; "Current Layer (You are here)" under j x~0.40 y~0.75; "Next Layer Layer (K)" under k x~0.61 y~0.755.
+
+Colors list with hex:
+- Title dark red: approx #8B0000 (or #A50000). I'll say #8B1A1A.
+- Badge yellow: #FFFF00; badge text black #000000.
+- Input Sample box fill: light magenta/pink #D8BFD8? The box appears light purple with darker purple border #9370DB. I'll say fill #E6D0E6, border #800080.
+- Net labels red #FF0000.
+- Weights blue #0000FF.
+- Node fills: prev #D2B48C (tan), current #6495ED? The current â circles look blue #ADD8E6; next #FFA500 (orange); outputs #98FB98 (palegreen) or #32CD32.
+- Output label boxes: white fill.
+- Right red strip #C00000 / #FF0000; text on it black.
+- Bottom boxes: black #000000 fill with yellow text #FFFF00 ("Hidden Layer(s)"); yellow boxes #FFFF00 with black text.
+- Diagram frame border: dark maroon #800000.
+- Background: white #FFFFFF (or very light).
+
+I should also note the top connecting arrows: light blue/purple dashed arrows #6A5ACD/#7B68EE.
+
+Now, the summary line: "<N> text blocks, <N> equations, <N> graphs, <N> tables>".
+
+Count text blocks: I'll estimate. Distinct text elements/blocks:
+1. Badge "28"
+2. Title
+3. "Input Sample"
+4. "Target Label"
+5. Net_i
+6. O_i
+7. Net_j
+8. O_j
+9. Net_k
+10. O_k
+11. w_ji
+12. w_kj
+13. w_kj (second)
+14. i (label)
+15. j (label)
+16. k (label)
+17. "Previous Layer Layer (i)"
+18. "Current Layer (You are here)"
+19. "Next Layer Layer (K)"
+20. "I/P Layer"
+21. "Hidden Layer(s)"
+22. "O/P Layer"
+23. "Output 1"
+24. "Output 2"
+25. "Output m"
+26. "Class 1"
+27. "Class 2"
+28. "Class m"
+29. "Error Error" (vertical, one block)
+That's ~29 text blocks. But maybe group some. I'll say approximately 28 text blocks. Hmm, but the user wants a number; I'll give a count. Let me count more carefully and say "about 28 text elements". Actually to be precise, I'll report N=28.
+
+Equations: math expressions: Net_i, Net_j, Net_k, O_i, O_j, O_k, w_ji, w_kjÃ2, â nodes (9+ sigma symbols?), i/j/k labels. If counting distinct math expressions printed: Net_i, O_i, Net_j, O_j, Net_k, O_k, w_ji, w_kj (Ã2), â (multiple). I'll count equations as 0 explicit equations but note math notation. However format requires a number. I'll say equations = 12 (counted math-expression instances: 3 Net, 3 O, 3 weights, 3 â). Hmm, there are more than 3 â circles. Let me count â circles: prev layer top shows 3-4 partial, prev middle? Let me count visible: left column partial (cut off, maybe 3), column j: 3, column k: 3. That's 9 visible + partial. Plus output green circles (3) are not â.
+
+I'll simplify: "EQUATIONS: No standalone algebraic equations; math notation consists of summation operator â inside circles and labeled terms..." and in summary count "0 formal equations" but that might undercount. The prompt's summary expects counts; I'll use my block count and call math expressions "equations" count = 12 primary labeled expressions. I'll be transparent.
+
+Actually simpler: I'll set EQUATIONS section listing the symbol clusters, and in summary say equations = 0 (no printed equations like a=...), charts=1 diagram, tables=0 boxes? Tables = 0 (boxes are not tables). The summary line: "<N> text blocks, <N> equations, <N> graphs, <N> tables". I'll use text blocks = 28, equations = 0 (no explicit equations; only symbols) â but I listed symbols in section 4. Hmm inconsistent. Better: count the labeled math expressions as equations: I'll say equations = 12. And graphs = 1 (the diagram), tables = 0.
+
+Wait boxes: The slide has labeled boxes (Input Sample, Target Label, layer boxes). Are those "tables/boxes"? Section 6 asks TABLES/BOXES. I'll describe boxes and set tables = 0 (no grid tables), but there are boxes. The summary "tables" likely means tabular structures; I'll report 0 tables and mention boxes separately. Actually to be safe, summary: "28 text blocks, 12 equations, 1 graphs, 0 tables". But there are clearly boxes... The prompt's categories are text blocks, equations, graphs, tables. Boxes are structural containers, not tables. Fine.
+
+Let me reconsider text block count to a cleaner number. I'll enumerate and say 28.
+
+I think I'm overthinking; provide a thorough, ordered answer. Keep it as DATA, with disclaimers where uncertain.
+
+One more check: "Error Error" â the vertical red strip has text "Error" twice (one per line) plus "Class 1", "Class 2", "Class m". Also small green arrows from Output 1/2/m area pointing to the strip labeled by "Error". The green arrow near "Output 2"/"Output m" points right to the red strip. I'll mention green arrows indicating error backprop direction.
+
+Also there is a thin dark red rectangle border around the whole main content (from y~0.05 to y~0.815, x~0.065 to 0.965) â an outer frame.
+
+Also there are purple dots along the leftmost incoming arrows from "Input Sample" (the input vector dots).
+
+Let me produce the answer now.</think>1. PRINTED SLIDE NUMBER: Yellow circular badge, top-right â **28**. No other slide/page numbers are visible (the letters i, j, k are layer indices, not slide numbers).
+
+2. TITLE: **âNeural Network Modelâ** â single span, dark red, centered horizontally in the top band. Estimated font size â 26â30 pt (cap height ~30 px on the 540-px-tall frame). No two-color split.
+
+3. ALL OTHER TEXT (reading order: top band â diagram â right strip â bottom strip):
+
+   Top band:
+   - Box (pink/lavender, left): **Input Sample**
+   - Box (lavender, right): **Target Label**
+
+   Diagram, red math labels above nodes: **Net_i**, **O_i**, **Net_j**, **O_j**, **Net_k**, **O_k** (Net_* rendered in red; O_* in black/dark).
+   Diagram, blue edge labels: **w_ji**, **w_kj**, **w_kj** (the w_kj label appears on two arrows).
+   Diagram, small subscripts/layer tags below nodes: **i** (under previous-layer column), **j** (under current-layer column), **k** (under next-layer column), each with a small downward arrow.
+
+   Right vertical strip (red bar): **Class 1** (top), **Class 2** (middle), **Class m** (bottom); along the same strip, set vertically: **Error** / **Error** (two stacked words).
+
+   Output labels (right, outside the red strip): **Output 1**, **Output 2**, **Output m**.
+
+   Bottom descriptor band: **Previous Layer / Layer (i)**, **Current Layer / (You are here)**, **Next Layer / Layer (K)** â each with a small chevron/arrow.
+
+   Bottom legend row: yellow box **I/P Layer** (left), black box **Hidden Layer(s)** (center), yellow box **O/P Layer** (right).
+
+   No illegible words; everything above is legible.
+
+4. EQUATIONS / MATH EXPRESSIONS (printed notation only; no standalone equations such as âa = bâ are written â the slide encodes the computation pictorially via the â nodes):
+
+   - **Net_i** â above a â circle, previous-layer column region (xâ0.38, yâ0.30). Red.
+   - **O_i** â just below Net_i (xâ0.385, yâ0.335). Black.
+   - **Net_j** â above a â circle, current-layer column (xâ0.445, yâ0.465). Red.
+   - **O_j** â below Net_j (xâ0.445, yâ0.505). Black. (Two more O_j instances at the other two current-layer rows.)
+   - **Net_k** â above a â circle, next-layer column (xâ0.585, yâ0.30). Red.
+   - **O_k** â below Net_k (xâ0.585, yâ0.335). Black.
+   - **w_ji** â on a blue arrow between layer i and j (xâ0.30, yâ0.385). Blue.
+   - **w_kj**, **w_kj** â on blue arrows between layer j and k (xâ0.50, yâ0.335 and xâ0.51, yâ0.505). Blue.
+   - **â** (sigma operator) inside circles â one per network node cell across the i/j/k columns (â9 visible, many at the left edge partially cropped by the diagram border).
+   - Subscript tags **i**, **j**, **k** under the respective columns (xâ0.17 / 0.40 / 0.61, yâ0.70).
+
+5. GRAPHS / CHARTS / DIAGRAMS: Type = feed-forward neural-network schematic (directed layered graph), not a data chart.
+
+   - Nodes: columns of circles; each computational node is a circle containing **â**. Four visible tiers: previous layer (i), current layer (j), next layer (k), output layer.
+   - Node highlights: previous-layer circles = tan/beige fill; current-layer circles = light-blue fill; next-layer circles = orange fill; output nodes = green circles (plain, no â, feeding label boxes âOutput 1/2/mâ).
+   - Edges: thin black arrows fully connecting each lower tier to all nodes in the next tier; a separate set of thicker blue arrows with **w_ji / w_kj** labels carries the weighted connections; purple/magenta dashed arrows run from âInput Sampleâ into layer i and from layer k toward âTarget Labelâ; green arrows run from the output side back toward the right red strip (error path).
+   - Left edge: three purple dots (input vector components) feeding the first visible column.
+   - Axes/ranges/legend-numeric: none (no x/y axes, no numeric data series).
+
+6. TABLES / BOXES: No grid tables. Labeled boxes:
+   - âInput Sampleâ box â lavender/pink fill with darker purple outline.
+   - âTarget Labelâ box â light lavender fill with outline, upper right.
+   - Slide-number badge â yellow filled circle, black outline, black â28â.
+   - Right error strip â tall red rectangle (dark red/maroon) containing âClass 1 / Class 2 / Class mâ and the vertical âError / Errorâ text; black text on red.
+   - âOutput 1/2/mâ â small white rounded rectangles with thin outlines.
+   - Bottom layer boxes: **I/P Layer** and **O/P Layer** = black-outlined yellow boxes with black text; **Hidden Layer(s)** = black box with yellow text.
+   - Outer frame: thin dark-maroon rectangle enclosing title area + diagram.
+
+7. LAYOUT REGIONS (fractions of the 960Ã540 frame):
+   - Top strip (title + badge), x 0.07â0.96, y 0.06â0.17.
+   - Badge, x 0.89â0.955, y 0.075â0.19.
+   - âInput Sampleâ box, x 0.065â0.17, y 0.19â0.245.
+   - âTarget Labelâ box, x 0.83â0.965, y 0.19â0.245.
+   - Main diagram frame, x 0.065â0.965, y 0.16â0.815.
+   - Node rows at three vertical tiers, y â 0.30, 0.47, 0.63 (row centers).
+   - Column centers: previous layer i â x 0.18 (left edge partially cropped), current j â x 0.40, next k â x 0.61, outputs â x 0.815.
+   - Output label boxes, x 0.855â0.945, y rows 0.27 / 0.45 / 0.62.
+   - Right red error strip, x 0.955â0.968, y 0.25â0.80.
+   - Layer descriptor band, y â 0.72â0.80 (text sits under each column).
+   - Bottom legend row, y â 0.87â0.97: I/P box x 0.03â0.09, Hidden box x 0.35â0.63, O/P box x 0.91â0.97; long horizontal black arrows beneath them.
+
+8. COLORS (approximate hex, non-background):
+   - Title red: #8B1A1A (dark red/maroon).
+   - Badge yellow: #FFFF00, badge text black #000000.
+   - Net_* labels: #FF0000 (red).
+   - Edge/weight labels w_ji, w_kj: #0000FF (blue); matching thick blue arrows.
+   - Node fills: tan #D2B48C; light blue #AFC9E8 (current-layer â); orange #F0A030 (next-layer â); output green #7FBF7F.
+   - Input vector dots: #8E44AD / #7030A0 (purple).
+   - Top dashed connector arrows: #7B68EE / #6A5ACD (light violet-blue).
+   - Error arrows: #2E8B57 / #008000 (green).
+   - Right error strip: #C00000 with black #000000 text.
+   - Bottom boxes: #FFFF00 fill with black text; #000000 fill with #FFFF00 text.
+   - Outer diagram frame and node outlines: #4A0E0E / #800000.
+   - Slide background: #FFFFFF (white; diagram interior light warm-white #FAF7F0).
+
+9. GEOMETRY NOTES (fidelity risks):
+   - Keep the three node rows evenly spaced (~0.165 of frame height between row centers); the bottom tierâs green output nodes sit slightly lower than the k-tier â nodes (a half-step), so do not align all four tiers rigidly.
+   - The âYou are hereâ tag sits directly under the j column only, with its arrow centered at x â 0.40; the i and k tags are centered under their columns (x â 0.18 and 0.61). Left-column nodes are cropped by the frame edge â preserve the partial circles, do not shift them inside.
+   - The two lines beneath âPrevious Layer / Layer (i)â, âCurrent Layer / (You are here)â, âNext Layer / Layer (K)â are stacked with tight leading (the second line sits immediately under the first); preserve the two-line split and the parenthetical.
+   - The red error strip is a narrow vertical band; âClass 1 / Class 2 / Class mâ are three separate stacked labels aligned to the three output rows, while âError / Errorâ is rotated/stacked to run along the strip â these must not be merged into one horizontal line.
+   - Vertical centering: O_* labels sit just beneath their Net_* labels and inside the gap between the node and the arrows â a small, consistent offset; do not raise them into the node circle.
+   - The w_kj label is repeated on two distinct arrows (top and lower jâk connections); duplicating it is correct, not an artifact.
+   - Bottom legend arrows are long and horizontal with arrowheads pointing outward (I/P â Hidden â O/P); keep the hidden-layer black box centered above its arrow.
+
+Summary: 28 text blocks, 12 equations, 1 graphs, 0 tables.
+

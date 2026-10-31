@@ -1,0 +1,19 @@
+Normalized IMG1 to the 960Ã540 comparison space (~Ã·1.604). Not counted per founder rules: house gray panel, red left/right/bottom-only strokes/no top stroke, slide-number badge, capture border/artifacts.
+
+Content inventory matches: title text verbatim with same 2-line break; labels `Cost`, `Learning step`, `Minimum`, `Random initial value`, `Î¸`, `Î¸Ì`; 9 purple descent markers + yellow minimum; parabola, axes/arrows, dashed random-start vertical, `+` marker, red inner plot rectangle; dark-red title/frame, purple/yellow markers. No missing equation/table/delimiter elements; no obvious text clipping/collision/overflow of the house panel in IMG1.
+
+Discrepancies found:
+
+1. **MAJOR â graph vertical geometry / minimum-to-axis gap, conf â0.80.** In IMG2 the yellow minimum sits essentially on the Î¸-axis: center â(453,435) vs axis yâ440, gap â5 px, marker overlapping the axis, with only a very short upper dashed stem. In IMG1 the normalized yellow minimum is â(443,398) vs axis yâ422, gap â24 px, so the minimum floats above the axis and the dashed stem is much longer. Consequently the branches are vertically shorter in IMG1: left branch â170 px vs â215 px; right branch â169 px vs â190 px. The `Minimum` label is also pulled up accordingly: â(431,357) in IMG1 vs â(421,390) in IMG2.
+
+2. **MAJOR â title line metrics, conf â0.60.** Text is verbatim, but the two-line title block has visibly larger leading in IMG1: normalized line tops â73/112, gap â39, versus IMG2 â75/108, gap â33; line-1 width â559 vs â586. If font-family alone is treated as out of scope, this is still a line-separation/metrics deviation under rule (1).
+
+3. **MINOR â stroke color/weight, conf â0.70.** IMG2 curve/axes/dashed lines read as dark gray and thinner; IMG1 uses near-black, heavier axes/arrowheads/curve. Geometry aside, color/weight is only approx matched.
+
+4. **MINOR â inner red plot region vertical placement/size, conf â0.55.** IMG1 inner red frame â x187â717, y160â497; IMG2 â x185â716, y183â506. Left/right match well; top/bottom are shifted up and the region is taller by â14 px, changing the gap below the title and the position of the x-axis relative to the frame bottom.
+
+5. **MINOR â small label insets, conf â0.45.** `Cost` inset relative to the inner plotâs top-left is larger in IMG1 â(204,187) vs IMG2 â(190,206); `Learning step`, `Random initial value`, `+`, and `Î¸` are close but not pixel-exact.
+
+Visual-quality defects in the recreation itself: no clear overflow past the house panel, no clipped text, no collisions, no missing rendered element; the issues are geometric/metric rather than legibility.
+
+FINAL VERDICT: FAIL

@@ -38,7 +38,7 @@ s.addText("23", {
 s.addText("Effect of Selecting Threshold Value on Model Performance", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "middle",
-  fontSize: 24, bold: true, color: RED, fontFace: FONT, margin: 0,
+  fontSize: 22, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
 // ---- original inner red content frame (x59..900, y63..516, measured) ----
@@ -101,31 +101,29 @@ s.addText("Predicted as", {
   fontSize: 9, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 rotatedLabel(73, 120, 26, 14, "Actual", RED, 8);
-confusionMatrix(82, 95, 41, 17, {
-  fill: WHITE,
-  cellFills: { "1,1": "C6E0B4", "2,2": "C6E0B4", "2,1": PALE_YELLOW }, // TP, TN green; FN pale yellow
-});
+confusionMatrix(82, 95, 41, 17, { fill: WHITE });
 // header row (y95..112): P, N in cols 2,3 — red-family ink per frame
 cellText(143, 103, 30, 14, "P", RED, 10, true);
 cellText(183, 103, 30, 14, "N", RED, 10, true);
 // row labels col1
-cellText(102, 120, 30, 14, "P", DARK, 9, true);
-cellText(102, 137, 30, 14, "N", DARK, 9, true);
-// cells
-cellText(143, 120, 30, 14, "TP", DARK, 10, true);
-cellText(183, 120, 30, 14, "FN", DARK, 10, true);
-cellText(143, 137, 30, 14, "FP", DARK, 10, true);
-cellText(183, 137, 30, 14, "TN", DARK, 10, true);
+cellText(102, 120, 30, 14, "P", RED, 9, true);
+cellText(102, 137, 30, 14, "N", RED, 9, true);
+// cells: TP/FP green ink, FN/TN red ink per frame
+const GREEN_INK = "3E8E22";
+cellText(143, 120, 30, 14, "TP", GREEN_INK, 10, true);
+cellText(183, 120, 30, 14, "FN", RED, 10, true);
+cellText(143, 137, 30, 14, "FP", GREEN_INK, 10, true);
+cellText(183, 137, 30, 14, "TN", RED, 10, true);
 
-// ---- Threshold=0.4 callout (x240..310, y108..136; pale-yellow fill per frame) ----
+// ---- Threshold=0.4 callout (x210..294, y118..135; pale-yellow fill per frame) ----
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(234), y: P(108), w: P(84), h: P(28),
+  x: P(210), y: P(118), w: P(84), h: P(17),
   fill: { color: "F0E0C0" }, line: { color: RED, width: 1.5 },
 });
 s.addText("Threshold=0.4", {
-  x: P(234), y: P(108), w: P(84), h: P(28),
+  x: P(210), y: P(118), w: P(84), h: P(17),
   align: "center", valign: "middle", wrap: false,
-  fontSize: 9.5, bold: true, color: RED, fontFace: FONT, margin: 0,
+  fontSize: 9, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
 // ---- matrix 2 (lower-left, numeric 4/1/1/5) ----
@@ -146,63 +144,44 @@ cellText(204, 199, 30, 13, "1", RED, 12, true);
 cellText(154, 214, 30, 13, "1", RED, 12, true);
 cellText(204, 214, 30, 13, "5", BLUE, 12, true);
 
-// ---- pipeline panel (cream, x324..845 y99..198) ----
+// ---- pipeline panel (cream, x324..845 y99..198, olive-brown border per frame) ----
 s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
   x: P(324), y: P(99), w: P(521), h: P(99),
-  fill: { color: CREAM }, line: { color: RED, width: 1.5 }, adjustValue: 0.08,
+  fill: { color: CREAM }, line: { color: "746337", width: 1.5 }, adjustValue: 0.08,
 });
-// Test Sample label (two lines) + small plane sketch
+// Test Sample label (two lines) + small grayscale/salmon fish sketch (per frame)
 s.addText("Test\nSample", {
   x: P(340), y: P(100), w: P(72), h: P(26),
   align: "center", valign: "top", lineSpacing: 12,
   fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
-
-// hand-drawn-style passenger jet (gray line art), centered at (cx,cy) in px, width wpx
-function drawPlane(cx, cy, wpx, flip) {
-  const w = P(wpx), h = w * 0.42, X = P(cx), Y = P(cy);
-  const F = flip ? { flipH: true } : {};
-  s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
-    x: X - w / 2, y: Y - h * 0.10, w: w, h: h * 0.20,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, adjustValue: 0.5, ...F,
+{
+  // fish centered (366,122), ~52px wide, facing left
+  const fx = P(366), fy = P(122), fw = P(52), fh = P(20);
+  const BROWN = "5C402A";
+  s.addShape(pptx.shapes.OVAL, { // body
+    x: fx - fw * 0.35, y: fy - fh / 2, w: fw * 0.7, h: fh,
+    fill: { color: "CFB59A" }, line: { color: BROWN, width: 1 },
   });
-  // nose
-  s.addShape(pptx.shapes.OVAL, {
-    x: X + w / 2 - h * 0.24, y: Y - h * 0.10, w: h * 0.24, h: h * 0.20,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, ...F,
+  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, { // tail, pointing right
+    x: fx + fw * 0.30, y: fy - fh * 0.55, w: fw * 0.22, h: fh * 1.1,
+    fill: { color: "CFB59A" }, line: { color: BROWN, width: 1 }, rotate: 90,
   });
-  // fuselage windows
-  for (let i = 0; i < 4; i++) {
-    s.addShape(pptx.shapes.OVAL, {
-      x: X - w * 0.30 + i * w * 0.16, y: Y - h * 0.045, w: h * 0.09, h: h * 0.09,
-      fill: { color: GRAY }, line: { type: "none" }, ...F,
-    });
-  }
-  // swept main wings
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X + w * 0.02, y: Y + h * 0.05, w: w * 0.30, h: h * 0.55,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 215, ...F,
-  });
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X + w * 0.02, y: Y - h * 0.60, w: w * 0.30, h: h * 0.55,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 145, ...F,
-  });
-  // tail wings
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X - w * 0.44, y: Y + h * 0.03, w: w * 0.16, h: h * 0.38,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 200, ...F,
-  });
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X - w * 0.44, y: Y - h * 0.41, w: w * 0.16, h: h * 0.38,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 160, ...F,
-  });
-  // tail fin
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X - w * 0.50, y: Y - h * 0.52, w: w * 0.12, h: h * 0.52,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 180, ...F,
+  s.addShape(pptx.shapes.OVAL, { // eye at nose (left)
+    x: fx - fw * 0.30, y: fy - fh * 0.12, w: P(3), h: P(3),
+    fill: { color: BROWN }, line: { type: "none" },
   });
 }
-drawPlane(388, 133, 55);
+
+// jet side-view line-art PNG (nose left), 600dpi, embedded at exact frame-px size
+function drawPlane(cx, cy, wpx) {
+  const w = P(wpx);
+  s.addImage({
+    path: "videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/jet_023.png",
+    x: P(cx) - w / 2, y: P(cy) - w * (308 / 733) / 2, w: w, h: w * (308 / 733),
+  });
+}
+// (Test Sample fish sketch drawn above; no plane here)
 
 // block arrows (white fill, red outline)
 function blockArrow(x0, y0, wpx, hpx) {
@@ -213,28 +192,28 @@ function blockArrow(x0, y0, wpx, hpx) {
 }
 blockArrow(415, 126, 30, 16);
 
-// Model box (dark red) x447..571 y121..155 + yellow subtitle + pie icon
+// Model box (dark red) x447..569 y120..179 (122x59 per frame) + yellow subtitle + clock/pie icon
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(447), y: P(121), w: P(124), h: P(34),
+  x: P(447), y: P(120), w: P(122), h: P(59),
   fill: { color: MODEL_RED }, line: { color: RED, width: 1 },
 });
 s.addText("Model", {
-  x: P(447), y: P(121), w: P(124), h: P(22),
+  x: P(447), y: P(121), w: P(122), h: P(14),
   align: "center", valign: "middle",
-  fontSize: 16, bold: true, color: WHITE, fontFace: FONT, margin: 0,
+  fontSize: 12, bold: true, color: WHITE, fontFace: FONT, margin: 0,
+});
+// meter icon: white ellipse with magenta wedge + needle, 600dpi PNG at exact size (100x30 frame-px)
+s.addImage({
+  path: "videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/pie_023.png",
+  x: P(462), y: P(138), w: P(100), h: P(30),
 });
 s.addText("[Any value] \u2192 (0,+1)", {
-  x: P(449), y: P(143), w: P(120), h: P(11),
+  x: P(449), y: P(170), w: P(118), h: P(9),
   align: "center", valign: "middle", wrap: false,
   fontSize: 8, bold: false, color: "FFFF00", fontFace: FONT, margin: 0,
 });
-// pie icon at right end of Model box: 600dpi PNG embedded at exact size (w = px/600 in)
-s.addImage({
-  path: "videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/pie_023.png",
-  x: P(546), y: P(127), w: 150 / 600, h: 150 / 600,
-});
 
-blockArrow(576, 126, 30, 16);
+blockArrow(574, 144, 36, 12);
 
 // Predicted Value label (two lines) above the (0 → -1) box
 s.addText("Predicted\nValue", {
@@ -243,16 +222,16 @@ s.addText("Predicted\nValue", {
   fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
-  x: P(612), y: P(138), w: P(66), h: P(24),
+  x: P(619), y: P(137), w: P(51), h: P(22),
   fill: { color: WHITE }, line: { color: BLUE, width: 1.25 }, adjustValue: 0.3,
 });
 s.addText("(0 --- 1)", {
-  x: P(612), y: P(138), w: P(66), h: P(24),
+  x: P(619), y: P(137), w: P(51), h: P(22),
   align: "center", valign: "middle", wrap: false,
   fontSize: 10, bold: true, color: BLUE, fontFace: FONT, margin: 0,
 });
 
-blockArrow(682, 126, 14, 16);
+blockArrow(676, 144, 14, 12);
 
 // Threshold vertical box (pale salmon fill per frame, red border) x694..729 y108..190, rotated label
 s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
@@ -321,23 +300,25 @@ tickLabel(0, "0.0"); tickLabel(0.5, "0.5"); tickLabel(1, "1.0");
 s.addShape(pptx.shapes.LINE, {
   x: P(59), y: P(500), w: P(841), h: 0, line: { color: RED, width: 2 },
 });
-// single dashed gray-lavender vertical at threshold 0.4 (x397), y210..495 per frame
-s.addShape(pptx.shapes.LINE, {
-  x: P(397), y: P(210), w: 0, h: P(285),
-  line: { color: "7F7F9F", width: 1.25, dashType: "dash" },
-});
-// 11 airplane samples: [axis_fraction, y_px, dot_color]
+// two closely spaced dashed gray-lavender verticals at threshold 0.4 (x397 / x400), y210..495 per frame
+for (const dx of [397, 400]) {
+  s.addShape(pptx.shapes.LINE, {
+    x: P(dx), y: P(210), w: 0, h: P(285),
+    line: { color: "7F7F9F", width: 1.25, dashType: "dash" },
+  });
+}
+// 11 airplane samples: [axis_fraction, y_px, dot_color]; dot sits on the nose (left end)
 const planes = [
-  [0.05, 340, RED, false], [0.25, 300, RED, false], [0.03, 360, RED, true],
-  [0.17, 380, RED, false], [0.365, 332, RED, false], [0.62, 320, RED, true],
-  [0.34, 240, BLUE, false], [0.55, 385, BLUE, false], [0.72, 310, BLUE, true],
-  [0.89, 260, BLUE, false], [0.95, 370, BLUE, false],
+  [0.05, 340, RED], [0.25, 300, RED], [0.03, 360, RED],
+  [0.17, 380, RED], [0.365, 332, RED], [0.52, 292, BLUE],
+  [0.62, 320, RED], [0.34, 240, BLUE], [0.55, 385, BLUE],
+  [0.72, 310, BLUE], [0.89, 260, BLUE], [0.95, 370, BLUE],
 ];
-for (const [f, y, dot, flip] of planes) {
+for (const [f, y, dot] of planes) {
   const x = 89 + 788 * f;
-  drawPlane(x, y, 78, flip);
+  drawPlane(x, y, 88);
   s.addShape(pptx.shapes.OVAL, {
-    x: P(x + (flip ? -40 : 36)), y: P(y - 8), w: P(8), h: P(8),
+    x: P(x - 46), y: P(y - 8), w: P(8), h: P(8),
     fill: { color: dot }, line: { color: dot, width: 0.5 },
   });
 }

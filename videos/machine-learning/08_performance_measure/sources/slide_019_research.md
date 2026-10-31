@@ -10,3 +10,11 @@ Method: mandated web-source verification. Tool: `mcp__agy-cli-mcp__agy_web_searc
 - Two-class labels with an explicit loss on the training path but no threshold statement on the evaluation path: CONFIRMED — scikit-learn, "Tuning the decision threshold for binary classification" (https://scikit-learn.org/stable/modules/classification_threshold.html) — A training flow (score, label, loss) and an evaluation flow (score only) is the standard train/test split shape; the default 0 cutoff is what converts the evaluation score into a predicted class.
 
 Query budget: 2 of 3-6.
+
+## Second-opinion (lane D, 2026-10-31)
+
+Method: `mcp__agy-cli-mcp__agy_web_search`, 5 batches x 4 queries, URLs resolved live. Verdict: CONFIRMED. New confirming sources: sklearn.linear_model.Perceptron stable docs + source (https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html) — predict thresholds decision_function at 0 (>0 -> classes_[1]), so with {-1,+1} labels it behaves as the classical bipolar perceptron; classical definitions pair the sign step with targets in {-1,+1} (Medium perceptron explainer, Cornell CS4780). Bipolar step range {-1,+1} and threshold zero re-confirmed via GeeksforGeeks perceptron rule and Wikipedia Perceptron; a train path (score, label, loss) plus a score-only evaluation path with default cutoff 0 matches sklearn classification_threshold conventions.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Training vs Evaluation pipeline (Input Sample -> Model [Any value -> (-1,+1)] -> Predicted Class -> LOSS vs Label of Input Sample during Training; Test Sample -> Model -> Predicted Class during Evaluation), bipolar step (-1,+1) at threshold zero with labels (+1,-1): CONFIRMED — GeeksforGeeks perceptron guide (https://www.geeksforgeeks.org/deep-learning/what-is-perceptron-the-simplest-artificial-neural-network/), Machine Learning Mastery perceptron algorithm (https://machinelearningmastery.com/perceptron-algorithm-for-classification-in-python/), and Cornell CS4780 lecture notes (https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html): training compares predicted class to the true label to compute loss and update weights, evaluation/inference uses frozen weights on test samples; step activation maps to {-1,+1} at threshold 0 (bipolar convention), matching the frame. No corrections.

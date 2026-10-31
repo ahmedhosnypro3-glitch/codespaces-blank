@@ -1,0 +1,3 @@
+<x_0.0><y_0.0375>ZEWail CITY
+ESTABLISHED ZODE
+INRUMATES 201<x_0.9834><y_0.993><class_Picture>

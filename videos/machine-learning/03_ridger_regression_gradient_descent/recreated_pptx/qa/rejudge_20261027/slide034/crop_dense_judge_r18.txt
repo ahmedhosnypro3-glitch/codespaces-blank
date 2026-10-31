@@ -1,0 +1,38 @@
+## Fidelity check â Slide 034, zoomed crop pair (IMG1 = recreation, IMG2 = original, same region/scale)
+
+### Verification of content (the things that must be exact)
+
+**Header block (green box, upper ~28% of crop)**
+- Row 1: `X` (red italic) | "is in between **9.6** and color red boâ¦" â matches in wording, order, and the red emphasis on 9.6. Both crops truncate the trailing word at the right crop edge; the readable text is identical.
+- Row 2: `f(x)` (blue) | "is in between **â10.03** and **â9.92**" â values, order, and blue emphasis match exactly; no digit transposition.
+- Green rectangular enclosure present in both, top/left/bottom strokes only as in the original.
+
+**Yellow table (upper table, ~y 200â280)**
+- Row 1: `7.6 | 7.8 | 8 | 8.2 | 8.4 | 8.6 | 8.8` â identical, cell for cell (note the bare `8`, no `.0`).
+- Row 2: `0.69 | â0.45 | â1.73 | â3.1 | â4.5 | â5.88 | â7.16` â identical, value for value. No swapped signs, no missing decimals, no wrong digits.
+
+**Purple table (middle, ~y 285â365)**
+- Row 1: `7.5 | 7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7` â identical.
+- Row 2: `1.2 | 0.14 | â1.08 | â2.41 | â3.8 | â5.2 | â6.54` â identical.
+
+**Peach table (bottom, ~y 380â480)**
+- Row 1: `7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7 | 8.9` â identical.
+
+Right-edge cells are cropped off in both images at the same region boundary; partial glyphs at the extreme right edge are not readable in either and cannot be compared â no discrepancy asserted.
+
+### Discrepancies (all MINOR; none content-level)
+
+1. **MINOR â table block sits ~10â15 px lower in IMG1.** The double blue rule is at yâ195/203 in IMG1 vs yâ182/190 in IMG2; yellow band top at â208 vs â200; peach row correspondingly lower. Whole lower assembly is vertically offset relative to the header box (registration/crop-alignment offset, not a value error). Confidence: high.
+2. **MINOR â green box height/position.** IMG1 box spans yâ40â145; IMG2 spans yâ45â140, i.e. IMG1's box is ~5 px taller and its top edge ~5 px higher. Stroke color/weight otherwise comparable. Confidence: high.
+3. **MINOR â minus-sign glyph.** IMG1 uses a short hyphen-minus for `â10.03`, `â9.92` and all negative table values; IMG2 uses a longer typographic minus (U+2212), visibly wider and vertically centered. Values unaffected. Confidence: high.
+4. **MINOR â `f(x)` kerning.** IMG2 renders `f ( x )` with clear gaps between the italic *f* and each parenthesis; IMG1 sets it tight as `f(x)`. Character sequence is the same. Confidence: high.
+5. **MINOR â numeral typeface/weight in tables.** IMG1 uses a heavier, wider sans (Arial-bold-like) for table digits; IMG2's digits are narrower and lighter (capture-softened). Digit shapes are stylistically different (e.g., 8, 4, 9) but every digit value is correct. Confidence: high.
+6. **MINOR â cell gridline rendering.** IMG1 shows bright white 1 px inner gridlines on the yellow band; IMG2 shows thin gray/darker gridlines. Structure and cell count are the same. Confidence: medium (IMG2 softening contributes).
+7. **MINOR â red of the emphasized `9.6`.** IMG1's red is a deeper crimson; IMG2's is a slightly warmer/oranger red. Small hue difference only. Confidence: medium.
+8. **MINOR â yellow row-1 height/vertical centering.** The split between the yellow row 1 and row 2 falls at yâ244 in IMG1 vs â233 in IMG2, so the row-1 numerals sit slightly lower relative to their cell in IMG1. Confidence: medium.
+9. **MINOR â soft/blurred edges in IMG2** (numeral edges, partial right-edge glyphs): treated as video-capture artifact per ground rule (e); not counted as a content discrepancy.
+
+### Summary
+No BLOCKER or MAJOR items found. Every readable number, sign, decimal placement, table row, table column, and header phrase matches cell by cell and character by character between IMG1 and IMG2. The differences are registration offsets, typographic minutiae (hyphen vs true minus, kerning, typeface weight, gridline color, red hue), and capture softness.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation of this region".

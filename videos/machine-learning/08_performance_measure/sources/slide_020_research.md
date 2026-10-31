@@ -10,3 +10,11 @@ Method: mandated web-source verification. Tool: `mcp__agy-cli-mcp__agy_web_searc
 - Label encoding shown as (+1, 0) matching the sigmoid's (0, 1) output range: CONFIRMED — scikit-learn, "Tuning the decision threshold for binary classification" (https://scikit-learn.org/stable/modules/classification_threshold.html) — With a (0,1) output the natural target encoding is {0, 1} (or {1, 0} as the slide orders it for the positive class); no conflict between labels and output range.
 
 Query budget: 2 of 3-6. No new query was spent on the bipolar/step threshold, already banked for slide 019.
+
+## Second-opinion (lane C, 2026-10-31, agy web search)
+
+- Sigmoid output range strictly (0, 1) and sigma(0) = 0.5 re-CONFIRMED against two additional sources not previously banked: Ultralytics glossary "Sigmoid" (https://www.ultralytics.com/glossary/sigmoid) and Machine Learning Mastery, "A Gentle Introduction to the Sigmoid Function" (https://machinelearningmastery.com/a-gentle-introduction-to-sigmoid-function/) — both state sigma(x)=1/(1+e^-x) maps any real input strictly into (0,1), asymptotic to 0/1, with the 0.5 midpoint as the natural decision boundary. Also re-CONFIRMED: sklearn classification_threshold.html — positive class predicted when P(y|X) > 0.5 under predict_proba (decision_function uses 0.0), with FixedThresholdClassifier/TunedThresholdClassifierCV (v1.5+) as the native tuning tools. No corrections; nothing new beyond range/threshold claims.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Sigmoid "Activation Function (0, +1)", "Threshold at 0.5", labels (+1, 0), pipeline [Any value -> (0,+1)] -> Predicted Class: CONFIRMED — Ultralytics sigmoid glossary (https://www.ultralytics.com/glossary/sigmoid) and Machine Learning Mastery (https://machinelearningmastery.com/a-gentle-introduction-to-sigmoid-function/): sigma(x)=1/(1+e^-x) maps any real input strictly into (0,1) with sigma(0)=0.5; Codecademy neural-networks cheatsheet (https://www.codecademy.com/learn/neural-networks-bamlm/modules/py-torch-for-classification-bamlm-2024/cheatsheet): sigmoid output p in (0,1) is read as the positive-class probability with default decision rule p >= 0.5 -> label 1 (here +1), else 0 — matching the frame's labels (+1, 0) and threshold 0.5. No corrections.

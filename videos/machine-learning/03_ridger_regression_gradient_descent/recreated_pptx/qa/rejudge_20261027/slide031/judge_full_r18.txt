@@ -1,0 +1,26 @@
+## Element-by-element fidelity check
+
+**Verified faithful (no defect):**
+- **Title** â verbatim: "Convex Function," (red) / "Learning Rate =0.3," (green) / "Start at X=3" (blue), same punctuation, one line, top-left, same relative size as original.
+- **Left parameter table** â step 0.3 / initial X 3 / delta 0.1; same row fills (green / pink / yellow), same cell structure.
+- **Equation** â f(x) = (x â 5)Â² + 1 present and mathematically identical in both (both linear notation, so founder directive (e) not even implicated). Parentheses fully enclose "x â 5" and "x" with no overlap/clipping.
+- **Annotation box** â both lines verbatim: "X is in between 4.8 and color red bold 5.1" / "f(x) is in between 1.04 and 1.01"; red/blue emphasis on 4.8Â·5.1Â·1.04Â·1.01 in both.
+- **"Bouncing" box** â present, purple, same position (above columns ~7â8).
+- **Blue down-arrows** â exactly **four** in both images, same columns (4.8, 5.1, 4.8, 5.1), same ordering/gaps, same color.
+- **Large red pointer arrow** â present in both, pointing down at the x=3 column.
+- **Main data table** â all **8 rows Ã 18 columns match cell-for-cell** (x, f(x), x-delta, f(x-delta), x+delta, f(x+delta), slope, next x). Row fill colors (olive/purple/peach/green/red) and the highlighted slope-row and next-x-row outlines correspond. No missing rows, no wrong values.
+- **Graph** â same elements and positions: blue parabola f(x)=(xâ5)Â²+1, dashed vertical line near x=5, black point (2,10) with "(2, 10)", endpoint point with "(?, ?)", red point on the curve at x=3, extremum point with "(5, 1)", identical axis ranges/labels (â5..15 x, 5/10/15 y), same grid.
+- **Frame containment** â all recreation elements (title, tables, text box, arrows, graph, badge) sit fully inside the panel; nothing crosses the left/right/bottom house strokes. (House chrome itself is intentionally excluded per ground rules.)
+- **Badge "31"** â present in both.
+
+**Discrepancies:**
+1. Graph plot border: recreation draws a red rectangle border around the plot area; the original plot has no such border. â **MINOR**, medium confidence (added styling, no content impact).
+2. Marker color at the minimum: recreation uses a green dot at (5,1); the original renders it black/dark. â **MINOR**, lowâmedium confidence.
+3. Dashed vertical line: recreation dark red; original dark gray. â **MINOR**, low confidence.
+4. Typography: equation is spaced ("f(x) = (x â 5)Â² + 1") vs original compact ("f(x)=(xâ5)Â²+1"); table/axis serif-ish original fonts re-typeset in sans. â **MINOR**, high confidence (styling only, no content change).
+
+**Visual-quality defects in the recreation:** none â no overflow, no clipping, no collisions, no wrong wrapping, no illegibility; cell text and parenthesized expressions are vertically centered as in the original.
+
+**Summary:** No BLOCKER, no MAJOR. All verbatim text, all 144 data cells, all diagram/arrow elements, and all graph geometry correspond. The only deviations are cosmetic (added plot border, marker/line color, font spacing).
+
+FINAL VERDICT: **PASS** â faithful, usable recreation.

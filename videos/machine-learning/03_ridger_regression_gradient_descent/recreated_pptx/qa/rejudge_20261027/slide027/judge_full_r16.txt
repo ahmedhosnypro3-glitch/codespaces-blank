@@ -1,0 +1,44 @@
+## Element-by-Element Fidelity Check
+
+**Ground-rule chrome (verified, not flagged):**
+- Gray panel (E9E9E7), strokes C00000 on LEFT/RIGHT/BOTTOM only â present in both, top stroke correctly absent in both. â Match
+- Badge "27": yellow FDFD96 circle, purple 6A5ACD ring, at top-right in both; numeral matches. â Match
+- Chart inner red frame present in both, similar proportions (width ~790px, height ~425â430px, ~100â107px left inset, right edge short of panel edge). â Match
+
+**Title:**
+- Both: "Follow Negative Direction of Gradient with / Selected Learning Rate", two lines, dark red, bold, centered, same break point. 
+- Image 2 shows extra inter-word spacing ("Follow  Negative", "Selected  Learning") â this is a capture/rendering artifact of the low-res video frame, not a content difference. MINOR (cosmetic, inherent to medium), confidence high, not counted as a recreation defect.
+
+**Chart contents (all present in both):**
+| Element | Img1 | Img2 | Status |
+|---|---|---|---|
+| Y-axis + up arrowhead | â | â | Match |
+| X-axis + right arrowhead, label "Î¸" | â | â | Match |
+| Y-axis label "Cost" | â | â | Match |
+| U-shaped black curve | â | â | Match, vertex aligned with yellow dot in both |
+| Purple learning-step dots (~11, descending along curve) | â | â | Match |
+| Dashed vertical drop from first dot to axis | â | â | Match |
+| "Learning step" label (right of dot sequence) | â | â | Match, position/alignment consistent |
+| Yellow dot at minimum + "Minimum" label (upper-left, in open space) | â | â | Match |
+| Dashed vertical line from minimum to x-axis | â | â | Match |
+| X-axis labels in order: "Random initial value" (two lines), "+", "Î¸Ì" under minimum | â | â | Match, horizontal ordering and centering consistent |
+
+**Geometry / containment:**
+- All content in Img1 sits inside the chart border; the parabola's right-hand arm terminates **at/on** the right chart border â image 2 shows the identical behavior (curve reaching the frame edge), so this is a match with the original, not an overflow defect. Note it with low confidence as a borderline case only if you want a QA record; it is faithful.
+- No ink crosses the house panel strokes in Img1. Badge, title, and chart all fully contained. â
+- Axis labels and "Î¸Ì" vertically centered/clear of borders. â
+
+**Colors:** Curves/dots/legend colors (black curve, purple dots, yellow minimum dot, red frame/labels) match within acceptable tolerance.
+
+## Discrepancy List
+1. MINOR / high confidence â Title inter-word spacing differs in Image 2 (extra spaces); determined to be a video-capture artifact, not a content difference. Not a recreation fault.
+2. No BLOCKER, no MAJOR defects found.
+
+## Visual-Quality Defects in the Recreation
+- None. Text is crisp (no clipping/overflow), no collisions, no empty equation regions, no missing elements.
+
+## Notes
+- Typed-vs-rendered ink difference is inherent (ground rule d) â recreation is, if anything, cleaner.
+- Both images show the curve touching the inner chart's right border; the recreation is faithful here.
+
+FINAL VERDICT: PASS

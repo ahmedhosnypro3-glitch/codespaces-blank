@@ -1,13 +1,26 @@
-**Discrepancies found**
+## Region analyzed
+Crop covers the blue-ink list region of slide 007: header line + 3 bullet items, left portion of the slide (xâ0â620, yâ0â345 crop-relative). No tables, equations, delimiters, or badges fall in this region, so the applicable checks are glyph identity, text order, duplication, color, underline, spacing, and stroke weight.
 
-1. **Extra/garbled trailing glyph in the top heading** â IMG1 shows the title ending with a partial blue character `h` immediately after `model` (crop-relative right edge of the heading, roughly the far-right 10â15% of the text line). In the matched IMG2 crop of the same slide region, no such glyph is visible; the visible title text simply ends at `model`. A matched-scale, same-region crop pair should expose the same text boundary, so the recreation appears to render an unauthorized/mis-cropped partial character there.  
-   **Severity: MAJOR** â wrong glyph/content at crop boundary, exactly the kind of text-integrity break the zoom rules target.  
-   **Confidence: MEDIUM** (the `h` is clearly present in IMG1 and clearly absent in IMG2; slight residual uncertainty remains about sub-pixel crop alignment).
+## Cell-by-cell / line-by-line verification â what matches
+- **Line 1:** "Linear regression model â¦" â identical wording, same blue, underline present in both. IMG1's crop simply reveals slightly more of the continued header text ("haâ¦") then is cut; IMG2 cuts at "model". Same underlying content; nothing missing or garbled.
+- **Lines 2â4:** "Overfitting Problem" / "Matrix Inversion Problem" / "Matrix Inversion Problem" â text is identical and in identical order in both crops. **Important finding:** the second "Matrix Inversion Problem" line is duplicated in BOTH IMG1 and IMG2 â the duplication exists in the original, so this is faithful, not a recreation artifact.
 
-2. **Heading inter-word spacing / underline interruption** â IMG2 shows an expanded horizontal gap between `regression` and `model` (roughly mid-to-right portion of the heading line) that IMG1 does not reproduce; IMG1 renders normal single-word spacing. This also appears to break the underline run in the original frame.  
-   **Severity: MINOR** â it may be a video-capture/pointer/compression artifact rather than true slide content, and word-spacing is a weaker fidelity signal than glyph identity.  
-   **Confidence: LOWâMEDIUM**.
+## Discrepancies found
 
-No swapped/bad table cells, no missing rows, no equation/delimiter content in this region, and the repeated bullet lines (`Overfitting Problem`, `Matrix Inversion Problem` Ã2) match in count, wording, and order. The pen/cursor artifact crossing the second bullet in IMG2 is a capture artifact and is ignored per the ground rules.
+1. **Bullet glyph shape** â IMG1: bullets are wide, tailed "â¢"-style encompass arrows; IMG2: compact solid right-pointing triangles. Consistent across all three bullets, so systematic substitution. â **MINOR**, high confidence. Decorative-only, no semantic loss.
 
-FINAL VERDICT: FAIL
+2. **IMG2 artifact** â small compression/cursor-like blob overlapping the bullet of the third line (xâ35, yâ155). Per ground rule (e) this is a video-capture artifact, excluded. Not counted.
+
+3. **Top-edge dark horizontal line in IMG1** â thin dark line across the top of the crop (yâ0â4); IMG2 shows a light gray band bounded differently at top instead. Almost certainly the slide/canvas boundary or panel edge rather than a painted "top stroke" (this region of the white canvas vs the gray panel). Raised for completeness only; consistent with intentional chrome, **MINOR / low confidence**.
+
+## Non-discrepancies (confirmed faithful)
+- Blue ink color matches; no color drift.
+- Underline present under header in both; neither overlaps letters differently.
+- Line spacing and vertical rhythm consistent between crops.
+- No wrong/missing/truncated characters; no swapped values.
+- Medium differences only (typed-crisp vs video-soft edges) â inherent, per rules (c)/(e).
+
+## Summary
+The only genuine deviation is the bullet-symbol substitution (decorative, MINOR). Every text line, its order, the duplicated list item, color, and underline are faithful.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation of this region.

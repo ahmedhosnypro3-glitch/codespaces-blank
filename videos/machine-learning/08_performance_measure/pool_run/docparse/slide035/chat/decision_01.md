@@ -1,10 +1,11 @@
 # chat decision 01
 
-- box: [36.6, 40.9, 861.5, 475.5]
-- error: chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+- box: [36.6, 40.9, 887.8, 475.8]
+- finish: stop
 - level: 0
 - model: docparsechat
 - node: root
+- out_tokens: 616
 
 ## rendered prompt
 
@@ -33,16 +34,16 @@ further recursion or stops here.
 
 Context:
 - crop level: 0
-- crop box on the full frame, pixels [x, y, w, h]: [x=37, y=41, w=862, h=476]
+- crop box on the full frame, pixels [x, y, w, h]: [x=37, y=41, w=888, h=476]
 - candidate regions for a further crop (class, frame box, text the
   parser extracted inside them):
-- <class_Picture> frame box [x=37, y=41, w=862, h=476] extracted text: Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2...
+- <class_Picture> frame box [x=37, y=41, w=888, h=476] extracted text: Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2...
 
 Parent transcript excerpt:
 
 
 Child transcript excerpt:
-Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2 PPR=3/(3+2)=0.6 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N PPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P D 0 5 PPR=0/(0+5)=0 PFR=0/(0+6)=0 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P P TPR = TP + FN P P N P FP FN P FP+TN N FP TN Actual P N P PN
+Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2 PPR=3/(3+2)=0.6 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N PPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P D 0 5 PPR=0/(0+5)=0 1.0 FPR 1.0 Threshold=0.4 ROC Curve for Same Model -different thresholds P P TPR = TP + FN P N P FP FN P FP+TN N FP TN
 
 Rules of thumb:
 - STOP when the child adds no new or refined content beyond the
@@ -73,4 +74,35 @@ REASON: one short sentence naming the decisive evidence
 
 ## raw response
 
-chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+```json
+{
+  "id": "chatcmpl-385d8bde-72b6-4142-bcd4-f6b31ddcfd57",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "content": "DECISION: CROP\nREASON: The parent excerpt is empty while the child recovered ROC/threshold table strings, and the picture candidate's extracted text is truncated and sparse, so a tighter crop could recover more.",
+        "refusal": null,
+        "role": "assistant",
+        "reasoning_content": "The task: adjudicate the crop decision. Parent transcript excerpt is empty. Child transcript excerpt contains text: \"Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2 PPR=3/(3+2)=0.6 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N PPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P D 0 5 PPR=0/(0+5)=0 1.0 FPR 1.0 Threshold=0.4 ROC Curve for Same Model -different thresholds P P TPR = TP + FN P N P FP FN P FP+TN N FP TN\"\n\nCandidate region: class_Picture, frame box [x=37, y=41, w=888, h=476], extracted text: \"Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2...\" (truncated).\n\nParent excerpt is empty. Child adds content the parent lacked. Rule: \"CROP when the child read contains strings, rows, labels, or structure the parent lacked or garbled, and the child still carries positioned class blocks worth isolating further.\" The child has content and the candidate is a Picture region with sparse/truncated text. The candidate's extracted text is truncated with \"...\" suggesting more content. The child read contains strings the parent lacked (parent is empty). The candidate region is a picture/chart block (ROC curve diagram) whose extracted text is sparse/truncated \u2014 a zoomed crop could recover more.\n\nSo DECISION: CROP. Reason: parent excerpt is empty while the child recovered ROC/threshold table strings, and the picture candidate's text is truncated/sparse, so a tighter crop could recover more.\n\nOne short sentence. Exactly two lines."
+      },
+      "finish_reason": "stop",
+      "logprobs": null
+    }
+  ],
+  "created": 1793419779,
+  "model": "minimaxai/minimax-m3.1-flash",
+  "object": "chat.completion",
+  "usage": {
+    "prompt_tokens": 1110,
+    "completion_tokens": 616,
+    "total_tokens": 1726,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 570
+    }
+  }
+}
+```

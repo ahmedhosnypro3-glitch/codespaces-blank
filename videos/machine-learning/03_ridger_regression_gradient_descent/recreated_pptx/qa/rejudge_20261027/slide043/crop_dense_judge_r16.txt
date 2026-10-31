@@ -1,0 +1,41 @@
+## Fidelity check â Slide 43 zoomed crop (IMG1 = 150 dpi recreation, IMG2 = matched-scale original)
+
+**Content audit performed cell-by-cell before any style notes.**
+
+### A. Content verified as matching (no defect)
+
+**Augmented Vectors panel (lower-left, IMG1 xâ20â378, yâ108â352):**
+- Header line identical in both: "Ug mented Vectors (from Top )" â the odd internal gap after "Ug" appears in **both** images, so it is not an introduced error.
+- Column headers xâ xâ xâ xâ x xâ â present, correctly subscripted, in the same order in both.
+- All six vector columns transcribed identically, row by row:
+  - xâ = (1, 1, 1) â Câ red â
+  - xâ = (1, 2, 1) â Câ red â
+  - xâ = (1, 1, 2) â Câ red â
+  - xâ = (1, 5, 4) â Câ blue â
+  - x = (1, 6, 5) â Câ blue â
+  - xâ = (1, 6, 6) â Câ blue â
+- No swapped digit, no wrong row, no truncated subscript found.
+- Parentheses in both images span all three enclosed entries of every column (top of first digit to below the third) and clear the neighbouring column's strokes â no delimiter/text collision, no short paren.
+
+**Top table fragment (IMG1 yâ0â90):** visible row "(1) (1) (2) (4) (5) (6)" matches IMG2's corresponding row; class labels Câ Câ Câ Câ Câ Câ, "Câ positive", "Câ negâ¦" match in both, same colors and same subscript baselines.
+
+**Right-hand boxes (IMG1 xâ440â579):** d(xâ) = | 1, d(xâ) = | 1, d(xâ) = | â¦ â same three boxes, same red vertical bar and red "1" in each, same vertical order, in both.
+
+### B. Discrepancies (all non-content)
+
+| # | Discrepancy | Location (IMG1 crop-relative) | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Title ink hue: recreation uses a brighter royal blue (~#2F55C8) vs the original's darker navy (~#1F3F96). | Header "Ug mented Vectorsâ¦" xâ37â368, yâ124â146 (IMG2 same text yâ115â137) | MINOR | HIGH |
+| 2 | Class-label hues: recreation Câ is a brighter, more saturated red and Câ a purer blue; original Câ is deeper maroon and Câ darker navy. | Under top table yâ52â75; under vector columns xâ60â310, yâ300â325 | MINOR | MED-HIGH |
+| 3 | Delimiter stroke weight: recreation's vector parentheses are noticeably thicker/heavier black strokes; original's are thin hairline italic curves. Same geometry, same span, different weight. | xâ52â318, yâ188â292 | MINOR | HIGH |
+| 4 | Typeface family: recreation uses upright sans throughout (title, x-subscripts, d(x)=); original uses an italic/script-style serif (title and d(xâ)= clearly italic with entry strokes). Inherent typed-vs-handwritten/medium difference per ground rule (c) â not counted as content error, but it does affect "feel" of the panel. | Title yâ124â146; d(xâ)= at xâ450â530, yâ160â180; d(xâ)= yâ290â310 | MINOR | HIGH |
+| 5 | "Iteration 2" banner fill: recreation renders vivid red (~#FF0000) vs original's darker brick/maroon (~#B00000); banner is mostly out of frame in both, so only the top strip is comparable. | xâ50â313, yâ398â441 (IMG2 xâ45â310, yâ380â441) | MINOR | MED |
+| 6 | Right-hand box border: recreation's outlines read neutral gray/near-black; original's show a faint blue tint. | Box outlines xâ440â579 at yâ120, 246, 257, 385 | MINOR | LOW-MED |
+
+**Framing note (not a defect):** IMG2 is registered ~8â12 px higher and ~1â2 % smaller than IMG1, so the partially cut top table row "(1) (1) (1) (3) (0) (0)" that is barely visible in IMG1 is outside (or only a few pixels inside) IMG2's top edge. This is a crop-alignment artifact, not added/removed content; the row cannot be verified but nothing in IMG2 contradicts it. Confidence that this is framing rather than content: MED-HIGH. (Also visible at top-right of IMG1 is a black parenthesis fragment belonging to the same off-frame row region.)
+
+### C. Conclusion
+
+All table entries, vector values, subscripts, class labels, equation/d(x) labels, row/column counts, and delimiter spans are identical between the two images. The remaining differences are limited to hue saturation, stroke weight, and typeface family â i.e., cosmetic/medium differences explicitly capped at MINOR by the ground rules, with no wrong digit, swapped value, missing row, garbled glyph, or broken delimiter geometry detected anywhere in the region.
+
+**FINAL VERDICT: PASS**

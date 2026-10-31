@@ -1,0 +1,39 @@
+## Region description
+
+Both images show the same three-line title block in large bold darkâred sansâserif type on a white ground, cropped midâword on the left and right:
+
+- **Line 1 (top):** `â¦obtain Minimum`
+- **Line 2 (middle):** `â¦unction using`
+- **Line 3 (bottom):** `â¦nt Descent (GDâ¦` (right edge truncates the parenthetical)
+
+No tables, equations, badges, or panel chrome fall inside this crop, so the checks that matter here are glyph identity, wording, ordering, weight, and line placement.
+
+## Content verification (cellâbyâcell / characterâbyâcharacter)
+
+| Check | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|
+| Line 1 left fragment + `btain` | partial rounded glyph at xâ0â10, then `btain` | same fragment, same `btain` | Match |
+| Line 1 `Minimum` | Mâiânâiâmâuâm, both `i` dots present, final `m` clipped at right edge | identical | Match |
+| Line 2 `unction` | uânâcâtâiâoân, `i` dot present | identical | Match |
+| Line 2 `using` | uâsâiânâg, descender of `g` intact | identical | Match |
+| Line 3 `nt` | nât, left `n` clipped | identical | Match |
+| Line 3 `Descent` | Dâeâsâcâeânât, all seven letters | identical | Match |
+| Line 3 `(` + `G` + next glyph | tall open paren spanning full capâheight, `G`, next glyph clipped at right edge | same | Match |
+| Letter order / wording / capitalization | `â¦obtain Minimum / â¦unction using / â¦nt Descent (Gâ¦` | same | Match |
+| Numbers, symbols, subscripts | none present in crop | none present | N/A |
+
+## Discrepancies
+
+1. **MINOR â Marginal stroke-weight / edge-weight difference in the red type.** The recreation's glyph strokes read a touch heavier and more uniformly filled than the original, whose edges are slightly feathered (consistent with the capture softness). Low severity because the underlying glyph contours, xâpositions, and cap/xâheights align; likely a renderingâengine/antialiasing difference rather than a different typeface. **Confidence: Mediumâlow.**
+2. **MINOR â ~6â10 px vertical registration offset between the two crops.** IMG1's first line sits ~5â8 px lower in the frame than IMG2's (baseline â y86 vs â y78), while lines 2 and 3 register within ~2â3 px. This is crop/alignment framing, not a slideâcontent difference. **Confidence: Low (attribution to content is unlikely).**
+
+## Explicitly NOT discrepancies
+
+- **Mouse-pointer arrow visible in IMG2** (over the `G`/following glyph, lowerâright, around xâ560â600, yâ380â410): a screenâcapture artifact, not slide ink. The recreation correctly omits it.
+- **JPEG softness / halos in IMG2**: per ground rule (e), not a content difference.
+- **No top stroke / white canvas**: consistent with the mandated house template (not visible as a discrepancy here).
+- **Truncation at left and right edges in both crops**: identical framing; the clipped characters are clipped in both images equally.
+
+No wrong digits, swapped values, missing rows, garbled characters, broken subscripts, or malformed delimiters were found. The visible parenthesis in line 3 is a single well-formed, fullâcapâheight `(` in both images, with no sign of collision with the `G`.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

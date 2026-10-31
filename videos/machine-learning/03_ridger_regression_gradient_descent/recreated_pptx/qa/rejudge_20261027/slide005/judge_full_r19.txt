@@ -1,0 +1,57 @@
+# Slide 5 â Fidelity Review (IMG1 recreation vs IMG2 original)
+
+## 1. Element-by-element comparison
+
+**Title band**
+- IMG1: "Minimization of Loss function to obtain **BEST** model parameters" â "Minimization of Loss function to obtain" red, "BEST" blue, "model parameters" red; single line, bold Arial, centered at yâ68.
+- IMG2: identical wording, identical color coding, bold Arial, centered at yâ71.
+- Verbatim match, color match, only ~3 px vertical offset. **No discrepancy.**
+
+**Top cream equation block (Loss derivations, 3 lines)**
+- Line 1: `Loss = Â½ (Y â Å¶)áµ(Y â Å¶) = Â½ (Y â XW)áµ(Y â XW)` â present in both, same order, same transpose placement.
+- Line 2: `Loss = Â½[YáµY + (XW)áµ(XW) â Yáµ(XW) â (XW)áµY]` â matches.
+- Line 3: `Loss = Â½[YáµY + (XW)áµ(XW) â 2(XW)áµY]` â matches.
+- Fractions are stacked with a horizontal bar in both (professional 2D form; mandated upgrade, not a discrepancy).
+- Left edge of all three lines aligns at xâ91 in both; baseline rhythm (â120 / 178 / 230) matches in both.
+- Text is fully inside the cream frame; nothing touches the frame edges or the house panel.
+
+**Top "Remember" box (right, pale blue)**
+- Both contain: red "Remember" heading; `X is a matrix, W is a vector,` (X red, W blue); `XW is a vector`; and the formula `Yáµ(XW) = (XW)áµY`.
+- Box footprint matches (xâ637â838). All ink contained.
+
+**Middle rose box (derivative + instruction)**
+- Both: stacked `âLoss/âW = 0` at left, then "Get Best **W** that minimizes the loss" with W bold red.
+- Box spans xâ67â478 in both. Verbatim match.
+
+**Lower cream block**
+- Row 1: `âLoss/âW = 0 = Â½[(XW)áµ(X) + (X)áµ(XW) â 2(X)áµY]` â matches.
+- Row 2: `âLoss/âW = 0 = Â½[2XáµXW â 2XáµY] â (XáµX)W = XáµY â W = (XáµX)â»Â¹XáµY` â all terms, order, superscripts (â1, áµ) present; final result enclosed in a green rectangle in both, at matching x (â645â830).
+- Second "Remember" box (mid-right): `Xáµ(XW) = (XW)áµX` plus red "Remember" heading â matches.
+
+**Nothing is missing.** Every equation, bracket, Remember box, green result box, and arrow of the original has a counterpart in the recreation. No absent regions, no empty equation zones â no BLOCKERs.
+
+## 2. Discrepancies (all non-content, typographic)
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | **Matrix/vector emphasis downgraded.** Original sets all matrix/vector symbols (Y, X, W, Å¶, XW) in bold italic (bold being the lecture's semantic cue for "matrix/vector", reinforced by the Remember boxes). Recreation renders them in light italic serif â no bold anywhere in the math. Text/symbol identity is unchanged, but the original's pedagogical emphasis is lost. | MINOR | High |
+| 2 | **Math typeface.** Original equations and the Remember formulas are bold-italic sans (Arial/Helvetica family); recreation uses a light italic serif face (Cambria/Times-like) for the same strings, including inside the green result box. | MINOR | High |
+| 3 | **Arrow styling in the lower block.** Original uses large pale-pink hollow block arrows (â¨) between the three chain segments; recreation substitutes thin black "â" glyphs of smaller visual weight. Chain structure and meaning preserved. | MINOR | High |
+| 4 | **Vertical distribution inside the top Remember box.** In the original the three header lines sit at the top (yâ133/145/159) and the formula sits higher with a clear ~25â30 px bottom margin (formula ây181). In the recreation the header lines are pushed to the very top (â126/141/156) and the formula is dropped to â197, nearly filling the bottom edge (â7â17 px margin). Content is still fully contained and legible, but internal spacing differs. | MINOR | Medium |
+| 5 | **Block placement drift.** The rose derivative box sits ~10 px higher (yâ258â310 vs 268â320) and the lower cream block ~7 px higher (318â470 vs 325â472) in the recreation, so the gap between the top cream block and the rose box is roughly half the original's. | MINOR | Medium |
+| 6 | **"Remember" headings.** Original: red bold *italic*. Recreation: red bold, upright. | MINOR | High |
+
+## 3. Visual-quality / rendering checks on IMG1
+
+- **Text overflow / clipping:** none. The tightest cases are the top Remember formula (ends xâ830, box edge xâ838) and the second Remember formula (ends xâ815, box edge xâ822) â both fully inside, no clipping.
+- **Frame containment:** every element (all six equation lines, both Remember boxes, rose box, green result box) lies wholly within the cream/rose frames and well inside the house panel (rightmost ink xâ838 vs panel edge 903); bottom-most ink yâ470 vs panel bottom 540. No crossings of the dark-red house strokes.
+- **Delimiter geometry:** square brackets in both Remember-free equation lines open/close correctly and span their full single-line contents; no stroke overlaps enclosed text.
+- **Vertical centering:** fractions (Â½, âLoss/âW) are properly stacked and centered on the math axis; the green-boxed result is vertically centered in its rectangle; the rose-box instruction is centered on the fraction's axis.
+- **Collisions / illegibility:** none; all text is legible at 960Ã540.
+- House chrome (white canvas, E9E9E7 panel, left/right/bottom C00000 strokes with intentionally no top stroke, yellow "5" badge with 6A5ACD ring) is present as specified and excluded from discrepancy analysis per ground rules.
+
+## 4. Assessment
+
+All substantive content â every title word, all six derivation lines, both "Remember" notes, the gradient-setting instruction, the arrow chain, and the boxed normal-equation solution â is present, verbatim, in the correct order and correct regions, with correct arithmetic and notation, fully contained within its frames. The deviations are limited to typographic treatment (bold weight lost on matrix symbols, serif-vs-sans math, black thin arrows instead of pink block arrows, ~10 px block offsets, and a slightly different internal vertical distribution in the top Remember box). None of these impede comprehension or usability, and none rise to MAJOR (no spacing/alignment/containment/data failures of the kind the founder directives reserve for MAJOR).
+
+FINAL VERDICT: PASS for "faithful, usable recreation" â with six MINOR typographic discrepancies noted above (bold matrix-symbol emphasis, math typeface, arrow glyph style, Remember-box internal vertical distribution, ~10 px block-position drift, and upright vs italic "Remember" headings).

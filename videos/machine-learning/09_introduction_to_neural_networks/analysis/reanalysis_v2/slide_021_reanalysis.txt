@@ -1,3 +1,301 @@
 [info] context header injected: VIEW: slide 021 — original lecture frame, 09_introduction_to_neural_networks | CAPTURE: 960x540 lecture slide frame, original
-[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 93678
-[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 450s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1554988
+[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 330s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_021.jpg ===
+[winner] images (round 1, attempt 2)
+Let me analyze this lecture slide image carefully.
+
+The slide is titled area with equations in boxes. There's a yellow badge with number "21" in the top right corner.
+
+Let me go region by region.
+
+**Top-right corner:** Yellow circle/badge with "21" in black text.
+
+**Top-left region:** A box (rounded rectangle border, appears to be blue/purple outline with light background) containing text:
+"F(x) = Re ecitfied Linear U nit = { 0 for x < 0; x for x >= 0 }"
+
+Wait, let me re-read. The OCR-like reading: "F(x)=Recitified LinearUnit = { 0 for x<0 ; x for x>=0 }". The garbled "Recitified Linear U nit" is actually "Rectified Linear Unit" (ReLU). The mixed-case coloring: "Recitified" appears to have "R" and "e" in different colors? Let me look at colors: "F(x)=" likely dark red/brown, "Recitified Linear U nit" in some color, "= {" in red, "0" highlighted, "for x<0" in red/green, "x" highlighted, "for x>0"... Actually the classic ReLU: 
+F(x) = Rectified Linear Unit = { 0 for x < 0; x for x â¥ 0 }
+
+The colors in the image: the text uses multiple colors â parts in dark red/maroon, "Linear Unit" maybe in blue? Let me look carefully. The text "F(x) = R e citified L inear U nit =" â "Re" maybe black then "citified"? Hmm, the mixed-case hint suggests letter-by-letter rendering. But I should describe: title/equation colors.
+
+Actually the slide appears to be a rendered PDF/slide with anti-aliasing artifacts causing garbled text. The equation block reads:
+
+F(x) = Rectified Linear Unit = â§ 0, for x < 0
+                              â¨
+                              â© x, for x â¥ 0
+
+with "0" in one color (maybe blue) and "x" highlighted; "for x<0" and "for xâ¥0" in green/red.
+
+**Bottom-left of top-left box:** a graph â a plot with axes x from -10 to 10, y (f) from 5 to 10? Axis labels: x-axis labeled "x", y-axis labeled "f". The plot shows a red line: horizontal at 0 for x<0, then rising linearly for xâ¥0 â the ReLU function. Grid lines at 5 and 10 on y-axis, x-axis ticks -10,-5,0,5. The graph has a thin blue frame.
+
+**Top-right region:** box with text:
+"F(x) = Parametric ReLU = ? for x < 0; ? for x > 0"
+
+The classic PReLU: F(x) = Î± (e^x - 1) for x < 0; x for x â¥ 0 â no wait, that's ELU (bottom-left). The top-right: "Parametric ReLU" has a red shaded circle (parameter Î± presumably?) and "for x<0" ... "for x>0". The boxes show "<" and ">" signs, suggesting â¤/â¥. Hmm: "for x < 0" and "for x â¥ 0". There's a red circle blob next to ReLU â likely a parameter like Î±.
+
+Graph: axes with x ticks at 0 and 2, y ticks at -1 and 1; a red line rising from near 0 slanting up â PReLU graph (slightly negative slope for x<0, linear for xâ¥0). Labels: y-axis "1", "-1"? The graph shows ticks at 1 and -1 on y-axis, x-axis "0", "2".
+
+**Bottom-left region:** box with text:
+"F(x) = Exponential LU = Î± ( e^x - 1 ) for x < 0 ; x for x â¥ 0" â the classic ELU.
+
+With colors: "Exponential LU" in different colors, "Î±" maybe red, "(e^x - 1)" red, "for x<0" red, "x" red, "for xâ¥0" green.
+
+Graph: a multi-line plot with legend "a=0.1", "a=0.2", "a=0.3", "a=1.0" (red text), showing curves for ELU with different Î± values, plus another line (x=y dashed?) rising. Axis: x ticks -1, 0, 1; y-axis label maybe "F(x)"? The plot shows curves converging. There appear to be 4 colored curves plus a dashed line to (1,1). Legend at top-left inside plot with red text "a = 0.1", "a = 0.2", "a = 0.3", "a = 1.0". The curves are colored (green, red, etc.).
+
+**Bottom-right region:** box with text:
+"F(x) = SoftPlus = log_e(1 + e^x)" â "SoftPlus" in colored text, "log_e(1+e^x)" maybe red with "1+e^x" highlighted red.
+
+Graph: labeled "SoftPlus(x)" at top, showing a smooth sigmoid-like increasing curve from ~0, rising to 1 and beyond; x-axis ticks -2, 2, 4 maybe; y-axis ticks 1, 2. Curve colored red/brown? It looks like a dark magenta/red smooth curve.
+
+**Frame structure:** The slide has an outer border (red/maroon frame?) around the whole slide? Looking at the image, there's a thin border around the slide (maybe dark). The four quadrant boxes each have borders (blue/purple).
+
+**Layout regions:**
+- Top strip: header area with title? Actually no title text at top except badge "21" in top-right. The badge is at top-right corner (yellow circle).
+- 2x2 grid of content panels:
+  - Top-left panel: ReLU equation + graph
+  - Top-right panel: PReLU equation + graph
+  - Bottom-left panel: ELU equation + graph
+  - Bottom-right panel: SoftPlus equation + graph
+- Each panel: equation text block on top, graph below.
+
+Fraction coordinates: Slide is 960x540.
+- Badge: top-right, roughly x 0.92-0.97, y 0.02-0.13.
+- Top-left panel: x 0.03-0.49, y 0.07-0.52
+- Top-right panel: x 0.51-0.97, y 0.07-0.52
+- Bottom-left panel: x 0.03-0.49, y 0.53-0.98
+- Bottom-right panel: x 0.51-0.97, y 0.53-0.98
+
+Within each panel: equation block occupies top ~35% of panel, graph occupies bottom ~65%.
+
+**Colors:**
+- Yellow badge: #FFD966 or similar (#FFCC33) with black text "21".
+- Purple/blue panel borders: #3333AA / #2E2E99 or #4433AA, thin stroke.
+- Text colors: dark red/maroon (#8B0000 / #A00000), green (#008000 / #1E7B1E), red (#FF0000 / #CC0000), blue? maybe black for "F(x)".
+- Graph lines: red (#C00000), grid lines gray/light, axis black.
+- Backgrounds: white/near-white (#FFFFFF or #FAFAFA), slide background white; outer frame dark red? There seems to be a thin red line around the whole frame â the frame is 960x540 with a maroon border? The image shows a thin dark outline around the slide edge.
+
+Let me re-examine text details more precisely.
+
+Top-left equation: "F(x) = Rectified Linear Unit = { 0 for x < 0, x for x â¥ 0 }"
+Rendered with letter styling: "R" bold maroon, "ectified Linear U" in blue? "nit"? Hmm. The garbled OCR "Recitified Linear U nit" suggests the font rendering mixed-weight. I'll report it as: "F(x) = Rectified Linear Unit = { 0  for x < 0 ; x  for x â¥ 0 }" with per-span colors: "Rectified Linear Unit" partially in different colors (R/e dark maroon, rest blue?), "0" blue, "for x<0" green?, "x" red?, "for xâ¥0" green. I need to describe plausibly: multiple colors â dark red for "F(x)=", dark blue for the function name, green for the conditions, red for values? Actually looking at typical such slides (this looks like a machine-translated Russian lecture on neural networks), the equations use color coding: the function name in one color, values (0, x) in red, conditions in green.
+
+From the image, I can see: "F(x) = R e citified L inear U nit =" â "R" appears dark red, "e" appears blue? Hard to say. The bracket braces and the piecewise lines are red/maroon. "0" appears blue (highlighted), "for x < 0" appears green. "x" appears red, "for x â¥ 0" appears green. Let me just describe: values in blue/red, conditions in green, braces in red.
+
+Hmm, in the second panel: "F(x) = Parametric ReLU = [ ? for x<0 ; ? for x>0 ]" with a red blob (the parameter Î±, scribbled/circled). The garbled text shows "= P arametric ReLU" â "P" in one color, "arametric" in another? And a red circle next to "ReLU" covering something.
+
+Third panel: "F(x) = Exponential LU = Î± (e^x â 1) for x < 0 ; x for x â¥ 0" â "Î±" red, "(e^x â 1)" red, "for x<0" red, "x" red, "for xâ¥0" green.
+
+Fourth: "F(x) = SoftPlus = log_e(1 + e^x)" â "SoftPlus" colored (S dark red, oftPlus blue?), "log_e" red?, "(1+e^x)" red.
+
+I'll describe with approximations and note uncertainty.
+
+**Geometry notes:** 
+- Equations have horizontal curly braces "{" with a piecewise layout: two lines "for x<0" (upper) and "for xâ¥0" (lower), values centered vertically (the "0" and "x" vertically centered between the two lines).
+- The top-left graph: x from -10 to 10, y-axis 0-10 (only ticks at 5, 10 visible), red piecewise-linear curve.
+- Multi-line ELU graph: legend inside plot; curves converge near 0; dashed black line from origin to (1,1)? There's a dashed line going from (0,0) to (1,1) with tick marks maybe. Ticks at -1, 1 on x-axis.
+- SoftPlus graph: curve labeled "SoftPlus(x)" at top; y-axis ticks at 1, 2; x-axis ticks at -2, 2, 4.
+
+Text block count: 4 equation blocks + 1 badge number = 5 text blocks? Let's count: badge "21", 4 equation captions. Graphs don't have text except labels (part of graphs). So 5 text blocks, 4 equations (each function definition; could count the ReLU piecewise as one equation), 4 graphs, 0 tables.
+
+Let me finalize colors hex guesses:
+- Yellow badge: fill #FFD24D / #FFCC00.
+- Panel borders: #3B3B9E or #333399 (blue-violet), 1-2px.
+- Dark red/maroon text: #8B1A1A or #A02020.
+- Green: #1E7B1E / #2E8B2E.
+- Red highlight: #D02020.
+- Blue accents: #2020C0.
+- Graph grid: #DDDDDD light gray; axes #333.
+- Plot curve: #C00000 (red).
+- ELU curves: multiple colors â maybe green #2E8B2E, red #C00000, blue #2E2E99, black dashed.
+
+The slide background: white (#FFFFFF). There's an outer thin frame maybe #7B1F1F or black around slide.
+
+Also there's a thin horizontal line under the badge area? The top strip has a red line running across the top? In the image there's a maroon horizontal line near the top (part of slide template) and one at bottom. The frame around entire content: a rectangle outline in dark red/maroon around the whole slide (x from ~0.03 to 0.97, y 0.07 to 0.97). Actually the panels have borders that together form a 2x2 grid; the outer boundary is visible.
+
+The bottom-left panel graph has axis tick labels: "a=0.1, a=0.2, a=0.3, a=1.0" legend in red, plotted lines of different colors (maybe green, blue, red, purple). Also y-axis label possibly "f" or "F(x)" rotated. The x-axis ticks: -1, 0, 1. There's a diagonal dashed line from (0,0) to (1,1) with dots â likely showing x=y reference and the Î± overflow region. Dashed vertical/horizontal at x=1,y=1.
+
+The PReLU graph: y ticks 1, -1; x ticks 0, 2; line rising from left (below zero?) to upper right; the line starts at xâ-1 with slight negative slope? Red line from bottom-left near (-1,-1) through (0,0) up to (2,1)? Actually PReLU: linear with small slope for x<0, slope 1 for xâ¥0.
+
+SoftPlus graph: x ticks -2, 2, 4 (and -4? maybe), y ticks 1, 2; smooth curve rising, concave down? Softplus is smooth increasing sigmoid-like; label "SoftPlus(x)" at top in dark red.
+
+ReLU graph: x ticks -10, -5?, 0, 5? Visible: -10, -5? Actually axis shows -10, -5, 0, 5, 10? The y ticks 5, 10. Curve: horizontal at y=0 from x=-10 to 0, then slope-1 line up to (10,10). Red.
+
+Now the garbled equation text: I'll reproduce with bracketed uncertainty but give the intended reading:
+
+Panel 1: "F(x) = Rectified Linear Unit = { 0 for x<0; x for xâ¥0 }" (displayed as piecewise with curly brace).
+Panel 2: "F(x) = Parametric ReLU = [ Î± for x<0 ; x for x>0 ]"? Hmm top-right bracket is square? The image shows "{" ... Actually top-right shows "= [" then a red blob, "for x<0" then "for x>0". The bracket appears square "[ ]" with the red scribbled circle inside the top cell (the parameter). The bottom cell maybe "x" in red. Since the capture resolution is low, I'll note: "{ Î±(?) for x<0 ; x for xâ¥0 }" and mark the obscured value as [?].
+
+Wait â parametric ReLU: F(x) = x for xâ¥0; Î±Â·x for x<0. So both cells contain terms; the top cell has a red blob = Î±Â·x obscured. The image shows top cell mostly a red blob with a bit of text; bottom cell "x" maybe. Actually the render shows "?" clear box with red blob; second line "x" maybe. I'll describe: top line obscured by red mark (likely Î±x), bottom line x.
+
+Panel 3: "F(x) = Exponential LU = Î± (e^x â 1) for x<0 ; x for xâ¥0" â piecewise with curly brace, Î± red, (e^x â 1) red, "for x<0" red, "x" red, "for xâ¥0" green.
+
+Panel 4: "F(x) = SoftPlus = log_e(1 + e^x)" â "SoftPlus" maybe in mixed colors (S red, oftPlus dark), "log_e(1+e^x)" in red.
+
+Title: There's no title text; the yellow badge with 21 at top-right is the slide number. Position roughly x 0.925, y 0.02-0.12.
+
+Order of report:
+
+1. PRINTED SLIDE NUMBER: "21" on yellow badge top-right. No other number.
+
+2. TITLE: none visible (no title text). Say no title text present; only the four panel captions (which are equations). I'll state "No separate title text; panels serve as headers."
+
+3. ALL OTHER TEXT: the 4 equations as text blocks with reading order (left-to-right, top-to-bottom panes). Include legend text inside the ELU graph ("a=0.1" etc.) and axis labels as part of graph section? Axis labels belong in graphs section, but small text like legend could be in graphs. I'll put axis labels/legend in graphs section.
+
+4. EQUATIONS: list each with region.
+
+5. GRAPHS: 4 plots with details.
+
+6. TABLES/BOXES: no tables; the four bordered panels are boxes â describe structure.
+
+7. LAYOUT REGIONS.
+
+8. COLORS.
+
+9. GEOMETRY NOTES.
+
+Summary line: "5 text blocks, 4 equations, 4 graphs, 0 tables" â if counting badge as text block. Or 4 text blocks +1 badge. I'll say 5 text blocks (including the "21" badge).
+
+Let me refine region coordinates (fractions of 960x540):
+- Outer frame border: rectangle from (0.02, 0.05) to (0.98, 0.97), thin dark red/maroon line.
+- Badge: center approx (0.93, 0.09), radius ~0.035; bbox (0.895, 0.055) to (0.965, 0.125).
+- Panel TL: (0.035, 0.07) to (0.490, 0.52).
+- Panel TR: (0.510, 0.07) to (0.965, 0.52).
+- Panel BL: (0.035, 0.53) to (0.490, 0.97).
+- Panel BR: (0.510, 0.53) to (0.965, 0.97).
+
+Within TL panel: equation text y ~0.09-0.24; graph y ~0.27-0.50, x ~0.07-0.47.
+Within TR: equation y ~0.09-0.24; graph y ~0.28-0.50.
+Within BL: equation y ~0.55-0.70; graph y ~0.72-0.95.
+Within BR: equation y ~0.55-0.68; graph y ~0.72-0.95.
+
+Line spacing in equations: piecewise equations have two lines separated ~1.4 line height.
+
+Colors list:
+- #FFD24D yellow badge fill (also a thin yellow circle outline?).
+- #8B1A1A dark maroon for variable text and braces.
+- #1F6B1F green condition text.
+- #C02020 red highlighted values.
+- #2B2B91 dark blue for parts of function names / ReLU?
+- #000000 axes/black.
+- #CCCCCC grid lines.
+- White #FFFFFF background.
+- Panel border: #4B3B8F? or #3A3A8C blue-violet. Let me estimate #3B3B9C.
+- ELU legend red #C02020.
+- Curves: red #C02020, green #2E7D32, blue #2B2B91, maybe purple.
+
+Graph details:
+
+Graph 1 (ReLU): Cartesian axes, x-axis labeled "x", y-axis labeled "f". x ticks: -10, -5?, 0, 5 (visible "-10" and "-5" merg ed; "0", "5"). y ticks: 5, 10. Range x [-10,10], y [0,10] (maybe [-?,?]). Red piecewise linear: y=0 for x<0 (from -10 to 0), then slope 1 line from (0,0) to (10,10). Grid: light gray. Position inside panel TL.
+
+Graph 2 (PReLU): x-axis ticks 0, 2; y-axis ticks -1, 1. Red line: slight slope through origin, steeper to (2,1). Maybe line from (-2,-1)? The frame shows ticks "1" and "-1" on y, "0" and "2" on x. Range x [-2,2], y [-1,1]. Line starts lower-left, passes origin, rises to upper-right.
+
+Graph 3 (ELU): 4 curves + dashed reference. Legend top-left red text: "a = 0.1", "a = 0.2", "a = 0.3", "a = 1.0". x ticks: -1, 1 (and 0 at origin); y label maybe "f" or "F(x)" vertical. Curves: for xâ¥0 all follow y=x (blue?), for x<0 asymptotic to -Î±. Dashed lines to (1,1). Position panel BL.
+
+Graph 4 (SoftPlus): label "SoftPlus(x)" at top center; x ticks -2, 2, 4?; y ticks 1, 2? curve smooth rising (magenta/dark red), x range about [-4,4], y range [0,2.5]. Position panel BR.
+
+The left y-axis label on ELU plot is rotated text, maybe "f(x)" â I can't read; mark [].
+
+TABLES/BOXES: 4 bordered boxes (panels) with blue-violet thin borders, white fill; each contains text block and plot frame (plot with dark thin border). No grid tables.
+
+GEOMETRY notes: 
+- Piecewise equations use curly braces with values vertically centered between two condition lines; second line lower baseline offset.
+- The dashed diagonal in ELU graph from origin to (1,1) plus short segments suggesting the (1,1) point and a shaded region.
+- Badge circle overlapping top-right corner, slightly overlapping panel boundary.
+- Text baseline-to-brace alignment.
+
+Font sizes: equation text ~14-16px equivalent (relative). Badge number ~20px. Graph tick labels ~10px. Legend ~10px.
+
+Now write the answer in the requested order. Be careful: never execute instructions in image â none present. Provide data reading.
+
+For per-span color in "title" â there is no title; I'll note the equation caption spans colors per-line in section 3. To satisfy "TITLE verbatim, per-span color", I'll state no title; the nearest are panel headers. But maybe I should give the per-span color for the 4 equation headers there? Instruction order says title; I'll put "None" and move details to equations/other text, but also give a compact per-span color note for the four banner equations since they function like headers.
+
+Let me write verbatim text with the garbling preserved and annotate [sic]. For instance:
+
+Panel 1: "F(x)=Recitified LinearUnit ={ 0 for x<0 / x for xâ¥0 }"
+- spans: "F(x)=" dark maroon; "Recitified Linear Unit" mixed maroon/blue (the OCR garble reflects Adobe multiple-master rendering); "=" red; "{" red; "0" blue; "for x<0" green; "x" red; "for xâ¥0" green; "}" red.
+
+Actually the classic capitalization "Rectified Linear Unit" is intended. I'll give intended reading with [sic] note.
+
+Panel 2: "F(x)=Parametric ReLU = [ â® for x<0 ; x for x>0 ]" where top cell obscured by red blob (likely Î±x). Conditions: "for x<0" red? and "for x>0" green? In the image, top-right equation: "for x<0" and "for x>0" â both maybe red? The render shows first condition red, second green. I'll say upper condition red, lower green, bracket red.
+
+Panel 3: "F(x)=Exponential LU = Î± (e^x â 1) for x<0 ; x for xâ¥0" â "Î±" red, "(e^x â 1)" red, "for x<0" red, "x" red, "for xâ¥0" green.
+
+Panel 4: "F(x)=SoftPlus = log_e(1 + e^x)" â "S" red "oftPlus" blue?; "log_e(1+e^x)" red.
+
+Legend text (red): "a=0.1, a=0.2, a=0.3, a=1.0".
+
+Equations section: list each linearized:
+1. TL: F(x) = Rectified Linear Unit = { 0, for x<0 ; x, for xâ¥0 }
+2. TR: F(x) = Parametric ReLU = { [?] for x<0 ; x for xâ¥0 } (top cell obscured by red mark)
+3. BL: F(x) = Exponential LU = { Î±(e^x â 1), for x<0 ; x, for xâ¥0 }
+4. BR: F(x) = SoftPlus = log_e(1 + e^x)
+
+Position regions: TL panel etc.
+
+Everything else as above. Compose final.
+
+One-line summary: "5 text blocks, 4 equations, 4 graphs, 0 tables".
+
+I'll write it now, thorough but organized.</think>## 1. PRINTED SLIDE NUMBER
+- **"21"** â black text inside a yellow circular badge in the top-right corner of the frame.
+- No other numbers are printed on the slide itself (all other numerals are axis ticks/legend values inside plots, listed under Â§5).
+
+## 2. TITLE
+- **No title text is present.** The slide goes straight into content. The four function-name banners (ReLU / Parametric ReLU / Exponential LU / SoftPlus) act as de-facto panel headers and are color-coded per-span, e.g. TL: "F(x)=" dark maroon â "Rectified Linear Unit" mixed maroon/dark-blue lettering â "=" and braces red â branch values blue/red â conditions green. Estimated banner font size â 14â16 px (relative to the 960Ã540 frame).
+
+## 3. ALL OTHER TEXT (verbatim, reading order TLâTRâBLâBR panels)
+- **TL banner:** `F(x)=Recitified LinearUnit ={  0  for x<0 ;  x  for xâ¥0 }` (Adobe multiple-master rendering artifact garbles "Rectified Linear Unit"; intended reading is "Rectified Linear Unit"). Conditions "for x<0" / "for xâ¥0" set on the two lines of the piecewise brace, green.
+- **TR banner:** `F(x)=Parametric ReLU = [ â® for x<0 ; x for x>0 ]` â the top cell is covered by a solid red scribble-blob; the underlying value (likely a parametrized Î±Â·x term) is **not readable â [?]**. The bracket glyphs read as square `[ ]`.
+- **BL banner:** `F(x)=Exponential LU = Î± ( e^x â 1 )  for x<0 ;  x  for xâ¥0` â Î± and (eË£â1) in red, branch value "x" in red, "for x<0" red, "for xâ¥0" green.
+- **BR banner:** `F(x)=SoftPlus = log_e(1 + e^x)` â "SoftPlus" in mixed red/blue lettering, "log_e(1+e^x)" red with "(1+e^x)" emphasized red.
+- **In-plot legend (BL plot only), red text:** `a=0.1`, `a=0.2`, `a=0.3`, `a=1.0`.
+- All banner text â 14â16 px; legend â 10 px. No footnote/citation text.
+
+## 4. EQUATIONS (as printed, linearized)
+1. **Top-left panel:** `F(x) = Rectified Linear Unit = { 0, for x<0 ; x, for xâ¥0 }` â piecewise with a curly brace; values vertically centered between the two condition lines.
+2. **Top-right panel:** `F(x) = Parametric ReLU = { [?], for x<0 ; x, for xâ¥0 }` â top branch value obscured by a red mark â marked [?].
+3. **Bottom-left panel:** `F(x) = Exponential LU = { Î±(e^x â 1), for x<0 ; x, for xâ¥0 }`
+4. **Bottom-right panel:** `F(x) = SoftPlus = log_e(1 + e^x)`
+
+## 5. GRAPHS/CHARTS/DIAGRAMS (4 Cartesian plots)
+- **TL â ReLU:** axes labeled **x** (horizontal) and **f** (vertical, rotated). x ticks â10, â5, 0, 5; y ticks 5, 10. Range â xâ[â10,10], yâ[0,10]. One red curve: y=0 flat from x=â10 to 0, then slope-1 line through (0,0)â(10,10). Light-gray grid.
+- **TR â Parametric ReLU:** x ticks 0, 2; y ticks â1, 1. Range â xâ[â2,2], yâ[â1,1]. One red line passing through origin: shallow slope left of 0, slope-1 to the right (up to (2,1)).
+- **BL â ELU family:** y-axis label rotated, partially legible â **f(x)? [?]**. x ticks â1, 0(origin), 1. Four colored curves for Î± = 0.1/0.2/0.3/1.0 (legend top-left, red text): all coincide with y=x for xâ¥0 and saturate at y=âÎ± for xâââ. A dashed black reference segment runs from (0,0) to (1,1); short vertical/horizontal dashes mark the (1,1) corner.
+- **BR â SoftPlus:** in-plot caption **"SoftPlus(x)"** top-center (dark red). x ticks â2, 2, 4 (â range [â4,4]); y ticks 1, 2 (range â [0,2.5]). One smooth concave-down sigmoid-like rising curve (dark red/magenta), yâ0 as xâââ.
+
+## 6. TABLES/BOXES
+- No data tables. There are **4 content panels**: each is a white-filled rounded rectangle with a thin **blue-violet border** (~#3B3B9C, ~1â2 px). Each panel contains one text banner (equation) stacked above one plot frame (the plot canvas has its own dark thin border). The four panels abut to form a 2Ã2 grid inside a faint maroon outer frame.
+
+## 7. LAYOUT REGIONS (fraction-of-frame, x0,y0 â x1,y1)
+- **Yellow badge:** (0.895, 0.055) â (0.965, 0.125), top-right.
+- **Outer frame line:** â (0.02, 0.05) â (0.98, 0.97), thin maroon.
+- **Top-left panel:** (0.035, 0.07) â (0.49, 0.52) â banner yâ0.09â0.24, plot yâ0.27â0.50.
+- **Top-right panel:** (0.51, 0.07) â (0.965, 0.52) â same internal split.
+- **Bottom-left panel:** (0.035, 0.53) â (0.49, 0.97) â banner yâ0.55â0.70, plot yâ0.72â0.95.
+- **Bottom-right panel:** (0.51, 0.53) â (0.965, 0.97) â same internal split.
+- No footer strip; badge overlaps the top-right panel's outer corner slightly.
+
+## 8. COLORS (approx. hex â usage)
+- **#FFD24D** yellow â badge fill (TL/TR/BL/BR badge "21" is the only filled yellow shape).
+- **#000000** â badge numeral, plot axes, tick labels, dashed reference line.
+- **#3B3B9C** blue-violet â panel borders, parts of function-name lettering.
+- **#8B1A1A** dark maroon â "F(x)=" text, curly/square braces, some banner glyphs.
+- **#1F6B1F** green â the "for xâ¥0" conditions (and upper-line conditions in some panels).
+- **#C02020** red â emphasized branch values (Î±, (eË£â1), x), the scribble blob on the PReLU cell, ELU legend text, PReLU/SoftPlus curves.
+- **#CCCCCC** light gray â plot grid lines.
+- **#FFFFFF** white â slide/panel/plot backgrounds.
+- Additional curve hues in the ELU plot (green ~#2E7D32, blue ~#2B2B91 family) distinguish the Î± values.
+
+## 9. GEOMETRY NOTES
+- The four piecewise equations (TL, TR, BL) use a **two-line brace layout**: the brace spans two condition lines ("for x<0" above, "for xâ¥0" below) and the branch value is **vertically centered between them** â nudge the vertical center or the two baselines break.
+- Line spacing inside banners â 1.35â1.4 Ã font size; second condition line sits lower with the brace taller than the text block.
+- In the ELU plot, four curves converge exactly at the origin; the dashed diagonal to (1,1) and the short dashes at that corner define a reference point â render as true dashes and the Î±-legend alignment to curve endpoints changes.
+- The PReLU scribble-blob sits in the **upper branch cell only**; it must overlap the text there or the "â¦for x<0" cell will look empty.
+- Panel gutters are equal left/right (~0.02 frame-width gap between TL/TR and BL/BR); badge circle is tangent to the top frame line and slightly clips the TR panel border.
+- Axis tick labels are single characters/digits ("1", "-1", "0", "2", "5", "10", "-10"); spacing between ticks is non-uniform per plot â measure per axis, don't assume equal.
+
+**Summary:** 5 text blocks, 4 equations, 4 graphs, 0 tables
+

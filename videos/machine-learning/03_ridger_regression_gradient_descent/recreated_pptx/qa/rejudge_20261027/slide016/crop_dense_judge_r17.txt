@@ -1,0 +1,29 @@
+## Discrepancies (cropârelative coordinates; IMG1 = recreation, IMG2 = original)
+
+**1. Bodyâcopy type size / weight is slightly larger in the recreation (MINOR, medium confidence)**
+- Top line: both crops show the same highlighted headline at essentially the same size ("better generalization of the model", ~x 15â570, y 35â80).
+- Middle paragraph (y â 150â300): IMG1's glyphs are marginally larger/heavier, so at the right crop edge IMG1 ends at "(using" while IMG2 continues to "(using t"; likewise IMG1 ends "â¦the objec" vs IMG2 "â¦the objectiv", and IMG1's left cut shows "adiction" vs IMG2 "diction".
+- Lower paragraph (y â 360â420): the red run "Squared Norm of the We" is again a little larger in IMG1 ("applied on the" vs IMG2 "pplied on the").
+- No characters are wrong or missing â the text strings themselves match; this is a size/weight (and hence lineâfill) difference, not a content error.
+
+**2. Typeface character differs between recreation and original (MINOR, medium confidence)**
+- IMG1 uses a clean, uniform sans face; IMG2's letterforms are narrower, lighter and slightly different in shape (soft, captureâsoftened). Same glyph identities and wording, but the rendered "texture" is not matched exactly. No garbled or wrong characters observed in any line.
+
+**3. Yellow highlight fill is paler in the recreation (MINOR, medium confidence)**
+- The highlight behind "better generalization" (x â 15â360, y â 35â80) is a pale yellow in IMG1 but a more saturated yellow in IMG2. This is a text highlight, not the template badge, so the FDFD96 chrome exemption does not formally cover it; the hue difference is small.
+
+**4. Small stray gray diagonal mark present in original, absent in recreation (MINOR, low confidence)**
+- IMG2 shows a tiny gray slash/arrowâlike mark just below the red underlined word at the far left (â x 3â15, y 288â305). No corresponding mark is visible in IMG1. Could be a videoâcapture pen/cursor artifact, but if it is real ink it is not reproduced.
+
+**5. Faint vertical seam at the right edge of the highlight (MINOR, low confidence)**
+- IMG1 shows a thin light vertical line at â x 358, y 35â80 (edge of the highlight rectangle). IMG2's highlight edge is clean apart from capture softness. Likely a rendering artifact rather than a content difference.
+
+## Checks that passed
+- No wrong, swapped, garbled, or missing characters in any visible run: "better generalization of the model", "â¦diction between model training (using â¦", "â¦neralization term is added to the objecâ¦", "â¦or (do regularization to what extent)", "â¦applied on the Squared Norm of the Weâ¦", "â¦regularization (also known as Ridge Reâ¦".
+- Red underlined token ("â¦tor"/"â¦or") is red in both and carries a red underline in both; underline geometry is correct.
+- Red run "Squared Norm of the Weâ¦" and blue runs "â¦regularization" / "Ridge Reâ¦" match in color role and in order; no colorârole swaps.
+- Yellow highlight covers exactly the same word span ("better generalization") in both.
+- No tables, equations, delimiters or subscripts are present in this crop region, so cellâbyâcell value, fraction/limit, and bracketâspan checks are not applicable here.
+- No missing rows, no truncated subscripts, no structural line breaks introduced.
+
+FINAL VERDICT: PASS

@@ -1,0 +1,76 @@
+==============================================================================
+ADJUDICATE r23 — slide 019 — judge_full_r16.txt (06:24:01 UTC, FAIL) claims
+render.png 2026-10-31 06:15:53 UTC 2001x1125 vs unique_slides/slide_019.jpg 960x540
+scale sx=%.4f sy=%.4f ; rejudge_adjudicate.py 019 --full: diff 19.177%% of frame,
+ink orig-heavy 273,588 px vs render-heavy 72,305 px; densest cells 1,360/1,272/1,263 px
+all inside text bands y90-112 / y180-202 (header + z-vector rows) — diffuse,
+no localized defect block (banked run: adjudicate_r23_run.txt)
+==============================================================================
+
+## D1 (MAJOR): 'pink/green column body tints absent in recreation'
+  NO REG    header band   orig modal (np.int64(248), np.int64(248), np.int64(224)) (n=7076) | render modal (np.int64(240), np.int64(248), np.int64(232)) (n=30540)
+  NO REG    body r1       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=19520) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=85003)
+  NO REG    body r2       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  NO REG    body r3       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  NO REG    bottom strip  orig modal (np.int64(248), np.int64(248), np.int64(224)) (n=1952) | render modal (np.int64(240), np.int64(248), np.int64(232)) (n=8144)
+  RIDGE 3   header band   orig modal (np.int64(248), np.int64(224), np.int64(200)) (n=7076) | render modal (np.int64(248), np.int64(224), np.int64(200)) (n=30540)
+  RIDGE 3   body r1       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=19520) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=85003)
+  RIDGE 3   body r2       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  RIDGE 3   body r3       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  RIDGE 3   bottom strip  orig modal (np.int64(248), np.int64(224), np.int64(200)) (n=1952) | render modal (np.int64(248), np.int64(224), np.int64(200)) (n=8144)
+  RIDGE 10  header band   orig modal (np.int64(224), np.int64(248), np.int64(232)) (n=7076) | render modal (np.int64(232), np.int64(248), np.int64(232)) (n=30540)
+  RIDGE 10  body r1       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=19520) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=85003)
+  RIDGE 10  body r2       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  RIDGE 10  body r3       orig modal (np.int64(248), np.int64(248), np.int64(248)) (n=20740) | render modal (np.int64(248), np.int64(248), np.int64(248)) (n=90093)
+  RIDGE 10  bottom strip  orig modal (np.int64(224), np.int64(248), np.int64(232)) (n=1952) | render modal (np.int64(232), np.int64(248), np.int64(232)) (n=8144)
+
+## D2 (MAJOR, low-conf, 'pending 1:1 crop'): lambda=10 W-vector digits
+  pptx slide19.xml digit runs (col order in file): ['0.67', '0.64', '0.29', '0.78', '0.1', '1.95', '0.03', '1.2', '0.72', '0.77', '1.77', '0.32', '0.99', '0.13', '1.87', '0.09', '0.54', '0.73', '0.81', '0.82', '0.33', '1.1']
+  build/slide_019.js RIDGE 10 w3 = ['0.13','1.87','0.09'] / ['0.54','0.73','0.81'] / ['0.82','0.33','1.1'] (lines 359/369/379)
+  row0: render ink=291px | diff render-vs-origCOL2=2496px  render-vs-origCOL1=2521px | orig col2 ink=1736px orig col1 ink=1727px  -> render matches COL2 (correct)
+  row1: render ink=303px | diff render-vs-origCOL2=2341px  render-vs-origCOL1=1953px | orig col2 ink=1741px orig col1 ink=1409px  -> render matches COL1 (r16 misread CONFIRMED)
+  row2: render ink=259px | diff render-vs-origCOL2=2020px  render-vs-origCOL1=2560px | orig col2 ink=1498px orig col1 ink=1825px  -> render matches COL2 (correct)
+
+## D3 (MINOR): W-vector entry ink colour (orig black/dark vs render red)
+  NO REG    row0: orig ink red=0 dark=190 of 684 | render ink red=78 dark=48 of 97
+  NO REG    row1: orig ink red=0 dark=492 of 1605 | render ink red=197 dark=114 of 251
+  NO REG    row2: orig ink red=0 dark=448 of 1407 | render ink red=175 dark=103 of 230
+  RIDGE 3   row0: orig ink red=0 dark=490 of 1727 | render ink red=191 dark=111 of 285
+  RIDGE 3   row1: orig ink red=0 dark=351 of 1409 | render ink red=166 dark=105 of 240
+  RIDGE 3   row2: orig ink red=0 dark=407 of 1825 | render ink red=208 dark=119 of 302
+  RIDGE 10  row0: orig ink red=0 dark=511 of 1736 | render ink red=218 dark=129 of 291
+  RIDGE 10  row1: orig ink red=0 dark=497 of 1741 | render ink red=221 dark=122 of 303
+  RIDGE 10  row2: orig ink red=0 dark=494 of 1498 | render ink red=195 dark=114 of 259
+
+## D4 (MINOR, high conf): delimiters — orig thin square brackets vs render parens
+  W-cells (per pil_wfix_check.txt 06:19:45, re-measured here):
+    col0 row0: render red-bar px=1101 dark px=1337 | orig red px=543
+    col0 row1: render red-bar px=1280 dark px=1394 | orig red px=656
+    col0 row2: render red-bar px=1263 dark px=1429 | orig red px=847
+    col1 row0: render red-bar px=1079 dark px=1064 | orig red px=373
+    col1 row1: render red-bar px=1077 dark px=1066 | orig red px=410
+    col1 row2: render red-bar px=1088 dark px=1058 | orig red px=410
+    col2 row0: render red-bar px=1268 dark px=1484 | orig red px=408
+    col2 row1: render red-bar px=1296 dark px=1461 | orig red px=268
+    col2 row2: render red-bar px=1271 dark px=1509 | orig red px=436
+  -> black bowed-paren strokes in render W-cells: 9 cells (wfix removed 46pt paren textBoxes; red rect outline = orig's straight red bars)
+  z-vectors (Test Data box): render uses tall 44pt round parens by DESIGN (mandated
+  2-D professional format, rule e); orig uses thin faded brackets. EXEMPT — format
+  directive, not a fidelity defect. Measured paren ink:
+    z1 paren region x190: render ink=858px (tall parens) | orig ink=177px (thin bracket)
+    z2 paren region x282: render ink=865px (tall parens) | orig ink=210px (thin bracket)
+    z3 paren region x378: render ink=898px (tall parens) | orig ink=195px (thin bracket)
+
+## D5 (MINOR): 'Test Data' callout box wider in recreation (~35-40px past z3)
+  orig: blue box border x 69..433 (slide-space)
+  render: blue box border x 67..434 (slide-space)
+  build slide_019.js box: x68..434 (w366); measured above
+
+## D6 (MINOR, low conf): z1 label colour (orig dark vs render red)
+  z1 label glyph x156..174 y98..118: orig median ink RGB=(200, 113, 128) | render median ink RGB=(194, 51, 51)
+  z2 label glyph x246..264 y98..118: orig median ink RGB=(203, 125, 140) | render median ink RGB=(195, 55, 55)
+  z3 label glyph x342..360 y98..118: orig median ink RGB=(201, 132, 141) | render median ink RGB=(196, 62, 62)
+
+## crop-pair provenance (crop_dense_render.png 06:17:07 vs current render.png 06:15:53)
+  shape mismatch: render-region (433, 634, 3) vs crop file (434, 634, 3) -> resizing for compare
+  max abs diff after resize: 253, mean 3.66

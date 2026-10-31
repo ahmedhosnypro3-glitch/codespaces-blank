@@ -1,0 +1,66 @@
+## Fidelity check â Slide 047, zoomed crop pair (IMG1 = recreation, IMG2 = original, matched scale)
+
+### 1. Ground rules applied first
+- (a) Treated as a zoomed region-pair of slide 047, same effective scale.
+- (b) House chrome (light-gray `E9E9E7` panels, thin `C00000` left/right/bottom strokes, no top stroke on the deck) accepted as intentional; the gray panel borders/shadows visible in both frames are **not** counted.
+- (c) Typeset vs hand-drawn ink treated as â¤ MINOR.
+- (d) No equations of the stacked-fraction/â type fall in this crop, so (d) is not invoked.
+- (e) Soft JPEG edges/halos in IMG2 ignored.
+
+### 2. Content that verifies correctly
+- **Center panel, "Augmented Vectors (from Top)"** â vector entries checked cell by cell, both frames identical:
+  - xâ = (1, 1, 1) | xâ = (1, 2, 1) | xâ = (1, 1, 2) | xâ = (1, 5, 4) | x = (1, 6, 5) | xâ = (1, 6, 6). No wrong digit, no swapped value, no missing row.
+  - Subscripts on xââ¦xâ present and correctly placed in both.
+  - Class row under the vectors: Câ Câ Câ (red) Câ Câ Câ (blue) â correct count, correct order, correct colors in both.
+  - Title text identical, including parentheses and capitalisation.
+- **Right-hand stack**: `d(Zâ) =`, `d(Zâ) =`, third panel partially visible; blue `|1` glyph in each panel matches in both frames.
+- **Bottom banner**: "Check Classes", white on red â same wording, same cut-off by the crop edge.
+- **Top strip class labels**: Câ Câ Câ Câ Câ Câ â same order/colors in both.
+
+---
+
+### 3. Discrepancies (every one found)
+
+**D1 â MAJOR â Delimiter glyph substitution: straight vertical bars instead of parentheses**
+- Where: the six column vectors in the center-left gray panel, roughly x â 60â330, y â 183â285 (left delimiters near x â 66 / 109 / 153 / 199 / 244 / 289; right delimiters near x â 104 / 146 / 190 / 236 / 281 / 326). The same substitution appears in the partially cropped vector strip along the top edge, x â 60â310, y â 0â45.
+- What: IMG1 renders each vector as `| â¦ |` (flat, uniform-weight vertical strokes). IMG2 renders them as clearly curved `( â¦ )` parentheses (visible curvature at the tips in the original capture).
+- Why it matters: this is a glyph-shape change on every enclosing delimiter in the region (12 in the panel + the top-strip columns), not a compression/soft-edge effect; it is explicitly in the "be exact about glyph shapes / delimiter geometry" list.
+- Confidence: **High (~88%)**.
+
+**D2 â MAJOR â Top cropped vector strip: visible digit rows and digit-to-column mapping differ**
+- Where: top strip, columns centered near x â 68, 113, 160, 205, 250, 293, y â 0â48 (just above the Cââ¦Câ label row).
+- What: in IMG2 (original) each column shows an extra visible row beginning with a leading `1`, so the visible stacks read roughly (1,1,1), (1,1,2), (1,2,4), (1,4,5), (1,5,6)â¦ â i.e. the bottom digits advance 1 â 2 â 4 â 5 â 6 across the columns. In IMG1 the visible stacks are shorter and read (1,1,1), (1,1), (1,2), (2,4), (4,5), (5,6), so the bottom-most digits under the class labels are 1, 1, 2, 4, 5, 6 instead of 1, 2, 4, 5, 6, â¦
+- Net effect: in the recreation the digits are offset by one position relative to their own Câ/Câ labels, and one visible row per column is absent.
+- Caveat: the top of this strip is cut by the crop edge in both frames, so the missing content is only partially visible.
+- Confidence: **Medium (~60%)**.
+
+**D3 â MINOR â Typeset vs. drawn letter/number forms**
+- Where: title (x â 42â365, y â 112â145), the xââxâ labels, all vector digits (x â 70â310, y â 185â280), and the banner lettering (x â 38â360, y â 385â425).
+- What: IMG1 uses a Times/Garamond-style typeset face; IMG2 uses a narrower, hand-drawn/rounded face. Shape differences in the `1` glyphs, the italic `x`, and the banner capitals are visible.
+- Per ground rule (c) this is an inherent medium difference, so capped at MINOR.
+- Confidence: High that they differ; severity capped by rule.
+
+**D4 â MINOR â Right-column panel registration / crop offset**
+- Where: the three `d(Â·)` panels, x â 420â570, y â 100â415.
+- What: the panels and the blue `|1` sit ~5â10 px further right/left respectively in IMG1 than in IMG2; at the top-right corner IMG1 exposes `-2` at x â 545â570, y â 8â25, whereas IMG2 shows only a `-` at x â 540, y â 15â22 (the remainder is cut). This is consistent with a small horizontal registration difference between the two crops rather than new content, so it is not treated as a wrong digit.
+- Confidence: Medium (~55%) that it is registration only; low (~35%) that a real character is added/omitted.
+
+**D5 â MINOR â Blue/red hue drift in small text**
+- Where: title blue and Câ blue (y â 112â145 and 295â320); Câ red and banner red (y â 45â75, 385+).
+- What: IMG1's title/Câ blue reads slightly more violet-blue and its Câ red slightly brighter than the deeper blue/red in IMG2. Contrast/softness in IMG2 is partly capture-induced, so the magnitude is uncertain.
+- Confidence: LowâMedium (~40%).
+
+---
+
+### 4. Summary
+| # | Severity | Item | Confidence |
+|---|----------|------|------------|
+| D1 | MAJOR | `|` bars substituted for parentheses on all vector delimiters | ~88% |
+| D2 | MAJOR | Top vector strip: digit rows/column mapping offset, one row absent per column | ~60% |
+| D3 | MINOR | Typeset vs drawn letter/number forms (rule (c) cap) | High |
+| D4 | MINOR | Right panel / top-right crop registration (~5â10 px, `-2` vs `-`) | ~55% |
+| D5 | MINOR | Slight blue/red hue drift in small text | ~40% |
+
+The numeric content of the main "Augmented Vectors (from Top)" panel is exact â every entry, subscript and class label matches cell by cell â but the enclosure glyphs are wrong throughout (D1) and the cropped top strip's digit columns do not line up with their labels (D2). Both are in the explicitly-mandated "exact" category (wrong delimiter shape; missing row / swapped value), so they cannot be dismissed as sub-pixel or compression artifacts.
+
+**FINAL VERDICT: FAIL** for "faithful, usable recreation of this region".

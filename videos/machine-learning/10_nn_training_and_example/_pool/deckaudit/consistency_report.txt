@@ -1,0 +1,142 @@
+DECK CONSISTENCY AUDIT — videos/machine-learning/10_nn_training_and_example
+Snapshot: 2026-10-31 08:31:11 (local time). Gateway-free audit: file + sqlite + PIL/XML/ZIP
+inspection only. No vision-model, judge, parse, or HTTP calls were made by this auditor.
+Scope: slides 001-034. Canonical deliverable = recreated_pptx/slide_NNN_recreated.pptx.
+Ledger = final_deck_ledger.json (namespace root). Progress DB = slides_progress.db.
+NOTE: a parallel rejudge fleet was writing during the audit; this is a point-in-time
+snapshot. Re-run _pool/deckaudit/audit2.py to refresh.
+
+CHAIN SEMANTICS (how a PASS is bound to the current bytes)
+  OK         = judged render attested to the CURRENT deliverable md5 (render_meta /
+              render_check / REJUDGE_REPORT / equivalent evidence near the render).
+  STALE      = other md5s attested near the judged render (current md5 not among them).
+  UNVERIFIED = no md5 attestation found near the judged render.
+  NO-RENDER  = the judged render file no longer exists.
+  A transcript counts only if its body carries a terminal FINAL VERDICT: PASS/FAIL line.
+  Precedence: chain-verified PASS > chain-verified FAIL on current bytes > any PASS
+  (=> CERTIFIED-UNVERIFIED) > any FAIL > NO-VERDICT. UNVERIFIED is a legitimate state;
+  no verdict is ever invented.
+
+PER-SLIDE TABLE  (chain = provenance of the listed transcript against current bytes)
+| sl | pptx | md5(8)  | verdict transcript                          | vd   | chain       | ledger      | db gen/vis  | class |
+|----|------|---------|---------------------------------------------|------|-------------|-------------|-------------|-------|
+| 01 | Y    | fea67ac8 | qa/slide001/rejudge_r2/judge_attempt_2.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 02 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+| 03 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+| 04 | Y    | da3463cb | qa/slide004/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 05 | Y    | c7e1b9af | qa/slide005/rejudge/judge_attempt_1.stdout.txt | PASS | OK        | certified   | certified/PASS | CERTIFIED-SOUND |
+| 06 | Y    | c536e056 | qa/slide006/rejudge_r2/judge_attempt_2.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 07 | Y    | ade84195 | qa/slide007/rejudge_r2/judge_attempt_2.txt    | FAIL | OK          | certified   | certified/PASS | FAIL |
+| 08 | Y    | 7783c26f | qa/slide008/rejudge_r2/judge_attempt_3.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 09 | Y    | 6fd0301b | qa/slide009/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 10 | Y    | 90b37ec5 | qa/slide010/rejudge_r2/judge_attempt_2.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 11 | Y    | a01def15 | qa/slide011/rejudge/judge_attempt_15.txt       | PASS | UNVERIFIED  | certified   | certified/PASS | CERTIFIED-UNVERIFIED |
+| 12 | Y    | ee1a0746 | qa/slide012/rejudge_r2/judge_attempt_3.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 13 | Y    | f7ff4f89 | qa/slide013/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 14 | Y    | 092a8566 | qa/slide014/rejudge_r2/judge_attempt_1.txt    | FAIL | OK          | certified   | certified/PASS | FAIL |
+| 15 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+| 16 | Y    | a948c6a2 | qa/slide016/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 17 | Y    | b749ab90 | qa/slide017/rejudge_r2/judge_attempt_3.txt    | FAIL | OK          | certified   | certified/PASS | FAIL |
+| 18 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+| 19 | Y    | b07c1071 | qa/slide_019_judge_attempt3.txt               | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 20 | Y    | 74ed438f | qa/slide_020_judge_attempt7.txt               | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 21 | Y    | f227ce7a | qa/slide021/rejudge/judge_attempt_1.txt       | FAIL | OK          | certified   | certified/pass | FAIL |
+| 22 | Y    | 7b03e2cc | qa/slide022/qa022/judge_attempt_1.txt         | PASS | UNVERIFIED  | certified   | certified/pass | CERTIFIED-UNVERIFIED |
+| 23 | Y    | 742a2f58 | qa/slide023/rejudge/judge_attempt_2.txt       | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 24 | Y    | a41d71b5 | qa/slide024/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 25 | Y    | 912d2aec | qa/slide025/rejudge_r2/judge_attempt_1.txt    | FAIL | OK          | certified   | certified/PASS | FAIL |
+| 26 | Y    | 7173aed9 | qa/slide026/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 27 | Y    | b347f242 | qa/slide027/rejudge_r2/judge_attempt_1.txt    | PASS | OK          | certified   | certified/PASS | CERTIFIED-SOUND |
+| 28 | Y    | d19563a3 | qa/slide028/b14b/judge_attempt_3.txt          | PASS | STALE       | placeholder | pending/-  | CERTIFIED-UNVERIFIED |
+| 29 | Y    | 5c91082a | qa/slide029/judge_attempt_3.txt               | PASS | UNVERIFIED  | certified   | certified/PASS | CERTIFIED-UNVERIFIED |
+| 30 | Y    | 2db61db0 | qa/slide030/b15b/judge_attempt_3.txt          | PASS | STALE       | placeholder | pending/-  | CERTIFIED-UNVERIFIED |
+| 31 | Y    | 2bc99cc3 | qa/slide031/b16b/judge_attempt_1.txt          | FAIL | STALE       | placeholder | pending/-  | FAIL |
+| 32 | Y    | 7cf6991f | qa/slide_032_judge_attempt2.txt               | PASS | UNVERIFIED  | certified   | certified/PASS | CERTIFIED-UNVERIFIED |
+| 33 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+| 34 | N    | -       | -                                           | -    | -           | placeholder | pending/-  | MISSING |
+
+AGGREGATE COUNTS (34 slides)
+  CERTIFIED-SOUND      16   (1,4,5,6,8,9,10,12,13,16,19,20,23,24,26,27)
+  CERTIFIED-UNVERIFIED  6   (11,22,28,29,30,32)
+  FAIL                  6   (7,14,17,21,25,31)
+  MISSING               6   (2,3,15,18,33,34)
+  NO-VERDICT            0
+
+LEDGER / DB CONSISTENCY CHECKS
+- Ledger: 34 pages, pages 1-34 contiguous, page == slide_num for every page. PASS.
+- Ledger vs DB gen_status: only slide 4 contradicted (ledger certified / DB pending) at the
+  08:25 run; repaired at 08:30 (see DB WRITES below). All other rows agree.
+- Ledger vs current deliverable md5: source_md5 matched the current pptx md5 for all 20
+  "certified" pages. It did NOT match for placeholder pages 28 (c159acda vs d19563a3),
+  30 (374259bf vs 2db61db0) and 31 (cefafd9d vs 2bc99cc3) - those pages record a stale
+  md5 while a current deliverable exists on disk. Ledger status is the stale side relative
+  to the evidence for 28/30/31, not the DB (DB pending / ledger placeholder agree).
+- DB: all 34 rows present in table slides. NO-VERDICT slides carry no visual_check value.
+- Case inconsistency (cosmetic): visual_check = 'pass' (lowercase) for slides 21 and 22;
+  every other row uses 'PASS'. Not a contradiction of the ledger; left unchanged.
+- No CERTIFY.md exists anywhere in the namespace (find -iname '*certif*' returns only
+  driver scripts and a _pool/_deckcheck dir; the per-slide cert artifact is absent deck-wide).
+
+DEFECTS - BLOCKER (block deck completion)
+- B1. Slides 7, 14, 17, 21, 25: ledger AND DB say certified/PASS, but the newest
+  chain-verified transcript on the CURRENT deliverable bytes ends FINAL VERDICT: FAIL.
+  Evidence: qa/slide007/rejudge_r2/judge_attempt_2.txt, qa/slide014/rejudge_r2/
+  judge_attempt_1.txt, qa/slide017/rejudge_r2/judge_attempt_3.txt,
+  qa/slide021/rejudge/judge_attempt_1.txt (+ prior_attempts/judge_attempt_2.txt),
+  qa/slide025/rejudge_r2/judge_attempt_1.txt; the FAILing render's md5 is attested in
+  each slide's render_meta.txt / render_check.txt (chain OK).
+- B2. Slides 2, 3, 15, 18, 33, 34: no deliverable at the canonical path
+  recreated_pptx/slide_NNN_recreated.pptx. A build artifact exists at
+  recreated_pptx/build/slide_NNN_recreated.pptx for each, never promoted to the
+  single-version deliverable path; their ledger source_md5 also differs from the build
+  bytes, so even the build artifacts are unverified against the ledger.
+- B3. Ledger is stale for 28, 30, 31: status 'placeholder' with a source_md5 that does not
+  match the current deliverable, while current-hour rejudge transcripts exist. Either
+  promote (re-judge on current bytes) or re-mark placeholder; the arithmetic does not
+  reconcile as it stands.
+
+DEFECTS - MAJOR
+- M1. Slide 31: only FAIL verdicts (newest qa/slide031/b16b/judge_attempt_1.txt ends
+  FAIL) and the deliverable exists; ledger/DB still treat it as not-built.
+- M2. Six CERTIFIED-UNVERIFIED slides (11, 22, 28, 29, 30, 32): PASS transcripts exist but
+  no md5 anywhere near the judged render attests the current bytes (28/30 are STALE, the
+  rest UNVERIFIED). Certification cannot be claimed on bytes alone.
+- M3. No CERTIFY.md artifact deck-wide (see above) - the expected per-slide cert record is
+  missing, so every 'certified' status rests on transcripts + md5 evidence only.
+- M4. Final deck 10_nn_training_and_example_final.pptx (34 slides, valid zip) was rebuilt
+  during the audit (md5 1e392915... at 08:31, 2e062a6d... at 08:39). It therefore embeds
+  the current bytes of FAIL/MISSING slides as-is; deck-level certification would require
+  rebuilding it after the blockers clear.
+
+DEFECTS - MINOR
+- m1. Bronze chrome: badge fill FFD700 on slide 11 and FFFF99 on slide 23 vs the house
+  FFF9C4. Both sit in CERTIFIED-* classes; per the house-frame rule such judge chrome
+  findings are overridden - listed here for the founder's awareness only.
+- m2. Eight slides (8, 13, 19, 20, 23, 26, 28, 32) show no title text box at x=0.6/y=0.28
+  in the static XML check. Likely a differently-anchored title box or the title living
+  inside a group shape, which the XML probe cannot read as a top-level <p:sp>. Not
+  evidence of a house-rule violation; verify visually before chasing.
+- m3. 228 parallel/superseded pptx artifacts outside the canonical deliverable path
+  (inventory in consistency.json 'orphans'): 52 under recreated_pptx/build, 28 under
+  _pool/gate_preflight, 20 each under _pool/lo_r2 and _pool/lo_r2b, plus qa/ and
+  _pool/tmp* copies. Includes suffixed builds: slide_003_recreated_omml.pptx,
+  slide_003_attempt1/2, slide_001_recreated_r1fix.pptx, slide_001_recreated_certified_r1.pptx,
+  slide_019_attempt2.pptx, slide_020_attempt2.pptx, plus _attempt2/pre_attempt/calib copies.
+  None deleted (the auditor is read-only on deliverables).
+
+DB WRITES (slides_progress.db - the only permitted mutation)
+- One write, at 2026-10-31 08:30:00, slide_id 4:
+    UPDATE slides SET gen_status='certified', visual_check='PASS',
+      visual_transcript='qa/slide004/rejudge_r2/judge_attempt_1.txt',
+      updated_at='2026-10-31T08:30:00' WHERE slide_id=4;
+  Evidence: ledger page 4 = certified with source_md5 da3463cbf24fad23601932a3166098ba,
+  which equals the current recreated_pptx/slide_004_recreated.pptx md5;
+  qa/slide004/rejudge_r2/render_meta.txt attests src_md5 da3463cbf24fad23601932a3166098ba
+  and the transcript body ends 'FINAL VERDICT: PASS' (chain OK).
+  Re-read after the write confirmed gen_status=certified, visual_check=PASS,
+  visual_transcript=qa/slide004/rejudge_r2/judge_attempt_1.txt.
+- No other DB rows were written. Slides 21/22 ('pass' lowercase) and every other
+  contradictory-but-not-unambiguous row were deliberately left alone.
+- _pool/mission.db scope rows were not touched.
+
+DECK AUDIT: NEEDS FIX - 6 slides carry chain-verified FAIL verdicts while ledger+DB keep them certified, and 6 slides have no deliverable at the canonical path

@@ -11,8 +11,8 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
@@ -21,8 +21,8 @@
   "parse_calls_spent": 3,
   "crops_spent": 2,
   "degraded": {
-    "chat": true,
-    "reason": "chat probe failed \u2014 decisions use the deterministic-conservative fallback"
+    "chat": false,
+    "reason": ""
   },
   "root": {
     "id": "root",
@@ -52,8 +52,8 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
-    "decision_source": "fallback",
+    "stop_note": "chat advised CROP: The child recovered chart and confusion-matrix content absent from the empty parent, and its merged labels and positioned class blocks could be resolved by a tighter crop.",
+    "decision_source": "chat",
     "children": [
       "slide_036.crop01__picture"
     ],
@@ -98,7 +98,7 @@
         19
       ],
       "stop_reason": null,
-      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+      "stop_note": "chat call failed: chat: giving up after 7 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
       "decision_source": "fallback",
       "children": [
         "slide_036.crop02__picture"
@@ -164,8 +164,8 @@
   },
   "stats": {
     "parse_calls": 3,
-    "chat_calls": 0,
-    "retries": 0,
+    "chat_calls": 2,
+    "retries": 1,
     "dedup_collapsed": 1,
     "elements": 2
   }

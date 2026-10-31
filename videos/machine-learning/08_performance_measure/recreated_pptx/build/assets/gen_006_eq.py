@@ -3,7 +3,7 @@
 
 mathtext lacks \\textcolor, so colored segments are rendered separately and
 stacked with PIL: red 'Accuracy =', dark-red stacked fraction, green over/under
-braces with green italic labels.
+braces with dark-red italic labels.
 Output: eq_006.png + eq_006.json (w_px,h_px,w_in,h_in).
 """
 import json
@@ -73,8 +73,8 @@ def hbrace(width_px, over=True):
 acc = seg(r"\mathbf{Accuracy\ =}", RED, 17)
 num = seg(r"TP+TN", DRED, 15)
 den = seg(r"TP+FP+TN+FN", DRED, 15)
-lbl_top = seg(r"\mathit{Correctly\ Classified}", GREEN, 11)
-lbl_bot = seg(r"\mathit{All\ Samples}", GREEN, 11)
+lbl_top = seg(r"\mathit{Correctly\ Classified}", DRED, 11)
+lbl_bot = seg(r"\mathit{All\ Samples}", DRED, 11)
 
 frac_w = max(num.shape[1], den.shape[1]) + 30
 ob = hbrace(frac_w, over=True)

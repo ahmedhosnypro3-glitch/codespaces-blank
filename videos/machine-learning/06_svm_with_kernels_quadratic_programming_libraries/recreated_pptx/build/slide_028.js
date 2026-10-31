@@ -1,4 +1,4 @@
-// slide_028.js — FRESH REBUILD (wave 3, rb3) from qa/reanalysis2/slide_028_analysis.txt only.
+// slide_028.js — FRESH REBUILD (rb4) from qa/reanalysis2/slide_028_analysis.txt only.
 // Spec coords [x0,y0,x1,y1] normalized -> inches: x*13.33, y*7.5, w=(x1-x0)*13.33, h=(y1-y0)*7.5.
 // Run: cd recreated_pptx/build && NODE_PATH=$(npm root -g) node slide_028.js
 const pptxgen = require("pptxgenjs");
@@ -7,7 +7,7 @@ const path = require("path");
 
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
 const EQ = NS + "/recreated_pptx/build/eq_028/";
-const man = JSON.parse(fs.readFileSync(EQ + "manifest_rb3.json", "utf8"));
+const man = JSON.parse(fs.readFileSync(EQ + "manifest_rb4.json", "utf8"));
 const W = 13.33, H = 7.5, FONT = "Arial";
 
 const pres = new pptxgen();
@@ -36,14 +36,17 @@ s.addText("", {
   fontSize: 18, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
+// Spec coords are normalized to the original 960x540 capture whose red frame is
+// [0.054,0.065,0.852,0.856]; map that frame onto the house frame
+// [0.011,0.02,0.989,0.98] so panels/glyphs match the original relative to it.
+const FX0 = 0.054, FY0 = 0.065, FX1 = 0.852, FY1 = 0.856;
+const SX = (0.989 - 0.011) / (FX1 - FX0), SY = (0.980 - 0.020) / (FY1 - FY0);
 function box(x0, y0, x1, y1) {
-  return { x: x0 * W, y: y0 * H, w: (x1 - x0) * W, h: (y1 - y0) * H };
+  const nx0 = 0.011 + (x0 - FX0) * SX, nx1 = 0.011 + (x1 - FX0) * SX;
+  const ny0 = 0.020 + (y0 - FY0) * SY, ny1 = 0.020 + (y1 - FY0) * SY;
+  return { x: nx0 * W, y: ny0 * H, w: (nx1 - nx0) * W, h: (ny1 - ny0) * H };
 }
-
-// Black letterbox band at bottom (measured in orig_png: x 39-935, y 519-540)
-s.addShape(pres.shapes.RECTANGLE, Object.assign(
-  box(0.041, 0.961, 0.974, 1.0),
-  { fill: { color: "000000" }, line: { type: "none" } }));
+// (black letterbox band and cursor stroke are capture artifacts: omitted)
 
 // Upper blue panel [0.065,0.152,0.783,0.411], white fill
 s.addShape(pres.shapes.RECTANGLE, Object.assign(
@@ -59,14 +62,6 @@ s.addShape(pres.shapes.ROUNDED_RECTANGLE, Object.assign(
   box(0.069, 0.246, 0.136, 0.309),
   { fill: { color: "FFE4C4" }, line: { color: "DDDDDD", width: 0.5 }, adj: 0.25 }));
 
-// Tall black vertical rules beside the beta column and the 3^2 column
-s.addShape(pres.shapes.RECTANGLE, Object.assign(
-  box(0.427, 0.167, 0.430, 0.398),
-  { fill: { color: "000000" }, line: { type: "none" } }));
-s.addShape(pres.shapes.RECTANGLE, Object.assign(
-  box(0.453, 0.539, 0.460, 0.735),
-  { fill: { color: "000000" }, line: { type: "none" } }));
-
 // Red hollow left-pointing arrows (outline only)
 function larrow(x0, y0, x1, y1) {
   s.addShape(pres.shapes.LEFT_ARROW, Object.assign(
@@ -75,11 +70,6 @@ function larrow(x0, y0, x1, y1) {
 }
 larrow(0.654, 0.754, 0.691, 0.780); // beside the = 144 sum
 larrow(0.350, 0.796, 0.386, 0.822); // beside the bottom-left computation
-
-// Small diagonal pointer artifact [0.276,0.644,0.293,0.670], #333333
-s.addShape(pres.shapes.LINE, Object.assign(
-  box(0.276, 0.644, 0.293, 0.670),
-  { line: { color: "333333", width: 1.5 } }));
 
 // Equation PNGs at exact size (w_in = px/600, h_in = px/600), left-aligned,
 // vertically centered within each spec box.

@@ -1,0 +1,30 @@
+render=render.png size=(2001, 1125) scale=2.0844x2.0833
+
+== 1. BR bottom band slide x672..816 y472..517 diff-vs-orig grid ==
+  band 144x45, total diff px=6342 (97.9%)
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 106, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 107, 108, 108, 108, 108, 108, 108, 108, 108, 107]
+  cell row: [105, 108, 106, 108, 108, 108, 108, 108, 108, 108, 108, 101]
+  cell row: [41, 97, 107, 105, 108, 108, 108, 106, 108, 107, 86, 93]
+  max cell diff=108 of cell area 108 (100.0% solid); k14 defect was ~2350px/cell solid
+  CHECK1 (band no longer solid diff block): FAIL
+
+== 2. BL panel bottom labels (orig vs render) ==
+  orig labels:
+    slide x208..314 y268..319 -> 'Global Maxima' ncc=0.293
+    slide x149..390 y306..399 -> 'Local Minima' ncc=0.233
+    slide x113..404 y219..410 -> 'Global Maxima' ncc=0.021
+    slide x177..424 y300..428 -> 'Global Minima' ncc=-0.035
+    slide x149..439 y253..450 -> 'Local Maxima' ncc=0.090
+    slide x145..450 y326..460 -> 'Local Minima' ncc=0.095
+  render labels:
+    slide x156..453 y318..460 -> 'Local Minima' ncc=0.116
+  CHECK2 (BL bottom lines: Local Minima upper, Global Minima lower, lower-left): FAIL
+
+== 3. BL red marker-like comps (x maxima markers) ==
+  orig marker-like: [(67, 199, 445), (60, 270, 482)]
+  render marker-like: [(20, 259, 363), (16, 196, 364)]
+  CHECK3 (no extra red x markers vs orig): PASS
+
+SUMMARY: CHECK1=FAIL CHECK2=FAIL CHECK3=PASS

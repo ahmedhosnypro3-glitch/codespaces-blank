@@ -17,3 +17,11 @@ Spec consumed: `analysis/slide_033_final.json`; frame `unique_slides/slide_033.j
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query for the sweep direction; the rest re-fetched from the sklearn `roc_curve` record banked on slide 028 — no new query spent under the economy law).
+
+## Second-opinion (lane C, 2026-10-31, agy web search)
+
+- The CORRECTED claim above is independently re-CONFIRMED: with TP=3, FN=1, TPR = 3/(3+1) = 3/4 = 0.75, not 0.6 — verified against OmniCalculator confusion-matrix calculator (https://www.omnicalculator.com/statistics/confusion-matrix) and StatisticsFundamentals confusion-matrix calculator (https://statisticsfundamentals.com/calculators/confusion-matrix-calculator/), both applying TPR = TP/(TP+FN) directly. The only way to get 0.6 is 3/5, i.e. FN=2, which contradicts the panel's printed FN=1 — so the course-authored slip stands as recorded, and the same correction recorded on slides 034-036 is corroborated. Frame still wins for recreation (recreate the printed 0.6 verbatim). No new corrections found.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Threshold=0.6 panel printed on this slide: matrix [[3,1],[1,5]] (TP=3, FN=1, FP=1, TN=5) with "TPR=3/(3+1)=0.6", FPR=1/(1+5)=0.16: the FPR is CONFIRMED (1/6=0.1667, frame truncates to 0.16 — re-verified locally); the TPR is CORRECTED — TPR = 3/(3+1) = 3/4 = 0.75, not 0.6, per OmniCalculator confusion-matrix calculator (https://www.omnicalculator.com/statistics/confusion-matrix) and Glass Box Medicine confusion-matrix guide (https://glassboxmedicine.com/2019/02/17/measuring-performance-the-confusion-matrix/): TPR = TP/(TP+FN) = 3/4 = 0.75; 0.6 would require 3/5 (FN=2), contradicting the printed FN=1. This re-confirms the prior lanes' CORRECTED finding. Frame text wins for recreation (printed 0.6 kept verbatim); sources correct the data only. All other panels on the slide (0.0/0.1/0.3/0.4) re-verified as correct in slides 029-032.

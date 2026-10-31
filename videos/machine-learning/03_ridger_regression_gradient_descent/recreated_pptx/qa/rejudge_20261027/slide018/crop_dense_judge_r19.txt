@@ -1,0 +1,18 @@
+Comparing the two crops of slide 018 (XââXâ table block, upper two data rows + lower header/three-row grid), I checked glyph-by-glyph and cell-by-cell:
+
+1. Header row Xââ¦Xâ (crop top-left of lower block): blue Xâ, red Xâ, blue Xâ, red Xâ, blue Xâ, blue Xâ, red Xâ (subscript cut at right edge in both). Subscript numerals are present, lowered and identical in both. No difference.
+2. Lower row 1 (blue/red alternating): 1(blue) / 2(red) / 3(blue) / 4(red) / 8(blue) / 9(red) / 10(blue) / 3 on yellow fill. Values, colors, and the yellow-highlighted last cell match exactly. No swapped digit.
+3. Lower row 2: 1 / 3 / 5 / 6 / 16 / 7 / 5 / 3, with the same blue/red alternation (col 8 red). Identical in both.
+4. Lower row 3: 2 / 4 / 30 / 8 / 16 / 18 / 20 / 22. The "30" is blue in both and not garbled (clearly 3-0, not "3Î¸"). Identical in both.
+5. Upper two legacy rows: "1 3 5 6 16 7 5 3" and "2 4 6 8 16 18 20 22" â identical values/colors in both.
+6. Structure: gray separator stripe, row count, column count, cell centering and line spacing all match; no missing row/column.
+
+Only observations, neither a content defect:
+- MINOR (and it is a frame artifact, not slide content): at the extreme right edge, IMG1 renders the trailing â22â of the upper and lower rows fully, while IMG2âs frame cuts off just after the first â2.â Since the overlapping region is identical, this is a crop-extent/boundary difference, not a recreated-vs-original value error â confidence that it matters: low.
+- IMG2 is softer/has compression halos â covered by ground rule (e); not counted.
+
+No wrong/cut/garbled glyphs, no wrong table values, no missing entries, no color mismatches in the overlapping content.
+
+FINAL VERDICT: PASS
+
+Faithful, usable recreation of this region.

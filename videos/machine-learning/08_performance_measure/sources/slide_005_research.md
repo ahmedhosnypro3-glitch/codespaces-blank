@@ -8,3 +8,11 @@ Spec: analysis/slide_005_final.json.
 - "Total Positive = 18+12=30" and "Total Negative = 10+60=70": CONFIRMED — Wikipedia, Confusion matrix, https://en.wikipedia.org/wiki/Confusion_matrix — row sums of the numeric matrix (18, 12 / 10, 60) give 30 and 70, and 30+70 = 100 = total samples, matching the accuracy denominator on slide 6.
 - FN/FP cell fills (#ffd966 / #ffff00 in the large matrix, #ff0000 in the small one): UNVERIFIED (course-authored color) — no source found — palette choices are this deck's own; sources confirm only which cell holds which outcome, not its color.
 
+
+## Second-opinion (lane D, 2026-10-31)
+
+Method: `mcp__agy-cli-mcp__agy_web_search`, 5 batches x 4 queries, URLs resolved live; marginals re-computed locally. Verdict: marginals CONFIRMED; spelling CORRECTED stands ("Miss-classified" is a course typo, keep verbatim on the frame). New confirming sources: thedataschool.com.au confusion-matrix explainer (https://www.thedataschool.com.au/blogs/what-is-the-meaning-of-confusion-matrix-in-machine-learning/), Ultralytics glossary, APXML — actual-positive row P = TP+FN = 30, actual-negative N = FP+TN = 70, predicted-positive column = TP+FP; recall denominator = row sum, precision denominator = column sum.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- "Total Positive = TP+FN" and "Total Negative = FP+TN" (18+12=30, 10+60=70), plus FN = actually positive misclassified as negative, FP = actually negative misclassified as positive: CONFIRMED — sklearn `confusion_matrix` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html) and IBM Developer confusion-matrix tutorial (https://developer.ibm.com/tutorials/awb-confusion-matrix-python/): rows are actual classes, so each actual-class row sums to its total (actual positive = TP+FN, actual negative = TN+FP = FP+TN); FN is a Type II "miss" (actual positive predicted negative), FP a Type I "false alarm" (actual negative predicted positive). Arithmetic re-verified locally (18+12=30, 10+60=70). No corrections.

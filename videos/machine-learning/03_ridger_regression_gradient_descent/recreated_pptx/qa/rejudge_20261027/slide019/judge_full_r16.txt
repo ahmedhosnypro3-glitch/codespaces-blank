@@ -1,0 +1,32 @@
+## Elementâbyâelement comparison (IMG1 recreation vs IMG2 original)
+
+**What matches (content):**
+- "Test Data" blueâbordered callout, topâleft, blue boldâitalic label â
+- Three zâvectors with stacked entries (30/15, 40/20, 50/25) and the blue "y=60 / y=80 / y=100" labels beneath â (medium: 2âD stacked form is covered by the founder's format directive)
+- Outlier column: "Outlier", x_s, (11/3) with green "22" on yellow; and the 30/3/22 and 60/3/22 blocks in the lower two rows â (red/blue/green color coding â)
+- Column headers "NO Regularizer with (as if Î»=0)", "Ridge Regularizer with Î»=3", "Ridge Regularizer with Î»=10" â wording, order, boldâitalic blue type, red "(as if Î»=0)" â
+- All nine Wâvectors and their âWâÂ² labels (4 / 8.11 / 16.7; 3.8 / 2.45 / 4.2; 3.5 / 1.48 / 1.92) â
+- All 3Ã3 test tables per cell (Testâ/Testâ/Testâ headers, xâ row, xâ row, yellowâhighlighted green y row) and every yâvalue (60/80/100; 59/78.7/98.4; 57.4/76.5/93.6; 32.4/42.3/52.3; 34.1/45.1/56.1; 34.6/46/57.4; 24.4/31.2/38; 26.2/34.4/42.5; 26.8/35.4/44.1) â
+- Hollow blue rightâarrows from each Wâbox to its test table â
+- House chrome (panel, left/right/bottom red strokes with no top stroke, "19" badge) â exempt per ground rules â
+
+## Discrepancies
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| D1 | **Column colour coding lost.** In the original, the Î»=3 column header sits on a lightâpink/salmon fill and its body cells carry the same pink tint with red rules; the Î»=10 column header and body carry a lightâgreen tint with green rules. In the recreation both header bands and both body regions render neutral gray/white (house panel gray showing through), so the pink/green regional coding of the two Ridge columns is absent (only the green outer rules on the right column survive). | MAJOR | Mediumâhigh (~0.7) |
+| D2 | **Suspected wrong digits in the Î»=10 column Wâvectors.** Original reads 0.13/1.87/0.09, 0.54/0.73/0.81, 0.82/0.33/1.1; the recreation renders what reads as 0.1/1.96/0.03, 0.5/0.71/0.81, 0.8/0.31/1.1. The recreation's own âWâÂ² labels (3.5, 1.48, 1.92) are consistent with the *original* values (0.13Â²+1.87Â²+0.09Â²â3.5; 0.54Â²+0.73Â²+0.81Â²â1.48), not with the digits as rendered â an internal inconsistency. If the rendered digits are as they appear, this is wrong table data. (Digits sit at the captureâresolution limit; flagged pending a 1:1 crop.) | MAJOR (table data) | Lowâmedium (~0.5) |
+| D3 | **Wâvector entry colour.** Original renders the "W =" label in red but the numeric entries in black/dark grey. The recreation renders the entries themselves in red, making the whole matrix red. | MINOR | Medium (~0.6) |
+| D4 | **Delimiter style for the zâvectors and Wâvectors.** Original uses thin square matrix brackets (columnâvector notation); recreation uses large round parentheses. Substantively a 2âD equationârendering change (per founder directive 2026â10â09), so not a fidelity failure, but the glyph family does not match the original. | MINOR | High |
+| D5 | **"Test Data" callout geometry.** The blue box in the recreation is wider than the original's (right edge extends ~35â40 px further right in 960âspace), leaving empty space past the zâ column; the original box closes just after zâ. | MINOR | Medium (~0.6) |
+| D6 | **zâ label colour.** zâ appears dark/black in the original vs red in the recreation (zâ, zâ red in both). | MINOR | Low (~0.4) |
+
+## Visualâquality defects in the recreation
+- **Legibility risk:** the Wâvector entries and âWâÂ² captions are set at ~6â7 pt; at the 150âdpi capture they are effectively illegible, and D2 (if real) is a direct consequence of the type being too small. This is a usability defect independent of fidelity.
+- Wâmatrix parentheses are noticeably heavier/larger than the original's thin matrix brackets and crowd the entries (the "1.95"/"1.87"âtype twoâdigit values sit tight against the curve).
+- No text overflow, clipping, or collision with the panel/red strokes was detected; all content is contained within the house panel and the yellow slide badge reads "19" correctly.
+- The cursor/arrow artifact over "15" in the Î»=10 rowâ2 table of IMG2 is correctly omitted (exempt, not a discrepancy).
+
+## FINAL VERDICT: **FAIL**
+
+The recreation reproduces the slide's structure, wording, tables and most numeric content faithfully, but it drops the original's pink/green column colour coding (D1) and â pending a 1:1 crop to confirm â carries mismatched digits in the Î»=10 Wâvectors (D2). Those are renderableâcontent defects, not exempt house chrome, so the frame is not yet a faithful, usable recreation.

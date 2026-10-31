@@ -1,20 +1,25 @@
 const pptxgen = require("pptxgenjs");
 
 // Slide 012: Classification of "OR" Truth Table
-// Colors and geometry follow analysis/slide_012_final.json (validated, score 9).
+// Geometry is measured from unique_slides/slide_012.jpg (960x540 px, 1px=1pt),
+// so every content coordinate below is frame_px / 72 inches.
 const NUM = 12;
-const TITLE = 'Classification of \u201cOR\u201d Truth Table';
+const TITLE = 'Classification of “OR” Truth Table';
 const FONT = "Arial";
 const SERIF = "Times New Roman";
 
-const BG = "E6E6E6";
+const BG = "E8E8E8";
 const BORDER_RED = "C00000";
 const BLACK = "000000";
+const DARK = "333333";
 const LIGHT_GREEN = "90EE90";
 const LIGHT_CYAN = "C0FFFF";
 const PEACH = "FFE4C4";
 const YELLOW = "FFF9C4";
 const WHITE = "FFFFFF";
+const GRID_GRAY = "BFBFBF";
+
+const PX = 1 / 72; // one original-frame pixel in inches
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -43,10 +48,10 @@ s.addShape(pres.shapes.OVAL, {
 s.addText(String(NUM), {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  fontSize: 18, bold: true, color: DARK, fontFace: FONT, margin: 0,
 });
 
-// 4. Title box - HOUSE CHROME LAW (starts y=0.28, x=0.6, w=12.13, centered)
+// 4. Title box - HOUSE CHROME LAW (y=0.28, x=0.6, w=12.13, centered)
 s.addText(TITLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.6,
   align: "center", valign: "top",
@@ -54,99 +59,118 @@ s.addText(TITLE, {
 });
 
 // ============================================================
-// TRUTH TABLE (top-left: x 10-33%, y 25-58%)
+// TRUTH TABLE - measured frame px: x 96..313, y 138..305
+// column boundaries 96 | 166 | 236 | 313, rows 138/176/212/244/278/305
 // ============================================================
-const TABLE_X = 0.95;
-const TABLE_Y = 1.35;
-const TABLE_W = 3.55;
-const TABLE_H = 2.35;
+const COL_X = [96, 166, 236, 313];
+const ROW_Y = [138, 176, 212, 244, 278, 305];
 
 const rows = [
-  ["X\u2081", "X\u2082", "O/P"],
+  ["X₁", "X₂", "O/P"],
   ["0", "0", "0"],
   ["0", "1", "1"],
   ["1", "0", "1"],
   ["1", "1", "1"],
 ];
-const rowH = TABLE_H / 5;
-const colW = TABLE_W / 3;
 
+// cell fills
 rows.forEach((row, ri) => {
   row.forEach((cell, ci) => {
-    const x = TABLE_X + ci * colW;
-    const y = TABLE_Y + ri * rowH;
-    // Cell fill first (white, or the O/P highlight)
-    let fill = WHITE;
-    if (ri > 0 && ci === 2) {
-      fill = (ri === 1) ? LIGHT_CYAN : LIGHT_GREEN;
-    }
+    const x = COL_X[ci] * PX;
+    const y = ROW_Y[ri] * PX;
+    const w = (COL_X[ci + 1] - COL_X[ci]) * PX;
+    const h = (ROW_Y[ri + 1] - ROW_Y[ri]) * PX;
     s.addShape(pres.shapes.RECTANGLE, {
-      x, y, w: colW, h: rowH,
-      fill: { color: fill },
-      line: { color: BORDER_RED, width: 1 },
+      x, y, w, h, fill: { color: WHITE },
     });
+  });
+});
+
+// interior gridlines (thin gray) then the red outer border
+for (let i = 1; i < COL_X.length - 1; i++) {
+  s.addShape(pres.shapes.LINE, {
+    x: COL_X[i] * PX, y: ROW_Y[0] * PX,
+    w: 0, h: (ROW_Y[ROW_Y.length - 1] - ROW_Y[0]) * PX,
+    line: { color: GRID_GRAY, width: 0.75 },
+  });
+}
+for (let i = 1; i < ROW_Y.length - 1; i++) {
+  s.addShape(pres.shapes.LINE, {
+    x: COL_X[0] * PX, y: ROW_Y[i] * PX,
+    w: (COL_X[COL_X.length - 1] - COL_X[0]) * PX, h: 0,
+    line: { color: GRID_GRAY, width: 0.75 },
+  });
+}
+s.addShape(pres.shapes.RECTANGLE, {
+  x: COL_X[0] * PX, y: ROW_Y[0] * PX,
+  w: (COL_X[COL_X.length - 1] - COL_X[0]) * PX,
+  h: (ROW_Y[ROW_Y.length - 1] - ROW_Y[0]) * PX,
+  fill: { type: "none" }, line: { color: BORDER_RED, width: 1 },
+});
+
+// O/P highlights sit OVER the gridlines so the bands stay continuous:
+// cyan chip on the row-1 "0": x 263..285, y 178..201
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 263 * PX, y: 178 * PX, w: 23 * PX, h: 24 * PX,
+  fill: { color: LIGHT_CYAN },
+});
+// continuous green band over the three "1" rows: x 262..286, y 214..302
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 262 * PX, y: 214 * PX, w: 25 * PX, h: 89 * PX,
+  fill: { color: LIGHT_GREEN },
+});
+
+// values
+rows.forEach((row, ri) => {
+  row.forEach((cell, ci) => {
+    const x = COL_X[ci] * PX;
+    const y = ROW_Y[ri] * PX;
+    const w = (COL_X[ci + 1] - COL_X[ci]) * PX;
+    const h = (ROW_Y[ri + 1] - ROW_Y[ri]) * PX;
     s.addText(cell, {
-      x, y, w: colW, h: rowH,
-      align: "center", valign: "middle",
-      fontSize: 15, bold: (ri === 0), color: BLACK, fontFace: FONT, margin: 0,
+      x, y, w, h, align: "center", valign: "middle",
+      fontSize: 16, bold: (ri === 0), color: BLACK, fontFace: FONT, margin: 0,
     });
   });
 });
 
 // ============================================================
-// DECISION BOUNDARY PLOT (top-right: x 55-88%, y 20-65%)
+// DECISION BOUNDARY PLOT - measured panel: x 537..843, y 109..370
+// The PNG carries the white panel, pink border, red axes, navy boundary
+// (558,235)->(683,364), the three green + one cyan points and the labels.
 // ============================================================
-const PLOT_X = 6.60;
-const PLOT_Y = 1.10;
-const PLOT_W = 4.55;
-const PLOT_H = 3.15;
-
-s.addShape(pres.shapes.RECTANGLE, {
-  x: PLOT_X, y: PLOT_Y, w: PLOT_W, h: PLOT_H,
-  fill: { color: WHITE },
-  line: { color: BORDER_RED, width: 1 },
-});
 s.addImage({
   path: "slide_012_decision_boundary.png",
-  x: PLOT_X + 0.12, y: PLOT_Y + 0.08, w: PLOT_W - 0.24, h: PLOT_H - 0.16,
+  x: 537 * PX, y: 109 * PX, w: 307 * PX, h: 262 * PX,
 });
 
 // ============================================================
-// NEURAL NETWORK DIAGRAM (bottom-left: x 15-53%, y 65-92%)
-// Thin red rectangle border enclosing the area.
+// NEURAL NETWORK DIAGRAM - measured panel: x 141..515, y 352..492
+// The PNG carries the inputs/weights, Sigma node, red input triangle,
+// red arrows, the activation box holding ONLY the step pictogram, and the
+// rule legend on its pale strip ABOVE the activation box.
 // ============================================================
-const PERC_X = 1.55;
-const PERC_Y = 4.75;
-const PERC_W = 4.95;
-const PERC_H = 2.05;
-
 s.addShape(pres.shapes.RECTANGLE, {
-  x: PERC_X, y: PERC_Y, w: PERC_W, h: PERC_H,
-  fill: { type: "none" },
-  line: { color: BORDER_RED, width: 1 },
+  x: 141 * PX, y: 352 * PX, w: 375 * PX, h: 141 * PX,
+  fill: { type: "none" }, line: { color: BORDER_RED, width: 1 },
 });
 s.addImage({
   path: "slide_012_perceptron.png",
-  x: PERC_X + 0.08, y: PERC_Y + 0.06, w: PERC_W - 0.16, h: PERC_H - 0.12,
+  x: 141 * PX, y: 352 * PX, w: 375 * PX, h: 141 * PX,
 });
 
 // ============================================================
-// EQUATION BOX (bottom-right: x 60-85%, y 78-88%)
+// EQUATION BOX - measured: x 579..810, y 417..463
 // ============================================================
-const EQ_X = 7.55;
-const EQ_Y = 5.85;
-const EQ_W = 3.35;
-const EQ_H = 0.80;
-
-s.addShape(pres.shapes.RECTANGLE, {
-  x: EQ_X, y: EQ_Y, w: EQ_W, h: EQ_H,
-  fill: { color: PEACH },
-  line: { color: BORDER_RED, width: 1.25 },
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+  x: 579 * PX, y: 417 * PX, w: 232 * PX, h: 47 * PX,
+  fill: { color: PEACH }, line: { color: BORDER_RED, width: 1.25 },
 });
-// Equation image - d(X) = -7x1 - 5x2 + 2 (mathtext, 600dpi, professional format)
+// Equation image - mathtext, 600dpi, professional 2D format (1593x152 px)
+// placed at exactly px/600 inches: 2.655 x 0.25333 in
 s.addImage({
   path: "eq_s012_dX.png",
-  x: EQ_X + 0.18, y: EQ_Y + 0.14, w: 2.07, h: 0.205,
+  x: 594.04 * PX, y: 428.04 * PX, w: 2.655, h: 0.25333,
 });
 
 // Write output

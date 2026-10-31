@@ -1,0 +1,28 @@
+**Pre-reconciliation note:** Ground rules (a)â(f) are accepted as given: the missing top stroke on the gray panel is correct, the badge is house chrome, the mouse/cursor and text-selection marquee visible in IMG2 are video artifacts and are correctly absent from IMG1, and 2D-stacked equation formatting is a mandated upgrade, not a defect.
+
+---
+
+### Discrepancies
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | **Equation-container fill color.** In IMG2 the blue-bordered equation box has a pale-yellow fill (~FFFFCC). IMG1 renders the same box on plain white with no fill. This is a visible color deviation from the original region styling. | **MAJOR** | High |
+| 2 | **x-label subscript sequence (verbatim text mismatch).** In IMG2 the label row reads *xâ xâ xâ xâ xâ*. IMG1 renders *xâ xâ xâ xâ x* (subscripts 3/4/5 re-ordered). Two of six subscripts are wrong relative to the original. Bottom-row class labels (*Câ Câ Câ Câ C*, colors red/red/blue/blue/red/blue) appear to match. | **MAJOR** | Medium (re-verify at full res, but IMG2 clearly shows a non-sequential 1-2-4-5-3-6 order) |
+| 3 | **Chart vertical placement.** IMG1's chart is pushed lower: its bottom red border sits very close to the panel bottom stroke (â5 px gap) versus a much larger margin (~25â30 px) in IMG2. Containment is preserved (no crossing), but the vertical layout of the graph region deviates. | MINOR | MediumâHigh |
+| 4 | **Marker sizing / body font face.** Chart markers (squares, diamonds, triangles) read slightly larger in IMG1; box text appears sans-serif in the recreation while IMG2 suggests a serif/math font. Styling-level differences only. Data points themselves match exactly. | MINOR | LowâMedium |
+| 5 | **Tick-label/font metrics.** Matched in values; glyphs in IMG1 appear fractionally heavier/larger than IMG2. Cosmetic only. | MINOR | Low |
+
+**Verified as matching (no defect):** all vector cell values (2,1,1,5,6,6 over 1,1,1,4,5,6); *Initial W = (4/â2)* stacked column; red *Step Î· = 2*; three *Zâ* labels over (0/0), (7/6), (3/2); legend line *Câ positive, Câ negative, Zero is unaccepted* (verbatim, colors and order correct); chart type, grid, axes (0â8 x, 0â7 y) and every plotted point ((1,1),(1,2),(2,1) squares; (3,2),(7,6),(0,0) triangles; (5,4),(6,5),(6,6) diamonds). Parenthesized delimiters in the recreation span both stacked lines and do not visibly overlap the digits. Enclosed content in the equation box is vertically centered and inside all borders; nothing crosses the panel/strokes.
+
+---
+
+### Visual-quality defects in the recreation
+- No text overflow, clipping, wrong wrapping, collisions, or illegibility detected.
+- Equations render cleanly in professional 2D format and are fully legible.
+- Only notable visual risk: Discrepancy #3 â the chart bottom edge anchors very close to the house panel's bottom stroke, creating a visually cramped margin (not an overflow).
+
+---
+
+### FINAL VERDICT: **FAIL**
+
+Rationale: Discrepancy #1 (MAJOR, high confidence â missing pale-yellow fill on the equation container) and Discrepancy #2 (MAJOR, medium confidence â non-verbatim x-label subscripts) each individually break the founder's fidelity bar; even discounting #2 entirely, #1 remains a MAJOR color deviation. All text is otherwise verbatim, the chart is data-identical, and no content is missing â but the two MAJOR items prevent a "faithful, usable recreation" verdict.

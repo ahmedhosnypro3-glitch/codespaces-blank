@@ -1,0 +1,10 @@
+HARVEST7 local PIL adjudication of crop_dense_judge_r17.txt (2026-10-31 05:34:23 UTC, FINAL VERDICT FAIL, clean no-429).
+Claim MAJOR "yellow-table cell reads 0.69 (recreation) vs 0.60 (original)": REFUTED.
+- analysis/slide_034_final.json verbatim f(x) row: 2.99, 2.43, 1.66, 0.69, -0.45, ... (vision read of the ORIGINAL);
+- build/slide_034.js:287 carries "0.69";
+- the slide's own formula f(x)=(x^2 cos x - x)/10 gives f(7.6)=0.6913 (neighbours f(7.4)=1.6615->1.66, f(7.8)=-0.4517->-0.45
+  match the printed row exactly); 0.60 is inconsistent with the formula by ~0.09, far beyond rounding;
+- PIL census adjudicate_r17_crop.txt: 23.667% diff, ink original-heavy 37,066 vs 8,122, densest cells ~250 px spread across
+  the table header band - diffuse, no localized block.
+Handwritten 9 misread as 0 at crop raster. NOTE: superseded anyway - crop_dense_judge_r18.txt (2026-10-31 05:46:41 UTC,
+clean no-429) FINAL VERDICT: PASS on the same crop pair. Disposition: CROP=PASS; r17 FAIL dismissed per rule 2.

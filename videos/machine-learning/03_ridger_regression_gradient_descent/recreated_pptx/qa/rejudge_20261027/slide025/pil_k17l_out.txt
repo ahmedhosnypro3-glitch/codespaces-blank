@@ -1,0 +1,42 @@
+== md5s (assets_k17l vs k15) ==
+  plot_025_tl.png k17l=cd62022fbf0cfe30a351309c0230adb3
+  plot_025_tr.png k17l=5fd3f2aa38f17f20fe71e4aa5919d746
+  plot_025_bl.png k17l=64b1e4e4bcfcb6139598caaa7367003d
+  plot_025_br.png k17l=f6af102ec110ff5113482659ff4f9d73
+  plot_025_tl.png k15 =73cbaec1d8f2d9a6faf3aca1841b213e
+  plot_025_tr.png k15 =375a2d7bef424fe275a6c27647d09756
+  plot_025_bl.png k15 =5acfb177d1e4d640b2fd7a08a1f21eda
+  plot_025_br.png k15 =500287a3f4fe98a32ee0cac44e5bd5f8
+
+== CHECK1: BR band x672..816 y472..517 diff%% (composited) ==
+  diff% = 0.17 (need <50) | orig colored%=71.2 ren colored%=70.8 PASS
+
+== CHECK2: anchor-zone label ID (k17l BL png native 300dpi vs orig) ==
+  (png size 1220x987, scale 4.1638 png px per slide px)
+  top     x236..278 y302..322 expect 'Global Minima'
+    render ink w=66 h=47 n=532 (png px, = 16x11.3 slide px) -> best 'Global Minima'(2l=1,fs=8) iou=0.20  PASS
+    runner-up: 'Global Minima' iou=0.20 | orig zone best 'Global Minima' iou=0.71
+  right-m x325..350 y388..401 expect 'Local Minima'
+    render ink w=13 h=18 n=114 (png px, = 3x4.3 slide px) -> best 'Local Minima'(2l=1,fs=13) iou=0.58  PASS
+    runner-up: 'Local Minima' iou=0.57 | orig zone best 'Local Minima' iou=0.82
+  low-L   x138..205 y438..470 expect 'Local Minima'
+    render ink w=28 h=46 n=329 (png px, = 7x11.0 slide px) -> best 'Local Minima'(2l=1,fs=7) iou=0.33  PASS
+    runner-up: 'Local Maxima' iou=0.33 | orig zone best 'Local Minima' iou=0.22
+  low-R   x300..346 y448..470 expect 'Global Minima'
+    render ink w=66 h=47 n=528 (png px, = 16x11.3 slide px) -> best 'Global Minima'(2l=1,fs=8) iou=0.20  PASS
+    runner-up: 'Global Minima' iou=0.20 | orig zone best 'Global Minima' iou=0.71
+  CHECK2 PASS
+
+== CHECK3: red marker-like comps in k17l BL png (native) ==
+  area=65 slide-px^2 slide-center=(198.9,444.8) bbox 14x14 slide px <-- expected marker
+  area=68 slide-px^2 slide-center=(270.0,481.9) bbox 14x14 slide px <-- expected marker
+  marker comps at expected centers: 2 (areas [65, 68])
+  CHECK3 PASS (expect exactly 2 at (199,445),(270,482), area 60-70 slide px^2)
+
+== winding (BR GD path seg/straight, composited) ==
+  winding = 4.30 (target ~6.0), path px=386
+
+== TR segment (652,189)->(667,165) red-hit% (composited) ==
+  orig=52.5 k17l=100.0
+
+PROBE_DONE

@@ -1,0 +1,41 @@
+## Comparison scope
+Same-region, same-scale crop pair of slide 046: upper vector strip, the gray "Augmented Vectors (from Top)" panel, the right-hand red-outlined box edge, and the top of the red "Iteration 4" banner.
+
+## Element-by-element verification (content)
+
+**Upper strip (crop y â 0â90):**
+- Column vectors, leftâright: (1) (1) (2) (4) (5) (6) â IMG1 matches IMG2 digit-for-digit (IMG2's tops are clipped by the crop edge in both frames).
+- Class labels: Câ Câ Câ (red) Câ Câ Câ (blue) â identical count, order, color coding, and subscript placement.
+- Right text: red "Câ" + black italic "positive"; blue "Câ negâ¦" clipped at right edge in both. Dash mark at top-right present in both.
+
+**Gray panel (crop x â 18â368, y â 109â353):**
+- Title "Augmented Vectors (from Top)" â text identical, parentheses intact, no garbling.
+- Column headers xâ xâ xâ xâ x xâ â all six present, correct subscripts, correct order.
+- Augmented vectors, cell by cell:
+ - xâ = (1, 1, 1) â both
+ - xâ = (1, 2, 1) â both
+ - xâ = (1, 1, 2) â both
+ - xâ = (1, 5, 4) â both
+ - x = (1, 6, 5) â both
+ - xâ = (1, 6, 6) â both
+- Row labels beneath: Câ Câ Câ (red) Câ Câ Câ (blue) â correct mapping to the vectors above; no swapped or missing labels.
+- Delimiters: in **both** images each pair of parentheses spans all three stacked entries with clearance to the digits; none truncate a row or touch a glyph. No missing rows, no dropped digits, no truncated subscripts.
+- Right-hand red rectangle edge (x â 505, y â 180 onward) present in both.
+
+**Bottom banner:** red block with white "Iteration 4" â text and casing match.
+
+## Discrepancies found (all minor)
+
+1. **Title typeface/weight (MINOR, confidence HIGH)** â IMG1 title (crop x â 43â355, y â 126â145) is a heavy, wide sans-serif italic; IMG2's same title is lighter and more calligraphic/serif-italic in feel. Inherent typed-vs-handwritten/rendered-medium difference per ground rule (c).
+2. **Title and x-header color hue (MINOR, confidence MEDIUM)** â IMG1 title/headers read slightly more violet-indigo; IMG2 reads slightly more saturated blue. Same blue family, no legibility impact.
+3. **Parentheses glyph character (MINOR, confidence MEDIUM)** â IMG1's parens are thinner, flatter, and marginally taller/straighter; IMG2's are rounder and slightly shorter. Both correctly span all three lines in each enclosure, so this is glyph-shape only, not a geometry failure.
+4. **Internal vertical offset within the gray panel (MINOR, confidence MEDIUM)** â the xââ¦xâ header and the three vector rows sit ~3â5 px lower in IMG2 relative to the panel border, so the gap between header and first vector row is marginally wider in IMG2. Row-to-row spacing and centering within each cell are otherwise equivalent.
+5. **"Iteration 4" banner text size/position (MINOR, confidence LOW-MEDIUM)** â IMG1's white lettering is marginally larger and starts slightly further right (x â 70 vs x â 63), but both are clipped by the crop bottom identically. Could partly be capture softness.
+
+## Explicitly not flagged
+House-template chrome (white canvas, E9E9E7 panel, C00000 left/right/bottom strokes, absence of a top stroke, yellow badge/purple ring), the navy border line under the upper strip, typed-vs-original ink rendering, and JPEG softness/halos in IMG2.
+
+## Conclusion
+No wrong digits, swapped values, missing rows, garbled glyphs, truncated subscripts, or non-spanning delimiters were found. The remaining differences are medium-level typography and sub-pixel-scale spacing/position variances.
+
+FINAL VERDICT: **PASS** for 'faithful, usable recreation of this region'.

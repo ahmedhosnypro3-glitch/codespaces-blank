@@ -1,0 +1,33 @@
+# Fidelity Check â Slide 26 "Gradient Descent Solution" (recreation IMG1 vs original IMG2)
+
+## Settled up front per ground rules (NOT discrepancies)
+- House chrome matches: white canvas, gray E9E9E7 panel, thin C00000 strokes on LEFT/RIGHT/BOTTOM only (no top stroke â correct in both), yellow badge "26" at top-right (mandated position, fill/ring/numeral style). â
+- Mouse cursor visible in IMG2 near the title ("Gradient") is a video artifact and is correctly omitted from IMG1. â
+- Original contains no equations, charts, tables, or images â so none are expected in the recreation; nothing is missing. No BLOCKER on missing elements. â
+
+## Element-by-element comparison â what matches
+- **Text verbatim, all lines:** title "Gradient Descent Solution"; "Gradient Descent (GD) Algorithm:"; [1] "[1] Start with initial Random Weights (W)"; [2] "[2] Update the weights by moving along the direction of negative gradient of Loss function"; "(w.r.t. W) (moving step is a hyper parameter, AKA Learning Rate)"; [3] "[3] Stop when the gradient is almost zero (this is at the minimum value of the function)"; "Notes:"; both bullets including the quirky "(good news )." spacing. â
+- **Line breaks/wrap points identical:** bullet 1 wraps after "(even with"; bullet 2 wraps after "depending on" â "the used Learning Rate". â
+- **Block order, indents, horizontal alignment:** heading/Notes at xâ11.3â11.4% width in both; [1]â[3] block at â15%; bullet text at â11.3%; title centered; blue frame left/right edges at â8.4% / â90.6% in both. â
+- **Sizes:** title â30px (960-space) in both; heading and body font sizes match within measurement tolerance. Algorithm-block line spacing â33px (960-space) in both. â
+- **Colors:** title/heading red âC00000 both; body blue â0000CCâ0000FF both; "AKA Learning Rate" red both; black notes text. â
+- **Frame containment:** no ink crosses or touches any frame in IMG1 â longest line ([2]) ends ~2% inside the right edge; last line sits above the bottom edge; title/badge inside the panel. No overflow/clipping/collisions; text fully legible. â
+
+## Discrepancies found
+
+| # | Severity | Confidence | Discrepancy |
+|---|----------|------------|-------------|
+| 1 | MINOR | HIGH | **[1] "Random Weights (W)"** â original underlines "Random Weights" (regular weight; "(W)" unemphasized); recreation renders "Random Weights (W)" **bold with no underline**, and the bold extends onto "(W)". Text itself verbatim. |
+| 2 | MINOR | HIGH | **"(moving step is a hyper parameter,"** â rendered **bold** in recreation; regular weight blue in original. |
+| 3 | MINOR | MEDIUM | **[3] "gradient is almost zero"** â recreation adds **bold** on top of the underline; original has underline only. |
+| 4 | MINOR | HIGH | **Notes bullet 1: "is a convex function"** â **bold** in recreation; regular weight in original ("Least Squares" and "ONE Minimum" are bold in both â). |
+| 5 | MINOR | MEDIUM | **Notes bullet 2: "a variable number of steps"** â recreation renders it **italic** + underline; original is upright underline ("approximately" is italic+underline in both â). |
+| 6 | MINOR | LOW | Possible bold "W" in "(w.r.t. **W**)" in the original not clearly reproduced (too small to confirm at 960px). |
+| 7 | MINOR | MEDIUM | **Inner blue frame vertically inset vs original:** in the original the frame's top edge runs at the title's baseline (~y72/540) and the badge overlaps the frame's top-right corner; in the recreation the top edge sits ~4â5% of slide height lower, leaving a clear gap under the title and badge. Bottom edge also sits ~2â3% higher, so the margin below the last line ("the used Learning Rate") is ~2â4% of height vs ~7% in the original, and the Notes block sits ~2â3% lower (gap between [3] and "Notes:" proportionally larger). Containment is still satisfied (no ink touches the frame â which the no-touch rule actually favors), so this is a region-gap deviation, not an overflow. |
+
+No BLOCKERs. No MAJOR defects confirmed: all text is verbatim, nothing is missing, nothing overflows any frame, no delimiters/tables involved, and the geometry deviations above are within measurement tolerance and partly mandated by the containment rule.
+
+## Visual-quality defects in the recreation itself
+None â no text overflow, clipping, wrong wrapping, collisions, or illegibility. Only note: the bottom margin inside the blue frame is tighter than the original's (still inside the frame).
+
+**FINAL VERDICT: PASS** â faithful, usable recreation; all identified deviations are MINOR (emphasis styling bold-vs-underline/italic swaps and minor region-gap differences), with content, wording, wrapping, colors, and containment fully faithful.

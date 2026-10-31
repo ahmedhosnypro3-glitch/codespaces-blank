@@ -1,0 +1,15 @@
+Scope: crop-relative coords, origin at top-left of each crop; region = inner plot panel plus the top of the caption strip.
+
+Counted content discrepancies:
+
+| # | Location in region | Observation | Severity | Confidence |
+|---|---|---|---:|---|
+| 1 | Blue fit line, upper-left to top-center, approx. (169,103)â(372,0) in IMG1 vs (174,104)â(381,0) in IMG2 | At most a few-pixel offset/end-cut difference; slope and solidity match, no break, no wrong color. Within anti-aliasing/marker-radius tolerance at this zoom. | MINOR if counted | Medium-low |
+| 2 | Orange markers, esp. upper/right cluster around xâ360â590, yâ49â66 | Six markers in both, same left-to-right order and same attachment to dashed residuals; any apparent shift is â¤ about one marker radius and consistent with resampling/JPEG softness, not a missing/extra point or swapped value. | MINOR if counted | Medium |
+| 3 | Caption strip, bottom edge, âOverfit (try to minimize the residuâ¦â | Visible glyphs, red âOverfitâ + black parenthetical, truncation at right edge, and partial next line all match; no wrong/garbled characters. | None | High |
+
+Excluded as non-content capture artifacts, per rules: mouse cursor in IMG2 at approx. crop-relative (585,105)â(600,125), right edge mid-plot; JPEG halos/soft edges around grid, red axes, and marker edges in IMG2. Not counted as slide-content defects. If that arrow were actual slide ink it would be major, but it is clearly a pointer overlay.
+
+Passed checks: blue outer frame and red L-axis continuous; grid lines complete and regularly spaced; right dashed vertical present; dashed residual connectors present for all six orange markers; no missing row/point; no table/equation glyphs in this crop to compare; no delimiter-span issue.
+
+FINAL VERDICT: PASS

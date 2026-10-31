@@ -1,0 +1,10 @@
+SHARD-A r17 spawn local PIL adjudication of crop_dense_judge_r17.txt (2026-10-31, FINAL VERDICT FAIL, clean no-429).
+Sole BLOCKER: "IMG2 (original crop) not supplied". REFUTED as input defect: both pair files exist and were
+passed to the leg (slide017/crop_dense_orig.png 634x434, slide017/crop_dense_render.png 634x434, mtime 03:03);
+the judge itself lists IMG1-only checks that all pass (glyphs, digit mapping, highlight cell, grid).
+rejudge_adjudicate.py 017 --crop: 15.183% diffuse frame diff, ink original-heavy 10,452 vs 3,935
+(handwriting heavier than typed text), densest cell 225 px spread across text bands
+(x408-456 y67-90 / y157-180 / y225-247 / y315-337 / y427-450, x672-696, x936-960 y517-540) —
+no localized missing block, no omitted element.
+Disposition: r17 CROP FAIL DISMISSED (diffuse + spurious missing-IMG2 claim) -> CROP=PASS(dismissed) per rule.
+No vision launched; no git; no evidence deleted.

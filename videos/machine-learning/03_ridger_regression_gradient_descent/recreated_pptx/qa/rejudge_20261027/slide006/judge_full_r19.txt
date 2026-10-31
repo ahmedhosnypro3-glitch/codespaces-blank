@@ -1,0 +1,36 @@
+## Element-by-element comparison (Slide 6, r19)
+
+**Scaling note:** IMG1 is a 150âdpi render (2000Ã1125) shown here scaled down; IMG2 is the 960Ã540 frame. All measurements below are given as proportional offsets within the gray panel so the two frames can be compared on equal terms.
+
+| Element | Original (IMG2) | Recreation (IMG1) | Assessment |
+|---|---|---|---|
+| Title text | "Problems of Linear Regression" | "Problems of Linear Regression" | **Verbatim match** â same wording, same single line, same C00000 red, same bold Arial-style face |
+| Title size | Cap height â 27 px @960 | Cap height â 26 px (equivalent), width â 563 vs 580 normalized â ~2â3 % narrower | **MINOR** â essentially the same optical size; no rewrap |
+| Subtitle text | "(With Linearly Separable Data)" | "(With Linearly Separable Data)" | **Verbatim match**, parentheses included, single line, blue 0000FF, italic |
+| Subtitle weight | **Bold italic** (stroke weight comparable to title) | **Regular (non-bold) italic** â visibly lighter strokes | **MINOR** (confidence: high) â weight/style mismatch; text is identical and legible, so no content loss |
+| Title/subtitle vertical placement | Title baseline â 41 % of panel height; subtitle â 50 % | Title â 39.5 %; subtitle â 47.8 % (whole text block sits â 8â12 px too high at 540 scale) | **MINOR** â the two-line block is shifted ~1.5â2 % of panel height upward relative to the original |
+| Titleâsubtitle gap | â 12â13 px (960 scale) | â 10â11 px (same scale) | **MINOR** â gap marginally tighter, but the two lines do not collide |
+| Horizontal centering | Title and subtitle both optically centered in panel | Both centered in panel (title center â panel center) | **Match** |
+| Frame containment | All ink well inside the red-stroked panel | All ink well inside; closest items are the badge (chrome, excluded) and the title block, all with clear margin | **Match â no overflow, no clipping** |
+| Slide-number badge | Circle with "6" | Circle with "6" | House chrome â not a discrepancy |
+| "zoom has just been saved." tooltip, bottom-left | Present | Absent | Correctly omitted (capture artifact) |
+| Mouse pointer over the subtitle ("Linearly") | Present | Absent | Correctly omitted (capture artifact) |
+| Top stroke of panel | Absent | Absent | Correct per house template |
+| Equations / tables / charts / diagrams | None | None | Match â no missing content elements |
+
+## Missing elements
+None. The original contains no equation, table, chart, diagram, or image; the recreation omits nothing that the original renders.
+
+## Visual-quality defects in the recreation
+- No text overflow, clipping, wrapping errors, or collisions.
+- All text remains legible and fully inside the gray panel and its left/right/bottom strokes.
+- Only residual quality issues are cosmetic: the subtitle is not bold as in the original, and the title/subtitle group is nudged slightly upward with a marginally tighter titleâsubtitle gap.
+
+## Discrepancy list
+1. **MINOR** â Subtitle rendered in regular italic instead of the original's bold italic. Confidence: high.
+2. **MINOR** â Title/subtitle text block positioned â 1.5â2 % of panel height higher than in the original, with a slightly smaller title-to-subtitle gap. Confidence: medium-high.
+3. **MINOR** â Title glyph width â 2â3 % narrower than the original (near-metric, effectively the same size). Confidence: medium.
+
+No BLOCKER or MAJOR discrepancies.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation" â all renderable content is present and verbatim, geometry is well within tolerance, and the only deviations are minor typography/style refinements (subtitle bold weight, small vertical offset).

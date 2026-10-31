@@ -1,0 +1,37 @@
+## Element-by-element check (IMG1 = recreation, IMG2 = original)
+
+**Verified as matching (not discrepancies):**
+- House chrome (gray panel, red L/R/bottom strokes with no top stroke, yellow/purple 49 badge) â intentional per ground rules.
+- Blue-outlined top band, its 6-column augmented-vector table (`xââ¦xâ`, values `|1| 2| |1| |5| |6| |6|` / `1 1 2 4 5 6`), and the red class row `Câ Câ Câ Câ Câ Câ`.
+- Left inset box: title âUngmented Vectors (from Top)â (same original misspelling), 6Ã3 vector rows, red `Câ Câ Câ Câ Câ Câ` labels.
+- âIteration 2â white-on-red banner; âNo change in W / *Stop Iterations*â with red *Stop*.
+- `REPEAT using Step Î· = 1` wording and red coloring; âCheck classes ofâ; the `Zâ Zâ Zâ` matrix (`0 7 3` / `0 6 2`).
+- Bottom legend line `Câ positive  Câ negative  Zero is unaccepted` with red `Câ/Câ` and green `Zero`.
+- All six right-hand rows: `d(xáµ¢) =` label, red/blue input vector, green `5/â1/â1` vector with proper 3-line bracket, `â Keep same Weight`, `W =` with 3-line bracket, and the scalar results 3, 2, 2, 4, 6, 7 as read in both images.
+- Mouse cursor over the first-row `W` vector (IMG2) is a capture artifact â correctly omitted.
+- No element crosses or touches the panel or inner frame in IMG1; no clipping.
+
+## Discrepancies
+
+| # | Severity | Confidence | Description |
+|---|----------|-----------|-------------|
+| D1 | **MAJOR** | High | **âInitial Wâ label/value order reversed.** Original reads `Initial  W =` at xâ250â305 with the vector `[4;â2;â2]` immediately to its right (xâ315â330). Recreation places the vector at xâ305â330 and the label `Initial W` *after* it at xâ340â385, so the band reads â4 â2 â2  Initial Wâ. The label is no longer attached to the value it names. |
+| D2 | **MAJOR** | High | **Right-column row stack is vertically compressed and does not fill the frame.** Original: six boxes â63 px tall each, spanning yâ128 â 505, i.e. the last box sits flush against the panel bottom. Recreation: six boxes â56 px tall, spanning yâ127 â 464, leaving a ~40 px empty band above the bottom red stroke. Row-baseline pitch is ~63 px in the original vs ~56 px in the recreation. |
+| D3 | **MAJOR** | Medium-high | **The `W =` / weight-vector column is shifted left ~30 px.** Original: `W =` at xâ655, bracket vector at xâ685â700 (~100 px from the box right edge at xâ800), with a ~60 px gap after âKeep same Weightâ. Recreation: `W =` at xâ622, vector at xâ655â670 (~130â145 px from the right edge), with the âWeight â W=â gap squeezed to ~30 px. The right-hand column is therefore no longer aligned as in the original. |
+| D4 | MINOR | High | The equals sign in `Initial W =` is absent from the recreation (original has `Initial W =`). |
+| D5 | MINOR | Medium | Recreation renders `Initial W` **underlined**; the original has no underline (and `Initial` is bold in the original, not italic-underlined). |
+| D6 | MINOR | Medium | Top-band heading scaled/repositioned: original `REPEAT using Step Î· = 1` spans xâ338â535 with ~13 px capitals; recreation spans xâ400â512 with smaller capitals and tighter word spacing. `Check classes of` is smaller and set non-italic in the recreation vs. italic serif in the original. |
+| D7 | MINOR | Medium | Left column sits ~12â18 px too high: red âIteration 2â banner original yâ260â285 vs recreation yâ248â272; âNo change in Wâ baseline original â340 vs recreation â322; the inset vector box is slightly shorter (orig. â133â240, rec. â131â232). |
+| D8 | MINOR | High | Missing word spaces in the left column: recreation shows `No change inW` and `StopIterations`; original shows `No change in W` and `Stop Iterations`. |
+| D9 | MINOR | Low-medium | The augmented-vector table inside the blue top band is nudged ~6â8 px right (headers at xâ85 vs xâ78 in the original) and its spacing is marginally tighter. |
+
+*Uncertain observation (not counted as a discrepancy):* the row results read as `3, 2, 2, 4, 6, 7` in **both** images; the arithmetic implied by `w=[5,â1,â1]` and the inputs would give â4, â6, â7. Any missing minus sign is identical in both frames, so it is not a recreation-specific deviation (confidence low).
+
+## Visual-quality defects in the recreation
+- No text overflow, clipping, collisions, or illegible text; all content stays fully inside the panel, the blue band, the inset box, and the six row frames.
+- Mild aesthetic issues only: the compressed row heights reduce the breathing room of the right column; the underline on `Initial W` reads like a hyperlink artifact; the reversed `4 â2 â2 / Initial W` ordering is confusing to a reader.
+
+## Conclusion
+Content (text, values, tables, colors, diagrams) is essentially complete, but three MAJOR geometric/content-mapping deviations remain: the reversed `Initial W` label/value ordering (D1), the right-column stack ending ~40 px short of the panel bottom instead of filling it (D2), and the ~30 px leftward misregistration of the `W =` column relative to the original (D3). Per the founder directives, these are MAJOR and make the render not faithful.
+
+**FINAL VERDICT: FAIL**

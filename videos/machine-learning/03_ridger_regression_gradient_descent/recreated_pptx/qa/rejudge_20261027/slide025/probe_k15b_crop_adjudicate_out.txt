@@ -1,0 +1,38 @@
+crop_dense_render.png md5=6784ca92b7f8e495389881deec5acdba  crop_dense_orig.png md5=703ef56e4e57aec9cbcf0198ce9241d3
+crop size 634x434, scale 2.0844, origin slide (592,160)
+TR box in crop coords: x50-598 y0-327
+content bbox render: x0-596 y0-433 px=70781 (slide x592-878 y160-368)
+content bbox orig: x0-599 y0-433 px=90482 (slide x592-879 y160-368)
+interior slice x50-598 y0-327
+
+=== C1/C4: surface fill share + hue histogram of colored px in interior ===
+render: colored% of interior = 60.7%  hue: red=15676 (41%) yellow/orange=14266 (37%) green=17835 (47%) cyan=11324 (30%) blue=4441 (12%) total_colored=38335 (100%)
+orig: colored% of interior = 47.5%  hue: red=5867 (14%) yellow/orange=1765 (4%) green=26398 (62%) cyan=15741 (37%) blue=6366 (15%) total_colored=42241 (100%)
+
+=== C1b: 3D-ness proxies in interior ===
+render: colored-row lum mean=168.9 row-delta mean=1.34 max=14.1 white-in-top-third=32817 graymesh-in-interior=907
+orig: colored-row lum mean=177.1 row-delta mean=3.17 max=60.1 white-in-top-third=25892 graymesh-in-interior=13911
+
+=== C2: z-axis vertical line + tick/label ink at left of TR box ===
+render: z-strip dark px=682 tick-rows clusters=5 at y=[(np.int64(73), np.int64(82)), (np.int64(92), np.int64(99)), (np.int64(138), np.int64(141)), (np.int64(155), np.int64(157)), (np.int64(322), np.int64(322))]
+   strongest vertical line at strip-x 7 (slide x619.3) with 323 dark px of 327 rows
+orig: z-strip dark px=1166 tick-rows clusters=9 at y=[(np.int64(0), np.int64(6)), (np.int64(31), np.int64(31)), (np.int64(40), np.int64(41)), (np.int64(45), np.int64(50)), (np.int64(86), np.int64(87)), (np.int64(91), np.int64(183)), (np.int64(186), np.int64(191)), (np.int64(202), np.int64(213)), (np.int64(315), np.int64(318))]
+   strongest vertical line at strip-x 7 (slide x619.3) with 318 dark px of 327 rows
+
+=== C3: bottom axis-label strip (slide y295-317 -> crop) ===
+render: bottom-strip dark px=619 label clusters=1 at x=[(592, 594)]
+orig: bottom-strip dark px=1344 label clusters=1 at x=[(57, 588)]
+
+=== C5: grid/wall gray ink (whole crop + above-surface band) ===
+render: gray px whole crop=62832 (22.8%) interior=907 top band y0-40=3402
+orig: gray px whole crop=74210 (27.0%) interior=13911 top band y0-40=4756
+
+=== C6: red stroke pixels + orientation ===
+render: red px=7217 (2.62%) principal angle=179.2deg elongation=1.7 bbox x54-595 y0-433
+   rows containing red: 368 of 434; max red in one row=540
+orig: red px=13222 (4.81%) principal angle=-179.4deg elongation=1.4 bbox x52-590 y0-433
+   rows containing red: 362 of 434; max red in one row=537
+
+=== C2b: stray numeral check — dark ink in upper-left of crop (slide x592-660, y160-200) ===
+render: upper-left dark px=1659 bbox x0-149 y0-82 (slide x592-663 y160-199)
+orig: upper-left dark px=1965 bbox x0-149 y0-82 (slide x592-663 y160-199)

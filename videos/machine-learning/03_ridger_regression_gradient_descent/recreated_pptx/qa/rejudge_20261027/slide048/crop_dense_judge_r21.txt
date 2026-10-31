@@ -1,0 +1,41 @@
+## Discrepancies found
+
+**1. Rightâhand column content displaced ~40 px to the right (MAJOR, high confidence)**
+- Location: cropâright edge, all three rightâside panels (`d(xâ)`, `d(xâ)`, third panel) plus the topâright corner of the crop.
+- In IMG2 the equation text starts at âx 470 (`d(xâ) =` ending âx 545) and the black vertical rule at the very top sits at âx 520. In IMG1 the same `d(xâ) =` begins at âx 505 (ending âx 593) and the vertical rule sits at âx 565.
+- The rightâhand panel *frames* are correctly positioned in both (left edge â448/450), so this is a contentâalignment error, not a crop difference.
+
+**2. Red/pink formula content at the crop's right edge present in original, absent in recreation (MAJOR, mediumâhigh confidence)**
+- Location: right edge of the `d(xâ)` panel (âx 568â585, y 140â165) and of the `d(xâ)` panel (âx 568â585, y 280â305), and again in the third panel near y 440.
+- IMG2 shows a partially visible pink/red glyph (a vertical stroke + hooked top, i.e. the left sliver of the highlighted term after `=`). IMG1 shows plain white there â the term has been pushed outside the crop by the shift in #1. Visible original content is missing from the compared region.
+
+**3. Typeface substitution: sansâserif in recreation vs serif/italicâserif in original (MINOR, high confidence)**
+- Location: throughout â heading, `xââ¦xâ` labels, vector digits, `Câ/Câ` labels, `d(xâ)=`, `Iteration 1`.
+- IMG1 is Arial/Helveticaâstyle; IMG2 uses a Timesâlike serif (bold italic for the heading and `d(xâ¦)`). Per ground rule (c) this is capped at MINOR, but it is a deckâwide style mismatch, not just a typed/handwritten difference.
+
+**4. Heading size/weight mismatch (MINOR, high confidence)**
+- Location: left panel heading, âx 45â360, y 130â150.
+- IMG2: "Ugmnted Vectors (from Top)" â317 px wide, bold serif, baseline ây 137. IMG1: same string â260 px wide, regularâweight italic sans, baseline ây 147. Spelling (including the "Ugmnted" typo) and wording match â only size/weight/position differ.
+
+**5. "Iteration 1" banner label badly undersized (MINOR, mediumâhigh confidence)**
+- Location: bottomâleft red banner (âx 47â325, y 410â455).
+- Banner width is close (278 vs 268 px), but IMG2's "Iteration 1" spans â223 px (large bold serif, nearly bannerâfilling) while IMG1's spans â128 px (smaller bold sans, offset right of centre). Text content and banner colour match; the label scale does not.
+
+**6. Small vertical offset of interior content blocks (MINOR, medium confidence)**
+- Location: upper table strip and leftâpanel interior.
+- The top table block and its blue baseline rule sit â8â13 px higher in IMG2 (rule at y â86 vs â93; class labels at y â45â70 vs â60â80), and the leftâpanel interior (heading, `x` labels, vector block) sits â8 px higher in IMG2 (xâlabels y â177 vs â185). Panel frames themselves match (top 111/115, bottom 367/366), so the interior rows are not consistently registered.
+
+**7. Slightly different blue for `Câ` labels / heading (MINOR, lowâmedium confidence)**
+- Location: `Câ Câ Câ` row under the vectors (ây 320â335) and the heading.
+- IMG1's blues read a touch brighter/more saturated than IMG2's deeper navy/royal blue. Small colourâtemperature difference only.
+
+## Verified as matching
+- Columnâvector contents, cell by cell: xâ=(1,1,1), xâ=(1,2,1), xâ=(1,1,2), xâ=(1,5,4), x=(1,6,5), xâ=(1,6,6) â identical in both.
+- Class label sequence `Câ Câ Câ Câ Câ Câ` and its red/blue assignment â identical.
+- Top cropped table row `(1)(1)(2)(4)(5)(6)` with `Câ Câ Câ Câ Câ Câ` â identical values.
+- Heading wording (including the original's "Ugmnted" typo), `xââ¦xâ` subscript indices, `d(xâ)=`, `d(xâ)=`, "Iteration 1" wording.
+- Delimiter geometry: parentheses span all three enclosed rows in every column in both images, with no text collision; no missing/truncated subscripts or garbled characters detected.
+
+## FINAL VERDICT: FAIL
+
+The core table and vector content is accurate and usable, but the rightâhand column is misregistered by ~40 px, which removes the original's partially visible red formula content from this region â a MAJOR content/alignment defect. Fix the rightâcolumn equation positions (and align the topâright rule), and the region should otherwise pass apart from the noted serif/sans and sizing polish.

@@ -1,0 +1,13 @@
+Applying the founder rules first: I am not counting the white/gray panel, dark-red left/right/bottom strokes, yellow badge/purple ring, typed-vs-handwritten ink, 2D professional equation rendering, or IMG2 JPEG softness as discrepancies.
+
+Crop-relative check of the overlapping region:
+
+- Top equation band, yâ0â150: `z1=(30 over 15)`, `z2=(40 over 20)`, `z3=(50 over 25)` with `y=60/80/100` underneath â values, order, subscripts, and delimiter span match IMG2; parens span both enclosed lines and do not touch the digits.
+- Lower table, xâ100â500, yâ250â440: header `Test1 Test2 Test3`; `x1` row `30 40 50`; `x2` row `15 20 25`; highlighted `y` row `60 80 100` â cell-by-cell values match, row/column lines are continuous, text is vertically centered in cells.
+- Left mini-column, xâ0â100, yâ250â440: `0/2/0` and arrow into the `x2` row are consistent with the originalâs cropped edge; crop-boundary cutoff of the leftmost glyphs is not a content defect.
+- Right Ridge panel, xâ500â638, yâ210â440: `W = (0.1, 1.95, 0.03)` and `||W||Â²=3.8` match; no swapped/truncated entry; any right-hand delimiter is at the crop edge in both.
+- No wrong digit, missing row, garbled glyph, swapped table value, truncated subscript, or delimiter that fails to span its lines was found. Residual red-ink saturation/edge differences are raster/AA-level and not content.
+
+Discrepancies: none above MINOR; no high-confidence MINOR content discrepancy found.
+
+FINAL VERDICT: PASS

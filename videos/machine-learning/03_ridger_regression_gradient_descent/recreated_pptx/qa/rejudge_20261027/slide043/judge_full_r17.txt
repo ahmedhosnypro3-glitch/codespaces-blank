@@ -1,0 +1,24 @@
+**Element-by-element fidelity (IMG1 recreation vs IMG2 original)**
+
+| Region / element | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| House chrome | white canvas; gray panel x54â903, y45â540; red C00000 strokes on L/R/**bottom only**; yellow badge â43â rnd. (876,73) | same chrome; **no top stroke** |ic, ignored) |
+| Title/table header xââxâ | xâ xâ xâ xâ xâ | same Data rows | (1)(2)(1)(5)(6)(6) / (1)(1)(2)(4)(5)(6) | identical Class row Câ Câ Câ Câ Câ Câ | red/red/red/blue/blue/blue | identical colors Legend | âCâ positive  Câ negative  Zero is unacceptedâ (Câ red, Câ blue, Zero green) | same wording/colors/| Top-right | Initial W=(4/â2); red **Step Î· = 2**; âCheck classes ofâ; ZâZâZâ = (0,0)(7,6)(3,2) | identical Panel-B heading | â**Augmented** Vectors (from Top)â | â**Augumented** Vectors (from Top)â | â ï¸ see D1 |
+| Panel-B matrix | (1 1 1 1 1 1 / 1 2 1 5 6 6 / 1 1 2 4 5 6); C-labels | identical |Iteration 2â red button | present | present (cursor to its right is a video artifact â correctly omitted) |(xâ) | in [1 1 1]áµ£; W=(4,â10,â8)=â14; âUpdate; W=(4,â10,â8)+2Â·(1,1,1)=(6,â8,â6); red âµ |
+| d(xâ) | in [1 2 1]áµ£; W=(6,â8,â6)=â14; âUpdate; â(8,â4,â4); red âµ | identical d(xâ) | in [1 1 2]áµ£; W=(8,â4,â4)=â4; âUpdate; â(10,â2,0); red âµ |
+| d(xâ) | in [1 5 4]áµ¦; W=(10,â2,0)=0; âUpdate; â2Â·(1,5,4)â(8,â12,â8); red âµ | identical) | in [1 6 5]áµ¦; W=(8,â12,â8)=â104; âKeep same Weight; W=(8,â12,â8) |
+| d(xâ) | in [1 6 6]áµ¦; W=(8,â12,â8)=â112; âKeep same Weight; W=(8,â12,â8) |
+| Row count | 6 rows (xââxâ) | 6 rows |no missing row) |
+| Equations | all render in stacked 2D form | all render; same content empty equation region; format matches original, not a downgrade) |
+
+**Discrepancies**
+
+- **D1 â MINOR â confidence ~0.8.** Panel-B section heading: recreation prints the corrected spelling â**Augmented**â; the original frame prints â**Augumented**â. This is a one-word non-verbatim text deviation in a decorative heading. It does not change any data/equation and does not impair comprehension, so I score it MINOR rather than MAJOR. (If the founder rule is read as âany non-verbatim visible text = MAJOR,â only this item would escalate; nothing else would.)
+
+**Ground-rule items explicitly NOT counted:** the intentional absent top stroke; the badge â43â; the omission of the IMG2 mouse-cursor/video artifact next to âIteration 2.â All are correctly handled.
+
+**Visual-quality of the recreation:** no text overflow or clipping; no clipping at the x54â903/l, r, b strokes (all red âµ arrows and right-hand result columns sit inside xâ¤903; last row sits inside yâ¤540); tall parentheses span the full three-line height of each enclosed vector and do not overlap the digits; values sit vertically centered in their columns; line spacing of the 6-row block and of the top table matches the original; no collisions or illegibility. Only inherent-medium difference is crisper anti-aliasing vs. the 960Ã540 capture.
+
+**Table data integrity:** all C-labels, x-headers, initial W, Z-class columns, every d(Â·) value (â14, â14, â4, 0, â104, â112), every W-vector and update result match exactly; no truncation, no missing row.
+
+FINAL VERDICT: PASS (faithful, usable recreation) â sole note is the MINOR âAugmented/Augumentedâ heading spelling (D1).

@@ -192,13 +192,13 @@ def kern_uv(pt):
 
 
 SPECS = {
-    "eq20_vec":      (vec_matrix, 1.02, 0.70, 13),
-    "eq20_calc_a":   (lambda pt: calc_row(pt, ("a", "b", "b")), 1.00, 0.22, 11),
-    "eq20_calc_u":   (lambda pt: calc_row(pt, ("u", "v", "r")), 0.88, 0.21, 11),
-    "eq20_map":      (map_arrow, 1.70, 0.24, 12),
-    "eq20_norm_mtx": (norm_mtx, 0.92, 0.70, 10),
-    "eq20_uv_mtx":   (uv_mtx, 1.00, 2.15, 10),
-    "eq20_kern_uv":  (kern_uv, 2.30, 1.62, 10),
+    "eq20_vec":      (vec_matrix, 1.10, 0.80, 16),
+    "eq20_calc_a":   (lambda pt: calc_row(pt, ("a", "b", "b")), 3.90, 0.42, 13),
+    "eq20_calc_u":   (lambda pt: calc_row(pt, ("u", "v", "r")), 3.70, 0.42, 13),
+    "eq20_map":      (map_arrow, 1.90, 0.38, 15),
+    "eq20_norm_mtx": (norm_mtx, 0.98, 0.80, 13),
+    "eq20_uv_mtx":   (uv_mtx, 1.05, 2.20, 13),
+    "eq20_kern_uv":  (kern_uv, 2.60, 1.90, 13),
 }
 
 

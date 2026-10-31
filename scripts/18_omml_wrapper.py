@@ -265,6 +265,10 @@ class Parser:
                 return nodes
             if stop is not None and stop(t):
                 return nodes
+            if t.kind == "cmd" and t.val == "\\":
+                self.next()
+                nodes.append(("rowbreak",))
+                continue
             atom = self.parse_atom_with_scripts()
             if (len(atom) == 1 and atom[0][0] in ("sub", "sup", "subsup")
                     and not atom[0][1]):
@@ -390,7 +394,18 @@ class Parser:
                 raise MathParseError("empty \\mathbf{...}")
             return runs
         if cmd in ("bar", "overline"):
-            return [("bar", self.parse_group(f"\\{cmd}"))]
+            return [("bar", self.parse_group(f"\\{cmd}"), "top")]
+        if cmd == "underline":
+            return [("bar", self.parse_group("\\underline"), "bot")]
+        if cmd == "substack":
+            inner = self.parse_group("\\substack")
+            return [("matrix", None, None, split_rows(inner))]
+        if cmd == "phantom":
+            inner = self.parse_group("\\phantom")
+            text = "".join(rest[0] for kind, *rest in inner if kind == "run")
+            if not text:
+                raise MathParseError("empty \\phantom{...}")
+            return [("run", "\u2003" * len(text), "p")]
         if cmd == "hat":
             return [("acc", "\u005e", self.parse_arg("\\hat"))]
         if cmd == "vec":
@@ -429,6 +444,9 @@ class Parser:
             if t.kind != "cmd" or t.val != "right":
                 raise MathParseError(f"internal: expected \\right, got {t!r}")
             end = self.parse_delim_char("\\right")
+            rows = split_rows(content)
+            if len(rows) > 1:
+                return [("delim", beg, end, [("matrix", None, None, rows)])]
             return [("delim", beg, end, content)]
         raise MathParseError(f"unsupported mathtext command: \\{cmd}")
 
@@ -584,10 +602,31 @@ def emit(nodes, sz, color_hex, out):
             emit(_require(e, "m:d m:e"), sz, color_hex, out)
             out.append("</m:e></m:d>")
         elif kind == "bar":
-            out.append(f'<m:bar><m:barPr><m:pos m:val="top"/>'
+            pos = nd[2] if len(nd) > 2 else "top"
+            out.append(f'<m:bar><m:barPr><m:pos m:val="{pos}"/>'
                        f'{_ctrl_pr(sz, color_hex)}</m:barPr><m:e>')
             emit(_require(nd[1], "m:bar"), sz, color_hex, out)
             out.append("</m:e></m:bar>")
+        elif kind == "matrix":
+            _, beg, end, rows = nd
+            rows = [r for r in rows if r]
+            if not rows:
+                raise MathParseError("empty matrix")
+            body = ["<m:m><m:mPr>" + _ctrl_pr(sz, color_hex) + "</m:mPr>"]
+            for r in rows:
+                body.append("<m:mr><m:e>")
+                emit(r, sz, color_hex, body)
+                body.append("</m:e></m:mr>")
+            body.append("</m:m>")
+            if beg is not None:
+                out.append("<m:d><m:dPr>")
+                if beg != "(" or end != ")":
+                    out.append(f'<m:begChr m:val="{beg}"/><m:endChr m:val="{end}"/>')
+                out.append(f"{_ctrl_pr(sz, color_hex)}</m:dPr><m:e>")
+                out.extend(body)
+                out.append("</m:e></m:d>")
+            else:
+                out.extend(body)
         elif kind == "acc":
             out.append(f'<m:acc><m:accPr><m:chr m:val="{nd[1]}"/>'
                        f'{_ctrl_pr(sz, color_hex)}</m:accPr><m:e>')
@@ -617,6 +656,17 @@ def _ctrl_pr(sz, color_hex):
     """PowerPoint writes m:ctrlPr (with the same a:rPr) into every construct's
     property element (sSupPr, fPr, dPr, naryPr, radPr, barPr, accPr)."""
     return f'<m:ctrlPr>{_run_rpr(sz, color_hex, italic=True, bold=False)}</m:ctrlPr>'
+
+
+def split_rows(nodes):
+    """Split a node list on top-level rowbreaks ('\\\\' in mathtext) into rows."""
+    rows = [[]]
+    for nd in nodes:
+        if nd[0] == "rowbreak":
+            rows.append([])
+        else:
+            rows[-1].append(nd)
+    return rows
 
 
 def merge_runs(nodes):
@@ -649,6 +699,9 @@ def mathtext_to_omml(mathtext, font_size_pt, color_hex):
     if not toks:
         raise MathParseError("empty mathtext")
     nodes = Parser(toks).parse()
+    rows = split_rows(nodes)
+    if len(rows) > 1:
+        nodes = [("matrix", None, None, rows)]
     if not nodes:
         raise MathParseError(f"mathtext produced no content: {mathtext!r}")
     out = []

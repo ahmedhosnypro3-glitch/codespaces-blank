@@ -1,0 +1,25 @@
+**Settled per ground rules (not raised as discrepancies):** zoomed same-region crop pair; template chrome (white canvas, E9E9E7 panel, C00000 bottom/edge strokes, blue nav block, badge) ignored; typed-vs-handwritten ink = at most minor; professional equation formatting is a mandated upgrade; JPEG halos in IMG2 ignored.
+
+**Scope of audit:** the region contains no equations, no tables, no bracket/paren delimiters. The check reduces to glyph/number integrity, figure content, axis labels, line geometry, and fills.
+
+**Discrepancies (crop-relative coordinates; HIGH = high confidence):**
+
+1. **BLOCKER â The two crops do not show the same figure.** IMG1 depicts a flat, color-mapped âheat-mapâ panel (tilted plane, value encoded purely by color, no vertical extent; plot occupies ~x 5â98%, y 8â95%). IMG2 depicts an *extruded 3D surface* â same region of the slide â with genuine height displacement, a value (z) axis, and a projected contour map beneath (plot ~x 5â98%, y 30â95%). The recreation substituted a different visualization for the original figure. (HIGH)
+
+2. **MAJOR â Value/z-axis missing in recreation.** IMG2 shows a full z-axis at the left of the plot with ticks **1.5, 1, 0.5, 0** (labels at ~x 12â16%, y â 32/43/54/66%). IMG1 has no z-axis; the only remnant is a solitary, partially-formed glyph cluster at ~(x 4â8%, y 10â15%) that reads like â0/5â â either a half-rendered tick or an artifact. Wrong/absent scale information. (HIGH on missing axis; MEDIUM on the stray glyph)
+
+3. **MAJOR â Projected contour plot missing.** IMG2 carries faint concentric contour rings below the surface (~x 25â98%, y 72â92%). Absent in IMG1. (HIGH)
+
+4. **MAJOR â Apparent value-orientation inversion.** IMG1âs palette places the warm/peak-toned colors (yellowâorangeâred) at the *outer rim* with a dark blue/purple core â i.e., a basin. IMG2 shows the yellow/green maximum at the **center** with blue at the rim â a peak. If the same function is intended, the recreationâs colormap/height mapping is inverted. (MEDIUM â colormap direction is partly ambiguous at this zoom, but the rim/core tone relationship is clearly opposite)
+
+5. **MINOR â Missing structure detail.** IMG2âs extruded surface carries a wireframe grid over the height field; IMG1 has only a flat checker texture, no vertical grid walls. (HIGH)
+
+6. **MINOR â Axis-tick orientation / stray mark, needs verification.** IMG1âs bottom label rows read the {â100, â50, 0, 50, 100} set; IMG2âs horizontal axes read {100, 50, 0, â50, â100} with corner â100â labels (top-right ~x 97%, y 33%; bottom-right ~x 97%, y 88%). The rendered sense of the two horizontal axes appears possibly mirrored between crops. At this zoom the digit sequence cannot be resolved with certainty â flagged, do not re-render without checking the source. (LOW-MEDIUM)
+
+7. **MINOR â Stray partial glyph** at IMG1 ~(x 4â8%, y 10â15%) (â0/5â-like) with no counterpart in the original crop at that location. Likely a leftover tick artifact. (MEDIUM)
+
+**Audited and found consistent (no defect):** the red annotation overlay matches structurally â two horizontal reference lines at ~y 55% and ~y 60% spanning nearly the full plot width in both crops, plus one diagonal line rising from ~(x 25â30%, y 45â50%) to the upper-right corner (~x 97%); stroke weight and placement agree. Numeric glyph shapes on the legible axis labels are correct (no wrong/garbled digits); panel fill and template strokes behave per template; no equations/tables involved.
+
+**Net effect:** even allowing for every medium difference, the recreationâs crop is not the same figure as the originalâs crop â wrong render type, missing z-axis and its labels, missing contour projection, and probable value inversion. These are all far beyond the âinvisible at full-slide scaleâ allowance.
+
+FINAL VERDICT: FAIL

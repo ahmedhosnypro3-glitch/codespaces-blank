@@ -1,0 +1,21 @@
+Rule-countable content discrepancies: **NONE found**.
+
+I compared all **8 row bands Ã 7 cells** â label column + 6 value columns â top to bottom: `x`, `f(x)`, `x-delta`, `f(x-delta)`, `x+delta`, `f(x+delta)`, `slope`, `next x`. The values match cell-for-cell:
+
+- `x`: 3, 3.4, 3.8, 4.2, 4.6, 5  
+- `f(x)`: 5, 3.56, 2.44, 1.64, 1.16, 1  
+- `x-delta`: 2.9, 3.3, 3.7, 4.1, 4.5, 4.9  
+- `f(x-delta)`: 5.41, 3.89, 2.69, 1.81, 1.25, 1.01  
+- `x+delta`: 3.1, 3.5, 3.9, 4.3, 4.7, 5.1  
+- `f(x+delta)`: 4.61, 3.25, 2.21, 1.49, 1.09, 1.01  
+- `slope`: -8, -6.4, -4.8, -3.2, -1.6, 0  
+- `next x`: 3.4, 3.8, 4.2, 4.6, 5, stop  
+
+No wrong digit, swapped value, missing row/column, truncated label, bad sign, or garbled glyph is present. Signs in `slope` are correct, decimals are intact, and `stop` is lowercase in both.
+
+Non-countable observations only, not defects under the ground rules:
+- **MINOR / not content:** IMG2 has an extra hand-drawn black arrow around crop-relative **xâ235â300, yâ115â165**, upper-middle of the crop, pointing near the `x-delta` value **3.7**. IMG1 has no black arrow. Treated as handwritten lecture annotation per rule (c). Confidence: high that it is absent in IMG1; medium that it is annotation rather than slide content.
+- **MINOR / not content:** red arrow at top-left, roughly **xâ70â160, yâ0â50**, appears in both but with slightly different size/angle due to capture/annotation; not a table discrepancy. Confidence: high.
+- **Not content:** IMG2 shows expected upscale/JPEG softness and halos around glyph edges and gridlines throughout; excluded by rule (e). No meaningful fill/text color shift beyond capture noise.
+
+FINAL VERDICT: PASS

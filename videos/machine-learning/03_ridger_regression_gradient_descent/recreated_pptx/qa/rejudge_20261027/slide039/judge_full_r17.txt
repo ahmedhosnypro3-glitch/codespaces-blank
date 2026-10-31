@@ -1,0 +1,46 @@
+# Fidelity Check â Slide 39 (Gradient Descent / SGD / MiniâBatch)
+
+**Reference frame used for all measurements:** both frames normalized to the shared 960Ã540 review space (house chrome excluded per ground rules (a)). Values are Â±2â3 px.
+
+## Element-by-element comparison
+
+| Element | Original (IMG2) | Recreation (IMG1) | Assessment |
+|---|---|---|---|
+| Slide badge "39" | Yellow circle, purple ring, darkâgray numeral | Identical geometry/style, numeral 39 | Match (house chrome) |
+| Title line 1 â "Gradient Descent (GD) â Stochastic Gradient Descent SGD)" | Red, bold, centered, ~y 76 | Verbatim, red, bold, centered, ~y 72â77 | Match |
+| Title line 2 â "and **MiniâBatch** Gradient Descent" | "and" red, "MiniâBatch" navy, "Gradient Descent" red | Same word-by-word coloring | Match |
+| Blue content frame | x â 70â815, y â 123â430 (h â 307) | x â 70â816, y â 115â405 (h â 290) | Slightly shorter â see Dâ1 |
+| Bullet 1 (2 lines) | "â¦gradient of the Error / function with respect to a single training example" | Same break, same wording | Verbatim match; spacing tightened (Dâ1) |
+| Bullet 2 | "In other words, it updates the weights using one training sample at a time" | Identical | Match |
+| Bullet 3 | "Remember: GD updated the weight vector after passing through ALL training samples." | Identical | Match |
+| Bullet glyphs | Small navy right-pointing triangles | Same triangles, same indent (text x â 94) | Match |
+| Green equation box | x â 327â800, y â 233â268; rounded, green border | x â 326â805, y â 213â252; rounded, green border | Present, ~6 px wider, sits higher (Dâ1/Dâ2) |
+| Equation | W^(updated) = W^old â Î· Î´áµ¢ Xáµ¢ (handwritten ink) | Same terms, typed 2âD format with proper super/subscripts | Mandated format upgrade (e), typed-vs-handwritten minor (d) â **not a discrepancy** |
+| "Repeat for ALL misclassified Samples" | Red, inside right of green box | Red, inside right of green box, same position | Match |
+| Mouse cursor over equation | Present in original | Absent | Correct per ground rule (c) |
+| "Why using SGD" | Red bold, left-aligned in frame | Same | Match |
+| Bullets "SGD is usually more efficient than GD" / "SGD converges faster than GD" | Identical | Identical | Match |
+| "Batch GD is a generalization of GD and SGD where weights are updated after passing through" | Red-bold lead-in + black bold remainder, 2âline wrap with âMini-Batchâ of training samples with size n | Same wording, same two-line wrap, same quote glyphs | Match |
+| "If n=N (it is GD), and if n=1 (it is SGD)" | Bold blue, centered under text block | Bold blue, centered on the same axis | Match |
+| Colors | Red C00000 titles/lead-ins, navy bullets/"Mini-Batch"/footer, pale-green equation box, blue inner frame | Same palette | Match |
+
+## Discrepancies (all non-chrome, all minor)
+
+**Dâ1 â MINOR (confidence: medium-high): vertical compression of the content stack.** The recreationâs text stack is ~5â6 % more compact than the original. Measured offsets (original â recreation): title line 1 â 76 â 72; blue frame top â 123 â 115; green box top â 233 â 213; "Why using SGD" â 282 â 266; batch heading â 375 â 354; blue frame bottom â 430 â 405. Consequence: a visibly larger empty gray band (~25 px) below the blue frame in the recreation, and the green equation box rides ~6â8 px closer to the "Remember:" line than in the original. No element is misplaced, clipped, or misaligned â the compression is uniform, so I rate it as a size/gap tolerance miss rather than a structural layout error.
+
+**Dâ2 â MINOR (confidence: medium): equation-box metrics.** Green box is ~6 px wider (right edge extends ~5â6 px further right) and its top edge is ~6 px closer to the preceding bullet than in the original. Box width/height (â 475Ã35 native) and rounded green border style otherwise match.
+
+**Dâ3 â MINOR (confidence: low-medium): body text metric.** Bullet line 1 measures â 721 px (original) vs â 686â700 px (recreation) for identical wording, i.e., the recreationâs body font is marginally narrower/smaller (~4â5 %), and the wrapped second line of bullet 1 sits â 3â5 px tighter to the first line (line separation â 24â25 px original vs â 20â21 px recreation). Letterforms, weights and colors are otherwise equivalent.
+
+No BLOCKER or MAJOR items: nothing is missing (all bullets, both headings, the equation region, the green box, the red annotation and the blue footer line are present), no table/data exists on this slide, no delimiter geometry is involved, and no text is clipped, overflowing, or colliding.
+
+## Visual-quality defects in the recreation
+
+- **No overflow/clipping:** every text run, the green box and the blue frame sit fully inside their frames; nothing touches the panel edges or house strokes.
+- **No collisions:** bullet text clears its triangles; the green box clears the "Remember:" line; the blue footer line clears the frame bottom.
+- **Legibility:** all text is crisp at render resolution; superscripts/subscripts in the equation are unambiguous; the red on green-box annotation remains readable.
+- **Cosmetic only:** slightly cramped spacing above the green equation box and the tighter bullet-1 wrap noted in Dâ1/Dâ3; a marginally larger dead band below the blue frame.
+
+**Assessment:** content is complete and verbatim (title, all bullets, headings, equation terms, annotation, footer), all regions, colors, alignments, and the inner-frame structure correspond to the original, and the only deviations are sub-5â8 % typographic metric/scale differences that do not impede comprehension or use. The typed 2âD equation, the omitted cursor, and the house chrome are all correct-by-rule.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

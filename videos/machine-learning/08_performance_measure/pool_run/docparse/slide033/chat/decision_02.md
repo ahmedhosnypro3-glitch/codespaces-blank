@@ -1,7 +1,7 @@
 # chat decision 02
 
 - box: [35.5, 42.1, 886.0, 475.6]
-- error: chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+- error: chat: giving up after 7 attempts — last failure: TimeoutError: timed out
 - level: 1
 - model: docparsechat
 - node: slide_033.crop01__picture
@@ -73,4 +73,4 @@ REASON: one short sentence naming the decisive evidence
 
 ## raw response
 
-chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+chat: giving up after 7 attempts — last failure: TimeoutError: timed out

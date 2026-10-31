@@ -1,10 +1,10 @@
 
-CONTEXT — slide 019 (IMAGE 1 = PowerPoint recreation render, IMAGE 2 = original lecture frame)
+CONTEXT — slide 019 (IMAGE 1 = PowerPoint recreation render, original lecture frame second)
 
 SOURCE OF FACTS: analysis/slide_019_final.json (validated), the fresh re-analysis at
 analysis/reanalysis_v2/slide_019_reanalysis.txt, and PIL measurements taken directly from
 unique_slides/slide_019.jpg (960x540). IMAGE 1 is a LibreOffice render at 150 dpi (2001x1125)
-of recreated_pptx/build/slide_019_recreated.pptx, so it carries ~2.08x the original's pixel
+of recreated_pptx/slide_019_recreated.pptx, so it carries ~2.08x the original's pixel
 density — compare elements, regions and values, not pixel identity.
 
 WHAT THE SLIDE IS: a 2x2 grid of four function plots (sigmoid, tanh, tan, arctan), each with a
@@ -19,22 +19,37 @@ MEASURED PALETTE OF THE ORIGINAL — the recreation matches these:
 - gridlines: light grey #D3D5D2, faint and dashed
 - tan(x) vertical asymptotes: four dashed rose lines at -3pi/2, -pi/2, pi/2, 3pi/2
 - caption fills: peach #FCE4D6 (sigmoid, tanh, arctan) and light grey #D9D9D9 (tan)
-- caption text: near-black, serif math style
+- caption text: near-black, serif math style (recreation uses a serif mathtext face, 18 pt)
 
 ELEMENTS — all of these are present in the recreation; anything ABSENT is a defect:
 - four plot panels, each a programmatic re-render of the SAME function over the SAME domain with
-  the SAME tick labels as the original:
-  sigmoid: x = -8 -6 -4 -2 2 4 6 8 (0 omitted), y = 0.0 0.2 0.4 0.6 0.8 1.0, legend
-  "sigma(z) = 1/(1+e^{-z})" with a line swatch, axis note "sigma(z)=1"
-  tanh:    x = -4 -2 2 4, y = -1.0 -0.5 0 0.5 1.0, axis title "tanh x"
-  tan:     x = -2pi -3pi/2 -pi -pi/2 pi/2 pi 3pi/2 2pi, y = 4 2 -2 -4, axis title "tan x", a
-  rising taupe branch in each of the four windows between the asymptotes
-  arctan:  x = -3 -2 -1 1 2 3, y = 1 0 -1, in-panel title "Inverse Tangent Graph"
-- four formula captions, in PROFESSIONAL 2D FORMAT (stacked fraction with a horizontal rule,
-  raised -x and -1 superscripts):
-  f(x) = Sigmoid(x) = 1/(1+e^{-x})   |   f(x) = tanh(x) = sinh x / cosh x
-  f(x) = tan(x)                      |   f(x) = tan^{-1}(x)
-- one hollow red right-pointing block arrow between the bottom panels, at the x-axis level
+  the SAME tick labels as the original. Each plot has its OWN INSET data rect (measured in the
+  original frame; 1 px = 1 pt), with the axes drawn AT the data crossing, NOT on the panel
+  border, plus arrow-tipped axis lines and numeric tick labels:
+    sigmoid: data rect x 134..334, y 81..192; axes x=130 (panel-rel), y=133 (panel-rel)
+             x = -8 -6 -4 -2 2 4 6 8 (0 omitted), y = 0.0 0.2 0.4 0.6 0.8 1.0, legend
+             "sigma(z) = 1/(1+e^{-z})" with a rose line swatch in a small bordered box, and the
+             axis note "sigma(z)=1" above the y-axis (NOT stacked under the legend)
+    tanh:    data rect x 525..767, y 77..225; axes x=147, y=92 (panel-rel)
+             x = -4 -2 2 4, y = -1.0 -0.5 0 0.5 1.0, axis title "tanh x" HORIZONTAL above the
+             y-axis (measured original ink rel x 144..155, y 8..10)
+    tan:     data rect x 127..350, y 327..473; axes x=133, y=103 (panel-rel)
+             x = -2pi -3pi/2 -pi -pi/2 pi/2 pi 3pi/2 2pi (stacked fractions for the pi/2 terms),
+             y = 4 2 -2 -4, axis title "tan x" HORIZONTAL above the y-axis (measured original ink
+             rel x 139..144, y 7..11), a rising taupe branch in each of the four windows
+    arctan:  data rect x 526..780, y 309..457; axes x=154, y=86 (panel-rel)
+             x = -3 -2 -1 1 2 3, y = 1 0 -1, in-panel title "Inverse Tangent Graph" in BLACK,
+             inset 31 px left / 12 px below the panel's top edge (measured original ink
+             x 530..639, y 309..318)
+- four formula captions in PROFESSIONAL 2D FORMAT (stacked fraction with a horizontal rule,
+  raised -x and -1 superscripts), each centred in its own measured callout box:
+    f(x) = Sigmoid(x) = 1/(1+e^{-x})  |  f(x) = tanh(x) = sinh x / cosh x
+    f(x) = tan(x)                     |  f(x) = tan^{-1}(x)
+  callout boxes measured in the original: sigmoid peach 138..375 x 240..294, tanh peach
+  528..745 x 240..294, tan grey 165..305 x 468..498 (offset ~22 px left of the panel centre),
+  arctan peach 545..687 x 467..497 (offset ~28 px left of the panel centre)
+- one hollow red right-pointing block arrow between the bottom panels, at the x-axis level;
+  measured original ink x 426..477, y 374..393 (51 x 19 px), centred in the 410..499 gutter
 - yellow badge "19", house red frame, house title (chrome; ground rule a)
 
 EXPECTED DIFFERENCES — not discrepancies:
@@ -45,7 +60,12 @@ EXPECTED DIFFERENCES — not discrepancies:
 - The original's plot tick labels are ~7 px on a 960x540 frame and barely legible; the
   recreation renders them at a comparable slide-space size with cleaner glyph edges.
 - The original's tan(x) curve is very pale (taupe on white) and its gridlines are barely
-  visible; both are reproduced at the measured lightness, not emphasised.
+  visible; both are reproduced at the measured lightness, not emphasised. The original's rose
+  asymptote lines are washed out by JPEG compression; the recreation draws them at the measured
+  tick positions so the four-line asymptote structure is unambiguous.
+- The house frame normalises the panel positions: the original's crimson frame is inset 55 px
+  from the frame edge, the house frame 0.15 in, so the recreation's panels sit ~10 px to the
+  right and ~9 px lower than the original's. Judge element geometry INSIDE each panel.
 - A screen-recording toast ("...nment has just been saved...") and a black video-letterbox band
   at the very bottom are player/capture artifacts in the original and are correctly OMITTED
   from the recreation (ground rule c).

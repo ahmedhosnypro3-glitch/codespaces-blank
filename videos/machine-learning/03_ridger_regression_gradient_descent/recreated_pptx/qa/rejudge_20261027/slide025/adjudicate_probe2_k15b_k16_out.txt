@@ -1,0 +1,52 @@
+regen render md5: 6784ca92b7f8e495389881deec5acdba (judged k15b: 6784ca92b7f8e495389881deec5acdba)
+regen orig   md5: 703ef56e4e57aec9cbcf0198ce9241d3 (judged k15b: 703ef56e4e57aec9cbcf0198ce9241d3)
+
+=== C1: z-axis vertical line in TR box — scan x616-879 y120-315 for the strongest column ===
+orig: top columns (slide x, px, longest run): [(646, 91, 46), (648, 85, 65), (647, 58, 21), (638, 51, 9), (637, 43, 9), (636, 34, 8)]
+render_k15b: top columns (slide x, px, longest run): [(639, 9, 5), (654, 8, 3), (701, 8, 4), (637, 7, 3), (653, 7, 3), (658, 7, 3)]
+render_k16: top columns (slide x, px, longest run): [(639, 8, 4), (637, 8, 4), (640, 7, 5), (702, 7, 4), (641, 6, 4), (636, 6, 4)]
+
+=== C1b: band x731-738 specifically, y120-315 ===
+orig: x731-738 px=107 per-col=[13, 13, 15, 20, 12, 10, 9, 15] runs=[3, 3, 4, 4, 4, 4, 4, 4]
+render_k15b: x731-738 px=23 per-col=[3, 5, 4, 5, 2, 1, 1, 2] runs=[2, 4, 2, 4, 1, 1, 1, 2]
+render_k16: x731-738 px=25 per-col=[5, 3, 5, 5, 3, 2, 1, 1] runs=[4, 2, 2, 4, 2, 2, 1, 1]
+
+=== C2: z-tick label ink strips flanking x731-738 (dark ink), y120-315 ===
+orig: left x700-730: dark px=120 rows>=2px=33 clusters=11
+orig: right x739-770: dark px=108 rows>=2px=26 clusters=9
+render_k15b: left x700-730: dark px=22 rows>=2px=5 clusters=2
+render_k15b: right x739-770: dark px=7 rows>=2px=3 clusters=2
+render_k16: left x700-730: dark px=24 rows>=2px=5 clusters=3
+render_k16: right x739-770: dark px=8 rows>=2px=2 clusters=1
+
+=== C3: BR surface (x615-880 y344-531, pad-8 GT method) — orig & k15b only (k16 crop covers y<=368) ===
+orig: colored%=45.6 hist16=[1480, 0, 0, 552, 813, 0, 1140, 4721, 2967, 3597, 4, 1517, 2063, 24, 0, 538] diag mean=0.359 std=0.252
+render_k15b: colored%=54.7 hist16=[37, 0, 2, 254, 878, 1199, 2572, 5138, 4515, 3385, 2182, 1735, 1296, 10, 0, 74] diag mean=0.520 std=0.070
+render_k16: BR surface NOT covered by k16 crop (crop ends y368); skipping
+
+=== C3b: TR surface (the crop content) x616-879 y115-317 ===
+orig: TR colored%=18.9 surf bbox x619..874 y120..313 (w=256 h=194) hist16=[330, 67, 176, 582, 488, 4, 1082, 2072, 2577, 1498, 8, 214, 63, 0, 0, 986]
+render_k15b: TR colored%=21.1 surf bbox x621..873 y118..277 (w=253 h=160) hist16=[743, 464, 237, 700, 751, 279, 738, 1198, 1445, 1389, 346, 2170, 810, 0, 0, 37]
+render_k16: TR colored%=21.0 surf bbox x655..848 y160..277 (w=194 h=118) hist16=[759, 439, 238, 682, 750, 273, 747, 1172, 1453, 1398, 343, 2163, 808, 0, 0, 30]
+
+=== C4: grid/wall gray ink ===
+orig: gray px TR=2185 crop-region=1953 BR=354
+render_k15b: gray px TR=510 crop-region=515 BR=5
+render_k16: gray px TR=486 crop-region=545 BR=5
+
+=== C5: red diagonal (652,189)->(667,165) in TR + red totals ===
+-- tolerance 2.0px --
+orig: red within 2.0px of segment = 27; total red TR=3475; red BR=3544
+render_k15b: red within 2.0px of segment = 42; total red TR=3200; red BR=3676
+render_k16: red within 2.0px of segment = 0; total red TR=2554; red BR=352
+-- tolerance 3.0px --
+orig: red within 3.0px of segment = 43; total red TR=3475; red BR=3544
+render_k15b: red within 3.0px of segment = 42; total red TR=3200; red BR=3676
+render_k16: red within 3.0px of segment = 0; total red TR=2554; red BR=352
+
+=== C6: TR white-above-surface (3D box leaves bg above silhouette) ===
+orig: TR surf top y=120, white px above top in box=0, white in whole box=25437
+render_k15b: TR surf top y=118, white px above top in box=530, white in whole box=36333
+render_k16: TR surf top y=160, white px above top in box=0, white in whole box=25830
+
+PROBE2_DONE

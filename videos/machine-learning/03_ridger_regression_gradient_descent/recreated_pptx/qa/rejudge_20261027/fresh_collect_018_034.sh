@@ -31,8 +31,8 @@ region_of() { python3 "$RJ/pick_dense_region.py" "$1" 2>/dev/null | awk '{printf
 SCOPE="018 019 020 021 022 023 024 026 027 028 029 030 031 032 033 034"
 for N in $SCOPE; do
   D=$RJ/slide$N; NN=$((10#$N))
-  read -r FV FP <<< "$(pick "$D/judge_full_fresh.txt" "$D/judge_full.txt" "$D/judge_full_retry.txt")"
-  read -r BV BP <<< "$(pick "$D/crop_dense_judge_fresh.txt" "$D/crop_dense_judge.txt" "$D/crop_dense_judge_retry.txt")"
+  read -r FV FP <<< "$(pick "$D/judge_full_fresh.txt" "$D/judge_full.txt" "$D/judge_full_retry.txt" "$D/judge_full.txt.W02bank" "$D"/judge_full_*.txt "$D"/judge_full*.bak)"
+  read -r BV BP <<< "$(pick "$D/crop_dense_judge_fresh.txt" "$D/crop_dense_judge.txt" "$D/crop_dense_judge_retry.txt" "$D/crop_dense_judge.txt.W02bank" "$D"/crop_dense_judge_*.txt "$D"/crop_dense_judge*.bak)"
   # carry TITLE/REGION forward from existing result.txt when present
   TITLE=$(grep -m1 '^TITLE=' "$D/result.txt" 2>/dev/null | cut -d= -f2-)
   REGION=$(grep -m1 '^REGION=' "$D/result.txt" 2>/dev/null | cut -d= -f2-)

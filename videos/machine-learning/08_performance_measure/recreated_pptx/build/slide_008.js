@@ -60,14 +60,14 @@ s.addText("Meaning", {
   fontSize: 22, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 s.addText([
-  { text: "% of what you ", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } },
-  { text: "Predicted", options: { fontSize: 17, bold: true, underline: true, charSpacing: 1.5, color: RED, fontFace: FONT, breakLine: false } },
-  { text: " as ", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } },
-  { text: "POSITIVE", options: { fontSize: 17, bold: true, charSpacing: 3, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: " is Actually Positive", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } }
+  { text: "% of what you ", options: { fontSize: 16, bold: true, charSpacing: 1, color: INK, fontFace: FONT, breakLine: false } },
+  { text: "Predicted", options: { fontSize: 16, bold: true, underline: true, charSpacing: 1, color: RED, fontFace: FONT, breakLine: false } },
+  { text: " as ", options: { fontSize: 16, bold: true, charSpacing: 1, color: INK, fontFace: FONT, breakLine: false } },
+  { text: "POSITIVE", options: { fontSize: 16, bold: true, charSpacing: 2, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: " is Actually Positive", options: { fontSize: 16, bold: true, charSpacing: 1, color: INK, fontFace: FONT, breakLine: false } }
 ], {
-  x: P(80), y: P(232), w: P(531), h: P(23), align: "left", valign: "middle",
-  margin: 0, lineSpacing: 20
+  x: P(76), y: P(228), w: P(548), h: P(24), align: "left", valign: "middle",
+  margin: 0, lineSpacing: 20, isTextBox: true, wrap: false
 });
 
 // --- FORMULA BOX (white, red outline) ---
@@ -77,21 +77,21 @@ s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
 });
 s.addText("Precision =", {
   x: P(86), y: P(283), w: P(140), h: P(30), align: "left", valign: "middle",
-  fontSize: 26, bold: true, color: INK, fontFace: FONT, margin: 0
+  fontSize: 20, bold: true, color: INK, fontFace: FONT, margin: 0
 });
 s.addImage({
-  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_frac.png",
-  x: P(226), y: P(276), w: 0.76333, h: 0.37833
+  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_frac_v2.png",
+  x: P(212), y: P(274), w: 1.15167, h: 0.56333
 });
 
-// --- WORKED EXAMPLE BOX (pale blue) ---
+// --- WORKED EXAMPLE BOX (pale blue, two lines) ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(336), y: P(286), w: P(172), h: P(30),
+  x: P(335), y: P(290), w: P(193), h: P(44),
   fill: { color: "F2FBFF" }, line: { color: "9DC3E6", width: 1 }
 });
 s.addImage({
-  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_worked.png",
-  x: P(341), y: P(298), w: 2.31667, h: 0.25
+  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_worked_v2.png",
+  x: P(345), y: P(291), w: 1.98833, h: 0.58667
 });
 
 // --- CALLOUT BOXES ---
@@ -118,14 +118,24 @@ s.addText([
   margin: 0, lineSpacing: 15
 });
 
-// --- GREEN CAPTION + traced underline ---
+// --- callout pointer tails (triangles up toward the formula box) ---
+s.addShape("triangle", {
+  x: P(148), y: P(323), w: P(16), h: P(13),
+  fill: { color: "FFF2CC" }, line: { color: "FFD966", width: 0.75 }
+});
+s.addShape("triangle", {
+  x: P(256), y: P(323), w: P(16), h: P(13),
+  fill: { color: "FCE4D6" }, line: { color: "F4B183", width: 0.75 }
+});
+
+// --- GREEN CAPTION + traced underline (underline sits below the text) ---
 s.addText("All Samples classified as Positive", {
-  x: P(107), y: P(382), w: P(228), h: P(22), align: "left", valign: "middle",
-  fontSize: 14, italic: true, bold: true, color: GRN_TXT, fontFace: FONT, margin: 0
+  x: P(107), y: P(376), w: P(228), h: P(18), align: "left", valign: "middle",
+  fontSize: 13, italic: true, bold: true, color: GRN_TXT, fontFace: FONT, margin: 0
 });
 s.addImage({
-  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/underline_008.png",
-  x: P(109), y: P(391), w: P(223), h: P(13)
+  path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/underline_008_v2.png",
+  x: P(107), y: P(393), w: P(227), h: P(6)
 });
 
 // --- BLUE NOTE BOX ---
@@ -158,28 +168,28 @@ function hline(y, x0, x1) {
 function cellText(x, y, w, h, t) {
   s.addText(t, {
     x: P(x), y: P(y), w: P(w), h: P(h), align: "center", valign: "middle",
-    fontSize: 13, bold: true, color: INK, fontFace: FONT, margin: 0
+    fontSize: 15, bold: true, color: INK, fontFace: FONT, margin: 0
   });
 }
 
 // --- MATRIX 1 (labels) ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(672), y: P(52), w: P(195), h: P(107),
+  x: P(672), y: P(53), w: P(195), h: P(116),
   fill: { color: "FFFFFF" }, line: { color: FRAME_BLUE, width: 1.5 }
 });
 s.addText("Predicted as", {
   x: P(738), y: P(58), w: P(106), h: P(18), align: "center", valign: "middle",
   fontSize: 13, bold: true, color: RED, fontFace: FONT, margin: 0
 });
-vline(697, 76, 152); vline(737, 76, 152); vline(790, 76, 152); vline(844, 76, 152);
-hline(98, 672, 846); hline(124, 672, 846); hline(150, 672, 846);
-cellText(737, 82, 53, 16, "P");
-cellText(790, 82, 54, 16, "N");
+vline(683, 82, 150); vline(697, 82, 150); vline(737, 82, 150); vline(790, 82, 150); vline(844, 82, 150);
+hline(82, 683, 846); hline(98, 683, 846); hline(124, 683, 846); hline(150, 683, 846);
+cellText(737, 84, 53, 14, "P");
+cellText(790, 84, 54, 14, "N");
 cellText(697, 100, 40, 24, "P");
 cellText(697, 127, 40, 23, "N");
-// Actual rotated 90 in stub col (visual center 684,125)
+// Actual rotated 90, clear margin left of the grid (orig ink x~635-650, grid starts x683)
 s.addText("Actual", {
-  x: P(684 - 26), y: P(125 - 7), w: P(52), h: P(14), rotate: 270,
+  x: P(638), y: P(118), w: P(52), h: P(14), rotate: 270,
   align: "center", valign: "middle",
   fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0
 });
@@ -191,66 +201,26 @@ cellText(737, 127, 53, 23, "FP");
 s.addShape(pptx.shapes.RECTANGLE, { x: P(799), y: P(127), w: P(39), h: P(23), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
 cellText(790, 127, 54, 23, "TN");
 
-// --- MATRIX 2 (numbers) ---
-s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(672), y: P(168), w: P(195), h: P(120),
-  fill: { color: "FFFFFF" }, line: { color: FRAME_BLUE, width: 1.5 }
-});
-s.addText("Predicted as", {
-  x: P(738), y: P(172), w: P(106), h: P(16), align: "center", valign: "middle",
-  fontSize: 13, bold: true, color: RED, fontFace: FONT, margin: 0
-});
-vline(697, 190, 282); vline(737, 190, 282); vline(790, 190, 282); vline(844, 190, 282);
-hline(190, 672, 846); hline(220, 672, 846); hline(252, 672, 846); hline(282, 672, 846);
-cellText(737, 192, 53, 24, "P");
-cellText(790, 192, 54, 24, "N");
-cellText(697, 220, 40, 32, "P");
-cellText(697, 252, 40, 30, "N");
-s.addText("Actual", {
-  x: P(684 - 26), y: P(236 - 7), w: P(52), h: P(14), rotate: 270,
-  align: "center", valign: "middle",
-  fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0
-});
-// 10 in purple filled circle
-s.addShape(pptx.shapes.OVAL, {
-  x: P(757), y: P(220), w: P(35), h: P(34),
-  fill: { color: PURPLE }, line: { color: PURPLE, width: 0.5 }
-});
-s.addText("10", {
-  x: P(757), y: P(220), w: P(35), h: P(34), align: "center", valign: "middle",
-  fontSize: 13, bold: true, color: "FFFFFF", fontFace: FONT, margin: 0
-});
-cellText(790, 220, 54, 32, "20");
-// 2 in purple rounded-rect outline
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
-  x: P(756), y: P(253), w: P(36), h: P(25),
-  fill: { color: "FFFFFF" }, line: { color: PURPLE, width: 1.5 }
-});
-cellText(737, 252, 53, 30, "2");
-// 68 green
-s.addShape(pptx.shapes.RECTANGLE, { x: P(808), y: P(254), w: P(40), h: P(27), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
-cellText(790, 252, 54, 30, "68");
-
 // --- TREE PANEL (red frame) ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(536), y: P(291), w: P(346), h: P(212),
+  x: P(536), y: P(290), w: P(346), h: P(212),
   fill: { color: "FFFFFF" }, line: { color: RED, width: 1.5 }
 });
 s.addText("Positive", {
-  x: P(598), y: P(299), w: P(70), h: P(15), align: "left", valign: "middle",
+  x: P(598), y: P(290), w: P(70), h: P(15), align: "left", valign: "middle",
   fontSize: 14, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 s.addText("Negative", {
-  x: P(774), y: P(300), w: P(79), h: P(16), align: "left", valign: "middle",
+  x: P(774), y: P(291), w: P(79), h: P(16), align: "left", valign: "middle",
   fontSize: 14, bold: true, color: "00B050", fontFace: FONT, margin: 0
 });
 s.addImage({
   path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/doodle_008_L.png",
-  x: P(590), y: P(324), w: P(82), h: P(48)
+  x: P(590), y: P(315), w: P(82), h: P(48)
 });
 s.addImage({
   path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/doodle_008_R.png",
-  x: P(766), y: P(322), w: P(119), h: P(54)
+  x: P(766), y: P(313), w: P(119), h: P(54)
 });
 // branch arrows (thin blue lines)
 function arrow(x0, y0, x1, y1) {
@@ -262,8 +232,8 @@ function arrow(x0, y0, x1, y1) {
     rotate: ang, fill: { color: ARROW_BLUE }, line: { color: ARROW_BLUE, width: 0.25 }
   });
 }
-arrow(618, 411, 577, 440); arrow(618, 411, 660, 440);
-arrow(800, 411, 755, 442); arrow(800, 411, 847, 442);
+arrow(618, 402, 577, 431); arrow(618, 402, 660, 431);
+arrow(800, 402, 755, 433); arrow(800, 402, 847, 433);
 // node circles
 function node(x, y, label, fill) {
   s.addShape(pptx.shapes.OVAL, {
@@ -275,33 +245,76 @@ function node(x, y, label, fill) {
     fontSize: 13, bold: true, color: "FFFFFF", fontFace: FONT, margin: 0
   });
 }
-node(602, 378, "30", RED);
-node(560, 442, "10", RED);
-node(646, 442, "20", "00B050");
-node(784, 378, "70", "00B050");
-node(738, 444, "68", "00B050");
-node(832, 444, "2", RED);
+node(602, 369, "30", RED);
+node(560, 433, "10", RED);
+node(646, 433, "20", "00B050");
+node(784, 369, "70", "00B050");
+node(738, 435, "68", "00B050");
+node(832, 435, "2", RED);
 // solid red dot
 s.addShape(pptx.shapes.OVAL, {
-  x: P(602), y: P(476), w: P(23), h: P(23),
+  x: P(602), y: P(467), w: P(23), h: P(23),
   fill: { color: DOTRED }, line: { color: DOTRED, width: 0.5 }
 });
 // TP/FN/TN/FP captions
 function cap(x, t) {
   s.addText(t, {
-    x: P(x), y: P(478), w: P(40), h: P(16), align: "center", valign: "middle",
+    x: P(x), y: P(469), w: P(40), h: P(16), align: "center", valign: "middle",
     fontSize: 11, bold: true, color: INK, fontFace: FONT, margin: 0
   });
 }
 cap(560, "TP"); cap(646, "FN"); cap(738, "TN"); cap(832, "FP");
-// hollow red down-arrows flanking the panel
-for (const ax of [556, 862]) {
-  s.addShape(pptx.shapes.RECTANGLE, { x: P(ax), y: P(396), w: P(2), h: P(30), fill: { color: RED }, line: { color: RED, width: 0.25 } });
-  s.addShape("triangle", {
-    x: P(ax - 5), y: P(426), w: P(12), h: P(9), rotate: 180,
-    fill: { color: "FFFFFF" }, line: { color: RED, width: 1.25 }
-  });
-}
+// hollow red down-arrows flanking the panel (slightly tilted, orig y~360-397)
+s.addShape(pptx.shapes.RECTANGLE, { x: P(556), y: P(367), w: P(2), h: P(28), fill: { color: RED }, line: { color: RED, width: 0.25 } });
+s.addShape("triangle", {
+  x: P(551), y: P(395), w: P(12), h: P(9), rotate: 170,
+  fill: { color: "FFFFFF" }, line: { color: RED, width: 1.25 }
+});
+s.addShape(pptx.shapes.RECTANGLE, { x: P(862), y: P(367), w: P(2), h: P(28), fill: { color: RED }, line: { color: RED, width: 0.25 } });
+s.addShape("triangle", {
+  x: P(857), y: P(395), w: P(12), h: P(9), rotate: 190,
+  fill: { color: "FFFFFF" }, line: { color: RED, width: 1.25 }
+});
+
+// --- MATRIX 2 (numbers) ---
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: P(672), y: P(168), w: P(195), h: P(120),
+  fill: { color: "FFFFFF" }, line: { color: FRAME_BLUE, width: 1.5 }
+});
+s.addText("Predicted as", {
+  x: P(738), y: P(172), w: P(106), h: P(16), align: "center", valign: "middle",
+  fontSize: 13, bold: true, color: RED, fontFace: FONT, margin: 0
+});
+vline(683, 192, 282); vline(697, 192, 282); vline(737, 192, 282); vline(790, 192, 282); vline(844, 192, 282);
+hline(190, 683, 846); hline(220, 683, 846); hline(252, 683, 846); hline(282, 683, 846);
+cellText(737, 194, 53, 24, "P");
+cellText(790, 194, 54, 24, "N");
+cellText(697, 220, 40, 32, "P");
+cellText(697, 252, 40, 30, "N");
+s.addText("Actual", {
+  x: P(638), y: P(229), w: P(52), h: P(14), rotate: 270,
+  align: "center", valign: "middle",
+  fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0
+});
+// 10 with hand-drawn hollow circle (as in original)
+s.addShape(pptx.shapes.OVAL, {
+  x: P(755), y: P(218), w: P(39), h: P(38),
+  fill: { color: "FFFFFF" }, line: { color: PURPLE, width: 2 }
+});
+s.addText("10", {
+  x: P(757), y: P(220), w: P(35), h: P(34), align: "center", valign: "middle",
+  fontSize: 13, bold: true, color: INK, fontFace: FONT, margin: 0
+});
+cellText(790, 220, 54, 32, "20");
+// 2 in purple rounded-rect outline
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
+  x: P(756), y: P(253), w: P(36), h: P(25),
+  fill: { color: "FFFFFF" }, line: { color: PURPLE, width: 1.5 }
+});
+cellText(737, 252, 53, 30, "2");
+// 68 green
+s.addShape(pptx.shapes.RECTANGLE, { x: P(808), y: P(254), w: P(40), h: P(27), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
+cellText(790, 252, 54, 30, "68");
 
 const outPath = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/slide_008_recreated.pptx";
 pptx.writeFile({ fileName: outPath }).then(() => console.log("done: " + outPath));

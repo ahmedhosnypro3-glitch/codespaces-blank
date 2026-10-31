@@ -1,0 +1,32 @@
+Reading the two attached crops as **IMG1 = left/first image (recreation render)** and **IMG2 = right/second image (original)**, each â 224 Ã 476 px, cropârelative (x,y) with y measured from the top:
+
+**IMG1 (render) â readable strings, in reading order**
+- `Ã10â´` (i.e. x10^4 scale annotation) at â (72, 38)
+- overlapped/collision cluster at the axes corner: `0.5` (reads like `0.5`/`0,5`) at â (60, 232) sitting directly on `â100` at â (56, 254) â they visually merge into a jumble
+- `â50` at â (82, 300)
+- `0` at â (112, 362)
+- `50` at â (150, 420)
+- (red diagonal stroke â (72,142)â(112,112) and red horizontal lines at yâ255, 300, 358 are annotation strokes, not glyphs)
+
+**IMG2 (orig) â readable strings, in reading order**
+- `Ã10â´` at â (52, 33)
+- left vertical (z) axis, topâbottom: `2` â (38, 68); `1.5` â (30, 133); `1` â (42, 203); `0.5` â (30, 273); `0` â (46, 344)
+- lower/front axis: `100` â (36, 428); `50` â (118, 458)
+- (red horizontal lines at yâ252, 298, 343 are strokes, not glyphs)
+
+**Region A (TR axes upperâleft corner):**
+- Does IMG1 contain a `x10^4`âstyle scale annotation? **Yes** â `Ã10â´` at â (72, 38).
+- Does IMG1 contain zâaxis tick value labels? It contains a scale annotation, but the readable tick values are **not** the clean z set; they are `0.5` (colliding with `â100`), `â100`, `â50`, `0`, `50`.
+- Tick values readable in **IMG1**: `0.5` (overlapped), `â100`, `â50`, `0`, `50` plus `Ã10â´`.
+- Tick values readable in **IMG2**: `2`, `1.5`, `1`, `0.5`, `0` on the left axis (under `Ã10â´`), and `100`, `50` on the lower axis.
+
+**Region B (left tickâlabel strip of the TOPâLEFT 3D plot), left axis:**
+- In **IMG1** the left edge does **not** show a clean 0â¦2 strip; the readable leftâside strings are the overlapped `0.5`/`â100`, then `â50`, `0`, `50` running diagonally.
+- In **IMG2** the left axis reads exactly (bottomâtop): `0`, `0.5`, `1`, `1.5`, `2` (with `Ã10â´`).
+
+**Glyphs present in one image and entirely absent in the other:**
+- In IMG1 only: `â100`, `â50`, `50` (negative ticks and the bare `50` on the diagonal).
+- In IMG2 only: `2`, `1.5`, `1`, `100`.
+- Present in both: `Ã10â´`, `0.5`, `0`.
+
+FINAL VERDICT: **FAIL** â the two images do not show the same readable tick/scale text. Differing strings: IMG1 has `â100`, `â50`, `50` (with `0.5` colliding into `â100`) that are absent from IMG2; IMG2 has `2`, `1.5`, `1`, `100` (and a clean left axis `0, 0.5, 1, 1.5, 2 Ã10â´`) that are absent from IMG1. Shared only: `Ã10â´`, `0`, `0.5`.

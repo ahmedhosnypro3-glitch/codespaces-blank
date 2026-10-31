@@ -1,55 +1,61 @@
-"""Extract slide-008 decision-region polygons from the original frame by colour classification."""
-import json
+#!/usr/bin/env python3
+"""Extract the measured class-region tint lattice inside the slide_008 panel.
+
+Centroids measured by sampling the original frame. Outputs a label array the
+graph generator renders from, so the recreated shading matches the original
+region-for-region instead of being re-derived from an assumed classifier.
+"""
 import numpy as np
 from PIL import Image
-from scipy import ndimage
 
-V = "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks"
-A = np.asarray(Image.open(f"{V}/unique_slides/slide_008.jpg").convert("RGB")).astype(float)
-R, G, B = A[:, :, 0], A[:, :, 1], A[:, :, 2]
+P = "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_008.jpg"
+OUT = "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_008_regions.npy"
 
-green = (G - R > 6) & (G - B > 6) & (R > 200) & (G > 230)
-lav = (B - R > 15) & (B - G > 15) & (B > 200) & (R > 140)
-pink = (R - G > 6) & (R - B > 4) & (abs(G - B) < 25) & (R > 230)
+a = np.asarray(Image.open(P).convert("RGB")).astype(float)
+PX0, PX1, PY0, PY1 = 167, 798, 120, 505
 
-BOX = (168, 796, 122, 504)
-inner = np.zeros(A.shape[:2], bool)
-inner[BOX[2]:BOX[3], BOX[0]:BOX[1]] = True
+# measured tint centroids (from sample_008_tints.py)
+C = np.array([
+    [255, 255, 255],   # 0 white
+    [220, 248, 213],   # 1 pale green
+    [196, 194, 240],   # 2 pale lavender
+    [251, 219, 225],   # 3 pale pink
+    [231, 231, 231],   # 4 grey
+])
+NAMES = ["white", "green", "lavend", "pink", "grey"]
 
+panel = a[PY0:PY1 + 1, PX0:PX1 + 1, :]
+d = ((panel[:, :, None, :] - C[None, None, :, :]) ** 2).sum(axis=3)
+lab = d.argmin(axis=2).astype(np.uint8)
 
-def region_poly(mask, k=21, minarea=2000):
-    m = ndimage.binary_closing(mask & inner, np.ones((k, k)))
-    m = ndimage.binary_opening(m, np.ones((5, 5)))
-    m = ndimage.binary_closing(m, np.ones((k, k)))
-    m = ndimage.binary_fill_holes(m)
-    lab, n = ndimage.label(m)
-    if n == 0:
-        return None, 0
-    sizes = ndimage.sum(m, lab, range(1, n + 1))
-    i = int(np.argmax(sizes)) + 1
-    if sizes[i - 1] < minarea:
-        return None, 0
-    m = (lab == i)
-    left, right = [], []
-    for y in range(BOX[2], BOX[3]):
-        xs = np.nonzero(m[y, BOX[0]:BOX[1]])[0]
-        if len(xs) < 3:
+# drop the border ring so only the interior is classified
+lab[0:3, :] = 255; lab[-3:, :] = 255
+lab[:, 0:3] = 255; lab[:, -3:] = 255
+
+np.save(OUT, lab)
+print("saved", OUT, lab.shape, lab.dtype)
+for i, n in enumerate(NAMES):
+    print(f"  {n:7s} {(lab == i).sum()} px")
+
+print()
+print("=== x-intervals of each tint family, every 12 rows ===")
+for y in range(12, panel.shape[0], 12):
+    row = lab[y]
+    parts = []
+    for i, n in enumerate(NAMES):
+        xs = np.where(row == i)[0]
+        if len(xs) == 0:
             continue
-        left.append((int(xs.min()) + BOX[0], y))
-        right.append((int(xs.max()) + BOX[0], y))
-    return left + right[::-1], int(sizes[i - 1])
-
-
-out = {}
-for name, mask in [("green", green), ("lavender", lav), ("pink", pink)]:
-    poly, area = region_poly(mask)
-    out[name] = poly
-    if poly:
-        xs = [p[0] for p in poly]
-        ys = [p[1] for p in poly]
-        print(f"{name}: area={area} npts={len(poly)} bbox x={min(xs)}..{max(xs)} y={min(ys)}..{max(ys)}")
-    else:
-        print(f"{name}: NONE  (raw mask px={int((mask & inner).sum())})")
-
-json.dump(out, open(f"{V}/recreated_pptx/build/slide_008_regions.json", "w"), indent=1)
-print("wrote slide_008_regions.json")
+        # contiguous runs
+        runs = []
+        s = p = xs[0]
+        for v in xs[1:]:
+            if v == p + 1:
+                p = v
+            else:
+                runs.append((s, p)); s = p = v
+        runs.append((s, p))
+        rr = " ".join(f"{r[0]}-{r[1]}" for r in runs if r[1] - r[0] > 8)
+        if rr:
+            parts.append(f"{n[:1].upper()}:{rr}")
+    print(f" y={y:3d}  " + "  ".join(parts))

@@ -1,0 +1,33 @@
+## Fidelity comparison â Slide 40 (r19)
+
+**Method note:** Both frames were compared in the shared 900âpxâwide display space (â1.067Ã to the original 960Ã540). All measurements below are approximate pixel readings (capâheight = top of capital to baseline).
+
+### Element-by-element check
+
+| Element | Original (IMG2) | Recreation (IMG1) | Result |
+|---|---|---|---|
+| House panel / strokes / badge | Gray panel, left+right+bottom darkâred strokes, no top stroke, yellow badge + purple ring, "40" | Identical chrome (per ground rule (a), not counted) | Match |
+| Title text | "Training of Linear Regression Model", red bold, centered, capâheight â32, spans xâ93â797 (center â445) | Same wording, red bold, capâheight â30, spans xâ82â806 (center â444) | Text verbatim; slightly different font metrics (see Dâ1, Dâ3) |
+| "usnig SGD" | Blue bold, capâheight â27, spans xâ343â548 (center â445) | Blue bold, capâheight â23, spans xâ357â533 (center â445) | Verbatim; undersized (see Dâ2) |
+| "Solved Example" | Red bold, capâheight â30, spans xâ285â590 (center â437) | Red bold, capâheight â30, spans xâ276â587 (center â431) | Match (within a few px) |
+| Missing content (equations, tables, diagrams, images) | None present | None needed | No missing elements |
+| Cursor artifact | Small pen/cursor glyph at â(475,440) | Absent | Correctly omitted per ground rule (c) |
+
+### Discrepancies
+
+1. **MINOR â "usnig SGD" is rendered smaller than the original.** Capâheight â23 vs â27 px (â85% of original), and the string is â7% narrower (176 vs 205 px). Word content and color (blue) are correct; only the type size is off.
+2. **MINOR â whole text block sits slightly high / line rhythm slightly compressed.** Baselines: original â195 / 264 / 339 (Î69, Î75); recreation â187 / 253 / 322 (Î66, Î69). The recreation's lines are â8â17 px (1â3% of slide height) higher and spaced ~3â6 px tighter. Horizontal centering of all three lines is correct (centers â444â445 vs 437â445).
+3. **MINOR â typeface/weight differs.** The original uses a wide, heavy Verdana/Tahomaâlike bold face; the recreation uses a slightly lighter, differentlyâproportioned bold face. This shows as the title being â3% *wider* at a slightly *smaller* capâheight, and as marginally lower ink weight on "Solved Example". Text remains fully legible.
+4. **MINOR (low confidence) â word spacing in the title** after "of" reads marginally wider in the recreation than in the original (possible extra space); no character is wrong or dropped.
+
+### Visual-quality defects in the recreation
+- No text overflow or clipping; no collisions; no illegible text.
+- All content is fully contained inside the gray panel; no ink touches or crosses the panel boundary or the red strokes.
+- No empty equation/graphic regions (this is a pure title slide, so nothing is absent).
+- No top stroke on the panel (correct per ground rule (a)).
+- No mouse-cursor artifact reproduced (correct per ground rule (c)).
+
+### Summary
+Content is complete and verbatim ("Training of Linear Regression Model" / "usnig SGD" / "Solved Example"), all three lines are correctly ordered, colored, centered and region-matched, and no element is missing, overflowed or clipped. The only deviations are small typographic ones: an undersized blue subtitle, a few px of upward block shift / tighter line gaps, and a slightly different bold typeface. None impair usability or faithfulness of the rendered content.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation" (with MINOR typographic deviations noted above; no MAJOR or BLOCKER defects).

@@ -13,3 +13,7 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query for the FPR=0 best-value point; the remainder re-used the sklearn `roc_curve` + Wikipedia ROC records banked on slide 028).
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Six threshold panels (0.0/0.1/0.3/0.4/0.6/0.7) with their matrices and TPR/FPR lines, plus the ROC plot with threshold-labeled points and "Best (FPR)" marker: CONFIRMED — sklearn `roc_curve` (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html) and Google ML Crash Course ROC/AUC (https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc): each threshold yields one (FPR,TPR) point, plotted from (1,1) at threshold 0.0 down-left as threshold rises; "best" operating point selection near the top-left corner (min distance to (0,1) / max Youden's J = TPR-FPR) per Evidently AI ROC guide (https://www.evidentlyai.com/classification-metrics/explain-roc-curve) and Wikipedia Youden's J (https://en.wikipedia.org/wiki/Youden%27s_J_statistic). Panel arithmetic: 0.7 -> TPR=3/(3+2)=0.6, FPR=0/(0+6)=0 (re-verified locally, correct); the 0.6 panel's printed TPR=3/(3+1)=0.6 is the known course-authored slip (correct 0.75) — CORRECTED on slide 033, frame wins. No new corrections.

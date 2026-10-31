@@ -1,0 +1,51 @@
+slide014 fix3 adjudication — 2026-10-31 ~07:0xZ (fresh spawn, no resume)
+
+Legs (OCC_MAX=700, launched 06:00:48Z via launch_014_fix3.sh):
+- FULL  judge_full_fix3.txt  1200s payload_A.txt  -> FINAL VERDICT: FAIL (clean, no 429)
+- CROP  crop_dense_judge_fix3.txt 600s payload_B_014.txt (region 280,208-584,416
+  from pick_dense_region.py 014; crop pair regenerated from fix3 render)
+  -> FINAL VERDICT: PASS (only 2 MINOR: operator spacing, lambda/R accent ink)
+
+FIX CONFIRMED: the HARVEST4 MAJOR (spurious "≈(W)" between J(W) and = in the bottom
+cyan row) is ABSENT from judge_full_fix3.txt. Root cause was eq_014_final.png carrying
+a leading "J(W) = " segment while slide_014.js text runs already drew "J(W)" + " = ".
+Fixed by regenerating the PNG starting at the 1/2 fraction (1890x254px = 3.15x0.4233in;
+old banked eq_014_final.png.bak_prefix3) and placing it at x=375/72 y=479/72 in
+slide_014.js (text box x+1.28 w=2.67). PIL on fix3 render: bottom-row ink = text
+x179-369, clean gap, formula 1/2[ from x376 (orig: text x179-344, formula from x376);
+no doubled glyph cluster. Underline bars at slide y331 x344-367/378-400/411-443/
+532-564 pixel-identical to the banked fix2 render (HARVEST3 bars present).
+Chrome check fix3: PASS. pptx banked slide_014_recreated.pptx.bak_prefix3.
+
+FULL-leg MAJOR claims vs PIL (adjudicate_fix3_full.txt = rejudge_adjudicate.py 014
+--full; 17.83% diffuse diff, ink render-heavy 119,210 vs orig-heavy 178,588):
+- #3 "lost blue rectangle frames on objective rows" REFUTED: orig has ZERO blue
+  vertical px at x80/x825 over y228-363; orig navy rules at y243/244 & y282/284 &
+  y303/304 span x58-901 (full panel width), render rules x58-900.5 — identical design.
+- #4 "lost red box frame on Define-Loss" REFUTED: no red verticals at x80/x617 in
+  orig y325-363; orig peach fill x60-903-equivalent, same as render.
+- #5 "bands stretched full panel width, should be inset x80-825" REFUTED: orig yellow
+  fill at y250 spans x60-903 (touches panel strokes in the ORIGINAL too).
+- #6 "vertical rhythm compressed (rows at 228/283/325/372/435 in IMG2)" REFUTED:
+  orig rule rows measured y243/244, 282/284/285, 303/304, 338-341 — matching render
+  and build (243/303/347/399/469). Judge's IMG2 numbers do not exist in the pixels.
+- #1 "vector delimiters: parens vs brackets" PARTIALLY SUPPORTED: orig left-box
+  delimiter is a thin stroke x176-179 spanning ~y117-208 (~92px, 1-3px wide);
+  render paren spans y99-238 (~140px, up to 20px wide curve). Real size/weight
+  difference, but IDENTICAL bytes in the fix2 render the 05:26 leg cleared
+  ("brackets and parentheses are clean") and in the att8 CERT build — conflicting
+  vision verdicts on unchanged pixels; recorded, not re-opened here.
+- #2 "label blocks ~20px too high" not confirmed by label-zone ink scan (zone
+  contaminated by box border); medium-confidence, unchanged bytes, same conflict.
+
+MINORs (font family, ellipsis glyph, Nx1 styling, Loss Term color, inline 1/2 glyph,
+bracket size, row-1 gap, row-2 spacing, box geometry, top-box height): all on
+unchanged bytes, advisory; the mandated 2D-equation tolerance covers the stacked
+fraction (render DOES use stacked frac via matplotlib — judge misread it as inline ½).
+
+Disposition per task rule "On FAIL: rejudge_adjudicate.py 014, bank, verbatim":
+FAIL recorded verbatim; high-confidence MAJORs #3/#4/#5/#6 PIL-REFUTED and DISMISSED;
+#1 recorded as a known, previously-cleared difference. CROP=PASS clean. No deck update
+(no clean PASS+PASS). No git; no evidence deleted. Backups: result.txt.bak_fix3_20261031,
+render.png.bak_prefix3, eq_014_final.png.bak_prefix3, eq_index_014.json.bak_prefix3,
+slide_014_recreated.pptx.bak_prefix3.

@@ -1,28 +1,31 @@
-**Region:** Slide 017 â table block (frame px 136,112â440,320)
+## Comparison of the zoomed region (slide 017, table block at frame px 136,112â440,320)
 
-**Comparison summary**
+**Panel structure (both images):** Upper table (header + 3 data rows), a gray horizontal band, then the start of a second, repeated table (header + first data row, last cell yellow-highlighted).
 
-| Table / row | IMG1 (recreation) | IMG2 (original) | Result |
-|---|---|---|---|
-| **Top table â headers** | Xâ Xâ Xâ Xâ Xâ Xâ Xâ (all subscripts visible; odd-column headers blue, even-column headers red) | Xâ Xâ Xâ Xâ X Xâ Xâ¦ (same visible pattern; Xâ partially cut by crop) | Match |
-| **Top row 1** | 1, 2, 3, 4, 8, 9, 10, 11 (Xâ = â11â) | 1, 2, 3, 4, 8, 9, 10, 1â¦ (Xâ cut after first digit) | Visible digits match; full value consistent with 11 |
-| **Top row 2** | 1, 3, 5, 6, 16, 7, 5, 3 (all centered) | 1, 3, 5, 6, 16, 7, 5, 3 (fully visible for Xâ) | Match cell-by-cell |
-| **Top row 3** | 2, 4, 6, 8, 16, 18, 20, 22 | 2, 4, 6, 8, 16, 18, 20, 2â¦ (Xâ cut after first digit) | Visible digits match; full value consistent with 22 |
-| **Row separator** | Thin horizontal rule between the two tables | Same horizontal rule visible | Match |
-| **Bottom table â headers** | Xâ Xâ Xâ X Xâ Xâ Xâ (subscripts intact) | Xâ Xâ Xâ X Xâ Xâ Xâ¦ (Xâ partially cut) | Match |
-| **Bottom row 1** | 1, 2, 3, 4, 8, 9, 10, **30** (Xâ cell filled yellow FDFD96) | 1, 2, 3, 4, 8, 9, 10, 3â¦ with yellow highlight behind Xâ | Visible digits and highlight placement match |
+### Cell-by-cell verification
 
-**Glyph / digit check**
-- All numerals in the visible areas are legible and identical in value between IMG1 and IMG2 (no swapped, missing, or garbled digits).
-- Subscripts on the X-variables are rendered as true subscripts in both; none are truncated in the recreation beyond the originalâs own crop boundary.
-- Color coding of columns (odd = blue, even = red) is preserved identically.
-- The 16 / 18 / 20 / 22 values in the lower rows match exactly; there is no transposition (e.g. no 61 vs 16).
+**Upper table header:** Xâ(blue) Xâ(red) Xâ(blue) Xâ(red) X(blue) Xâ(red) Xâ(blue) Xâ(red, clipped at right edge) â identical in both, including subscript placement and the alternating blue/red color scheme.
 
-**Structural / layout check**
-- Row and column alignment: the recreationâs table grid and the originalâs table grid are consistent; numbers sit vertically centered inside their cells in both images.
-- The Xâ yellow-highlight cell in the bottom table occupies the same relative position and encloses the same two-digit value.
+**Upper table, row 1:** 1 | 2 | 3 | 4 | 8 | 9 | 10 | 11(clipped) â identical in both.
 
-**Discrepancy list**
-- None detected in the visible content of this crop.
+**Upper table, row 2:** 1 | 3 | 5 | 6 | 16 | 7 | 5 | 3(clipped) â identical in both.
 
-**FINAL VERDICT: PASS**
+**Upper table, row 3:** 2 | 4 | 6 | 8 | 16 | 18 | 20 | 22(clipped) â identical in both.
+
+**Gray band / inter-table gap:** present in both, same relative thickness and light-gray fill; no table lines or rows missing.
+
+**Lower table header:** Xââ¦Xâ with the same colors and subscripts â matches.
+
+**Lower table, row 1:** 1 | 2 | 3 | 4 | 8 | 9 | 10 | yellow-highlighted cell â matches in value sequence, cell alignment, and vertical centering. The yellow fill occupies the same cell in both, and the digit ink in it is red in both.
+
+**Glyph/typography:** Numerals are bold serif in both; the X-subscripts are true lowered subscripts in both; gridlines are thin gray in both; the recreation is sharper, the original is softened by JPEG blur (exempt per rule (e)).
+
+### Discrepancies
+
+1. **MINOR â right-edge crop extent (crop-relative x â 590â640, bottom row; also x â 615â640 on rows 1â3).** IMG1 renders the highlighted cell's value fully as "30" (the "0" at/just past the right boundary), whereas IMG2 shows only "3" with the remainder outside the captured frame; likewise IMG1 shows slightly more of the clipped "11" (row 1) and "3" (row 2) in the Xâ column than IMG2. Consistent with a 1â2 px crop/registration offset and the different upscaling of the video frame, not with an altered table value; the visible leading glyphs and the yellow highlight agree. Confidence: high (artifact) / medium (that this is not a transcription difference).
+
+2. **MINOR â top-left dark-blue title-box fragment (crop-relative x 0â50, y 0â30).** The visible white glyph fragments differ slightly: IMG1 shows bottoms of italic letterforms, IMG2 shows a mostly horizontal white streak. This is inside the caption/title bar and is at the resolution/blur limit of the original; attributable to video softness. Confidence: low that any content is wrong.
+
+No wrong digits, swapped cell values, missing rows, garbled characters, truncated subscripts, mis-colored cells, or misaligned/under-spanning delimiters were found.
+
+### FINAL VERDICT: PASS

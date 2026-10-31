@@ -1,0 +1,50 @@
+House chrome is treated as intentional and is not raised.
+
+## Discrepancies
+
+**1. Missing âGlobal Maximaâ annotation in bottom-left 3D plot â BLOCKER â confidence: high**
+- Original bottom-left plot has four annotation labels: **âGlobal Maximaâ**, **âLocal Maximaâ**, **âLocal Minimaâ**, **âGlobal Minimaâ**.
+- Recreation bottom-left plot appears to have **âLocal Maximaâ**, **âLocal Minimaâ**, and **âGlobal Minimaâ**, but **âGlobal Maximaâ** is absent. The top-center label region is blank.
+- This is an omitted visible text element, not a styling difference.
+
+**2. Recreation adds thin red frames around each 3D plot â MAJOR â confidence: high**
+- Original plots sit directly on the slide/lecture frame without individual red rectangles.
+- Recreation places a separate dark-red rectangle around each of the four plot regions.
+- This is not part of the declared house chrome and changes the layout/visual structure.
+
+**3. Red annotation lines touch/cross the recreationâs inner plot-frame boundaries â MAJOR â confidence: medium-high**
+- In several plot boxes, the red annotation lines extend all the way to the inner frame edge and visually meet/overlap the red border.
+- Under the frame-containment rule, ink touching its enclosing inner frame is an overflow defect.
+- Examples: top-left plot, top-right plot, and especially the long red horizontal line in the bottom-left plot.
+
+**4. Red X marker collides with âLocal Minimaâ text in bottom-left plot â MAJOR â confidence: high**
+- Recreation makes the lower-left annotation read visually like **âLocal X Minimaâ** because the red X marker overlaps the text.
+- Original separates the label from the X marker; no collision.
+
+**5. Vertical placement/gaps of middle blue label boxes differ from original â MAJOR â confidence: medium**
+- The original vertical stack/spacing of **âConvex Function One Minimaâ**, **âGradient Descent Path to reach Minimaâ**, and **âNon-Convex Multiple Minimaâ** is not reproduced faithfully.
+- The recreation pushes **âGradient Descent Path to reach Minimaâ** and **âNon-Convex Multiple Minimaâ** lower, with larger/uneven gaps relative to the plots.
+
+**6. Top-right plot tick labels / axis scaling do not match original â MINOR â confidence: medium**
+- The original top-right plotâs visible tick labels differ from the recreation; the recreation appears to show extra/different tick values such as intermediate 50/-50 labels.
+
+**7. Blue label text color differs from original â MINOR â confidence: medium**
+- Original label text in the blue boxes reads as white/light text.
+- Recreation label text appears yellow against the blue boxes.
+
+**8. Extra ghost/artifact patch in bottom-right plot â MINOR/MISRA â confidence: medium**
+- The recreationâs lower-right plot has a small pale/blue artifact patch near the bottom-left inside the plot frame that is not present in the original.
+- It looks like an unintended visual seam or inserted artifact.
+
+**9. Surface rendering/colormap details differ in all four plots â MINOR â confidence: high**
+- The plots represent the same conceptual categories, but the surface shading, grid density, color mapping, and axis presentation are not visually identical to the original.
+
+## Visual-quality defects in the recreation
+
+- Ink touching inner plot-frame borders, especially red annotation lines.
+- âLocal X Minimaâ marker/text collision in bottom-left plot.
+- Extra red rectangles around plots create redundant double-borders.
+- Small unintended ghost/artifact patch in lower-right plot.
+- Non-faithful vertical distribution of central blue labels.
+
+FINAL VERDICT: **FAIL** â the recreation is not a faithful, usable recreation because of the omitted bottom-left âGlobal Maximaâ annotation and multiple major layout/containment deviations.

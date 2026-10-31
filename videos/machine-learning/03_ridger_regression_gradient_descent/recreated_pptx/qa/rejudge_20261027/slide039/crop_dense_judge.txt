@@ -1,22 +1,14 @@
-**Comparison of IMG1 (recreation) vs IMG2 (original, same region / same scale)**
+**Discrepancies found:** none material in the visible crop.
 
-Content inventory checked lineâbyâline:
-- Title line 1: "(GD) â Stochastic Gradientâ¦" â same wording, same red, enâdash present in both.
-- Title line 2: "Mini-Batch / Gradient Desâ¦" â same words, same twoâtone coloring, but see #1 and #4.
-- Blue horizontal rule under the title â present in both, same position/weight.
-- Body lines 1â4: "â¦SGD) is a variant of GD which computeâ¦", "â¦gle training example", "â¦weights using one training sample at a tiâ¦", "â¦weight vector after passing through ALLâ¦" â identical text, same order, same line breaks.
-- Green equation panel (bottom of crop): "W^(updated) = W^old â Î· Î´áµ¢ Xáµ¢" plus the red "Repâ¦" at right â numerator/denominator order, superscript (updated) and old, subscripts i on Î´ and X, all correct in both. No truncated subscripts, no wrong digits, no delimiter issues.
-- Box outline/fill, panel border color, and the red rightâhand fragment are present in both at matching positions.
-
-**Discrepancies**
-
-1. **Missing space in title** â "MiniâBatch**Gradient** Descent" in IMG1 vs "MiniâBatch **Gradient** Descent" in IMG2 (second title line, roughly x = 290â320, just left of the red "Gradient"). MINOR â typographic/spacing error, wording still legible and unambiguous. Confidence: high.
-2. **Equation update terms all black instead of colored ink** â in IMG2 the "â Î·" is red and "Î´áµ¢ Xáµ¢" is green; in IMG1 the whole right side of the equation is uniform black (bottom panel, x â 350â480). Handwritten-vs-typed is inherent per rule (c), and this is a small color difference only. MINOR. Confidence: high.
-3. **Title hue/size shift** â "MiniâBatch" in IMG1 is noticeably more violet/purple, while IMG2 is a more saturated navy/royal blue; IMG1's title glyphs are also a few percent larger/bolder than IMG2's (top ~0â90). MINOR. Confidence: medium.
-4. **Emphasis strokes dropped** â IMG2 shows short underline strokes beneath the two "W" symbols in the equation; these are absent in IMG1 (bottom panel, x â 75â110 and x â 245â285). These read as handâadded emphasis, so the loss is cosmetic at worst. MINOR. Confidence: medium.
-5. **Panel corner geometry** â the green equation box has a square/mitered topâleft corner in IMG1 vs a rounded corner in IMG2 (bottomâleft of crop, ~x = 40, y = 362â375). MINOR. Confidence: mediumâlow.
-6. **Equation sits ~8â10 px lower in the panel** in IMG1 relative to the box top than in IMG2 (bottom strip) â minor vertical offset within the enclosure; text remains well inside and not touching the border. MINOR. Confidence: medium.
-
-No wrong digits, swapped values, missing rows, garbled glyphs, broken sub/superscripts, or malformed delimiters were found; all four body lines and the equation structure match the original.
+- Title/body text glyphs match where legible, including visible fragments such as **â(SGD) is a variant of GD which computesâ**, the next line about **âusing one training sampleâ¦â**, and the **âpassing through ALLâ** fragment.
+- Formula matches in both images: **\(W^{(updated)}=W^{old}-\eta\,\delta_i X_i\)**.  
+  - Same structure/order.  
+  - Same superscript wording: `(updated)` / `old`.  
+  - Same Greek **Î·**.  
+  - Both **\(\delta\)** and **\(X\)** have the same visible subscript **\(i\)**.  
+  - No missing/extra characters, no truncated subscripts, no swapped symbols.
+- The red annotation **âRepeatâ** is present at the right/lower area in both.
+- No table region is present in this crop, so no cell-value issues apply.
+- Remaining visible differences are only inherent render/capture-quality effects: anti-aliasing, slight softness/halos, and stroke-edge fuzz in IMG2. Under the stated rules, these are not content discrepancies.
 
 **FINAL VERDICT: PASS**

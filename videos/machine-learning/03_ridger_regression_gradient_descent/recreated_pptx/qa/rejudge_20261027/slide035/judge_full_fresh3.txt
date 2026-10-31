@@ -1,0 +1,36 @@
+## Element-by-element comparison
+
+**House chrome (per ground rule (a) â not scored)**
+- Gray panel: recreation panel edges land at âx54â¦903 / y45â¦540 in 960-space; original âx59â¦899 / y44â¦540. Same region, same E9E9E7-type fill.
+- Left/right/bottom dark-red C00000 strokes present in both; **no top stroke** in the recreation, matching the original. Correct.
+- Slide-number badge: recreation circle center â(876,70) 960-space, pale-yellow FDFD96 fill, purple 6A5ACD ring, bold 333333 "35". Matches original badge position and content (minor ~5â8 px diameter difference in the original capture's ring weight only).
+
+**Text content (verbatim)**
+- Line 1: "Using Gradient Descent to train" â present in both, bold, dark red (âC00000).
+- Line 2: "Linear Regression Model" â present, bold, dark red.
+- Line 3: "(Problem Formulation)" â present, bold, pure blue (â0000FF), including parentheses.
+- No missing or extra text; line breaks identical (3 lines, same order).
+
+**Typography / alignment**
+- Font metrics: normalized widths are essentially equal (line 1 â670 px in both at 960-space; line 2 â528 vs â533; blue line â416 vs â426), so font face (Arial-bold-like) and point size match. Cap heights match (â34â35 px at 960-space).
+- Horizontal centering: all three lines are centered on the panel axis in both (block centers â478â479 960-space). No horizontal drift.
+- First line's vertical anchor relative to the panel top matches (cap-top â25.3 % vs â25.7 % of panel height).
+- **Vertical inter-line spacing:** the recreation is marginally tighter. Measured in 960Ã540 space, line 1âline 2 baseline delta â76â80 px vs â85 px in the original; the blue line's baseline sits â337 vs â352 (â13â15 px, â2.5 % of slide height) higher relative to the panel bottom. This is a small, non-destructive compression, not a reflow.
+
+**Non-text elements**
+- No equations, tables, charts, diagrams, or images in either frame â contentless in the same sense; no omissions.
+- Original's small red ">" at the right of "train" and the dark squiggle above it are capture/pointer/annotation artifacts, correctly omitted under ground rule (c).
+
+**Containment / quality (recreation)**
+- All text is fully inside the gray panel; nothing touches or crosses the left/right/bottom strokes. No clipping, no collisions, no overflow. All text is crisp and legible; bold weights and colors read correctly.
+
+## Discrepancy list
+1. **MINOR** â Inter-line vertical spacing slightly compressed: line 2 sits â8â10 px and the blue subtitle â13â15 px (960-space) higher than in the original. Confidence: medium (measured from downsampled frames; the deviation is ~1â3 % of slide height, sub-line-height in absolute terms).
+2. **MINOR / non-scoring** â Original's stray red ">" and dark pointer squiggle are absent; judged capture artifacts under ground rule (c), so not counted against fidelity. Confidence: medium-high.
+3. No BLOCKER defects (no missing equations, tables, charts, rows, or imagery). No MAJOR defects (no verbatim-text errors, no delimiter/table issues, no frame overflow, no color or font mismatches).
+
+## Visual-quality defects in the recreation
+- None functional: no text overflow, clipping, wrong wrapping, misalignment beyond the minor vertical-tightening noted, collisions, or illegibility.
+
+## FINAL VERDICT: PASS
+The recreation faithfully reproduces all renderable content (verbatim text, correct line breaks, colors, bold typography, centering, panel/chrome treatment); the only measurable deviation is a minor tightening of vertical line spacing, and all original-frame pointer artifacts are correctly omitted.

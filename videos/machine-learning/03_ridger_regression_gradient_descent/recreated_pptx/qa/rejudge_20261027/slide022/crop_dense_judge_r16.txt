@@ -1,0 +1,26 @@
+## Fidelity check â Slide 22, zoomed crop pair
+
+**Region under comparison:** the right-hand portion of the slide heading, containing two lines of bold red text on white:
+- Line 1 (top, cropped): `â¦se of High Dimensâ¦` (ends clipped at both left and right frame edges)
+- Line 2 (lower): `â¦-singular) Matrix` (left edge shows only a thin fragment of the preceding character)
+
+No tables, equations, badges, or chrome fall inside this crop, so the table/equation/delimiter checks are largely N/A here (the only delimiter present is the closing parenthesis, checked below).
+
+### Verified as matching
+- **Line 1 glyph-for-glyph:** `s e  o f  H i g h  D i m e n s` â identical letter sequence, identical partial clipping of the leading "s" at xâ0 and the trailing "s" at xâ620â640 in both images. Cap/ascender heights, the "i" dot, and the "g" descender shape all correspond.
+- **Line 2 glyph-for-glyph:** hyphen, `s i n g u l a r`, closing `)`, then `M a t r i x`. No wrong, missing, or garbled characters in either crop.
+- **Delimiter geometry:** the `)` (crop-relative xâ345â375, yâ288â360) is a full-height bold paren in both, with clear clearance from the "r" and "M" â it does not touch the enclosed text and spans the full cap height.
+- **Metrics/placement:** top-line baseline lands at yâ158â162 in both; bottom-line baseline at yâ345â350 in both; the inter-line gap (~120 px) is consistent. Left-edge fragments align. The recreation's type is set at the same effective scale (e.g., "H" begins at xâ180 in both; "Matrix" begins at xâ400 in both).
+- **Line separation/centering:** both lines are horizontal, evenly weighted, and share the same left alignment of their visible starts; no wrapping, overlap, or kerning collapses.
+- **Stroke weight:** recreation strokes read as the same bold weight as the original (any apparent thickening in IMG2 is its video blur, not weight gain).
+- **Background:** white in both; no stray marks, drop shadows, or panel fills in this region.
+
+### Discrepancies / notes
+1. **MINOR â red saturation of the heading text.** The recreation's red reads slightly brighter/more orange (roughly #E20000â#E60000) than the original crop's deeper crimson (roughly #CC0000â#D20000), most visible in the flat stems of "H", "D", "M" (e.g., top line xâ180â640; bottom line xâ400â635). Confidence: medium-low â part of this may be capture color shift rather than a true fill mismatch, but it is a visible small-color difference worth tightening.
+2. **MINOR (edge quality only, not content).** IMG1 glyph edges are clean vector anti-aliasing; IMG2 shows JPEG halos/soft edges and a faint reddish bleed around strokes. Per the founder-mandated rule, this is a capture artifact and not scored against the recreation.
+3. **Non-defect observation.** IMG2 contains a mouse-pointer arrow overlay at approximately crop-relative xâ395â425, yâ255â295, between the two text lines. This is a screen-capture overlay, not slide content; its absence from the recreation is correct.
+
+### Summary
+Text content, clipping, glyph shapes, delimiter geometry, baselines, line spacing, and scale all correspond correctly. The only genuine, and small, difference is a slight over-saturation of the heading red; nothing is wrong, missing, swapped, or garbled, and no content is compromised.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

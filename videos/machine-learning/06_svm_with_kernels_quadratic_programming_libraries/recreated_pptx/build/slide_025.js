@@ -8,7 +8,7 @@ const TITLE = "Quadratic Kernel Mapping and Kernel Trick";
 const W = 13.33, H = 7.5;
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
 const EQDIR = path.join(NS, "recreated_pptx/build/eq_025");
-const manifest = require(path.join(EQDIR, "manifest_rb4.json"));
+const manifest = require(path.join(EQDIR, "manifest_rb5.json"));
 
 // normalized spec coords [x0,y0,x1,y1] -> inches
 const X = v => v * 13.33, Y = v => v * 7.5;
@@ -78,7 +78,7 @@ rect([0.069, 0.420, 0.108, 0.480], "FDE2DE", "FDE2DE", 0.5, true); // pink, behi
 eq("e3", [0.069, 0.380, 0.458, 0.541]);
 eq("e4", [0.513, 0.374, 0.783, 0.520]);
 {
-  const m = manifest.e5, cx = 0.722 * 13.33, cy = (0.520 + 0.550) / 2 * 7.5;
+  const m = manifest.e5, cx = (0.644 + 0.732) / 2 * 13.33, cy = (0.520 + 0.550) / 2 * 7.5;
   s.addImage({ path: m.path, x: cx - m.w_in / 2, y: cy - m.h_in / 2, w: m.w_in, h: m.h_in });
 }
 

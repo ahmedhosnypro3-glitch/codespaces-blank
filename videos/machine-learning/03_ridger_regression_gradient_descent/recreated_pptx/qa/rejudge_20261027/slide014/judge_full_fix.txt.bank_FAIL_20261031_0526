@@ -1,0 +1,31 @@
+## Discrepancy List
+
+**1. Bottom equation row â spurious inserted text â MAJOR â confidence: HIGH**
+- Recreation (IMG1) bottom cyan row reads: **"Objective function J(W) â (W) = Â½[(Y â Å¶)áµ(Y â Å¶)+ Î»WáµW]"**
+- Original (IMG2) reads: **"Objective function J(W) = Â½[ (YâÅ¶)áµ(YâÅ¶) + Î» Wáµ W ]"**
+- The recreation inserts a stray **"â (W)"** between "J(W)" and "=". The original has no such text. This makes the headline objective equation non-verbatim and semantically garbled. All other portions of this row (the Â½, the square brackets, the transpose superscripts, the green Î»WáµW) match.
+
+**2. Vector entry text color â MINOR â confidence: MEDIUM**
+- In the recreation, the matrix entries (yâ, yâ, â®, yâ / Å·â, Å·â, â®, Å·â) and the "NÃ1" subscript are rendered in the same **dark red (âC00000)** as the delimiters. In the original, only the parentheses are red; the entries and the NÃ1 subscript are **black**.
+
+**3. Inline equation spacing compressed â MINOR â confidence: MEDIUM-HIGH**
+- Recreation: "J(W)=Loss(X,Y,W)+Î»R(W)", "= Â½[(Y â Å¶)áµ(Y â Å¶)+ Î»WáµW]" â spaces dropped around "=" and "+".
+- Original maintains spaced notation ("J(W) = Loss (X,Y,W) + Î» R(W)", "= Â½[ (YâÅ¶)áµ(YâÅ¶) + Î» Wáµ W ]"). Text is otherwise verbatim.
+
+**4. Ellipsis glyph â MINOR â confidence: LOW**
+- Recreation uses a vertical "â®"; the original's middle mark appears to be a small dot-string. Minor glyph substitution only; meaning and position identical.
+
+## Verified Matches (no action)
+- Title text, word colors (blue LOSS / "Function that" / blue MINIMIZES / dark-red Overfitting) â
+- Two vector boxes: borders, positions, widths, label text/colors, "Å¶=Y" and "âWâ" underlines â
+- Yellow banner rows 2â3, salmon "Defineâ¦" row, the Loss-Term / Regularization-Term side-by-side boxes, and the cyan row â all present, correctly ordered, correctly colored â
+- Row heights, inter-row gaps, and vertical centering of block text all track the original â
+- Bracket/delimiter geometry in the final equation: square brackets balanced, non-overlapping, correct span â
+- Slide-number badge "14" correct; house chrome (panel strokes with no top rule, per founder mandate) correct; mouse-cursor artifact in IMG2 correctly omitted â
+- No empty/missing equation regions â no BLOCKER-level omissions; professional 2D rendering of stacked vector notation per directive â
+
+## Visual-Quality Defects in the Recreation
+- No text overflow, clipping, collisions, or legibility problems observed. All content sits inside the gray panel and inside each sub-frame; brackets and parentheses are clean and correctly aligned.
+
+## FINAL VERDICT: **FAIL**
+The MAJOR defect (spurious "â (W)" inserted into the final objective equation) violates the verbatim/equation-fidelity requirement and would mislead a viewer; the remaining differences are minor. The recreation is close but not yet a faithful, usable reproduction until that equation is corrected.

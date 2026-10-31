@@ -1,0 +1,23 @@
+## Discrepancies: recreation vs original
+
+| # | Location | Original | Recreation | Severity | Confidence |
+|---|---|---|---|---|---|
+| 1 | First objective-function equation, LHS | `J(W)=...` | Appears as `V)=...`; the left-hand function symbol does not match | **MAJOR** | High |
+| 2 | Second objective-function equation, LHS | `J(W)=...` | Appears as `I(W)=...` rather than `J(W)` | **MAJOR** | High |
+| 3 | First bottom derivative label | `âJ(W)/âW` | Appears as `â(W)/âW`; `J` is missing from the numerator of the first partial-derivative label | **MAJOR** | High |
+| 4 | Vector/variable emphasis on `W` | Original underlines `W` throughout the objective-function and derivative equations | Recreation underlines only some `W` occurrences, mainly the final answer / pink-box callout | **MINOR** | High |
+| 5 | Pink callout `Get Best W` | `W` is the emphasized blue underlined vector symbol | Recreation renders the `W` in red/underlined emphasis | **MINOR** | Medium |
+| 6 | Top three-equation block, vertical rhythm | Tighter line spacing between the three objective-function lines | Recreation is visibly looser between the stacked/2D equation lines | **MAJOR** | Medium |
+| 7 | Top equation area styling | Original equation area is not a separated pale-yellow block in the same way | Recreation adds a pale-yellow filled/bordered block around the top equations | **MINOR** | Medium |
+| 8 | Title color of `function` | Original `function` appears dark/neutral rather than accent-red | Recreation renders `function` in accent red | **MINOR** | Medium |
+
+## Visual-quality defects in the recreation
+
+- The first and second objective equations have malformed left-hand labels, which makes the notation read as `V)` and `I(W)` instead of the original `J(W)` throughout.
+- The first bottom derivative label reads as a derivative of `(W)` rather than `J(W)`, breaking the intended mathematical notation.
+- Inconsistent `W` underlining/emphasis reduces fidelity of the vector-variable notation.
+- The pale-yellow outlined top-equation panel is an added visual region and differs from the original top expression area.
+- No frame-containment overflow was observed: the pink box, Remember box, lower equation box, and final green answer box remain inside the slide/house panel.
+- No chart/table/image omissions are applicable; the final green solution box is present, and its equation is not empty.
+
+Not counted per instructions: 2D stacked fractions versus inline fraction/derivative notation, absence of any mouse cursor, and the intentional house panel/red stroke/badge treatment.

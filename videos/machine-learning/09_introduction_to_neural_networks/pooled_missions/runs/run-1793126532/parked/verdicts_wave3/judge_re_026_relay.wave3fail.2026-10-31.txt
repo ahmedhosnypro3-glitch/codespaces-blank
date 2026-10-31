@@ -1,0 +1,48 @@
+[info] context header injected: VIEW: judge slide 026 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 554582
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_026_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_026.jpg ===
+[winner] images (round 1, attempt 1)
+## Element-by-element comparison (Image 1 = recreation, Image 2 = original)
+
+**House chrome (not judged per ground rule a):** outer red frame, yellow badge, title band â all present and clean.
+
+**Title / badge:** "Sigmoid vs Tanh" in dark red, bold, centered â matches. Badge numeral reads **26** â matches.
+
+**Equations (rows 1 and 2):**
+- Content is correct: `f(x)=Sigmoid(x)=1/(1+e^-x) â f'(x)=f(x)(1-f(x))` and `f(x)=tanh(x)=sinh x/cosh x â f'(x)=1-f(x)^2`; fractions are stacked (mandated professional 2D format, rule e â not a discrepancy).
+- **However, the value-box text is positioned ON TOP of the equation image in BOTH rows.** In row 1 the string "at x=0" is superimposed over "f(x)(1-f(x))" (reads as garbled "at f(x)(1-f(x))"); in row 2 "at x=0" is superimposed over "1-f(x)^2" (reads as "1 at f(x)^2"). This is a hard text-on-text collision making both formulas and both value statements partly illegible.
+- Value-box numbers themselves are correct (`f(0)=0.5 f'(0)=0.25`; `f(0)=0 f'(0)=1`).
+- Original renders the equations in red/bold accent ink; recreation renders them in plain dark ink (colour/emphasis difference).
+
+**Charts:**
+- Left chart: y ticks 1.00ââ1.00 in 0.25 steps, x ticks â4..4, legend top-left with red "Tanh" and blue "Sigmoid", tanh â1..1 and sigmoid 0..1 â matches. The original's dark zero-axis crosshair is not reproduced (grid only) â minor. The original's small black cursor glyph is correctly omitted (rule c).
+- Right chart: y ticks 1.0..0.0 in 0.2 steps, x ticks â4..4, legend top-right with green "Tanh Derivative" (peak 1.0) and purple "Sigmoid Derivative" (peak 0.25) â matches.
+- **The original's red "1.0" and red "0.25" peak-reference labels with their horizontal red guide lines (left side of the right chart) are completely absent from the recreation.**
+- The original's blue bounding frame around the whole chart region is absent in the recreation (decorative).
+
+**Footer:**
+- White box with red border present; both numbered lines are verbatim, including the missing terminal period on [2] â good.
+- Original emphasizes "0 to 1", "â1 to 1", "slower rate of change", "derivative of the", "smaller" with yellow highlight â recreation has no highlighting.
+- Recreation's footer text is markedly smaller than the original and line [2] is set on a single line instead of the original's two lines; the original's rounded cream panel behind the equation block is also absent.
+
+## Discrepancy list
+
+| # | Discrepancy | Severity | Confidence |
+|---|---|---|---|
+| 1 | Value-box text ("at x=0 â¦") overlaps/collides with the equation formulas in BOTH rows; formulas and values are partly illegible | MAJOR | High |
+| 2 | Red "1.0" and "0.25" reference labels + horizontal red guide lines in the right chart are entirely missing | BLOCKER (per rule 6 â element absent entirely) | High |
+| 3 | Footer body text substantially smaller than original; line [2] wraps to one line instead of two (line-break/text-metric deviation) | MINOR | High |
+| 4 | Yellow emphasis highlights in footer ("0 to 1", "â1 to 1", "slower rate of change", "derivative of the", "smaller") omitted | MINOR | High |
+| 5 | Equations rendered in plain dark ink instead of the original's red/bold accent styling | MINOR | High |
+| 6 | Original's rounded cream equation panel and blue chart-region border not reproduced | MINOR | Medium-high |
+| 7 | Original left chart's dark zero-axis crosshair (horizontal y=0, vertical x=0) not reproduced | MINOR | Medium |
+
+## Visual-quality defects in the recreation
+- Text collision in both equation rows (worst defect) â illegible glyph stacking.
+- Footer typography compressed relative to original; [2] over-long single line.
+- Overall value-box alignment: the cream boxes are shifted left so they overlap the formulas; they should sit in a clear column to the right of the formula region, as in the original.
+
+## FINAL VERDICT: FAIL
+

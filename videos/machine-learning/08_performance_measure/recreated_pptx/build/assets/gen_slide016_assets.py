@@ -46,7 +46,7 @@ def ink_box(png):
 
 
 EQS = [
-    ("f1", r"\frac{1}{\mathrm{F1\ Score}} = \frac{1}{2} \times \left( \frac{1}{\mathrm{Precision}} + \frac{1}{\mathrm{Recall}} \right)", 21, DARK_RED),
+    ("f1", r"\frac{1}{\mathrm{F1\ Score}} = \frac{1}{2} \left( \frac{1}{\mathrm{Precision}} + \frac{1}{\mathrm{Recall}} \right)", 30, DARK_RED),
     ("prec", r"\frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FP}}", 17, DARK_RED),
     ("rec", r"\frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}", 17, DARK_RED),
 ]

@@ -12,7 +12,7 @@ const pptx = new pptxgenpkg();
 pptx.layout = "LAYOUT_WIDE";
 
 const BG = "E8E8E8", RED = "C00000", DRED = "8B0000", INK = "000000", BADGE = "FFF9C4", NUM = "333333";
-const HDR_FILL = "FDE1CB", GREEN = "ACFC7D", TP_FILL = "D3FA94", EQ_FILL = "F9FBDF";
+const GREEN = "90EE90", EQ_FILL = "FFF2CC";
 const CAP_TXT = "963C48", CAP_BRD = "5D5795";
 const FONT = "Arial";
 const PX = 1 / 72;                       // px -> inches
@@ -81,13 +81,14 @@ function panel(cx, ry, thr) {
     x: rel(bx), y: rel(by), w: rel(bw), h: rel(bh),
     fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
   });
-  // header strip
+  // header tag: small white red-bordered box at the panel's top-left
+  const hw = 92, hh = 17;
   s.addShape(pptx.shapes.RECTANGLE, {
-    x: rel(bx + HDR[0]), y: rel(by + HDR[1]), w: rel(bw - 2 * HDR[0]), h: rel(HDR[2]),
-    fill: { color: HDR_FILL }, line: { color: HDR_FILL, width: 0 },
+    x: rel(bx + HDR[0]), y: rel(by + HDR[1]), w: rel(hw), h: rel(hh),
+    fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
   });
-  txt(rel(bx + HDR[0]), rel(by + HDR[1]), rel(bw - 2 * HDR[0]), rel(HDR[2]),
-    "Threshold=" + thr, 16, DRED, { bold: true });
+  txt(rel(bx + HDR[0]), rel(by + HDR[1]), rel(hw), rel(hh),
+    "Threshold=" + thr, 10, DRED, { bold: true });
 
   // "Predicted as" caption over the P/N columns
   txt(rel(bx + GRID[0]), rel(by + 36), rel(GRID[2]), rel(12), "Predicted as", 9, INK);
@@ -174,44 +175,45 @@ s.addShape(pptx.shapes.RECTANGLE, {
   fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
 });
 const dtpr = MAN.eq_def_tpr, dfpr = MAN.eq_def_fpr;
-s.addImage({ path: dtpr.path, x: rel(648), y: rel(416), w: dtpr.w_in, h: dtpr.h_in });
-s.addImage({ path: dfpr.path, x: rel(795), y: rel(427), w: dfpr.w_in, h: dfpr.h_in });
+// TPR stacked above FPR at the left of the legend (original arrangement)
+s.addImage({ path: dtpr.path, x: rel(648), y: rel(418), w: dtpr.w_in, h: dtpr.h_in });
+s.addImage({ path: dfpr.path, x: rel(648), y: rel(446), w: dfpr.w_in, h: dfpr.h_in });
 
-// legend: left label block (x 650..749) + 2x2 cell grid (x 771..886, y 455..503)
-const lgx = 650, lgy = 455;
-// left block: "Predicted as" header + P/N row labels
+// legend: single 3x3 table at right (x 762..886, y 455..503), rotated "Actual" at left
+const lgx = 762, lgy = 455, lgw = 124, lgh = 48;
+const lcols = [42, 41, 41], lrows = [16, 16, 16];
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: rel(lgx), y: rel(lgy), w: rel(99), h: rel(48),
+  x: rel(lgx), y: rel(lgy), w: rel(lgw), h: rel(lgh),
   fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
 });
-hline(rel(lgx), rel(lgy + 10), rel(99));
-txt(rel(lgx + 4), rel(lgy + 1), rel(91), rel(9), "Predicted as", 7, INK, { align: "left" });
-txt(rel(lgx + 20), rel(lgy + 22), rel(40), rel(14), "P", 9, INK);
-txt(rel(lgx + 20), rel(lgy + 34), rel(40), rel(14), "N", 9, INK);
-// 2x2 grid: cols [771..844, 844..886], rows [455..477, 477..503]
-const gx2 = 771, gy2 = 455, gw2 = 115, gh2 = 48;
+const lc1 = lgx + lcols[0], lc2 = lgx + lcols[0] + lcols[1];
+const lr1 = lgy + lrows[0], lr2 = lgy + lrows[0] + lrows[1];
+vline(rel(lc1), rel(lgy), rel(lgh));
+vline(rel(lc2), rel(lgy), rel(lgh));
+hline(rel(lgx), rel(lr1), rel(lgw));
+hline(rel(lgx), rel(lr2), rel(lgw));
+// TP (top-left of values) and TN (bottom-right) green, as in the original
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: rel(gx2), y: rel(gy2), w: rel(gw2), h: rel(gh2),
-  fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
-});
-vline(rel(gx2 + 73), rel(gy2), rel(gh2));
-hline(rel(gx2), rel(gy2 + 22), rel(gw2));
-// TP (top-left) and TN (bottom-right) green
-s.addShape(pptx.shapes.RECTANGLE, {
-  x: rel(gx2), y: rel(gy2), w: rel(73), h: rel(22),
-  fill: { color: TP_FILL }, line: { color: DRED, width: 1 },
-});
-s.addShape(pptx.shapes.RECTANGLE, {
-  x: rel(gx2 + 73), y: rel(gy2 + 22), w: rel(42), h: rel(26),
+  x: rel(lc1), y: rel(lr1), w: rel(lcols[1]), h: rel(lrows[1]),
   fill: { color: GREEN }, line: { color: DRED, width: 1 },
 });
-const gcell = (cx, cy, str) => {
-  txt(rel(cx - 16), rel(cy - 8), rel(32), rel(16), str, 10, INK);
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: rel(lc2), y: rel(lr2), w: rel(lcols[2]), h: rel(lrows[2]),
+  fill: { color: GREEN }, line: { color: DRED, width: 1 },
+});
+const lccx = [lgx + lcols[0] / 2, lgx + lcols[0] + lcols[1] / 2, lgx + lcols[0] + lcols[1] + lcols[2] / 2];
+const lccy = [lgy + lrows[0] / 2, lgy + lrows[0] + lrows[1] / 2, lgy + lrows[0] + lrows[1] + lrows[2] / 2];
+const lcell = (col, row, str, size) => {
+  txt(rel(lccx[col] - lcols[col] / 2), rel(lccy[row] - 8), rel(lcols[col]), rel(16), str, size || 8, INK);
 };
-gcell(gx2 + 36, gy2 + 11, "TP");   // green
-gcell(gx2 + 73 + 21, gy2 + 11, "FN");
-gcell(gx2 + 36, gy2 + 22 + 13, "FP");
-gcell(gx2 + 73 + 21, gy2 + 22 + 13, "TN");  // green
+lcell(0, 0, "Predicted as", 6); lcell(1, 0, "P"); lcell(2, 0, "N");
+lcell(0, 1, "P"); lcell(1, 1, "TP"); lcell(2, 1, "FN");
+lcell(0, 2, "N"); lcell(1, 2, "FP"); lcell(2, 2, "TN");
+s.addText("Actual", {
+  x: rel(lgx - 26), y: rel(lgy + lgh / 2 - 8), w: rel(44), h: rel(16),
+  rotate: 270, align: "center", valign: "middle", fontSize: 8, color: INK,
+  fontFace: FONT, margin: 0,
+});
 
 const outPath = NS + "/recreated_pptx/slide_034_recreated.pptx";
 pptx.writeFile({ fileName: outPath }).then(() => console.log("done: " + outPath));

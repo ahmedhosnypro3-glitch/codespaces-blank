@@ -1,0 +1,37 @@
+# Slide 49 Recreation â Fidelity Check
+
+## Ground-rule acknowledgments (not counted as defects)
+- House chrome (gray E9E9E7 panel, C00000 left/right/bottom strokes, FDFD96 badge "49" at 876,73) is intentional per founder mandate. The badge numeral matches the file number.
+- The mouse-cursor artifact visible over row 1 of the original (IMG2, right table) is a video-capture artifact and is correctly omitted.
+- Stacked 2D vector notation in the recreation is consistent with the original's stacked vectors; no linear-vs-2D conflict here.
+
+## Verified matches (content inventory complete)
+- Top-left matrix: header xââxâ and rows (1 2 1 5 6 6) / (1 1 2 4 5 6) â verbatim, correct column order.
+- Legend row: Câ Câ Câ Câ Câ Câ with correct red/blue color assignment; "Câ positive, Câ negative, Zero is unaccepted" (Zero in green) â verbatim.
+- Initial W column (4, â2, â2); "REPEAT using Step Î· = 1" (red italic) â present.
+- Left panel: "Augmented Vectors (from Top)", 4-row matrix (1,1,1,1,1,1)/(1,1,1,1,1,1)/(1,2,1,5,6,6)/(1,1,2,4,5,6), Câ/Câ legend â verbatim.
+- "Iteration 2" red box; "No change in W" â present.
+- Right table: all 6 rows present (no missing rows, no empty equation regions), d(xâ)â¦d(xâ), vectors (1 1 1)/(1 2 1)/(1 1 2)/(1 5 4)/(1 6 5)/(1 6 6), results â3/2/2/â4/â6/â7, "â Keep same Weight" on every row, final W (5,â1,â1) on every row. Values, signs, and ordering match. **No BLOCKER-class omissions.**
+- Result values and "â" text are vertically centered on the middle line of the 3-line W columns; "W =" labels align; legends, colors (red/blue/green), and badge all approximate correctly.
+
+## Discrepancies
+
+**1. MAJOR â Delimiter shape style: straight bars vs. original round parentheses.** The original draws all column vectors with rounded parentheses â "Initial W = (4/â2/â2)", the x-vectors "(1 1 1)", "(1 2 1)", etc., the dot-product W column "(5/â1/â1)", and the final "W = (5/â1/â1)". The recreation renders these with straight vertical bar delimiters ("|1 2 1|", "|5| |â1| |â1|") or bare cells. This violates founder rule 7(iii) "match the original's curvature/shape style." (The bars do span the full 3-line height and don't overlap the text, so 7(i)/7(ii) are satisfied â only the shape style is wrong.) *Confidence: medium-high.*
+
+**2. MAJOR â Missing space: "StopIterations".** The original reads "Stop Iterations" (italic "Stop", regular "Iterations", with an inter-word gap). The recreation concatenates them with ~0 px gap, reading "StopIterations" â a visible text/gap deviation from verbatim text (founder: gap deviations are MAJOR even when text is otherwise verbatim). *Confidence: high.*
+
+**3. MAJOR (medium confidence) â Possible missing delimiters around the class-check columns.** The original appears to show the three Z-columns as parenthesized two-line pairs â (0/0), (7/6), (3/2). The recreation shows bare stacked numbers "0 7 3 / 0 6 2" with no delimiters. If confirmed, this is an omitted visual element (missing-element class). *Confidence: medium (low source resolution).*
+
+**4. MINOR â Original slide's outer round-rect border and light panel fill not reproduced.** The recreation substitutes the mandated house panel chrome. Related: the original's alternating row-band shading in the right table is not reproduced, and the right table gains its own outer border that the original didn't have. Acceptable as template substitution, noted for completeness. *Confidence: high (styling only).*
+
+**5. MINOR â "Iteration 2" box wider than the original's**; right-table row leading appears slightly tighter than the original's generous row height. *Confidence: medium.*
+
+## Low-confidence verification items (not scored)
+- Row 1 result: recreation "â3"; original's leading digit is ambiguous at this resolution but appears consistent (â3). Verify.
+- Class-column labels: recreation "Zâ Zâ Zâ"; the original's three labels may read "Zâ Zâ Zâ". Verify against a higher-res source.
+
+## Visual-quality notes on the recreation
+- No text overflow, clipping, collisions, or illegibility. All content sits inside the house panel; the bottom row of the right table is tight against its border but contained. Font swap (original serif/mono â recreation sans) is the only global typography difference.
+
+## FINAL VERDICT: **FAIL**
+Content is complete and substantively faithful (no BLOCKERs), but two confirmed MAJOR defects â the parenthesesâbars delimiter-style substitution (#1) and the dropped space in "Stop Iterations" (#2) â plus a likely missing-delimiter issue (#3), fail the founder's strict fidelity standard. All are quick fixes: swap bar delimiters back to rounded parentheses, restore the space, and re-verify the Z-labels and row-1 sign.

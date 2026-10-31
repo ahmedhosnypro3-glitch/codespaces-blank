@@ -1,0 +1,127 @@
+{
+  "slide": "slide_037",
+  "source_frame": "slide_037.jpg",
+  "source_md5": "d660335f6421502a36d1255b1f2d6078",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 2,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_037.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_037.parse.md",
+      "json": "full/slide_037.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The child added AUC prose and a chart whose extracted labels and table rows are sparse and garbled, so a tighter crop could recover the chart detail.",
+    "decision_source": "chat",
+    "children": [
+      "slide_037.crop01__chart"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_037.crop01__chart",
+      "level": 1,
+      "class": "Chart",
+      "box_frame_px": [
+        259.7,
+        216.9,
+        373.2,
+        295.7
+      ],
+      "estimated": false,
+      "png": "crops/slide_037.crop01__chart.png",
+      "mean_rgb": 223.67,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_037.crop01__chart.parse.md",
+        "json": "crops/slide_037.crop01__chart.parse.json"
+      },
+      "scale": 2.0,
+      "size_px": [
+        806,
+        640
+      ],
+      "margin_applied": [
+        15,
+        12
+      ],
+      "stop_reason": "too-small",
+      "stop_note": "every candidate is frame-covering or below the 40 px floor",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          245.0,
+          205.0
+        ],
+        "scale": 2.0,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 1,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 7
+  }
+}

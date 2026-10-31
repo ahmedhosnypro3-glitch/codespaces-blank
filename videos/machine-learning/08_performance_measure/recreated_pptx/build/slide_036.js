@@ -63,7 +63,7 @@ line(635, 43, 635, 517, DRED, 1);
 // --- confusion matrix panel (geometry measured from the original) ---
 // panel(dx, dy, label, cells, tpr, fpr); header box, "Predicted as", 2x2 grid, formulas
 function panel(dx, dy, label, cells, tpr, fpr) {
-  rect(68 + dx, dy + 10, 104, 23, CREAM, DRED, 1);
+  rect(68 + dx, dy + 10, 104, 23, "FFFFFF", DRED, 1);
   text(68 + dx, dy + 10, 104, 23, label, 12, DRED, true, { align: "center", valign: "middle" });
   text(117 + dx, dy + 37, 99, 12, "Predicted as", 12, DRED, false, { align: "center", valign: "middle" });
   const mx0 = 80 + dx, mx1 = 216 + dx, my0 = dy + 49, my1 = dy + 114;
@@ -86,7 +86,8 @@ function panel(dx, dy, label, cells, tpr, fpr) {
   text(mx0, rows[1], cols[1] - mx0, rows[2] - rows[1], "P", 13, INK, true, { align: "center", valign: "middle" });
   text(mx0, rows[2], cols[1] - mx0, my1 - rows[2], "N", 13, INK, true, { align: "center", valign: "middle" });
   // "Actual" rotated left of the grid (wide enough to stay on one line)
-  text(mx0 - 30, rows[1] - 4, 26, my1 - rows[1] + 8, "Actual", 11, DRED, false,
+  const acx = mx0 - 17, acy = (rows[1] + my1) / 2;
+  text(acx - 35, acy - 9, 70, 18, "Actual", 11, DRED, false,
     { align: "center", valign: "middle", rotate: 270 });
   // data cells (black numbers in the original)
   const cw1 = cols[2] - cols[1], cw2 = mx1 - cols[2];
@@ -105,7 +106,7 @@ panel(0, 163, "Threshold=0.1", ["5", "0", "4", "2"], "TPR=5/(5+0)=1", "FPR=4/(4+
 panel(0, 287, "Threshold=0.3", ["5", "0", "2", "4"], "TPR=5/(5+0)=1", "FPR=2/(2+4)=0.33");
 panel(0, 401, "Threshold=0.4", ["4", "1", "1", "5"], "TPR=4/(4+1)=4/5", "FPR=1/(1+5)=0.16");
 // right column: thresholds 0.6, 0.7, 1
-panel(345, 43, "Threshold=0.6", ["3", "2", "1", "5"], "TPR=3/(3+1)=0.6", "FPR=1/(1+5)=0.16");
+panel(345, 43, "Threshold=0.6", ["3", "1", "1", "5"], "TPR=3/(3+1)=0.6", "FPR=1/(1+5)=0.16");
 panel(345, 163, "Threshold=0.7", ["3", "2", "0", "6"], "TPR=3/(3+2)=0.6", "FPR=0/(0+6)=0");
 panel(345, 287, "Threshold=1", ["0", "5", "0", "6"], "TPR=0/(0+5)=0", "FPR=0/(0+6)=0");
 
@@ -120,12 +121,14 @@ s.addImage({
   path: ASSETS + "/roc_036.png",
   x: P(636), y: P(43), w: 2208 / 600, h: 3016 / 600,
 });
+// threshold label '1.0' for the origin point sits below the plot box in the original (frame glyphs x[655,672] y[431,439])
+text(648, 428, 30, 14, "1.0", 10, INK, false, { align: "center", valign: "middle" });
 
 // --- bottom strip: stacked-fraction definition boxes ---
 // eq PNGs: 594x136 and 592x136 px at 600 dpi
-rect(583, 398, 126, 36, "FFFFFF", DRED, 1);
+rect(583, 398, 126, 36, "FFFFCC", DRED, 1);
 s.addImage({ path: ASSETS + "/eq_036_tpr.png", x: P(586), y: P(404), w: 594 / 600, h: 136 / 600 });
-rect(583, 458, 126, 36, "FFFFFF", DRED, 1);
+rect(583, 458, 126, 36, "FFFFCC", DRED, 1);
 s.addImage({ path: ASSETS + "/eq_036_fpr.png", x: P(586), y: P(464), w: 592 / 600, h: 136 / 600 });
 
 // --- legend matrix bottom-right: x[710,850] y[395,495] ---
@@ -146,7 +149,8 @@ rect(lc[0], lr[2], lc[1] - lc[0], ly1 - lr[2], PINK, INK, 1);
 text(lc[0], lr[1], lc[1] - lc[0], lr[2] - lr[1], "P", 11, INK, true, { align: "center", valign: "middle" });
 text(lc[0], lr[2], lc[1] - lc[0], ly1 - lr[2], "N", 11, INK, true, { align: "center", valign: "middle" });
 // "Actual" rotated left of legend
-text(692, lr[1] - 4, 22, ly1 - lr[1] + 8, "Actual", 10, DRED, false, { align: "center", valign: "middle", rotate: 270 });
+const lacx = 692 + 11, lacy = (lr[1] + ly1) / 2;
+text(lacx - 30, lacy - 8, 60, 16, "Actual", 10, DRED, false, { align: "center", valign: "middle", rotate: 270 });
 // cells: TP green, TN green, FN red, FP red (per original highlights)
 rect(lc[1], lr[1], lc[2] - lc[1], lr[2] - lr[1], GREEN, INK, 1);
 rect(lc[2], lr[2], lx1 - lc[2], ly1 - lr[2], GREEN, INK, 1);

@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""Composite probe for assets_k17m (build/assets_k17m) onto 960x540 vs
+unique_slides/slide_025.jpg. Writes pil_k17m_out.txt next to this script.
+CHECK1 BR band diff% | CHECK2 4 BL label anchors | CHECK3 TR red segment |
+winding | markers | ztick ink | grid ink | BR colored% | jet hist | diag.
+"""
+import os
+import numpy as np
+from PIL import Image
+from scipy import ndimage
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+NS = "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent"
+RJ = NS + "/recreated_pptx/qa/rejudge_20261027/slide025"
+A = NS + "/recreated_pptx/build/assets_k17m"
+OUT_TXT = os.path.join(RJ, "pil_k17m_out.txt")
+
+orig = np.array(Image.open(NS + "/unique_slides/slide_025.jpg").convert("RGB")).astype(np.int32)
+
+PLOTS = {
+    "tl": dict(x0=85,  y0=115, w=180, h=173),
+    "tr": dict(x0=616, y0=115, w=263, h=202),
+    "bl": dict(x0=83,  y0=290, w=293, h=237),
+    "br": dict(x0=615, y0=344, w=265, h=187),
+}
+PANEL = np.array([233, 233, 231], np.int32)
+
+canvas = np.full((540, 960, 3), 255, np.int32)
+canvas[45:540, 54:904] = PANEL
+for name, s in PLOTS.items():
+    im = Image.open(os.path.join(A, "plot_025_%s.png" % name)).convert("RGB")
+    im = im.resize((s["w"], s["h"]), Image.BILINEAR)
+    canvas[s["y0"]:s["y0"] + s["h"], s["x0"]:s["x0"] + s["w"]] = np.array(im).astype(np.int32)
+ren = canvas
+
+lines = []
+def P(s=""):
+    print(s)
+    lines.append(s)
+
+def redmask(a):
+    return (a[:, :, 0] > 140) & (a[:, :, 0] - a[:, :, 1] > 60) & (a[:, :, 0] - a[:, :, 2] > 60)
+
+def darkmask(a):
+    lum = 0.299 * a[:, :, 0] + 0.587 * a[:, :, 1] + 0.114 * a[:, :, 2]
+    return (lum < 100) & ((a.max(2) - a.min(2)) < 80)
+
+def colmask(a, border=0):
+    mx, mn = a.max(2), a.min(2)
+    red = (a[:, :, 0] > 170) & (a[:, :, 1] < 90) & (a[:, :, 2] < 90)
+    m = ((mx - mn) > 60) & (mx > 90) & ~red
+    if border > 0:
+        m[:border, :] = False; m[-border:, :] = False
+        m[:, :border] = False; m[:, -border:] = False
+    return m
+
+JET = plt.get_cmap("jet")
+LUT = (JET(np.linspace(0, 1, 256))[:, :3] * 255.0)
+_SQ = (LUT ** 2).sum(1)
+def jet_t(px):
+    p = px.astype(np.float64)
+    d = _SQ[None, :] - 2.0 * (p @ LUT.T) + (p * p).sum(1)[:, None]
+    return d.argmin(1) / 255.0
+
+# ── CHECK1: BR bottom band diff % ──
+bx0, by0, bx1, by1 = 672, 472, 816, 517
+ob = orig[by0:by1, bx0:bx1]
+rb = ren[by0:by1, bx0:bx1]
+band = 100.0 * (np.abs(ob - rb).sum(2) > 60).mean()
+ob_col = 100.0 * ((ob.max(2) - ob.min(2)) > 60).mean()
+rb_col = 100.0 * ((rb.max(2) - rb.min(2)) > 60).mean()
+P("CHECK1 BR band x672..816 y472..517 diff%% = %.2f (need <50) | orig colored%%=%.1f ren colored%%=%.1f"
+  % (band, ob_col, rb_col))
+
+# ── CHECK2: 4 BL label anchors ──
+ANCHORS = [
+    ("top   Global Minima", 236, 302, 278, 322),
+    ("r-mid Local Minima ", 325, 388, 350, 401),
+    ("low-L Local Minima ", 138, 438, 205, 470),
+    ("low-R Global Minima", 300, 448, 346, 470),
+]
+P("CHECK2 BL label anchors (dark-ink px, orig vs k17m):")
+for name, x0, y0, x1, y1 in ANCHORS:
+    do = int(darkmask(orig[y0:y1 + 1, x0:x1 + 1]).sum())
+    dr = int(darkmask(ren[y0:y1 + 1, x0:x1 + 1]).sum())
+    P("  %s box x%d..%d y%d..%d : orig=%d ren=%d" % (name, x0, x1, y0, y1, do, dr))
+
+# ── CHECK3: TR red segment (652,189)->(667,165) ──
+def seg_red_hit(a):
+    x0, y0, x1, y1 = 652, 189, 667, 165
+    n = 60
+    hits = 0
+    for i in range(n + 1):
+        t = i / n
+        cx, cy = x0 + (x1 - x0) * t, y0 + (y1 - y0) * t
+        xi, yi = int(round(cx)), int(round(cy))
+        win = a[max(0, yi - 2):yi + 3, max(0, xi - 2):xi + 3]
+        if redmask(win).any():
+            hits += 1
+    return 100.0 * hits / (n + 1)
+P("CHECK3 TR segment (652,189)->(667,165) red-hit%%: orig=%.1f k17m=%.1f"
+  % (seg_red_hit(orig), seg_red_hit(ren)))
+
+# ── winding of the GD path inside the BR box ──
+bl = ren[344:344 + 187, 615:615 + 265]
+lum = 0.299 * bl[:, :, 0] + 0.587 * bl[:, :, 1] + 0.114 * bl[:, :, 2]
+sat = bl.max(2) - bl.min(2)
+dm = (lum < 100) & (sat < 80)
+dm[:8, :] = False; dm[-8:, :] = False; dm[:, :8] = False; dm[:, -8:] = False
+lab, n = ndimage.label(dm, structure=np.ones((3, 3)))
+best = None
+for i in range(1, n + 1):
+    ys, xs = np.nonzero(lab == i)
+    if len(xs) < 15:
+        continue
+    if best is None or len(xs) > best[0]:
+        best = (len(xs), xs, ys)
+if best is None:
+    P("winding = None")
+else:
+    _, xs, ys = best
+    order = np.argsort(xs)
+    px, py = xs[order], ys[order]
+    seg = float(np.hypot(np.diff(px), np.diff(py)).sum())
+    straight = float(np.hypot(px[-1] - px[0], py[-1] - py[0]))
+    P("winding (BR GD path seg/straight) = %.2f (target ~6.0), path px=%d" % (seg / max(straight, 1.0), len(px)))
+
+# ── markers at (199,445) and (270,482) ──
+P("markers red-px in 11x11 window (orig vs k17m):")
+for (mx, my) in ((199, 445), (270, 482)):
+    ro = int(redmask(orig[my - 5:my + 6, mx - 5:mx + 6]).sum())
+    rr = int(redmask(ren[my - 5:my + 6, mx - 5:mx + 6]).sum())
+    P("  (%d,%d): orig=%d k17m=%d" % (mx, my, ro, rr))
+
+# ── ztick ink: dark ink in the z-axis vline region slide x729..740 y344..531 ──
+zo = int(darkmask(orig[344:531, 729:741]).sum())
+zr = int(darkmask(ren[344:531, 729:741]).sum())
+P("ztick ink dark px x729..740 y344..531: orig=%d k17m=%d" % (zo, zr))
+
+# ── grid ink: light-gray low-sat px inside BR box (grid walls), orig vs ren ──
+def gridink(a):
+    l = 0.299 * a[:, :, 0] + 0.587 * a[:, :, 1] + 0.114 * a[:, :, 2]
+    s = a.max(2) - a.min(2)
+    m = (l > 170) & (l < 245) & (s < 25)
+    m[:8, :] = False; m[-8:, :] = False; m[:, :8] = False; m[:, -8:] = False
+    return int(m.sum())
+P("grid ink low-sat gray px in BR box (border 8): orig=%d k17m=%d"
+  % (gridink(orig[344:531, 615:880]), gridink(ren[344:531, 615:880])))
+
+# ── BR colored% + jet hist + diag (GT protocol: border 8 excluded) ──
+def br_stats(a):
+    box = a[344:531, 615:880]
+    m = colmask(box, border=8)
+    ys, xs = np.nonzero(m)
+    t = jet_t(box[ys, xs])
+    hist = np.bincount(np.minimum((t * 16).astype(int), 15), minlength=16)
+    x0, y0 = xs.min(), ys.min()
+    dg = np.abs((xs - x0) - (ys - y0)) <= 2
+    return 100.0 * m.mean(), hist, float(t[dg].mean()), float(t[dg].std()), \
+        (615 + xs.min(), 615 + xs.max(), 344 + ys.min(), 344 + ys.max())
+co, ho, do_, so, bo = br_stats(orig)
+cr, hr, dr_, sr, br_ = br_stats(ren)
+P("BR colored%% (border 8): orig=%.1f k17m=%.1f" % (co, cr))
+P("BR jet hist/16 orig: %s" % ho.tolist())
+P("BR jet hist/16 k17m: %s" % hr.tolist())
+P("BR diag jet-t: orig mean=%.3f std=%.3f | k17m mean=%.3f std=%.3f" % (do_, so, dr_, sr))
+P("BR surf bbox slide px: orig x%d..%d y%d..%d | k17m x%d..%d y%d..%d" % (bo + br_))
+
+# ── BR bottom-band row taper rows 472..528 colored%% (orig vs k17m) ──
+def rowprof(a):
+    m = colmask(a[344:531, 615:880], border=0)
+    return 100.0 * m.mean(1)
+po, pr = rowprof(orig), rowprof(ren)
+P("BR rows y472..528 colored%% taper (orig | k17m), every 4 rows:")
+P("  " + " ".join("%.0f|%.0f" % (po[i], pr[i]) for i in range(472 - 344, 529 - 344, 4)))
+
+P("PROBE_DONE")
+with open(OUT_TXT, "w") as f:
+    f.write("\n".join(lines) + "\n")
+print("wrote", OUT_TXT)

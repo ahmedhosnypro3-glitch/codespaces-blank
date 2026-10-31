@@ -1,0 +1,127 @@
+{
+  "slide": "slide_007",
+  "source_frame": "slide_007.jpg",
+  "source_md5": "4f3103ae12c2db3eb96fdf1536147a8d",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 6,
+    "max_parallel": 2,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/unique_slides/slide_007.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_007.parse.md",
+      "json": "full/slide_007.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The parent excerpt is empty while the child reveals a confusion-matrix table and precision formula, and the picture candidate's extracted text is truncated and sparse enough to warrant a tighter crop.",
+    "decision_source": "chat",
+    "children": [
+      "slide_007.crop01__picture"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_007.crop01__picture",
+      "level": 1,
+      "class": "Picture",
+      "box_frame_px": [
+        35.6,
+        40.9,
+        886.8,
+        475.8
+      ],
+      "estimated": false,
+      "png": "crops/slide_007.crop01__picture.png",
+      "mean_rgb": 214.7,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_007.crop01__picture.parse.md",
+        "json": "crops/slide_007.crop01__picture.parse.json"
+      },
+      "scale": 1.7406,
+      "size_px": [
+        1664,
+        895
+      ],
+      "margin_applied": [
+        35,
+        19
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "chat advised STOP: The child adds no new content over the parent (it actually drops the parent's table rows), and the sole candidate is the full-frame picture whose text is already fully extracted.",
+      "decision_source": "chat",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          1.0,
+          22.0
+        ],
+        "scale": 1.7406,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 2,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 2
+  }
+}

@@ -1,4 +1,4 @@
-<x_0.0352><y_0.0359>Threshold=0.0
+<x_0.0342><y_0.0375>Threshold=0.0
 Predicted as
 P
 N
@@ -14,13 +14,16 @@ S
 0
 V
 N
+6
+0
+Accual
+N
 1
 5
 Best (FPR)
+Out
 P
-0.7
-0.4
-PPR
+N
 P
 5
 0
@@ -35,26 +38,37 @@ N
 6
 TPR
 0/(0+6)=0
+PPR
 Threshold=0.3
 Predicted as
 P
 N
-TPR=0/(0+5)=0
-PPR=0/(0+6)=0
+P
+N
+TPR=5/(5+0)=1
+PPR=2/(2+4)=0.33
 Actual
 P
+0
+5
+PPR=0/(0+5)=0
+PPR=0/(0+6)=0
 1.0 FPR
 Threshold=0.4
-ROC Curve for
-Same Model -different thresholds
+Predicted as
 P
+N
+TPR = TP
+Predicted as
 P
 N
 P
+NP
+PN
 P
+FN
 TN
 Actual
-P
-4
+N
 1
-PPR=1/(1+5)=0.16<x_0.9639><y_0.9664><class_Picture>
+5<x_0.9639><y_0.9648><class_Picture>

@@ -1,0 +1,20 @@
+deck_gate_r24.txt — slide 019 deck-gate record, 2026-10-31 (r24 worker)
+date -u: 2026-10-31 07:28:32 UTC
+
+=== (2a) python3 final_deck_tool.py update 19 ===
+exit=0
+structure OK: 51 pages, rels map rId(n+1)->slides/slideN.xml, content-type overrides present
+page 019: staged from slide_019_recreated.pptx (md5 e7da1c782adc886ed2845d1e54ba8d82)
+deck updated atomically: pages [19]; md5 c8c0e1a085802b5821efc467167aa98f -> e4113106799f6f258cfdc9bf887f4b25
+
+=== (2b) python3 render_check_pages.py 19 — attempt 1 (stock script, shared LO_PROFILE s21_lo_profile_299640) ===
+exit=1 — HONEST FAILURE RECORD: soffice convert of the final deck returned exit 1 while 7 sibling soffice processes held the shared s21_lo_profile_299640 profile (profile lock collision, not a page mismatch). Traceback: CalledProcessError soffice --convert-to pdf 03_ridger_regression_gradient_descent_final.pptx -> gate_20261031-070744_p19.
+
+=== (2b retry) same gate logic with private LO profile (copy of render_check_pages.py with LO_PROFILE=r24_private_lo_profile_019, PYTHONPATH=build/final_deck) ===
+exit=0
+page 019: PASS (0 px differ vs fresh 150dpi source render, same LO session)
+ledger: render_check=PASS for pages [19]
+render gate PASSED for pages [19]; artifacts /home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/final_deck_updates/gate_20261031-072212_p19
+
+=== (3) DB row 19 ===
+sqlite3 slides_progress.db '.timeout 20000' 'SELECT gen_status,visual_check FROM slides WHERE slide_id=19;' -> passed|PASS (exit=0)

@@ -1,0 +1,26 @@
+**Crop-pair comparison â IMG1 (recreation) vs IMG2 (original)**
+
+---
+
+### Discrepancies found
+
+| # | Severity | Confidence | Location in crop (approx.) | Detail |
+|---|----------|------------|----------------------------|--------|
+| 1 | MINOR | High | Whole region (â y 20â205) | **Glyph morphology / rendering medium.** IMG1 uses a clean vector sans-serif blue typeface; IMG2 is handwritten blue ink. Letter contours (e.g. the `O` in *Overfitting*, the `M` in *Matrix*, the loop in the underlined header), stroke weight, and character advance widths differ throughout. This is the inherent typedâvsâhandwritten medium difference described in rule (c) and does **not** affect content legibility. |
+| 2 | MINOR | Medium | Header line, right side (â x 180â284, y 25â50) | **Horizontal fill density of the header.** IMG1 renders typed glyphs ââ¦model **ha**â reaching close to the cropâs right edge; IMG2 shows open whitespace after âmodelâ at the same effective scale because handwritten glyphs occupy more average width. The sentence clearly continues beyond the crop boundary in **both** frames; no missing or extra characters are discernible. Attributed to medium, not to a transcription error. |
+| 3 | MINOR | High | Bullet columns (â x 15â55, y 80â200) | **Bullet / marker geometry.** IMG1 uses identical solid rightâpointing chevrons for all three items; IMG2 uses handâdrawn arrowheads of slightly varying size and angle (e.g. the first is a filled triangle with a faint serif, the later ones narrower). Semantic role and alignment are equivalent. |
+| 4 | MINOR | High | Baseline rhythm (â y 45 / 95 / 145 / 195) | **Line spacing and baseline drift.** IMG1 has uniform, machineâset leading; IMG2 shows natural handwritten vertical variation between lines. Inherent to the medium; no line is missing or extra. |
+| 5 | MINOR | Medium | Interline space (â x 230â260, y 105â130 in IMG2) | **Capture artifact.** A pen/pointer tip is visible in the original between the *Overfitting* and first *Matrix* line. Per rule (e) this is a video/projection artifact, not slide content, so it is excluded from the fidelity assessment. |
+
+### Explicit content checks (no discrepancies)
+
+- **Line count / items:** Both images show the same sequence: underlined header + three arrow bullets. â  
+- **Text values:** `Overfitting Problem` / `Matrix Inversion Problem` / `Matrix Inversion Problem` match characterâforâcharacter. The **duplicate** *Matrix Inversion Problem* line is present in the original capture as well, so it is **not** an invented or omitted row. â  
+- **Numbers / symbols:** None present in this crop; all alphabetic content matches. â  
+- **Equations / delimiters:** None in this region. â  
+- **Underline:** Both crops underline the header line; underline is present in the original and reproduced. â  
+- **Fills / chrome:** Background and edge strokes in IMG1 follow the intentional house template (rule (b)) and are ignored. â
+
+### FINAL VERDICT: **PASS**
+
+Faithful, usable recreation of this region. All differences are either inherent medium effects (typed vs. handwritten) or nonâcontent capture artifacts; no contentâlevel, BLOCKER, or MAJOR defects were found.

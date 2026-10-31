@@ -1,0 +1,33 @@
+## Fidelity check â Slide 50 (IMG1 recreation vs IMG2 original)
+
+**Comparison basis:** IMG1 (150 dpi, 2000Ã1125) and IMG2 (960Ã540) were both reduced to the same 886 px wide frame, so all coordinates below are in that common 886Ã498 space and are directly comparable.
+
+**House chrome (checked, not scored):** gray E9E9E7 panel with C00000 left/right/bottom strokes and no top stroke, yellow FDFD96 badge with 6A5ACD ring and bold â50â at â(807,65) â all correct and identical to the originalâs badge position. (The gray â+â cross at â(221,388) in IMG2 is a capture artifact and correctly omitted.)
+
+**Content present in both:** top blue-framed panel (xââ¦xâ table, class row, âInitial W = [4,â2,â2]â, âREPEAT using Step Î· = 1â, âCheck classes of Zâ Zâ Zââ), pink W-matrix panel, âAugmented Vectors (from Top)â panel, âIteration 2â callout, âNo change in W / Stop Iterationsâ, and the full scatter plot with magenta diamonds, blue squares, red triangles, red separator line and â+veâ arrow. Nothing is entirely absent â no BLOCKER-by-omission.
+
+### Discrepancies
+
+| # | Severity | Conf. | Description |
+|---|----------|-------|-------------|
+| 1 | **MAJOR** | High | **Chart frame size/position changed.** Original red chart frame â x340â733, y162â447, with the y-axis sitting *on* the frameâs left edge (x=0 tick at 340). Recreation frame â x288â760, y150â423, i.e. ~20 % wider and shifted â50 px left; the plot area (xâ333â725) is now inset ~45 px from the red frame on the left and ~35 px on the right. The whole lower-right region does not reproduce the originalâs geometry. Markers scale correctly inside the axes, but the enclosing region does not match. |
+| 2 | **MAJOR** | High | **âW =â label for the pink matrix is outside its panel.** In the original, âW =â sits inside the pink rectangle (xâ688â707) immediately left of the parenthesis. In the recreation it is displaced left onto the gray background at âx655â680, straddling/overlapping the blue panelâs right border (x=665) and the gap before the pink box (starts x685). This is a region/containment and alignment failure. |
+| 3 | **MAJOR** | Medium | **Suspected wrong Zâ value.** The originalâs âCheck classes ofâ matrix reads Zâ=(0,0), Zâ=(7,6), Zâ=(3,2) â consistent with the red triangle plotted at (7,6). The recreationâs middle column appears to read (6,6) (top glyph reads â6â, not â7â). If confirmed this is a table-data error; it also conflicts with the recreationâs own plot triangle at x=7. Flagged at medium confidence only because the glyph is ~8 px tall. |
+| 4 | **MAJOR** | Med-High | **Z-matrix / âCheck classes ofâ typography and spacing.** Recreation enlarges the Zâ Zâ Zâ matrix (âx595â655, glyphs â9 px, taller stack) and pushes it to the far right of the blue panel, so it is no longer tucked under âCheck classes ofâ as in the original (âx570â600, smaller glyphs, directly adjacent). The enlarged/relocated block plus smaller caption font alters the originalâs visual grouping. |
+| 5 | **MAJOR** | Med | **Class-legend row size/gaps.** Original âCâ positive  Câ negative  Zero is unacceptedâ (Câ red bold, Câ blue bold, âZeroâ green italic) has ~11 px text with generous inter-item spacing (Cââ220, positiveâ245, Cââ305, negativeâ330, Zeroâ385). Recreation uses ~8 px text with compressed gaps (Cââ218, positiveâ240, Cââ290, negativeâ315, Zeroâ355), so legend item sizes and gaps do not match. |
+| 6 | **MAJOR** | Med-High | **âIteration 2â callout proportions.** Original: red box âx78â172, y258â285, with ~14 px bold *serif* white text nearly filling the box. Recreation: box âx78â197, y244â270, with ~9 px bold *sans* white text â smaller type in a wider, shorter box, and the block sits ~14 px higher. |
+| 7 | **MINOR** | Med | **Left text block typography.** âNo change in Wâ / âStop Iterationsâ are set in sans-serif, non-italic in the recreation (with W appearing italic/underlined); the original is serif with italic âStop Iterationsâ and bold serif âWâ. Block is also â10 px higher than the original. |
+| 8 | **MINOR** | Med | **âAugmented Vectors (from Top)â heading and box.** Original heading is *italic serif* in blue/magenta at ây141; recreation is bold non-italic sans blue at ây134. Recreation panel is â93 px tall (y125â218) vs original â107 px (y130â237), so the bottom padding under the Cââ¦Câ row is compressed (labels at ây210 vs ây225). |
+| 9 | **MINOR** | Med | **Red separator line extent.** Original line runs from â(320,236) â left of the plot axis â to â(637,437), essentially reaching the frameâs bottom edge. Recreationâs line runs â(310,231) to â(635,412), terminating well inside the frame with a larger gap at the bottom. |
+| 10 | **MINOR** | Med | **Top-panel table density.** The xââ¦xâ stacked-vector matrix and âInitial W = [4,â2,â2]â are rendered in smaller, tighter type than the original, so the top panel reads more compressed than the source (digit content itself appears consistent). |
+
+### Visual-quality defects in the recreation
+- **Collision/overflow:** the âW =â label for the pink matrix overlaps the blue panelâs right border and sits outside the pink panel that is supposed to enclose it (item 2) â the clearest structural defect in the render.
+- **Misalignment:** enlarged Z-matrix is detached from its âCheck classes ofâ caption; legend row is compressed relative to the panel width.
+- **Scaling:** chart frame geometry does not agree with the original; âIteration 2â type is undersized relative to its box.
+- No clipped text, no illegible glyphs, and no ink crossing the house panel/stroke boundaries; no elements missing outright.
+
+### Summary
+Verbatim wording, color coding, all data series, marker types and the overall content inventory are present and largely correct, and the mandated chrome/equation rules are satisfied. However, the top-right âW =â label is placed outside its pink panel, the scatter-plot frame is substantially resized and shifted, the class/legend and Z-matrix typography/gaps depart from the original, the âIteration 2â callout is materially undersized, and one Z-matrix value (Zâ top entry, 7 vs 6) appears wrong â a possible table-data error.
+
+**FINAL VERDICT: FAIL**

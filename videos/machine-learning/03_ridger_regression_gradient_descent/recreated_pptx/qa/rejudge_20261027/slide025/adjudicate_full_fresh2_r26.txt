@@ -1,0 +1,124 @@
+# Adjudication r26 — judge_full_fresh2.txt (slide 025, clean FAIL 2026-10-31 06:38:32)
+# Per-claim pixel adjudication on the CURRENT deliverable render.
+# Worker: fresh background worker, 2026-10-31. Writes confined to slide025/. No git. No pptx/DB/deck/result.txt touched.
+
+## 0. Ground truth of what was measured
+
+- Deliverable pinned by task: `recreated_pptx/slide_025_recreated.pptx` md5 `736036754a8d6f2e4a582eefdf99effd`.
+  Byte-identical bank copy: `slide025/backup_k15b_pre_k17g_071351/slide_025_recreated_k15b.pptx` (md5-verified 736036754a8d...).
+  NOTE: the live deliverable file has since been mutated by a concurrent promoter process
+  (now md5 e171bd65..., mtime 07:22:41); per task instruction this adjudication is against the
+  pinned md5 736036754a8d build.
+- Fresh render: `slide025/render_cur.png`, 2001x1125, via unique soffice profile
+  `-env:UserInstallation=file://$TMPDIR/lo_adj_r26_025` (TMPDIR=/home/codespace/ai_llm_slides/scratch/tmp)
+  converting a md5-verified copy (`slide025/adj_r26_src.pptx`), then `pdftoppm -png -r 150 -singlefile`.
+- **render_cur.png vs render.png (the IMG1 judge_full_fresh2.txt actually judged, 06:21): 0 diff px
+  of 2,251,125 (max diff 0) — pixel-identical.** So fresh2's claims adjudicate against exactly this
+  render; there is no pre-06:20/k15b mixup in the image fresh2 saw: both judge_full_fresh2.txt
+  (06:38:32 FAIL) and judge_full_k15b.txt (06:39:47 PASS) were launched on the SAME pair
+  (render.png vs unique_slides/slide_025.jpg) — the divergence is judge variance, not build drift.
+- House chrome check on render_cur.png: PASS (panel x112-1882 y94-bottom, L/R/bottom strokes,
+  top bare, badge center (1824,152) d=68) — `slide025/chrome_check_render_cur.txt`.
+- `rejudge_adjudicate.py 025 --full` (run as instructed; it reads render.png = same pixels):
+  diff>90 total 436,160 px (19.375% of frame); ink-only-in-render 85,407 px; ink-only-in-original
+  122,234 px. Densest cells cluster in BR (x672-816, y382-517) and BL label rows
+  (x192-216, y225-247 and y337-360). Saved: `slide025/adjudicate_r26_script_run.txt`.
+- Frame-interior diff>90 per quadrant (slide-space boxes): TL 69,340 px (31.6%),
+  TR 84,597 px (38.3%), BL 76,732 px (32.3%), BR 128,904 px (62.4%).
+- Measurement scripts+outputs banked: `adjudicate_r26_measure.py/_out.txt`, `_measure2`, `_measure3`,
+  `_measure4` (crops `r26_cropA/B_*` for vision OCR legs `adjudicate_r26_vision_cropA/B.txt`).
+
+## 1. Per-claim verdicts (fresh2 numbering D1..D10; all coords slide-space 960x540)
+
+**D1 — BLOCKER/MAJOR "TR chart: ×10⁴ scale annotation and z-ticks (0,0.5,1,1.5,2) entirely absent" → REFUTED as stated ("entirely absent"); CONFIRMED in substance as a tick-value mismatch.**
+  Pixel level: TR z-tick column x624-652, y124-310: original 12 text-line groups / 564 dark-ink px vs
+  render 6 groups / 368 px; scale band x620-720 y120-150: orig 530 ink px vs render 47 ink px.
+  Glyph level (vision OCR leg `adjudicate_r26_vision_cropA.txt`, crop x615-710 y116-275): BOTH images
+  carry a `×10⁴` scale annotation (render at crop ≈(72,38) = slide ≈(649.6,134.2); orig at ≈(52,33)).
+  The original's z axis reads cleanly 0, 0.5, 1, 1.5, 2 (bottom→top) under ×10⁴; the render's same corner
+  reads `0.5` colliding with `−100`, then `−50`, `0`, `50` — a DIFFERENT tick set, not a missing one.
+  So: ×10⁴ present in both; z-tick VALUES differ (orig 0..2 vs render −100..50) → chart axis-data
+  mismatch CONFIRMED, "element absent" REFUTED.
+
+**D2 — MAJOR "TR surface geometry differs (rear red spike, colormap, viewing angle)" → CONFIRMED as a real rendering difference.**
+  Rear-strip (x640-860, y140-180) strong-red px: original 1,140 vs render 192 (rear spike ~6x weaker/absent).
+  Front deep-blue minimum present in both (orig 2,235 px vs render 2,116 px). Inner plot area
+  (x640-860, y140-300): render 60.8% white/near-white with warm yellow/amber bins ~10.7%;
+  original 52.9% white with green-dominant surface bins ~6.5% plus more gray grid. TR interior diff 38.3%.
+
+**D3 — MAJOR "TR frame ~12 px short (render 191 vs orig 203 tall)" → REFUTED.**
+  Detected red frame rects (long-edge method): render TR x619-876 y118-315 (w257 h197);
+  original x620-874 y120-313 (w254 h192). Render frame is ~5 px TALLER and ~3 px wider; every edge
+  within 2-5 px. The judge's cited coordinates (578-820 / 578-818) match neither image (both ~619-876).
+
+**D4 — MAJOR "BL: gray 3D box/grid walls missing; surface ~60% of frame with dead white space right" → PARTIALLY CONFIRMED.**
+  BL saturated-surface mass (x90-380, y345-520): render 39,332 px (17.7%), bbox x124-380;
+  original 55,665 px (25.1%), bbox x112-380 — render surface ~29% smaller, starts 12 px further right.
+  BL white fraction: render 50.5% vs orig 38.5% (dead space claim holds). Gray-box fraction overall
+  is NOT discriminative (render 29.3% vs orig 30.9%, dominated by panel color E9E9E7); in wall region
+  x95-380 y360-470 gray is 2.2% render vs 4.7% orig — grid walls visibly sparser in render, not wholly
+  absent. BL interior diff 32.3%.
+
+**D5 — MAJOR "BL callout label positions/arrows differ; labels smaller" → CONFIRMED (magnitude ~12-23 px).**
+  Dark-ink centroids: Global Maxima render (222.5,299.6) vs orig (245.3,299.8) — Δx≈23 px;
+  Local Maxima render ink x277-332 y331-359 (centroid ≈(305,345)) vs orig (291.9,347.0) — Δ≈13 px;
+  Local Minima render (141.0,456.0) vs orig (153.1,455.5) — Δ≈12 px. Label ink mass smaller in render
+  (Global Maxima window 163 px render vs 316 px orig).
+
+**D6 — MAJOR "BR: different image AND raster clipped by its frame (bottom/right bleed)" → SPLIT: content CONFIRMED, clipping REFUTED (inverted).**
+  BR interior diff 62.4% — the largest of the four quadrants; different raster, confirmed.
+  Containment: render BR inner 3 px edge strips have **0** nonwhite px on all four edges at strict
+  threshold (any channel <200; also 0 at <235); white margins left/right 40.8 px, top 7.7 px, bottom 3.8 px.
+  The ORIGINAL touches its own bottom frame edge (278/1593 px in the bottom strip at <200).
+  So the render is cleanly contained; the fresh2 containment claim is refuted.
+
+**D7 — MAJOR "TL: no gray axes box / no contour curves; dome on dark-blue base polygon" → CONFIRMED as rendering difference (with nuance).**
+  TL interior diff 31.6%. Dark ink inside dome area (x100-360, y130-280): render 26.8% vs orig 18.7%
+  (render's dark-blue base polygon adds dark mass). Gray fraction similar (29.1% vs 30.9%, panel-dominated),
+  so "no gray axes box at all" is an overstatement; the different surface/plotting style is real.
+
+**D8 — MAJOR "TL tick values differ (render 0,−1,−2 vs orig 0,−5 + 2)" → CONFIRMED — the differing tick is a sign flip (−2 vs 2).**
+  Pixel level: TL left band x92-120, y125-290: render 1,753 ink px, y-groups {168,186,200,218-245,266,285};
+  orig 419 ink px, groups {186,193,200,207-223,239,284}.
+  Glyph level (vision OCR leg `adjudicate_r26_vision_cropB.txt`, crop x80-140 y115-300): render left
+  axis reads `0`, `−5`, `−2` (+ `0` on the front axis); original reads `0`, `−5`, `2` (+ `0`).
+  Third tick: render `−2` vs orig `2` — wrong sign on a numeric axis label.
+
+**D9 — MINOR "title ~5 px higher, ~7 px narrower" → CONFIRMED (minor; measured smaller: ~2 px higher, ~5 px narrower).**
+  Title bbox (top band y40-105): render x266-584 y67-87 (w318 h20, ink 7,621 px) vs orig
+  x262-585 y65-86 (w323 h21, ink 6,351 px).
+
+**D10 — MINOR "TR red diagonal/leader strokes at different positions" → CONFIRMED (positional, minor; both present).**
+  TR interior red px (frame margin excluded, x625-870 y124-310): render 4,735 px, centroid (749.7,221.0);
+  orig 6,363 px, centroid (748.4,206.8); same bbox x633-862 y132-236. Centroid Δy≈14 px; render ~25% fewer stroke px.
+
+## 2. fresh2 "visual-quality defects" list — adjudication
+
+- "BR image bleeds into frame edges (clipped bottom/right)": REFUTED — see D6 (render edge strips 0 px; orig bleeds at bottom).
+- "tick labels illegible at 150 dpi in all four charts": glyph-level reads WERE possible at 2.08x zoom (cropA/B OCR above read all tick strings, incl. a `0.5`/`−100` collision jumble in the render's TR corner) — small but legible; not counted as a defect.
+- "BL callout arrows thin/detached; Global Minima leader into empty mesh": consistent with D5 offsets (CONFIRMED positions differ); arrow thinness not separately measured.
+- "four figures are re-drawn approximations": CONFIRMED numerically (quadrant diffs 31.6/38.3/32.3/62.4%) — these are raster-medium differences, matching what the k15b PASS called rendering-medium.
+- "BL figure under-scaled, blank white band on right": CONFIRMED (D4 numbers).
+
+## 3. Conclusion — does the current deliverable have any standing localized defect?
+
+YES, but narrower than fresh2's FAIL implies, and NO containment/chrome defect:
+- fresh2 was NOT aimed at a stale build: its input render.png is pixel-identical to a fresh render of the
+  pinned current deliverable (md5 736036754a8d) — the FAIL and the k15b PASS saw the same pixels; the
+  divergence is judge interpretation, not build drift.
+- House chrome: PASS on render_cur (no frame/badge/panel defect).
+- Standing localized defects CONFIRMED on the current render: **D1-in-substance** (TR axis tick VALUES
+  differ from the original — render −100,−50,0,50 vs orig z-set 0,0.5,1,1.5,2 under ×10⁴; ×10⁴ itself is
+  present in both, so rule-6 "entirely absent" does not apply); **D8** (TL axis tick sign flip: render −2
+  vs orig 2 — a wrong numeric label); **D2/D7** (TR and TL surfaces are different renderings — rear spike
+  192 vs 1,140 strong-red px on TR; TL dark-base instead of contoured dome); **D4-surface** (BL surface
+  ~29% smaller, dead space right); **D5** (BL callout labels offset 12-23 px, smaller);
+  **D9/D10** minors (title ~2 px/5 px off; TR leader strokes offset ~14 px).
+- REFUTED: **D1-as-stated** ("×10⁴ and z-ticks entirely absent" — both have ×10⁴; ticks exist but differ),
+  **D3** (TR frame is ~5 px taller, not 12 px short), and the **D6 clipping** sub-claim (render BR has
+  0 px ink at all four inner frame edges; the ORIGINAL is the one that touches its frame).
+- Net: the current deliverable (md5 736036754a8d) carries standing localized defects concentrated in
+  the four plot rasters — chart axis-data mismatches (TR tick set, TL −2-vs-2 sign flip) and
+  surface-fidelity gaps (TR/TL/BL/BR) plus BL callout offsets — but NO containment overflow and NO
+  chrome defect (chrome check PASS). The strongest rule-6/rule-8-grade items are the axis-label value
+  mismatches (D1-substance, D8), not any missing element.

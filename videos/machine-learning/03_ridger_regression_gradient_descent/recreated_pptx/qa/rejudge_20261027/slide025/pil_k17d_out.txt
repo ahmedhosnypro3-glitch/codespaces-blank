@@ -1,0 +1,32 @@
+== CHECK1: md5 differ k17d vs k15 BL ==
+  k17d plot_025_bl.png md5 = 2d26ecfcc4535cf3672d5a21859e8e6e
+  k15  plot_025_bl.png md5 = 5acfb177d1e4d640b2fd7a08a1f21eda
+  CHECK1 PASS
+
+== CHECK2: anchor-zone label ID (k17d BL png native 300dpi vs orig) ==
+  (png size 1220x987, scale 4.1638 png px per slide px)
+  top     x236..278 y302..322 expect 'Global Minima'
+    render ink n=1080 png px (= 62 slide px^2) -> best 'Global Minima'(2l=1,fs=7.25) iou=0.24  PASS
+    runner-up: 'Global Minima'(2l=1,fs=6.75) iou=0.24 | orig zone best 'Local Maxima' iou=0.54
+  right-m x325..350 y388..401 expect 'Local Minima'
+    render ink n=1009 png px (= 58 slide px^2) -> best 'Local Minima'(2l=1,fs=7.00) iou=0.30  PASS
+    runner-up: 'Local Minima'(2l=1,fs=6.75) iou=0.30 | orig zone best 'Local Maxima' iou=0.05
+  low-L   x138..205 y438..470 expect 'Local Minima'
+    render ink n=1146 png px (= 66 slide px^2) -> best 'Local Minima'(2l=1,fs=6.75) iou=0.22  PASS
+    runner-up: 'Local Minima'(2l=1,fs=7.00) iou=0.22 | orig zone best 'Global Maxima' iou=0.22
+  low-R   x300..346 y448..470 expect 'Global Minima'
+    render ink n=1206 png px (= 69 slide px^2) -> best 'Global Minima'(2l=1,fs=7.00) iou=0.27  PASS
+    runner-up: 'Global Minima'(2l=1,fs=6.75) iou=0.27 | orig zone best 'Global Maxima' iou=0.43
+  CHECK2 PASS
+
+== CHECK3: red marker-like comps in k17d BL png (native) ==
+  area=25 slide-px^2 slide-center=(221.7,393.3) bbox 6x12 slide px
+  area=30 slide-px^2 slide-center=(207.5,376.1) bbox 6x8 slide px
+  area=30 slide-px^2 slide-center=(211.7,377.5) bbox 6x8 slide px
+  area=40 slide-px^2 slide-center=(228.4,397.5) bbox 6x12 slide px
+  area=60 slide-px^2 slide-center=(198.8,444.8) bbox 13x13 slide px <-- expected marker
+  area=61 slide-px^2 slide-center=(270.0,482.0) bbox 13x13 slide px <-- expected marker
+  marker comps at expected centers: 2 (areas [60, 61])
+  CHECK3 PASS (expect exactly 2 at (199,445),(270,482), area 60-67 slide px^2)
+
+OVERALL PASS

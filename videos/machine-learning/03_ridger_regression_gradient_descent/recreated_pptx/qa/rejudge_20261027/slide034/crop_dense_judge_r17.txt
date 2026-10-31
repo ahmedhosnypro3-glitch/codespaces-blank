@@ -1,0 +1,41 @@
+## Discrepancies found
+
+**1. Wrong digit in yellow table, row 2, cell 1 â MAJOR**
+- **Location (crop-relative):** upper-left of the yellow/olive band, first data cell below "7.6", text centered at roughly **xâ50, yâ263**.
+- **IMG1 (recreation):** `0.69`
+- **IMG2 (original):** `0.60`
+- The final digit is `9` in the recreation but `0` in the original (the original's last character is a closed oval; the recreation has a descending tail). This is a value alteration, not a rendering softness â the cell's other digits align in both crops.
+- **Confidence:** High (~0.9).
+
+**2. Hyphen vs. true minus sign in the header line â MINOR**
+- **Location:** second line of the green-bordered header box, at roughly **xâ335â420, yâ112** (`-10.03`) and **xâ500â560, yâ112** (`-9.92`).
+- IMG2 shows a long mathematical minus (â); IMG1 renders a short hyphen-minus (â). Numerically identical, but the glyph shape differs at zoom.
+- **Confidence:** Medium-high (~0.75).
+
+**3. Purple table fill slightly lighter / less saturated in recreation â MINOR**
+- **Location:** middle band, roughly **xâ10â620, yâ295â375**.
+- IMG1's purple reads as a paler lavender; IMG2's is a more saturated magenta-violet. May be partly a JPEG color shift in IMG2, so flagged only as a low-weight difference.
+- **Confidence:** Low (~0.5).
+
+**4. Yellow table fill marginally more lime/green in recreation â MINOR**
+- **Location:** upper table, roughly **xâ10â620, yâ205â285**.
+- Recreation's yellow-green is slightly brighter/lime; original trends more olive. Possibly capture-related.
+- **Confidence:** Low (~0.4).
+
+*(Not counted as discrepancies: the right-edge slivers â the trailing "boâ¦/bolâ¦" of the header sentence and the cut-off rightmost table column â are clipped differently in the two crops, i.e., a sub-pixel crop-offset, not a content difference.)*
+
+## Verified as matching
+- Header row 1: red `X`, black "is in between", red `9.6`, black "and color red boâ¦" â glyphs, colors, and order match.
+- Header row 2: blue italic `f(x)`, black "is in between", blue `-10.03` / `-9.92` â values match.
+- Green header-box border: present, continuous, same weight/extent on all visible sides.
+- Double dark-blue horizontal rule below the header: present in both, same relative spacing.
+- Yellow table row 1: `7.6, 7.8, 8, 8.2, 8.4, 8.6, 8.8` â all cells match, including the bare `8`.
+- Yellow table row 2, cells 2â7: `-0.45, -1.73, -3.1, -4.5, -5.88, -7.16` â all match.
+- Purple table row 1: `7.5, 7.7, 7.9, 8.1, 8.3, 8.5, 8.7` â all match.
+- Purple table row 2: `1.2, 0.14, -1.08, -2.41, -3.8, -5.2, -6.54` â all match.
+- Bottom peach table row: `7.7, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9` â all match.
+- Row heights, cell gridlines, text vertical centering within cells, and inter-row separation are equivalent; no missing rows, truncated subscripts, or delimiter issues in this region.
+
+The single hard defect is a wrong numeric value in a table cell (`0.69` vs `0.60`) â the kind of error that is invisible at full-slide scale but is disqualifying for a faithful, usable recreation under the fidelity rules.
+
+FINAL VERDICT: FAIL

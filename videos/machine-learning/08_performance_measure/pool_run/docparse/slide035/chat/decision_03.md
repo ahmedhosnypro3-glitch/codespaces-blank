@@ -1,7 +1,7 @@
 # chat decision 03
 
-- box: [35.7, 42.1, 862.7, 475.8]
-- error: chat: giving up after 4 attempts — last failure: HTTP 429: {"error":{"code":"upstream_rate_limited","message":"the upstream provider is rate limiting this gateway","retry_after":0,"type":"rate_limit_error"}}
+- box: [38.2, 42.1, 859.4, 474.5]
+- error: chat: giving up after 7 attempts — last failure: TimeoutError: timed out
 - level: 2
 - model: docparsechat
 - node: slide_035.crop02__picture
@@ -33,16 +33,16 @@ further recursion or stops here.
 
 Context:
 - crop level: 2
-- crop box on the full frame, pixels [x, y, w, h]: [x=36, y=42, w=863, h=476]
+- crop box on the full frame, pixels [x, y, w, h]: [x=38, y=42, w=859, h=474]
 - candidate regions for a further crop (class, frame box, text the
   parser extracted inside them):
-- <class_Picture> frame box [x=36, y=42, w=863, h=476] extracted text: Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P P N TPR=3/(3+1)=0.6 PPR=1/(1+5)=0.16 Actual P S 0 V N 1 5 Best (FPR) P 0.7 0.4 PPR P 5 0 TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 Actual P 3 2 N 0 6 TPR 0/(0+6)...
+- <class_Picture> frame box [x=38, y=42, w=859, h=474] extracted text: Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P P N TPR=3/(3+1)=0.6 PPR=1/(1+5)=0.16 Actual P S 0 N 6 0 Accual N 1 5 Best (FPR) P P N TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 P P N TPR=3/(3+2)=0.6 PPR=0/(0+6)...
 
 Parent transcript excerpt:
-Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 PPR=3/(3+1)=0.6 FPR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.3 0.1 0.0 N Predicted as P N TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 P 3 2 PPR=0/(0+6)=0 TPR 0.7 0.4 V P 0.6 N PTR Threshold=0.3 Threshold=1 Predicted as P N TPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P 0 5 PPR=0/(0+5)=0 FPR=0/(0+6)=0 1.0 FPR 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P P NP P PN Actual P TN N TN
+Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 P R=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.7 0.4 P 5 0 PFR=4/(4+2)=0.66 P 3 2 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N TPR=0/(0+5)=0 PFR=0/(0+6)=0 Actual P 5 0 P FPR=2/(2+4)=0.33 P 0 5 PFR=0/(0+6)=0 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P N P TP FN P TN Actual N 1 5
 
 Child transcript excerpt:
-Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P P N TPR=3/(3+1)=0.6 PPR=1/(1+5)=0.16 Actual P S 0 V N 1 5 Best (FPR) P 0.7 0.4 PPR P 5 0 TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 Actual P 3 2 N 0 6 TPR 0/(0+6)=0 Threshold=0.3 Predicted as P N TPR=0/(0+5)=0 PPR=0/(0+6)=0 Actual P 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P P N P P TN Actual P 4 1 PPR=1/(1+5)=0.16
+Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P P N TPR=3/(3+1)=0.6 PPR=1/(1+5)=0.16 Actual P S 0 N 6 0 Accual N 1 5 Best (FPR) P P N TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 P P N TPR=3/(3+2)=0.6 PPR=0/(0+6)=0 TPR Threshold=0.3 Predicted as P N TPR=5/(5+0)=1 PPR=2/(2+4)=0.33 Actual P P 0 5 PPR=0/(0+5)=0 PPR=0/(0+6)=0 1.0 FPR Threshold=0.4 Predicted as P N TPR = TP Predicted as P N P N P P FP FN TN Actual N 1 5
 
 Rules of thumb:
 - STOP when the child adds no new or refined content beyond the
@@ -73,4 +73,4 @@ REASON: one short sentence naming the decisive evidence
 
 ## raw response
 
-chat: giving up after 4 attempts — last failure: HTTP 429: {"error":{"code":"upstream_rate_limited","message":"the upstream provider is rate limiting this gateway","retry_after":0,"type":"rate_limit_error"}}
+chat: giving up after 7 attempts — last failure: TimeoutError: timed out

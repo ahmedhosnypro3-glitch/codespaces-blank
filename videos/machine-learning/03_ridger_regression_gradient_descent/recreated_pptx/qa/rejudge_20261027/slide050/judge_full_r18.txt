@@ -1,0 +1,28 @@
+# Fidelity Check â Slide 50 (IMG1 recreation vs IMG2 original)
+
+## A. Settled by ground rules â NOT discrepancies
+- **House chrome**: gray E9E9E7 panel (x54â903, y45â540), C00000 1pt strokes on left/right/bottom only â the recreation correctly has **no top stroke**; yellow "50" badge at (876,73), dâ35, FDFD96 fill / 6A5ACD ring / 333333 Arial 18pt â matches spec exactly. â
+- **2D professional equation format** (full-height parens, stacked vectors) vs the original's linear typed notation â mandated upgrade (directive 2026â10â09). â
+- **"+" cursor** visible in IMG2 at â(235,432) â video artifact, correctly omitted from IMG1. â
+- IMG2 is not a placeholder; full content present in both. â
+
+## B. Verified matches (element-by-element, confidence high)
+- **Top yellow panel** (navy border, pale-yellow fill): verbatim â "Initial **W** = (4, â2, â2)", "REPEAT using Step Î· = 1" (REPEAT underlined), legend "Câ positive / Câ negative / Zero is unaccepted" with identical red/blue/green/black coloring, "Check classes of Zâ(0,0), Zâ(7,6), Zâ(3,2)"; six 2Ã1 vectors xââ¦xâ = (1,1),(2,1),(1,2),(5,4),(6,5),(6,6) with CâCâCâCâCâCâ labels â all values/labels identical.
+- **Lavender W box** (top right, xâ742â835): "WÌ² = (5, â1, â1)", W underlined â verbatim, same position.
+- **Augmented-vectors box**: "Augmented Vectors (from Top)" + (1,1,1),(1,2,1),(1,1,2),(1,5,4),(1,6,5),(1,6,6) with CâCâCâCâCâCâ â identical.
+- **"Iteration 2"** red badge; **"No change in WÌ² / Stop Iterations"** (two-line break, W underlined, red bold line 2) â verbatim.
+- **Chart**: red frame, white plot, gray grid, axes 0â8 / 0â7 with all tick labels; decision line through (0,5)â(5,0) passing exactly through the â¼ at (3,2); "+ve" + arrow at same spot; 3 navy squares (1,1),(1,2),(2,1); 3 magenta diamonds (5,4),(6,5),(6,6); 3 red â¼ at (0,0),(3,2),(7,6) â data, styles, colors identical.
+- **Rule 7 delimiters**: every 2D paren spans all enclosed rows, clear of the numerals, unclipped â PASS. **Rule 5 containment**: badge edge â893.5 vs panel 903 (~10 px clearance); augmented box left â65 vs panel 54 (~11 px); line tip â(683,464) vs frame bottom 480 (~16 px inside) â no ink crosses any stroke â PASS. **Rule 6**: nothing missing. **Rule 8**: no tables; all matrix values verified.
+
+## C. Discrepancies
+1. **MAJOR â Region layout/geometry: global vertical compression** (confidence â0.8; magnitudes eyeballed). Horizontal placement matches within ~1â2% (chart x: 33.1â87.3% â 32.1â86.4%; purple box identical), but vertically the recreation is squeezed toward the top:
+   - Chart frame: original y â **37.0%â99%** of slide height; recreation y â **30.6%â88.9%** â leaving an â**11%-of-slide (~60 px @540p) empty gray band at the bottom**, whereas the original's chart runs to within ~1% of the bottom border; chart is also ~6% shorter (58% vs 62% of height).
+   - Top yellow panel: original bottom â28.1% (height ~18%); recreation bottom â23.1% (height ~14.4%, ~20% shorter).
+   - Left column shifted up: augmented box 29.6â54.1% â 24.8â45.6%; Iterationâ2 badge 60.2â66.3% â 50.2â55.4%; "No change/Stop" text 74.1â84.3% â 61.8â71.0%.
+   - Per founder directive 2026â10â10, a visible deviation in region size/gap/alignment vs the original is **MAJOR even when all text is verbatim**. (This is placement/size, not overflow â containment itself passes.)
+2. **MINOR â knock-on spacing inside the shrunken regions** (confidence â0.6): legend phrase gaps in the shortened top panel are wider relative to the panel and sit closer to its bottom border; chart markers/line weight look ~10% heavier relative to the smaller chart frame.
+
+## D. Visual-quality defects in the recreation itself
+None found: no overflow, clipping, wrong wrapping, collisions, or illegibility; all delimited vectors vertically centered; every element fully inside its frame.
+
+**FINAL VERDICT: FAIL** â content fidelity is perfect (verbatim text, exact data, chart, colors, delimiters, containment; zero BLOCKERs), but the MAJOR region-geometry deviation (vertical compression, ~11% dead band at the bottom, undersized chart and top panel vs the original) makes it not a faithful match to the original frame under the founder's geometry standard.

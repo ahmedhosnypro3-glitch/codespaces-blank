@@ -1,66 +1,159 @@
-// slide_016.js — REBUILD WAVE 3. MAJOR fixes per qa/rejudge2/slide_016_judge.txt;
-// geometry measured from qa/rejudge2/orig_png/slide_016.png (norm -> in: x*13.33, y*7.5).
+// slide_016.js — REBUILD from qa/reanalysis2/slide_016_analysis.txt (fix round 2).
+// Spec coords normalized [x0,y0,x1,y1] -> inches: x*13.33, y*7.5.
+// Build from project root: node <NS>/recreated_pptx/build/slide_016.js
 const pptxgen = require("pptxgenjs");
 const fs = require("fs");
 const path = require("path");
+
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
 const EQ = path.join(NS, "recreated_pptx/build/eq_016");
 const man = JSON.parse(fs.readFileSync(path.join(EQ, "manifest.json"), "utf8"));
-const W = 13.33, H = 7.5, FONT = "Arial";
-const X = n => n * W, Y = n => n * H;
+const W = 13.33, H = 7.5, FONT = "Arial", SERIF = "Times New Roman";
+const box = r => ({ x: r[0] * W, y: r[1] * H, w: (r[2] - r[0]) * W, h: (r[3] - r[1]) * H });
+
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
 s.background = { color: "E8E8E8" };
-// House chrome (mandatory, overrides spec)
-s.addShape(pres.shapes.RECTANGLE, { x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3, fill: { type: "none" }, line: { color: "C00000", width: 1.5 } });
-s.addShape(pres.shapes.OVAL, { x: 12.48, y: 0.30, w: 0.5, h: 0.5, fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 } });
-s.addText("16", { x: 12.48, y: 0.30, w: 0.5, h: 0.5, align: "center", valign: "middle", fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0 });
-s.addText([
-  { text: "Non-Linearly ", options: { fontSize: 26, bold: true, color: "C00000", fontFace: FONT } },
-  { text: "Separable", options: { fontSize: 26, bold: true, color: "1F49C7", fontFace: FONT, underline: { style: "sng" } } },
-  { text: " Data", options: { fontSize: 26, bold: true, color: "C00000", fontFace: FONT } },
-], { x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", valign: "top", margin: 0 });
-// Mapping box [0.060,0.205,0.275,0.315]: pale cream fill, tan border, blue italic serif header
-const mb = { x: X(0.060), y: Y(0.205), w: X(0.275) - X(0.060), h: Y(0.315) - Y(0.205) };
-s.addShape(pres.shapes.RECTANGLE, { x: mb.x, y: mb.y, w: mb.w, h: mb.h, fill: { color: "F9EFE6" }, line: { color: "A88663", width: 1.25 } });
-s.addText("Mapping  x ⇒ φ(x)", { x: mb.x, y: mb.y + 0.02, w: mb.w, h: 0.22, align: "center", valign: "middle", fontSize: 12, italic: true, color: "1F49C7", fontFace: "Georgia", margin: 0 });
+
+// House chrome (mandatory, overrides spec): red frame, badge, title
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
+  fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
+});
+s.addShape(pres.shapes.OVAL, {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
+});
+s.addText("16", {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  align: "center", valign: "middle",
+  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
+});
+s.addText("Non-Linearly Separable Data", {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
+  align: "center", valign: "top",
+  fontSize: 26, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+
+// Inner red plot frame around the whole diagram region
+const pf = box([0.025, 0.150, 0.890, 0.790]);
+s.addShape(pres.shapes.RECTANGLE, {
+  x: pf.x, y: pf.y, w: pf.w, h: pf.h,
+  fill: { type: "none" }, line: { color: "C00000", width: 1 },
+});
+
+// Beige "Mapping" box, peach fill, blue italic serif header
+const mb = box([0.060, 0.205, 0.275, 0.315]);
+s.addShape(pres.shapes.RECTANGLE, {
+  x: mb.x, y: mb.y, w: mb.w, h: mb.h,
+  fill: { color: "F6D9A8" }, line: { color: "C8A96A", width: 1.25 },
+});
+s.addText("Mapping", {
+  x: mb.x, y: mb.y + 0.015, w: mb.w, h: 0.16,
+  align: "center", valign: "middle",
+  fontSize: 12, italic: true, color: "1F49C7", fontFace: SERIF, margin: 0,
+});
+// Equation image x => phi(x) = [ x ; x^2 ] (true 2-D column, blue serif)
+const eb = box([0.075, 0.240, 0.260, 0.312]);
 const em = man.eq_map;
-s.addImage({ path: path.join(EQ, em.file), w: em.w_in, x: mb.x + (mb.w - em.w_in) / 2, y: mb.y + mb.h - em.h_in - 0.05 });
-// Right note: red italic with bold emphasis, then black line
+s.addImage({
+  path: path.join(EQ, em.file), w: em.w_in,
+  x: eb.x + (eb.w - em.w_in) / 2, y: eb.y + (eb.h - em.h_in) / 2,
+});
+
+// Right-upper note in a red-bordered box, both lines red, first line bold italic
+const nb = box([0.685, 0.225, 0.905, 0.350]);
+s.addShape(pres.shapes.RECTANGLE, {
+  x: nb.x, y: nb.y, w: nb.w, h: nb.h,
+  fill: { type: "none" }, line: { color: "C00000", width: 1 },
+});
+const t1 = box([0.690, 0.235, 0.900, 0.285]);
+s.addText("Data is linearly separable", {
+  x: t1.x, y: t1.y, w: t1.w, h: t1.h,
+  align: "left", valign: "middle",
+  fontSize: 14, bold: true, italic: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+const t2 = box([0.695, 0.300, 0.900, 0.340]);
+s.addText("In the new representation", {
+  x: t2.x, y: t2.y, w: t2.w, h: t2.h,
+  align: "left", valign: "middle",
+  fontSize: 14, italic: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+
+// "Linear Decision Boundary" callout: three-line bold-italic blue label inside a
+// bordered box beside the right end of the boundary, thin leader to the line end
+const bl = box([0.740, 0.395, 0.900, 0.495]);
+s.addShape(pres.shapes.RECTANGLE, {
+  x: bl.x, y: bl.y, w: bl.w, h: bl.h,
+  fill: { color: "F6D9A8" }, line: { color: "1F49C7", width: 1 },
+});
+s.addText("Linear\nDecision\nBoundary", {
+  x: bl.x, y: bl.y, w: bl.w, h: bl.h,
+  align: "left", valign: "middle",
+  fontSize: 13, bold: true, italic: true, color: "1F49C7", fontFace: SERIF, margin: 0,
+});
+s.addShape(pres.shapes.LINE, {
+  x: 0.715 * W, y: 0.488 * H, w: (0.748 - 0.715) * W, h: (0.508 - 0.488) * H,
+  line: { color: "1F49C7", width: 1 },
+});
+
+// Red axes with arrowheads. Vertical x^2 axis at PANEL CENTRE (points straddle it);
+// horizontal x axis along the zero line. Axis labels as crisp text runs.
+const AX = 0.455;
+s.addShape(pres.shapes.LINE, {
+  x: AX * W, y: 0.185 * H, w: 0, h: (0.780 - 0.185) * H,
+  line: { color: "C00000", width: 2, beginArrowType: "triangle" },
+});
+s.addShape(pres.shapes.LINE, {
+  x: 0.025 * W, y: 0.780 * H, w: (0.885 - 0.025) * W, h: 0,
+  line: { color: "C00000", width: 2, endArrowType: "triangle" },
+});
 s.addText([
-  { text: "Data is ", options: { fontSize: 14, italic: true, color: "C00000", fontFace: FONT } },
-  { text: "linearly separable", options: { fontSize: 14, bold: true, italic: true, color: "C00000", fontFace: FONT } },
-], { x: X(0.69), y: Y(0.295), w: X(0.90) - X(0.69), h: Y(0.335) - Y(0.295), align: "left", valign: "middle", margin: 0 });
-s.addText("In the new representation", { x: X(0.69), y: Y(0.345), w: X(0.90) - X(0.69), h: 0.4, align: "left", valign: "middle", fontSize: 14, italic: true, color: "000000", fontFace: FONT, margin: 0 });
-// "Linear Decision Boundary" callout: 3-line bold-italic blue, centre-right above boundary end
-s.addText("Linear\nDecision\nBoundary", { x: X(0.70), y: Y(0.45), w: X(0.90) - X(0.70), h: Y(0.58) - Y(0.45), align: "center", valign: "middle", fontSize: 12, bold: true, italic: true, color: "1F49C7", fontFace: FONT, margin: 0, lineSpacing: 14 });
-const ax = X(0.79), ay = Y(0.575), bx = X(0.752), by = Y(0.602);
-s.addShape(pres.shapes.LINE, { x: ax, y: ay, w: Math.hypot(bx - ax, by - ay), h: 0.01, rotate: Math.atan2(by - ay, bx - ax) * 180 / Math.PI, line: { color: "1F49C7", width: 1.5 } });
-// Axes: vertical x^2 at panel centre x=0.471 (arrowhead top), horizontal x at y=0.827 (arrowhead right)
-s.addShape(pres.shapes.LINE, { x: X(0.471), y: Y(0.174), w: 0.01, h: Y(0.827) - Y(0.174), line: { color: "C00000", width: 2 } });
-s.addShape(pres.shapes.ISOSCELES_TRIANGLE, { x: X(0.471) - 0.08, y: Y(0.152), w: 0.16, h: 0.16, fill: { color: "C00000" }, line: { type: "none" } });
-s.addShape(pres.shapes.LINE, { x: X(0.091), y: Y(0.827), w: X(0.898) - X(0.091), h: 0.01, line: { color: "C00000", width: 2, endArrowType: "triangle" } });
-const e2 = man.eq_x2, e1 = man.eq_x;
-s.addImage({ path: path.join(EQ, e2.file), x: X(0.422), y: Y(0.119), w: e2.w_in });
-s.addImage({ path: path.join(EQ, e1.file), x: X(0.855), y: Y(0.815), w: e1.w_in });
-// Blue linear decision boundary: y=0.603, x 0.217 -> 0.756 (stops short of the callout)
-s.addShape(pres.shapes.LINE, { x: X(0.217), y: Y(0.603), w: X(0.756) - X(0.217), h: 0.01, line: { color: "1F49C7", width: 2.25 } });
-// Cyan parabola: 3 left / 3 right of the axis, height increasing outward
-const cyan = [[0.296, 0.239], [0.658, 0.239], [0.328, 0.418], [0.623, 0.418], [0.363, 0.558], [0.586, 0.558]];
-// Red tight symmetric cluster just above the x-axis
-const red = [[0.386, 0.647], [0.554, 0.647], [0.416, 0.736], [0.523, 0.736], [0.452, 0.733], [0.490, 0.733]];
-function dots(list, color, r) {
-  list.forEach(p => s.addShape(pres.shapes.OVAL, { x: X(p[0]) - r, y: Y(p[1]) - r, w: 2 * r, h: 2 * r, fill: { color }, line: { color, width: 0 } }));
+  { text: "x", options: { fontSize: 18, italic: true, color: "C00000", fontFace: SERIF } },
+  { text: "2", options: { fontSize: 12, italic: true, color: "C00000", fontFace: SERIF, superscript: true } },
+], { x: AX * W + 0.09, y: 0.150 * H, w: 0.5, h: 0.3, margin: 0 });
+s.addText("x", {
+  x: 0.890 * W, y: 0.725 * H, w: 0.3, h: 0.3, margin: 0,
+  fontSize: 18, italic: true, color: "C00000", fontFace: SERIF,
+});
+
+// Blue horizontal linear decision boundary, stopping short of the callout
+s.addShape(pres.shapes.LINE, {
+  x: 0.300 * W, y: 0.505 * H, w: (0.715 - 0.300) * W, h: 0,
+  line: { color: "1F49C7", width: 2.25 },
+});
+
+// Cyan class: symmetric parabola arms about the axis, height increasing outward.
+// Red class: tight inverted-arc cluster, top pair just below the boundary.
+const cyan = [[0.425, 0.455], [0.385, 0.360], [0.345, 0.250],
+              [0.485, 0.455], [0.525, 0.360], [0.565, 0.250]];
+const red = [[0.440, 0.545], [0.470, 0.545], [0.400, 0.600],
+             [0.510, 0.600], [0.360, 0.660], [0.550, 0.660]];
+function dots(list, color) {
+  list.forEach(p => {
+    const cx = p[0] * W, cy = p[1] * H, r = 0.085;
+    s.addShape(pres.shapes.OVAL, {
+      x: cx - r, y: cy - r, w: 2 * r, h: 2 * r,
+      fill: { color }, line: { color, width: 0 },
+    });
+  });
 }
-dots(cyan, "00B0F0", 0.083);
-dots(red, "DD2C2C", 0.083);
-// 12 open circles on the x-axis, 6 left / 6 right of the axis, alternating blue/red
-const circ = [0.300, 0.330, 0.360, 0.390, 0.420, 0.450, 0.492, 0.522, 0.552, 0.585, 0.620, 0.655];
-circ.forEach((cx, i) => s.addShape(pres.shapes.OVAL, {
-  x: X(cx) - 0.075, y: Y(0.827) - 0.075, w: 0.15, h: 0.15,
-  fill: { type: "none" }, line: { color: i % 2 ? "C00000" : "1F49C7", width: 1.5 },
-}));
+dots(cyan, "17BECF");
+dots(red, "DD2C2C");
+
+// Original 1-D data: 12 open circles on the x-axis, grouped 3 blue / 6 red / 3 blue
+const seq = ["0033CC", "0033CC", "0033CC", "CC0000", "CC0000", "CC0000",
+             "CC0000", "CC0000", "CC0000", "0033CC", "0033CC", "0033CC"];
+for (let i = 0; i < 12; i++) {
+  const cx = (0.335 + (0.240 * i) / 11) * W, cy = 0.780 * H, r = 0.07;
+  s.addShape(pres.shapes.OVAL, {
+    x: cx - r, y: cy - r, w: 2 * r, h: 2 * r,
+    fill: { type: "none" },
+    line: { color: seq[i], width: 1.5 },
+  });
+}
+
 pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_016_recreated.pptx") })
   .then(() => console.log("wrote slide_016_recreated.pptx"))
   .catch(err => { console.error(err); process.exit(1); });

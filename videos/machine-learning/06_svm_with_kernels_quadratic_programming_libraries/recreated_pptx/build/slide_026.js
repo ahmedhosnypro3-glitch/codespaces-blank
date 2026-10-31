@@ -33,7 +33,7 @@ s.addText("26", {
 s.addText("Quadratic Kernel Mapping and Kernel Trick", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 20, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
 // Content panels (spec LAYOUT): rounded rects with blue border
@@ -59,7 +59,7 @@ hl(7.706, 5.580, 0.627, 0.293); // behind [a^T b]^2, lower line 2  [0.578,0.744,
 // Equation PNGs (600 dpi mathtext): exact size w = px/600 in, vertically centered in spec box
 function eq(name, x, y, w, h) {
   const m = man[name];
-  s.addImage({ path: EQ + m.file, x, y: y + Math.max(0, (h - m.h_in) / 2), w: m.w_in });
+  s.addImage({ path: EQ + m.file, x, y: y + Math.max(0, (h - m.h_in) / 2), w: m.w_in, h: m.h_in });
 }
 eq("eq1_a",     1.000, 1.223, 0.693, 0.525); // a = (a1,a2)^T red            [0.075,0.163,0.127,0.233]
 eq("eq2_b",     1.906, 1.223, 0.693, 0.525); // b = (b1,b2)^T blue           [0.143,0.163,0.195,0.233]

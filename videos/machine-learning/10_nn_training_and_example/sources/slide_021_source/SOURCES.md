@@ -32,3 +32,44 @@ Topic: hidden-layer backpropagation delta rule — δj = Oj(1−Oj)·Σk(δk·wk
   delta rule exactly; no numeric or structural discrepancy against sources.
 - Build hint (not a correction): the small sketch labels Oi / wji / wkj / δk / bk are
   standard notation for the i→j→k path; render with the same index positions.
+## Audit
+
+Audited by lane S scope `b_src_2` (web-source audit), 2026-10-31. Method: independent agy
+web-search; cross-read against `analysis/parse/slide_021.parse.md` and
+`analysis/slide_021_final.json` (title "At Hidden Layer"; equations
+`Δ_ji = η O_i O_j(1−O_j) [∑_k (δ_k w_kj)]`, `Δ_ji = η O_i δ_j`,
+`Where: δ_j = O_j(1−O_j) [∑ (δ_k w_kj)]`; labels `O_i, w_ji, w_kj, δ_k, b_k`).
+
+Questions asked:
+1. Is `δ_j = O_j(1−O_j)·[∑_k (δ_k w_kj)]` the standard hidden-layer delta for sigmoid?
+2. Is `Δ_ji = η·O_i·δ_j` equivalent to the expanded form on the frame?
+3. Is `∂net_j/∂w_ji = O_i` the correct justification for the `O_i` factor?
+4. Is the `O_j(1−O_j)` factor sigmoid-specific (and therefore not generally applicable)?
+5. Are the sketch labels (`O_i / w_ji / w_kj / δ_k / b_k`) standard notation?
+
+Answers:
+- Q1 **CONFIRMED**. Independent search derives the rule from `δ_j ≡ −∂E/∂net_j` and the
+  chain rule over the next layer, arriving at exactly `δ_j = O_j(1−O_j) Σ_k(δ_k w_kj)`.
+- Q2 **CONFIRMED**. `Δ_ji = η O_i δ_j` is the expanded rule with `δ_j` substituted; the
+  frame prints both forms, which is correct.
+- Q3 **CONFIRMED**. `net_j = Σ_i w_ji O_i + b_j` ⇒ `∂net_j/∂w_ji = O_i`.
+- Q4 **CONFIRMED**. The general rule is `δ_j = f'(net_j)·Σ_k(δ_k w_kj)`; for sigmoid
+  `f'(net_j) = O_j(1−O_j)`, for ReLU `f'(net_j) = 1{net_j ≥ 0}`.
+- Q5 **CONFIRMED**. Standard `i`=upstream, `j`=hidden, `k`=downstream convention.
+
+Verdicts per claim:
+- `δ_j = O_j(1−O_j)[∑_k(δ_k w_kj)]` — **CONFIRMED**.
+- `Δ_ji = η O_i δ_j` — **CONFIRMED**.
+- `Δ_ji = η O_i O_j(1−O_j)[∑_k(δ_k w_kj)]` — **CONFIRMED**.
+- Notation `i`/`j`/`k` and `w_kj`/`w_ji` direction — **CONFIRMED**.
+- Bias notation `b_k` in the sketch — **CONFIRMED** (consistent with net = Σw·O + b).
+- No numeric claims on this slide; nothing to recompute.
+
+New sources found during audit (real URLs, not previously cited):
+- Math StackExchange, "Backpropagation hidden layer error" —
+  https://math.stackexchange.com/questions/4686558/backpropagation-hidden-layer-error
+- MIT OCW 9.641, "Lecture 20: Backprop" —
+  https://ocw.mit.edu/courses/9-641j-introduction-to-neural-networks-spring-2005/5d46d3b6e32a5120fe9893193c31e926_lec20_backprop.pdf
+
+Audit summary: the slide's two formulas are exactly the standard sigmoid-backprop hidden-layer
+delta rule. No conflicts found; nothing to correct.

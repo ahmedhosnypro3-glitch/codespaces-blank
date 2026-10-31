@@ -58,21 +58,25 @@ s.addShape(pres.shapes.LINE, {
   x: X(0.043), y: Y(0.553), w: X(0.964 - 0.043), h: 0,
   line: { color: "FF0000", width: 1.5 },
 });
-// Subject-to header with red border
-s.addShape(pres.shapes.RECTANGLE, {
-  x: X(0.060), y: Y(0.589), w: X(0.161 - 0.060), h: Y(0.635 - 0.589),
-  fill: { type: "none" }, line: { color: "FF0000", width: 1 },
-});
+// Subject-to header (no border box — original has none)
 txt("Subject to", X(0.060), Y(0.589), X(0.161 - 0.060), Y(0.635 - 0.589),
   { bold: true, color: "FF0000", fontSize: 16, valign: "middle" });
 // Original constraints, arrow, transformed constraints
 img("consL", X(0.060), Y(0.638));
 img("arrow", X(0.171), Y(0.704));
 img("consR", X(0.218), Y(0.630));
-// Standard form Gx<=h with G/h matrices
+// Standard form Gx<=h with highlight box, then G/h matrices
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+  x: X(0.388), y: Y(0.585), w: X(0.518 - 0.388), h: Y(0.642 - 0.585),
+  fill: { color: "FFFFE0" }, line: { color: "FF0000", width: 0.75 },
+});
 img("gh", X(0.392), Y(0.589));
-img("G_full", X(0.360), Y(0.700));
-img("h_full", X(0.470), Y(0.700));
+{
+  const gm = require(path.join(EQ, "G_rb4.png.json"));
+  const gx = X(0.362), gy = Y(0.655);
+  img("G_rb4", gx, gy);
+  img("h_rb4", gx + gm.w_in + 0.10, gy);
+}
 // Vertical divider + right evaluation box
 s.addShape(pres.shapes.LINE, {
   x: X(0.557), y: Y(0.571), w: 0, h: Y(0.920 - 0.571),

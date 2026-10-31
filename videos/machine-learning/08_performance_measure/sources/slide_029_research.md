@@ -11,3 +11,7 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query; 3 claims carried from `sources/slide_028_research.md` under the economy law). Spec consumed: `analysis/slide_029_final.json`; frame `unique_slides/slide_029.jpg`.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Threshold=0.0 panel: matrix [[5,0],[6,0]] (TP=5, FN=0, FP=6, TN=0), TPR=5/(5+0)=1, FPR=6/(6+0)=1, ROC point (FPR=1, TPR=1) top-right: CONFIRMED — sklearn `roc_curve` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html) and Stats StackExchange ROC-from-confusion-matrix (https://stats.stackexchange.com/questions/223749/): at threshold 0.0 every sample is predicted positive, giving TP=5, FN=0, FP=6, TN=0, hence TPR=5/5=1 and FPR=6/6=1, the (1,1) corner of the ROC plot (sklearn's last point). Arithmetic re-verified locally. No corrections.

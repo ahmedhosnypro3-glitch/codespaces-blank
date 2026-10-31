@@ -1,0 +1,35 @@
+## Fidelity check â slide 031, zoomed region (r17)
+
+### Scope settled first
+Treated as a zoomed cropâpair of the same table region at matched scale. House chrome (white canvas, gray panel, C00000 edge strokes, yellow badge/purple ring) ignored. Typed vs. bitmap/handwritten ink treated as inherent medium difference. Professional 2D equation formatting not applicable to this region (no equations here). Compression softness in IMG2 not counted.
+
+### Content audit (values) â all correct
+Every legible cell in the 8 visible rows Ã 7 full columns (plus the partially clipped 8th column at the right edge) matches between IMG1 and IMG2, digitâforâdigit and signâforâsign:
+
+- Row 1 (oliveâgreen): 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, (5 clipped) â
+- Row 2: 1.64, 1.25, 1.04, 1.01, 1.04, 1.01, 1.04, (1 clipped) â
+- Row 3 (purple): 4.1, 4.4, 4.7, 5, 4.7, 5, 4.7 â
+- Row 4: 1.81, 1.36, 1.09, 1, 1.09, 1, 1.09 â
+- Row 5 (peach): 4.3, 4.6, 4.9, 5.2, 4.9, 5.2, 4.9, (5 clipped) â
+- Row 6: 1.49, 1.16, 1.01, 1.04, 1.01, 1.04, 1.01, (1 clipped) â
+- Row 7 (green): â3.2, â2, â0.8, 0.4, â0.8, 0.4, â0.8, (0 clipped) â
+- Row 8 (red/pink): 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, (4 clipped) â
+
+No swapped values, no wrong digits, no missing rows. Column centers and horizontal alignment of the numerals agree (e.g., 4.2 at xâ30, 4.5 at xâ113, 4.8 at xâ196, 5.1 at xâ280, 4.8 at xâ368, 5.1 at xâ456 in both images). Arrow xâpositions (â210, 285, 362, 455) correspond to the same columns (4.8, 5.1, 4.8, 5.1) in both.
+
+### Discrepancies (every one, with severity + confidence)
+
+1. **MAJOR â Table gridlines / cell borders absent in the top six rows.** In IMG2 the yellowâgreen, purple and peach blocks are gridded tables: thin grayâolive vertical column separators at roughly xâ78, 155, 235, 313, 395, 475, 555 (cropârelative, full width) and horizontal rules separating the paired rows (yâ70, 105, 115, 160, 200, 210, 258, 300). In IMG1 these are gone entirely â the blocks are flat, borderless color bands (green block yâ38â105, purple yâ120â195, peach yâ210â280), with only faint white gaps where the original has dark rules. The columnâtoâcolumn cell structure of the table is not reproduced. Confidence: high (0.92).
+
+2. **MAJOR â Green row (â3.2 â¦) loses its green cell borders.** IMG2 shows a greenâoutlined row (yâ305â352) with a green top rule, a green bottom rule and green vertical cell separators at each column boundary (xâ78, 152, 225, 300, 375, 452, 528, 600). IMG1 renders it as a plain lightâgreen band with only a single green rule above it (yâ300) and no bottom rule and no vertical separators. Confidence: high (0.90).
+
+3. **MAJOR â Red row (4.5 â¦) cell borders replaced by solid red rules; vertical separators missing.** IMG2 shows a redâbordered row (yâ360â405) whose red verticals enclose each cell (xâ78, 152, 225, 300, 375, 452, 528, 600). IMG1 draws only horizontal red strokes (one just above the pink row, yâ365, and one below, yâ390) with no red vertical cell separators, so the row reads as a pink band with two rules rather than a bordered set of cells. Confidence: high (0.90).
+
+4. **MINOR â Arrow glyphs differ in fill and proportion.** The four downâarrows at the top of the crop are hollow whiteâinterior, blueâoutlined shapes in IMG1 (xâ210, 285, 362, 455, y 0â35), whereas the original's arrows read as solid blue filled arrows with a white keyline and a slightly broader head/shorter stem in IMG2. Position over the correct columns is preserved. Confidence: moderate (0.65).
+
+5. **MINOR (likely capture artifact) â Fill hue/value.** IMG2's yellowâgreen, purple and peach bands are duller/oliveâshifted and the text ink is softer than IMG1's cleaner, brighter fills; this is consistent with videoâcapture color/compression rather than a deliberate recolor, but a slight saturation gap remains. Confidence: low (0.40).
+
+### Summary
+Numeric and glyph content is exact across all visible cells; the failure is structural: the recreation drops the table's cell grid (vertical column separators, row rules, and the green/red bordered cell boxes), reducing a gridded table to flat color bands, plus a minor arrowâfill difference.
+
+**FINAL VERDICT: FAIL**

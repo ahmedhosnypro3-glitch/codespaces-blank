@@ -1,0 +1,44 @@
+## Fidelity check â slide 048, zoomed crop pair (r16)
+
+**Scope settled first (per founder rules):** cropâpair comparison of one region only; house template chrome (white canvas, gray E9E9E7 panel, red C00000 edges, yellow badge) is intentional; typedâvsâhandwritten and JPEG softness in IMG2 are not discrepancies; 2âD equation formatting is not a discrepancy.
+
+---
+
+### 1. RIGHTâHAND FORMULA COLUMN â red vector values present in original, absent in recreation, and formula text displaced
+* **Where:** right column of white boxes; box 1 (d(xâ)) and box 2 (d(xâ)) near the crop's right edge, plus the top of box 3 at bottomâright.
+* **IMG2 (original):** a red opening parenthesis + "1" â "(1" â appears at roughly **xâ552â575, yâ125â160** (d(xâ) box), **xâ552â575, yâ265â300** (d(xâ) box), and **xâ548â575, yâ400â430** (third box). The black formula "d(xâ) =" ends at about xâ525, leaving room for the red vector.
+* **IMG1 (recreation):** the formula "d(xâ) =" is **shifted ~40 px to the right**, now starting at xâ488 and being **clipped by the crop's right edge** (the "=" runs off). No red "(1" ink appears anywhere in that box at xâ550â575. Same for "d(xâ) =" (xâ488â576, clipped, no red ink) and the bottomâright box (blank interior at xâ548â575).
+* **Reading:** the rightâcolumn formulas are horizontally misâpositioned in the recreation, so the red vector values that are inside the original's crop have fallen outside the recreation's crop. Visible red content in the compared region is missing from the recreation.
+* **Severity: MAJOR** Â· **Confidence: HIGH** (clear red ink in IMG2; clear absence + offset in IMG1; both are within the same matched region, so this is not a cropping artifact of the comparison harness).
+
+### 2. HEADING TYPOGRAPHY â wrong weight/size/face and color, plus vertical placement
+* **Where:** topâleft inside the left white panel, "Ugmented Vectors (from Top)".
+* **IMG2:** **bold, larger, saturated blue serifâitalic**, spanning âx 42â352, y 116â145, sitting ~13 px below the panel's top border.
+* **IMG1:** **thinner, smaller, desaturated blueâviolet sansâitalic**, spanning âx 45â295, y 130â150, sitting ~24 px below the border.
+* **Severity: MINOR** (content/wording identical â both read "Ugmented Vectors (from Top)", including the source's spelling â but glyph weight, size, hue and placement differ) Â· **Confidence: MEDIUMâHIGH**.
+
+### 3. SYSTEMATIC FONTâFAMILY SUBSTITUTION (serif/math â sans)
+* **Where:** throughout the region â heading, "d(xâ) =", "d(xâ) =", the "Câ positive Câ negâ¦" line, the topâtable C labels, and the "Iteration 1" banner.
+* **IMG2:** serif / ComputerâModernâstyle faces (e.g., serifs visible on "Iteration 1", on "positive", and on the math "d(xâ)").
+* **IMG1:** uniform sansâserif (Arialâlike) substitutes.
+* **Severity: MINOR** (no wrong or missing characters; purely stylistic fidelity) Â· **Confidence: MEDIUMâHIGH**.
+
+### 4. "Iteration 1" BANNER â size/position offset
+* **Where:** bottomâleft red rectangle.
+* **IMG2:** red box âx 55â306, top edge yâ397; white serif "Iteration 1" text âx 73â288, glyph tops yâ405.
+* **IMG1:** red box âx 46â313, top edge yâ390 (â8 px higher and ~17 px wider); white sans text âx 110â282, glyph tops yâ418 (â13 px lower within the band, and more heavily cropped by the region edge).
+* **Severity: MINOR** Â· **Confidence: MEDIUM**.
+
+---
+
+### Verified as matching (not discrepancies)
+* All six augmentedâvector columns, cellâbyâcell: xâ = (1,1,1), xâ = (1,2,1), xâ = (1,1,2), xâ = (1,5,4), x = (1,6,5), xâ = (1,6,6) â identical in both images, with subscripts intact and rows correctly stacked/centered inside the enclosing parentheses.
+* Class labels under the columns: Câ Câ Câ Câ Câ Câ (red, red, red, blue, blue, blue) â same order and colors.
+* Partially visible table row at the top: (1) (1) (2) (4) (5) (6) with matching Câ/Câ labels and the "Câ positive Câ negâ¦" annotation â same values, order, and color coding.
+* xââ¦xâ header row, italic and subscripted correctly in both.
+* Enclosure geometry: parentheses span all three stacked entries without touching the digits; white panel, gray backing panel, and box borders align within a few px.
+* Panel/border stroke weights and the intentional template chrome are consistent; gray/blue color fringing and softness in IMG2 are capture artifacts (rule e).
+
+---
+
+**FINAL VERDICT: FAIL** â the region is legible and the vector tables are characterâperfect, but the rightâhand formula column is displaced ~40 px and the red vector values visible in the original's crop are absent from the recreation's crop (MAJOR), with additional MINOR typography/size/placement deviations. Not a faithful, usable recreation of this region as captured.

@@ -1,0 +1,127 @@
+ADJUDICATION — slide 025 crop-pair FAILs (crop_dense_judge_k15b.txt 06:40, crop_dense_judge_k16.txt 06:44)
+Date: 2026-10-31. Pixel-first (PIL/numpy), all measurements in slide space 960x540.
+Read-only wrt pptx/DB/deck/result.txt. Writes confined to rejudge_20261027/slide025/.
+
+ARTIFACTS JUDGED (md5-verified)
+- k15b crop leg judged: crop_dense_render.png md5 6784ca92b7f8e495389881deec5acdba vs
+  crop_dense_orig.png md5 703ef56e4e57aec9cbcf0198ce9241d3 (crop_dense_judge_k15b.txt.log).
+  crop_dense_render.png is cut from render.png mtime 2026-10-31 06:21:24, md5
+  2ab860b7a599ef2828ad28b5f3c58e92 — the k15b-promoted render (promote_k15b_025.sh),
+  byte-identical to render_k16_promoted_check.png. THIS is the render side used below.
+- k16 crop leg judged: crop_dense_render_k16.png md5 f02ee769428b8a5ab56a8ab0cd5e36f7 vs
+  crop_dense_orig_k16.png (same orig md5 703ef56e). k16 render reconstructed to slide
+  space at (592,160), scale 1125/540; valid only inside x592-896 y160-368.
+- Crop region regenerated: pick_dense_region.py 025 -> "592 160 896 368"; re-cut pair
+  (crop_regen_render.png / crop_regen_orig.png) md5-MATCHES the judged k15b pair exactly,
+  so the on-disk pair is the judged pair.
+- Context: FULL k15b leg (judge_full_k15b.txt 06:39) = clean PASS; its only surface note
+  was MINOR ("TR bowl reads shallower/flatter, fewer z-ticks").
+
+MEASUREMENT PROBES (this dir): adjudicate_probe_k15b_k16.py, adjudicate_probe2_k15b_k16.py,
+adjudicate_probe3_k15b_k16.py (+ _out.txt). rejudge_adjudicate.py 025 --crop re-run,
+output in adjudicate_rerun_025_crop.txt.
+
+CLAIM-BY-CLAIM TABLE (orig vs render_k15b [the k15b-judged render] vs render_k16)
+
+k15b claim 1 — "render surface flat/top-down, plotted geometry wrong" (BLOCKER)
+  TR surface bbox: orig x619-874 y120-313 (w256 h194, colored 18.9%)
+                     k15b x621-873 y118-277 (w253 h160, colored 21.1%)
+  white-above-surface in TR box: orig 0 px, k15b 530 px.
+  Verdict: REFUTED as "geometry wrong / different object" — same surface, same bbox
+  width, similar colored share, present in both. PARTIALLY CONFIRMED only as "reads
+  flatter": render's box has almost no grid/wall ink (see claim 5) and 53 px less
+  vertical extent (h160 vs h194), so the 3D context is weaker. Not a missing/wrong plot.
+
+k15b claim 2 — "z-axis missing; z-ticks 0/0.5/1/1.5 absent; stray '0.35' numeral" (BLOCKER)
+  TR z-vline (scan x616-879 y120-315): orig strongest cols x646=91px/run46, x648=85px/run65
+    (band x644-650 total 271 px); k15b band x644-650 = 8 px, max run 4; k16 = 8 px.
+    At the named orig x731-738 (BR z-axis, rows y350-525): orig 145 px, runs 7-10;
+    k15b 16 px, runs <=3.
+  Z-tick label strip left of vline (x600-643 y120-315, dark ink): orig 57 px, 2 label-row
+    clusters (y220-224, y258-262); k15b 14 px, 0 clusters; k16 14 px, 1 cluster (y195-199).
+  Stray-numeral zone (upper-left crop, x592-664 y160-200): orig 28 px bbox x611-663 y160-192;
+    k15b 20 px bbox x634-654 y195-198 — comparable small ink both sides.
+  Verdict: CONFIRMED — the vertical z-axis line and its tick-label ink are effectively
+    absent in both renders (271->8 px at the vline band; 57->14 px tick strip). The
+    "stray 0.35 numeral" sub-claim is NOT SUBSTANTIATED (both sides have similar ink there;
+    no extra numeral measurable in the render).
+
+k15b claim 3 — "axis labels -100..100 not matching region-wise" (MAJOR)
+  Not separately re-measured cell-by-cell (judge itself rated the k16 twin LOW confidence).
+  Verdict: UNVERIFIED — no pixel evidence either way in this pass.
+
+k15b claim 4 — "surface color mapping differs (yellow/orange+blue core vs green/cyan+warm)"
+  (MAJOR)
+  BR surface (x615-880 y344-531, GT pad-8 method; orig reference: colored 42.6-45.6%,
+  jet-t hist/16 ~[1647,0,0,555,813,0,1140,5098,3272,3597,4,1517,2066,401,72,1127],
+  main-diag jet-t mean 0.55):
+    orig (this probe): colored 45.6%, hist16=[1480,0,0,552,813,0,1140,4721,2967,3597,4,
+      1517,2063,24,0,538] (mass in bins 7-9 + 12), diag mean 0.359 std 0.252
+    k15b:              colored 54.7%, hist16=[37,0,2,254,878,1199,2572,5138,4515,3385,2182,
+      1735,1296,10,0,74] (spread bins 3-12), diag mean 0.520 std 0.070
+  TR surface hist16: orig=[330,67,176,582,488,4,1082,2072,2577,1498,8,214,63,0,0,986]
+    (bin15 dark-red peak 986) vs k15b=[743,464,237,700,751,279,738,1198,1445,1389,346,
+    2170,810,0,0,37] (mass shifted to bin11, dark-blue bins 0-1 = 1207).
+  k16 TR hist ~ k15b (bin11=2163). k16 BR not covered by its crop (crop ends y368).
+  Verdict: CONFIRMED — value->color histograms differ materially in both TR and BR
+    (colored% 45.6 vs 54.7 in BR; diag mean 0.359 vs 0.520; TR peak bin 15 vs 11).
+
+k15b claim 5 — "3D grid / wall-like face missing in render" (MAJOR)
+  Gray mesh/wall ink (lum 120-215, sat<24): TR box orig 2185 px vs k15b 510 px vs k16 486 px;
+  BR box orig 354 px vs k15b 5 px; crop region orig 1953 vs k15b 515.
+  Verdict: CONFIRMED — the renders lack ~77% (TR) / ~99% (BR) of the original's grid/wall
+    ink. This is the main reason the surface reads flat/top-down.
+
+k15b claim 6 — "stray red diagonal entering upper-left, no counterpart in IMG2" (MAJOR)
+  Red px within 2 px of segment (652,189)->(667,165): orig 27 (43 at tol 3), k15b 42, k16 0.
+  Red components in TR box (area>=15): orig has comp area=125 at x653-667 y166-189
+    slope +1.23 — i.e. THE ORIGINAL OWNS the diagonal; k15b also has comp area=42 at
+    x651-666 y165-188. k16 has NO red on that segment (0 px) but other diagonal-ish comps
+    (slope 1.16 at x696-707 y246-258 etc.). Red totals: TR orig 3475 / k15b 3200 / k16 2554;
+    BR full-box orig 3544 / k15b 3676; fair BR sliver y344-368: orig 372, k15b 315, k16 352.
+  Verdict: REFUTED for k15b — the diagonal exists in BOTH crops (orig 27 px, render 42 px
+    on the same segment); it is original content, not a stray render stroke. For k16 the
+    inverse holds: the render LACKS the orig diagonal (0 px) — a real difference, but not
+    the "extra stray stroke" the judge claimed.
+
+k16 claims (crop_dense_judge_k16.txt): item 1 colormap — CONFIRMED (same hist evidence as
+  claim 4; k16 TR hist ~ k15b). item 2 z-axis 0/0.5/1/1.5 missing — CONFIRMED (k16 vline
+  band 8 px, tick strip 14 px/1 cluster). item 3 duplicate "-100" front tick — LOW conf,
+  UNVERIFIED here. item 4 red stroke geometry differs — CONFIRMED that the sets differ
+  (k16 lacks the x653-667 y166-189 diagonal the orig has), but REFUTED as "render added a
+  stray diagonal": the orig owns it. item 5 no garbled glyphs — consistent, no action.
+
+rejudge_adjudicate.py 025 --crop (re-run, adjudicate_rerun_025_crop.txt):
+  crop 634x434; diff px 82615 (30.025% of frame); densest diff cells cluster at slide
+  x384-552 y247-292 and y517-540 (bottom rows) — i.e. BR/BL lower area + surface band;
+  ink only in render 17755 px vs ink only in ORIGINAL 19716 px (original-heavy => missing
+  content, consistent with absent z-axis/grid ink).
+
+RECOMMENDATION: STANDING FAIL (do NOT dismiss). The two most alarming judge blockers —
+"wrong/flat plotted geometry" and "stray red diagonal" — are REFUTED by pixels, but the
+crop FAIL is corroborated by hard ink metrics: missing z-axis vline + tick labels, missing
+3D grid/wall mesh, and a materially different jet colormap histogram. FULL k15b PASS (06:39)
+stands; the crop leg remains FAIL.
+
+EXACT FIX TARGETS (for the next build iteration):
+  1. TR plot: restore the vertical z-axis line at slide x646-648 (orig: 271 line-px in
+     x644-650, runs 46/65) and the tick labels in strip x600-643 (orig 57 dark px, clusters
+     y220-224 & y258-262; labels 0 / 0.5 / 1 / 1.5).
+  2. BR plot: restore z-axis structure at slide x731-738 (orig 145 px, runs 7-10 over
+     y350-525; strongest BR cols orig x710-714).
+  3. Restore 3D pane grid/walls: gray mesh ink targets orig TR 2185 px (render 510) and
+     BR 354 px (render 5) in boxes x616-879 y115-317 / x615-880 y344-531.
+  4. Retune surface colormap so the jet-t hist/16 matches orig — BR orig mass in bins
+     7-9+12 with diag mean ~0.36-0.55 and colored ~42.6-45.6% (render: spread bins 3-12,
+     colored 54.7%, diag 0.520); TR orig peak bin 15 (986 px) vs render bin 11 (2170).
+  5. k16-specific: re-add the red diagonal stroke at slide (652,189)->(667,165)
+     (orig comp x653-667 y166-189 slope 1.23, 27 px within 2px; k16 render has 0).
+  NOT fix targets (refuted): red diagonal is original content (do not remove it); the
+  surface is not a different/flat object (do not rebuild the geometry); "0.35" numeral and
+  duplicate "-100" were not substantiated by pixels.
+
+Files written this run (all under rejudge_20261027/slide025/): adjudicate_probe_k15b_k16.py,
+adjudicate_probe_k15b_k16_out.txt, adjudicate_probe2_k15b_k16.py,
+adjudicate_probe2_k15b_k16_out.txt, adjudicate_probe3_k15b_k16.py,
+adjudicate_probe3_k15b_k16_out.txt, crop_regen_render.png, crop_regen_orig.png,
+adjudicate_rerun_025_crop.txt, this report. No pptx/DB/deck/result.txt touched. No git.

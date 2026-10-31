@@ -1,0 +1,27 @@
+## Discrepancy List
+
+**1. Garbled/extra glyph at zâ vector top value â MAJOR (confidence: high that an artifact exists; ~80%)**
+- Location: far left of region, ~top 5â20% height, overlapping/left of the opening parenthesis of the first column vector (IM-relative â x 5â15%, y 5â20%).
+- IMG1 renders the zâ top element as a distorted glyph reading like "0(30" / an overlapping "0" with "30" (effectively "030"); IMG2 renders it cleanly as red **30**. This is a wrong/garbled character in an equation â a content defect, not a medium artifact.
+- The lower element of that vector (15), the zâ/zâ vectors (40/20, 50/25), and the y= labels are otherwise clean and correct.
+
+**2. Text color: red elements render dark/black â MINOR (confidence: moderate, ~65%)**
+- Location: throughout region.
+  - z-vector top values **30 / 40 / 50** (â y 5â20%): red in IMG2, appear black/dark in IMG1.
+  - Table header word **Test** (Testâ/Testâ/Testâ) and the numeric cell values **30, 40, 50, 15, 20, 25** (â y 30â75%, right two-thirds of region): red in IMG2, appear black/dark in IMG1.
+- Capped at MINOR per ground rules (color-only differences), but note it is systematic across many cells, not a stray pixel.
+
+## Verified-correct (no defects found)
+
+- Table values cell-by-cell: xâ = 30/40/50; xâ = 15/20/25; y = 60/80/100 â all match, no swapped or missing values.
+- Subscripts intact: zâ/zâ/zâ, xâ/xâ, Testâ/Testâ/Testâ, superscript Â² on both norms.
+- W = (0.1, 1.95, 0.03) with red underlines â matches, values and order correct.
+- âWâÂ²=3.8 and (left panel) âwâÂ²=4 â match, digits correct.
+- Small matrix 0/2/0, "as if Î»=0" text, y-row yellow highlight, blue arrow, delimiter spans, cell centering â all faithful.
+- Typed-vs-handwriting medium differences: none that rise above inherent medium noise.
+
+## Summary
+
+One MAJOR defect (garbled zâ top value â an extra/overlapping "0" glyph where the original cleanly shows "30") plus a MINOR color-rendering difference (red text rendered dark). The core table data and right-panel content are otherwise faithful.
+
+FINAL VERDICT: FAIL

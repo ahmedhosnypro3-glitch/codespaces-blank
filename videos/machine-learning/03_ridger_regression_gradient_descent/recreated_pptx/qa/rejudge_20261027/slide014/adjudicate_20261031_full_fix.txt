@@ -1,0 +1,18 @@
+ADJUDICATION of judge_full_fix.txt MAJOR claim: spurious '≠(W)' between J(W) and = in bottom cyan row
+1) XML source of truth (slide_014_recreated.pptx slide1.xml text runs in final band):
+   run: ' = ' extra attrs: <a:rPr lang="en-US" sz="1400" dirty="0">
+   run: 'Objective is ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   run: 'Objective function ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   run: 'J(W)' extra attrs: <a:rPr lang="en-US" sz="1700" b="1" dirty="0">
+   run: ' = ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   run: ' = ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   run: 'Objective function ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   run: 'J(W)' extra attrs: <a:rPr lang="en-US" sz="1700" b="1" dirty="0">
+   run: ' = ' extra attrs: <a:rPr lang="en-US" sz="1700" dirty="0">
+   -> no '≠' or '(W)' run exists anywhere in the XML: True
+2) Asset: eq_014_final.png (2391x254 @600dpi placed x350..735 y479..521) is the certified 1/2[(Y-Yhat)^T(Y-Yhat)+lambda W^T W] formula; its left edge (slide x350) overlaps the final-band text box (x166.2 w=201.6 -> ends 367.8) because the 17pt text 'Objective function J(W) = ' renders ~250px wide on one line (ends ~x410).
+3) PIL pixel evidence, bottom band y488-512:
+   ORIG   text col runs x160-470 y491-508: [(179.0, 192.0), (195.0, 204.0), (207.0, 211.0), (214.0, 221.0), (223.0, 230.0), (233.0, 238.0), (240.0, 243.0), (245.0, 254.0), (256.0, 263.0), (270.0, 276.0), (278.0, 287.0), (290.0, 299.0), (301.0, 309.0), (311.0, 316.0), (318.0, 322.0), (324.0, 332.0), (334.0, 344.0), (376.0, 386.0), (393.0, 396.0), (403.0, 419.0), (426.0, 428.0), (446.0, 455.0)]
+   RENDER text col runs x160-470 y493-509: [(167.2, 178.2), (180.6, 191.2), (193.1, 200.8), (202.7, 209.4), (210.9, 214.7), (216.6, 217.6), (219.5, 227.2), (228.1, 235.8), (242.0, 246.4), (247.8, 254.5), (257.4, 264.1), (266.0, 273.2), (274.2, 278.0), (279.9, 280.9), (283.3, 291.0), (292.9, 300.1), (306.8, 314.0), (316.4, 320.7), (321.7, 341.8), (348.5, 357.2), (360.5, 363.4), (367.3, 373.5), (374.9, 381.2), (384.0, 386.9), (398.9, 409.0), (411.4, 418.1), (421.5, 424.3), (426.7, 429.6), (434.4, 439.7), (447.4, 457.5), (465.6, 469.4)]
+   ORIG text ends ~x456 ('=' at 446-456); RENDER text ends ~x410, eq image ink starts x350 -> overlap x350-410 (text tail 'J(W) =' under formula's 1/2 block).
+4) VERDICT on the MAJOR claim: REFUTED as stated — no '≠(W)' glyph run exists in the pptx XML or as a distinct glyph in the render; what the judge read as '≠(W)' is the pixel collision of the overflowed text tail 'J(W) =' with the eq image's left edge (fraction block at x350-408). This collision is PRE-EXISTING (final band untouched by the 2026-10-31 underline fix; prior clean FULL transcripts judge_full_fresh.txt/judge_full.txt = PASS on identical bottom-band pixels). The 3 MINOR findings (vector-entry color, spacing, ellipsis) are stylistic and were not flagged by prior PASS legs.

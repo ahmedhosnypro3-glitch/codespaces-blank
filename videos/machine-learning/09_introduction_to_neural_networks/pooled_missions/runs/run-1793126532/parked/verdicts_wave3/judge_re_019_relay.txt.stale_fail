@@ -1,0 +1,32 @@
+[info] context header injected: VIEW: judge slide 019 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1323773
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_019_rejudge_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_019.jpg ===
+[winner] images (round 1, attempt 1)
+**Slide 019 â element-by-element comparison (house chrome present and excluded from judgement)**
+
+Structure matches: 2Ã2 grid of four blue-purple bordered plot panels (near-white interiors, dashed grey grid), each with a formula caption box beneath (peach fill for sigmoid/tanh/arctan, grey fill for tan), plus one hollow red right-pointing block arrow in the gap between the bottom panels, and the yellow "19" badge. Panel ordering (sigmoid top-left, tanh top-right, tan bottom-left, arctan bottom-right) and the caption strings (`f(x) = Sigmoid(x) = 1/(1+e^{-x})`, `f(x) = tanh(x) = sinh x / cosh x`, `f(x) = tan(x)`, `f(x) = tanâ»Â¹(x)`) are present and correct; the stacked-fraction rendering of the sigmoid and tanh captions is the mandated format upgrade.
+
+**Discrepancies**
+
+1. **MAJOR â Axis lines, tick marks and numeric tick labels are not legible in any of the four plots.** The original clearly prints x/y axes (some with arrowheads) and tick text: sigmoid `-8 -6 -4 -2 2 4 6 8` and `0.0 0.2 0.4 0.6 0.8 1.0`; tanh `-4 -2 2 4` and `-1.0 -0.5 0 0.5 1.0`; tan `-2Ï -3Ï/2 -Ï -Ï/2 Ï/2 Ï 3Ï/2 2Ï` and `4 2 -2 -4`; arctan `-3 -2 -1 1 2 3` and `1 0 -1`. In the recreation the panels read as bare grids with curves; no dark spines/arrows and no readable numerals appear, so the quantitative content of the graphs is not visually recoverable. Confidence: medium (labels may be present but sub-legible; the axis lines themselves are not apparent).
+
+2. **MAJOR â The four rose dashed vertical asymptotes in the tan panel are not distinguishable.** The original shows clearly pink dashed lines at Â±Ï/2 and Â±3Ï/2; in the recreation only faint grey grid verticals and the taupe branches are visible, so the asymptote structure (and the branch count per window) is visually lost. Confidence: medium.
+
+3. **MAJOR â Frame containment: the arctan panel's in-panel title "Inverse Tangent Graph" is jammed against / overlapping the panel's top-left inner border.** The original insets it (~30 px left, ~20 px below the top edge in 960-space) in black. The recreation places it hard in the corner with near-zero inset, at the boundary of the inner frame. Confidence: medium-high.
+
+4. **MAJOR â Frame containment/placement of axis titles in the tan and tanh panels.** The original prints "tan x" and "tanh x" horizontally, centred near the top of each panel with clear space from the border. The recreation rotates both 90Â° and parks them in the top-left corner, where the "tan x" label appears to run into the panel's top border line. Confidence: medium.
+
+5. **MINOR â Red block arrow size and centring.** The original's hollow arrow spans nearly the full inter-panel gap (~55Ã18 px at 960-width, i.e. ~6% of slide width) with a broad shaft. The recreation's arrow is roughly half that length, slimmer, and sits at the left of the gap next to the tan panel rather than centred in it. Shape, hollow construction and red colour are correct.
+
+6. **MINOR â Sigmoid legend styling.** The original's legend is a small bordered box containing a rose line swatch plus the formula text. The recreation shows unboxed rose text with no swatch, and adds a second stacked line "sigma(z)=1" directly beneath it, producing a two-line text block where the original has a single legend entry.
+
+7. **MINOR â Colour/typography of in-panel title and captions.** "Inverse Tangent Graph" is rendered in blue/purple rather than the original's black; caption text is smaller and sans-serif versus the original's larger bold serif math face (per the medium-difference rule this is minor).
+
+8. **MINOR â Caption crowding.** In the sigmoid caption the stacked fraction's numerator "1" and the fraction bar sit tight against (apparently slightly through) the peach box's top edge, whereas the original's fraction is comfortably contained with even padding.
+
+**Visual-quality notes for the recreation:** curves are correctly shaped and coloured (rose for sigmoid/tanh/arctan, warm taupe for tan), panel/gridline colours match the measured palette, but the panels lack visible coordinate scaffolding, several labels crowd their frame edges, and the arrow is undersized relative to its source.
+
+FINAL VERDICT: FAIL
+

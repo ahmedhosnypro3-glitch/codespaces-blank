@@ -10,6 +10,7 @@ const BLUE = "0000CC";  // spec body ink
 const NAVY = "000080";  // second instructor name, darker shade per judge
 const SANS = "Arial";
 const SERIF = "Times New Roman";
+const CX = 13.33 / 2;
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -33,36 +34,36 @@ s.addText(String(NUM), {
   fontSize: 18, bold: true, color: "333333", fontFace: SANS, margin: 0,
 });
 
-// House chrome: title box starts at y=0.28; tall box + valign bottom + line
-// spacing puts the two title lines at the original's vertical position
-// (orig title ink at normalized y 0.335-0.53 = 2.51-3.98 in)
-s.addText([
-  { text: "SVM with Kernels &", options: { fontSize: 40, bold: true, color: "C00000", fontFace: SANS } },
-  { text: "Quadratic Programming Libraries", options: { fontSize: 38, bold: true, color: "C00000", fontFace: SANS } },
-], {
-  x: 0.6, y: 0.28, w: 12.13, h: 3.75,
-  align: "center", valign: "bottom", margin: 0, lineSpacing: 56,
+// House chrome: title box at y=0.28. Two separate single-line boxes place the
+// title ink at the original's measured position (norm y 0.335-0.393 / 0.465-0.53)
+s.addText("SVM with Kernels &", {
+  x: 0.6, y: 2.42, w: 12.13, h: 0.62, align: "center", valign: "middle",
+  fontSize: 40, bold: true, color: "C00000", fontFace: SANS, margin: 0, wrap: false,
+});
+s.addText("Quadratic Programming Libraries", {
+  x: 0.6, y: 3.44, w: 12.13, h: 0.58, align: "center", valign: "middle",
+  fontSize: 38, bold: true, color: "C00000", fontFace: SANS, margin: 0, wrap: false,
 });
 
-// body text helper (inches)
+// body text helper (inches); boxes wider than the ink so nothing wraps
 function txt(str, x, y, w, h, size, color, align, font) {
   s.addText(str, {
-    x, y, w, h, align, valign: "middle",
+    x, y, w, h, align, valign: "middle", wrap: false,
     fontSize: size, bold: true, color, fontFace: font || SANS, margin: 0,
   });
 }
 
-// Prepared By block (centered); y from original ink bands, x/w from spec
-txt("Prepared By", 0.46 * 13.33, 4.68, 0.08 * 13.33, 0.30, 18, RED, "center", SERIF);
-txt("Dr. Khaled Mostafa ElSayed", 0.43 * 13.33, 5.02, 0.14 * 13.33, 0.30, 16, BLUE, "center");
-txt("kmelsayed@zewailcity.edu.eg", 0.41 * 13.33, 5.36, 0.18 * 13.33, 0.22, 13, BLUE, "center");
+// Prepared By block (centered); y from original ink bands
+txt("Prepared By", CX - 0.9, 4.68, 1.8, 0.32, 18, RED, "center", SERIF);
+txt("Dr. Khaled Mostafa ElSayed", CX - 1.7, 5.02, 3.4, 0.32, 16, BLUE, "center");
+txt("kmelsayed@zewailcity.edu.eg", CX - 1.5, 5.36, 3.0, 0.24, 13, BLUE, "center");
 
 // Instructors block (left)
-txt("Instructors:", 0.10 * 13.33, 5.62, 0.07 * 13.33, 0.24, 18, RED, "left", SERIF);
-txt("Dr. Khaled Mostafa ElSayed", 0.13 * 13.33, 5.98, 0.17 * 13.33, 0.24, 16, BLUE, "left");
-txt("kmelsayed@zewailcity.edu.eg", 0.13 * 13.33, 6.26, 0.16 * 13.33, 0.20, 13, BLUE, "left");
-txt("Dr. Mohamed Maher Ata", 0.13 * 13.33, 6.52, 0.14 * 13.33, 0.24, 16, NAVY, "left");
-txt("momaher@zewailcity.edu.eg", 0.13 * 13.33, 6.80, 0.17 * 13.33, 0.20, 13, BLUE, "left");
+txt("Instructors:", 1.333, 5.62, 1.6, 0.26, 18, RED, "left", SERIF);
+txt("Dr. Khaled Mostafa ElSayed", 1.333, 5.98, 3.2, 0.26, 16, BLUE, "left");
+txt("kmelsayed@zewailcity.edu.eg", 1.333, 6.26, 2.8, 0.22, 13, BLUE, "left");
+txt("Dr. Mohamed Maher Ata", 1.333, 6.52, 2.8, 0.26, 16, NAVY, "left");
+txt("momaher@zewailcity.edu.eg", 1.333, 6.80, 2.8, 0.22, 13, BLUE, "left");
 
 // Zewail City logo block: teal field, white mountain emblem, Arabic + ZEWAIL CITY + English lines
 const lx = 0.61 * 13.33, ly = 6.05, lw = (0.83 - 0.61) * 13.33, lh = 0.95;
@@ -72,21 +73,26 @@ s.addShape(pres.shapes.RECTANGLE, {
 });
 // white mountain emblem at the left of the logo
 s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
-  x: lx + 0.12, y: ly + 0.16, w: 0.46, h: 0.62,
+  x: lx + 0.10, y: ly + 0.14, w: 0.48, h: 0.66,
   fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0.5 },
 });
 s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
-  x: lx + 0.44, y: ly + 0.38, w: 0.34, h: 0.42,
+  x: lx + 0.42, y: ly + 0.38, w: 0.36, h: 0.44,
   fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0.5 },
 });
-// logo text lines in white, right of the emblem
-s.addText([
-  { text: "جامعة العلوم والتكنولوجيا", options: { fontSize: 8, bold: false, color: "FFFFFF", fontFace: SANS } },
-  { text: "ZEWAIL CITY", options: { fontSize: 11, bold: true, color: "FFFFFF", fontFace: SANS } },
-  { text: "University of Science and Technology", options: { fontSize: 8, bold: false, color: "FFFFFF", fontFace: SANS } },
-], {
-  x: lx + 0.92, y: ly, w: lw - 1.0, h: lh,
-  align: "center", valign: "middle", margin: 0, lineSpacing: 14,
+// logo text: three separate single-line boxes, right of the emblem
+const tx = lx + 0.88, tw = lw - 0.94;
+s.addText("جامعة العلوم والتكنولوجيا", {
+  x: tx, y: ly + 0.05, w: tw, h: 0.24, align: "center", valign: "middle",
+  fontSize: 8, bold: false, color: "FFFFFF", fontFace: SANS, margin: 0, wrap: false,
+});
+s.addText("ZEWAIL CITY", {
+  x: tx, y: ly + 0.32, w: tw, h: 0.28, align: "center", valign: "middle",
+  fontSize: 10, bold: true, color: "FFFFFF", fontFace: SANS, margin: 0, wrap: false,
+});
+s.addText("University of Science and Technology", {
+  x: tx, y: ly + 0.62, w: tw, h: 0.28, align: "center", valign: "middle",
+  fontSize: 7, bold: false, color: "FFFFFF", fontFace: SANS, margin: 0, wrap: false,
 });
 
 pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_001_recreated.pptx") })

@@ -1,0 +1,25 @@
+You are a meticulous visual QA analyst comparing TWO IMAGES for slide recreation fidelity.
+Image 1 = RECREATION (rendered PPTX at 150dpi). Image 2 = ORIGINAL FRAME (960x540 JPEG from lecture video).
+Your task: does the RECREATION faithfully reproduce the renderable content of the ORIGINAL?
+
+GROUND RULES — acknowledge these first:
+(a) House template is intentional: outer red frame (x=0.15,y=0.15,w=13.03,h=7.2, border #C00000 width 1.5), yellow badge circle (x=12.48,y=0.30,w=0.5,h=0.5 fill #FFF9C4 outline #FFF9C4), centered bold number 18pt #333333. Badge numeral = printed number on original (1–32). Title box starts at y=0.28 (x=0.6,w=12.13 centered). Findings about these are OVERRIDDEN.
+(b) Contentless originals match contentless recreations.
+(c) Lecture-video artifacts (mouse cursors, player chrome, watermarks, capture glitches) are correctly OMITTED from the recreation.
+(d) Typed-vs-handwritten rendering of the same text is MINOR.
+(e) Equations in the recreation are rendered in PROFESSIONAL 2D FORMAT (stacked fractions, large Σ with limits, aligned sub/superscripts) — a linear/typed original is a mandated format upgrade, NOT a discrepancy.
+(f) The verdict is about fidelity of renderable content only.
+
+CONTENT TO VERIFY (from vision analysis + source research):
+- Slide title: "Classification of "AND" Truth Table" in red serif font
+- Truth table: 3 cols (X₁, X₂, O/P), 4 rows with values 0/0/0, 0/1/0, 1/0/0, 1/1/1. O/P column: first 3 cyan, last green. Red borders.
+- 2D decision plot: axes with arrowheads, x₁ horizontal, x₂ vertical, tick '2' on y-axis, '1.2' on x-axis. Blue descending line from (0,2) to (1.2,0). Cyan points at ~(0,0), (0,2), (1,0). Green point at ~(1,1) above line. Red border around plot.
+- Perceptron diagram: inputs x₁(-5), x₂(-3), bias 1(6 in red) → Σ circle → step function box (>0=>1 / <0=>0) → O/P output. Red border.
+- Equation box: peach/orange fill, red border, "d(X) = -5 x₁ - 3 x₂ + 6" in professional 2D math format.
+
+VIEW: Slide 010 — Classification of AND Truth Table — recreation fidelity check
+CAPTURE: Image 1 = rendered PPTX 1920x1080 PNG (150dpi); Image 2 = original frame 960x540 JPEG
+
+Transcribe key text from BOTH images. List SIMILARITIES (shared layout, components, text). List DIFFERENCES (content, layout, spacing, colors, defects). Then verdict.
+
+FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation'

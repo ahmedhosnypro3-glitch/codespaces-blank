@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
-const EQ = NS + "/recreated_pptx/build/eq_029/";
+const EQ = NS + "/recreated_pptx/build/eq_029_v2/";
 const man = JSON.parse(fs.readFileSync(EQ + "manifest.json", "utf8"));
 const W = 13.33, H = 7.5;
 const FONT = "Arial";
@@ -71,13 +71,13 @@ s.addShape(pres.shapes.RECTANGLE, {
 function eq(name, x0, y0, x1, y1) {
   const m = man[name];
   const bh = (y1 - y0) * H;
-  s.addImage({ path: EQ + m.file, x: x0 * W, y: y0 * H + Math.max(0, (bh - m.h_in) / 2), w: m.w_in });
+  s.addImage({ path: EQ + m.file, x: x0 * W, y: y0 * H + Math.max(0, (bh - m.h_in) / 2), w: m.w_in, h: m.h_in });
 }
-eq("e1", 0.090, 0.185, 0.477, 0.222);     // RBF identity, box 1
-eq("e2", 0.086, 0.283, 0.480, 0.322);     // Taylor series of e^{ab}, box 2
+eq("e1", 0.090, 0.167, 0.510, 0.230);     // RBF identity, box 1 (centered in box)
+eq("e2", 0.086, 0.259, 0.510, 0.333);     // Taylor series of e^{ab}, box 2 (in box)
 eq("e3_eq", 0.090, 0.393, 0.127, 0.426);  // "e^{ab} =" lead-in, box 3
 eq("e3_row", 0.130, 0.389, 0.365, 0.444); // bracketed row vector
-eq("e3_col", 0.406, 0.400, 0.450, 0.778); // bracketed column vector
+eq("e3_col", 0.400, 0.395, 0.505, 0.785); // bracketed column vector
 eq("e4", 0.533, 0.231, 0.859, 0.281);     // e^x series, inner box
 eq("e5", 0.533, 0.311, 0.854, 0.365);     // e^3 series line
 eq("phi_a", 0.182, 0.467, 0.251, 0.520);  // phi(a)^T on yellow highlight

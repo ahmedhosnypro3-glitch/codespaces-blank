@@ -1,0 +1,36 @@
+## Elementâbyâelement comparison
+
+**Scale note:** IMG1 (recreation) was rendered at 150 dpi from a 13.33Ã7.5 in deck, then downscaled for viewing; all position numbers below are normalized back to the 960Ã540 slide frame so that they can be compared directly with IMG2.
+
+| Element | IMG2 (original) | IMG1 (recreation) | Result |
+|---|---|---|---|
+| Title | "Inverse of High Dimension Matrix", bold dark red, centred, yâ82 | Same wording, same colour/weight/centring, yâ83 | Match |
+| Green "Recall" panel | xâ90â700, yâ102â205, pale green fill, green border | xâ90â700, yâ104â205, same fill/border | Match |
+| "Recall" | Italic, underlined, black | Italic, underlined, black | Match |
+| Equation | W = (XáµX + Î»I)â»Â¹XáµY, bold serif, green Î», red superscript â»Â¹ | W = (XáµX + Î»I)â»Â¹XáµY, green Î», red superscript â»Â¹ | Match (format per directive (e)); weight/face differ |
+| Greenâpanel line | "if Feature vectors are of dimension d â (XáµX) is of size d+1 x d+1" | Identical wording, symbols, colours (d red, d+1 x d+1 red) | Match |
+| Blueâbordered panel | xâ82â805, yâ212â394 | xâ82â805, yâ216â402 | Match (Â±4â8 px) |
+| Blue paragraph (3 lines) | Verbatim, italic, line breaks after "O(nÂ³)," and "size of" | Verbatim, same two line breaks, red O(nÂ³) | Text match; italic emphasis lost |
+| Example lines (2 lines) | "For Example: if Features vector is of size 1000 then Inverse calculation is" / "or order 100,000,000 which is impractical", 1000 and 100,000,000 in red | Identical wording, breaks, and red numerals | Match |
+| Solution panel | xâ80â812, yâ404â493, cream fill, tan border | xâ80â810, yâ411â~505, cream fill, tan border | Match (Â±7 px) |
+| "Solution:" | Bold, dark blue | Bold, dark blue | Match |
+| Solution italic lines | "Instead of using Least Squares with Matrix inversion," / "use Gradient Descent iterative solution", centred, italic | Identical wording, centring, italics, bold emphasis on Least Squares / Gradient Descent | Match |
+
+**No element is missing:** title, Recall header, equation, dimension line, threeâline blue paragraph, two example lines, Solution header and both italic lines are all present with correct characters (â, â»Â¹, O(nÂ³), 100,000,000). Nothing renders empty.
+
+**Frame containment:** all ink in IMG1 sits inside its box; no text touches or crosses the green/blue/cream borders, and no element crosses the house panel/strokes. The second italic line in the Solution panel retains ~10â15 px of clearance below the baseline.
+
+## Discrepancies
+
+1. **MINOR (confidence: high) â Typeface substitution.** IMG2 uses a Timesâstyle serif throughout the body ("Recall", the greenâpanel dimension line, the blue paragraph, the example lines, the Solution lines) and a bold serif equation. IMG1 substitutes a sansâserif (Arialâlike) face for all of these. Text, breaks, colours and approximate metrics are preserved; only the letterform family differs.
+2. **MINOR (confidence: high) â Lost italic emphasis on the first paragraph.** In IMG2 the threeâline blue paragraph is italic (and the red "O(nÂ³)" is bold italic); in IMG1 it is upright, with "O(nÂ³)" upright red. The "Recall", dimension line and Solution lines remain italic, so this is an isolated emphasis loss, not a text error.
+3. **MINOR (confidence: mediumâhigh) â Equation weight/parenthesis style.** IMG2's equation is bold serif with fullâheight parentheses; IMG1's is regularâweight sans with shorter parentheses. Content, colour coding (green Î», red â»Â¹) and professional superscript placement are correct per directive (e), so this is a styling difference only.
+4. **MINOR (confidence: medium) â Small vertical placement offsets.** Converting to a common frame, IMG1 places the blue panel top +4 px, blue panel bottom +8 px, Solution panel top +7 px and the last italic line +9 px lower than IMG2; the green panel's lower padding is ~13 px vs ~18 px in IMG2. Interâbox gaps remain within 2â4 px (greenâblue 11 vs 7; blueâcream 9 vs 10), and internal line spacing is ~29â30 px in both, so the blocks remain optically centred in their frames.
+5. **MINOR (confidence: medium) â Bottom whitespace below the Solution panel.** IMG2's cream panel ends ~4 px above the frame's bottom stroke; IMG1's ends ~35 px above the house panel's bottom stroke. This follows from the taller house panel (y45â540 per the template) rather than from misplaced content, and causes no overflow.
+
+No BLOCKER or MAJOR discrepancy was found: no missing or truncated content, no wrong values, no delimiter geometry problems (the singleâline parentheses in the equation and the dimension line enclose their content cleanly), no table, and no chart/diagram elements exist on this frame to compare.
+
+## Visualâquality defects in the recreation
+None observed â no text overflow, clipping, wrapping errors, collisions or illegible text; all text is inside its enclosing frame and the smallest labels (superscripts â»Â¹/áµ, the "d+1 x d+1" string) remain legible at render resolution.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation'.

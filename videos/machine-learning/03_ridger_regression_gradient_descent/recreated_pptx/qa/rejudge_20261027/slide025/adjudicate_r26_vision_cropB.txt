@@ -1,0 +1,14 @@
+Reading the two attached crops in reading order (top/left â bottom/right), approximate crop-relative positions:
+
+| crop | readable strings in reading order | approx. position in shown crop |
+|---|---|---|
+| IMG1 / tall narrow crop | `0`; `-5`; `-2`; then `0` on the lower/front slanted axis | `0` â (10, 80); `-5` â (8, 290); `-2` â (8, 330); `0` â (75, 455) |
+| IMG2 / wider crop | `0`; `-5`; `2`; then `0` on the lower/front axis | `0` â (42, 28); `-5` â (37, 151); `2` â (50, 224); `0` â (80, 260) |
+
+Region A explicit answers: in the render crop I do **not** see any `x10^4` / `Ã10â´`-style scale annotation. The readable tick/axis strings in the upper-left axes corner are `0`, `-5`, `2`, and `0`; I do **not** read a separate z-axis tick series such as `0.5, 1, 1.5, 2 Ã10â´` in this crop. If the original IMG2 contains `Ã10â´`, it is absent from IMG1.
+
+Region B explicit answers: along the left tick-label strip, IMG1 reads `0`, `-5`, `-2` plus a separate `0`; IMG2 reads `0`, `-5`, `2` plus a separate `0`.
+
+Glyphs present in one and not the other: the minus sign in `-2` is visible in the tall/IMG1 crop but absent in the wider/IMG2 crop, where the lower-left glyph reads `2`. No `Ã10â´`/`x10^4` glyph is readable in either attached crop.
+
+FINAL VERDICT: FAIL â differing readable string: `-2` in IMG1 vs `2` in IMG2; also no matching `x10^4`/`Ã10â´` scale annotation is readable in IMG1.

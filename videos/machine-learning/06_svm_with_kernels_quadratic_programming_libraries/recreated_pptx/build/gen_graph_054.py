@@ -18,6 +18,7 @@ OUT = NS + "/recreated_pptx/build/slide_054_graph.png"
 
 X0, X1, Y0, Y1 = 206, 753, 64, 501  # white plot box in original px
 W_PX, H_PX = X1 - X0, Y1 - Y0
+SCALE = 3  # output 3x original px for a crisp embed; layout in inches is unchanged
 DPI = 300
 
 a = np.asarray(Image.open(ORIG).convert("RGB")).astype(int)
@@ -26,7 +27,7 @@ R, G, B = a[..., 0], a[..., 1], a[..., 2]
 inner = np.zeros((H, W), bool)
 inner[Y0:Y1 + 1, X0:X1 + 1] = True
 blue = (B > 140) & (R < 110) & (G < 110) & (B - R > 60) & inner
-red = (R > 170) & (G < 90) & (B < 90) & inner
+red = (R > 150) & (G < 110) & (B < 110) & (R - G > 60) & inner
 # mouse cursor arrow (dark pixels near x 630-650, y 170-190)
 cursor = np.zeros((H, W), bool)
 cursor[170:191, 630:651] = (R[170:191, 630:651] < 140) & (G[170:191, 630:651] < 140) & (B[170:191, 630:651] < 140)
@@ -65,6 +66,6 @@ for mask, color in ((blue, "#0000FF"), (red, "#FF0000")):
 ys, xs = np.where(cursor)
 ax.scatter(xs, ys, s=0.5, marker="s", c="black", edgecolors="none", zorder=3)
 
-fig.savefig(OUT, dpi=DPI, facecolor="white")
+fig.savefig(OUT, dpi=DPI * SCALE, facecolor="white")
 print("wrote", OUT)
 print("size:", Image.open(OUT).size)

@@ -1,0 +1,7 @@
+| # | Discrepancy | Severity | Confidence | Crop location |
+|---|---|---|---|---|
+| 1 | **Variable color error in the equation.** In `y = W^T X = X^T W`, the recreation colors both `X` glyphs (and their superscript `T`) **red**, with red underlines. In the original the same `X` glyphs are **dark/black** with underline â only `W` is blue. So the recreation added a red color-code to `X` that the original does not have (original coding: W = blue/underlined, X = neutral/underlined). This is the slideâs variable color encoding, so recoloring X red is a content mismatch, not a rendering artifact. | **MAJOR** | High â the originalâs `X` is clearly neutral while `W` and the separate red `Remember`/`N` ink render with hue in the same crop, so `X` is demonstrably not red. | Upper-center of region, on the equation line inside the âRememberâ panel. |
+
+Checked and found matching: expression order `W^T X = X^T W` (no swapped factors), two `=` signs, correct superscript `T` placement/limits (vitals/subscripts fine), `>>>` = three chevrons in both, and the lower line `In General: N >>> d` with N red / `>>>` blue / `d` red â no defect there. Chrome (blue frame, panel fill), typed-vs-ink medium differences, and JPEG softness are excluded per the ground rules.
+
+FINAL VERDICT: FAIL

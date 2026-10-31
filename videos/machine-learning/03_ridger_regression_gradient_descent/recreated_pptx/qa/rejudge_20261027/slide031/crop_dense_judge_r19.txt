@@ -1,0 +1,20 @@
+**Scope:** zoomed cropâpair of slide 031, same region, same effective scale (right edge cuts the same 8th column in both â partial â5 / 1 / â / 5 / 1 / 0 / 4â glyphs align), so the crops are coâregistered. Column centers in both images sit at â x = 40, 135, 230, 325, 420, 515, 610, (705 cut). No badge/panel chrome is inside this crop, so rule (b) is not engaged.
+
+**Cellâbyâcell value check (IMG1 vs IMG2) â all identical:**
+- Row 1 (olive): 4.2 | 4.5 | 4.8 | 5.1 | 4.8 | 5.1 | 4.8 | 5â¦ â match
+- Row 2 (lt green): 1.64 | 1.25 | 1.04 | 1.01 | 1.04 | 1.01 | 1.04 | 1â¦ â match
+- Row 3 (purple): 4.1 | 4.4 | 4.7 | 5 | 4.7 | 5 | 4.7 | â¦ â match (cols 4 & 6 are singleâdigit â5â, not 5.0)
+- Row 4 (lavender): 1.81 | 1.36 | 1.09 | 1 | 1.09 | 1 | 1.09 | â¦ â match (cols 4 & 6 are single â1â)
+- Row 5 (peach): 4.3 | 4.6 | 4.9 | 5.2 | 4.9 | 5.2 | 4.9 | 5â¦ â match
+- Row 6 (lt peach): 1.49 | 1.16 | 1.01 | 1.04 | 1.01 | 1.04 | 1.01 | 1â¦ â match
+- Row 7 (pale green): â3.2 | â2 | â0.8 | 0.4 | â0.8 | 0.4 | â0.8 | 0â¦ â match (col 2 is ââ2â, not â2.0; signs on cols 1,2,3,5,7; positive 0.4 on 4,6,8)
+- Row 8 (pink, red top rule): 4.5 | 4.8 | 5.1 | 4.8 | 5.1 | 4.8 | 5.1 | 4â¦ â match
+
+8 rows present in both, none missing/added. Glyph shapes (digits, minus signs, decimal points) match; text is dark in both; row fills are the same hues in both; values are horizontally/vertically centered the same; horizontal row separators and the white gaps between the purple/peach/green blocks line up. The four downward arrows match in count (4), position (over cols 3,4,5,6 = 4.8/5.1/4.8/5.1 of row 1, crop x â 230/325/420/515), and head geometry.
+
+**Discrepancies found:**
+1. **Vertical cell separators not visible in the recreation.** In IMG2 (original) every colored band carries thin vertical cell borders â gray in the upper six rows, green on the ââ3.2 â¦â row (crop y â 285â330), and red perâcell borders on the bottom pink row (crop y â 335â390) â so each number sits in its own outlined cell and the borders continue through the white blockâgaps. In IMG1 (render) the bands read as continuous fills: only the horizontal row separators and the highlighted green/red horizontal rules are drawn; the vertical cell strokes between columns (e.g., between xâ135|230, 230|325, â¦, across all rows) are absent/not visible. No value, column position, or row is affected â purely a gridline/strokeâstyle delta. Severity: **MINOR**. Confidence: ~60% that it is a genuine rendering omission (vs. a captureâcontrast artifact on IMG2); either way it is not content.
+
+No wrong digit, swapped value, missing row, garbled glyph, truncated subscript, misâspanned delimiter, or arrow anomaly was found.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region.

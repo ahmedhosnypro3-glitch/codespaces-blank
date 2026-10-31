@@ -1,0 +1,26 @@
+# slide 003 — newest clean CROP FAIL: crop_dense_judge.txt 2026-10-31 06:18:02 (0x 429) — claim: X glyphs red in render vs black in original
+slide 003 mode --crop render 634x434 scale=(0.660,0.804)
+diff px total: 37627 (13.675% of frame)
+densest diff cells (slide-space px coords, diff px count):
+  box x768-792 y157-180: 282 diff px
+  box x576-600 y157-180: 252 diff px
+  box x288-312 y67-90: 251 diff px
+  box x480-504 y67-90: 246 diff px
+  box x456-480 y157-180: 224 diff px
+  box x624-648 y360-382: 219 diff px
+  box x840-864 y360-382: 214 diff px
+  box x456-480 y90-112: 214 diff px
+  box x576-600 y180-202: 211 diff px
+  box x384-408 y90-112: 209 diff px
+  box x432-456 y90-112: 208 diff px
+  box x552-576 y360-382: 202 diff px
+ink only in render: 7578 px; ink only in original: 21524 px
+  (render-heavy = extra/off-position ink; original-heavy = missing content)
+slide 003 claim=003_xcolor crop 634x434
+RENDER: red px total=5211 (upper half=3037), blue=5660, dark=13344
+  red rows with most ink: [(389, 599), (390, 599), (64, 138), (63, 136), (69, 127), (70, 126)]
+ORIG: red px total=8441 (upper half=4264), blue=11447, dark=19035
+  red rows with most ink: [(394, 597), (395, 597), (393, 597), (392, 596), (391, 591), (63, 132)]
+orig color where render red: mean RGB = [226.1 185.6 188.5]
+render color where orig red: mean RGB = [241.9 209.3 211.8]
+DISPOSITION: REFUTED — orig crop has MORE red ink (8441 vs 5211 px); FAIL DISMISSED. 2026-10-31 worker

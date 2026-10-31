@@ -45,7 +45,8 @@
 //                     paren ink top y81; digit rows top y81/y97, centres 605/627.5/649.5:
 //                     Z1=(0,0) Z2=(7,6) Z3=(3,2) (arithmetic-forced reading).
 //                     Header Z1 Z2 Z3 y64..76, centres 606.5/628/649.
-//   augmented matrix: heading "Augmented Vectors (from Top)" NAVY bold ITALIC
+//   augmented matrix: white card x69..246 y139..256 (hairline border), heading
+//                     "Augmented Vectors (from Top)" NAVY bold ITALIC
 //                     x74 y146 w182 fs11.5; 6 paren-pair columns; LP bows
 //                     x93/114/137/159/182/204, RP bows x107/128/151/173/195/218,
 //                     paren ink top y180; digit rows top y182/197/212, centres
@@ -89,6 +90,7 @@ const RED_BOX = "C90004";      // measured red-box fill (194,0,3)
 const BLUE = "0000A8";         // measured blue text (~15,0,135)
 const GREEN_DK = "27331A";     // measured legend "Zero" green (~59,71,45)
 const CARD_BORDER = "9FA8B1";  // measured decision-card border (159,168,177)
+const HAIRLINE = "A6A6A6";     // measured aug-card hairline (edge px ~196-210 gray)
 
 const ASSET_DIR = path.join(__dirname, "assets");
 const PPPT = 72 / 600; // pt per asset px (all assets are 600dpi: 1px = 0.12pt)
@@ -257,6 +259,13 @@ Z_COLS.forEach(function (col, i) {
 });
 
 // ================= 6. AUGMENTED MATRIX (middle-left, 6 paren-pair columns) ========
+// white card + hairline border around the block, measured on the original frame:
+// edges x69-70 / x245-246, y139-140 / y255-256 (slide_045 card idiom)
+s.addShape(pptx.ShapeType.rect, {
+  x: fx(69), y: fx(139), w: fx(246 - 69), h: fx(256 - 139),
+  fill: { color: WHITE }, line: { color: HAIRLINE, width: 1 },
+});
+
 // bold ITALIC per att2 #8; verbatim ink per orig: "Ugmented" (no A) + spaced parens
 // (043 founder-delta class; pixel-confirmed 2026-10-26)
 s.addText("Ugmented Vectors ( from Top )", {

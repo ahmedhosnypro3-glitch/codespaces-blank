@@ -11,15 +11,15 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
     "max_output_tokens": 9000
   },
-  "parse_calls_spent": 1,
-  "crops_spent": 0,
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
   "degraded": {
     "chat": false,
     "reason": ""
@@ -51,10 +51,12 @@
       0,
       0
     ],
-    "stop_reason": "no-new-information",
-    "stop_note": "chat advised STOP: The only candidate is the same chart box already parsed with a full title and table, so a tighter crop would add nothing.",
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The parent excerpt is empty while the child yields a titled chart with a confusion-matrix table, and the chart candidate's sparse extracted text still warrants a zoom.",
     "decision_source": "chat",
-    "children": [],
+    "children": [
+      "slide_024.crop01__chart"
+    ],
     "transform": {
       "origin_px": [
         0,
@@ -66,16 +68,60 @@
     "trigger": "full frame",
     "error": null
   },
-  "crops": [],
+  "crops": [
+    {
+      "id": "slide_024.crop01__chart",
+      "level": 1,
+      "class": "Chart",
+      "box_frame_px": [
+        35.6,
+        41.7,
+        887.8,
+        475.9
+      ],
+      "estimated": false,
+      "png": "crops/slide_024.crop01__chart.png",
+      "mean_rgb": 228.53,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_024.crop01__chart.parse.md",
+        "json": "crops/slide_024.crop01__chart.parse.json"
+      },
+      "scale": 1.7351,
+      "size_px": [
+        1664,
+        892
+      ],
+      "margin_applied": [
+        36,
+        19
+      ],
+      "stop_reason": "no-new-information",
+      "stop_note": "child lines are a subset of the parent parse",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          0.0,
+          23.0
+        ],
+        "scale": 1.7351,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
   "recursion": {
-    "levels_processed": 1,
+    "levels_processed": 2,
     "backstop_hits": 0
   },
   "stats": {
-    "parse_calls": 1,
+    "parse_calls": 2,
     "chat_calls": 1,
     "retries": 0,
-    "dedup_collapsed": 0,
+    "dedup_collapsed": 1,
     "elements": 1
   }
 }

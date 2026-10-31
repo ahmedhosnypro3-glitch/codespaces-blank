@@ -25,8 +25,9 @@
 // PARAM BOX x75..174 y246..308 (white, navy #1E1856 border). Three coloured
 //         cell rows: step|0.1 green #E9FFD4, initial X|-11 pink #F9BBC1,
 //         delta|0.1 yellow #FDFD00. Text 8pt Arial bold black.
-// RED BLOCK ARROW from (167,299) to (202,338) pointing to the table's
-//         first column (frame shows a hollow red-outlined block arrow).
+// RED BLOCK ARROW x165..187 y303..338, head at TOP-RIGHT (x177..187 y303..310),
+//         tail at BOTTOM-LEFT (x165..181 y326..338): points UP-RIGHT toward the
+//         param box (re-measured 2026-10-31 two-sided PIL, rejudge_20261027).
 //
 // EQUATION BOX x449..585 y182..230 white with C00000 border; 2D stacked
 //         fraction f(x) = (x^2 cos(x) - x)/10 (mathtext \dfrac 13.5pt PNG
@@ -148,9 +149,15 @@ for (const c of PCELLS) {
     fontFace: A, fontSize: 8, bold: true, color: "000000",
   });
 }
-// hollow red block arrow pointing from the param box to the table
+// hollow red block arrow pointing UP-RIGHT toward the param box — original
+// frame PIL mask: red outline bbox x165..187 y303..338, head rows y303..310 at
+// x177..187, tail rows y326..338 at x165..181 (axis ~67deg above horizontal).
+// LO renders rightArrow rotate:-67 with the head at TOP-RIGHT (probe-verified)
+// LO render measured: w8.7 h2.6 at center (176,311) -> bbox x172.8..179.0
+// y305.3..314.9 (direction correct: head top-right). Scale ~3.7x about the
+// original's bbox center (176, 320.5) to land on x165..187 y303..338.
 slide.addShape(pptx.ShapeType.rightArrow, {
-  x: px(156), y: px(297), w: px(58), h: px(26), rotate: 45,
+  x: px(159.8), y: px(315.7), w: px(32.4), h: px(9.7), rotate: -67,
   fill: { color: "FFFFFF" }, line: { color: "C00000", width: 1.5 },
 });
 

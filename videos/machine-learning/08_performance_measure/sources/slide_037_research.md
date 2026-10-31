@@ -11,3 +11,12 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (4 queries: AUC probabilistic definition, AUC–Mann-Whitney/Han-Kamber definition, AUC model comparison, diagonal/AUC 0.5). Spec consumed: `analysis/slide_037_final.json`; frame `unique_slides/slide_037.jpg`. No figures downloaded — no hosted original figure is linked to this slide.
+
+## Second-opinion (lane C, 2026-10-31, agy web search)
+
+- AUC trapezoidal meaning — NEW confirming source: sklearn `metrics.auc` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html) — `auc(x, y)` computes the area via the composite trapezoidal rule, Area = sum (y_i + y_{i+1})/2 * |x_{i+1} − x_i|, equivalent to numpy.trapz; applied as `auc(fpr, tpr)` from `roc_curve` it yields exactly the ROC-AUC. This pins the "area under the curve" on the frame to the standard trapezoidal computation.
+- AUC probabilistic meaning re-CONFIRMED with NEW source: Wikipedia ROC article (https://en.wikipedia.org/wiki/Receiver_operating_characteristic) — AUC equals the probability that the classifier ranks a randomly chosen positive instance higher than a randomly chosen negative instance, and is equivalent to the Mann–Whitney U statistic (ties count 0.5); AUC is bounded in [0,1] inside the unit square, 0.5 = diagonal/random, 1.0 = perfect. Google ML Crash Course roc-and-auc re-CONFIRMED: larger AUC = better model, threshold-invariant aggregate across all thresholds. No corrections.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- "Best Model is the model trying to reach the point at [FPR=0, TPR=1] (top-left corner); best model has the largest area under the curve; worst model has the smallest area": CONFIRMED — Wikipedia Receiver operating characteristic (https://en.wikipedia.org/wiki/Receiver_operating_characteristic), sklearn `roc_auc_score` (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) and `metrics.auc` trapezoidal computation, H2O AUC-ROC wiki (https://h2o.ai/wiki/auc-roc), and Google ML Crash Course: AUC is the area under the ROC curve in [0,1]; best model AUC -> 1 hugging the top-left corner (FPR=0, TPR=1); diagonal random classifier has AUC = 0.5 (smallest meaningful / worst for a usable model), and AUC equals the probability that a random positive is ranked above a random negative (Mann-Whitney equivalence). The frame's plot with multiple model curves and the diagonal reference line matches this standard picture. No corrections.

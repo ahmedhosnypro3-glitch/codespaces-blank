@@ -1,0 +1,33 @@
+TL x85-265 y115-288: red r=1284 o=1685 | dark r=6969 o=4726 | surf r=5899 o=8634 | white r=17593 o=15647
+TR x616-879 y115-317: red r=1425 o=2820 | dark r=3243 o=4008 | surf r=12895 o=19185 | white r=36483 o=25437
+BL x83-376 y290-527: red r=1202 o=1624 | dark r=2161 o=4569 | surf r=10712 o=19309 | white r=55978 o=39138
+BR x615-880 y344-531: red r=6223 o=2266 | dark r=5513 o=4960 | surf r=21754 o=26107 | white r=21014 o=15853
+
+-- claim 2: BR bottom rows (x615-880) non-white non-gray ink:
+  y515-522: render non-bg= 1295 orig non-bg= 1340
+  y522-528: render non-bg= 1109 orig non-bg= 1297
+  y528-534: render non-bg=  338 orig non-bg=  524
+  y534-538: render non-bg=  265 orig non-bg=  265
+  y538-540: render non-bg=  530 orig non-bg=  530
+
+-- claim 3: BL panel dark-text bands (x83-376):
+  render bands: [(360, 367, (np.int64(194), np.int64(330))), (369, 398, (np.int64(178), np.int64(332))), (423, 454, (np.int64(134), np.int64(316)))]
+  orig   bands: [(316, 357, (np.int64(86), np.int64(372))), (372, 379, (np.int64(86), np.int64(372))), (387, 436, (np.int64(86), np.int64(375))), (439, 478, (np.int64(86), np.int64(372)))]
+  cross-NCC of binarized label bands (render band i vs orig band j):
+    r0x o0=0.266 r0x o1=0.080 r0x o2=0.086
+    r1x o0=-0.044 r1x o1=0.095 r1x o2=0.031
+    r2x o0=0.229 r2x o1=0.024 r2x o2=0.071
+
+-- claim 4: red ink in TL panel (x85-265 y115-288): render 1284 orig 1685
+  render TL red clusters x(px+85): [88, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+  orig TL red clusters x(px+85): [88, 89, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122]
+
+-- claim 5: TR red ink by row (x616-879 y115-317):
+  render: [(189, 9), (190, 10), (191, 10), (192, 10), (193, 11), (194, 12), (195, 10), (196, 10), (197, 9), (198, 9), (199, 10), (200, 10), (201, 10), (202, 9), (203, 11), (204, 12), (205, 11), (206, 13), (207, 15), (208, 12), (226, 243), (227, 243), (234, 223), (235, 223), (314, 256)]
+  orig: [(120, 254), (121, 4), (130, 4), (131, 5), (132, 6), (133, 7), (134, 8), (135, 8), (136, 10), (137, 10), (138, 11), (139, 13), (140, 13), (141, 14), (142, 15), (143, 16), (144, 17), (145, 19), (146, 19), (147, 20), (148, 21), (149, 22), (150, 22), (151, 21), (152, 18)]
+
+-- claim 1: BR panel interior surf NCC render-vs-orig: 0.345
+   BR interior dark ink r= 5511 o= 4263
+   TR interior surf NCC: 0.447
+   TL interior surf NCC: 0.25
+   BL interior surf NCC: 0.421

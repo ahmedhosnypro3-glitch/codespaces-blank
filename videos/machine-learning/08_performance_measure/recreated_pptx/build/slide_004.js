@@ -99,14 +99,23 @@ function node(cx, cy, d, fill, label) {
 // solid down-pointing arrowhead at (cx,cy) (tip at bottom)
 function downHead(cx, cy, fill) {
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: px(cx - 6), y: px(cy - 10), w: px(12), h: px(10),
+    x: px(cx - 5), y: px(cy - 8), w: px(10), h: px(8),
     fill: { color: fill }, line: { color: fill, width: 1 }, flipV: true,
   });
 }
 
 // ---------- left diagram: CLOSED tan panel x68-648 y93-435 + mid divider y250 ----------
+// PIL on the original y435: bottom rule runs x69-261, x277-474, x491-647 — gaps only where
+// the two purple callout arrows cross (x262-276, x475-490).
+// PIL on the original: a vertical label-strip rule exists at x98-99 (color ~#A58D7A),
+// y93-433, broken only where the y250 divider crosses; rotated labels sit left of it.
 rect(68, 93, 648, 435, BG, TAN, 1.5);
+vline(98, 93, 249, "A58D7A", 1.5);
+vline(98, 252, 435, "A58D7A", 1.5);
 hline(68, 648, 250, TAN, 1.5);
+hline(68, 261, 435, TAN, 1.5);
+hline(277, 474, 435, TAN, 1.5);
+hline(491, 648, 435, TAN, 1.5);
 
 // rotated row labels in the narrow left column (x 68-108)
 function vlabel(str, cx, cy, len, color) {
@@ -132,14 +141,16 @@ s.addImage({ path: PLANE_NEG, x: px(510), y: px(136), w: px(93), h: px(62) });
 diag(345, 196, 340, 203, PLANE_RED, 1.5);
 diag(552, 196, 545, 202, PLANE_GREEN, 1.5);
 // tree edges: navy lines with solid heads colored like the target circle
-diag(340, 233, 289, 266, EDGE, 1.5);   // 30 -> 18
-diag(340, 233, 387, 266, EDGE, 1.5);   // 30 -> 12
-diag(544, 233, 492, 266, EDGE, 1.5);   // 70 -> 60
-diag(544, 233, 597, 266, EDGE, 1.5);   // 70 -> 10
-downHead(289, 272, CIRC_RED);
-downHead(387, 272, CIRC_GREEN);
-downHead(492, 272, CIRC_GREEN);
-downHead(597, 272, CIRC_RED);
+diag(340, 233, 289, 264, EDGE, 1);   // 30 -> 18
+diag(340, 233, 387, 264, EDGE, 1);   // 30 -> 12
+diag(544, 233, 492, 264, EDGE, 1);   // 70 -> 60
+diag(544, 233, 597, 264, EDGE, 1);   // 70 -> 10
+// PIL on the original: arrowheads are the same navy as the shafts (re-check at y261-270:
+// all four heads show navy/blue pixels, no red/green)
+downHead(289, 268, EDGE);
+downHead(387, 268, EDGE);
+downHead(492, 268, EDGE);
+downHead(597, 268, EDGE);
 
 // ---------- tree nodes ----------
 node(340, 216, 34, CIRC_RED, "30");
@@ -149,42 +160,52 @@ node(387, 290, 38, CIRC_GREEN, "12");
 node(492, 290, 36, CIRC_GREEN, "60");
 node(597, 289, 34, CIRC_RED, "10");
 
-// ---------- bottom label rows (measured y-centers: 344 / 376 / 411) ----------
+// ---------- bottom label rows (measured y-centers: 346 / 378 / 411, gaps 32/33) ----------
 text("Classified as:", 109, 338, 200, 354, 12, INK, { align: "left", bold: false });
 text("And classification is:", 111, 370, 240, 386, 12, INK, { align: "left", bold: false });
+// PIL on the original: row1/row2 value words are BLACK-cored (black px 2-3x the red JPEG
+// fringe); only the TP/FN/TN/FP row is red-cored (0 black px)
 const clsCols = [286, 394, 500, 610];
 ["Positive", "Negative", "Negative", "Positive"].forEach((w, i) =>
-  text(w, clsCols[i] - 45, 338, clsCols[i] + 45, 354, 12, i % 2 === 0 ? RED : GREEN_TXT, { bold: false }));
+  text(w, clsCols[i] - 45, 338, clsCols[i] + 45, 354, 12, INK, { bold: false }));
 const tfCols = [276, 383, 487, 600];
 ["True", "False", "True", "False"].forEach((w, i) =>
   text(w, tfCols[i] - 30, 370, tfCols[i] + 30, 386, 12, INK, { bold: false }));
 const tpCols = [271, 375, 482, 593];
 ["TP", "FN", "TN", "FP"].forEach((w, i) =>
-  text(w, tpCols[i] - 30, 403, tpCols[i] + 30, 419, 13, (i === 0 || i === 3) ? RED : GREEN_TXT));
+  text(w, tpCols[i] - 30, 403, tpCols[i] + 30, 419, 13, RED));
 
 // ---------- Correctly Classified purple up-arrows + labels (hollow heads) ----------
+// PIL on the original: shafts are long verticals x~268 / x~482 spanning y419-458 (through the
+// gaps in the bottom rule), hollow heads at top; captions sit LEFT of their arrows
+// (caption1 x137-255, caption2 x354-478, text y446-455)
 function upArrow(cx) {
-  vline(cx, 430, 450, PURPLE, 1.5);
+  // hollow shaft: two vertical lines at cx-5 / cx+5, y428-458 (original pixels)
+  vline(cx - 5, 428, 458, PURPLE, 1.5);
+  vline(cx + 5, 428, 458, PURPLE, 1.5);
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: px(cx - 7), y: px(419), w: px(14), h: px(11),
+    x: px(cx - 7), y: px(417), w: px(14), h: px(11),
     line: { color: PURPLE, width: 1.5 },
   });
 }
-upArrow(271);
+upArrow(268);
 upArrow(482);
-text("Correctly Classified", 271 - 78, 428, 271 + 78, 448, 12, PURPLE, { bold: false });
-text("Correctly Classified", 482 - 78, 428, 482 + 78, 448, 12, PURPLE, { bold: false });
+text("Correctly Classified", 126, 440, 266, 458, 12, PURPLE, { bold: false });
+text("Correctly Classified", 346, 440, 486, 458, 12, PURPLE, { bold: false });
 
 // ---------- right confusion matrices: single blue-bordered boxes x669-872 ----------
 // m1 y172-301, m2 y347-476; inner grid dark red at x708/750/804/860 and y199/229/261/291 (m1), y374/403/435/466 (m2)
-function matrix(y0, y1, h1, h2, h3, h4, cells, caption) {
+function matrix(y0, y1, h1, h2, h3, h4, cells) {
   // blue border box, white fill
   rect(669, y0, 872, y1, WHITE, MBLUE, 3);
-  // inner grid lines
-  [708, 750, 804, 860].forEach((x) => vline(x, y0 + 2, y1 - 2, GRID_RED, 1.25));
-  [h1, h2, h3, h4].forEach((y) => hline(671, 870, y, GRID_RED, 1.25));
-  // "Predicted as" in the top band, centered over the two data columns
-  text("Predicted as", 750, y0 + 4, 872, h1 - 2, 13, MBLUE);
+  // inner grid: header separator only over the data columns; label-column divider
+  // only across the two data rows (corner cell stays open), per original pixels
+  hline(750, 870, h1, GRID_RED, 1.25);
+  [750, 804, 860].forEach((x) => vline(x, h1, y1 - 2, GRID_RED, 1.25));
+  vline(708, h2, y1 - 2, GRID_RED, 1.25);
+  [h2, h3, h4].forEach((y) => hline(708, 870, y, GRID_RED, 1.25));
+  // "Predicted as" (dark red) in the top band, centered over the two data columns
+  text("Predicted as", 750, y0 + 4, 870, h1 - 2, 13, "881A27");
   // column headers P / N
   text("P", 750, h1, 804, h2, 13, BLACK);
   text("N", 804, h1, 860, h2, 13, BLACK);

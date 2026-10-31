@@ -42,3 +42,58 @@ with numeric weight labels on every directed edge. Data taken from
 - **Correction for the spec, not the frame:** if any build treats the two panels as
   independent networks, that is wrong — they are the same network at two time points,
   sharing topology, node numbering, layer colors, and the target column.
+## Audit
+
+Audited by lane S scope `b_src_2` (web-source audit), 2026-10-31. Method: independent Python
+recomputation of the panel outputs, plus agy web-search; cross-read against
+`analysis/isolated_033/slide_033_raw.json` and `analysis/parse/slide_033.parse.md` (plus the
+certified `analysis/slide_033_final.json`, title "Initialized weights").
+
+Questions asked:
+1. Is the top panel the network at initialization and the bottom panel the SAME network after
+   10 training iterations (η = 5)?
+2. Is the certified pair `0.791 / 0` and `0.791 / 1` (top) and `0.064 / 0` and `0.939 / 1`
+   (bottom) consistent with the rest of the run?
+3. Are the parse transcript's chart tables usable as data?
+4. Does the run's error trend remain monotonically decreasing across slides 32 → 33 → 34?
+
+Answers:
+- Q1 **CONFIRMED** as the frame's semantics. Both panels share topology (Input x₁,x₂,Bias →
+   Hidden 3,4,5 → Output 6,7 → Target t₆,t₇), node numbering, layer colours and the target
+   column; only the weight labels and the O values differ. The certified JSON's own panel
+   titles are "Initialized weights" and "Updated weights (after iteration # 10)".
+- Q2 **CONFIRMED** as consistent. Top: O₆ = O₇ = 0.791 with targets 0/1 — exactly the initial
+   outputs recomputed on slides 027/031, so the initialized state is continuous across the run.
+   Bottom: O₆ = 0.064, O₇ = 0.939 against targets 0/1 — both outputs have moved toward their
+   targets after 10 iterations. Recomputed error for the bottom panel: 0.064² + 0.061² =
+   0.007817, which continues the decreasing trend (slide 034's iteration-5 row is 0.01517).
+- Q3 **NO.** The parse tables are garbled: categories repeat ("O7" twice, "O5" three times),
+   values duplicate, "T 0.77" has no matching label, several values (1.05, −1.2, −0.93) lie
+   outside any plausible weight range, and the bottom panel reuses the top panel's activation
+   labels. The isolated vision analysis is the better record.
+- Q4 **CONFIRMED**: the error falls monotonically across the run — 0.669362 (initial) →
+   0.151129 (it 1) → 0.038729 → 0.025186 → 0.018868 → 0.01517 (it 5) → 0.007817 (it 10).
+
+Verdicts per claim:
+- Two panels = same network at two time points — **CONFIRMED** (not two independent networks).
+- Top panel outputs 0.791 / 0.791 — **CONFIRMED** (matches slides 027/031/034).
+- Bottom panel outputs 0.064 / 0.939 — **CONFIRMED** as consistent with the targets and the
+  decreasing-error trend.
+- Panel titles "Initialized weights" / "Updated weights (after iteration # 10)" — **CONFIRMED**.
+- η = 5 — **CONFIRMED** consistent with slides 31, 32 and 34.
+- All on-frame weight labels — **NOT-VERIFIABLE** from the parse; take them from the vision
+  pass / original frame, as the prior note already instructed.
+- Parse chart tables — **CONFLICT** (garbled; do not build from them).
+
+New sources found during audit (real URLs, not previously cited):
+- SciPy, `scipy.special.expit` —
+  https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.expit.html
+  Confirms σ(z) = 1/(1+e^(−z)), the function behind every Oⱼ printed on this slide, and
+  σ(1.3312) = 0.791 for the initialized state.
+- Wikipedia, "Logistic function" — https://en.wikipedia.org/wiki/Logistic_function
+- Math StackExchange, "Backpropagation hidden layer error" —
+  https://math.stackexchange.com/questions/4686558/backpropagation-hidden-layer-error
+
+Audit summary: the slide's semantics and its four O/target pairs are confirmed and consistent
+with the whole run. The parse tables are unusable; the frame is the only source for the
+weight labels.

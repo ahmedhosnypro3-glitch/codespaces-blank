@@ -1,0 +1,30 @@
+## Elementâbyâelement comparison (house chrome excluded per ground rules)
+
+**Matched / acceptable**
+- Slideânumber badge: both show â10â, same position, yellow fill, purple ring, dark bold numeral â correct.
+- Two sideâbyâside panels with blue outer frames, each containing a lightâgray Cartesian grid, orange scatter points, a blue fitted line, green dashed projection arrows (horizontal + vertical, leftâpointing head), red dashed residual lines with small red triangle markers, red axis arrows. Structure present in both.
+- Caption text is verbatim in both panels: â**Overfit** (try to minimize the residuals ONLY)â / âFails to detect the Patternâ and â**Generalized** (Residuals are not minimized)â / âSuccesses to detect the Patternâ; boldâred lead words, black remainder, two lines, no clipping.
+- The gray mouseâcursor artifact in the original left plot is correctly omitted.
+- No text overflow, no truncation, no collisions, captions legible and vertically centred in their boxes.
+
+## Discrepancies
+
+| # | Finding | Severity | Confidence |
+|---|---|---|---|
+| D1 | **Right plotâs grid/plot area is geometrically wrong.** In the original, the right plotâs grid begins exactly at the red yâaxis (xâ500) and stops ~23 px inside the blue frame (grid right â787, frame â810), leaving white margins on both sides. In the recreation the right plotâs grid is ~40 px wider and shifted left: faint grid lines appear ~20 px *to the left of* the red yâaxis, and the grid runs all the way to the frameâs right border (â805â807 vs frame â810), effectively touching the inner frame. This is both a layout mismatch and a frameâcontainment violation on the right edge. | MAJOR | Highâmedium |
+| D2 | **Green projection verticals terminate above the xâaxis in both plots.** Original: the green dashed vertical drops from the green horizontal arrow and its green endpoint dot lands *on* the red xâaxis (left â(329,404), right â(713,404)). Recreation: the dashed line stops â20 px high and the green dot sits at ây 380 while the red axis is at ây 400 (both plots). The marker no longer coincides with the axis value it projects, and the red residual dashed verticals show the same shortâfall behaviour in places. | MAJOR | Mediumâhigh |
+| D3 | **Vertical layout / frame heights compressed and shifted up.** Original left frame â y 100â437 (hâ337), captions at â445â492, leaving only â7â11 px to the panel bottom. Recreation frames â y 93â414 (hâ321, ~16 px shorter), captions at â419â462, i.e. the entire caption/figure block sits ~20â25 px higher relative to the panel, leaving a visibly larger empty band above the house bottom stroke. The gap between frame bottom and caption (5 px vs 8 px) and the caption box heights also differ. | MAJOR | Medium |
+| D4 | **Right caption box is narrower than the original.** Original right caption box â x 465â787 (â322 px wide, spanning under the right plot); recreation â x 467â754 (â287 px), terminating ~33 px short of the original width, so the two caption boxes no longer relate to the two plot frames the same way (left box matches at â89â401). | MAJOR | Mediumâhigh |
+| D5 | **Dataâpoint registration in the left plot differs on the rightâhand cluster.** Original: two orange points nearly coincident at â(402,232) and (393,238) (â9 px apart). Recreation: the pair is â(370,217) and (390,221) (â20 px apart), i.e. the rightmost point is displaced ~30 px left of the original and the pair spacing differs, so the points no longer sit on the same grid columns as the fitted line. | MAJOR | Medium |
+| D6 | Caption type size / line leading in the recreation is marginally tighter than the originalâs twoâline caption (secondary to D3/D4). | MINOR | Lowâmedium |
+
+## Visualâquality defects in the recreation
+- Right plot: grid overruns the plot frame on the right and bleeds left of the yâaxis (closest to an overflow condition).
+- Both plots: green endpoint dots floating above the xâaxis rather than registering with it.
+- Bottom of slide: excess dead space under the caption boxes due to the upward block shift and shortened frames.
+- Right caption box visibly narrower than the left/box alignment of the original.
+- Otherwise clean render: no clipped text, no garbled glyphs, no illegible labels.
+
+## FINAL VERDICT: FAIL
+
+The content is largely present and the wording is verbatim, but D1 (right plot grid breaching the inner frame / wrong plot area), D2 (projection markers missing the axis), D3âD4 (layout and frameâsize offsets), and D5 (point misregistration) are visible MAJOR geometry/data deviations from the original â the recreation is usable in content terms but not yet a faithful frameâaccurate recreation.

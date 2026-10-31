@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# judge_s12_verify.sh <K> <render_png> — original-first comparison judge for slide 12.
+# judge_s12_attempt.sh <K> <render_png> — original-first comparison judge for slide 12.
 # 429 -> sleep 300, retry up to 8x. 400 -> stop and report (payload fix needed).
 set -u
 cd /home/codespace/ai_llm_slides
@@ -7,9 +7,10 @@ NS=videos/machine-learning/08_performance_measure
 PY=/home/codespace/.pyenv/versions/3.15.2/bin/python3
 K=$1
 RENDER=$2
+case "$RENDER" in /*) ;; *) RENDER=$NS/$RENDER;; esac
 TR=$NS/recreated_pptx/qa/slide012/judge_verify_${K}.txt
 LOG=$NS/recreated_pptx/qa/slide012/judge_verify_${K}.log
-sleep 180
+sleep "${SLEEP_FIRST:-180}"
 for i in $(seq 1 8); do
   echo "=== judge attempt ${K} round $i $(date) ==="
   out=$(timeout 540 bash scripts/16_vision_gate.sh "$PY" .agents/skills/image-analysis/scripts/analyze_image.py \

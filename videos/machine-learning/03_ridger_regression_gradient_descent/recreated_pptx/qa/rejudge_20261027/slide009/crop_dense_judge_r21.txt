@@ -1,0 +1,15 @@
+Ground rules applied first: chrome strokes/panel/yellow badge are treated as intentional (not raised). Medium (typed-vs-captured) and JPEG halos/soft edges in IMG2 are not content, so they cannot by themselves be raised as defects.
+
+What matches exactly in this crop (IMG1 recreation vs IMG2 original):
+- Point count: I count the same 8 scatter marks in both â leftâlow â(0.15,0.94), leftâhigh â(0.19,0.29), midâon/aboveâline â(0.40,0.57), upper â(0.54,0.13), upperârightâofâline â(0.59,0.18), belowâline â(0.65,0.51), top â(0.80,0.06), farâright â(0.90,0.12). No missing/extra point, no swapped position beyond capture blur.
+- Trend line: same single straight blue segment, lowerâleft terminus near the leftâlow point, rising to â(0.80,0.10); no change in direction/endpoint.
+- Caption, characterâforâcharacter: red bold word correctly spelled âGeneralizedâ (âzâ, not âsâ); then â(Residuals are not mâ¦â. Second line âSuccesses to detect the Patterâ¦â. No wrong, garbled, or truncated glyph; no equation/table/delimiter is present in this region, so those checks are N/A.
+
+Discrepancies (only contentâlevel items I can assert):
+1. Scatterâpoint fill/weight â recreation points are a uniform pale yellow (FDFD96âfamily) with a thin, light rim; the originalâs marks read noticeably more saturated orange with heavier dark rims. Location: all 8 points. Severity: MINOR (borderline MAJOR only if the original fill is confirmed a true saturated orange rather than a capture whiteâbalance shift; IMG2 halos are excluded per rules). Confidence: MEDIUM.
+2. Dashed companion stroke offset â in the recreation the short dashed lightâblue stroke sits crisply just below the solid blue line (âx 0.45â0.61); in the original the same dashed segment is present but merges with the solid line so the below/onâline offset is ambiguous. Location: just under the mid trend line. Severity: MINOR. Confidence: LOW (most consistent with capture softness rather than a real structural change).
+3. Trendâline low terminus â the recreationâs blue segment appears to start essentially at the leftâlow point (xâ0.15); in the original the lineâs low end (and nearest point) sit marginally farther left. Effect â²8 px at crop scale. Severity: MINOR. Confidence: LOW (capture subâpixel alignment).
+
+No BLOCKER or MAJOR defect found in this region: no wrong digit/symbol, no missing point, no garbled or misâspelled word, no delimiter/equation/table issue (none in crop), and chrome is excluded by mandate.
+
+FINAL VERDICT: PASS

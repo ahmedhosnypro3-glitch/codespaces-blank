@@ -1,0 +1,40 @@
+[info] context header injected: VIEW: judge slide 016 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1343997
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_016_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_016.jpg ===
+[winner] images (round 1, attempt 1)
+**Analysis â slide 016 (recreation vs. original)**
+
+**House chrome (noted only):** Outer red frame, yellow "16" badge, title band area are present per template; not scored.
+
+**Content inventory check:** The recreation contains exactly the two text lines the original has â "Adding non-Linearity to Perceptrons" and "(Activation Functions)" â plus the black bottom bar. There are no spurious bullets, charts, tables, diagrams, or stray marks, and nothing overflows its box or the frame. No body content is missing (the original is a divider slide).
+
+**What matches:**
+- Title text is verbatim, including the capital "L" in "non-Linearity"; red #C00000-ish; centered.
+- Subtitle is verbatim, with the three spans on one shared baseline: "(" red, "Activation" blue #0000FF, " Functions)" red; spacing between spans reads as a single normal space.
+- Solid black bar along the bottom edge.
+- Background is the same off-white/gray family.
+
+**Discrepancies**
+
+1. **MAJOR â Title rendered drastically undersized.** In the original the title occupies ~620 px of width with ~28â30 px cap height (of a 900Ã506 frame). In the recreation the same title spans only ~175 px with ~8 px cap height â roughly a 3.5Ã reduction, reducing it to near-illegibility at viewing scale. Confidence: high.
+
+2. **MAJOR â Subtitle rendered drastically undersized.** Original subtitle spans ~380 px with ~30 px cap height; recreation spans ~80 px with ~8 px height (~4Ã reduction). Confidence: high.
+
+3. **MAJOR â Vertical placement of the title block is wrong.** The original centers the title in the upper-middle region (title baseline â43% of slide height, subtitle â55%, ~63 px between baselines). The recreation stacks both lines hard against the top of the slide (title â8%, subtitle â15%, ~35 px gap). The title block is therefore not positioned in the original's region, and inter-line separation does not match. Confidence: high.
+
+4. **MINOR â Typeface/weight mismatch.** The original uses a heavy bold sans-serif (Arial-like) for both title and subtitle; the recreation uses a small, thin serif/near-regular face, so stroke weight and letterform silhouettes differ noticeably even after scale is discounted. Confidence: medium.
+
+5. **MINOR â Word spacing inside the title.** The original shows an exaggerated gap between "non-Linearity" and "to"; the recreation uses ordinary single spacing. Confidence: low.
+
+6. **MINOR â Background tone.** The original has a faint vertical gray gradient (lighter at bottom, slightly darker at top); the recreation is a flat #E8E8E8 field. Confidence: medium.
+
+7. **MINOR â Content-area border inset.** The original's own thin dark-red border sits ~55 px in from the left/top (â6% of width) and stops short of the bottom bar; the recreation relies solely on the house frame at ~10 px inset, so no inner content border is drawn at the original's position. Since the house frame substitutes for the outer border by mandate, this is scored minor only. Confidence: medium.
+
+**Visual-quality defects in the recreation:** No clipping, no text overflow, no collisions with frame or badge, and no wrong wrapping. The sole quality failure is legibility: both text lines are miniaturized to the point that the title reads as a thin hairline rather than a headline, and the whole title/subtitle group is mispositioned to the top of the slide, leaving the large lower two-thirds empty in a way the original does not.
+
+**Summary:** All wording, colors, span structure, and the bottom bar are correct, and nothing is missing. However, the two content lines are ~3.5â4Ã too small and vertically displaced by roughly a third of the slide height, so the slide's typographic hierarchy and title-block region are not reproduced. Font face/weight also differs from the original's bold sans-serif.
+
+FINAL VERDICT: FAIL
+

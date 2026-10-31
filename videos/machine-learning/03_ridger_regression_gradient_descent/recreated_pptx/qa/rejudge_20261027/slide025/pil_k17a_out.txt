@@ -1,0 +1,41 @@
+== 0. MD5: assets_k17a vs assets_k15 ==
+  tl: k17a=d77ea0e08cc1172051ae36e5bfcf3ae0 k15=73cbaec1d8f2d9a6faf3aca1841b213e differ=True
+  tr: k17a=d67e96b9d89d45e2e9e16cddd4c26e28 k15=375a2d7bef424fe275a6c27647d09756 differ=True
+  bl: k17a=07093a26e6202986cc4829de0a1b2d00 k15=5acfb177d1e4d640b2fd7a08a1f21eda differ=True
+  br: k17a=f6af102ec110ff5113482659ff4f9d73 k15=500287a3f4fe98a32ee0cac44e5bd5f8 differ=True
+composite: /home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/rejudge_20261027/slide025/k17a_assembled (4 assets pasted at build positions)
+
+== CHECK1: BR bottom band slide x672..816 y472..517 diff vs orig ==
+  band 144x45 total diff px=11 (0.2%), maxcell=3/108 (2.8% solid)
+  k16 render was 97.9%; CHECK1 PASS if < 50%: PASS
+  row colored%% y472..528 orig : 472:77 473:78 474:76 475:75 476:75 477:74 478:75 479:75 480:75 481:72 482:72 483:63 484:60 485:56 486:49 487:49 488:47 489:46 490:45 491:45 492:46 493:47 494:49 495:49 496:49 497:50 498:50 499:49 500:49 501:51 502:54 503:55 504:57 505:59 506:59 507:55 508:52 509:51 510:51 511:51 512:46 513:38 514:32 515:41 516:35 517:34 518:32 519:27 520:24 521:26 522:29 523:20 524:10 525:36 526:99 527:98 528:98
+  row colored%% y472..528 k17a : 472:64 473:64 474:63 475:62 476:63 477:63 478:64 479:64 480:63 481:63 482:63 483:57 484:55 485:54 486:53 487:52 488:52 489:50 490:49 491:49 492:47 493:49 494:50 495:50 496:51 497:52 498:51 499:50 500:50 501:51 502:51 503:51 504:51 505:49 506:48 507:42 508:38 509:35 510:34 511:31 512:27 513:25 514:23 515:26 516:22 517:22 518:21 519:21 520:20 521:22 522:22 523:15 524:8 525:40 526:56 527:98 528:98
+
+== CHECK2: BL labels at task anchors (2-line glyph-template ID) ==
+  orig top   x236..278 y302..322    ink=265 -> 'Global Minima' iou=0.715 
+  k17a top   x236..278 y302..322    ink=163 -> 'Global Minima' iou=0.592 OK
+  orig right-m x325..350 y388..401  ink=9 -> 'Local Maxima' iou=0.818 
+  k17a right-m x325..350 y388..401  ink=110 -> 'Global Maxima' iou=0.471 MISMATCH(want 'Local Minima')
+  orig low-L x138..205 y438..470    ink=379 -> 'Global Minima' iou=0.242 
+  k17a low-L x138..205 y438..470    ink=386 -> 'Global Minima' iou=0.16 MISMATCH(want 'Local Minima')
+  orig low-R x300..346 y448..470    ink=272 -> 'Global Minima' iou=0.705 
+  k17a low-R x300..346 y448..470    ink=186 -> 'Local Minima' iou=0.271 MISMATCH(want 'Global Minima')
+  CHECK2 (all four anchors read the expected string in k17a): FAIL
+
+== CHECK3: TR red segment (652,189)->(667,165) red-hit within 2px ==
+  orig orig-diag red-hit 108/200 = 54%
+  k17a orig-diag red-hit 200/200 = 100%
+  CHECK3 (k17a segment red-hit >= 40%; orig 54%, k16 render 0%): PASS
+
+== KEEP-A: BR winding ratio (largest dark comp, BR panel) ==
+  orig wind-ratio=4.492 comp=(43, 686, 479, 696, 491)
+  k17a wind-ratio=4.330 comp=(370, 690, 388, 821, 463)
+  KEEP-A (winding ~6.0, k16 was 6.02): FAIL
+
+== KEEP-B: BL marker-like red comps (expect 2 at (199,445)/(270,482)) ==
+  orig marker-like: [(67, 199, 445), (60, 270, 482)]
+  k17a marker-like: [(41, 198, 445), (48, 269, 481)]
+  KEEP-B (markers at (199,445)/(270,482) within 8px): PASS
+
+SUMMARY: CHECK1=PASS(0.2%) CHECK2=FAIL CHECK3=PASS(100%) KEEP-A=FAIL(4.33) KEEP-B=PASS
+PROBE_K17A_DONE

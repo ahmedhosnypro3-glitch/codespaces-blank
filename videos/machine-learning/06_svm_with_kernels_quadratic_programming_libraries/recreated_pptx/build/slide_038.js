@@ -26,10 +26,10 @@ s.addText("38", { x: 12.48, y: 0.30, w: 0.5, h: 0.5, align: "center", valign: "m
   fontSize: 18, bold: true, color: "333333", fontFace: ARIAL, margin: 0 });
 // spec SLIDE_TITLE: none -> no title text
 
-function rbox(b, color, rounded) {
+function rbox(b, color, rounded, fill) {
   s.addShape(rounded === false ? pres.shapes.RECTANGLE : pres.shapes.ROUNDED_RECTANGLE, {
     x: X(b[0]), y: Y(b[1]), w: BW(b[0], b[2]), h: BH(b[1], b[3]),
-    fill: { type: "none" }, line: { color, width: 1.25 } });
+    fill: fill ? { color: fill } : { type: "none" }, line: { color, width: 1.25 } });
 }
 function img(name, x, y, centerW) {
   const m = MAN[name];
@@ -43,41 +43,41 @@ const sub = (base, n, color) => [
   { text: String(n), options: { italic: true, color, subscript: true, fontFace: MATHF } },
 ];
 
-// top red box: training vectors / test vectors / constraint settings
-rbox([0.07, 0.03, 0.93, 0.30], "C00000");
+// top red box (cream fill per original): training/test vectors + constraints
+rbox([0.07, 0.03, 0.93, 0.30], "C00000", true, "FFF6DC");
 const tOpt = { align: "center", valign: "middle", fontSize: 14, bold: true, color: "C00000" };
-txt("Training Vectors", X(0.08), Y(0.052), BW(0.08, 0.45), 0.30, tOpt);
-txt("Test Vectors", X(0.45), Y(0.052), BW(0.45, 0.63), 0.30, tOpt);
+txt("Training Vectors", X(0.08), Y(0.042), BW(0.08, 0.45), 0.24, tOpt);
+txt("Test Vectors", X(0.45), Y(0.042), BW(0.45, 0.63), 0.24, tOpt);
 
 function vecBlock(x0, x1, base, vecs, ys) {
   const cw = BW(x0, x1) / vecs.length;
   vecs.forEach((v, i) => {
-    txt(sub(base, i + 1, "C00000"), X(x0) + i * cw, Y(0.098), cw, 0.26,
-      { align: "center", valign: "middle", fontSize: 13 });
+    txt(sub(base, i + 1, "C00000"), X(x0) + i * cw, Y(0.088), cw, 0.24,
+      { align: "center", valign: "middle", fontSize: 14 });
     const m = MAN[v];
     s.addImage({ path: path.join(EQ, v + ".png"),
-      x: X(x0) + i * cw + (cw - m.w_in) / 2, y: Y(0.135), w: m.w_in, h: m.h_in });
+      x: X(x0) + i * cw + (cw - m.w_in) / 2, y: Y(0.122), w: m.w_in, h: m.h_in });
     if (ys) {
-      const runs = sub("y", i + 1, "000000");
-      runs.push({ text: "=" + ys[i], options: { color: "000000", fontFace: MATHF } });
-      txt(runs, X(x0) + i * cw, Y(0.235), cw, 0.28,
-        { align: "center", valign: "middle", fontSize: 12 });
+      const ym = MAN[ys[i]];
+      s.addImage({ path: path.join(EQ, ys[i] + ".png"),
+        x: X(x0) + i * cw + (cw - ym.w_in) / 2, y: Y(0.245), w: ym.w_in, h: ym.h_in });
     }
   });
 }
-vecBlock(0.08, 0.45, "x", ["rb3_vec_x1", "rb3_vec_x2", "rb3_vec_x3", "rb3_vec_x4"],
-  ["1", "1", "-1", "-1"]);
-vecBlock(0.45, 0.63, "T", ["rb3_vec_T1", "rb3_vec_T2", "rb3_vec_T3"], null);
+vecBlock(0.08, 0.45, "x", ["rb3f2_vec_x1", "rb3f2_vec_x2", "rb3f2_vec_x3", "rb3f2_vec_x4"],
+  ["rb3f2_y1", "rb3f2_y2", "rb3f2_y3", "rb3f2_y4"]);
+vecBlock(0.45, 0.63, "T", ["rb3f2_vec_T1", "rb3f2_vec_T2", "rb3f2_vec_T3"], null);
 
-// "Use C=1" box + top-right constraint equations
+// "Use C=1" box + blue-framed top-right constraint equations
 rbox([0.65, 0.05, 0.76, 0.12], "C00000", false);
 txt("Use C=1", X(0.65), Y(0.05), BW(0.65, 0.76), BH(0.05, 0.12),
   { align: "center", valign: "middle", fontSize: 13, color: "000000" });
-img("rb3_eq_topcons", X(0.63), Y(0.135), BW(0.63, 0.92));
+rbox([0.63, 0.125, 0.92, 0.29], "0070C0");
+img("rb3f2_topcons", X(0.63), Y(0.135), BW(0.63, 0.92));
 
-// middle blue box: dual formulation equation
+// middle blue box: dual formulation equation (2D stacked sums, MAJOR fix)
 rbox([0.08, 0.32, 0.92, 0.40], "0070C0");
-img("rb3_eq_dual", X(0.08), Y(0.322), BW(0.08, 0.92));
+img("rb3f_eq_dual", X(0.08), Y(0.318), BW(0.08, 0.92));
 
 // lower-middle red box: kernel matrix expansion (blocks + arrow + line per spec)
 rbox([0.08, 0.44, 0.92, 0.68], "C00000");
@@ -88,18 +88,18 @@ s.addShape(pres.shapes.RIGHT_ARROW, { x: X(0.50), y: Y(0.55), w: BW(0.50, 0.53),
   h: BH(0.55, 0.60), fill: { color: "C00000" }, line: { color: "C00000" }, rotate: 43 });
 s.addShape(pres.shapes.LINE, { x: X(0.53), y: Y(0.58), w: BW(0.53, 0.58),
   h: BH(0.58, 0.62), line: { color: "C00000", width: 1.5 } });
-img("rb3_blockC", X(0.585), my);
-img("rb3_blockD", X(0.765), my);
+img("rb3_blockC", X(0.555), my);
+img("rb3_blockD", X(0.715), my);
 
-// bottom red box: QP expansion + constraints
-rbox([0.07, 0.69, 0.93, 0.94], "C00000");
-img("rb3_eq_qp", X(0.10), Y(0.722), BW(0.10, 0.90));
-txt("Subject to:", X(0.10), Y(0.832), 2.0, 0.24,
-  { align: "left", valign: "middle", fontSize: 12, bold: true, color: "000000" });
-img("rb3_cons_l", X(0.10), Y(0.862));
-img("rb3_cons_r", X(0.10) + MAN.rb3_cons_l.w_in + 0.15, Y(0.862));
-txt("Quadratic Equation in \u03b1 with constraints", X(0.50), Y(0.85), BW(0.50, 0.90), 0.30,
-  { align: "left", valign: "middle", fontSize: 12, italic: true, color: "000000", fontFace: MATHF });
+// bottom red box (pink fill per original): QP expansion + constraints + caption
+rbox([0.07, 0.69, 0.93, 0.94], "C00000", true, "FADBD8");
+img("rb3_eq_qp", X(0.09), Y(0.705), BW(0.09, 0.91));
+txt("Subject to:", X(0.10), Y(0.815), 2.0, 0.22,
+  { align: "left", valign: "middle", fontSize: 13, bold: true, color: "000000" });
+img("rb3f2_cons_l", X(0.10), Y(0.845));
+img("rb3f2_cons_r", X(0.10) + MAN.rb3f2_cons_l.w_in + 0.25, Y(0.845));
+txt("Quadratic Equation in \u03b1 with constraints", X(0.52), Y(0.82), BW(0.52, 0.90), 0.34,
+  { align: "center", valign: "middle", fontSize: 16, bold: true, color: "C00000", fontFace: MATHF });
 
 pres.writeFile({ fileName: OUT })
   .then(() => console.log("wrote " + OUT))

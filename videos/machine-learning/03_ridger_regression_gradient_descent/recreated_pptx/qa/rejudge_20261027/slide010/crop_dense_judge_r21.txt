@@ -1,0 +1,45 @@
+## Comparison basis (settled first)
+
+- IMG1 = recreation crop (150 dpi), IMG2 = original-frame crop at matched scale. Both are the lower-right region of slide 010: the right/bottom of the overfit chart plus the top of the "Overfit â¦" annotation panel.
+- House-template chrome (white canvas, gray panel, left/right/bottom red strokes, no top stroke, blue plot frame, yellow badge/purple ring) treated as intentional per rule (b) â not scored.
+- The overall ~6â8 px downward registration difference between the two crops (chart bottom border, panel top, second text line) is treated as crop-placement/registration, not content, and is excluded from the findings.
+- IMG2's gray, low-contrast canvas, the pink pencil/pointer glyph over the top-right marker, and the soft/darker dot rims are video-capture artifacts per rule (e) â excluded from the findings (pointer noted below for completeness only).
+- This region contains **no tables, no equations, no delimiters/brackets** â so those checklists are N/A here; the applicable checks are glyph/text, marker/line geometry, and fills.
+
+## What matches (verified)
+
+- **Marker count/identity:** 7 orange markers in both, in the same order and the same left-to-right x positions (âx 242, 267, 360, 380, 418, 487, 558 in IMG1 vs â241, 268, 362, 379, 417, 486, 557 in IMG2).
+- **Connectors:** 7 light-purple dashed residual lines from the blue curve down to the markers in both, same fan pattern, same line/segment structure.
+- **Blue curve:** same start point (â170,100), same slope, same exit through the top edge (âx 362â372); same stroke weight in both.
+- **Red axes:** vertical red axis at xâ139/140 and horizontal red axis present in both, continuous, with the same small tick at the intersection; red dashed vertical reference line present in both.
+- **Text strings:** "Overfit (try to minimize the residuâ¦" (cut by crop in both) and the next line "Fails to detect the Pattern" (cut in both) â **no wrong, missing or garbled characters**; same wording, same order, same capitalization.
+
+## Discrepancies
+
+**1. All 7 orange markers sit ~4â6 px lower relative to the grid/blue curve than in the original â MINOR, confidence medium-high.**
+Region: whole marker band, crop-relative x â 240â560, y â 45â165.
+Gridlines coincide within ~1â2 px between crops, but the markers do not: e.g. marker at (267,112) in IMG1 vs (268,105) in IMG2; (241,163) vs (241,156); (380,51) vs (379,47); (558,60) vs (557,55). Because the blue curve's left endpoint is at the same height in both images, this is not a global shift â the recreated vertical drops (residuals) to the curve are uniformly a few pixels larger than the original's.
+
+**2. Vertical pink/red dashed reference line is offset ~10 px (â0.2 grid cell) to the left of its original position â MINOR, confidence medium-high.**
+Region: top-right, x â 545â560, running y â 0â270.
+In IMG2 the dashed line runs **directly through/behind the rightmost orange marker** (both at x â 557). In IMG1 the line is at x â 547 while the rightmost marker is at x â 558, so the marker no longer sits on the reference line and the original's line-through-marker alignment is lost. The element is present and correctly styled in both (dash pattern, color, termination at the red bottom axis), but its x-position differs.
+
+**3. Bold red "Overfit" heading is ~15â20% narrower/smaller relative to the following parenthetical text â MINOR, confidence medium.**
+Region: lower band, x â 97â215, y â 385â420.
+IMG1 "Overfit" spans â x 97â186 (â89 px) before the "(" at â188; IMG2 "Overfit" spans â x 102â212 (â110 px) before the "(" at â216. Meanwhile the body text is slightly *larger* in IMG1 (â16 px/char vs â15 px/char in IMG2). The recreation therefore flattens the original's typographic hierarchy (noticeably larger bold heading than body). Glyphs themselves are correct.
+
+**4. Fill/ink tone of the annotation panel and accents slightly differ â MINOR, confidence low (capture wash partially explains it).**
+Region: lower panel, y â 375â443, plus the marker fill.
+IMG2's annotation panel reads faintly pink/cream against the gray canvas, and the "Overfit" red and marker orange render a touch deeper/less saturated; IMG1's panel is near-white with brighter red/orange. Direction of the error cannot be fully separated from IMG2's global desaturation, so this is a soft note, not a hard failure.
+
+## Non-findings (for the record)
+
+- The small gray pen/pointer glyph over the top-right marker in IMG2 (x â 555â580, y â 85â115) is a screen-capture pointer, not slide content; absence in IMG1 is not a defect.
+- IMG2's gray canvas and soft marker rims are capture artifacts; not scored.
+- No table values, equation terms, or bracket/parenthesis spans exist in this crop, so no digit/swap/truncation/span defects apply. All visible text characters match exactly.
+
+## Final assessment
+
+The recreation reproduces this region's content faithfully: same 7 markers, same dashed residual fan, same blue curve, same red axes and dashed reference line, same red/green layout of the annotation panel, and character-exact text. The residual issues are a small systematic ~4â6 px marker drop, a ~10 px reference-line offset that breaks the original's line-through-marker alignment, a slightly undersized "Overfit" heading, and a minor fill-tone shift. None of these impairs legibility or meaning of the region.
+
+**FINAL VERDICT: PASS** for 'faithful, usable recreation of this region'.

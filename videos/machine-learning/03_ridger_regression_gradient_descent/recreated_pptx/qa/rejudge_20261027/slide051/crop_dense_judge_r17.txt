@@ -1,0 +1,38 @@
+## Preâcheck (excluded from findings per founder rules)
+
+- The cropâpair framing, the gray `E9E9E7` panel / white canvas, the left/right/bottom chrome strokes, and the badge styling are treated as intentional template chrome â **not** counted.
+- Typed vs. handwritten ink and the 2Dâequation format upgrade are treated as medium/format differences â **capped at MINOR**.
+- Soft edges/halos in IMG2 are treated as capture artifacts â not counted.
+
+## Cellâbyâcell / glyphâbyâglyph verification (things that MATCH)
+
+- **Withinâpanel augmented vectors (gray panel, xââxâ, ~x=60â330, y=170â330):** every entry matches IMG2 exactly â xâ=(1,1,1)âCâ, xâ=(1,2,1)âCâ, xâ=(1,1,2)âCâ, xâ=(1,5,4)âCâ, x=(1,6,5)âCâ, xâ=(1,6,6)âCâ. No wrong digits, no swapped values, no missing/extra rows, no truncated subscripts.
+- **Top partial vector row (y=0â75):** visible bottom entries 1,1,2,4,5,6 with class labels Câ,Câ,Câ,Câ,Câ,Câ â identical in both crops.
+- **Parentheses/vector delimiters:** in both images the delimiters span all three enclosed entries with adequate top/bottom clearance and do not touch the numerals; row spacing and vertical centering inside the enclosures are equivalent.
+- **Rightâhand panels:** `d(Zâ)`, `d(Zâ)`, `d(Zâ)` labels with subscripted Z indices and the `=` sign are present and correctly ordered in both; blue value glyphs present in both.
+- **Legend logic:** red Câ preceding "positive", blue Câ following â same ordering in both.
+- No equation numerator/denominator, limits, or delimiterâspan errors anywhere in this region.
+
+## Discrepancies (every one, with severity + confidence)
+
+1. **MINOR â topâright legend text fragment absent in crop (visibleâcontent difference).** IMG2 shows the italic fragment "**negâ¦**" immediately after the last blue Câ (âx=555â590, y=44â70, topâright). IMG1 shows only the blue Câ there (âx=565â590, y=45â72) and no following word. Since the gray panel borders *are* aligned (left 18 vs 20, right 388 vs 386), this is not a global crop shift but a ~30â40 px rightward placement of the legend label row in the recreation, which pushes the word past the crop edge. The crop cannot confirm whether "negative" exists further right on the full slide; if it is absent from the recreation altogether, this becomes **MAJOR**. Confidence: **high** on the visible difference; **medium** on the cause.
+
+2. **MINOR â horizontal registration offset of rightâside content.** In the three right panels, `d(Zâ) =` ends at âx=563 in IMG1 vs âx=538 in IMG2; the blue value glyphs ("(" + "1") are therefore jammed against the crop edge in the recreation, whereas the original shows the blue "1" at âx=570â585 with no clearly resolved parenthesis to its left (possibly just blur). Alignment of the panel frames is preserved, so the text inside is placed differently. Confidence: **medium**.
+
+3. **MINOR â typeface family mismatch across all text.** Panel title "Ug(n)mented Vectors (from Top)", the `xââ¦xâ` headers, Câ/Câ labels, "positive", `d(Zâ)=` labels, and "Check Classes" are set in a serif/Timesâlike face in IMG2 and in a sansâserif/Arialâlike face in IMG1. Also the "d(Zâ)" and "positive" are italic in the original and upright (or differently italic) in the recreation. Medium/fontâclass difference â MINOR per rule (c). Confidence: **high**.
+
+4. **MINOR â title size/weight and inset.** Recreation title is larger and bolder, spanning âx=28â380 inside a panel whose inner right edge is 388 (nearâtouching, though not clipped); the original title is smaller and inset (âx=42â370 within panel 20â386). The recreation's title also starts ~14 px further left of the original's start. Confidence: **high**.
+
+5. **MINOR â "Check Classes" banner typography.** Recreation: sansâbold, larger, on a red bar starting âx=37; original: serifâbold (Times), smaller, on a bar starting âx=45 (right edges 375 vs 370). Bar color red in both. Confidence: **high**.
+
+6. **MINOR â hue saturation of the accent colors.** The original's blue (Câ labels, panel title, d(Z) values) is a brighter, more saturated blue; the recreation renders the same elements in a darker indigo/blueâviolet. The recreation's Câ red is a deeper crimson than the original's slightly brighter red. Systematic across all instances rather than a compression halo. Confidence: **medium**.
+
+7. **MINOR â small vertical/horizontal offsets of glyph rows.** The top legend row sits â5â8 px lower in IMG1; the topârow Câ/Câ labels and the withinâpanel vector columns are displaced â5â15 px to the right relative to the original's vectors (column stack positions xââ78 vs 75, xââ310 vs 300). Digits themselves remain correctly ordered and complete. Confidence: **mediumâhigh**.
+
+8. **MINOR (low) â subscript rendering weight.** Subscripts on `xââ¦xâ` and `Câ/Câ` in the recreation are slightly larger and dropped a bit lower relative to the base glyph than in the original; still legible and unambiguous, no truncation. Confidence: **lowâmedium**.
+
+## Summary
+
+No wrong digits, no swapped class assignments, no missing rows, no broken delimiters, no equationâstructure errors. All differences are typographic (serifâsans, size/weight), colorâsaturation level, and subâ40 px registration offsets â plus one edgeâtruncated legend fragment ("negâ¦") whose disappearance from the crop is attributable to that offset and is the only item with MAJOR potential if the underlying word were missing from the full slide.
+
+FINAL VERDICT: PASS

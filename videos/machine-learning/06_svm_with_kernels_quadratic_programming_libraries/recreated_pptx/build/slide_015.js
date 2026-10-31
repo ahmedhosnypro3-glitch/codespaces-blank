@@ -27,8 +27,7 @@ s.addText([
 s.addShape(pres.shapes.RECTANGLE, { x: X(0.090), y: Y(0.175), w: X(0.912 - 0.090), h: Y(0.935 - 0.175), fill: { color: "FFFFFF" }, line: { color: "FF0000", width: 1 } });
 
 // Italic red instruction line, verbatim with straight quotes around x
-// (y placed at the original's measured 0.267-0.281, not the spec's 0.246)
-s.addText('Each Sample is represented by one features "x"', { x: X(0.139), y: Y(0.260), w: X(0.547 - 0.139), h: Y(0.288 - 0.260), align: "left", valign: "top", fontSize: 14, italic: true, color: "CC0000", fontFace: FONT, margin: 0 });
+s.addText('Each Sample is represented by one features "x"', { x: X(0.135), y: Y(0.246), w: X(0.548 - 0.135), h: Y(0.276 - 0.246), align: "left", valign: "top", fontSize: 14, italic: true, color: "CC0000", fontFace: FONT, margin: 0 });
 
 // Plot region: matplotlib-generated PNG (parabola, blue line, x-axis, markers, "x")
 s.addImage({ path: path.join(NS, "recreated_pptx/build/eq_015/plot_015.png"), x: X(0.111), y: Y(0.497), w: 1988 / 200, h: 627 / 200 });
@@ -41,7 +40,7 @@ s.addText("Non-Linear\nDecision\nBoundary", { x: X(0.296), y: Y(0.387), w: X(0.3
 s.addShape(pres.shapes.RECTANGLE, { x: X(0.438), y: Y(0.417), w: X(0.534 - 0.438), h: Y(0.513 - 0.417), fill: { color: "FFFFFF" }, line: { color: "B07FD0", width: 1 } });
 s.addText("Linear\nDecision\nBoundary", { x: X(0.438), y: Y(0.417), w: X(0.534 - 0.438), h: Y(0.513 - 0.417), align: "center", valign: "middle", fontSize: 12, bold: true, italic: true, color: "6633CC", fontFace: "Times New Roman", lineSpacing: 14, margin: 0 });
 
-// Lavender leader lines (rotated thin rects)
+// Lavender leader lines, drawn down-left from each label box (rotated thin rects)
 function leader(x0, y0, x1, y1, color) {
   const x0i = X(x0), y0i = Y(y0), x1i = X(x1), y1i = Y(y1);
   const dx = x1i - x0i, dy = y1i - y0i, len = Math.hypot(dx, dy);

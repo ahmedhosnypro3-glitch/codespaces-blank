@@ -1,0 +1,24 @@
+Normalizing IMG1 to the IMG2 960Ã540 lecture grid, and applying the founder rules first: house chrome/badge/strokes are intentional and not flagged; the mouse-cursor artifact in IMG2 is correctly omitted; any professional-2D equation rendering is not flagged; no contentless-placeholder issue applies because IMG2 has full content.
+
+Element-by-element result:
+
+- Slide number/badge/chrome: match/intentional â not a discrepancy.
+- Top blue frame content: `X` labels, 3-row vector table, class labels `C1 C1 C1 C2 C2 C2`, `Initial W = (4; -2; -2)`, red `Step Î· = 2`, `Check classes of Zâ¦` columns, and bottom note `C1 positive, C2 negative, Zero is unaccepted` all match in text, order, and colors.
+- Left sidebar matrices: the âUnaugmented Vectorsâ box has the same 4 data rows + `C1/C2` labels as IMG2.
+- Main six computation rows: labels `d(x1)â¦d(x6)`, coefficient rows `[1 1 1]`, `[1 2 1]`, `[1 1 2]`, `[1 5 4]`, `[1 6 5]`, `[1 6 6]`, green vector `[14; -4; 0]`, results `10, 6, 10, -6, -10, -112`, `â Keep same Weight`, and `W = [14; -4; 0]` all match IMG2, including the originalâs `-112`. No missing rows/equations; no empty equation region.
+- Text colors: blue X/coefficients, red `C1`/`Step`/`Iteration 4`, blue `C2`, green `Zero`/vector entries, black values â match.
+- Vertical metrics inside 3-entry column vectors: entries are centered between delimiters and delimiters span all three rows in both images; no top-hugging or delimiter overlap observed.
+- Frame containment: no overflow/clipping/collisions found; content closest to edges stays inside the blue top frame, sidebar boxes, main row area, and house panel.
+
+Discrepancies:
+
+1. MAJOR â sidebar heading text: IMG1 appears to read `Ugnmented Vectors ( from Top )` vs IMG2 `Unaugmented Vectors (from Top )`; missing `au` and extra spaces inside parentheses. Confidence: high if read literally; medium if raster blur. Verbatim-text defect.
+2. MAJOR â top blue frame fill: IMG2 has a pale cream/yellow fill inside the blue border, approx `#FFF7CC`â`#FFFFCC`; IMG1 renders it neutral white/gray. Color/region mismatch. Confidence: medium-high.
+3. MAJOR â main row regions/gaps: IMG2 shows six separate outlined row cards with thin borders and visible inter-row gaps; IMG1 shows one continuous ruled field with horizontal separators only, lacking the per-row card borders/gaps. Layout/region/gap deviation. Confidence: medium-high.
+4. MAJOR/MINOR â delimiter style on multi-line column vectors: IMG2 uses round parentheses for `Initial W`, the green vector, and result `W`; IMG1 uses square brackets there while keeping parentheses for scalar entries. Rule (e) mandates 2D professional equations, but does not explicitly license changing `( )` to `[ ]`; under rule 7(iii) this is a delimiter-shape mismatch. Severity: MAJOR if delimiter style is enforced, else MINOR. Confidence: medium.
+5. MINOR â parenthesis spacing in sidebar heading: `( from Top )` vs `(from Top )` if treated separately from the spelling error. Confidence: medium.
+6. Not discrepancies: omitted mouse cursor in IMG2 per rule (c); house badge/strokes/panel per rule (a); 2D equation formatting per rule (e); raster scaling/anti-alias differences.
+
+Visual-quality defects in IMG1 beyond fidelity: no text overflow, clipping, collision, or illegibility detected; the issues above are fidelity/layout/color/text defects rather than render crashes.
+
+FINAL VERDICT: FAIL

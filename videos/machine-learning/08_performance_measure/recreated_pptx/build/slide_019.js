@@ -106,20 +106,21 @@ s.addShape(pptx.shapes.RECTANGLE, {
   x: 80 * P, y: 137 * P, w: 159 * P, h: 368 * P,
   fill: { color: WHITE }, line: { color: BOX_RED, width: 2 },
 });
+const ROT_E = [0, 9, -7, 14, -12];
 for (let i = 0; i < 5; i++) {
   const cy = 137 + 368 * (i + 0.5) / 5; // 173.8, 247.4, 321, 394.6, 468.2
   s.addImage({
     path: path.join(ASSETS, PLANES_ENEMY[i % 3]),
     x: 80 * P + (159 * P - PLANE_W) / 2, y: cy * P - PLANE_H / 2,
-    w: PLANE_W, h: PLANE_H,
+    w: PLANE_W, h: PLANE_H, rotate: ROT_E[i],
   });
 }
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: 247 * P, y: 161 * P, w: 42 * P, h: 332 * P,
+  x: 247 * P, y: 137 * P, w: 42 * P, h: 368 * P,
   fill: { color: PINK_STRIP }, line: { color: TXT_RED, width: 1 },
 });
 for (let i = 0; i < 5; i++) {
-  const cy = 161 + 332 * (i + 0.5) / 5;
+  const cy = 137 + 368 * (i + 0.5) / 5; // same row centers as the planes
   s.addText("+1", {
     x: 247 * P, y: (cy - 9) * P, w: 42 * P, h: 18 * P,
     align: "center", valign: "middle",
@@ -144,20 +145,21 @@ s.addShape(pptx.shapes.RECTANGLE, {
   x: 330 * P, y: 136 * P, w: 154 * P, h: 369 * P,
   fill: { color: WHITE }, line: { color: BOX_RED, width: 2 },
 });
+const ROT_S = [-6, 0, 11, -14, 7, -3];
 for (let i = 0; i < 6; i++) {
   const cy = 136 + 369 * (i + 0.5) / 6; // 166.75 ... 474.25
   s.addImage({
     path: path.join(ASSETS, PLANES_SAFE[i % 3]),
     x: 330 * P + (154 * P - PLANE_W) / 2, y: cy * P - PLANE_H / 2,
-    w: PLANE_W, h: PLANE_H,
+    w: PLANE_W, h: PLANE_H, rotate: ROT_S[i],
   });
 }
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: 498 * P, y: 161 * P, w: 42 * P, h: 338 * P,
+  x: 498 * P, y: 136 * P, w: 42 * P, h: 369 * P,
   fill: { color: GREEN_STRIP }, line: { color: TXT_GREEN, width: 1 },
 });
 for (let i = 0; i < 6; i++) {
-  const cy = 161 + 338 * (i + 0.5) / 6;
+  const cy = 136 + 369 * (i + 0.5) / 6; // same row centers as the planes
   s.addText("-1", {
     x: 498 * P, y: (cy - 9) * P, w: 42 * P, h: 18 * P,
     align: "center", valign: "middle",
@@ -186,22 +188,22 @@ s.addText("Threshold at \u201Czero\u201D", {
   align: "center", valign: "middle",
   fontSize: 11, color: TXT_RED, fontFace: FONT, margin: 0,
 });
-// pink circular badge with step plot, right-middle of panel
+// pink circular badge with step plot, fully inside panel (panel x660..944 y88..203)
 s.addShape(pptx.shapes.OVAL, {
-  x: 890 * P, y: 123 * P, w: 44 * P, h: 44 * P,
+  x: 882 * P, y: 110 * P, w: 56 * P, h: 56 * P,
   fill: { color: PINK }, line: { color: PINK, width: 0.5 },
 });
 s.addImage({
   path: STEP_PLOT_S,
-  x: 898 * P, y: 132 * P, w: STEP_S_W * 0.75, h: STEP_S_H * 0.75,
+  x: 892 * P, y: 122 * P, w: STEP_S_W * 0.62, h: STEP_S_H * 0.62,
 });
 
 // ---- Training panel x660..944 y240..322 ----
 s.addText("Training", {
-  x: 700 * P, y: 224 * P, w: 2.0, h: 0.26,
+  x: 700 * P, y: 219 * P, w: 2.0, h: 0.28,
   align: "center", fontSize: 14, bold: true, color: TXT_RED, fontFace: FONT, margin: 0,
 });
-s.addShape(pptx.shapes.RECTANGLE, {
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
   x: 660 * P, y: 240 * P, w: 284 * P, h: 82 * P,
   fill: { color: CREAM }, line: { color: ORANGE, width: 1 },
 });
@@ -255,25 +257,27 @@ s.addText("LOSS", {
   fontSize: 8, bold: true, color: DARK, fontFace: FONT, margin: 0,
 });
 // red feedback arrow into LOSS from the right
-s.addShape(pptx.shapes.LEFT_ARROW, { x: 900 * P, y: ty + 17 * P, w: 12 * P, h: 16 * P, fill: { color: BOX_RED } });
+s.addShape(pptx.shapes.LEFT_ARROW, { x: 900 * P, y: ty + 15 * P, w: 14 * P, h: 20 * P, fill: { color: BOX_RED } });
 // "Label of Input Sample" + "(+1, -1)" at the right, below the feedback arrow
 s.addText("Label of Input Sample", {
-  x: 898 * P, y: ty + 36 * P, w: 46 * P, h: 12 * P,
+  x: 898 * P, y: ty + 38 * P, w: 46 * P, h: 12 * P,
   align: "center", valign: "middle",
   fontSize: 7, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addText("(+1, -1)", {
-  x: 898 * P, y: ty + 48 * P, w: 46 * P, h: 14 * P,
+  x: 898 * P, y: ty + 50 * P, w: 46 * P, h: 14 * P,
   align: "center", valign: "middle",
   fontSize: 9, bold: true, color: BLUE_TXT, fontFace: FONT, margin: 0,
 });
+// upward connector from the label block into the LOSS circle
+s.addShape(pptx.shapes.UP_ARROW, { x: 878 * P, y: ty + 41 * P, w: 12 * P, h: 12 * P, fill: { color: BOX_RED } });
 
 // ---- Evaluation panel x660..944 y380..495 ----
 s.addText("Evaluation", {
-  x: 700 * P, y: 368 * P, w: 2.0, h: 0.26,
+  x: 700 * P, y: 360 * P, w: 2.0, h: 0.28,
   align: "center", fontSize: 14, bold: true, color: TXT_RED, fontFace: FONT, margin: 0,
 });
-s.addShape(pptx.shapes.RECTANGLE, {
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
   x: 660 * P, y: 380 * P, w: 284 * P, h: 112 * P,
   fill: { color: CREAM }, line: { color: ORANGE, width: 1 },
 });

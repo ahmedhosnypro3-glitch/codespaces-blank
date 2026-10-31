@@ -1,0 +1,29 @@
+## Fidelity comparison â Slide 043, zoomed crop-pair (region: âUgmented Vectorsâ panel + right-hand d(x) column)
+
+### Content verified as correct (no discrepancy)
+- **Augmented-vectors table, cell-by-cell (panel, xâ50â330, yâ165â330):** both images show six columns `xââ¦xâ` with rows
+ - xâ = (1, 1, 1), xâ = (1, 2, 1), xâ = (1, 1, 2), xâ = (1, 5, 4), x = (1, 6, 5), xâ = (1, 6, 6).
+ Every digit matches between IMG1 and IMG2; no swapped values, no missing row.
+- **Class labels under the columns (yâ305â330):** Câ (red) under xâ, xâ, xâ; Câ (blue) under xâ, x, xâ â identical in both, subscripts present and correctly placed.
+- **Upper label strip (yâ55â72):** Câ/Câ/Câ (red), Câ/Câ/Câ (blue), then red âCâ positiveâ and blue âCâ negâ¦â â same content, same colors.
+- **Column enclosures in the augmented-vectors block:** in IMG1 each column is bounded by parentheses that span all three numerals without touching them, and each triple is vertically centered â geometry is acceptable (only weight differs, see below).
+- Panel fill/border, the red âIteration 2â banner position, and the right-hand d(x) box borders are treated as house template/chrome (not scored).
+
+### Discrepancies
+
+| # | Location (crop-relative) | Severity | Confidence | Description |
+|---|---|---|---|---|
+| 1 | Right column, red delimiter after âd(xâ) =â â approx. x 537â543, y 128â172; same at âd(xâ) =â (x 537â543, y 270â312) and the third, clipped box (x 537â543, y 405â445) | **MAJOR** | High | IMG2 shows a **curved red opening parenthesis â(â** (thin, ~30 px tall, clearly bowed) immediately before the red â1â. IMG1 renders it as a **plain straight vertical red bar â|â** (~44 px tall, no curvature). Wrong glyph shape / broken delimiter, repeated three times down the right column; it reads as a stray rule rather than a matrix/vector delimiter. |
+| 2 | Panel title, x 38â360, y 128â152 | **MINOR** | High | Typeface mismatch: original is an **italic serif** blue title; recreation is **bold upright sans-serif**, and adds a stray space before the closing paren: â(from Top )â vs â(from Top)â. Also the recreationâs blue is slightly darker/navier than the originalâs brighter blue. |
+| 3 | All table numerals and x-labels inside the âUgmented Vectorsâ panel (x 55â330, y 165â300); also âd(xâ) =â, âd(xâ) =â (x 440â530) | **MINOR** | High | Original uses a light serif typeface with thin strokes; recreation uses heavy sans-serif. Same values, different typographic character (medium-driven, capped at minor). |
+| 4 | Augmented-vectors column parentheses, x 55â330, y 195â300 | **MINOR** | High | Recreationâs parentheses are markedly **thicker/heavier (bold black)** than the originalâs thin hand-drawn strokes; overall enclosure height also slightly overshoots the digit block. Span/centering are acceptable, so this is weight only. |
+| 5 | Upper panel, y 0â45 (rows â(1)(2)(1)(3)(0)(0)â at y 0â12 and â(1)(1)(2)(4)(5)(6)â at y 25â45) vs. the C-label strip at y 55â72 | **MINOR** | Medium-High | Vertical spacing of the upper matrix differs: in IMG1 the last numeric row sits ~27 px above the Câ/Câ labels, so an **extra partial row of numbers is visible at the crop top**; in IMG2 that same row is ~50 px above the labels and is clipped by the crop edge. The recreated upper matrix is vertically compressed relative to the original (consistent with the originalâs larger hand-drawn glyphs). |
+| 6 | Right-hand column overall (box left edges at x â 437 vs x â 428 in IMG2; âd(xâ)/d(xâ)â text at x â 447 vs x â 437) | **MINOR** | Medium | The entire d(x) column (boxes, text, red delimiters) is shifted **~9â10 px to the right** in the recreation relative to the left panel, which is co-registered. Subtle at this zoom but a genuine registration/position difference. |
+| 7 | Bottom banner text, âIteration 2â, x 105â275, y 425â450 | **MINOR** | High | Original uses a serif face; recreation uses bold sans-serif. Typography only; banner position and size match. |
+
+*Non-defect note:* IMG2 shows a tiny stray black squiggle near the lower-right of the red banner (x â 345, y â 437) that has no counterpart in IMG1; this is original-side capture/ink noise, not a recreation error.
+
+### Assessment
+All six augmented-vector columns and all their digits, subscripts, and Câ/Câ class labels are correct, and the enclosure geometry inside the âUgmented Vectorsâ panel is sound. However, the right-hand columnâs red **opening delimiter is drawn as a straight vertical bar instead of a parenthesis in all three d(x) boxes** â a wrong glyph shape/broken delimiter at zoom, which the brief classifies as MAJOR-to-BLOCKER. The remaining issues are typeface, weight, spacing and registration differences (minor).
+
+**FINAL VERDICT: FAIL**

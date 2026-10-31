@@ -1,0 +1,31 @@
+=== CLAIM (a): delimiter style at 9 W-cells (render must be straight RED bars, no black parens) ===
+col0 row0: L red/dark=(873, 0) R red/dark=(455, 0) black-paren-strokes=0 -> OK
+col0 row1: L red/dark=(870, 0) R red/dark=(453, 0) black-paren-strokes=0 -> OK
+col0 row2: L red/dark=(870, 0) R red/dark=(454, 0) black-paren-strokes=0 -> OK
+col1 row0: L red/dark=(1057, 0) R red/dark=(602, 0) black-paren-strokes=0 -> OK
+col1 row1: L red/dark=(1053, 0) R red/dark=(599, 0) black-paren-strokes=0 -> OK
+col1 row2: L red/dark=(1053, 0) R red/dark=(600, 0) black-paren-strokes=0 -> OK
+col2 row0: L red/dark=(893, 0) R red/dark=(825, 0) black-paren-strokes=0 -> OK
+col2 row1: L red/dark=(890, 0) R red/dark=(782, 0) black-paren-strokes=0 -> OK
+col2 row2: L red/dark=(890, 0) R red/dark=(836, 0) black-paren-strokes=0 -> OK
+CLAIM (a): RESOLVED
+
+=== CLAIM (b): norm ||W||^2 ink vs W-box bottom border (interior cols, strict red) ===
+col0 row0: border y=297 | render text max-y=295.2 ink below border(y+2..+6)=0px | orig text max-y=297 ink below=0px -> OK
+col0 row1: border y=402 | render text max-y=400.3 ink below border(y+2..+6)=0px | orig text max-y=405 ink below=116px -> OK
+col0 row2: border y=512 | render text max-y=510.2 ink below border(y+2..+6)=0px | orig text max-y=514 ink below=5px -> OK
+col1 row0: border y=297 | render text max-y=295.2 ink below border(y+2..+6)=0px | orig text max-y=None ink below=0px -> OK
+col1 row1: border y=402 | render text max-y=400.3 ink below border(y+2..+6)=0px | orig text max-y=None ink below=0px -> OK
+col1 row2: border y=512 | render text max-y=510.2 ink below border(y+2..+6)=0px | orig text max-y=515 ink below=138px -> OK
+col2 row0: border y=297 | render text max-y=295.2 ink below border(y+2..+6)=0px | orig text max-y=None ink below=0px -> OK
+col2 row1: border y=402 | render text max-y=400.3 ink below border(y+2..+6)=0px | orig text max-y=None ink below=0px -> OK
+col2 row2: border y=512 | render text max-y=510.2 ink below border(y+2..+6)=0px | orig text max-y=515 ink below=88px -> OK
+CLAIM (b): render norm ink stays inside the box (orig itself only has border ink below) -> RESOLVED (no crossing; original claim refuted, nothing to fix)
+
+=== delimiter geometry comparison (orig vs new render), col0 row0 ===
+-- ORIG --
+  L red bar cols 130..131 y 200..297
+  R red bar cols 206..206 y 201..297
+-- RENDER --
+  L red bar cols 128.9..130.3 y 200.0..295.5
+  R red bar cols 204.8..205.3 y 200.0..295.5

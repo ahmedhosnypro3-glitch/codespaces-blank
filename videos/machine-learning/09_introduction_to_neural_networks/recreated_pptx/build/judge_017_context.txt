@@ -27,94 +27,131 @@ Linear and Unit Step Activation Functions
 - F(x) = Uni-polar Unit Step = { 0 for x<0; 1 for x>=0 }
 - F(x) = Bi-polar Unit Step = { -1 for x<0; 1 for x>=0 }
 
-### Layout / regions (from validated analysis)
+### Layout / regions
 
-Title centered at top. Slide number '17' in yellow circle at top-right. Three graph panels: one centered in upper-middle, two side-by-side in lower half. Top graph has a label box to its right. Each bottom graph has an equation label box directly beneath it. A small mouse cursor icon sits between the two bottom graphs.
+Title centered at top. Slide number '17' in yellow circle at top-right. Three graph panels: one centered in upper-middle, two side-by-side in lower half. A callout box sits to the right of the top graph, and each bottom graph has an equation callout box directly beneath it. Mouse-cursor icon omitted (video-capture artifact).
 
-- **title** (top center): Slide title 'Linear and Unit Step Activation Functions' in bold dark red (#8B0000)
-- **slide number** (top right corner): Number '17' in black inside a yellow (#FFD700) circle
-- **top graph panel** (upper middle): Cartesian graph: black axes with arrowheads, vertical axis labeled 'f(x)' (black), horizontal axis labeled 'x' (red #FF0000), red (#FF0000) diagonal line through the origin with positive slope extending into quadrants I and III, blue (#4169E1) rectangular border
-- **top graph label** (middle right): Rounded rectangle (fill #F5F5F5): 'F(x) = x' in black, 'Linear (No Activation)' in red italic (#A52A2A)
-- **bottom left graph panel** (lower left): Cartesian graph: black axes with arrowheads, axis labels 'f(x)' and 'x' (red #FF0000), red (#FF0000) uni-polar step line (y=0 for x<0; vertical jump at x=0 to y=1; y=1 for x>0), blue (#4169E1) rectangular border
-- **bottom left equation** (bottom left, directly beneath bottom-left graph): Rounded rectangle (fill #F5F5F5): 'F(x) = Uni-polar Unit Step = { 0 for x<0; 1 for x>=0 }' with equation name in dark red (#8B0000) and numerals/conditions in green (#008000)
-- **bottom right graph panel** (lower right): Cartesian graph: black axes with arrowheads, axis labels 'f(x)' and 'x' (red #FF0000), red (#FF0000) bi-polar step line (y=-1 for x<0; vertical jump at x=0 to y=1; y=1 for x>0), blue (#4169E1) rectangular border
-- **bottom right equation** (bottom right, directly beneath bottom-right graph): Rounded rectangle (fill #F5F5F5): 'F(x) = Bi-polar Unit Step = { -1 for x<0; 1 for x>=0 }' with equation name in dark red (#8B0000) and numerals/conditions in green (#008000)
-- **mouse cursor icon** (center, between the two bottom graphs): Small black mouse-cursor arrow icon
+### MEASURED GEOMETRY - 2026-10-31 rebuild (PIL on the original, 960x540, 1px = 1pt; render 2001x1125 @150dpi, 1px = 0.48pt)
+
+Equation text is rendered as 600-dpi transparent PNGs (matplotlib TextPath,
+`render_eqs_017.py`) placed at exact size (`w = dev_px/600` in) so 1 device px
+= 1 original px. Per-token anchors were measured from the original's own ink.
+
+**Callout boxes (cream fill, salmon border, rounded rect):**
+- BL: fill x 115..415, y 457..508 (border cols 115/116, 413..415; rows 457..459, 506..508)
+- BR: fill x 494..800, y 457..508 (border cols 494/495, 799..801)
+- TOP: fill x 605..882, y 176..202 (border rows ~173..175, ~203..205)
+- fill = #FAE9D7 (measured 250,233,215); border = #C59C98 (measured core 197,156,152)
+
+**Colour split (measured ink cores):** 'F','(',')','=' and the row-1 conditions
+are BLACK; the 'x' inside F(x), the function name ('Uni-polar'/'Bi-polar'),
+the '{' brace and the case values are RED (~#990D12); the row-2 conditions
+('for x>=0') are GREEN (~#008000). NOTE: the earlier analysis claim that the
+whole equation name prefix is uniformly dark red AND that the numerals are
+green is WRONG per the original's own pixels — only the name and 'x' are red,
+the values are red, the row-1 condition is black, only the row-2 condition is
+green.
+
+**BL tokens (x-range, y-range, colour):**
+- F 124..134, 475..487, black;  '(' 137..141, 472..491;  'x' 144..152, 479..486, RED
+- ')' 153..157, 472..491;  '=' 160..170, 479..484
+- 'Uni-polar' 173..238, 475..490, RED
+- 'Unit' 245..275, 475..487;  'Step' 280..308, 475..490;  '=' 311..320, 479..484
+- brace '{' x 322..327 (5 px), y 465..504 (39 px tall), RED
+- value '0' 330..338, 469..481 RED;  value '1' 330..336, 487..498 RED
+- row-1 cond 'for x<0' 349..403, 467..485 BLACK italic ('for' 351..371, 'x' 373..381, '<' 383..392, '0' 395..403)
+- row-2 cond 'for x>=0' 349..403, 486..502 GREEN italic ('for' 349..368, 'x' 372..380, '>=' 382..392, '0' 396..403)
+
+**BR tokens:**
+- F 498..509, 475..487;  '(' 511..515, 472..491;  'x' 517..525, 479..486 RED;  ')' 527..531, 472..491;  '=' 534..544, 479..484
+- 'Bi-polar' 547..603, 475..490 RED
+- 'Unit' 610..639, 475..487;  'Step' 644..673, 475..490;  '=' 675..684, 479..484
+- brace '{' x 687..691 (4 px), y 465..504, RED
+- minus 695..704, 474..477 RED;  value '1' 708..714, 469..481 RED
+- value '1' (row 2) 695..700, 488..498 RED
+- row-1 cond 'for x<0' 726..779, 468..485 BLACK italic
+- row-2 cond 'for x>=0' 726..779, 486..503 GREEN italic
+
+**TOP callout tokens (single line, x 613..879, y 181..199):**
+- 'F(' 613..629 black;  'x' 632..641 RED;  ')' 641..645 black;  '=' 649..658 black;  rhs 'x' 661..669 RED
+- 'Linear' 730..774, 184..195 RED (cap height ~12 px, ~16 pt)
+- '(No' 781..805, 184..198 black;  'Activation)' 808..879, 184..198 black (smaller, ~14-15 pt, italic)
+
+**Graph panels (blue borders, unchanged and matching):**
+- top x 308..595, y 120..267; bottom-left x 136..424, y 288..438; bottom-right x 486..775, y 288..438
+
+**Video-capture band:** the original has a black band below the bottom boxes
+(y ~518..540, x full width). Correctly omitted per ground rule (c).
+
+### Render measurements (rebuild, LibreOffice render vs original)
+
+Closed-loop verification `build/verify_017.py`: 63 measurements, 0 FAIL.
+Per-element ink bboxes in original-frame px, worst delta 0.8 px (tolerance 4):
+- BL 'Uni-polar' orig x173..237 y475..489 vs render x172.8..237.6 y475.2..489.6
+- BL brace orig x322..326 y465..503 vs render x322.1..326.4 y465.1..503.5
+- BL row-1 value '0' orig x330..337 y469..480 vs render x330.2..337.4 y469.0..480.5
+- BR 'Bi-polar' orig x547..602 y475..489 vs render x547.2..602.4 y475.2..489.6
+- BR brace orig x687..690 y465..503 vs render x687.4..690.7 y465.1..503.5
+- BR minus orig x695..703 y475..476 vs render x695.0..703.7 y474.2..476.2
+- TOP 'Linear' orig x730..773 y184..194 vs render x730.1..773.8 y183.8..194.4
+- Colour censuses: row-2 conditions green in both (orig G161 vs render G658),
+  values/brace/name red in both, prefix/row-1 conditions black in both.
+- Containment: equation ink bbox inside the box in both (BL orig 117..413/459..506
+  vs render 117.1..413.8/458.9..506.4; BR 496..798/459..506 vs 495.8..498.7/...);
+  no ink above/beside/below the boxes in the render (below-band black capture
+  pixels belong to the video, not the equation).
 
 ### Visual elements / imagery present in the original
 
-- {
-  "type": "diagram",
-  "description": "Top graph: Cartesian coordinate system with black axes (with arrowheads), vertical axis labeled 'f(x)' (black) and horizontal axis labeled 'x' (red #FF0000). A red (#FF0000) straight line passes through the origin with 
-- {
-  "type": "diagram",
-  "description": "Bottom left graph: Cartesian coordinate system with black axes (with arrowheads), vertical axis 'f(x)' (black) and horizontal axis 'x' (red #FF0000). Red (#FF0000) line is flat at y=0 for x<0, jumps vertically at x=0 to
-- {
-  "type": "diagram",
-  "description": "Bottom right graph: Cartesian coordinate system with black axes (with arrowheads), vertical axis 'f(x)' (black) and horizontal axis 'x' (red #FF0000). Red (#FF0000) line is flat at y=-1 for x<0, jumps vertically at x=0 
-- {
-  "type": "highlight-box",
-  "description": "Rounded rectangle (fill #F5F5F5) to the right of the top graph. Contains 'F(x) = x' in black (#000000) followed by 'Linear (No Activation)' in red italic text (#A52A2A).",
-  "colors": [
-    "#F5F5F5",
-    "#000000
-- {
-  "type": "highlight-box",
-  "description": "Rounded rectangle (fill #F5F5F5) directly beneath the bottom left graph. Text: 'F(x) = Uni-polar Unit Step = { 0 for x<0; 1 for x>=0 }' with the equation name in dark red (#8B0000) and the numerals (0, 1) and cond
-- {
-  "type": "highlight-box",
-  "description": "Rounded rectangle (fill #F5F5F5) directly beneath the bottom right graph. Text: 'F(x) = Bi-polar Unit Step = { -1 for x<0; 1 for x>=0 }' with the equation name in dark red (#8B0000) and the numerals (-1, 1) and co
-- {
-  "type": "icon",
-  "description": "Small black (#000000) mouse cursor arrow icon positioned in the whitespace between the two bottom graphs.",
-  "colors": [
-    "#000000"
-  ],
-  "position": "center, between bottom graphs"
-}
+- Top graph: Cartesian axes (arrowheads), 'f(x)' black, 'x' red, red diagonal line, blue border.
+- Bottom-left graph: uni-polar step (y=0 for x<0, jump at x=0 to y=1, y=1 for x>0), blue border.
+- Bottom-right graph: bi-polar step (y=-1 for x<0, jump to y=1), blue border.
+- Highlight boxes: cream fill with salmon border (measured #FAE9D7 / #C59C98 — the earlier #F5F5F5 fill claim was wrong).
+- Mouse cursor: video-capture artifact, correctly omitted.
 
-### Colors (approx, from analysis)
+### Colors (approx, measured)
 
 ```json
 {
   "background": "#E8E8E8",
-  "title_text": "#8B0000",
+  "title_text": "#C00000 family (measured core 108,3,16)",
   "body_text": "#000000",
-  "accents": [
-    "#FF0000",
-    "#008000",
-    "#FFD700",
-    "#4169E1"
-  ]
+  "callout_fill": "#FAE9D7",
+  "callout_border": "#C59C98",
+  "accent_red_ink": "#990D12 (name, x, brace, values)",
+  "green": "#008000 (row-2 conditions only)",
+  "panel_blue": "#4169E1"
 }
 ```
+
 ### Typography notes
 
-Sans-serif font throughout. Title is bold, largest text on slide, dark red (#8B0000). Body text is regular weight black (#000000). In the two equation boxes, the equation name (e.g., 'F(x) = Uni-polar Unit Step =') is dark red (#8B0000) while the numerals (0, 1, -1) and conditions (for x<0, for x>=0) are green (#008000). 'Linear (No Activation)' is red (#A52A2A) and italicized. Axis label 'x' on all three graphs is red (#FF0000); axis label 'f(x)' is black (default body color).
+Handwritten-style bold sans (~18 pt at 960x540; cap height 13 px). Prefix
+'F(x) = <Name> Unit Step =' vertically centred on the brace (rows 475/492,
+pitch 17 px). Conditions italic. 'Linear' red ~16 pt; '(No Activation)' black
+italic ~14 pt.
+
 ### Recreation checklist (numbered brief)
 
-1. Set the slide background to light gray (#E8E8E8) and use a sans-serif font throughout.
-2. Add the title text box centered at the top: exact text 'Linear and Unit Step Activation Functions', bold, dark red (#8B0000), the largest text on the slide.
-3. In the top-right corner, add a yellow (#FFD700) circle containing the number '17' in black (smallest text tier).
-4. Build the TOP GRAPH PANEL in the upper-middle area (centered horizontally, leaving room for a label box on its right): a rectangle with a blue (#4169E1) border; inside, draw black Cartesian axes with arrowheads, label the vertical axis 'f(x)' in black and the horizontal axis 'x' in red (#FF0000), and draw a straight red (#FF0000) line through the origin with positive slope extending into quadrants I and III.
-5. To the right of the top graph panel (middle right), add a rounded rectangle filled #F5F5F5 containing two lines: 'F(x) = x' in black (#000000) and 'Linear (No Activation)' in red italic (#A52A2A).
-6. Build the BOTTOM-LEFT GRAPH PANEL in the lower-left quadrant: a rectangle with a blue (#4169E1) border; inside, draw black axes with arrowheads, label the vertical axis 'f(x)' in black and the horizontal axis 'x' in 
+1. House frame, badge '17', title (house chrome, already correct).
+2. Three blue-border graph panels at the measured positions (unchanged, matching).
+3. TOP callout: cream rounded rect x 605..882, y 176..202, salmon border; single
+   line 'F(x) = x   Linear (No Activation)' with red 'x'/'Linear'.
+4. BL callout: cream rounded rect x 115..415, y 457..508; 2D piecewise equation
+   PNG (600 dpi) with red name/brace/values, black row-1 condition, green row-2.
+5. BR callout: cream rounded rect x 494..800, y 457..508; same with '-1' row-1.
+6. Omit mouse cursor and the black video-capture band below the boxes.
 
 ### Validation notes
 
-- verdict: PASS_WITH_FIXES
-- uncertain_items: [
-  "The role of #8B0000 in the two equation boxes (equation-name text color vs. box border) is not explicitly stated; interpreted as the equation-name text color by analogy with the top label box.",
-  "A dark-red border rectangle around the slide content appeared only in the original recreation_bri
-
-### Fresh re-analysis measured lines (v2 transcript, DATA only, first 5)
-
-- 1. PRINTED SLIDE NUMBER
-- 17** â printed inside a circular badge at the **top-right** of the slide (badge center â x 826, y 70; radius â 22 px). Badge = pale-yellow fill, purple/violet ring, dark olive digits.
-- 3. ALL OTHER TEXT (verbatim, reading order)
-- A. Top-right badge**
-- 17`  (dark olive â #4A4A00, upright, â 18 px, inside yellow circle)
+- verdict: PASS_WITH_FIXES (original analysis) -> 2026-10-31 rebuild verified:
+  63 closed-loop measurements, 0 FAIL (build/verify_017.py).
+- uncertain_items: none remaining for the equation boxes; colour split resolved
+  by pixel measurement (name/x/brace/values red; row-1 condition black; row-2
+  condition green).
 
 ### Non-content artifacts (must NOT be reported as missing)
-- Mouse cursor / video-capture chrome in the original (GROUND RULES (c)).
+
+- Mouse cursor / video-capture chrome and the black band below the boxes (GROUND RULES (c)).
 - The house red frame / yellow badge / title position (GROUND RULES (a)).
+- Linear-vs-2D equation rendering differences (e-format upgrade, not a discrepancy).

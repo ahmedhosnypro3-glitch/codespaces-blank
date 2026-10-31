@@ -14,6 +14,8 @@ from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render_math import render_segment, DPI
+import matplotlib
+matplotlib.rcParams["mathtext.fontset"] = "stix"
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eq_023")
 RED = "#C00000"
@@ -60,8 +62,13 @@ def compose(rows, size, delim=None):
                 body[ytop:ytop + arr.shape[0], x:x + arr.shape[1]] = arr
             x += colw[c] + COL_GAP
         y += rowh[r] + ROW_GAP
+    ink = body[:, :, 3] > 10
+    if ink.any():
+        rr, cc = np.where(ink)
+        body = body[rr.min():rr.max() + 1, cc.min():cc.max() + 1]
     if not delim:
         return body
+    bh, bw = body.shape[0], body.shape[1]
     dl = render_segment(delim[0], BLACK, size)[0]
     dr = render_segment(delim[1], BLACK, size)[0]
     dl = np.asarray(Image.fromarray(dl).resize((dl.shape[1], bh), Image.BILINEAR))
@@ -94,29 +101,27 @@ def fit(manifest, name, rows, size0, maxw, maxh, delim=None):
 
 def main():
     m = {}
-    fit(m, "top_rbf", [[("e^{-\\gamma\\,\\|a-b\\|^{2}}", BLACK)]], 22, 1.72, 0.40,
+    fit(m, "top_rbf", [[("e^{-\\gamma\\,\\|a-b\\|^{2}}", BLACK)]], 70, 1.72, 0.42,
         delim=("[", "]"))
     ab = [[("a_1", RED), ("b_1", BLUE)], [("a_2", RED), ("b_2", BLUE)]]
-    fit(m, "mat_ab", ab, 16, 0.95, 0.55, delim=("(", ")"))
+    fit(m, "mat_ab", ab, 45, 0.95, 0.55, delim=("(", ")"))
     fit(m, "eq_rbf", [[("e^{-\\gamma\\,}", BLACK), ("\\|a-b\\|^{2}", BLUE)]],
-        16, 1.35, 0.40)
+        50, 1.38, 0.42)
     fit(m, "mat_normal", [[("a_1", RED), ("a_2", RED), ("b_1", BLUE)],
                           [(None, RED), (None, RED), ("b_2", BLUE)]],
-        15, 0.78, 0.50, delim=("(", ")"))
+        40, 0.78, 0.50, delim=("(", ")"))
     fit(m, "vec_map", [[("\\mathbf{a\\ ,\\ b\\ \\Rightarrow}", RED),
-                        ("\\ \\mathbf{u\\ ,\\ v}", BLUE)]], 14, 1.38, 0.27)
+                        ("\\ \\mathbf{u\\ ,\\ v}", BLUE)]], 40, 1.38, 0.30)
     pink = [[(f"u_{s}", RED), (f"v_{s}", BLUE2)]
             for s in ("1", "2", "3", "\\dots", "\\dots", "\\infty")]
-    fit(m, "vec_pink", pink, 14, 0.70, 1.55)
-    kern = [[("u_1", RED), ("u_2", RED), ("u_3", RED), ("\\dots", RED),
-             ("\\dots", RED), ("u_\\infty", RED), ("v_1", BLUE2)]]
-    for s in ("2", "3", "\\dots", "\\dots", "\\infty"):
-        kern.append([(None, RED)] * 6 + [(f"v_{s}", BLUE2)])
-    fit(m, "mat_kernel", kern, 14, 2.42, 1.50, delim=("(", ")"))
+    fit(m, "vec_pink", pink, 40, 0.70, 1.55)
+    kern = [[(f"u_{s}", RED), (f"v_{s}", BLUE2)]
+            for s in ("1", "2", "3", "\\dots", "\\dots", "\\infty")]
+    fit(m, "mat_kernel", kern, 40, 2.42, 1.50, delim=("(", ")"))
     fit(m, "calc_atb", [[("\\mathit{Calculate}\\ ", BLACK),
-                         ("\\mathbf{a^{T}\\,b}", RED)]], 14, 1.15, 0.25)
+                         ("\\mathbf{a^{T}\\,b}", RED)]], 42, 1.15, 0.28)
     fit(m, "calc_utv", [[("\\mathit{Calculate}\\ ", BLACK),
-                         ("\\mathbf{u^{T}\\,v}", RED)]], 14, 1.15, 0.25)
+                         ("\\mathbf{u^{T}\\,v}", RED)]], 42, 1.15, 0.28)
     with open(os.path.join(OUT, "manifest.json"), "w") as fh:
         json.dump(m, fh, indent=2)
     print(json.dumps({k: {"w_in": v["w_in"], "h_in": v["h_in"]} for k, v in m.items()}))

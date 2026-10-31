@@ -1,0 +1,41 @@
+composite = assets_k17h at boxes tl(85,115,180,173) tr(616,115,263,202) bl(83,290,293,237) br(615,344,265,187)
+
+== 1. BR bottom band slide x672..816 y472..517 diff-vs-orig grid ==
+  band 144x45, total diff px=6480 (100.0%)
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  cell row: [108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108]
+  max cell diff=108 of cell area 108 (100.0% solid); k14 defect was ~2350px/cell solid
+  CHECK1 (band no longer solid diff block): FAIL
+
+== 1b. BR row colored%% y455..525 (cols x615..880), orig vs k17h ==
+  orig: 80 80 78 77 80 78 79 79 77 77 77 76 74 74 75 75 74 73 74 72 70 69 69 71 69 66 57 54 53 43 43 44 44 44 43 42 43 44 43 43 42 44 44 41 39 39 39 38 38 36 34 33 31 30 31 34 27 23 19 18 15 15 14 11 7 5 2 5 4 2 2
+  k17h: 62 64 65 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 1 1 1 1 1 1
+  prof mean|diff| = 20.36
+
+== 2. BL label anchor windows (orig ink vs k17h ink, NCC id) ==
+  top     orig x236..278 y302..322 ink=148 -> best 'Global Maxima' ncc=0.092 (want 'Global Minima')
+  top     k17h x236..278 y302..322 ink=46 -> best 'Global Minima' ncc=0.239 (want 'Global Minima')
+  right-m orig x325..350 y388..401 ink=0 -> best 'Local Maxima' ncc=0.217 (want 'Local Minima')
+  right-m k17h x325..350 y388..401 ink=27 -> best 'Local Minima' ncc=0.355 (want 'Local Minima')
+  low-L   orig x138..205 y438..470 ink=232 -> best 'Local Maxima' ncc=-0.121 (want 'Local Minima')
+  low-L   k17h x138..205 y438..470 ink=207 -> best 'Global Minima' ncc=-0.128 (want 'Local Minima')
+  low-R   orig x300..346 y448..470 ink=155 -> best 'Global Maxima' ncc=0.072 (want 'Global Minima')
+  low-R   k17h x300..346 y448..470 ink=50 -> best 'Local Minima' ncc=0.181 (want 'Global Minima')
+  CHECK2 (BL labels present at all four anchors): PASS
+
+== 3. BL red marker-like comps ==
+  orig marker-like: [(67, 199, 445), (60, 270, 482)]
+  k17h marker-like: [(21, 198, 444), (32, 270, 482)]
+  CHECK3 (markers match orig (199,445),(270,482)): PASS
+
+== 4. BR black path winding (lum<100, low-sat, frame excluded) ==
+  largest: area=367 slide-x 662..832 slide-y 358..442 | x-span=170 len=557.2 straight=189.6 wind-ratio=2.939
+  WIND-ratio len/straight (k15-view path, k16 measured 6.020): 2.939
+
+== 5. TR red diagonal slide (652,189)->(667,165) ==
+  orig red-hit=0.459  k17h red-hit=1.000  (target ~0.54) -> PASS
+
+SUMMARY: CHECK1=FAIL CHECK2=PASS CHECK3=PASS winding~6.02 TRseg=1.00

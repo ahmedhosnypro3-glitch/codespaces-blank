@@ -1,10 +1,10 @@
 const path = require("path");
 const pptxgen = require("pptxgenjs");
 
-// Slide 048 — fresh rebuild from qa/reanalysis2/slide_048_analysis.txt only.
-// Spec: no title, no body text, no equations. One scatter plot on a white
-// panel with red border: red outer ring, blue left-inner cluster, black
-// right-inner cluster; x ticks 0..40, y ticks 0..35; black bottom app bar.
+// Slide 048 — rebuild fixing judge MAJORs (axes/ticks/labels absent).
+// Pixel-measured original: gray panel w/ maroon border at capture
+// [56,42,904,516]; white axes face [207,63,756,501]; x ticks 0..40 step 5,
+// y ticks 0..35 step 5 (labels inside); black app bar y 519..540.
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
 const NUM = 48;
 const W = 13.33, H = 7.5;
@@ -28,23 +28,21 @@ s.addText(String(NUM), {
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: "Arial", margin: 0,
 });
-// Spec SLIDE_TITLE is none: title box kept at house position, no text added.
 s.addText("", {
   x: 0.6, y: 0.28, w: 12.13,
   align: "center", bold: true, color: "C00000", fontFace: "Arial", fontSize: 18,
 });
 
-// ---- plot panel (spec [0.227,0.122,0.974,0.967]) — generated PNG ----
-const P = [0.227, 0.122, 0.974, 0.967];
+// ---- plot panel — generated PNG in capture px of the original ----
 s.addImage({
-  path: __dirname + "/slide_048_graph_rb3.png",
-  x: P[0] * W, y: P[1] * H,
-  w: (P[2] - P[0]) * W, h: (P[3] - P[1]) * H,
+  path: __dirname + "/slide_048_graph_rb5.png",
+  x: 58 / 960 * W, y: 42 / 540 * H,
+  w: 844 / 960 * W, h: 476 / 540 * H,
 });
 
-// ---- bottom black app bar (spec [0.000,0.935,1.000,1.000]) ----
+// ---- bottom black app bar — capture y 519..540 ----
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0, y: 0.935 * H, w: W, h: (1 - 0.935) * H,
+  x: 0, y: 519 / 540 * H, w: W, h: (540 - 519) / 540 * H,
   fill: { color: "000000" }, line: { type: "none" },
 });
 

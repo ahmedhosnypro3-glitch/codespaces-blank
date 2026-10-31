@@ -11,3 +11,7 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query; 3 claims carried from slides 28-31 records). Spec consumed: `analysis/slide_032_final.json`; frame `unique_slides/slide_032.jpg`.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Threshold=0.4 panel in the 4-panel sweep: matrix [[4,1],[1,5]] (TP=4, FN=1, FP=1, TN=5), TPR=4/(4+1)=4/5=0.8, FPR=1/(1+5)=.16: CONFIRMED — sklearn `roc_curve` (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html) and `confusion_matrix` (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html) with rows=Actual, cols=Predicted: TP=4, FN=1 -> TPR=4/5=0.8; FP=1, TN=5 -> FPR=1/6=0.1666 (frame prints .16, truncation; re-verified locally). ROC point (0.16, 0.8) sits between (0.33, 1) of threshold 0.3 and the 0.6 point, matching the frame's plotted order from (1,1) toward (0,0) as threshold rises. No corrections.

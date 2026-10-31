@@ -1,0 +1,17 @@
+Scope: visible crop-pair only. Crop-relative approximate locations: top partial strip at yâ0â85; main âvectorsâ panel at left-center xâ20â390, yâ125â365 in IMG1 / yâ130â410 in IMG2; right-hand equation rail at xâ440â590.
+
+Cell-by-cell check:
+- Top partial row, xâ65â330, yâ0â80: values `1 1 2 4 5 6`, labels `C1 C1 C1 C2 C2 C2`, caption `C1 positive / C2 negâ¦` â MATCH in IMG1 vs IMG2.
+- Main panel header `x1â¦x6` â MATCH.
+- Main 3Ã6 values: row1 `1 1 1 1 1 1`; row2 `1 2 1 5 6 6`; row3 `1 1 2 4 5 6` â MATCH cell-by-cell.
+- Class labels under main panel: `C1 C1 C1 C2 C2 C2` with red C1 / blue-purple C2 â MATCH; no missing label.
+- Right rail, xâ440â590: visible labels/components compare as `d(xâ)=â¦` then `d(xâ)=â¦` with red leading `1`; no visible wrong subscript, truncated subscript, or swapped label in the cropped region.
+
+Discrepancies:
+- MINOR, confidence high: medium/typography only â typed/italic rendering in IMG1 vs handwritten spacing in IMG2, e.g. title `(from Top)` vs `( from Top )` and label letterforms. Protected by rule (c); no missing/garbled glyph found.
+- MINOR, confidence medium: delimiter stroke style only â IMG1 uses straight vertical cell separators where IMG2 uses curved parentheses. In IMG1 the separators span all three enclosed rows and do not touch the digits, so there is no span/touch failure; values and row order are unchanged. Treated as render/format style under rule (d), not a content defect.
+- Not counted as discrepancies per ground rules: house chrome/panel strokes/badge, JPEG halos/soft edges in IMG2, and any softness in small hues.
+
+No BLOCKER/MAJOR found: no wrong digit, no swapped table value, no missing row, no garbled character, no truncated subscript, and no delimiter that fails to span its enclosed lines.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'.

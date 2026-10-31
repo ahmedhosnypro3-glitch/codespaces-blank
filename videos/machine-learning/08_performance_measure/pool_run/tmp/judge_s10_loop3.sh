@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Slide 010 judge loop3: attempts 17-24 on render_8.png, original-first.
+# Outer timeout 1500s so analyze_image.py's internal HARD_RETRY_CAP=3 hang-abort
+# retries (each up to --timeout+30s) can complete inside one gate slot hold.
+cd /home/codespace/ai_llm_slides
+NS=videos/machine-learning/08_performance_measure
+OUT=$NS/recreated_pptx/qa/slide010
+for i in 17 18 19 20 21 22 23 24; do
+  sleep 480
+  echo "=== attempt_$i start $(date -u +%FT%TZ) ==="
+  timeout 1500 bash scripts/16_vision_gate.sh /home/codespace/.pyenv/versions/3.15.2/bin/python3 .agents/skills/image-analysis/scripts/analyze_image.py comparison $NS/unique_slides/slide_010.jpg /home/codespace/ai_llm_slides/$NS/recreated_pptx/qa/slide010/render_8.png --view "Slide 10 recreation — judge vs original lecture frame" --capture "IMG1=original lecture video frame (ground truth, read first); IMG2=150dpi PNG render of the recreation (read second)" --thinking high --max-tokens 65536 --timeout 420 --rounds 1 --tries 1 -p "$(cat $NS/pool_run/judge_prompt_template.txt)" > $OUT/judge_attempt_$i.txt 2>&1
+  echo "exit=$? bytes=$(wc -c < $OUT/judge_attempt_$i.txt)"
+  if grep -q "FINAL VERDICT" $OUT/judge_attempt_$i.txt; then echo "VERDICT FOUND in attempt_$i"; break; fi
+done
+echo "loop3 done $(date -u +%FT%TZ)"

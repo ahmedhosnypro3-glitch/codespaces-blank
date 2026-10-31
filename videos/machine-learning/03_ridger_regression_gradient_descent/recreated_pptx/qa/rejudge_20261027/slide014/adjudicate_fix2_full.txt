@@ -1,0 +1,42 @@
+ADJUDICATION of judge_full_fix2.txt (2026-10-31 07:08:42 UTC, clean, 0x 429, FINAL VERDICT: FAIL)
+against render_fix2.png (R21 build: band-3 text run = "Objective function " only; eq_014_final.png at x375
+supplies "J(W) = 1/2[...]"; pptx md5 18a724a03609dcf4a84ce81750ec2abe, built 06:31Z).
+
+HARVEST4 MAJOR (double "J(W)" + " = " in bottom cyan row): RESOLVED.
+  - judge_full_fix2.txt no longer reports any spurious glyph; it lists the bottom row as present/correct.
+  - slide1.xml of the R21 pptx: exactly ONE 'J(W)' run remains (band 2, line 127); final-band tail run is
+    'Objective function ' only.
+  - pil_fix2_full.txt (interior band y474-524, ink sum<600): OVERLAP zone slide x350-380 render ink
+    OLD doubled build 626 -> R21 127 (orig 14); band total x87-880 render 7672 -> 5605 (orig 3594).
+  - rejudge_adjudicate.py 014 --full on render_fix2.png: densest diff cells ALL in title band y67-90
+    (typed-vs-handwritten AA); bottom band y469-528 absent from densest list. adjudicate_fix2_full.txt.
+
+Claim 1 (MAJOR, yellow rows full-bleed touching panel strokes; orig allegedly inset x81..828): REFUTED.
+  - ORIG row y250/y260: yellow fill spans x56..904 (covers the panel stroke positions at band rows;
+    red stroke invisible at y250-280 in orig). RENDER row y250: yellow x60.6..898.3 with the C00000
+    strokes visible at x58.2-59.2 and x900.2 — the render band is NARROWER than orig, not touching the
+    strokes. No containment violation in either image (rule 5 not triggered).
+
+Claim 2 (MAJOR, blue rectangle outlines missing on the two yellow rows): PIL-CONFIRMED REAL.
+  - ORIG blue vertical frames: x87-89 runs y243-285 (band1), y303-341 (band2), y470-527 (cyan band);
+    right side x880-881 same runs; horizontal rules blue at y243-245/283-285, y303-305/338-341,
+    y399-402/446-449 (term boxes), y470-472/525-528 (cyan) across the full width.
+  - RENDER: blue extent at band rows y250/y310 = None; no side strokes; rules drawn NAVY 1E0060
+    (build band() slide_014.js:104-110 draws fill + top/bottom rules only, no line; cyan band :195
+    line NAVY). Missing element per rule 6 = MAJOR stands.
+
+Claim 3 (MAJOR, define-loss bar frame incomplete; interior allegedly near-white): MIXED.
+  - Frame CONFIRMED: ORIG red frame all 4 sides of the peach bar: red cols x87-88 (32-37 px) and x663
+    (42 px) in y347-392, red top rule row y349 spanning ~574 px. RENDER: no red at x87/x663 (only panel
+    strokes x58.5/x900 and text glyphs); build slide_014.js:150-152 draws fill + top/bottom maroon rules
+    only, no side strokes (rect has no line property).
+  - Fill REFUTED: orig fill at (300,360) = (249,222,193) = #F9DEC1, pixel-identical to render PEACH.
+    The "near-white interior" sub-claim is false.
+
+Claims 4-13 (MINORs: run colors, spacing, serif/sans, ~15-30px stack drift, formula width, fill tones):
+  style-class, not pixel-blockers; several are judge misreads (fill tones identical per above).
+
+VERDICT on this leg: FAIL STANDS on PIL-confirmed claims 2+3 (missing blue side frames on bands
+1/2/cyan + missing red side strokes on the define bar). The HARVEST4 double-J(W) defect is fixed and
+verified. Certification NOT granted on this leg. Fix locations: slide_014.js band() :104-110,
+cyan band :195, define bar :150-152.

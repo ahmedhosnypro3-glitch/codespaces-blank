@@ -1,4 +1,4 @@
-// slide_012 — "Recall" — 08_performance_measure — v2 (judge attempt 5 FAIL fixes)
+// slide_012 — "Recall" — 08_performance_measure — v3 (judge attempt 9 FAIL fixes, pixel-adjudicated)
 // Frame-measured build (960x540 px, 1px = 1pt = 1/72 in). Measurements: scratch/s12/measure*.py
 const pptxgenpkg = require("pptxgenjs");
 const pptx = new pptxgenpkg();
@@ -25,25 +25,25 @@ s.addText("12", {
   fontSize: 18, bold: true, color: INK, fontFace: FONT, margin: 0,
 });
 s.addText("Recall", {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.75, align: "center", valign: "middle",
-  fontSize: 40, bold: true, color: "B00000", fontFace: FONT, margin: 0,
+  x: 0.6, y: 0.28, w: 12.13, h: 0.95, align: "center", valign: "middle",
+  fontSize: 54, bold: true, color: "B00000", fontFace: FONT, margin: 0,
 });
 
-// Definition box (gray, red divider): orig x70-656 y101-209, divider y148-150 x81-645
+// Definition box (gray, red divider): orig band y120-185, divider y146-152
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: 0.97, y: 1.40, w: 8.14, h: 1.50,
-  fill: { color: "C0C0C0" }, line: { color: "C0C0C0", width: 0.75 },
+  x: 0.97, y: 1.66, w: 8.14, h: 0.91,
+  fill: { color: "CBCBCB" }, line: { color: "B0B0B0", width: 0.75 },
 });
 s.addShape(pptx.shapes.LINE, {
   x: 1.13, y: 2.056, w: 7.83, h: 0,
-  line: { color: RED, width: 2.25 },
+  line: { color: RED, width: 3 },
 });
 s.addText("Correctly Classified (as Positive)", {
-  x: 0.97, y: 1.44, w: 8.14, h: 0.60, align: "center", valign: "middle",
+  x: 0.97, y: 1.65, w: 8.14, h: 0.44, align: "center", valign: "middle",
   fontSize: 16, bold: true, color: TEXT, fontFace: FONT, margin: 0,
 });
 s.addText("Total objects that should be retrieved (Actually Positive)", {
-  x: 0.97, y: 2.10, w: 8.14, h: 0.72, align: "center", valign: "middle",
+  x: 0.97, y: 2.10, w: 8.14, h: 0.44, align: "center", valign: "middle",
   fontSize: 16, bold: true, color: TEXT, fontFace: FONT, margin: 0,
 });
 

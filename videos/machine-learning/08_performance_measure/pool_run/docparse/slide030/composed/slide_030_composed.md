@@ -2,7 +2,7 @@
 
 - source frame: `slide_030.jpg` (md5 `0a8616ec89017141e93093416cfef0c9`)
 - parse model: `nemotron-3.5-parse` · chat model: `docparsechat`
-- degraded: False
+- degraded: True (chat probe failed — decisions use the deterministic-conservative fallback)
 - elements kept: 1 (dedup collapsed 0) · crops: 0 · failed calls: 0
 
 ## Positioned elements (reading order: y then x)

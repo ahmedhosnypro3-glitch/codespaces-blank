@@ -11,8 +11,8 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
@@ -52,7 +52,7 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat advised CROP: The candidate is a chart block with sparse, garbled extracted text, so a tighter crop may recover its labels and structure.",
+    "stop_note": "chat advised CROP: The chart candidate\u2019s extracted text is garbled/merged and sparse, so a tighter crop could recover it.",
     "decision_source": "chat",
     "children": [
       "slide_022.crop01__chart"
@@ -98,7 +98,7 @@
         19
       ],
       "stop_reason": null,
-      "stop_note": "chat advised CROP: The candidate Picture block has only sparse extracted text, so its image content remains unread.",
+      "stop_note": "chat advised CROP: The candidate picture's extracted text is only the title and page number, leaving the chart's confusion-matrix content unread and worth a tighter crop.",
       "decision_source": "chat",
       "children": [
         "slide_022.crop02__picture"

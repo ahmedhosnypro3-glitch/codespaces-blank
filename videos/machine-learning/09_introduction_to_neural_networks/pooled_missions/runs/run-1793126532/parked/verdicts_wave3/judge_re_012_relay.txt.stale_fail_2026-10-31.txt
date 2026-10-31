@@ -1,0 +1,30 @@
+[info] context header injected: VIEW: judge slide 012 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1323576
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_012_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_012.jpg ===
+[winner] images (round 1, attempt 1)
+**House chrome check:** outer red frame, yellow â12â badge, and centered title band are present as the house template â not counted.
+
+**Element-by-element comparison (content regions):**
+
+- **Title:** âClassification of âORâ Truth Tableâ â verbatim, one line, centered, bold crimson serif. Match.
+- **Truth table (upper-left):** header Xâ | Xâ | O/P present; data rows 0 0 0 / 0 1 1 / 1 0 1 / 1 1 1 correct; values centered; thin red outer border present. O/P column shows the cyan cell on the â0â row and green on the three â1â rows (continuous column-width band). Cyan/green distinction and values correct. Minor width deviation of the highlight band (see list).
+- **Scatter plot (upper-right):** white panel, thin pink-red border, red L-axes with arrowheads, xâ at top, xâ at right, navy decision line, three green points at (0,1), (1,1), (1,0), one cyan point at the origin, red bold â0.4â and â0.28â annotations, no legend or ticks. Intercept geometry checks out (0.4 at yâ182 on a 0â1 span of 95 px; 0.28 at xâ562 on a 0â1 span of 153 px). Match except line overhang.
+- **Perceptron schematic (lower-left):** red-bordered panel present; inputs xâ, xâ, red bias â1â; blue weights â7, â5, 2; gray converging connector lines; pale-cyan Î£ circle; magenta activation block; red arrow to black âO/Pâ. Present, but the rule annotations are misplaced (see list).
+- **Equation box (lower-right):** rounded peach box with âd(X) = â7 xâ â 5 xâ + 2â, bold black math type, subscripts spatially aligned (no underscores/carets), vertically centered in the box. Match.
+- **Bottom letterbox band:** present. Match.
+
+**Discrepancy list**
+
+1. **MAJOR (high confidence) â Rule annotations misplaced and colliding.** In the original, â>0 â 1â (green) and â<0 â 0â (orange) sit *above* the magenta activation block, in clear whitespace between the block and the top of the panel; the block contains only the blue step-function pictogram. In the recreation both rule lines are rendered *inside* the magenta rectangle, filling it edge-to-edge and overprinting the pictogram. The activation block no longer reads as a step-function unit, and the elements physically overlap.
+2. **MAJOR (medium confidence) â Step-function pictogram degraded/obscured.** Because the rule text is stacked inside the block, the blue horizontal step line and its vertical jump segment are drawn underneath/through the text and are no longer legible as a step pictogram; the originalâs distinct jump shape is not readable in the recreation.
+3. **MINOR (medium confidence) â Implication glyph.** Original uses âââ in the rule lines; recreation uses â=â. (The banked expected-content text renders it as â=â, so this may be an accepted rendering variant, but the visible glyph differs from the original frame.)
+4. **MINOR (medium confidence) â Decision-boundary line extent.** In the original the navy line extends well beyond both intercepts, running into the upper-left region of the panel (â58 px left of the y-axis, â66 px above the y-intercept) and past the x-intercept below the axis. In the recreation the overhang is minimal (â14 px left of the y-axis, â12 px above the intercept). The lineâs intercepts and slope are correct, only the visible extent differs.
+5. **MINOR (medium confidence) â Red input arrowhead position.** The originalâs small red triangle sits at the left rim of the Î£ circle; the recreation places it well to the left, adjacent to (nearly touching) the xâ/ââ5â region, which crowds the input labels.
+6. **MINOR (low confidence) â O/P highlight band width.** Original highlights are narrow bands inset within the O/P column (cyan chip on the â0â, narrow green strip across the three â1â rows). The recreation fills the entire O/P column width. Values and cyan/green distinction are correct, so this is a styling-only deviation.
+
+**Visual-quality defects in the recreation:** text collision inside the magenta activation block (rules over the step pictogram), partially illegible pictogram, cramped arrowhead/input spacing in the perceptron region. No ink crosses the house frame, the scatter panel, the perceptron panel, or the equation box; no clipping or wrapping errors elsewhere; the table, plot, and equation all sit fully inside their frames.
+
+**FINAL VERDICT: FAIL**
+

@@ -5,7 +5,7 @@
 set -u
 V=/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks
 IMG=/home/codespace/ai_llm_slides/.agents/skills/image-analysis/scripts/analyze_image.py
-GATE=/home/codespace/ai_llm_slides/scripts/16_vision_gate.sh
+GATE=/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/pooled_missions/runs/run-1793126532/vision_gate_fair.sh
 OUT="$V/analysis/reanalysis_v2"
 LOG="$V/pooled_missions/runs/run-1793126532/reanalysis_lane.log"
 mkdir -p "$OUT"
@@ -22,8 +22,8 @@ run_one(){
   c=$(probe)
   case "$c" in 2*|3*|4*|5*) ;; *) log "slide_$n GW_DOWN($c) sleep"; sleep 60 ;; esac
   tmp="$OUT/slide_${n}_reanalysis.tmp.$$"
-  timeout 700 bash "$GATE" python3 "$IMG" analysis "$V/unique_slides/slide_${n}.jpg" \
-    --timeout 240 --rounds 2 --tries 1 --max-tokens 16000 \
+  timeout 900 env GATE_WAIT=180 bash "$GATE" python3 "$IMG" analysis "$V/unique_slides/slide_${n}.jpg" \
+    --timeout 300 --rounds 2 --tries 1 --max-tokens 16000 \
     --view "slide $n — original lecture frame, 09_introduction_to_neural_networks" \
     --capture "960x540 lecture slide frame, original" \
     -p "$(cat "$V/recreated_pptx/build/reanalyze_prompt.md")" > "$tmp" 2>&1

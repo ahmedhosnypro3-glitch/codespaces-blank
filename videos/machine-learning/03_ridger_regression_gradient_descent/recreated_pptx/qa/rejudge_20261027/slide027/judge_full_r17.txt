@@ -1,0 +1,47 @@
+# Fidelity Check â Slide 27 Recreation vs. Original Lecture Frame
+
+## Pre-settled ground rules (checked first, not raised as discrepancies)
+- **(a) House chrome:** Gray panel, red C00000 strokes on left/right/bottom **only** (no top stroke â confirmed absent in IMG1, which is correct), yellow badge "27" top-right with purple ring â all present and intentional. â Not discrepancies.
+- **(b)** IMG2 is not a placeholder â both frames carry full content. N/A.
+- **(c)** No cursor/capture artifacts visible in IMG2. N/A.
+- **(d)** Both images are typed text. N/A.
+- **(e)** No equations on this slide (only the symbol Î¸Ì, rendered identically in both). N/A.
+
+## Element-by-element comparison (positions normalized to 960Ã540 space)
+
+| Element | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| Title text | "Follow Negative Direction of Gradient with" / "Selected Learning Rate" | identical, identical 2-line break | â verbatim |
+| Title color / weight / size | dark red, bold, ~2 lines spanning ~57% width, line gap â28 px | dark red, bold, ~59% width, line gap â28 px | â |
+| Badge "27" | yellow circle, purple ring, bold dark numeral, top-right (~876,75) | same | â |
+| Inner chart frame | red stroke rect â x192â720, y175â505 | â x190â723, y171â518 | â |
+| "Cost" label | top-left inside frame | same position rel. to frame | â |
+| Y-axis arrow + X-axis arrow + "Î¸" | black, Î¸ right of arrowhead (~700,435) | same (~705,448) | â |
+| Parabola | black, left arm ~(242,237) â min ~(444,372) â right ~(654,240) | ~(250,218) â min ~(452,408) â (655,240) | â shape; see MINOR-2 |
+| Data dots | **9 purple + 1 yellow** at min | **9 purple + 1 yellow** at min | â count & progression |
+| Gray "learning step" arcs | arcs between consecutive dots | same | â |
+| "Learning step" label | right of upper dots, rel. (0.21â0.40, 0.30) | rel. (0.18â0.40, 0.30) | â |
+| Dashed line at 1st dot | present, dotâaxis | present | â |
+| "Random / initial value" | 2 lines, same break, below axis left | 2 lines, same break | â line gap â19â20 px both |
+| "+" marker | below axis, left of Î¸Ì | same | â |
+| "Minimum" label | above yellow dot | same rel. to dot | â |
+| Dashed line at min + "Î¸Ì" | dotâaxis, Î¸Ì below axis inside frame (~444,480) | same (~452,497) | â |
+
+## Frame containment (rule 5) â edge-scrutinized items, all INSIDE
+- Î¸ label vs. inner frame right edge: ~7 px clearance (IMG1), ~11 px (IMG2) â inside, no touch.
+- "Cost" vs. frame left/top: inside. Curve right end vs. frame right: inside. "Î¸Ì" and "initial value" vs. frame bottom: inside (~25 px and ~33 px clearance). Title vs. panel top, badge vs. panel right: inside. No ink crosses any frame or house stroke. **No overflow.**
+
+## Missing elements (rule 6)
+None. Every element in IMG2 (title, badge, frame, both axes+arrows, Î¸, curve, 10 dots, gray arcs, 4 text labels, +, 2 dashed lines, Î¸Ì) is present in IMG1. **No BLOCKERs.**
+
+## Discrepancy list
+1. **MINOR (confidence: low)** â Title font family: IMG1's title renders heavier/less contrasted (sans-like at render scale) vs. IMG2's clear Times-style serif. Text, line break, color, weight, and relative size all match; only the typeface impression differs. At most a minor medium difference.
+2. **MINOR (confidence: lowâmedium)** â Proportional gap between the curve minimum (yellow dot) and the x-axis is larger in IMG1 (~0.17 of frame height) than in IMG2 (~0.09); the first dot's height above the axis matches (0.53 vs 0.51), so only the bottom of the curve sits slightly higher. Within eye-measurement tolerance of the scaled renders; not a layout change.
+3. **MINOR (confidence: low)** â Color tones: IMG1 curve stroke is pure black and inner frame stroke a brighter red vs. IMG2's near-black gray curve and darker red frame; purple/yellow dot fills match. Approximate-hex differences only.
+
+No MAJOR, no BLOCKER. No delimiter, table, or legend issues (none present). No line-spacing or vertical-centering deviations (title and "Random initial value" line gaps match).
+
+## Visual-quality defects in the recreation
+None observed: no text overflow/clipping, no wrong wrapping, no collisions, no illegibility; all content fully contained in its frames.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation.

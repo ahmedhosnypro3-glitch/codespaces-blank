@@ -11,8 +11,8 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
@@ -52,7 +52,7 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat advised CROP: The child exposes a chart block with sparse axis/annotation/table text absent from the parent, so a tighter crop may recover more chart detail.",
+    "stop_note": "chat advised CROP: The child newly reveals AUC prose and a multi-line chart whose extracted text is sparse and truncated, so a tighter crop of the chart block could recover its curve and table detail.",
     "decision_source": "chat",
     "children": [
       "slide_037.crop01__chart"

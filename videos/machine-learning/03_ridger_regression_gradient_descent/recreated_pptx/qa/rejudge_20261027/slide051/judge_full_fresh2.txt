@@ -1,0 +1,30 @@
+House chrome is settled first and is **not** flagged: white canvas, gray `E9E9E7` panel, dark-red `C00000` left/right/bottom strokes only, intentionally no top stroke, and the yellow/purple slide-number badge `51` are correct house chrome. The mouse-cursor artifact in IMG2 near âUndefined Classâ is correctly omitted from IMG1. The recreationâs professional 2D vector/equation rendering is a mandated format upgrade, not a discrepancy.
+
+Normalized comparison to the 960Ã540 original frame:
+
+| Region | IMG1 recreation vs IMG2 original | Verdict |
+|---|---|---|
+| Top yellow panel: `xââ¦xâ` 2Ã1 vectors, labels, `Câ/Câ` row, `Initial W`, `Step Î· = 1`, âCheck classes ofâ `Zâ Zâ Zâ`, `Câ positive / Câ negative / Zero is unaccepted` | Text verbatim, ordering, colors and approximate layout match; dark-blue frame present; no overflow past frame or house panel. | Match |
+| Left âAugmented Vectors ( from Top )â content | Title, six augmented 3Ã1 vectors, `xáµ¢` labels, `Câ/Câ` labels, values and row pitch match. **However**, IMG2 has a distinct thin enclosing rectangle around this whole left block, approx. `x80â247, y156â271`; IMG1 shows the same content directly on the gray panel with **no visible enclosing rectangle/fill**. | **Discrepancy** |
+| Red âCheck Classesâ button | Position, size, fill `C00000`, white bold text, containment all match. | Match |
+| Three right-hand gray equation rows | `d(Zâ)=â¦=5 â Positive > 0 â Class I`, `d(Zâ)=â¦=-8 â Negative < 0 â Class II`, third row `â¦=0 â Not > 0 , Not < 0 â Undefined Class`; row vectors blue, column vectors green, arrows, result values, class colors all match; boxes, gaps, vertical centering and containment look consistent; delimiters span the enclosed 3-row columns and do not sit on the text. | Match |
+| Colors | Approx. content palette matches: red `C00000`/Class I, blue `0000C0`-ish for `Câ`/Class II/Undefined, green for `Zero`/column vectors, pale-yellow top panel with navy frame, light-gray equation boxes. | Match |
+| Frame containment / overflow | No clear ink crossing the top yellow frame, equation-box frames, red button, or house panel strokes; items nearest edges remain inside. | Match |
+| Line height / vertical centering | Multi-line vectors and in-box equation lines have consistent pitch; enclosed text sits centered in boxes, not hugging tops. | Match |
+
+Discrepancies:
+
+1. **Missing enclosing frame around the left âAugmented Vectors ( from Top )â block** â original IMG2 shows a thin bordered rectangle around that block; recreation IMG1 omits the visible rectangle/fill while keeping the content.  
+   Severity: **BLOCKER** under rule 6 if that original rectangle is counted as a visual element/region; at minimum **MAJOR** as a missing region. Confidence: **0.80** that the border is genuinely absent in IMG1 and present in IMG2.
+
+Non-discrepancies / correctly handled:
+- No top house stroke: correct per rule (a).
+- Slide badge `51`: correct house chrome per rule (a).
+- Mouse cursor in IMG2: correctly omitted per rule (c).
+- 2D stacked vector/equation format in IMG1 vs flatter original rendering: mandated per rule (e), not a defect.
+- Typed vs handwriting: at most MINOR per rule (d); no material ink-medium issue observed.
+
+Visual-quality defects in the recreation itself:
+- No observed text overflow, clipping, wrong wrapping, collisions, illegibility, delimiter overlap/clipping, or table-data errors. The only quality-level issue is the absent left-block frame noted above.
+
+FINAL VERDICT: FAIL

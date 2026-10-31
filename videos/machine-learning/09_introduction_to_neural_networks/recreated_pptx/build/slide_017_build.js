@@ -13,8 +13,11 @@ const DARK_RED = "8B0000";
 const RED_BROWN = "A52A2A";
 const GREEN = "008000";
 const BLUE = "4169E1";
-const LIGHT_GRAY = "F5F5F5";
 const YELLOW = "FFF9C4";
+
+// measured on V/unique_slides/slide_017.jpg
+const CREAM = "FAE9D7";   // callout-box fill (measured median 250,233,215)
+const SALMON = "C59C98";  // callout-box border (measured core ~197,156,152)
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -58,11 +61,11 @@ const TG_Y = pxToIn(120);
 const TG_W = pxToIn(595 - 309);
 const TG_H = pxToIn(268 - 120);
 
-// Top label box: x=600-800, y=100-280 (light gray)
-const TLB_X = pxToIn(600);
-const TLB_Y = pxToIn(100);
-const TLB_W = pxToIn(800 - 600);
-const TLB_H = pxToIn(280 - 100);
+// Top label box: measured fill 605..882, 176..202, salmon border 173..205
+const TLN_X = pxToIn(605);
+const TLN_Y = pxToIn(176);
+const TLN_W = pxToIn(882 - 605);
+const TLN_H = pxToIn(202 - 176);
 
 // Bottom-left graph: x=137-422, y=289-437 (blue border)
 const BLG_X = pxToIn(137);
@@ -76,29 +79,27 @@ const BRG_Y = pxToIn(289);
 const BRG_W = pxToIn(773 - 487);
 const BRG_H = pxToIn(437 - 289);
 
-// BL equation box: x=140-419, y=439-456 (light gray) - THIS IS TOO LOW, CLIPPING
-// Move equation boxes UP to leave room for the equation PNG
-// Original box y=439-456, h=17px -> move to y=410-445, h=35px
-const BLE_X = pxToIn(140);
-const BLE_Y = pxToIn(410);  // moved up from 439
-const BLE_W = pxToIn(419 - 140);
-const BLE_H = pxToIn(445 - 410);  // taller box
+// BL equation box: measured fill 115..415, 457..508, salmon border
+const BLE_X = pxToIn(115);
+const BLE_Y = pxToIn(457);
+const BLE_W = pxToIn(415 - 115);
+const BLE_H = pxToIn(508 - 457);
 
-// BR equation box: x=490-769, y=438-456 (light gray) - MOVE UP
-const BRE_X = pxToIn(490);
-const BRE_Y = pxToIn(410);  // moved up from 438
-const BRE_W = pxToIn(769 - 490);
-const BRE_H = pxToIn(445 - 410);  // taller box
+// BR equation box: measured fill 494..800, 457..508, salmon border
+const BRE_X = pxToIn(494);
+const BRE_Y = pxToIn(457);
+const BRE_W = pxToIn(800 - 494);
+const BRE_H = pxToIn(508 - 457);
 
 // Mouse cursor: ~row 317, x=445
 const CURSOR_X = pxToIn(445);
 const CURSOR_Y = pxToIn(317);
 
-// Equation image paths (generated at 600dpi with render_eqs.py)
+// Equation images (matplotlib TextPath -> 600 dpi transparent PNG, render_eqs_017.py)
 const BUILD_DIR = "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build";
-const EQ_LINEAR = BUILD_DIR + "/eq_linear.png";
-const EQ_UNIPOLAR_FULL = BUILD_DIR + "/eq_unipolar_full.png";
-const EQ_BIPOLAR_FULL = BUILD_DIR + "/eq_bipolar_full.png";
+const EQ_UNIPOLAR = BUILD_DIR + "/eq_017_unipolar.png";
+const EQ_BIPOLAR = BUILD_DIR + "/eq_017_bipolar.png";
+const EQ_LINEAR = BUILD_DIR + "/eq_017_linear.png";
 
 // ============================================================
 // DRAW GRAPH PANELS
@@ -162,21 +163,17 @@ s.addShape(pres.shapes.LINE, {
   line: { color: RED, width: 2 },
 });
 
-// TOP LABEL BOX (rounded rectangle, light gray fill)
+// TOP LINEAR CALLOUT BOX (cream fill, salmon border) - 2D text rendered at 600 dpi
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: TLB_X, y: TLB_Y, w: TLB_W, h: TLB_H,
-  fill: { color: LIGHT_GRAY },
+  x: TLN_X, y: TLN_Y, w: TLN_W, h: TLN_H,
+  fill: { color: CREAM },
+  line: { color: SALMON, width: 2.25 },
 });
-// Text inside: "F(x) = x" in black, "Linear (No Activation)" in red italic
-s.addText("F(x) = x", {
-  x: TLB_X + pxToIn(10), y: TLB_Y + pxToIn(10), w: TLB_W - pxToIn(20), h: pxToIn(30),
-  align: "left", valign: "top",
-  fontSize: 14, bold: false, color: BLACK, fontFace: FONT, margin: 0,
-});
-s.addText("Linear (No Activation)", {
-  x: TLB_X + pxToIn(10), y: TLB_Y + pxToIn(40), w: TLB_W - pxToIn(20), h: pxToIn(30),
-  align: "left", valign: "top",
-  fontSize: 14, bold: false, color: RED_BROWN, fontFace: FONT, margin: 0, italic: true,
+
+// "F(x) = x   Linear (No Activation)" - exact ink from eq_017_linear.png
+s.addImage({
+  path: EQ_LINEAR,
+  x: pxToIn(605), y: pxToIn(176), w: 2325 / 600, h: 225 / 600,
 });
 
 // BOTTOM-LEFT GRAPH PANEL
@@ -238,29 +235,16 @@ s.addShape(pres.shapes.LINE, {
   line: { color: RED, width: 2 },
 });
 
-// BOTTOM-LEFT EQUATION BOX - with 2D piecewise equation as single PNG
-// Equation box background
+// BOTTOM-LEFT EQUATION BOX - 2D piecewise equation as one 600 dpi PNG
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
   x: BLE_X, y: BLE_Y, w: BLE_W, h: BLE_H,
-  fill: { color: LIGHT_GRAY },
+  fill: { color: CREAM },
+  line: { color: SALMON, width: 2.25 },
 });
-// Equation name text (left part of box)
-s.addText("F(x) = Uni-polar Unit Step =", {
-  x: BLE_X + pxToIn(8), y: BLE_Y + pxToIn(5), w: BLE_W - pxToIn(16), h: pxToIn(16),
-  align: "left", valign: "top",
-  fontSize: 10, bold: false, color: DARK_RED, fontFace: FONT, margin: 0,
-});
-
-// Embed the full piecewise equation PNG below the name
-// PNG dims from render_eqs.py: 428x171 px at 600dpi = 0.713 x 0.285 inches
-const EQ_W = pxToIn(428);
-const EQ_H = pxToIn(171);
-const EQ_X = BLE_X + pxToIn(70);
-const EQ_Y = BLE_Y + pxToIn(20);  // moved up to fit in taller box
-
+// Eq image region px 117..414, 459..507 -> 2475x400 dev px at 600 dpi
 s.addImage({
-  path: EQ_UNIPOLAR_FULL,
-  x: EQ_X, y: EQ_Y, w: EQ_W, h: EQ_H
+  path: EQ_UNIPOLAR,
+  x: pxToIn(117), y: pxToIn(459), w: 2475 / 600, h: 400 / 600,
 });
 
 // BOTTOM-RIGHT GRAPH PANEL
@@ -322,25 +306,16 @@ s.addShape(pres.shapes.LINE, {
   line: { color: RED, width: 2 },
 });
 
-// BOTTOM-RIGHT EQUATION BOX with 2D piecewise equation as single PNG
+// BOTTOM-RIGHT EQUATION BOX - 2D piecewise equation as one 600 dpi PNG
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
   x: BRE_X, y: BRE_Y, w: BRE_W, h: BRE_H,
-  fill: { color: LIGHT_GRAY },
+  fill: { color: CREAM },
+  line: { color: SALMON, width: 2.25 },
 });
-// Equation name text
-s.addText("F(x) = Bi-polar Unit Step =", {
-  x: BRE_X + pxToIn(8), y: BRE_Y + pxToIn(5), w: BRE_W - pxToIn(16), h: pxToIn(16),
-  align: "left", valign: "top",
-  fontSize: 10, bold: false, color: DARK_RED, fontFace: FONT, margin: 0,
-});
-
-// Embed the full piecewise equation PNG
-const EQ2_X = BRE_X + pxToIn(70);
-const EQ2_Y = BRE_Y + pxToIn(24);
-
+// Eq image region px 496..799, 459..507 -> 2525x400 dev px at 600 dpi
 s.addImage({
-  path: EQ_BIPOLAR_FULL,
-  x: EQ2_X, y: EQ2_Y, w: EQ_W, h: EQ_H
+  path: EQ_BIPOLAR,
+  x: pxToIn(496), y: pxToIn(459), w: 2525 / 600, h: 400 / 600,
 });
 
 // MOUSE CURSOR (small black arrow) - OMITTED per ground rule (c): capture artifacts correctly omitted

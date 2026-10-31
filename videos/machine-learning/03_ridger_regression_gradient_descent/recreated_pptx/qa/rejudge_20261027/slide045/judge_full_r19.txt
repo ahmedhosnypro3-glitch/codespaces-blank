@@ -1,0 +1,47 @@
+## Fidelity check â Slide 45 (recreation vs. original 960Ã540 frame)
+
+**Elementâbyâelement content audit (all present, all data correct):**
+- Top blueâframed banner: Xââ¦Xâ header + two data rows `(1)(2)(1)(5)(6)(6)` / `(1)(1)(1)(4)(5)(6)` and the `Câ Câ Câ Câ Câ Câ` class row; `Initial W = [4;â2;0]`; red italic `Step Î· = 2`; `Check classes of:` with `Zâ Zâ Zâ` headers and the `(0)(7)(3)/(0)(6)(2)` matrix; `Câ positive / Câ negative / Zero is unaccepted`. All match.
+- Left column: âVectors (from Top)â table (4 rows + class row) values match; `Iteration 4` banner; `No change in W / Stop Iterations` box.
+- Right column, all six rows: `d(xâ)=1 1 1 â 10`, `d(xâ)=1 2 1 â 6`, `d(xâ)=1 1 2 â 10`, `d(xâ)=1 5 4 â â6`, `d(x)=1 6 5 â â10`, `d(xâ)=1 6 6 â â112`, each with `â Keep same Weight` and `W = [14;â4;0]`. All values, signs, and the repeated W vector match. **No omitted element â no BLOCKER.**
+
+### Discrepancies
+
+1. **MAJOR â Rightâhand sixârow stack is vertically compressed and pulled upward (confidence: high).**
+ Original row boxes are â63 px tall (first box yâ123â186, last ends â516), filling the panel to â516 of 540. In the recreation each row box is â54â55 px (yâ118â172 â¦ last ends â463), so the whole table is â50 px shorter and a conspicuous â75 px empty band remains at the bottom of the panel (original leaves â24 px). This is a visible size/gap deviation in the slideâs dominant region.
+
+2. **MAJOR â Left âVectorsâ panel compressed, internal line spacing tighter (confidence: mediumâhigh).**
+ Original panel â100 px tall (yâ125â225) for title + header + 4 data rows + class row (â14â16 px/line). Recreation panel â87 px (yâ118â205) with â12â13 px/line and smallerâsize numerals; the panel title, table and class row are visibly tighter against one another. Per directive, a visible lineâspacing/size deviation in a multiâline block is a MAJOR even though the text is verbatim.
+
+3. **MAJOR â Left column displaced upward relative to the original (confidence: mediumâhigh).**
+ `Iteration 4` banner sits â233â256 px (original â250â270); the `No change in W / Stop Iterations` box sits â272â344 px (original â294â366). The whole left stack is â20â25 px high, and it is no longer coâregistered with the rightâhand rows as in the original.
+
+4. **MAJOR â Colour semantics of the numeric data changed (confidence: medium).**
+ In the recreation the coordinate triples (`1 1 1`, `1 2 1`, `1 5 4`, â¦) are set in blue and the Wâvector entries (`14`, `â4`, `0`) in green. In the original these data values are dark/black, with green reserved for the âZero is unacceptedâ class coding and red/blue for Câ/Câ. The classâcoded meaning of the colour scheme is therefore altered (no value is wrong, but the emphasis coding is).
+
+5. **MINOR â Typeface substitution throughout (confidence: high).**
+ The original is set largely in a serif face (âInitial Wâ, âCheck classes of:â, âKeep same Weightâ, âW =â, âNo change in Wâ, âIteration 4â, âStop Iterationsâ); the recreation renders these in a sansâserif face, and the `Iteration 4` banner text is smaller and lighter than the originalâs bold serif. Content unchanged; styling differs.
+
+6. **MINOR â Left panel title glyphs are degraded/illegible (confidence: medium).**
+ âUgmented Vectors (from Top )â renders with broken/blurred letterforms in the recreation (reads as âUg(n)entedâ¦â), and is set bold where the original is regular italic. Verbatim intent appears preserved, but the rendered string is not cleanly legible.
+
+7. **MINOR â Top blue frame slightly shorter and its contents smaller (confidence: medium).**
+ Recreation banner â68 px tall (original â73 px); the Xââ¦Xâ table and the `Zâ Zâ Zâ`/`(0)(7)(3)` matrix are set noticeably smaller and tighter than in the original, and the negation glyph beneath the checkâclass matrix is a different/ââ¤â-looking mark sitting close to the frameâs bottom edge (possible slight clip).
+
+8. **MINOR â Rowâbox fill differs (confidence: medium).**
+ Recreation row boxes read as lightâgray filled with a thin border; the originalâs are whiteâfilled with a lightâgray border against the gray panel.
+
+9. **MINOR â `d(x)` subscript is faint/absentâlooking (confidence: low).**
+ The fifth row label appears as âd(x )â with the subscript not clearly rendered, whereas the original clearly shows `d(x10. **MINOR â Possible added punctuation in the legend line (confidence: low).**
+ The recreation reads âCâ positive, Câ negative, Zero is unacceptedâ with commas; the original has spaceâseparated phrases. Cannot be resolved at this resolution.
+
+### Visualâquality defects in the recreation
+- No text overflow or clipping of the gray panel / red strokes; all content stays inside the house panel (the missing top stroke and the badge are intentional house chrome, not defects).
+- No collisions between the left column and the right row stack.
+- Genuine legibility weaknesses: top banner are small relative to the original.
+- Empty bottom band (â14 % of panel height) reads as unfinished slide layout rather than intentional whitespace, because the original fills that area.
+
+### Summary
+All text, tables, equations, vectors and data values are present and correct â there are **no BLOCKER omissions** and no containment overflows. However, the slideâs main regions are visibly resized/repositioned versus the original (â15 % vertical compression of the sixârow stack with a large residual blank band, tighter line spacing and smaller type in the left panel, left column shifted up), and the numeric colour coding no longer matches the originalâs class semantics. Under the founder directives these size/spacing/alignment deviations are MAJOR.
+
+**FINAL VERDICT: FAIL**

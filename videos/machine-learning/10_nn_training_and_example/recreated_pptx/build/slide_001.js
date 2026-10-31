@@ -114,12 +114,14 @@ s.addText("momaher@zewailcity.edu.eg", {
 });
 
 // ========== UNIVERSITY LOGO (bottom right) ==========
-// Exact crop of the original lockup: frame px (588,436)-(840,513) on 960x540,
-// mapped to inches at 13.33x7.5 (aspect preserved: 252/77 = 3.5/1.0694).
+// Exact crop of the original lockup: frame px (588,436)-(891,513) on 960x540,
+// mapped to inches at 13.33x7.5 (aspect preserved: 303/77).
+// r1fix: right edge extended from 840 to 891 — the old crop cut the artwork
+// 47px short (ink continues to x=885), truncating the English/Arabic lines.
 s.addImage({
-  path: NS + "/recreated_pptx/build/assets/logo_slide001_crop.png",
+  path: NS + "/qa/slide001/r1fix/logo_slide001_full.png",
   x: 588 / 960 * 13.33, y: 436 / 540 * 7.5,
-  w: 252 / 960 * 13.33, h: 77 / 540 * 7.5,
+  w: 303 / 960 * 13.33, h: 77 / 540 * 7.5,
 });
 
 pres.writeFile({ fileName: OUT })

@@ -51,39 +51,39 @@ def gen(name, size, maxw, maxh, rows, rowgap_px=16):
 
 
 # Upper equation stack (spec sec. 3/8 regions in inches)
-gen("m1", 20, 8.079, 0.315, [f"{BLACK}:{MIN}0.5x^{{2}}+3x+4y"], 0)
-gen("m2", 18, 5.132, 0.308,
+gen("m1", 24, 8.079, 0.380, [f"{BLACK}:{MIN}0.5x^{{2}}+3x+4y"], 0)
+gen("m2", 22, 5.132, 0.380,
     [f"{BLACK}:{MIN}0.5x^{{2}}+||{GREEN}:0y^{{2}}||{BLACK}:+||{RED}:0xy||{BLACK}:+3x+4y"], 0)
-gen("m3", 18, 4.934, 0.443,
+gen("m3", 22, 4.934, 0.500,
     [f"{BLACK}:{MIN}\\frac{{1}}{{2}}\\left[x^{{2}}+0y^{{2}}+0xy\\right]+3x+4y"], 0)
-gen("boxed", 18, 3.030, 0.400, [f"{RED}:\\left[x^{{T}}Px\\right]+q^{{T}}x"], 0)
+gen("boxed", 20, 3.030, 0.440, [f"{RED}:\\left[x^{{T}}Px\\right]+q^{{T}}x"], 0)
 # P and q matrices
-gen("P", 14, 0.653, 0.480,
+gen("P", 16, 0.653, 0.480,
     [f"{BLACK}:P=\\left[\\overset{{1\\;\\;0}}{{0\\;\\;0}}\\right]"], 0)
-gen("q", 14, 0.560, 0.480, [f"{BLACK}:q=\\left[\\overset{{3}}{{4}}\\right]"], 0)
+gen("q", 16, 0.560, 0.480, [f"{BLACK}:q=\\left[\\overset{{3}}{{4}}\\right]"], 0)
 # Standard-form header Gx<=h (G and h red per spec)
-gen("gh", 16, 1.680, 0.368, [f"{RED}:G||{BLACK}:x||{BLACK}:\\leq||{RED}:h"], 0)
+gen("gh", 18, 1.680, 0.368, [f"{RED}:G||{BLACK}:x||{BLACK}:\\leq||{RED}:h"], 0)
 # G (5x2) and h (5x1) matrices as nested row stacks
-gen("G", 13, 1.027, 1.530,
+gen("G", 15, 1.027, 1.530,
     [f"{BLACK}:G=\\left[\\overset{{-1\\;\\;0}}{{\\overset{{0\\;-1}}"
      f"{{\\overset{{-1\\;-3}}{{\\overset{{2\\;\\;5}}{{3\\;\\;4}}}}}}}}\\right]"], 0)
-gen("h", 13, 0.900, 1.530,
+gen("h", 15, 0.900, 1.530,
     [f"{BLACK}:h=\\left[\\overset{{0}}{{\\overset{{0}}"
      f"{{\\overset{{-15}}{{\\overset{{100}}{{80}}}}}}}}\\right]"], 0)
 # Arrow between constraint lists
-gen("arrow", 16, 0.440, 0.270, [f"{BLACK}:\\Rightarrow"], 0)
+gen("arrow", 18, 0.440, 0.270, [f"{BLACK}:\\Rightarrow"], 0)
 # Left original constraints (5 rows, one shared font size)
-gen("consL", 14, 1.227, 1.485,
+gen("consL", 16, 1.227, 1.485,
     [f"{BLACK}:{t}" for t in
      [r"x\geq0", r"y\geq0", r"x+3y\geq15", r"2x+5y\leq100", r"3x+4y\leq80"]])
 # Transformed constraints after the arrow (5 rows)
-gen("consR", 13, 1.506, 1.290,
+gen("consR", 15, 1.506, 1.290,
     [f"{BLACK}:{t}" for t in
      [r"-x\leq0", r"-y\leq0", r"-x-3y\leq-15", r"2x+5y\leq100", r"3x+4y\leq80"]])
 # Right-box feasibility checks (5 rows)
-gen("checks", 14, 4.690, 1.013,
+gen("checks", 16, 4.690, 1.013,
     [f"{BLACK}:{t}" for t in
      [r"x+3y=15\ \Rightarrow\ \geq15", r"2x+5y=25\ \Rightarrow\ \leq100",
       r"3x+4y=20\ \Rightarrow\ \leq80", r"x\geq0", r"y\geq0"]], 10)
 # Blue minimum-value line
-gen("finalv", 14, 4.690, 0.270, [f"{BLUE}:0.5x^{{2}}+3x+4y=20"], 0)
+gen("finalv", 16, 4.690, 0.270, [f"{BLUE}:0.5x^{{2}}+3x+4y=20"], 0)

@@ -77,7 +77,7 @@ function defline(vruns, desc, size, x0, y0, x1, y1) {
 panel(0.069, 0.185, 0.830, 0.394);
 txt("Put quadratic equation in the form:", 0.088, 0.196, 0.335, 0.229,
     { fs: 12, bold: true, italic: true, color: "C00000" });
-img("eq_obj", 0.082, 0.259, 0.356);
+img("eq_obj", 0.082, 0.259, 0.262, 0.356);
 txt("where:", 0.349, 0.283, 0.395, 0.319, { fs: 11, bold: true });
 defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.414, 0.2540, 0.622, 0.2904);
 defline([vr("P", "FF0000")], "is a Matrix of size", "d*d", 0.414, 0.2904, 0.622, 0.3267);
@@ -90,7 +90,7 @@ panel(0.069, 0.420, 0.830, 0.617);
 txt("Put all ≤ , ≥ constraints in the form:", 0.081, 0.433, 0.335, 0.469,
     { fs: 12, bold: true, color: "C00000" });
 defline([vr("m", "008000")], "is Number of constraints", "", 0.294, 0.476, 0.620, 0.505);
-img("eq_gxleh", 0.081, 0.515, 0.557);
+img("eq_gxleh", 0.081, 0.515, 0.144, 0.557);
 txt("where:", 0.228, 0.524, 0.275, 0.557, { fs: 11, bold: true });
 defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.294, 0.5090, 0.492, 0.5413);
 defline([vr("G", "FF0000")], "is a Matrix of size", "m*d", 0.294, 0.5413, 0.492, 0.5737);
@@ -104,7 +104,7 @@ runs([
   { text: " constraints in the form:", options: { fontFace: FONT, fontSize: 12, bold: true, color: "C00000" } },
 ], 0.081, 0.654, 0.335, 0.691);
 defline([vr("m", "008000")], "is Number of constraints", "", 0.294, 0.696, 0.620, 0.726);
-img("eq_axeqb", 0.081, 0.730, 0.774);
+img("eq_axeqb", 0.081, 0.730, 0.144, 0.774);
 txt("where:", 0.222, 0.739, 0.271, 0.772, { fs: 11, bold: true });
 defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.294, 0.7260, 0.492, 0.7587);
 defline([vr("A", "FF0000")], "is a Matrix of size", "m*d", 0.294, 0.7587, 0.492, 0.7913);

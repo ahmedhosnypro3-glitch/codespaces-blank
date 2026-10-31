@@ -13,7 +13,7 @@
 <x_0.3457><y_0.4859>Correctly Predicted as Positive / ALL Actual Positive Samples
 (Percentage of correctly retrieved Positive samples)<x_0.8857><y_0.5641><class_Text>
 
-<x_0.585><y_0.5844>**(Best Value is “1”)**<x_0.7217><y_0.6141><class_Caption>
+<x_0.585><y_0.5844>**(Best Value is "1")**<x_0.7217><y_0.6141><class_Caption>
 
 <x_0.0859><y_0.6297>**False Positive Rate (FPR)** is defined as:<x_0.4473><y_0.6656><class_Text>
 
@@ -22,6 +22,6 @@
 <x_0.3545><y_0.6906>Incorrectly Predicted as Positive / ALL Actual Negative Samples
 (Error percentage in samples Predicted as Positive)<x_0.918><y_0.7703><class_Text>
 
-<x_0.5869><y_0.7875>**(Best Value is “0”)**<x_0.7207><y_0.818><class_Caption>
+<x_0.5869><y_0.7875>**(Best Value is "0")**<x_0.7207><y_0.818><class_Caption>
 
 <x_0.084><y_0.8484>An ROC curve plots TPR vs. FPR <u>at different classification thresholds</u>.<x_0.7031><y_0.8852><class_Text>

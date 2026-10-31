@@ -1,0 +1,35 @@
+## Fidelity check â Slide 034 zoomed crop (r19)
+
+### Scope settled first
+Zoomed crop-pair of one region at matched effective scale; house-template chrome (white canvas, E9E9E7 gray band, no top red stroke, yellow badge/purple-ring styling) treated as intentional; typed-vs-handwritten medium difference treated as â¤ MINOR; equation-format and JPEG/soft-edge artifacts are not content discrepancies. The green outline box around the X / f(x) annotation is present in **both** images, so it is original content, not chrome.
+
+### Content verification (cell-by-cell)
+
+**Annotation box (green-outlined), IMG1 yâ40â145 / IMG2 yâ45â148**
+- Line 1: red italic **X** (both), "is in between" (both, bold serif), red **9.6** (both, xâ330â378 / 325â375), then "and color red boâ¦" / "and color red bolâ¦" â text is identical up to the differing right-edge crop cut (framing, not content).
+- Line 2: blue *f(x)* (both), "is in between" (both), blue **-10.03** and **-9.92** (both, correct digits, order, and color).
+- No garbled, missing, or swapped characters in either line.
+
+**Blue rule + yellow table (IMG1 yâ178â285 / IMG2 yâ182â285)** â top blue band and the thin rule below it both present.
+- Header row: 7.6 | 7.8 | 8 | 8.2 | 8.4 | 8.6 | 8.8 â exact match, all 7 visible cells.
+- Value row: 0.69 | -0.45 | -1.73 | -3.1 | -4.5 | -5.88 | -7.16 â exact match, including decimals and minus placement. No digit transposed.
+
+**Purple table (IMG1 yâ295â375 / IMG2 yâ295â378)**
+- Header row: 7.5 | 7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7 â exact match.
+- Value row: 1.2 | 0.14 | -1.08 | -2.41 | -3.8 | -5.2 | -6.54 â exact match.
+
+**Peach table (IMG1 yâ385â437 / IMG2 yâ388â420)**
+- Header row: 7.7 | 7.9 | 8.1 | 8.3 | 8.5 | 8.7 | 8.9 â exact match.
+
+Row banding, cell widths, numeral centering, and vertical centering within cells are equivalent in both crops; no delimiter/enclosure geometry is involved in this region.
+
+### Discrepancies
+1. **MINOR (confidence: medium-high)** â *Minus-sign glyph in the blue f(x) line.* IMG1 renders the two negative numbers (xâ330â425 and xâ490â575, second text line) with a short ASCII hyphen at mid-height; IMG2 (xâ325â415, 460â545) uses a longer typographic minus "â" that sits slightly higher and is noticeably wider. Same values, different glyph shape.
+2. **MINOR (confidence: low-medium)** â *Typeface of table numerals.* IMG1's table digits (e.g., "7.6" at xâ40â65, "8.2" at xâ295â320, yellow row) read as a bold geometric sans; the corresponding digits in IMG2 show slight serif/flare modulation consistent with a bold serif face softened by video blur. Weight is equivalent; family differs subtly. Not resolvable to high confidence because of the capture softness.
+3. **MINOR (confidence: low)** â *Italic face of f(x).* IMG1's blue f(x) (xâ35â88, yâ100â132) is a slightly cleaner, more uniform italic; IMG2's f(x) shows serif-like terminals and uneven stroke from blur. Same characters, same spacing.
+4. **MINOR (confidence: low)** â *Fill/stroke hue micro-drift.* The yellow table band in IMG1 reads marginally more lime-green and the purple band marginally lighter/duller than IMG2's; the green annotation outline in IMG1 is marginally more saturated. Within the range explainable by the source's JPEG/video pipeline, but visible on close inspection.
+5. **INFORMATIONAL (not a defect)** â *Right-edge truncation.* IMG1 cuts the first line at "â¦and color red bo", IMG2 at "â¦and color red bol", and the final column of the yellow/purple value rows is clipped in both; the truncated partial glyphs are consistent where both are visible, and no claim about those clipped cells is possible from this crop pair. The minor vertical offset of the whole crop stack (â4â6 px) is a framing artifact.
+
+No wrong digits, swapped cell values, missing rows, truncated subscripts, mis-ordered delimiters, or garbled characters were found. Nothing rises above MINOR.
+
+FINAL VERDICT: PASS

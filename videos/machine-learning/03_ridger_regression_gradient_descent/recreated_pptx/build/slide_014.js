@@ -127,9 +127,18 @@ s.addText([
   { text: "J(W)", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
   { text: "=", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "Loss", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT } },
-  { text: "(X,Y,W)+", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "(", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "X", options: { fontSize: 17, color: BLACK, fontFace: FONT, underline: true } },
+  { text: ",", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "Y", options: { fontSize: 17, color: BLACK, fontFace: FONT, underline: true } },
+  { text: ",", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
+  { text: "W", options: { fontSize: 17, color: BLACK, fontFace: FONT, underline: true } },
+  { text: ")+", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "\u03bb", options: { fontSize: 17, color: BLUE, fontFace: FONT } },
-  { text: "R(W)", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT } },
+  { text: "R", options: { fontSize: 17, bold: true, color: GREEN, fontFace: FONT } },
+  { text: "(", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
+  { text: "W", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT, underline: true } },
+  { text: ")", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
   { text: " (", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
   { text: "\u03bb", options: { fontSize: 17, color: BLUE, fontFace: FONT } },
   { text: " is a weighting factor)", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
@@ -188,11 +197,10 @@ s.addText([
   s.addShape(pptx.ShapeType.rect, { x, y: y + h - ruleH, w, h: ruleH, fill: { color: NAVY } });
   s.addText([
     { text: "Objective function ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-    { text: "J(W)", options: { fontSize: 17, bold: true, color: BLACK, fontFace: FONT } },
-    { text: " = ", options: { fontSize: 17, color: BLACK, fontFace: FONT } },
-  ], { x: x + 1.1, y: y + ruleH, w: 2.8, h: h - 2 * ruleH, align: "left", valign: "middle", margin: 0, lineSpacing: 20 });
-  // 2D professional-format objective formula (stacked 1/2 fraction), measured span x350..735 y479..521
-  s.addImage({ path: ASSETS + "eq_014_final.png", x: 350 / 72, y: 479 / 72, w: 3.985, h: 0.4233 });
+  ], { x: x + 1.28, y: y + ruleH, w: 2.67, h: h - 2 * ruleH, align: "left", valign: "middle", margin: 0, lineSpacing: 20 });
+  // 2D professional-format objective formula; image starts with "J(W) = " (supplies the J(W)= the
+  // text run no longer carries), original formula ink span x376..793 y479..521 — placed x375 so J lands at 376
+  s.addImage({ path: ASSETS + "eq_014_final.png", x: 375 / 72, y: 479 / 72, w: 3.15, h: 0.4233 });
 }
 
 // ============ WRITE OUTPUT ============

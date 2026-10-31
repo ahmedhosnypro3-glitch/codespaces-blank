@@ -1,0 +1,52 @@
+pil_fix_r20.txt — slide 019 R20 fix verification (render_fix_r20.png 150dpi vs unique_slides/slide_019.jpg)
+render size 2001x1125 scale=(2.084,2.083)  build slide_019.js 2026-10-31 ~07:03, pptx md5 e7da1c782adc886ed2845d1e54ba8d82
+red mask: r>150, r-g>60, r-b>60 (same class as adjudicate_w04_probe.txt)
+
+== CHECK 1: bracket columns (x0+6 L / x0+81 R), redpx over y gy-5..gy+90; need redpx>50, bow=1 ==
+col0 row0 L x=130: redpx=836 bow=1 [OK]
+col0 row0 R x=205: redpx=431 bow=1 [OK]
+col0 row1 L x=130: redpx=836 bow=1 [OK]
+col0 row1 R x=205: redpx=431 bow=1 [OK]
+col0 row2 L x=130: redpx=833 bow=1 [OK]
+col0 row2 R x=205: redpx=428 bow=1 [OK]
+col1 row0 L x=390: redpx=816 bow=1 [OK]
+col1 row0 R x=465: redpx=573 bow=1 [OK]
+col1 row1 L x=390: redpx=816 bow=1 [OK]
+col1 row1 R x=465: redpx=573 bow=1 [OK]
+col1 row2 L x=390: redpx=813 bow=1 [OK]
+col1 row2 R x=465: redpx=570 bow=1 [OK]
+col2 row0 L x=650: redpx=637 bow=1 [OK]
+col2 row0 R x=725: redpx=611 bow=1 [OK]
+col2 row1 L x=650: redpx=637 bow=1 [OK]
+col2 row1 R x=725: redpx=611 bow=1 [OK]
+col2 row2 L x=650: redpx=635 bow=1 [OK]
+col2 row2 R x=725: redpx=608 bow=1 [OK]
+ORIG reference (col0): x131 redpx=97 bow=1, x206 redpx=2 bow=1 (orig right bar sits on the box edge x206, JPEG-faded)
+  orig col x=130: redpx=0 bow=1
+  orig col x=131: redpx=97 bow=1
+  orig col x=206: redpx=2 bow=1
+
+== CHECK 2: red ink max row per W-box, full box x0+5..x0+82 y gy-5..gy+92 ==
+    task limit: row0 boxes <= 296 (orig ink stops y296 vs border y297); rows 1/2 analogous vs own border (<= gy+91 incl. 0.6 AA)
+col0 row0: red ink max slide-y=295.52 limit=296 [OK]
+col0 row1: red ink max slide-y=400.52 limit=401 [OK]
+col0 row2: red ink max slide-y=510.52 limit=511 [OK]
+col1 row0: red ink max slide-y=295.52 limit=296 [OK]
+col1 row1: red ink max slide-y=400.52 limit=401 [OK]
+col1 row2: red ink max slide-y=510.52 limit=511 [OK]
+col2 row0: red ink max slide-y=295.52 limit=296 [OK]
+col2 row1: red ink max slide-y=400.52 limit=401 [OK]
+col2 row2: red ink max slide-y=510.52 limit=511 [OK]
+
+== CHECK 3: annotation (||W||^2) ink max row in box interior x0+8..x0+79, y gy+55..gy+89, vs border gy+90 ==
+col0 row0: annotation-zone red max-y=278.72 border=295 clearance=16.3px [OK]
+col0 row1: annotation-zone red max-y=383.24 border=400 clearance=16.8px [OK]
+col0 row2: annotation-zone red max-y=493.24 border=510 clearance=16.8px [OK]
+col1 row0: annotation-zone red max-y=278.72 border=295 clearance=16.3px [OK]
+col1 row1: annotation-zone red max-y=383.24 border=400 clearance=16.8px [OK]
+col1 row2: annotation-zone red max-y=493.24 border=510 clearance=16.8px [OK]
+col2 row0: annotation-zone red max-y=278.72 border=295 clearance=16.3px [OK]
+col2 row1: annotation-zone red max-y=383.24 border=400 clearance=16.8px [OK]
+col2 row2: annotation-zone red max-y=493.24 border=510 clearance=16.8px [OK]
+
+OVERALL: PASS  (checks 1-3; redpx>50 & bow=1 all 18 bracket columns; row0 red max 295.52<=296; annotation clears border by ~16px in all 9 cells)

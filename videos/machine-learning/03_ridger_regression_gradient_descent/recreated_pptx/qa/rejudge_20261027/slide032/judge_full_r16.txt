@@ -1,0 +1,36 @@
+# Fidelity Check: Slide 32 Recreation vs Original
+
+**Scale note:** IMG1 (recreation, 13.33Ã7.5in @150dpi) and IMG2 (960Ã540 original) share a 16:9 aspect ratio, so all geometry is compared as fractions of frame width/height.
+
+## Ground-rule rulings (settled, not discrepancies)
+- **House chrome (rule a):** White canvas, gray E9E9E7 panel, dark-red C00000 1pt strokes on LEFT/RIGHT/BOTTOM only â IMG1 correctly has **no top stroke** (matching IMG2's strokeless top). Yellow badge "32" (FDFD96 fill, 6A5ACD ring) at top-right in both. â Intentional, matches.
+- **Rule (c) artifacts:** IMG2's stray red dot (~x255,y155) and the black mouse cursor over the "3.7" cell are video-capture artifacts â correctly **absent** from IMG1. â
+- **Rule (e) equation format:** IMG1 renders *f(x) = (xâ5)Â² + 1* in professional 2D (stacked superscript); IMG2 shows linear *f(x)=(xâ5)Â²+1*. Mandated format upgrade â **not a discrepancy**. â
+
+## Element-by-element comparison
+
+| Element | IMG1 (recreation) | IMG2 (original) | Verdict |
+|---|---|---|---|
+| Title | "Convex Function, Learning Rate =0.4, Start at X=3" â red/green/blue segments, bold, same spacing quirks (space before "=", none after; "X=3" tight) | Identical string, colors, weights | â verbatim, same position (~7.8% from left, ~12â15% from top) |
+| Small table (left) | 3Ã2: **step**/0.4 (light green), **initial X**/3 (pink), **delta**/0.1 (yellow), bold labels, centered values | Identical rows, fills, values | â match |
+| Equation box | Red-bordered box, white fill, *f(x)=(xâ5)Â²+1* (2D format) | Red-bordered box, linear notation | â (format per rule e); box position/size proportional match |
+| Green box | "X = 5" (red X) / "f(x) Minimum value is 1.0" (blue f(x), blue 1.0), light-green fill, 2 lines, line spacing proportional | Identical text, colors, 2 lines, same line separation | â |
+| Magenta box | "Reach Minimum after 6 Steps" italic purple on pink | Identical | â (fill saturation slightly higher in IMG1 â MINOR, below) |
+| Arrow | White/red-outline arrow from magenta box down to table top-left | Same arrow, same target region | â (tip lands marginally closer to the "x" cell â MINOR, below) |
+| Big table | 8 rows Ã 7 cols, blue outer border, full grid; row fills yellow/yellow/lavender/lavender/peach/peach/green/pink | Identical structure and fills | â |
+| Table data | x: 3, 3.4, 3.8, 4.2, 4.6, 5 Â· f(x): 5, 3.56, 2.44, 1.64, 1.16, 1 Â· x-delta: 2.9, 3.3, 3.7, 4.1, 4.5, 4.9 Â· f(x-delta): 5.41, 3.89, 2.69, 1.81, 1.25, 1.01 Â· x+delta: 3.1, 3.5, 3.9, 4.3, 4.7, 5.1 Â· f(x+delta): 4.61, 3.25, 2.21, 1.49, 1.09, 1.01 Â· slope: -8, -6.4, -4.8, -3.2, -1.6, 0 Â· next x: 3.4, 3.8, 4.2, 4.6, 5, stop | All 48 values + 8 row labels identical | â exact |
+| Graph | Red-bordered plot, grid, axes (-5â¦15 / 5â¦15), gray parabola clipped at plot top, dashed red x=5 line, black segment at y=10 with dots at (2,10)/(5,10)/(8,10) labeled "(2, 10)", "3", "3", "(?, ?)", red dot at (3,5), green dot "(5, 1)" | Same plot, same points/labels/annotations | â match (curve hue/weight differs slightly â MINOR, below) |
+| Badge | "32" yellow/purple circle top-right | "32" | â house chrome |
+
+**Geometry/containment checks (rules 2, 4, 5, 7):** All cell text vertically centered; no text hugs cell tops. All elements sit fully inside the gray panel â big table bottom ~0.96 of frame height (clear of bottom stroke), graph right edge ~0.85 of width (clear of right stroke), title clear of panel top. No ink crosses any panel stroke or inner frame. No multi-line delimiters exist (graph labels are single-line); the equation's red box fully encloses its text. No missing elements â nothing in IMG2 is absent from IMG1 (the two omitted items are sanctioned artifacts). No BLOCKER, no MAJOR.
+
+## Discrepancy list
+1. **Graph curve color/weight** â IMG1 draws the parabola in flat gray at a slightly heavier stroke; IMG2 is blue-gray and thinner. Severity: **MINOR** (rule f allows approx. color; annotation content identical). Confidence: medium.
+2. **Magenta box fill saturation** â IMG1 pink reads more saturated than IMG2's lighter pink. Severity: **MINOR**. Confidence: low.
+3. **Arrow tip position** â IMG1's arrow tip lands ~10px closer to the "x"/"3" cell boundary, slightly grazing the top-left cell; IMG2's tip sits just at the table's top edge. Severity: **MINOR**. Confidence: low.
+4. **Big-table bottom margin** â IMG1 leaves a slightly larger gap between the table's last row and the bottom panel stroke (~1â2% of frame height). Inside the frame, no overflow. Severity: **MINOR** (observation). Confidence: low.
+
+## Visual-quality defects in the recreation
+None observed: no text overflow/clipping, no wrong wrapping, no collisions (title/graph side-by-side with clear separation), all labels legible, table grid complete, graph labels fully inside the plot frame.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation. All text verbatim, table data exact (48/48 cells), layout regions aligned, graph content identical, frame containment clean, zero missing elements; only MINOR-level cosmetic variances remain.

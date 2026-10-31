@@ -1,0 +1,17 @@
+## D2 probe — same-font cross-check (render col2 vs render col1; orig col2 vs orig col1)
+   if r16's misread were real (render col2 holds col1's digits), render-vs-render
+   diff would collapse toward 0 while orig-vs-orig stays large.
+  row0: diff(renderC2,renderC1)=327  diff(origC2,origC1)=657  diff(renderC2,origC2)=2496  diff(renderC1,origC1)=2529
+  row1: diff(renderC2,renderC1)=351  diff(origC2,origC1)=611  diff(renderC2,origC2)=2341  diff(renderC1,origC1)=1883
+  row2: diff(renderC2,renderC1)=381  diff(origC2,origC1)=629  diff(renderC2,origC2)=2020  diff(renderC1,origC1)=2583
+
+## D4 probe — W-cell delimiter edge strips (inside red border), dark-ink census
+  col0 row0: render dark px in L/R delimiter strips = 27/0 (0 = no bowed paren strokes) | orig dark px in strips = 93
+  col0 row1: render dark px in L/R delimiter strips = 27/0 (0 = no bowed paren strokes) | orig dark px in strips = 25
+  col0 row2: render dark px in L/R delimiter strips = 27/0 (0 = no bowed paren strokes) | orig dark px in strips = 98
+  col1 row0: render dark px in L/R delimiter strips = 62/0 (0 = no bowed paren strokes) | orig dark px in strips = 2
+  col1 row1: render dark px in L/R delimiter strips = 62/0 (0 = no bowed paren strokes) | orig dark px in strips = 71
+  col1 row2: render dark px in L/R delimiter strips = 62/0 (0 = no bowed paren strokes) | orig dark px in strips = 5
+  col2 row0: render dark px in L/R delimiter strips = 62/183 (0 = no bowed paren strokes) | orig dark px in strips = 71
+  col2 row1: render dark px in L/R delimiter strips = 62/143 (0 = no bowed paren strokes) | orig dark px in strips = 0
+  col2 row2: render dark px in L/R delimiter strips = 62/194 (0 = no bowed paren strokes) | orig dark px in strips = 67

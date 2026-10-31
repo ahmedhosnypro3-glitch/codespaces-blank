@@ -18,7 +18,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-matplotlib.rcParams["mathtext.fontset"] = "cm"
+import os
+matplotlib.rcParams["mathtext.fontset"] = os.environ.get("MATHTEXT_FONTSET", "cm")
 matplotlib.rcParams["mathtext.default"] = "it"
 
 DPI = 600
@@ -35,16 +36,19 @@ def _draw(latex, color, fontsize, fig_w, fig_h, dpi, x0):
                      ha="left", va="baseline")
     fig.canvas.draw()
     buf = np.asarray(fig.canvas.buffer_rgba()).copy()
+    H = buf.shape[0]
     be = probe.get_window_extent(renderer=fig.canvas.get_renderer())
     bt = txt.get_window_extent(renderer=fig.canvas.get_renderer())
     plt.close(fig)
     if bt.width <= 0 or bt.height <= 0:
         raise SystemExit(f"no ink for {latex!r}")
-    y0, y1 = max(int(bt.y0) - PAD_PX, 0), min(int(bt.y1) + PAD_PX + 1, buf.shape[0])
+    # window extents are bottom-origin; buf rows are top-origin
+    y0, y1 = max(H - int(bt.y1) - PAD_PX, 0), min(H - int(bt.y0) + PAD_PX + 1, H)
     x0c, x1c = max(int(bt.x0) - PAD_PX, 0), min(int(bt.x1) + PAD_PX + 1, buf.shape[1])
     if x1c <= x0c or y1 <= y0:
         raise SystemExit(f"degenerate ink for {latex!r}")
-    return buf[y0:y1, x0c:x1c], int(be.y0) - y0, be, bt
+    base = int(0.5 * H) - y0  # text baseline (va="baseline" at y=0.5) from crop top
+    return buf[y0:y1, x0c:x1c], base, be, bt
 
 
 def render_segment(latex, color, fontsize, need_w=None, need_h=None):

@@ -1,0 +1,23 @@
+**Crop-relative observations (IMG1 = recreation render, IMG2 = original upscaled, same scale)**
+
+I checked every cell of the 8-row Ã 6-column table stack against the other image, value by value:
+
+- **x row:** 3, 3.2, 3.4, 3.6, 3.8 â all match.
+- **f(x) row:** 5, 4.24, 3.56, 2.96, 2.44 â all match.
+- **x-delta row:** 2.9, 3.1, 3.3, 3.5, 3.7 â all match.
+- **f(x-delta) row:** 5.41, 4.61, 3.89, 3.25, 2.69 â all match.
+- **x+delta row:** 3.1, 3.3, 3.5, 3.7, 3.9 â all match.
+- **f(x+delta) row:** 4.61, 3.89, 3.25, 2.69, 2.21 â all match.
+- **slope row:** -8, -7.2, -6.4, -5.6, -4.8 â all match.
+- **next x row:** 3.2, 3.4, 3.6, 3.8, 4 â all match.
+- Row order, row labels, minus-sign usage, and decimal precision are all correct. No garbled, missing, or substituted digits anywhere.
+
+**Discrepancies found:**
+
+1. **Header-row fill color (x row), top band of the crop (~y 60â95, spanning full width).** In IMG1 the `x` header row sits on a near-white fill matching the canvas, while the `f(x)` row below it is clearly yellow. In IMG2 the `x` row carries the same yellow fill as the `f(x)` row. This is a whole-row fill mismatch, not a subtle tonal shift. Severity: **MAJOR** (confidence ~0.7 â IMG2 is JPEG-soft, but its header row is visibly yellow, not white).
+2. **Color of the digit â3â in the header row (~x 100â120, y 65â90, under the arrowhead).** IMG1 renders it red; IMG2 renders it black. This is most likely a deliberate callout replicating the arrow annotation, and does not change any value. Severity: **MINOR** (confidence high that it differs; low that it's an error).
+3. **Typed vs. handwritten glyphs** through the table and the hand-drawn arrow in IMG2 â inherent medium difference, no wrong character shapes detected. Per ground rules, at most MINOR; not counted as a defect.
+
+No truncation, no swapped values, no missing row/column, no delimiter issues (none present in this region), no broken strokes in IMG1.
+
+**FINAL VERDICT: FAIL** â every number and symbol is correct, but the header-row fill (white vs. yellow) is a genuine full-width fill error that compromises faithfulness of this region.

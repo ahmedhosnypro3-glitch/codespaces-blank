@@ -1,0 +1,137 @@
+GATE PREFLIGHT REPORT — 10_nn_training_and_example
+Run: 2026-10-31 (preflight worker, gateway-free lane)
+Canonical deck: videos/machine-learning/10_nn_training_and_example/10_nn_training_and_example_final.pptx
+Merge tool (read-only, never modified): videos/machine-learning/10_nn_training_and_example/merge_final_deck.py
+Scratch: _pool/gate_preflight/ (deck copy + per_slide copies + gate output) — all writes inside the namespace.
+
+=====================================================================
+1. CLI CONTRACT (read from merge_final_deck.py source, lines cited)
+=====================================================================
+Modes: placeholder / update / gate (docstring lines 5-17, dispatcher lines 235-248).
+
+WORKER FORM — update:
+  python3 merge_final_deck.py update <slide_num> <certified_slide.pptx> <out.pptx>
+  (dispatcher line 244: argv[2]=slide_num(int), argv[3]=certified pptx, argv[4]=deck)
+  Prints "Page N updated from <path>" (line 174). No explicit exit on success => exit 0.
+  WRITES: a uniquely-named temp pptx (<deck_stem>_merge_XXXXXXXX.pptx) in the deck's
+  own directory, atomically shutil.move'd over the deck (lines 103, 160-161); and it
+  REWRITES final_deck_ledger.json — resolved as Path(out).with_name('final_deck_ledger.json'),
+  i.e. NEXT TO THE DECK (namespace root, NOT _pool/) — marking page N certified and
+  setting source_md5 = md5(certified pptx) (lines 93, 167-173).
+  LOCK: YES. mode_update wraps the whole mutation in deck_lock(out) (lines 95-),
+  a fleet-global fcntl.flock(LOCK_EX) on "<deck>.lock" (lines 42-53). lock is
+  released in finally. gate and placeholder take NO lock.
+  Preconditions that can fail on this deck:
+   * requires ppt/slides/slide1.xml + ppt/slides/_rels/slide1.xml.rels in the
+     certified pptx (hardcoded, lines 113-114): a certified deck whose main slide is
+     not slide1.xml raises KeyError and the merge aborts (temp deleted, deck intact).
+   * ledger must exist next to the deck (line 98): missing ledger => FileNotFoundError.
+   * rels media remap is literal string replacement of "../media/<basename>"
+     (lines 146-149): any cert pptx whose rels use a different path form leaves a dangling
+     image rel after merge.
+   * notesSlide stripping regex only matches a single-line self-closing Relationship
+     (lines 152-153); a multi-line notesSlide rel would dangle.
+   * stale-media cleanup keys on slide{N}_* and page{N}_* prefixes only (lines 131-132).
+
+CLOSE-OUT FORM — gate:
+  python3 merge_final_deck.py gate <out.pptx> <per_slide_dir> <N>
+  (dispatcher line 245: argv[2]=deck, argv[3]=per-slide dir, argv[4]=N). NO lock, read-only.
+  Steps (mode_gate lines 177-232): wipes+recreates <per_slide_dir>/.merge_gate with
+  pages/ src/ src_png/ subdirs and its OWN LO profile at <per_slide_dir>/.merge_gate/lo;
+  renders the deck to PDF in one LO session; renders every slide_{i:03d}_recreated.pptx
+  found in per_slide_dir (missing => appended as None, no error); pdftoppm -png -r 150 of
+  both trees; then pixel-diffs page N vs source N with PIL ImageChops.difference().getbbox().
+  Prints "Mismatched pages: [list] " or "NONE — 0/N, merge is lossless" (line 229),
+  then sys.exit(1 if bad else 0) (line 232).
+  "0/N mismatched pages" (line 229) = for every N where BOTH V/pages/pg-{N:02d}.png and
+  V/src_png/s{N:03d}-1.png exist, the two renders are the same size and have ZERO differing
+  pixels => the merge is byte-lossless at the render level.
+  PRE-CONDITION / DEFECT: pages whose source pptx is ABSENT are silently skipped — they are
+  never compared and never added to `bad` (lines 201-209, 224-228). A gate report of 0/N can
+  therefore be produced while placeholder pages that have no cert pptx on disk remain
+  unverified. On this deck today 6 placeholder pages (2,3,15,18,33,34) have no
+  slide_NNN_recreated.pptx anywhere: close-out must assert "34/34 sources present"
+  itself; the gate cannot.
+  NOTE: gate does no md5 check and no lock — it never touches the canonical deck bytes.
+
+
+=====================================================================
+2. DECK STRUCTURE (canonical deck, read-only inspection)
+=====================================================================
+Canonical deck verified: videos/machine-learning/10_nn_training_and_example/
+10_nn_training_and_example_final.pptx — md5 at 07:09 = bef4cdddb73a91f8b9108b4f00224112
+(5815829 bytes). NOT modified by this preflight (a copy under _pool/gate_preflight/
+was used for the rehearsal; md5s differ only because the deck keeps growing as
+workers merge — see LEDGER CROSS-CHECK).
+
+- Zip: 249 entries; ppt/slides/slide1.xml .. ppt/slides/slide34.xml — 34 SLIDES, NO GAP.
+- ppt/slides/_rels/slideN.xml.rels — 34 rels parts, one per slide.
+- ppt/_rels/presentation.xml.rels contains 34 slide relationships.
+- [Content_Types].xml: 34 slide Overrides present and complete, plus package-level
+  Defaults for bin/jpeg/jpg/rels/xml/png. No missing or duplicate override.
+- Media: 145 ppt/media/* parts, 145 distinct basenames, zero duplicate basenames.
+- Dangling refs: 0 (every ../media/<name> referenced by any slide rels exists).
+- No leftover page{N}_* orphan media (the legacy merge_page_safe naming the script
+  also cleans is absent) — confirms prior cleanup was complete.
+- notesSlides: none (0 parts) — matches the notesSlide-rel stripping in update mode.
+- python-pptx opens the deck cleanly: 34 slides, 12191695 x 6858000 EMU
+  (= 13.3333 x 7.5 in, LAYOUT_WIDE).
+
+Page composition (why not every page has 1 image part):
+- 11 placeholder pages each have EXACTLY ONE image ref (the original frame
+  full-bleed): pages 2, 3, 15, 18, 21, 22, 28, 30, 31, 33, 34 at inspection time.
+- Certified pages have 0–18 image refs. Seven certified pages have ZERO image refs
+  (6, 13, 23, 24, 26, 29, 32) — those are pure native/shape slides (no pictures),
+  which is expected and valid, not a defect.
+- For every certified page, the deck's slide{N}.xml is BYTE-IDENTICAL to
+  slide_0NN_recreated.pptx's slide1.xml, and its media parts are byte-identical to
+  the source media after the slide{N}_ rename. The only difference observed is an
+  empty-nested zip directory entry (ppt/media/) present in the source zips but not
+  in the deck — a zip bookkeeping artifact, not content.
+
+VERDICT ON DECK STRUCTURE: 34/34 slides, all valid, all rels resolve, all CT
+overrides present. No structural gap. One image part per placeholder page holds.
+
+=====================================================================
+3. LEDGER CROSS-CHECK
+=====================================================================
+Ledger location: final_deck_ledger.json at the NAMESPACE ROOT, next to the deck —
+NOT in _pool/. This is by design in mode_update (merge_final_deck.py line 72/93:
+Path(out).with_name('final_deck_ledger.json')). The PRD's reference to
+_pool/final_deck_ledger.json does not match this deck's actual layout.
+
+Shape confirmed: {"pages":[{"page","slide_num","status","source_md5"}]} exactly as
+specified. page == slide_num for all 34 rows, status ∈ {placeholder, certified},
+source_md5 is a 32-char md5 hex.
+
+THE LEDGER IS MOVING — workers are still merging pages concurrently. Counts observed:
+  07:09 : 23 certified / 11 placeholder
+  07:18 : 24 certified / 10 placeholder  (page 21 flipped; deck md5 changed)
+  08:53 : 25 certified /  9 placeholder  (page 22 flipped)
+Any single number below is a snapshot, not a final state. All figures were
+recomputed immediately before writing each section.
+
+Certified-page integrity (checked independently per page):
+- Every certified page has its recreated_pptx/slide_0NN_recreated.pptx present.
+- For EVERY certified page, the ledger's source_md5 == md5 of that pptx.
+  => ZERO md5 mismatches among certified pages. No certified page holds stale bytes.
+- For every certified page, the deck's slide{N}.xml is byte-identical to that
+  pptx's slide1.xml and the deck media parts match the source media bytes.
+
+Placeholder-page integrity:
+- For placeholder pages, the deck's single image part md5 == the ledger's
+  source_md5 for 10 of 11 placeholder pages (2,3,15,18,22,28,30,31,33,34 verified True).
+  This is the ORIGINAL FRAME md5 (recorded at placeholder init), so the md5 check for
+  placeholder rows proves the frame is the approved original, not a stale cert render.
+- Page 21 is the interesting case: its ledger row recorded the ORIGINAL frame md5
+  while the deck file had already been replaced with certified content, i.e. the row
+  was briefly stale/lying mid-merge. It self-healed when the ledger was rewritten.
+  => A ledger row is only trustworthy when read AFTER the deck write settles; the
+  07:09-vs-07:18 md5 flip on the canonical deck is the same phenomenon. Nothing was
+  corrupted, but any tool reading the ledger while merges run must expect churn.
+
+Pages with a source pptx on disk but ledger=placeholder: at 07:22 pages 21,22,28,30,31
+(these are precisely the pages the GATE REHEARSAL below flags as mismatched today —
+the deck still holds their original frames). Pages 2,3,15,18,33,34 have NO
+recreated_pptx/slide_0NN_recreated.pptx anywhere (only in recreated_pptx/build/),
+which is why the gate could only compare 28 of 34 pages.

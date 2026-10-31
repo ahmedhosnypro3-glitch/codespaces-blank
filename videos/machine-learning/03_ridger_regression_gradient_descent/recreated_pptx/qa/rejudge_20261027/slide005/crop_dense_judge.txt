@@ -1,32 +1,27 @@
-## Settled first (per founder rules)
+## Comparison notes (cropârelative coordinates, 640Ã432 crops)
 
-- Zoomed cropâpair of the same slideâ005 region at matched effective scale â accepted.
-- House template chrome (white/cream canvas, gray E9E9E7 bands, darkâred C00000 rules, yellow badge) â **not** counted.
-- Typed vs handwritten ink â **not** counted beyond MINOR.
-- Equation 2D formatting (stacked Â½ with bar, raised T exponents) â the recreation's stacked fraction and superscript T match the original's structure â **not** a discrepancy.
-- JPEG softness in IMG2 â **not** counted.
+**Content inventory check (both crops):** two repeated ridgeâregression loss lines (`Loss = Â½[YáµY + (XW)áµ(XWâ¦]`), then the pink "condition" band with a derivativeâofâloss fraction `â¦/âW = 0` followed by "Get Best **W** that minimâ¦". Numerator/denominator order, the Â½ stacked fraction, the two superscript `T`s, the `[`/`(`/`)` delimiters and the red bold `W` all appear structurally correct in IMG1. No wrong digits, swapped values, or broken stacked fractions were found.
 
-(One chrome observation deliberately excluded: the pink callout's top edge reads as a thin red rule in IMG1 vs. a blueâgray rule in IMG2, but border/chrome treatment is settled by rule (b), so it is not scored.)
+## Discrepancies
 
-## Discrepancies found
+1. **MAJOR â Leading `â` of the derivative condition appears to be missing (left edge of the pink band, IMG1 xâ0â100, yâ275â360; IMG2 xâ0â20, yâ275â310).**
+   - IMG2 shows a partial `â` glyph at the extreme left of the frame followed by `Loss` (the `L` starts âx=28) over `âW`.
+   - IMG1 shows `Loss` with the `L` starting âx=3, and the fraction bar under it *terminating at the crop edge* (xâ0â95) rather than being clipped by it. So the recreation reads **âLoss / âW = 0â**, not **ââLoss / âW = 0â** â a mathematically different (and wrong) condition.
+   - Confidence: **~0.7**. Alternative explanation: the IMG1 crop window is shifted ~20â25 px left of the IMG2 window (the `= 0` and âGet Best Wâ¦â text *do* align within ~5 px, but the left numerator does not), in which case the `â` may be outside the crop rather than absent. Either way the pair as presented does not show a matching symbol at a matching position; a reâcrop of the left edge is needed to confirm.
 
-| # | Location (cropârelative) | Finding | Severity | Confidence |
-|---|---|---|---|---|
-| D1 | IMG1, both equation lines, right edge (xâ525â640, yâ45â95 and yâ165â215) | **Closing delimiter is absent / content overflows the region.** IMG2 shows the final term fully closed â "(XW)" with its ")" at xâ505â620 (bracket/paren closing the whole expression). In IMG1 the same final group is rendered as "(XW" and is cut by the right crop edge at x=640; no closing ")" and no closing "]" appears anywhere in the region. The equation therefore does not terminate inside the compared area on either line. | MAJOR | High (observation); Medium (root cause = oversized type, see D3) |
-| D2 | IMG1, pink panel, fraction numerator (xâ0â90, yâ268â312) | **Leading â missing from the numerator.** Original numerator reads "âLoss" (the â itself clipped by the original crop edge at x=0, but "Loss" begins at xâ10). In the recreation the numerator is just "Loss", starting flush at xâ0â2, i.e. ~10â15 px left of the original's "Loss" start, so no â glyph is visible at all, while the denominator correctly shows "âW" (xâ5â60). | MAJOR | Medium (a ~12 px leftward shift of the fraction could push a present â offâcrop; note that the rightâhand pink text "Get Best W that minim" aligns to within ~3 px in both images, which argues for a real omission rather than a global crop offset) |
-| D3 | IMG1 vs IMG2, both equation lines (whole upper region) | **Type size / letter spacing inflated.** Original "Loss" word â100 px wide (xâ18â118) with "=" at xâ120â140 and the Â½ at xâ145â175; recreation "Loss" â112 px (xâ18â130), "=" xâ140â172, Â½ xâ190â225 â i.e. the recreation's equation is ~15â25 % wider/larger at the same matched scale. This is what pushes the closing delimiter out of the region (D1) and changes internal column positions. | MINOR (cause of D1) | High |
-| D4 | IMG1 vs IMG2, all glyphs in region | **Typeface mismatch.** Original uses a bold/italic serif face (Timesâlike) for "Loss", "Y", "T", "X", "W" and a serif "â"; recreation uses a light italic sansâserif (Calibri/Arialâlike) for "Loss" and a slanted sans for Y, T, X, W. Glyph silhouettes and weights differ noticeably (e.g. the red W: heavy serif in IMG2 vs. plain sans in IMG1). | MINOR | High |
-| D5 | Pink panel geometry (IMG1 yâ255â385 vs IMG2 yâ246â352) | **Panel height and vertical position differ.** Recreation's pink callout is ~125 px tall with its lower red rule at yâ383; original is ~105 px tall with the red rule at yâ352 â the recreation's box is ~20 px taller and starts ~9 px lower, so the lower gray band and cream margin beneath sit ~25â30 px lower. | MINOR | MediumâHigh |
-| D6 | Fraction bar and derivative block, xâ0â165 | Bar lengths/spacing differ slightly (recreation numerator bar spans xâ0â88, original xâ0â90); "= 0" placement is nearâidentical (xâ100â160 both). No numeric/symbol error, only metric drift consistent with D3. | MINOR | High |
+2. **MINOR (high confidence) â Matrix underlines dropped.** In IMG2 every matrix variable is underlined: both `Y`s in `YáµY` (âx=195â275, y=70â95), `X` and `W` in the first `(XW)` (âx=390â480), `X` and `W` in the second `(XW)` (âx=525â610), and the `W` in `âW` (âx=30â75, y=320â350). IMG1 has **no underlines anywhere** on `Y`, `X`, `W`. This removes the conventional âunderline = matrixâ cue (and slightly downgrades the emphasis on `W` in the condition band). Content is still readable, so MINOR, but it is a systematic notation change across the region.
 
-### Verified as matching (no defect)
-- Both equation lines are duplicated identically in each image (same Â½[YáµY + (XW)áµ(XWâ¦] structure), so no missing/extra row.
-- Numerator/denominator order of Â½ is correct in both; the T exponents are correctly raised and attached to the preceding Y and to the first (XW); superscripts are not truncated.
-- Red **W** in "Get Best W that minimâ¦" present, bold, correct red in both; "Get Best", "that minim" wording identical.
-- Denominator "âW" correct in both; "= 0" correct in both.
-- Cream background, gray band, pink fill, and red rules are tonally close (no material fill discrepancy).
+3. **MINOR (high confidence) â Typeface change.** Original (IMG2) is an upright/serif Timesâstyle math face; the recreation (IMG1) uses a sansâserif oblique face for `Loss`, `Y`, `X`, `W`, `â`, with a visibly different `T` superscript shape and a wider, lighterâweight bracket `[` (IMG1 âx=230â245 vs IMG2 âx=172â190). Style, not content.
 
-## Bottom line
-The equation's **terminating delimiter is missing inside the compared region on both lines** (D1), and the derivative numerator **lacks the leading â** (D2). These are exactly the class of defect the mandate calls MAJORâtoâBLOCKER, while the remaining differences (type scale, serif vs sans, panel metrics) are MINOR.
+4. **MINOR (high confidence) â Operator spacing / horizontal metrics.** IMG1 renders `Loss = 1/2 [ YáµY + (XW)áµ(XW` with wide spaces around `=` and before `[` (fraction bar centered âx=207); IMG2 is tight: `Loss=1/2[YáµY+(XW)áµ(XW)]` (fraction bar centered âx=150). This also pushes the trailing `)]` of line 1 (visible in IMG2 at âx=575â615) past IMG1âs right edge. Vertical placement of the Â½ fractions and of the two repeated lines matches within a few pixels.
 
-FINAL VERDICT: FAIL
+5. **MINOR (moderate confidence) â Small fill/weight differences.** Pink band: IMG1 â very light salmon (F6C8C8) vs IMG2 slightly deeper/duller (F2BBBB); gray separator strip and cream bottom strip are close but not identical in value. Red `W` and the red baseline rule are consistent. IMG2 softness is capture artifact, per ground rule.
+
+6. **INFO (not scored as a defect) â Rightâedge truncation of both equation lines in IMG1.** Both lines end midâglyph after `(XW` (x=640); in IMG2 the closing `)` and `]` are present (line 1) and the `)` is present (line 2). Because the `W` itself is clipped at IMG1âs edge, this is a crop/scaleâwindow artifact, **not** evidence of a missing closing delimiter. A reâcrop should confirm the recreationâs trailing `)]`.
+
+**Verified as correct (no defect):** stacked Â½ with horizontal bar in all three fractions; superscript `T` after the first `Y` and after `(XW)`; the `[` bracket position and the `( )` geometry on the visible lines; duplicate second loss line; red bold `W`; the `= 0` alignment to the fraction bar; âGet Best W that minimâ¦â wording and the vertical `=0` placement. Per ground rules, the 2D typeset equation formatting and the houseâtemplate chrome are not discrepancies.
+
+## Verdict
+The only substantive question is item 1: as presented, the recreationâs condition band reads `Loss/âW = 0` while the original reads `âLoss/âW = 0`, a missing mathematical symbol in a headline formula; everything else is cosmetic (underlines, typeface, spacing, tint). A matchedâregion reâcrop of the pink bandâs left edge must show the `â` to clear this.
+
+**FINAL VERDICT: FAIL** (driven by the apparent missing `â` in `âLoss/âW = 0`, MAJOR, confidence â0.7; if a reâcrop confirms the `â` is present and merely clipped, the region would flip to PASS with only MINOR items 2â5 outstanding).

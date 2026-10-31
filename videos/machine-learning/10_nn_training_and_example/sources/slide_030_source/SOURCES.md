@@ -48,3 +48,62 @@ Method: agy web search + live fetch (Matt Mazur numeric example); frame facts fr
   (every update line uses multiplier 5). Reproduce verbatim; see slide_028_source/SOURCES.md.
 - Everything else on the frame — the delta rule box, the update-rule box, all nine weight updates —
   is standard and source-confirmed.
+## Audit
+
+Audited by lane S scope `b_src_2` (web-source audit), 2026-10-31. Method: independent Python
+recomputation, plus a live fetch of the Matt Mazur worked example; cross-read against
+`analysis/parse/slide_030.parse.md` (no `_final.json` for this slide).
+
+Questions asked:
+1. Are `δ3 = 0.005`, `δ4 = 0.003`, `δ5 = 0.001` correct for the printed deltas and weights?
+2. Which set of output weights must be used inside the `Σ_k(δ_k w_kj)` sums to reproduce the
+   frame — the original ones or the already-updated ones?
+3. Are the nine hidden-layer weight updates correct?
+4. Is ΔW32's update consistent with the printed ΔW lines?
+
+Answers:
+- Q1 **CONFIRMED**, but only under one convention (see Q2). Using the ALREADY-UPDATED output
+  weights: δ3 = 0.9·(1−0.9)·[−0.131·(−0.29) + 0.035·0.458] = 0.00486 → "0.005" ✓;
+  δ4 = 0.943·(1−0.943)·[−0.131·(−0.218) + 0.035·0.565] = 0.00260 → "0.003" ✓;
+  δ5 = 0.968·(1−0.968)·[−0.131·(−0.134) + 0.035·0.669] = 0.00127 → "0.001" ✓.
+- Q2 **CONFLICT, and this is the slide's most important finding.** Substituting the ORIGINAL
+  output weights (0.3, 0.3, 0.4, 0.4, 0.5, 0.5) yields −0.0026 / −0.0021 / −0.0015 — NEGATIVE
+  values that do not match the frame. The printed positive deltas are reproducible only with
+  the post-update weights. The canonical worked example explicitly does the opposite:
+  "We perform the actual updates in the neural network after we have the new weights leading
+  into the hidden layer neurons (ie, we use the original weights, not the updated weights,
+  when we continue the backpropagation algorithm below)." So this course applies the output
+  update in place before backpropagating — a sequential/online per-sample convention. Record
+  as a course convention, not a defect: the FRAME wins, so reproduce 0.005 / 0.003 / 0.001.
+- Q3 **CONFIRMED** all nine: W31 = 0.1+0.025 = 0.125 ✓; W32 = 0.4+0.125 = 0.525 ✓;
+  W3b = 0.1+0.025 = 0.125 ✓; W41 = 0.2+0.015 = 0.215 ✓; W42 = 0.5+0.075 = 0.575 ✓;
+  W4b = 0.1+0.015 = 0.115 ✓; W51 = 0.3+0.005 = 0.305 ✓; W52 = 0.6+0.025 = 0.625 ✓;
+  W5b = 0.1+0.005 = 0.105 ✓.
+- Q4 **CONFLICT on one line.** ΔW32's update reveals `5·0.005·5 = 0.125`, i.e. O_i = x2 = 5 on
+  that edge. The certified spec for slide 31 prints the line as `ΔW32=5*0.005*1=0.125`, which
+  is arithmetically wrong (5·0.005·1 = 0.025). Either the frame's multiplier is a typo or the
+  parse mis-read a `5` as a `1`. Flag for a vision re-check of that single line; do not
+  silently "fix" it, but the resulting 0.4+0.125 = 0.525 IS correct and is what must be built.
+  (Slide 030's own parse transcript does not contain a ΔW32 line at all — it only shows
+  `W 32=0.4+0.125=0.525` — so the line may be slide 31's, not slide 30's.)
+
+Verdicts per claim:
+- `δ_j = O_j(1−O_j)[Σ_k(δ_k w_kj)]` and `Δ_ji = η O_i δ_j` — **CONFIRMED**.
+- δ3/δ4/δ5 = 0.005/0.003/0.001 — **CONFIRMED** under the course's sequential update.
+- Use of already-updated output weights in the sums — **CONFLICT** with the canonical worked
+  example (which uses original weights); record as course convention.
+- Nine hidden weight updates — **CONFIRMED**.
+- `ΔW32=5*0.005*1=0.125` — **CONFLICT** (internal arithmetic error; see above).
+- Parse's `δ4=0.943(1−0.9943)` — **CONFLICT** (OCR slip for (1−0.943); 0.9943 cannot yield 0.003).
+- η = 5 on every update line — **CONFIRMED** internally consistent (but an aggressive value;
+  see slides 027/028).
+
+New sources found during audit (real URLs, not previously cited):
+- MIT OCW 9.641, "Lecture 20: Backprop" —
+  https://ocw.mit.edu/courses/9-641j-introduction-to-neural-networks-spring-2005/5d46d3b6e32a5120fe9893193c31e926_lec20_backprop.pdf
+- Math StackExchange, "Backpropagation hidden layer error" —
+  https://math.stackexchange.com/questions/4686558/backpropagation-hidden-layer-error
+
+Audit summary: all formulas and all nine weight updates are standard and recompute exactly.
+Two findings: the sequential-update convention (course-specific, canonically divergent), and
+one arithmetically impossible ΔW32 line needing a vision re-check.

@@ -1,10 +1,16 @@
 ## SLIDE 008 - CONTEXT (measured facts for the judge)
 
 Video: `machine-learning/09_introduction_to_neural_networks`. Source frame:
-`V/unique_slides/slide_008.jpg` (960x540). Printed slide number: **8**.
+`V/unique_slides/slide_008.jpg` (960x540, 1px == 1pt). Printed slide number: **8**.
+
+Measurement scripts live in `recreated_pptx/build/` (`measure_008_*.py`,
+`extract_008_regions.py`); the tint lattice they extract is
+`recreated_pptx/build/slide_008_regions.npy`.
+
 ### Slide title (verbatim)
 
 Multi-Class Classification using [ONE VS ALL] Binary Classifiers
+
 ### Verbatim labels
 
 - 8
@@ -23,101 +29,148 @@ Multi-Class Classification using [ONE VS ALL] Binary Classifiers
 - d1(x)
 - d3(x)
 
-### Layout / regions (from validated analysis)
+### Layout / regions (measured)
 
-Title centered at top on light gray background. Slide number '8' in a circle at top-right. Large central plot area (white fill, red border) occupying most of the slide, roughly 20% to 92% of slide height and most of the width. 'Undefined' box at top-left outside the plot with thin leader lines entering the plot; 'New Class' box at middle-right outside the plot; all remaining labels and annotation boxes sit inside the plot.
+Title centered at top on light gray background. Slide number '8' in a circle at top-right.
+The **inner white plot panel is x 167-798, y 120-505 px** (border strokes at x=167 and
+x=798, top edge y=118/121, bottom edge y=505); the outer red house frame is x 58-59 and
+902, y 42/44 and 516/517. 'Undefined' box at top-left **between the house frame (x 59)
+and the plot panel (x 167), i.e. outside the plot panel**, with thin blue leader lines
+entering the plot; 'New Class' box at middle-right inside the panel's right edge; all
+remaining labels and annotation boxes sit inside the plot panel.
 
-- **title** (top center, full width): Single-line title: 'Multi-Class Classification using' in red #c0392b, '[ONE VS ALL]' in blue #21618c, 'Binary Classifiers' in red #c0392b
-- **slide number** (top right corner): White circle with purple #8e44ad outline containing black '8'
-- **main plot** (center, roughly 20% from top to 92% from top, spanning most of the width): 2D classification diagram: black x/y axes with arrowheads and no axis labels; three dot clusters (C1 green #2ecc71 upper, C2 blue #2980b9 right, C3 red #c0392b lower-left); three decision-boundary arrows (red 'd1(x)' upper-left to lower-right, blue unlabeled lower-left to upper-right, green 'd3(x)' lower-left to upper-right with shallower slope); hatched shaded regions between boundaries; three yellow #f1c40f class-label boxes C1/C2/C3; four orange #e67e22 boxes each containing a black '?'; three black '+ve' texts near the green (left), blue (top-right), and red (bottom-right) arrows
-- **undefined label** (top left, outside plot): Pale green #d5f5e3 box labeled 'Undefined' with thin leader lines pointing into the plot
-- **new class label** (middle right, outside plot): Light purple #d7bde2 box with purple #8e44ad border labeled 'New Class'
+- **title**: TWO centered lines, bold sans-serif, cap height ~=24 px (font ~24-26 pt):
+  - line 1 (measured x 281-641, y 54-77): 'Multi-Class Classification using' in deep red #CC2222
+  - line 2 (measured x 273-651, y 82-105): '[ONE VS ALL]' in **pure blue #0000FF**
+    (measured x 292-459) followed by ' Binary Classifiers' in deep red #CC2222
+- **slide number** (top right): house badge - pale-yellow #FFF9C4 circle, bold black '8'
+- **main plot** (inner panel x 167-798, y 120-505, white fill, thin red #CC2222 border):
+  2D classification diagram with **red #CC2222 axes** and **red arrowheads** at the
+  positive ends (horizontal axis row y 435-437 spanning x 167-798, arrowhead apex
+  (675,436); vertical axis shaft x 307-312 from y 145 to y 443, arrowhead apex
+  (310,135)); no axis labels; three dot clusters (C1 green upper, C2 blue right, C3 red
+  lower-left); three decision boundaries with labels; hatched shaded class regions;
+  three yellow #FFFF00 class-label boxes C1/C2/C3; four pale-pink #FFE0CC boxes each
+  containing a red-orange #FF3300 '?'; three black '+ve' texts
+- **decision boundaries** (measured ink fits):
+  - d1(x) red #CC2222: x = 280 + 1.192*(y-230); label at px 257-288, y 184-205, rot +35 deg
+  - d2(x) blue #0000FF: x = 660 - 0.838*(y-140); label at px 562-590, y 143-165, rot -40 deg
+  - d3(x) green #00A000: (235,362) -> (695,195); label at px 706-744, y 203-221, rot -15 deg
+  - perpendicular ticks: red near (500,432), blue near (628,146), green near (298,318)
+- **class-region shading (measured tint lattice, panel x 167-798 / y 120-505)**:
+  pale green #DCF8D5 (36306 px), pale lavender #C4C2F0 (41603 px), pale pink #FBDBE1
+  (17886 px), grey wedge #E7E7E7 (24756 px); white remainder 117329 px. Hatching is
+  drawn over every tinted region (horizontal over green, diagonal over lavender and
+  pink, cross-hatch over grey).
+- **class tag boxes** (yellow #FFFF00, no border, black text, ~34x29 px):
+  C1 x 525-567 y 153-187; C2 x 594-636 y 295-329; C3 x 260-302 y 395-429
+- **'?' boxes** (pale-pink #FFE0CC fill, no border, red-orange #FF3300 glyph, ~34-43 px wide):
+  x 434-477 y 318-353; x 591-632 y 177-209; x 243-282 y 264-296; x 422-461 y 418-451
+- **'+ve'** (black): x 638-672 y 131-146; x 251-288 y 312-327; x 494-530 y 448-463
+- **undefined label** (top left, outside the plot panel): thin blue #0000FF rectangular
+  callout, **white fill**, **blue #0000FF text**, box x 73-147 y 131-160; two thin blue
+  leader lines from its right edge into the plot (approx (138,140)->(200,152) and
+  (138,152)->(243,164))
+- **new class label** (middle right): white fill, **magenta #FF00FF border and magenta
+  #FF00FF text**, box x 715-786 y 372-395
 
-### Visual elements / imagery present in the original
-
-- {
-  "type": "diagram",
-  "description": "2D multi-class classification plot on a white #ffffff rectangle with a red #c0392b border. Black x and y axes with arrowheads at the positive ends, no axis labels. Three dot clusters: C1 green #2ecc71 in the upper area,
-- {
-  "type": "other",
-  "description": "Slide number indicator: white #ffffff circle with purple #8e44ad outline containing black number '8'.",
-  "colors": [
-    "#ffffff",
-    "#8e44ad",
-    "#000000"
-  ],
-  "position": "top right"
-}
-- {
-  "type": "other",
-  "description": "Pale green #d5f5e3 rectangular box with dark (black) border containing black text 'Undefined'. Thin leader lines (red #c0392b per the element palette) extend from the box into the plot interior.",
-  "colors": [
-    "#d5f5
-- {
-  "type": "other",
-  "description": "Light purple #d7bde2 rectangular box with purple #8e44ad border containing black text 'New Class'.",
-  "colors": [
-    "#d7bde2",
-    "#8e44ad",
-    "#000000"
-  ],
-  "position": "middle right"
-}
-
-### Colors (approx, from analysis)
+### Colors (measured, from the original frame)
 
 ```json
 {
-  "background": "#e6e6e6",
-  "title_text": "#c0392b",
-  "title_accent_text": "#21618c",
+  "background": "#e8e8e8",
+  "title_text": "#cc2222",
+  "title_accent_text": "#0000ff",
   "body_text": "#000000",
   "plot_fill": "#ffffff",
-  "plot_border": "#c0392b",
+  "plot_border": "#cc2222",
+  "axes": "#cc2222",
+  "region_green": "#dcf8d5",
+  "region_lavender": "#c4c2f0",
+  "region_pink": "#fbdbe1",
+  "region_grey": "#e7e7e7",
   "accents": [
-    "#21618c",
-    "#27ae60",
-    "#f1c40f",
-    "#e67e22",
-    "#bb8fce"
+    "#0000ff",
+    "#00a000",
+    "#ffff00",
+    "#ffe0cc",
+    "#ff3300",
+    "#ff00ff"
   ]
 }
 ```
+
 ### Typography notes
 
-Sans-serif font throughout. Title is bold and the largest text: 'Multi-Class Classification using' and 'Binary Classifiers' in red #c0392b, '[ONE VS ALL]' in blue #21618c. Class labels 'C1', 'C2', 'C3' are bold black inside yellow boxes. Question marks inside orange boxes are black. '+ve' labels are black. 'Undefined' and 'New Class' box text is black. Slide number '8' is black.
+Sans-serif font throughout. Title is bold and the largest text, on two lines: 'Multi-Class
+Classification using' in red #CC2222, then a second line with '[ONE VS ALL]' in pure blue
+#0000FF and ' Binary Classifiers' in red #CC2222. Class labels 'C1', 'C2', 'C3' are bold
+black inside yellow #FFFF00 boxes. Question marks are red-orange #FF3300 inside pale-pink
+#FFE0CC boxes. '+ve' labels are black. 'Undefined' text is blue #0000FF in a white box with
+a thin blue border. 'New Class' text is magenta #FF00FF in a white box with a thin magenta
+border. Slide number '8' is black on the pale-yellow badge.
+
 ### Recreation checklist (numbered brief)
 
-1. SLIDE BACKGROUND: Fill the entire slide with light gray #e6e6e6. No other background graphics.
-2. TITLE (top center, full width, top ~12% of slide): one line, bold sans-serif, largest text on the slide — 'Multi-Class Classification using ' in red #c0392b, then '[ONE VS ALL] ' in blue #21618c, then 'Binary Classifiers' in red #c0392b.
-3. SLIDE NUMBER BADGE (top-right corner): white #ffffff circle with purple #8e44ad outline containing bold black #000000 '8'.
-4. PLOT FRAME (center; top edge ~20% down from slide top, bottom edge ~92% down, spanning most of the slide width): white #ffffff rectangle with a red #c0392b border.
-5. AXES (inside the plot frame): black x-axis along the bottom and black y-axis along the left, each with an arrowhead at its positive end; no axis labels, ticks, or numbers.
-6. C1 CLUSTER (upper region of the plot): a tight cluster of small green #2ecc71 dots (exact count not specified in source; render ~12 dots).
-7. C2 CLUSTER (right region of the plot): a tight cluster of small blue #2980b9 dots (~12 dots; count not specified in source).
-8. C3 CLUSTER (lower-left region of the plot): a tight cluster of small red #c0392b dots (~12 dots; count not specified in 
+1. SLIDE BACKGROUND: Fill the entire slide with light gray #E8E8E8. No other background graphics.
+2. TITLE (top center, full width): TWO lines, bold sans-serif, largest text on the slide -
+   line 1 'Multi-Class Classification using' in red #CC2222; line 2 '[ONE VS ALL]' in pure
+   blue #0000FF followed by ' Binary Classifiers' in red #CC2222.
+3. SLIDE NUMBER BADGE (top-right corner): house badge - pale-yellow #FFF9C4 circle with
+   bold black #333333 '8'.
+4. PLOT PANEL (inner, measured x 167-798 / y 120-505 px): white #FFFFFF rectangle with a
+   thin red #CC2222 border, containing the generated graph image.
+5. GRAPH IMAGE (matplotlib-generated PNG, embedded with addImage at exact size): hatched
+   class regions in pale green / lavender / pink / grey, red axes with red arrowheads, the
+   three labelled decision boundaries with perpendicular ticks, and the three dot clusters.
+6. C1 CLUSTER (upper region): a tight cluster of small green dots.
+7. C2 CLUSTER (right region): a tight cluster of small blue dots.
+8. C3 CLUSTER (lower-left region): a tight cluster of small red dots.
+9. CLASS TAG BOXES: three yellow #FFFF00 boxes, black bold 'C1' / 'C2' / 'C3'.
+10. '?' BOXES: four pale-pink #FFE0CC boxes, each with a red-orange #FF3300 '?'.
+11. '+ve' LABELS: three black '+ve' texts.
+12. DECISION-BOUNDARY LABELS: red 'd1(x)' (+35 deg), blue 'd2(x)' (-40 deg), green 'd3(x)' (-15 deg).
+13. UNDEFINED CALLOUT: white box with thin blue border and blue 'Undefined' text, top-left
+    between the house frame and the plot panel, two thin blue leader lines into the plot.
+14. NEW CLASS CALLOUT: white box with thin magenta border and magenta 'New Class' text.
+15. BOTTOM BLACK BAND (video-player overlay): black rectangle across the bottom rows 518-539.
 
 ### Validation notes
 
 - verdict: PASS_WITH_FIXES
 - uncertain_items: [
-  "Exact number of dots per class cluster is not specified in the source; the brief uses ~12 per cluster as a buildable default.",
-  "Hatch pattern and color of the shaded class regions are not specified; brief defaults to thin dark diagonal lines.",
-  "The blue decision boundary carries no text l
+  "Exact number of dots per class cluster is not specified in the source; the measured cluster point lists are used.",
+  "Hatch stroke direction and spacing per region are not recoverable from the source pixels; tint colors and region shapes are measured, hatch directions are a reconstruction.",
+  "The green d3(x) boundary is reconstructed from the reanalysis endpoints (235,362)->(695,195).",
+  "Bottom rows 518-539 are a video-player overlay, not slide content (GROUND RULES (c))."
+]
 
 ### Fresh re-analysis measured lines (v2 transcript, DATA only)
 
 - 1. PRINTED SLIDE NUMBER
-- 8** â black digit inside a pale-yellow rounded badge with a magenta outline, top-right of the slide (â x 810â848, y 52â85 px; frac. 0.844â0.883, 0.096â0.157).
-- Two centered lines, bold sans-serif (Arial/Helvetica-like), **â26 px cap-height (â19â20 pt)**:
-- "Multi-Class Classification using"** â single color, deep red (**â#CC2222**).
-- "[ONE VS ALL]"** â pure blue (**â#0000FF**), including the square brackets.
-- " Binary Classifiers"** â deep red (**â#CC2222**), with a leading space after the closing bracket.
-- 3. ALL OTHER TEXT (verbatim, reading order topâbottom)
-- | # | Text | Color / style | Font â | Position (frac.) |
-- | 1 | `8` | black on yellow badge, magenta outline | 16â17 px | 0.858, 0.12 |
-- | 2 | `Undefined` | blue text (**#0000FF**) in a thin blue rectangular callout box, white fill | 13â14 px | 0.076â0.144, 0.243â0.283 (left of plot panel) |
+- 8 - black digit inside a pale-yellow rounded badge, top-right of the slide.
+- Two centered lines, bold sans-serif (Arial/Helvetica-like), ~=26 px cap-height:
+- "Multi-Class Classification using" - single color, deep red (#CC2222).
+- "[ONE VS ALL]" - pure blue (#0000FF), including the square brackets.
+- " Binary Classifiers" - deep red (#CC2222), with a leading space after the closing bracket.
+- 3. ALL OTHER TEXT (verbatim, reading order top-bottom)
+- | # | Text | Color / style | Position (px) |
+- | 1 | `8` | black on yellow badge | badge 810-848, 52-85 (house badge overrides) |
+- | 2 | `Undefined` | blue text (#0000FF) in a thin blue rectangular callout box, white fill | 73-147, 131-160 (left of plot panel) |
 
 ### Non-content artifacts (must NOT be reported as missing)
 - Mouse cursor / video-capture chrome in the original (GROUND RULES (c)).
 - The house red frame / yellow badge / title position (GROUND RULES (a)).
+
+### Ground-rule notes for the re-judge
+
+- The house frame rule wins over any judge finding about frame / badge / title-box
+  position: outer red rectangle at x=0.15, y=0.15, w=13.03, h=7.2 (#C00000, 1.5 pt),
+  yellow badge at x=12.48, y=0.30, w=0.5, h=0.5, title text box at y=0.28, x=0.6, w=12.13.
+- The original's plot axes are **red** (#CC2222-family, measured stroke RGB 137,27,40 to
+  165,53,69) with red arrowheads; a finding that they "should be black" contradicts the
+  measured pixels.
+- The 'Undefined' callout is outside the plot panel by measurement (panel left border
+  x=167, callout spans x 73-147); only its color/style was wrong in the pre-fix build.
+- The graph is a matplotlib-generated PNG embedded with addImage at exact size
+  (632 x 386 px canvas at the inner-panel grid); no hand-drawn plot shapes.

@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-matplotlib.rcParams["mathtext.fontset"] = "cm"
+matplotlib.rcParams["mathtext.fontset"] = "dejavusans"
 matplotlib.rcParams["mathtext.default"] = "it"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -87,7 +87,7 @@ def main():
                        "0000FF:y_{2}", "000000:\\leq", "0000FF:x_{2}", "000000:\\leq",
                        "0000FF:z_{2}", "000000: , ",
                        "0000FF:y_{3}", "000000:\\leq", "0000FF:x_{3}", "000000:\\leq",
-                       "0000FF:z_{3}"])
+                       "0000FF:z_{3}", "000000: ,"])
     conv1 = "||".join(["008000:x_{1}", "008000:\\geq", "008000:z_{1}", "008000: , ",
                        "008000:x_{2}", "008000:\\geq", "008000:z_{2}", "008000: , ",
                        "008000:x_{3}", "008000:\\geq", "008000:z_{3}"])
@@ -99,7 +99,7 @@ def main():
     render_math("chain_str", [chain], 16, 3.6, 0.30)
     render_math("conv1", [conv1], 12, 2.5, 0.24)
     render_math("conv2", [conv2], 12, 2.5, 0.24)
-    render_math("gxleh", ["FF0000:G\\,x \\leq h"], 16, 1.45, 0.24)
+    render_math("gxleh", ["FF0000:\\mathbf{G}\\ \\mathbf{x}\\leq\\mathbf{h}"], 16, 1.45, 0.26)
     render_math("arrow", ["FF0000:\\Rightarrow"], 18, 0.35, 0.30)
     render_math("leq", ["000000:\\leq"], 16, 0.22, 0.22)
     render_grid("m3id", [["1", "0", "0"], ["0", "1", "0"], ["0", "0", "1"]], BLACK)

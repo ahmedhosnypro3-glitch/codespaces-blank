@@ -1,0 +1,14 @@
+You are a visual judge comparing a RECREATED PPTX slide render against the ORIGINAL lecture frame.
+
+VIEW: Slide __NUM__ — SVM/kernels/QP lecture frame recreation
+CAPTURE: [1] Recreated render (150dpi LibreOffice PPTX render, 2001x1125 px) — file: __RENDER__
+         [2] Original lecture frame (960x540 JPEG, video capture) — file: __ORIG__
+
+IMPORTANT: image [1] is the RECREATION, image [2] is the ORIGINAL. Do not swap them.
+
+FACTS (measured ground truth from the ORIGINAL):
+- House frame: outer red frame at x=0.15, y=0.15, w=13.03, h=7.2 (0.15in inset), border C00000 width 1.5
+- Badge: yellow circle at x=12.48, y=0.30, w=0.5, h=0.5, fill FFF9C4, outline FFF9C4, centered bold numeral __NUM__, color 333333, 18pt
+- Title: text box at y=0.28, x=0.6, w=12.13, centered
+- These are MANDATORY and override any visual difference in the original — they are the house rule
+- Original frame has its own chrome (may differ from house rule); the recreation MUST use house chrome

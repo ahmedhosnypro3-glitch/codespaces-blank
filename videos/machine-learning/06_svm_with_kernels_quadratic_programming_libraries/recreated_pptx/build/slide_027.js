@@ -43,9 +43,9 @@ const imgL = (n, x0, y0, x1, y1) => {
   s.addImage({ path: EQ + n + ".png", x: b.x, y: b.y + (b.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
 };
 
-// inner light-blue rounded content frame, capped inside the house red frame
+// inner light-blue content frame (sharp corners), capped inside the house red frame
 const f = bx(0.028, 0.185, 0.992, 0.988);
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+s.addShape(pres.shapes.RECTANGLE, {
   x: f.x, y: f.y, w: Math.min(f.w, 13.18 - f.x), h: Math.min(f.h, 7.35 - f.y),
   fill: { type: "none" }, line: { color: "7BA7D9", width: 1 },
 });
@@ -64,6 +64,12 @@ for (const [lbl, x0, x1, imgn] of [["a", 0.060, 0.130, "eq_veca"], ["b", 0.138, 
   s.addImage({ path: EQ + imgn + ".png", x: b.x + 0.36, y: b.y + (b.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
 }
 
+// gray highlight panel behind the Remember line
+const rp = bx(0.295, 0.207, 0.810, 0.257);
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+  x: rp.x, y: rp.y, w: rp.w, h: rp.h,
+  fill: { color: "E7E6E6" }, line: { type: "none" },
+});
 imgL("eq_remember", 0.300, 0.212, 0.805, 0.252);
 imgL("eq_label", 0.095, 0.338, 0.335, 0.368);
 
@@ -78,8 +84,10 @@ for (const [x0, y0, x1, y1, imgn] of [[0.063, 0.372, 0.185, 0.430, "eq_tan1"], [
 
 imgL("eq_exp1", 0.185, 0.378, 0.995, 0.425);
 imgL("eq_exp2", 0.188, 0.428, 0.995, 0.470);
-imgL("eq_strip", 0.098, 0.483, 0.405, 0.512);
+// phi(a)^T row sits in the bottom block, between the tan box and the phi(b) column
+imgL("eq_strip", 0.195, 0.540, 0.395, 0.600);
 imgC("eq_phib", 0.398, 0.495, 0.472, 0.672);
+imgL("eq_phimap", 0.480, 0.505, 0.695, 0.560);
 imgL("eq_where", 0.500, 0.575, 0.680, 0.615);
 imgC("eq_phix", 0.698, 0.495, 0.800, 0.672);
 imgL("eq_2d6d", 0.835, 0.618, 0.940, 0.652);

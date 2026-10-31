@@ -1,0 +1,127 @@
+{
+  "slide": "slide_018",
+  "source_frame": "slide_018.jpg",
+  "source_md5": "a66aa844a7ac31c714bf8d1e49123744",
+  "frame_dims": [
+    960,
+    540
+  ],
+  "prompt_file": "crop_decision.md",
+  "prompt_sha256": "01c83612c28c9be9bd444762ef91ab17b4cd490360fa5f44dd278165976f065a",
+  "parse_model": "nemotron-3.5-parse",
+  "chat_model": "docparsechat",
+  "caps": {
+    "max_retries": 3,
+    "max_parallel": 4,
+    "max_crops": 16,
+    "max_parse_calls": 24,
+    "max_depth": 6,
+    "max_output_tokens": 9000
+  },
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
+  "degraded": {
+    "chat": false,
+    "reason": ""
+  },
+  "root": {
+    "id": "root",
+    "level": 0,
+    "class": "frame",
+    "box_frame_px": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "estimated": false,
+    "png": "/home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/unique_slides/slide_018.jpg",
+    "mean_rgb": null,
+    "precheck_ok": true,
+    "parse_files": {
+      "md": "full/slide_018.parse.md",
+      "json": "full/slide_018.parse.json"
+    },
+    "scale": 1.0,
+    "size_px": [
+      960,
+      540
+    ],
+    "margin_applied": [
+      0,
+      0
+    ],
+    "stop_reason": null,
+    "stop_note": "chat advised CROP: The child recovered sparse formula text absent from the empty parent, and the Picture block still warrants a zoom.",
+    "decision_source": "chat",
+    "children": [
+      "slide_018.crop01__picture"
+    ],
+    "transform": {
+      "origin_px": [
+        0,
+        0
+      ],
+      "scale": 1.0,
+      "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+    },
+    "trigger": "full frame",
+    "error": null
+  },
+  "crops": [
+    {
+      "id": "slide_018.crop01__picture",
+      "level": 1,
+      "class": "Picture",
+      "box_frame_px": [
+        361.9,
+        49.8,
+        534.3,
+        160.3
+      ],
+      "estimated": false,
+      "png": "crops/slide_018.crop01__picture.png",
+      "mean_rgb": 207.26,
+      "precheck_ok": true,
+      "backend": "pil",
+      "parse_files": {
+        "md": "crops/slide_018.crop01__picture.parse.md",
+        "json": "crops/slide_018.crop01__picture.parse.json"
+      },
+      "scale": 2.0,
+      "size_px": [
+        1152,
+        344
+      ],
+      "margin_applied": [
+        21,
+        6
+      ],
+      "stop_reason": "too-small",
+      "stop_note": "every candidate is frame-covering or below the 40 px floor",
+      "decision_source": "deterministic",
+      "children": [],
+      "transform": {
+        "origin_px": [
+          341.0,
+          44.0
+        ],
+        "scale": 2.0,
+        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
+      },
+      "trigger": "root",
+      "error": null
+    }
+  ],
+  "recursion": {
+    "levels_processed": 2,
+    "backstop_hits": 0
+  },
+  "stats": {
+    "parse_calls": 2,
+    "chat_calls": 1,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 2
+  }
+}

@@ -1,0 +1,151 @@
+[info] context header injected: VIEW: judge slide 016 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 218300
+[warn] comparison :: images :: attempt 1: ABORT HangError: hard wall-clock 450s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_016_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_016.jpg ===
+[winner] images (round 1, attempt 2)
+Let me carefully compare the recreation (image 1) against the original (image 2).
+
+Image 1 (recreation):
+- Outer red frame (house chrome, intentional)
+- Title: "Adding non-Linearity to Perceptrons" in red bold, centered
+- Subtitle: "(Activation Functions)" with "Activation" in blue, "( " and " Functions)" in red, centered below
+- Yellow badge with "16" top right
+- Light gray background
+- Black bottom bar
+
+Image 2 (original):
+- Title: "Adding non-Linearity to Perceptrons" in red
+- Subtitle: "(Activation Functions)" with "Activation" blue, rest red
+- Yellow badge "16" top right (smaller, with black outline?)
+- Light background
+- Black bottom bar visible at bottom edge
+- Mouse cursor artifact near subtitle (correctly omitted per rule c)
+
+Let me check details:
+
+Title: Both match verbatim "Adding non-Linearity to Perceptrons" â capital L in non-Linearity. Good. Centered in both.
+
+Subtitle: "(Activation Functions)" â "(" red, "Activation" blue, " Functions)" red. In the recreation (image 1), I see "(Activation" â wait, looking closely: "(Activation Functions)" â the opening paren appears immediately before Activation with no space: "(Activation". The context says "the leading '(' and the trailing ' Functions)' are dark red" and "a single normal-width space" before Functions. In the original image 2: "(Activation Functions)" â same: "(" directly attached to Activation, then space before Functions. In recreation image 1: "(Activation Functions)" â same. Good, matches.
+
+Line spacing: Title at y~0.28 area, subtitle directly below with tight spacing. In original, title is in upper-middle (about 1/3 down from top), subtitle close below. In recreation, title is higher (house template y=0.28) but that's chrome... hmm, actually the title box position is house chrome per ground rules (title box y:0.28). But wait â the relative position of title vs subtitle matters. In recreation, title at ~top 8% and subtitle at ~12%. In original, title at ~40% height? Let me look again.
+
+Original image 2: The title appears at roughly 38-42% of the image height (center-ish upper). Actually looking at the image: title text is at approximately y=0.40 of frame height, subtitle at y=0.52. It's centered vertically-ish in the upper-middle.
+
+Recreation image 1: title at yâ0.075 (about 7.5% down), subtitle at yâ0.13. That's much higher, near the top.
+
+Hmm. The ground rules say the title box y=0.28 x=0.6 w=12.13 centered is house chrome and INTENTIONAL, not discrepancies. So the title position is mandated. But the subtitle's position relative to the title is content. In the recreation, the subtitle is directly below the title within reasonable spacing. The original has the title block centered in upper-middle; the recreation puts it at the top. Is the vertical placement of the whole title block a discrepancy? The ground rules say title box position is house chrome â so we shouldn't flag the title's absolute position. But the subtitle is separate content. Its absolute position being near the top instead of upper-middle could be a layout difference... However, since the title box is fixed by house template, and the subtitle naturally sits under it, the recreation's placement follows the template. The original had the title in upper-middle. This is a layout/region difference, but given house chrome mandate, it's likely acceptable â the subtitle placement follows the title.
+
+Hmm, but strictly, "layout/regions â centered in upper-middle" for the original. The recreation is top-center. Is this a MAJOR? The ground rules explicitly protect the title box position as house chrome. The subtitle follows the title. I'd note it as a minor layout deviation at most. Actually, I think the safest interpretation: title box position is mandated (don't raise), subtitle tight line spacing matches. So no discrepancy on vertical placement.
+
+Badge: Original badge is small (0.5in?) at top right with black outline and yellow fill. Recreation badge is yellow oval with "16". The original badge looks quite small and has a black/dark outline. Recreation: yellow with black text, thin outline? Looks like black outline. Size roughly similar. House chrome badge is mandated (x:12.48 y:0.30 w:0.5 h:0.5 fill #FFF9C4). Original fill looks #FFF9C4-ish pale yellow. OK.
+
+Colors: Title red #C00000-ish, blue #0000FF in both. Background light gray in both. Good.
+
+Bottom bar: Original has black bar at bottom, full width, flush with bottom. Recreation has black bar full width at bottom. In image 1, the black bar spans the full width at the bottom, appears flush. Yes.
+
+Mouse cursor in original near "Activation" â correctly omitted. Not a discrepancy.
+
+Serif font: Original looks serif (Times-like). Recreation title appears serif bold. Subtitle serif. Good.
+
+Any missing elements? No bullets/tables/charts in either. No discrepancy.
+
+Text overflow: none visible.
+
+One thing: in the original, the title has extra spacing: "Adding non-Linearity  to Perceptrons" â there appears to be a double space before "to". In recreation: "Adding non-Linearity to Perceptrons" â appears single space. Let me look at original image 2 text: "Adding non-Linearity  to Perceptrons" â yes, there seem to be two spaces between "non-Linearity" and "to". In recreation: "Adding non-Linearity to Perceptrons" â single space. Hmm, is that a discrepancy? Ground rules say text verbatim. The banked verbatim says "Adding non-Linearity to Perceptrons" (single space). The original render might just have wide letter spacing in serif. Looking at the original image, between "non-Linearity" and "to" there's a noticeably larger gap. The recreation has a smaller gap. This is subtle. The verbatim bank says single space, so the recreation matches the verbatim text. I could mention as a minor spacing difference... but it's risky. The founder's verbatim transcript uses single space. The double space in the original could be a rendering artifact of the original font/justification. I'll mention it as a minor/low-confidence note, or maybe not mention. Hmm. Given "verbatim" requirement is about text content, spacing within a line from kerning is not necessarily a defect. I'll skip or note minor.
+
+Also check subtitle color spans: original "(Activation" â red paren + blue "Activation", space, red "Functions)". Recreation same. Good.
+
+Title color: dark red #C00000 both. Subtitle blue matches.
+
+Vertical centering inside badge: "16" centered in both. Good.
+
+Frame containment: All content inside house frame in recreation. Title/subtitle well inside. Good.
+
+Now the vertical position difference: In recreation, the title/subtitle block sits near the top (~y=0.28in per template â about 7-13% down). In original, the block sits at roughly 40-52% down â actually more centered vertically. Wait, let me re-examine original image 2. The image shows the frame border, the title is at about 38% height, subtitle at 50%. The frame border top edge is at top of image. So original title is at ~40% down from the border top. Recreation title at ~7.5% down from border top. That's a big difference in absolute position.
+
+But the house template fixes the title box at y=0.28in. Ground rules explicitly say that's intentional house chrome and NOT a discrepancy. So we must not flag the title position. The subtitle â its position is determined by the title box in the recreation; the template presumably places subtitle within/near that area. Since the ground rules protect the title region, and the subtitle is a direct attached line, I think we accept it. However, per checklist "vertical alignment of every label against its value... and every region against the original" â region placement. Hmm.
+
+I think the intent of the ground rules (a) is to prevent flagging title box position. The subtitle directly below the title with tight spacing matches the original's relationship. The absolute upper-middle vs top is a consequence of house chrome. I'll note it as a minor observation but conclude the relative spacing is correct. Actually â to be careful, I'll mention it as MINOR with explanation, or just not raise since it's covered by chrome rules. The subtitle is NOT part of house chrome though... The ground rules only protect "title box y:0.28 x:0.6 w:12.13 centered". The subtitle is content. If the recreation placed the subtitle at the top because the title box is at top, is that a content placement error? The original's content is "title block centered in the upper-middle; subtitle centered directly below (tight line spacing, one baseline gap)". The recreation: subtitle centered directly below with tight spacing â matches the structural description. The "upper-middle" is a soft descriptor. I'll note as MINOR (low severity, blocked by chrome rule on title position) or not at all. I'll include it as a minor note for completeness but explain it's derivative of house chrome. Hmm, actually raising it might be seen as violating ground rules since it stems from the mandated title box. I'll mention it transparently as MINOR, tied to title-box mandate. I think transparency is better.
+
+Badge outline: Original badge has a visible black outline. Recreation: looking at image 1, the badge oval has yellow fill and black outline (thin) â yes visible. House chrome says fill #FFF9C4. Original fill looks like #FFF9C4 too. Good.
+
+Badge size: Original badge appears small relative to slide, maybe 0.5in. Recreation 0.5in. Fine.
+
+Font sizes: Title original appears large bold; recreation similar or slightly smaller. Original title width spans a good portion of width. Recreation title also wide. The sizes look comparable. The original title might be slightly larger (relative). Let's estimate: In original, title "Adding non-Linearity to Perceptrons" â 35 characters spanning maybe 55% of frame width (~6.3in of 11.5in frame). Recreation: spans ~5.9in of ~12.7in? Hmm hard. Both look similar. The subtitle is smaller than title in both. Fine.
+
+Now check the recreation's subtitle color split once more: "(Activation Functions)" â I see "(" in red, "Activation" blue, " Functions)" red. Yes matches original exactly.
+
+One more: The original bottom black bar â in image 2 there's a black bar at bottom, full width, flush. In image 1 same. Good.
+
+Any stray elements? Recreation has no extra text. Good.
+
+Font family: Both serif. Original serif; recreation serif (Times-like bold red). Good.
+
+So final: No blockers, no majors. Possible minor: title/subtitle block vertical placement higher in recreation (derivative of house title box), and maybe the double-space in original title. I'll list these carefully with severities and confidence, then FINAL VERDICT: PASS.
+
+Wait â should the vertical placement be a MAJOR? The checklist item (4) alignment of every region against original. But ground rules (a) explicitly forbid raising title box position. The subtitle's absolute vertical position is not protected... Yet moving it elsewhere would be odd. The structural relationship (tight spacing) matches. I'll classify as MINOR with note that it's inherited from the mandated title box. Confidence medium.
+
+Also check: In the original, is the badge yellow fill #FFF9C4 (pale) or #FFFF00? It looks pale yellow. Recreation badge #FFF9C4. Match.
+
+Also original badge numeral color: black. Recreation: black "16". Match.
+
+Text baseline: subtitle spans share baseline in both. Good.
+
+Line separation titleâsubtitle: original gap looks tight (one baseline gap). Recreation gap also tight. Match.
+
+Now write the verdict: PASS.
+
+Let me also double check for any overflow of title box: Title text width in recreation: "Adding non-Linearity to Perceptrons" centered â fits within box. No clipping.
+
+Subtitle: centered, fits.
+
+Also check that the recreation's bottom black bar is "solid black full-width horizontal bar along the bottom edge" â in image 1, yes, the bottom strip across full width. It seems flush with bottom edge of the slide. Good.
+
+One subtle thing: In image 1, the black bottom bar occupies bottom ~7% of height. In image 2, the black bar occupies bottom ~10%. Full-width in both. Thickness difference is minor/stylistic. Not worth flagging beyond minor? The context says "solid black full-width horizontal bar along the bottom edge" without specifying thickness. Recreation has it. I'll skip or note as minor no. Skip.
+
+Mouse cursor: omitted correctly.
+
+Alright, final answer: list discrepancies (at most minors), visual quality issues (none), FINAL VERDICT: PASS.
+
+Let me draft:
+
+Discrepancies:
+1. MINOR â absolute vertical placement of title/subtitle block: recreation places block near top (title box y=0.28in per house template) vs original upper-middle (~40% down). Structural relationship (tight, one-baseline gap, centered) matches. This is derivative of mandated house chrome title box. Confidence high. Severity minor.
+
+2. MINOR (low confidence) â inter-word spacing in title: original shows wider gap between "non-Linearity" and "to"; recreation single normal space. Verbatim bank uses single space; likely kerning/rendering of original. Confidence medium.
+
+Maybe also note badge size/outline match.
+
+Visual quality: no overflow, no clipping, no collisions, colors match.
+
+FINAL VERDICT: PASS.</think>**Comparison: recreation (image 1) vs. original (image 2)**
+
+Element-by-element findings:
+
+1. **Title text** â "Adding non-Linearity to Perceptrons" present in both, verbatim including the capital L in "non-Linearity". Serif, bold, dark red #C00000 Match.
+
+2. **Subtitle text** â "(Activation Functions)" present in both with identical three-span coloring: red "(", blue #0000FF "Activation", red " Functions)". Single normal-width space before "Functions); all spans share one baseline in the recreation, same as original3. **Titleâsubtitle line spacing** â Both show a tight, one-baseline-gap separation with the subtitle directly under Match.
+
+4. **Slide-number badge** â Yellow oval with black numeral "16", top-right, black outline, outline and numeral match; size and position consistent with the original.house chrome).
+
+5. **Colors** â Title red #C00000, subtitle blue #0000FF, background light gray #EAEAEA-equivalent, badge pale yellow, bottom bar black: Match.
+
+6. **Bottom black bar** â Solid, black, full-width, flush with bottom edge in both.. **Contentless body** â Neither image contains bullets, tables, charts, diagrams, or equations; the recreation correctly does not invent (no missing elements).
+
+8. **House chrome** â Outer red frame, badge, title box position are intentional house template elements per ground rules and are not raised as discrepancies.
+
+9. **Mouse-cursor artifact** â Visible in the original near "Activation"; correctly omitted from the recreation per ground rule (c discrepancy.
+
+10. **Frame containment** â All recreation content (title, subtitle, badge) sits fully inside the house frame with margin to spare; no clipping, overflow, or collision with frame or.
+
+**Discrepancies (all minor):**
+
+- **MINOR (confidence: high)** â *Absolute vertical placement of the title block.* In the original, the title/subtitle block sits in the upper-middle (~40% and ~52% down the frame); in the recreation it sits near the top. However, this placement is inherited from the mandated house title box (y=0.28 in, ground rule a) â the structural relationship the original actually specifies ("subtitle centered directly below, tight line spacing") is preserved.
+- **MINOR (confidence: medium)** â *Inter-word gap in the title.* The original renders a visibly wider space between "non-Linearity" and "to"; the recreation uses a single normal space (matching the verbatim banked text). Likely a font-kerning artifact of the original rather than a text-content difference.
+
+**Visual-quality defects in the recreation:** None detected. No text overflow, clipping, wrong wrapping, collisions, or illegibility; "16" is vertically centered in its badge; colored subtitle spans are unscrambled.
+
+**FINAL VERDICT: PASS**
+

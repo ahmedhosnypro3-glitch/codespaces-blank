@@ -1,30 +1,33 @@
+# b09: 1px-resolution colour-classified ASCII of an arbitrary region of slide_018.
+# usage: python3 b09_zoom.py x0 y0 x1 y1 [mask]
+# mask: any of R G M B y # or "red|green|..." to isolate one colour class.
 import sys
 from PIL import Image
 import numpy as np
 
-n = int(sys.argv[1]); x0 = int(sys.argv[2]); x1 = int(sys.argv[3]); y0 = int(sys.argv[4]); y1 = int(sys.argv[5]); COLS = int(sys.argv[6])
-im = Image.open(f"unique_slides/slide_{n:03d}.jpg").convert("RGB")
-ar = np.array(im).astype(int)
-g = ar.mean(2); sat = ar.max(2) - ar.min(2)
-H = y1 - y0; W = x1 - x0
-rows = max(1, int(COLS * H / W / 2.1))
-print(f"# slide {n} region x[{x0},{x1}) y[{y0},{y1}) cols={COLS} rows={rows} (x per col={(x1-x0)/COLS:.1f}px, y per row={(y1-y0)/rows:.1f}px)")
-hdr = "     "
-for c in range(0, COLS, 10):
-    hdr += f"{x0 + int(c*(x1-x0)/COLS):<10d}"
-print(hdr)
-for ry in range(rows):
-    yy0, yy1 = y0 + int(ry*H/rows), y0 + int((ry+1)*H/rows)
-    line = []
-    for cx in range(COLS):
-        xx0, xx1 = x0 + int(cx*W/COLS), x0 + int((cx+1)*W/COLS)
-        blk = g[yy0:yy1, xx0:xx1]; sblk = sat[yy0:yy1, xx0:xx1]
-        dark = (blk < 120).mean(); col = (sblk > 70).mean()
-        if dark > 0.45: c = "#"
-        elif dark > 0.18: c = "+"
-        elif dark > 0.05: c = "."
-        elif col > 0.45: c = "R"
-        elif col > 0.15: c = "r"
-        else: c = " "
-        line.append(c)
-    print(f"{yy0:4d}|" + "".join(line))
+A = np.asarray(Image.open('/home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/unique_slides/slide_018.jpg').convert('RGB')).astype(int)
+
+x0, y0, x1, y1 = (int(v) for v in sys.argv[1:5])
+mask = sys.argv[5] if len(sys.argv) > 5 else None
+
+CLASS = {'R': lambda c: c[0] > 150 and c[1] < 130 and c[2] < 130,
+         'G': lambda c: c[1] > 160 and c[0] < 220 and c[1] - c[0] > 20 and c[2] < 200,
+         'M': lambda c: c[0] > 130 and c[1] < 120 and c[2] > 110,
+         'B': lambda c: c[2] > 120 and c[0] < 120 and c[1] < 120,
+         'y': lambda c: c[0] > 200 and c[1] > 170 and c[2] < 170,
+         '#': lambda c: c[0] < 110 and c[1] < 110 and c[2] < 110}
+
+def cls(c):
+    for k, f in CLASS.items():
+        if f(c): return k
+    return '.'
+
+print(f"x{x0}..{x1} y{y0}..{y1} mask={mask}")
+print('     ' + ''.join(str(x // 10 % 10) for x in range(x0, x1)))
+print('     ' + ''.join(str(x % 10) for x in range(x0, x1)))
+for y in range(y0, y1):
+    row = ''
+    for x in range(x0, x1):
+        k = cls(A[y, x])
+        row += k if (mask is None or k == mask) else (' ' if k in CLASS else '.')
+    print(f"{y:4d} {row}")

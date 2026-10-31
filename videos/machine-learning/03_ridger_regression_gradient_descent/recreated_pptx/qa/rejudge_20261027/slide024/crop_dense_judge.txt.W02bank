@@ -1,0 +1,11 @@
+Checked glyphâbyâglyph on the three visible lines (cropârelative coords are approximate):
+
+- Line 1 âDescent (GD)â â spans roughly x 30â590 / y 88â180 (IMG1) vs x 35â580 / y 73â162 (IMG2). Every glyph matches: Dâeâsâcâeânât, space, â(â, G, D, â)â. The parens are ordinary text parens and are intact (not clipped as content) in both; G/D shapes and the space before â(â are identical. No wrong/missing/garbled character.
+- Line 2 âandâ â x ~55â165, y ~215â280 (IMG1) vs y ~210â275 (IMG2). Same aânâd, same indent, same weight.
+- Line 3 âminimize Loss functiâ¦â â x ~15 to right edge, y ~325â395 in both; identically truncated at the crop boundary (âfunctiâ visible, rest offâcrop in both). âminimizeâ (z, not s), âLossâ (capital L), âfunctiâ all match.
+
+Nonâdefects explicitly excluded by the ground rules: IMG2 shows the expected JPEG softness/halo on glyph edges (rule e); the text hue in both reads as the same darkâred C00000 family, with any tiny saturation shift in IMG2 attributable to capture compression, not a fill/text color change; the whole text block sits ~15 px lower in IMG1 than in IMG2, but capâheight (â88 px for âDâ) and line spacing are identical, so this is cropâwindow framing of the same region at the same effective scale, not a layout change. No tables, equations, or delimiters are present in this crop, so those exactness checks have nothing to flag here.
+
+Discrepancy list: none â no BLOCKER, no MAJOR, no MINOR content defects found (confidence: high on glyphs/words; medium only on subâpixel red value, which is a compression artifact per rule e).
+
+FINAL VERDICT: PASS

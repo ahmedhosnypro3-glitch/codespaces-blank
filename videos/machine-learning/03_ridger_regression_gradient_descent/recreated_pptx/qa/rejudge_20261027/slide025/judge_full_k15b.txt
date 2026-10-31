@@ -1,0 +1,21 @@
+Applied the founder ground rules first: house chrome (gray E9E9E7 panel, left/right/bottom-only C00000 strokes, no top stroke, yellow â25â badge at ~(876,73)) is treated as correct, not as a discrepancy; IMG2 is a real content slide (not a placeholder), so content is required; no cursor artifact to reproduce; no handwritten-vs-typed ink issue; no linear-vs-2D equation on this slide (the content is raster plots + text boxes), so rule (e) is N/A.
+
+Element-by-element comparison (IMG1 recreation vs IMG2 original, normalized to the 960Ã540 frame):
+
+- Title âTypes of Loss function shapesâ: verbatim, dark-red, centered, same relative y (~72/540). Match.
+- Slide number: â25â in both; badge is house chrome per rule (a). Match/intentional.
+- Four plot regions in a 2Ã2 grid and four blue label boxes in the same gutters (Concave â right of TL plot; Convex â left of TR plot, vertically centered on it; Gradient Descent â left of BR plot; NonâConvex â lowerâcenter right of BL plot). Region ordering, gaps and label-to-plot alignment match proportionally.
+- Label text: âConcave Function / One Maximaâ (Concave yellow, Function white), âConvex Function / One Minimaâ (Convex yellow), âGradient Descent / Path to reach Minimaâ (all white), âNonâConvex / Multiple Minimaâ. Two-line line-height and vertical centering inside each blue box match the original (text sits centered, not hugging the top); no delimiter/cell-centering issue (no tables/brackets).
+- Bottom-left annotation set present in both: Global Maxima, Local Maxima, Local Minima, Global Minima, red cut line, red Ã markers at the minima. Match.
+- Colors: title red, label-box navy, yellow/white label runs, red plot cut-lines/plot borders â approx hex match.
+- Frame containment (rule 5): title, all four plots, all four labels and the badge sit fully inside the gray panel and clear of the left/right/bottom C00000 strokes. The red cut-lines extend past the individual plot rectangles, but they do the same thing in IMG2 and still stop inside the house panel â not an overflow. No ink touches/crosses the panel strokes. Closest-to-edge items (TR plot right edge, badge right edge, BL red line ends) all remain inside.
+- Missing elements (rule 6): none â all four surfaces and all four labels/annotations are present; no equation region is empty.
+- Delimiters (rule 7) / tables (rule 8): none on this slide.
+
+Discrepancies found:
+1. MINOR, high confidence â bottom-center label line 1: original reads âNon- Convexâ (space after the hyphen) while the recreation reads âNon-Convexâ. Whitespace/verbatim nit only; wording otherwise identical.
+2. MINOR, medium confidence â the four 3D surfaces are re-rendered rasters rather than pixel-identical MATLAB frames: TL lacks the originalâs contour projection (shows a filled base plane instead), TRâs bowl reads shallower/flatter under the Ã10â´ z-scale with fewer z-ticks, and BRâs descent path is thicker. Each still shows the exact labeled content (one maximum / one minimum / multiple minima with annotations / descent path), so these are rendering-medium differences, not missing or wrong elements.
+
+Visual-quality defects in the recreation: none observed â no text overflow/clipping, no wrong wrapping, no collisions, no illegibility; labels and title are crisp and contained.
+
+FINAL VERDICT: PASS (faithful, usable recreation)

@@ -152,23 +152,31 @@ s.addShape(pres.shapes.RECTANGLE, { x: 4.766, y: 5.657, w: 0.648, h: 0.488, fill
 s.addShape(pres.shapes.RECTANGLE, { x: 4.982, y: 5.793, w: 0.016, h: 0.255, fill: { color: WEIGHT_BLUE }, line: { color: WEIGHT_BLUE, width: 0.5 } });
 s.addShape(pres.shapes.RECTANGLE, { x: 4.982, y: 5.793, w: 0.150, h: 0.032, fill: { color: WEIGHT_BLUE }, line: { color: WEIGHT_BLUE, width: 0.5 } });
 s.addShape(pres.shapes.RECTANGLE, { x: 4.948, y: 6.021, w: 0.184, h: 0.032, fill: { color: WEIGHT_BLUE }, line: { color: WEIGHT_BLUE, width: 0.5 } });
-// activation rule label above the box
+// activation rule label above the box — original glyphs measured at
+// x361..402 / y372..396 (960-space): line 1 ">0 ⇒ 1", line 2 "≤0 ⇒ 0".
+// NOTE: never pass this as a run array with an embedded \n — it silently
+// produces no <a:t> in the slide XML and renders empty.
 s.addShape(pres.shapes.RECTANGLE, { x: 4.781, y: 5.104, w: 0.741, h: 0.461, fill: { color: CREAM }, line: { color: CREAM_LINE, width: 0.5 } });
-s.addText([{ t: ">0 " }, { t: "\u2192" }, { t: " 1\n\u22640 \u2192 0" }], {
-  x: 4.781, y: 5.104, w: 0.741, h: 0.461,
-  align: "center", valign: "middle", fontSize: 11, color: TEXT_GREY, fontFace: FONT, margin: 0,
+s.addText(">0 \u21D2 1", {
+  x: 4.781, y: 5.104, w: 0.741, h: 0.2305,
+  align: "center", valign: "middle", fontSize: 10, color: TEXT_GREY, fontFace: FONT, margin: 0,
+});
+s.addText("\u22640 \u21D2 0", {
+  x: 4.781, y: 5.3345, w: 0.741, h: 0.2305,
+  align: "center", valign: "middle", fontSize: 10, color: TEXT_GREY, fontFace: FONT, margin: 0,
 });
 // arrow -> O/P
 s.addShape(pres.shapes.LINE, { x: 5.414, y: 5.893, w: 1.004, h: 0, line: { color: RED, width: 2.25, endArrowType: "triangle" } });
 s.addText("O/P", { x: 6.557, y: 5.79, w: 0.6, h: 0.25, fontSize: 14, bold: true, color: BLACK, fontFace: FONT, margin: 0 });
 
-// 7. equation box (px 596..816 x 412..469)
+// 7. equation card + box — measured peach fill px 583..822 x 409..472,
+// equation ink px 596..810 x 428..452 (960-space)
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: 8.446, y: 5.793, w: 3.406, h: 0.840,
+  x: 8.097, y: 5.682, w: 3.320, h: 0.874,
   fill: { color: EQ_FILL }, line: { color: EQ_LINE, width: 1 }, rectRadius: 0.08,
 });
 s.addImage({
-  path: V + "eq_s011_dX.png", x: 8.817, y: 6.086, w: 2.66333, h: 0.25333,
+  path: V + "eq_s011_dX.png", x: 8.425, y: 5.992, w: 2.66333, h: 0.25333,
 });
 
 pres.writeFile({ fileName: V + "slide_011_recreated.pptx" }).then(() => console.log("wrote slide_011_recreated.pptx"));

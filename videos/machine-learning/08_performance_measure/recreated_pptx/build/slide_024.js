@@ -41,7 +41,7 @@ s.addText("24", {
 s.addText("Effect of Selecting Threshold Value on Model Performance", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.8,
   align: "center", valign: "middle",
-  fontSize: 28, bold: true, color: RED, fontFace: FONT, margin: 0,
+  fontSize: 30, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
 // ---------- CONFUSION MATRIX (top-left, colored cells with TP/FN/FP/TN + counts) ----------
@@ -121,19 +121,23 @@ function arrowRight(x0, y) {
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, { x: x0 + aw - 0.02, y: y - 0.06, w: 0.10, h: 0.12, fill: { color: BLACK }, line: { type: "none" }, rotate: 90 });
 }
 
-// airplane sketch (top view): fuselage + swept wings + tail + center dot
+// airplane side-profile sketch: fuselage, tail fin up, swept wing down, center dot
 function drawPlane(cx, cy, sc, dotColor) {
   s.addShape(pptx.shapes.OVAL, {
-    x: cx - 0.32 * sc, y: cy - 0.045 * sc, w: 0.64 * sc, h: 0.09 * sc,
+    x: cx - 0.34 * sc, y: cy - 0.035 * sc, w: 0.68 * sc, h: 0.07 * sc,
     fill: { color: "BDBDBD" }, line: { color: "616161", width: 0.75 },
   });
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: cx - 0.10 * sc, y: cy - 0.17 * sc, w: 0.22 * sc, h: 0.15 * sc,
-    fill: { color: "CFCFCF" }, line: { color: "616161", width: 0.5 }, rotate: 180,
+    x: cx - 0.37 * sc, y: cy - 0.16 * sc, w: 0.12 * sc, h: 0.13 * sc,
+    fill: { color: "CFCFCF" }, line: { color: "616161", width: 0.5 },
   });
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: cx - 0.40 * sc, y: cy - 0.15 * sc, w: 0.11 * sc, h: 0.12 * sc,
-    fill: { color: "CFCFCF" }, line: { color: "616161", width: 0.5 },
+    x: cx - 0.06 * sc, y: cy + 0.02 * sc, w: 0.24 * sc, h: 0.13 * sc,
+    fill: { color: "CFCFCF" }, line: { color: "616161", width: 0.5 }, rotate: 180,
+  });
+  s.addShape(pptx.shapes.OVAL, {
+    x: cx + 0.10 * sc, y: cy - 0.045 * sc, w: 0.09 * sc, h: 0.09 * sc,
+    fill: { color: "E8E8E8" }, line: { color: "616161", width: 0.5 },
   });
   s.addShape(pptx.shapes.OVAL, {
     x: cx - 0.035 * sc, y: cy - 0.035 * sc, w: 0.07 * sc, h: 0.07 * sc,
@@ -149,10 +153,18 @@ drawPlane(tsX + tsW / 2, fy, 0.85, BLUE);
 
 arrowRight(tsX + tsW, fy);
 
-// Model box: dark red fill, white bold text, sub-caption underneath
+// Model box: dark red fill, white bold text, small white ROC-style curve icon, sub-caption underneath
 const mX = 6.28, mW = 1.00;
 s.addShape(pptx.shapes.RECTANGLE, { x: mX, y: fy - bh / 2, w: mW, h: bh, fill: { color: DARKRED }, line: { color: DARKRED, width: 1 } });
-s.addText("Model", { x: mX, y: fy - bh / 2, w: mW, h: bh, fontSize: 11, bold: true, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+s.addText("Model", { x: mX, y: fy - bh / 2, w: mW, h: 0.24, fontSize: 11, bold: true, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+// curve icon: rising polyline with marker dots in the lower half of the box
+const curve = [[6.36, 1.84], [6.55, 1.79], [6.74, 1.75], [6.94, 1.68], [7.18, 1.61]];
+for (let i = 0; i < curve.length - 1; i++) {
+  s.addShape(pptx.shapes.LINE, { x: curve[i][0], y: curve[i][1], w: curve[i + 1][0] - curve[i][0], h: curve[i + 1][1] - curve[i][1], line: { color: WHITE, width: 1.5 } });
+}
+for (const p of curve.slice(1, -1)) {
+  s.addShape(pptx.shapes.OVAL, { x: p[0] - 0.025, y: p[1] - 0.025, w: 0.05, h: 0.05, fill: { color: WHITE }, line: { type: "none" } });
+}
 s.addText("[Any value] \u2014 (0, +1)", { x: mX - 0.15, y: fy + bh / 2 + 0.03, w: mW + 0.30, h: 0.20, fontSize: 7, color: BLACK, fontFace: FONT, align: "center", margin: 0 });
 
 arrowRight(mX + mW, fy);

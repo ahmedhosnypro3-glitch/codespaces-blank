@@ -1,0 +1,17 @@
+Ground-rules settled first (not flagged): the gray panel, red C00000 left/right/bottom strokes with NO top stroke, yellow badge/purple ring, typed-vs-handwritten ink, linear-vs-stacked equation formatting, and JPEG halos/softening in the original crop are all treated as intentional chrome/medium/format artifacts and are excluded below.
+
+Discrepancies (recreation crop = IMG1/top vs original crop = IMG2/bottom, same nominal region/scale):
+
+1. Surface fill / colormap is not reproduced â the whole height-encoded surface differs by hue family: the recreation reads warm yellowâorange with a dark teal/blue core (âcenter of plot), while the original reads cool greenâcyan with a red high core and a numeric vertical scale. For a height-mapped 3-D surface this is not a âsmallâ fill difference; the valueâcolor encoding is effectively inverted/different, so a red peak in the original becomes a dark saddle in the recreation. Severity: BLOCKER. Confidence: HIGH (opposite hue families across the entire domain); MEDIUM on whether it is a full inversion vs a different function â either way the pair do not match.
+
+2. Numeric vertical axis/ticks missing in the recreation: the original crop shows an explicit left-axis scale 0 / 0.5 / 1 / 1.5 (âleft margin, spanning the lower third of the plot); the recreation crop of the same region shows only the base axes (-100â¦100 family) and no such numeric z scale. Missing labeled quantitative scale. Severity: MAJOR. Confidence: MEDIUM-HIGH.
+
+3. Front/base axis tick-label sequence and placement do not match. Recreation front edge reads a clean monotonic run (âleft-to-right along the front bottom edge): -100, -50, 0, 50, 100. Original front edge reads a non-matching arrangement with an apparent duplicate â-100â and a different side ordering (âfront bottom edge, right half and right corner). If this is the same axis at matched scale, any extra/duplicated or mis-ordered tick is a wrong/misplaced numeric label per the brief. Severity: MAJOR if a digit is duplicated/misplaced. Confidence: LOW (perspective + low-res; recommend full-res cell-by-cell confirm) â flagged because it is inconsistent, not asserted as a specific wrong digit.
+
+4. Red annotation strokes differ in count, position, and weight. Recreation shows a short thin red line sloping from the center toward the upper-right plus a separate solid red horizontal band low on the surface (âmid-plot just below the saddle). Original shows a higher red horizontal line near the top of the surface and a distinct red chevron/peak at the center (âupper-center). The annotation geometry is not the same line set (not explainable by JPEG softness, which affects only edges). Severity: MAJOR. Confidence: MEDIUM.
+
+5. No garbled tick glyphs detected: the sans-serif digit shapes themselves are consistent in style between crops at this zoom; nothing here rises to a glyph defect beyond the numeric-sequence concern in item 3. Severity: none (MINOR at most). Confidence: MEDIUM.
+
+Net: items 1â4 mean the two crops are not a faithful same-region pair â most decisively, the data-encoding colors of the surface and the quantitative scale/annotation geometry are not reproduced.
+
+FINAL VERDICT: FAIL

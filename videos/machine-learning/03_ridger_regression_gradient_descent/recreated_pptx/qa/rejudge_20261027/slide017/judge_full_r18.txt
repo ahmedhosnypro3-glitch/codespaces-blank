@@ -1,0 +1,19 @@
+Normalization: IMG1 is a 1.6Ã render of the same 16:9 frame as IMG2, so I compared in 960Ã540 normalized coordinates. Per the ground rules, I excluded house chrome (panel strokes/badge), the originalâs cursor artifact, and the mandated professional-2D equation rendering.
+
+Element-by-element check:
+- Title: text, wording, colors and position match; `Î»=3` matches.
+- `Train` / `Test` tabs: match.
+- Three train tables: headers `X1..X8`, alternating blue/red headers, all cell values, red `y` row, and yellow highlights on `X8=30` / `X8=60` in rows 2â3 all match; grid, cell alignment and containment match.
+- Six blue arrows: positions/sizes match after scale normalization.
+- Middle red `W` boxes: values match exactly â row1 `(0.1, 1.95, 0.03)`, `||W||Â²=3.8`; row2 `(1.2, 0.72, 0.77)`, `||W||Â²=2.45`; row3 `(1.77, 0.32, 0.99)`, `||W||Â²=4.2`. Parentheses span all three vector lines and do not overlap the enclosed numerals; no empty equation region.
+- Three test tables: `Test1 Test2 Test3`, rows `30/40/50`, `15/20/25`, and green `y` rows `59/78.7/98.4`, `34.1/45.1/56.1`, `26.2/34.4/42.5` all match; no missing rows/cells.
+- Containment: no ink crosses the house panel/strokes or table/box frames; bottom row sits inside the panel; badge is house chrome.
+
+Discrepancies:
+- BLOCKER: none â confidence high.
+- MAJOR: none â confidence high.
+- MINOR only / low-confidence cosmetic notes: possible glyph-case/italic nuance on row labels (`x` vs `X`) and slight render-resolution hue differences in some green `y` numerals; values, fills, layout and geometry are unchanged, so I do not treat these as fidelity failures â confidence ~0.35 that they are anything more than font/render artifacts.
+
+Visual-quality defects in IMG1: no overflow/clipping, no wrong wrapping, no collisions, no illegible text, no clipped/partial delimiters, no missing table data.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation'

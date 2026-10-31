@@ -1,0 +1,71 @@
+## Frame Setup / Scale Note
+
+- **IMG1** = house-template PPTX render (150 dpi, 13.33Ã7.5 in) shown at ~880Ã495; **IMG2** = original lecture frame 960Ã540. Normalized scale factor IMG2âIMG1 â 0.917 (or equivalently Ã1.087 IMG1âIMG2). All positions below are given in each image's own pixel space, plus the normalized comparison, so the house chrome (gray panel E9E9E7 with C00000 left/right/bottom strokes, FDFD96 badge with 6A5ACD ring, numeral "30") is excluded from scoring per ground rule (a). Cursor in IMG2 at ~(425,105) treated as video artifact per (c). The equation `f(x)=(xâ5)Â²+1` appears typed in both, so (e) is satisfied trivially.
+
+## Element-by-Element Comparison
+
+| # | Element | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|---|
+| 1 | Title | "Convex Function, Learning Rate =0.2, Start at X=3" @ (54,68); "Convex Function," red, "Learning Rate" green, "=0.2," red, "Start at X=3" red | Same text, same color segmentation, same left origin (74,68) | Text verbatim â / color â / **font family differs** (see D-1) |
+| 2 | Small 3-row table | @ (93,172)â(218,243); row heights â23/24/24 | @ (95,183)â(220,258); row heights â25/25/25 | â |
+| 2a | â "step / 0.2" | pale-green row, black bold value | same | â |
+| 2b | â "initial X / 3" | pink row, red bold 3 | same | â |
+| 2c | â "delta / 0.1" | yellow row, black bold 0.1 | same | â |
+| 3 | Equation block | Red-outlined box @ (362,161)â(481,187), `f(x) = (x â 5)Â² + 1` | Red box @ (370,171)â(496,196), same text | â (typed in both, (e) non-issue) |
+| 4 | Green result box | @ (315,201)â(505,246); line 1 "X = 5" red italic; line 2 "f(x)" blue bold italic + " Minimum value is " black + "1.0" blue bold | @ (322,215)â(517,259); identical text, colors, and 2-line break | â line break â vertical centering â |
+| 5 | Purple caption box | @ (305,254)â(493,279), "Reach Minimum after 11 Steps" italic, magentaâviolet | @ (315,273)â(521,298), same text/colors | â (position/size within ~2â4 px normalized) |
+| 6 | Chart frame | Red frame @ (519,56)â(737,273) â 218Ã217 (norm 238Ã237) | @ (536,61)â(757,285) â 221Ã224 (norm 241Ã244) | â close |
+| 6a | â Grid, axes, tick labels | gray grid; y ticks 5/10/15; x ticks â5/0/5/10/15; black x-axis at y=0 and vertical y-axis | identical ticks, labels, axis placement | â |
+| 6b | â Parabola | blue upward parabola, vertex at green point (5,1); arms clip at top of plot | same shape/position/clip | â |
+| 6c | â Red dashed vertical line | dashed red at x=5, full plot height | same | â |
+| 6d | â Black point markers + horizontal segment | dots at (2,10), (4,10), (7,9) with black horizontal connector at y=10 | same | â |
+| 6e | â Blue point labels | "(2, 10)" left of left dot; "(7, 9)" right of right dot | same placement/side | â |
+| 6f | â Red step segment + red dot | red segment from (2,10) down-right to red dot â(3,7) | same | â |
+| 6g | â Green minimum marker | green dot at (5,1) with green label "(5, 1)" to its right | same | â |
+| 6h | â Step annotations above line | "-3", "3", "3" above the black points | "-3", "3", "3" (same three labels) | â |
+| 7 | Red-outlined arrow | White/red-outline arrow above table, tilted, pointing down at header "3" | same arrow, same position/angle | â (see D-3 re tip contact) |
+| 8 | Big table | Grid @ â(81,291)â(583,447), blue outer frame @ (71,283)â(592,461), 8 rows Ã 12 cols | Grid @ â(85,313)â(600,478), blue frame @ (75,303)â(610,488), 8 rows Ã 12 cols | â structure, borders, band colors â |
+| 8a | Row 1 `x` | 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5 (first cell red/bold, label green) | identical | â |
+| 8b | Row 2 `f(x)` | 5, 4.24, 3.56, 2.96, 2.44, 2, 1.64, 1.36, 1.16, 1.04, 1 | identical | â |
+| 8c | Row 3 `x-delta` | 2.9 3.1 3.3 3.5 3.7 3.9 4.1 4.3 4.5 4.7 4.9 | identical | â |
+| 8d | Row 4 `f(x-delta)` | 5.41 4.61 3.89 3.25 2.69 2.21 1.81 1.49 1.25 1.09 1.01 | identical | â |
+| 8e | Row 5 `x+delta` | 3.1 3.3 3.5 3.7 3.9 4.1 4.3 4.5 4.7 4.9 5.1 | identical | â |
+| 8f | Row 6 `f(x+delta)` | 4.61 3.89 3.25 2.69 2.21 1.81 1.49 1.25 1.09 1.01 1.01 | identical | â |
+| 8g | Row 7 `slope` | â8 â7.2 â6.4 â5.6 â4.8 â4 â3.2 â2.4 â1.6 â0.8 0 | identical | â |
+| 8h | Row 8 `next x` | 3.2 3.4 3.6 3.8 4 4.2 4.4 4.6 4.8 5, "stop" in last cell | identical | â |
+| 9 | Row-band colors | yellow / pale-yellow / violet / violet / peach / peach / green / pink | same bands | â |
+| 10 | Frame containment | chart, boxes, table, arrow all fully inside gray panel; margins â17â60 px | same | â (see D-3) |
+| 11 | Omitted elements | none â every text block, table cell, chart element, arrow and border present | â | â no BLOCKER omissions |
+
+## Discrepancies
+
+**D-1 â Font family swap (serif â sans) across title, mini-table, and green-box sentence â MINOR, confidence high**
+IMG2 renders "Convex Function, Learning Rate =0.2, Start at X=3", the mini-table labels ("step", "initial X", "delta"), and "Minimum value is" in a Times/serif face (visible serifs on C, F, X). IMG1 renders the same strings in Arial/sans (the house template face). Glyph shapes, stroke contrast and slightly different glyph widths differ; no text was changed, re-wrapped, or re-aligned. Purely stylistic/medium-level, non-content.
+
+**D-2 â House-panel top stroke present in IMG1 â MINOR (chrome, non-content), confidence medium**
+IMG1 shows a thin red horizontal line along the top edge of the gray panel (yâ37 in IMG1 space), whereas the mandated house chrome is LEFT/RIGHT/BOTTOM only, and the original frame appears to have no top stroke. If confirmed present, this is a mandated-chrome violation, not a content-fidelity failure; it does not touch or obscure any content.
+
+**D-3 â Arrow tip overlaps the table's top border in IMG1 â MINOR, confidence medium**
+In IMG1 the red-outlined arrow extends slightly past the blue table frame's top rule (tip ây=289 vs frame top ây=283), i.e. it crosses an inner-frame boundary. In IMG2 the arrow terminates essentially at the table top rule (tip ây=302 vs frame top ây=303), so the overlap is marginally larger in the recreation. No text or cell is obscured.
+
+**D-4 â Chart plot frame slightly taller/wider than original â MINOR, confidence medium**
+Normalized, IMG1's chart frame is ~238Ã237 px vs IMG2's ~241Ã244 px, and the inner grid margins differ by a few pixels, so the parabola and point cluster sit marginally differently within the red frame (vertex at normalized xâ682 in IMG1 vs â697 in IMG2 relative to frame left). All marks, labels and values are present and correct; this is a sub-1%-of-slide proportion shift, not a missing or wrong chart element.
+
+**D-5 â Small-table outer border hue â MINOR, confidence low**
+IMG2's mini-table has a distinctly blue/violet outer outline; IMG1's outer outline reads as a thin dark/neutral line. The internal cell rules and all fill colors match. Low confidence, purely cosmetic.
+
+## Visual-Quality Defects in the Recreation
+
+- **Text overflow/clipping:** none detected. No text spills its box, cell, or the house panel.
+- **Wrong wrapping:** none. Title is one line; green box breaks after "X = 5" exactly as in the original; "Reach Minimum after 11 Steps" is one line in both.
+- **Vertical centering:** verified inside the green box (two lines centered between the top and bottom rules), the purple caption (single line centered), and all table rows (text sits mid-row with balanced padding, no top-hugging + empty-lower-half artifacts).
+- **Delimiter geometry:** the only multi-line delimiter is the green rectangle, whose sides fully span both enclosed lines and clear the text on both sides â correct. Parentheses in `f(x)` and `(x â 5)Â²` are single-line, fully formed, and not overlapping glyphs.
+- **Collisions/illegibility:** none. Table numerals remain legible at 150 dpi; chart annotations ("(2, 10)", "(7, 9)", "(5, 1)", "-3/3/3") are readable and correctly associated with their points.
+- **Alignment:** every table value is horizontally centered in its cell and vertically centered in its row; row labels are left-aligned in column 1; legend/color bands and the chart's tick labels are correctly spaced. No value is offset from its mark.
+- **Containment:** all content elements sit inside the gray house panel with clear margins; nothing touches the left/right/bottom C00000 strokes.
+
+## Summary
+
+All renderable content is present and correct: title verbatim with matching color segmentation, all four text boxes with matching line breaks and inline color emphasis, the mini-table, the full 8Ã12 iteration table with every one of the ~96 data values matching the original exactly, the red arrow, and the complete chart (parabola, grid, axes and ticks, dashed x=5 line, all four point markers, the red step segment/dot, and all nine annotation labels). No element is missing, truncated, or rendered empty. The residual issues are a serifâsans typeface substitution (D-1), a possible unintended house-panel top stroke (D-2), a marginal arrow/border overlap (D-3), and a small chart-proportion shift (D-4) â none of which impede comprehension, alter data, or break usability.
+
+**FINAL VERDICT: PASS**

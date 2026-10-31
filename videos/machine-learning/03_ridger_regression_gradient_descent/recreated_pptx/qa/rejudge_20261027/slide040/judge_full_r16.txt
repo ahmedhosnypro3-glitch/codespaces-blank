@@ -1,0 +1,35 @@
+## Fidelity check â Slide 40 (r16)
+
+**Scale note:** both frames were inspected at the same displayed width; all coordinates below are normalized to the original 960Ã540 frame for comparison.
+
+### Element-by-element comparison
+
+| Element | Original (IMG2) | Recreation (IMG1) | Match |
+|---|---|---|---|
+| Title text | "Training of Linear Regression Model", bold red (C00000), ~x98â845, cap height â27px | Same wording, same bold red, ~x85â859, cap height â29px | Text verbatim; size/position slightly off |
+| Subtitle | "usnig SGD" (original typo preserved), bold pure blue (0000FF), ~x364â582, cap height â25px, baseline â286 | Same wording/blue, ~x380â564, cap height â21px | Text verbatim; **undersized ~20%** |
+| Third line | "Solved Example", bold red, ~x304â629, cap height â27px | Same wording/red, ~x293â629, cap height â26px | Verbatim; ~3% wider, shifted up |
+| Background / frame | E9E9E7 panel, red left/right/bottom strokes, no top stroke; yellow badge "40" | Same per house template | Accepted house chrome (ground rule a) â not counted |
+| Cursor artifact | Small pointer at â(507,469) | Omitted | Correct omission (ground rule c) |
+| Missing elements | â | None; all three text lines present | No blockers |
+
+### Discrepancies
+
+1. **MAJOR â "usnig SGD" subtitle is noticeably smaller than in the original.** In the original the blue line's cap height (~25px at 960 scale) is essentially equal to the "Solved Example" line; in the recreation the blue caps are only ~21px while the red line is ~26px, i.e. the blue line is undersized â15â20% in both width (~230px vs ~205px region) and height. This is a visible size deviation of an on-slide text element (founder directive 2026-10-10: size deviation = MAJOR). Confidence: high.
+2. **MINOR â Title is marginally larger than the original.** Recreation title measures ~3â4% wider (ends âx85 and âx859 vs âx98/âx845) and ~2px taller cap height. Confidence: medium-high.
+3. **MINOR â Text stack sits slightly high in the panel.** Recreation line positions are â5â12px above the original (title top â165 vs â171; blue â243 vs â247; red â311 vs â323), so the bottom line's vertical offset is larger than the top line's and inter-line gaps are subtly compressed. Confidence: medium.
+4. **MINOR â Slight leftward bias of the red "Solved Example" line** (center â461â466 vs panel center â478; both frames show a similar slight bias, so this is largely inherited). Confidence: low â not counted as material.
+
+### Visual-quality defects in the recreation
+- No text overflow, clipping, wrapping errors, collisions, or illegibility.
+- All ink sits inside the gray panel; no crossing of the red left/right/bottom strokes.
+- No delimiter/bracket/table/equation regions present on this slide, so delimiter geometry and table-data checks are N/A.
+- Font rendering is clean; color values (C00000 red, 0000FF blue) match the original.
+
+### Accepted per ground rules (not discrepancies)
+House template (panel, red strokes with no top stroke, badge circle/numeral), omission of the video cursor, and the preserved "usnig" typo.
+
+### Required fix for pass
+Set the blue "usnig SGD" run to the same point size as the red "Solved Example" line (matching â25â27px cap height at 960 scale), and nudge the three-line text block down ~8â12px so the red line's top lands at ây323 and the title's at ây171.
+
+**FINAL VERDICT: FAIL** â one MAJOR defect (undersized blue subtitle); all other content is present, verbatim, and cleanly rendered.

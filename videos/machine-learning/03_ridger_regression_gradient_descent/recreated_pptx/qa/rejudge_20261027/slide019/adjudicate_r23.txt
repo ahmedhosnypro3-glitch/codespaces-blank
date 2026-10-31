@@ -1,0 +1,90 @@
+PIL ADJUDICATION r23 — slide 019 — judge_full_r16.txt (2026-10-31 06:24:01 UTC, FINAL VERDICT: FAIL, 0x 429)
+against the current render.png (2026-10-31 06:15:53 UTC, 2001x1125 @150dpi, scale sx=2.0844 sy=2.0833)
+vs unique_slides/slide_019.jpg (960x540). Run 2026-10-31 by the r23 fresh worker.
+Read-only pixel census + pptx XML text-run extraction. Raw script output banked in
+adjudicate_r23_raw.txt / adjudicate_r23_probe_raw.txt / adjudicate_r23_probe2_raw.txt;
+scripts pil_adjud_r23.py / pil_adjud_r23_probe.py. Full-frame census:
+rejudge_adjudicate.py 019 --full (banked adjudicate_r23_run.txt) — diff 431,703 px =
+19.177% of frame; ink only in original 273,588 px vs only in render 72,305 px
+(original-heavy, typed-vs-handwritten class); densest 40x24 cells 1,360/1,272/1,263 px
+all inside the y90-112 (z-vector) and y180-202 (header) text bands — diffuse, no
+localized defect block.
+
+r17 cross-reference: judge_full_r17.txt (2026-10-31 06:21:07 UTC, clean, 0x 429) =
+FINAL VERDICT PASS on the SAME 06:15:53 render; newest clean full leg is
+judge_full_wfix.txt (06:51:15 UTC, PASS, 0x 429).
+
+Per-claim verdicts on the r16 discrepancy list:
+
+D1 (MAJOR, ~0.7 — "pink/green column body tints absent in recreation"): REFUTED.
+  Modal-color census (8-level quantized mode), slide-space boxes, header band y173-202,
+  body rows y210-290 / y315-400 / y425-510, bottom strip y515.5-523, per column
+  (NO REG x124-380, RIDGE 3 x384-640, RIDGE 10 x644-900):
+  - ORIG body modal = (248,248,248) WHITE in ALL three columns, all three rows
+    (n=19,520-20,740 px each). The original's body is NOT pink/green tinted; the judge
+    misread the header-band tints as body tints.
+  - ORIG tints: NO REG header/strip (248,248,224) cream; RIDGE 3 (248,224,200) salmon;
+    RIDGE 10 (224,248,232) mint. RENDER: RIDGE 3 header/strip (248,224,200) salmon —
+    EXACT match; RIDGE 10 (232,248,232) mint — match within 8/255 AA; NO REG
+    (240,248,232) vs orig cream — within 8/255 (build TINTS F7FBEC/FAE0C8/E8FFE8,
+    build/slide_019.js:147/156). Render body white (248,248,248) = orig body white.
+  - The tinted regions the original actually has (header bands + bottom summary strip)
+    are all present in the render with matching colors. No tint is missing.
+
+D2 (MAJOR table-data, low conf ~0.5 "pending 1:1 crop" — lambda=10 W-vector digits
+  read as 0.1/1.96/0.03, 0.5/0.71/0.81, 0.8/0.31/1.1): REFUTED.
+  - Ground truth: current deliverable slide_019_recreated.pptx ppt/slides/slide1.xml
+    text runs for the RIDGE 10 column are exactly '0.13','1.87','0.09','0.54','0.73',
+    '0.81','0.82','0.33','1.1' (also build/slide_019.js:359/369/379 w3 arrays).
+    ||W||^2 labels 3.5/1.48/1.92 are consistent with these (0.13^2+1.87^2+0.09^2=3.50...),
+    so no internal inconsistency exists.
+  - Independent clean vision read of the same capture (judge_full_r17.txt 06:21:07,
+    cell-by-cell table, PASS) reads the same original values 0.13/1.87/0.09 etc.
+  - Pixel same-font cross-check (digit cells x0+46..x0+72, y gy..gy+64, col2 vs col1):
+    diff(renderC2, renderC1) = 327/351/381 px for rows 0/1/2 — well above the ~0 of
+    identical same-font glyphs, i.e. the render's col2 digits are NOT col1's digits
+    (the r16 misread); diff(origC2, origC1) = 657/611/629 px. Cross-style diffs
+    render-vs-orig sit at 1,883-2,583 px for BOTH columns (style-dominated), so the
+    earlier single row1 cross-style anomaly is noise, not content.
+  - r16's own confidence was low and "pending a 1:1 crop"; the 1:1 evidence (XML runs +
+    dual judge reads + same-font pixel test) says the digits are correct.
+
+D3 (MINOR ~0.6 — W-vector entry ink red in render vs black/dark in orig): CONFIRMED as
+  an ink-color nuance, MINOR-class only (the FAIL judge scored it MINOR itself; r17 PASS
+  lists the same MINOR). Measured: orig digit-cell ink red=0 dark=190-511 px per cell;
+  render red=78-221 dark=48-129 px per cell (red AA mixed). Not a content defect; no
+  value/position wrong. Does not drive the FAIL.
+
+D4 (MINOR high-conf — delimiter glyph family, orig thin square brackets vs render
+  parens): W-CELLS REFUTED as a defect on the current render: edge-strip census
+  (inside the red box border, true-black max-channel<100) = 0 black-paren px in all 9
+  render W-cells (probe2); corroborates pil_wfix_check.txt 06:19:45 (red side bars in
+  9/9 cells, black-paren-strokes=0). Z-VECTORS: render uses tall 44pt round parens by
+  DESIGN — mandated 2-D professional equation format (rule e), explicitly exempt;
+  measured paren-region ink render 858-898 px vs orig 177-210 px (thin brackets).
+  EXEMPT format difference, not a fidelity failure.
+
+D5 (MINOR ~0.6 — Test Data callout box ~35-40 px wider in recreation): REFUTED.
+  Blue-border extents measured: orig x 69..433, render x 67..434 (build x68..434) —
+  agreement within 1-2 px; no extra 35-40 px of box exists in the render.
+
+D6 (MINOR low-conf ~0.4 — z1 label dark in orig vs red in render): REFUTED.
+  Median ink RGB of the label glyphs (x labX..labX+18, y98..118): orig z1 (200,113,128),
+  z2 (203,125,140), z3 (201,132,141) — all the same washed red (JPEG/AA), no z1-specific
+  darkening; render (194,51,51)/(195,55,55)/(196,62,62) = C00000 red, matching the
+  orig's red z-labels (build comment: "red underlined z_i = label", PIL census 0.88/0.90).
+
+CROP leg on the current render: crop_dense_judge_wfix.txt (2026-10-31 06:47:33 UTC,
+newer than the 06:15:53 render) FINAL VERDICT: PASS, wrapper.out "OK attempt=1 rc=0",
+0x "429" in .txt and .log; crop pair provenance verified — crop_dense_render.png
+(06:17:07) is 0-nonzero-px identical to render.png cropped at slide region
+(160,88)-(464,296) (round-crop 333,183 size 434x634).
+
+DISPOSITION: the two MAJOR claims that drove the r16 FAIL (D1, D2) are REFUTED by
+pixels + deliverable XML; D5/D6 REFUTED; D3 confirmed only as a MINOR ink-color nuance
+that both PASS judges explicitly tolerate; D4 exempt/format with W-cell delimiters now
+red bars matching the original (0 black-paren px, 9/9 cells). No r16 claim is
+PIL-CONFIRMED as a localized content defect. r16 FAIL -> DISMISSED; the clean FULL PASS
+stands (judge_full_r17.txt 06:21:07 corroborated; newest clean judge_full_wfix.txt
+06:51:15 PASS, 0x 429) and CROP PASS (crop_dense_judge_wfix.txt 06:47:33, 0x 429).
+Slide 019 proceeds to certification as post-fix r23.

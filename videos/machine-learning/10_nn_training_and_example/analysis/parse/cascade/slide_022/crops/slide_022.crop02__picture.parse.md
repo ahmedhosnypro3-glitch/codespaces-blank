@@ -1,0 +1,1 @@
+<x_0.0><y_0.0>Back Propagation Training Algorithm 22<x_0.999><y_0.9977><class_Chart>

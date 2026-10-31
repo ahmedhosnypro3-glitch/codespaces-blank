@@ -1,0 +1,39 @@
+## Scope / what this crop actually contains
+
+Both crops show only the two headline lines of slide 020 and the red underline beneath the second line:
+- **Line 1 (upper):** "Regularization to â¨cut glyphâ©" â the final character is sliced off by the right crop edge in **both** images, so only its left bowl/curve is visible.
+- **Line 2 (lower):** "Problem of Singulaâ¨cutâ©" â the word "Singularâ¦" is truncated at the right crop edge in **both** images.
+- The lower ~40% of the crop is background only.
+
+No tables, equations, fractions, â limits, subscripts, or bracket/paren enclosures appear in this region, so those fidelity checks are **N/A** here.
+
+## Discrepancies found
+
+**1. Underline stroke weight â recreation is substantially heavier (MINOR, HIGH confidence).**
+- In **IMG1** the red rule under "Problem of Singulaâ¦" is a solid, hard-edged band roughly **6â7 px** thick running the full crop width.
+- In **IMG2** the same rule is a soft, thinner line roughly **3â4 px** thick (part of the softness being capture/JPEG bleed, but the core stroke is clearly lighter).
+- Location: lower-middle of the crop, spanning xâ0â640 at yâ265â271 (IMG1) vs yâ258â263 (IMG2).
+- Color/hue matches (dark red, C00000-family); only weight and edge softness differ.
+
+**2. Underline sits slightly lower relative to the text in the recreation (MINOR, MEDIUM confidence).**
+- IMG1: rule at yâ265â271, i.e. a small but visible gap (~3 px) below the baseline of "Problem of Singulaâ¦", with the "g" descender crossing it.
+- IMG2: rule at yâ258â263, essentially tangent to the baseline, again crossed by the "g" descender.
+- The relationship (descender intersecting the rule) is preserved; only the rule's standoff from the baseline differs by a few pixels.
+
+**3. Type is rendered a little larger/heavier with taller cap heights in the recreation (MINOR, MEDIUM confidence).**
+- Line 1: IMG1 cap-height of "R" â 55 px (yâ45â100) vs IMG2 â 49 px (yâ48â97); Line 2: IMG1 "P" â 51 px (yâ211â262) vs IMG2 â 47 px (yâ207â257).
+- Horizontal extent is essentially identical in both ("Regularization" ends xâ505 in both; "to" ends xâ595â600 in both), so this reads as a different font face / slightly different weight rather than a size shift â the recreation's face (Arial/DejaVu-like Bold) has marginally taller caps and crisper, heavier strokes than the softened original.
+- Glyph identity is otherwise consistent: R, g, z, i-dots, "Problem of Singulaâ¦" all match in form and order; no wrong, missing, garbled, or reordered characters.
+
+## Observed but NOT discrepancies (per founder-mandated rules)
+
+- **Background below the underline is white in IMG1, gray in IMG2.** This is the house-template chrome (white canvas vs. E9E9E7 panel) and is explicitly exempt; no action.
+- **Small dark pen/cursor mark in IMG2 at bottom-center (xâ320â345, yâ385â415).** This is a video-capture overlay in the original frame, not slide content; correctly absent from the recreation.
+- **Right-edge truncation of the last glyph on both lines.** Identical crop framing in both images â the partial "â¦to â¨glyphâ©" and "Singulaâ¨râ¦â©" cuts are the crop boundary, not a content mismatch. The visible left bowls of the truncated characters are consistent between IMG1 and IMG2.
+- Edge softness/halos in IMG2 and the correspondingly crisp rendering in IMG1 are the expected render-vs-capture difference.
+
+## Verdict
+
+No BLOCKER or MAJOR issues: no wrong digits, no swapped or missing text, no character garbling, no missing rows/cells, no malformed equations, no bad delimiters, and no broken stroke continuity. The only departures are the heavier/lower red underline and a marginally heavier type face â cosmetic, minor, and non-obstructive to use.
+
+**FINAL VERDICT: PASS**

@@ -1,0 +1,24 @@
+## Fidelity check â slide 037 region (upper conditional panel + "Redefine Error function" box)
+
+**Scope note (affects confidence on the rightâedge findings):** the two crops are not pixelâregistered â IMG1 is â600Ã450, IMG2 â600Ã420, the rightâedge cut lands at different text, and the lower box's bottom border sits ~25 px lower in IMG1. So the two rightâedge differences below are reported, but their root cause is partly crop/scale offset rather than necessarily missing content in the render.
+
+### What matches (no discrepancies)
+- Upper panel: "If **X** â **class I** and misclassifiedâ¦" / "If **X** â **class II** and misclassifiedâ¦" â wording, classâI red / classâII blue, underline under **X** and under "misclassified" all correct; italic "class" styling present.
+- Lower box: "Redefine Error function as:" with underline; bold "Error ="; large Î£ with the correct limit line "all *misclassified* vectors *(i)*" ("misclassified" in red italic in both); "Summation is always *positive*" with red italic underlined "positive"; rounded darkâred border and beige/gray fill.
+- No numeric table values, digits, or equation ordering (numerator/denominator, limits) exist in this region, and none are wrong or garbled; all letters/glyphs (R,e,d,e,f,i,n,e,Î£,Î´,W,T,X) are the correct characters, correctly cased.
+
+### Discrepancies (every one, with severity + confidence)
+
+1. **Î´ subscript "i" is red instead of green.** IMG1 â(487â500, 300â325); original shows a green "i" tucked at the Î´'s lower right (IMG2 â(478â489, 294â312)). In IMG1 the "i" also sits lower and detached, nearly colliding with the W underline. **MINOR (color), high confidence**; placement aspect **MINOR**, medium confidence.
+2. **W superscript "T" is blue/purple instead of black.** IMG1 â(538â562, 277â300) vs black T in IMG2 â(530â546, 267â289). It is also slightly larger and shifted right of the W. **MINOR**, high confidence (color), medium (placement).
+3. **Final term rendered as "X" with the subscript "i" cut off / not visible.** IMG1 right edge, â(570â600, 278â318) shows only "X" at the crop boundary; IMG2 shows the complete "Xáµ¢" (subscript i at â(575â588, 300â320)). A lost/truncated subscript is a mandated **MAJOR** finding; confidence **medium** because the crop boundary may simply fall before the i in the recreation.
+4. **Oversized "If **X** â" glyphs in the upper panel.** The X and â in IMG1 (â(78â145, 5â110)) are ~1.4â1.5Ã the height of the original's (IMG2 â(62â106, 14â95)), while the "class I/II" and "and" runs match the original's width. Font/scale mismatch for that run: **MINOR**, high confidence.
+5. **Visible text at the right edge differs as a consequence of #4.** IMG1 clips to "misclassifieâ¦" (d and the following word "as" outside the crop); IMG2 shows the full "misclassified asâ¦" with "as" partially visible. Upperâright of the panel, â(375â600, 10â105). **MINOR** (content itself is correct; only visible extent differs), high confidence on the observation.
+6. **Vertical rhythm differs inside the lower box.** Relative to the box's top border (yâ200 in both), the recreation places the "Error = Î£" row â25 px lower and adds a visible gap between "Redefine Error function as:" and "Error =" (â20 px in IMG1 vs â0â5 px in IMG2); the whole equation/summation block sits lower in the panel. â(35â600, 270â415) in IMG1 vs â(35â600, 255â385) in IMG2. **MINOR**, medium confidence (crop heights differ).
+7. **Box fill tone.** IMG1's panel fill reads slightly cooler/greyer than IMG2's warmer beige. **MINOR**, lowâmedium confidence (IMG2 carries a global JPEG/video warm cast, so this may be capture color rather than render color).
+8. **Limit-line "(i)" color.** In IMG2 the "(i)" reads greenish; in IMG1 it reads black, unlike the neighboring black "all"/"vectors". â(408â440, 340â360) vs â(400â420, 330â355). **MINOR**, low confidence.
+
+No BLOCKER findings: no wrong digit, swapped value, missing row, garbled character, malformed fraction, or bad delimiter (there are no brackets/parentheses spanning multiple lines in this crop other than the ordinary "(i)").
+
+### FINAL VERDICT: FAIL
+The region is broadly usable and all text/equation content is correct, but it is not yet faithful at this zoom: the equation's sub/superscript colors are wrong (red Î´áµ¢ instead of green, blue T instead of black), the final "Xáµ¢" subscript is not visible in the render crop, the upper panel's "If X â" is scaled up so the line's visible text differs at the right edge, and the lower block's vertical placement/fill tone drift from the original. Correcting items 1â4 (and reconciling 5â7) should bring this region to a PASS.

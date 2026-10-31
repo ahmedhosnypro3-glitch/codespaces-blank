@@ -1,0 +1,107 @@
+== 1. BL label ID (orig) ==
+  top     (x236..278 y302..322) ink w=30 h=16 -> 'Global Minima'(2l=1,fs=7) iou=0.71, 'Global Maxima'(2l=1,fs=7) iou=0.71, 'Global Minima'(2l=1,fs=8) iou=0.68
+  right-up(x318..352 y335..356): too little ink (0 px)
+  right-m (x325..350 y388..401) ink w=6 h=2 -> 'Local Minima'(2l=1,fs=10) iou=0.82, 'Local Minima'(2l=1,fs=9) iou=0.82, 'Local Minima'(2l=1,fs=8) iou=0.82
+  left-m  (x105..170 y388..410) ink w=61 h=23 -> 'Local Maxima'(2l=0,fs=8) iou=0.41, 'Local Minima'(2l=0,fs=8) iou=0.40, 'Local Maxima'(2l=0,fs=10) iou=0.40
+  low-L   (x138..205 y438..470) ink w=62 h=24 -> 'Global Minima'(2l=1,fs=7) iou=0.24, 'Local Maxima'(2l=0,fs=12) iou=0.24, 'Global Maxima'(2l=0,fs=7) iou=0.24
+  low-R   (x300..346 y448..470) ink w=29 h=17 -> 'Global Minima'(2l=1,fs=9) iou=0.71, 'Global Minima'(2l=1,fs=7) iou=0.71, 'Global Minima'(2l=1,fs=10) iou=0.68
+
+== 2. TR red coverage along candidate slanted segments (within 2px) ==
+  orig A build (655,189)->(860,209)       red-hit 37/200 = 18%
+  orig B build (737,210)->(755,225)       red-hit 200/200 = 100%
+  orig orig-diag (652,189)->(667,165)     red-hit 108/200 = 54%
+  orig ctrl horizontal y226 x633..875     red-hit 200/200 = 100%
+  render A build (655,189)->(860,209)       red-hit 61/200 = 30%
+  render B build (737,210)->(755,225)       red-hit 200/200 = 100%
+  render orig-diag (652,189)->(667,165)     red-hit 0/200 = 0%
+  render ctrl horizontal y226 x633..875     red-hit 200/200 = 100%
+
+== 1b. low-L vs low-R ink cross-match (are the two labels the same string?) ==
+  low-L w=62 h=24, low-R w=29 h=17, IoU(lowL,lowR)=0.24
+  low-L line1 w=58 h=14 -> 'Local' iou=0.33, 'Global' iou=0.28
+  low-R line1 w=25 h=7 -> 'Global' iou=0.77, 'Local' iou=0.70
+  top line1 w=25 h=7 -> 'Global' iou=0.78, 'Local' iou=0.71
+
+== 3. BR panel ASCII map (orig), 3px cells, box x615..880 y344..531 ==
+  y344 ........................................................................................
+  y347 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR.
+  y350 RR....................................................................................R.
+  y353 RR.....................................##.............................................R.
+  y356 RR.....................................#oR............................................R.
+  y359 RR....................................RRRR............................................R.
+  y362 RR....................................RRRRR...........................................R.
+  y365 RR...................................RRRRRRR..........................................R.
+  y368 RR..................................RRRRRRRRR.........................................R.
+  y371 RR..................................RRRRRRRRRR........................................R.
+  y374 RR.................................RRRRRRRRRRRR.......................................R.
+  y377 RR................................RRRRRRRRRRRRRR......................................R.
+  y380 RR...............................RRRRRRRRRRRRRRRR.....................................R.
+  y383 RR..............................RRRRRRRRRRRRRRRRRR....................................R.
+  y386 RR............................+RRRRRRRRRRRRRRRRRRRRR..................................R.
+  y389 RR...........................+RRRRRRRRRRRRRRRRRRRRRRRRo...............................R.
+  y392 RR..........................RRRRRRRRRRRRRRRRRRRRRRRRRRRRRR............................R.
+  y395 RR.........................RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRo.........................R.
+  y398 RR........................oRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR......................R.
+  y401 RR........................RRRRRRRRRRRRooRooooooooRRRRRRRRRRRRRRRRRR...................R.
+  y404 RR.......................oRRRRRRRRRRRRooooooooooooooooRRRRRRRRRRRRRRRR................R.
+  y407 RR......................ooRRRRRRRRRRRRRRRooooooooooooooooRRRRRRRRRRRRRRRo.............R.
+  y410 RR......................ooooooooooooooRRRRRRoooooooooooooooRRRRRRRRRRRRRRRo.........+.R.
+  y413 RR.....................oooooooooooooooooRRRRRRRooooooooooooooooRRRRRRRRRRRRo........+.R.
+  y416 RR.....................oooooooooooooooooRRRRooooooooooooooooooooooRoRRRRRRRRRoo....+..R.
+  y419 RR....................ooooooooooooooooooooooooooooooooooooooooooooooooRRRRRRRRRooo.+..R.
+  y422 RR....................ooooooooooooooooooooooooooooooooooooooooooooooooooooRRRRRoooo+..R.
+  y425 RR...................oooooooooooooooooooooooooooooooooooooooooooooooooooooooooRooooo..R.
+  y428 RR...................oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...R.
+  y431 RR.................o+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...R.
+  y434 RR.........o+ooo+++oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...R.
+  y437 RR........oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....R.
+  y440 RR.......ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo....R.
+  y443 RR.......+oooooooo+++++ooooooooo+oooooooooooooooooooooooooooooooooooooooooooooooo.....R.
+  y446 RR......+oooooooo+++++o+oooo++oo++++oooooooooooooooooooooooo#ooooooooooooooooooo+.....R.
+  y449 RR......+ooooooo++++oooooooooooo+oo+++++++oooooooooooooooo##+oooooooooooooooooo+......R.
+  y452 RR.....++oooooo++++oooooooooooooooooooooooooooooooooooooo+++oooooo+oooooooo+++++......R.
+  y455 RR....++oooooo+++oooooooooooooooooooo++++++++o++oooooooo#++++++++++++++++++oo++.......R.
+  y458 RR..++++o+++++++oooooooooooooooooooooo++oooo++++++++o++##++++++++++oo+++++oo+++.......R.
+  y461 RR+++++oo+oooooooooooooooooooooooooooooooooooo++oooooo+#++oooo+o++++++++++oo++........R.
+  y464 RR++oooooooooooooooooooooooooooooooooooooooooooooo+ooo+#+ooooooo+++++++++++++.........R.
+  y467 RR++oooooooooooooooooooooooooooooooooooooooooooooooooo##ooooooooo+++#++#++++..........R.
+  y470 RR.++ooooooooooooooooooooooooooooooooooo#oooooooooooo+#+oooooooooo++++................R.
+  y473 RR.++oooooooo#oooooooooooooooooo##oooooooooooooooooooo#oooooooooooo++.................R.
+  y476 RR..+oooooooo#+ooooooooooooooooo#ooooooooooooooooooooo#+ooooooooooo++.................R.
+  y479 RR..++oooooooo#+######+#####ooooooooooooooooooooooooo#+oooooooooooo+..................R.
+  y482 RR....+####++++++#++++++++######ooooooooooooooooooooo++oooooooooooo+..................R.
+  y485 RR......+#+....++........++++####oooooooooooooooooooo+++++oooooooo+...................R.
+  y488 RR........................+#+++####ooooo##ooooooooooo+++ooooooooooo...................R.
+  y491 RR.........................##o++++#+++++#oooooooooooooooooooooooo+....................R.
+  y494 RR......................ooo+##o+++oooo+++ooo#oooooooooooooooooooo.....................R.
+  y497 RR......................oooo+#ooooooooooooooooooooooooooooooooo#+.....................R.
+  y500 RR.......................+++++#ooooooooooooooooooooooooooooooo##......................R.
+  y503 RR......................+++++++#+oooooooooooooooooooooooooooo##...oooo................R.
+  y506 RR.........................+++++++++oooooooooooooooooooooooo#+......oooooooo..........R.
+  y509 RR........................++++...+++++oooooooooooo###ooooo##+.........ooooooooo.......R.
+  y512 RR.........................++++++++...++ooooooooo+.##oooo##................ooooooo....R.
+  y515 RR..........................++++++++++..+ooooooo+...##o###.........................+..R.
+  y518 RR...............................++.+....+#oooo+++++++++..............................R.
+  y521 RR.........................................###+++++++++++++...........................R.
+  y524 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR.
+  y527 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR.
+
+== 4. BR dark comps (lum<150 sat<90, frame excluded) orig vs render ==
+  orig: 17 comps; top:
+    area=1887 slide x627..805 y442..510 (w=179 h=69)
+    area=795 slide x730..838 y459..523 (w=109 h=65)
+    area=87 slide x706..745 y352..389 (w=40 h=38)
+    area=74 slide x664..681 y451..460 (w=18 h=10)
+    area=47 slide x729..741 y469..474 (w=13 h=6)
+    area=43 slide x661..679 y445..452 (w=19 h=8)
+    area=27 slide x837..848 y460..467 (w=12 h=8)
+    area=22 slide x745..753 y477..482 (w=9 h=6)
+    area=16 slide x827..832 y454..460 (w=6 h=7)
+    area=14 slide x736..739 y389..392 (w=4 h=4)
+    area=14 slide x667..675 y442..443 (w=9 h=2)
+    area=13 slide x695..704 y390..399 (w=10 h=10)
+  render: 2 comps; top:
+    area=589 slide x670..829 y396..511 (w=160 h=116)
+    area=11 slide x694..697 y412..415 (w=4 h=4)
+
+PROBE3_DONE

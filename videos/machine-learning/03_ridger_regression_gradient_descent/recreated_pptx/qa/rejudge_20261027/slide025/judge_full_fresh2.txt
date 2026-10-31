@@ -1,0 +1,56 @@
+# Fidelity Check â Slide 25 âTypes of Loss function shapesâ
+
+**Method:** IMG1 (recreation) vs IMG2 (original). House chrome (gray panel, red L/R/B strokes, no top stroke, slide-number badge) treated as intentional per ground rules (a). Cursor/artifact and equation-format rules (câe) not applicable here.
+
+## What matches (correctly reproduced)
+| Element | Status |
+|---|---|
+| Title text âTypes of Loss function shapesâ (verbatim, single line) | Present, red bold, centered â metric offset only (see D7) |
+| Four red-framed plot regions, same quadrant layout (TL, BL, TR, BR) | Same ordering and relative placement |
+| All four blue callout boxes, text verbatim, yellow/white color split (âConcave Function / One Maximaâ, âConvex Function / One Minimaâ, âGradient Descent / Path to reach Minimaâ, âNon-Convex / Multiple Minimaâ) | Verbatim, correct case, correct colors, correct line breaks |
+| Red horizontal annotation lines over the TL and BL charts | Present (they also overrun the frame edge in the original â inherited, not scored) |
+| Red leader/annotation strokes on the TR chart | Present (positions differ, see D8) |
+
+## Discrepancies
+
+**D1 â BLOCKER/MAJOR (top-right chart: axis-scale element entirely absent) â confidence HIGH**
+The original top-right convex-function figure carries a vertical scale annotation âÃ10â´â and z-axis tick values (0, 0.5, 1, 1.5, 2) in the upper-left of the axes box. The recreationâs top-right figure has **no Ã10â´ notation and no z-axis tick labels at all** â a chart element present in the original is missing from the recreation (rule 6).
+
+**D2 â MAJOR (top-right chart: different surface geometry/appearance) â confidence HIGH**
+Original: a bowl/valley figure with a pronounced red spike at the rear, green-yellow flanks, and a deep blue minimum at the front-center, plotted in the classic MATLAB axes box with dashed gray box walls. Recreation: an essentially flat yellow plane with a shallow, small blue oval depression in the middle and no rear spike. The plotted function and viewing angle are not the same figure; data-value fidelity is not met.
+
+**D3 â MAJOR (top-right frame aspect) â confidence MEDIUM-HIGH**
+Recreation TR frame â (578â820, 117â308) â 191 px tall; original â (578â818, 122â325) â 203 px tall. The recreation frame is ~12 px short, so the figure inside is squeezed/re-cropped relative to the original.
+
+**D4 â MAJOR (bottom-left chart: axes-box grid missing, surface differs) â confidence HIGH**
+Original bottom-left figure is a full MATLAB 3D plot with a light-gray bounding box and gridlines on the rear walls and floor, a tall red global peak, green mesh and a deep blue global basin. The recreation shows the same four callouts (âGlobal Maximaâ, âLocal Maximaâ, âLocal Minimaâ, âGlobal Minimaâ) but on a visibly different, flatter, smaller rendering with **no gray 3D box/grid walls**, and the surface occupies only ~60% of the frame, leaving dead white space on the right (y-axis ends âx=295 vs âx=340 in the original).
+
+**D5 â MAJOR (bottom-left chart: annotation callout positions/arrow directions do not match) â confidence MEDIUM-HIGH**
+âGlobal Maximaâ sits â(215,302) in the recreation vs â(240,300) in the original; âLocal Maximaâ â(252,338) vs â(275,340); âLocal Minimaâ â(125,446) vs â(140,455); arrow endpoints/angles differ correspondingly. Labels are also smaller than the originalâs.
+
+**D6 â MAJOR (bottom-right graphic: different image, and it is clipped by its frame) â confidence HIGH**
+The original bottom-right image is a full multi-basin landscape (red peak upper-center, blue basin lower-left, pale reflection floor) with generous white padding inside the red frame and its own thin black gradient-descent path descending into the left basin. The recreation substitutes a different, zoomed single-hill surface (green/yellow with a red crest) and the raster is **cropped so the graphic runs into / past the inner edges of the red frame at the bottom and right** â a containment violation (rule 5) as well as a content mismatch. The black path drawn over the recreation hill does not correspond to the originalâs path shape.
+
+**D7 â MAJOR (top-left chart: different rendering) â confidence HIGH**
+Original top-left is a MATLAB figure with a gray 3D axes box and grid, plus concentric contour curves over a banded redâorangeâyellowâgreenâblue dome. The recreation has no gray axes box and no contour curves; its dome is green/yellow sitting on a large flat dark-blue base polygon â a visibly different surface and a different plotting style.
+
+**D8 â MAJOR (top-left chart: axis tick values differ) â confidence MEDIUM**
+Left-side numeric ticks read 0, â1, â2 in the recreation versus 0 and â5 (with a separate 2) in the original; the numeric axis labelling of the figure therefore does not match the original.
+
+**D9 â MINOR (title metrics) â confidence MEDIUM**
+Title is ~5 px higher and ~7 px narrower in the recreation (xâ248â545 vs xâ242â546); typeface/weight rendering differs slightly (Arial-style vs the originalâs rendering).
+
+**D10 â MINOR (red annotation strokes on the top-right chart) â confidence MEDIUM**
+The short red diagonal and right-hand leader strokes are at different positions/angles than the originalâs (e.g., recreation diagonal near (700,128)â(722,150) and right leader near (795,185)â(810,178)).
+
+## Visual-quality defects in the recreation
+- Bottom-right image is scaled to bleed into its frame edges (clipped bottom/right) â no margin, unlike the original.
+- Tick labels and axis numbers inside all four charts are extremely small (bottom-left x/y ticks, TL axis values) and effectively illegible at 150 dpi.
+- Plot callout arrows in the bottom-left chart are thin and partly detached from their target peaks; the âGlobal Minimaâ leader points into empty mesh.
+- The four figures are visibly re-drawn approximations rather than the original MATLAB figures, with mismatched colormaps, missing grid boxes, missing contour lines, and inconsistent camera angles.
+- Bottom-left figure is under-scaled within its frame, producing a large blank white band on the right side of that panel.
+
+## Assessment
+Text content and overall slide architecture are faithfully reproduced, and no house-chrome item is faulted. However, all four charts â the dominant visual content of this slide â are different renderings with different geometry, missing axes-box grids, missing contour lines, missing z-axis scale annotation (Ã10â´ and 0â2 ticks), mismatched tick values, mis-positioned callouts, and one image clipped against its frame. These are renderable-content fidelity failures (rules 5, 6, and 8), not style differences.
+
+**FINAL VERDICT: FAIL**

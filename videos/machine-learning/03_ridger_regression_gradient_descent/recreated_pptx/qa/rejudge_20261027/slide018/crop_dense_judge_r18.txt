@@ -1,0 +1,23 @@
+## Fidelity Check â r18, Slide 18 region (data table lower half incl. XââXâ block)
+
+**Region covered:** the lower half of the crop â two unlabeled numeric rows at top, the gray separator band, the X-subscript header row, and the first three visible data rows (right side cut off at the crop edge).
+
+### Discrepancies found
+
+**1. Extra "30" in the second data row â BLOCKER (confidence: high)**
+- IMG1 (recreation) row B (the row directly below the `1 2 3 4 8 9 10` row) reads: **1, 3, 30, 5, 6, 16, 7, 5, 3â¦(cropped)** â nine cell values before the cut.
+- IMG2 (original) same row reads: **1, 3, 5, 6, 16, 7, 5, 3â¦(cropped)** â eight cell values, identical cell count to every other row in the frame.
+- Consequence: a spurious blue `30` was inserted in the Xâ column (â30% across, row B â middle-lower of crop). Every value to its right is shifted one column out of alignment with the headers XââXâ, and the Xâ value is wrong (5 in IMG1 vs 3 in IMG2). The glyph itself is well-formed; the defect is presence/alignment, not shape.
+
+**2. Yellow-highlighted cell not present in the original â MAJOR (confidence: medium)**
+- In IMG1, the last visible cell of the top data row (`1 2 3 4 8 9 10 | 3`) carries a yellow FDFD96 fill with the purple ring, at the far right of the row (~90% across, row A).
+- In IMG2 the same cell sits on plain white with no yellow tint. Either the recreation added an emphasis highlight absent from the original, or â less likely â the highlight washed out entirely in the video capture. Flagging for confirmation either way.
+
+### What checked out clean
+- Top two unlabeled rows match cell-for-cell: `1 3 5 6 16 7 5 3` and `2 4 6 8 16 18 20 22` (including the cropped `22`).
+- Header row Xââ¦Xâ (Xâ cropped): identical glyphs, red subscripts, same dark-red X letters in both.
+- Column-parity coloring (odd columns blue, even red) is consistent between IMG1 and IMG2 in every matching row; blue/red shades are effectively identical.
+- Row C (`2 4 30 8 16 18 20 22`) matches exactly, including the genuine `30` at Xâ â which is what makes the extra `30` in row B stand out as an insertion, not a capture artifact.
+- No garbled/wrong glyph shapes, no truncation of any subscript, row baselines and two-digit numbers (`10`, `30`, `16`) vertically centered consistently; gray band and horizontal rules match.
+
+FINAL VERDICT: FAIL

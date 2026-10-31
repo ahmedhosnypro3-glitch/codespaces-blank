@@ -1,0 +1,24 @@
+Discrepancies (crop-relative):
+
+1. **Missing closing square bracket in both equations**  
+   - IMG1 top equation: after `(XW)` at right end (~x 755â765, y â 45â85), there is **no `]`**; IMG2 has `]` at ~x 720.  
+   - IMG1 second equation: same defect (~x 755â765, y â 125â165); IMG2 has `]`.  
+   - The opening `[` is present in both, so the delimiter pair is unbalanced/truncated in the recreation.  
+   **Severity: MAJOR** | Confidence: high
+
+2. **Vector underlines absent in recreation on `Y` and `W` in equations / derivative denominator**  
+   - IMG1: `Y^T`, `(XW)^T`, and `âW` appear as plain typed letters with no underline.  
+   - IMG2: `Y`, `W`, and denominator `W` in `âLoss/âW` are underlined to indicate vectors.  
+   - Largely inherent typed-vs-handwritten rendering difference, but semantically the vector marking is dropped.  
+   **Severity: MINOR** | Confidence: high
+
+3. **Spacing between coefficient `1/2` and opening `[`**  
+   - IMG1 has broader typed word spacing (`1/2 [`); IMG2 is more condensed handwritten style (`1/2[`).  
+   - Acceptable as mandated professional 2D/typed formatting, but noted.  
+   **Severity: MINOR** | Confidence: medium
+
+Numbers, symbols, and `âLoss/âW = 0` contents otherwise match; no swapped table values or missing rows apply in this region. The pink-panel bullet line is within capture edges in both.
+
+Because the closing delimiter is absent/unclosed in visible matched-scale region, the recreation is not fully faithful here.
+
+FINAL VERDICT: FAIL

@@ -11,15 +11,15 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
     "max_output_tokens": 9000
   },
-  "parse_calls_spent": 5,
-  "crops_spent": 4,
+  "parse_calls_spent": 1,
+  "crops_spent": 0,
   "degraded": {
     "chat": false,
     "reason": ""
@@ -51,12 +51,10 @@
       0,
       0
     ],
-    "stop_reason": null,
-    "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-    "decision_source": "fallback",
-    "children": [
-      "slide_029.crop01__table"
-    ],
+    "stop_reason": "no-new-information",
+    "stop_note": "chat advised STOP: The child already parses the sole table candidate at the same crop-box scale, leaving no tighter subregion or image block to isolate.",
+    "decision_source": "chat",
+    "children": [],
     "transform": {
       "origin_px": [
         0,
@@ -68,195 +66,16 @@
     "trigger": "full frame",
     "error": null
   },
-  "crops": [
-    {
-      "id": "slide_029.crop01__table",
-      "level": 1,
-      "class": "Table",
-      "box_frame_px": [
-        34.7,
-        40.5,
-        873.8,
-        476.3
-      ],
-      "estimated": false,
-      "png": "crops/slide_029.crop01__table.png",
-      "mean_rgb": 230.68,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_029.crop01__table.parse.md",
-        "json": "crops/slide_029.crop01__table.parse.json"
-      },
-      "scale": 1.7646,
-      "size_px": [
-        1664,
-        909
-      ],
-      "margin_applied": [
-        35,
-        19
-      ],
-      "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
-      "children": [
-        "slide_029.crop02__picture"
-      ],
-      "transform": {
-        "origin_px": [
-          0.0,
-          21.0
-        ],
-        "scale": 1.7646,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "root",
-      "error": null
-    },
-    {
-      "id": "slide_029.crop02__picture",
-      "level": 2,
-      "class": "Picture",
-      "box_frame_px": [
-        37.7,
-        40.3,
-        866.6,
-        477.7
-      ],
-      "estimated": false,
-      "png": "crops/slide_029.crop02__picture.png",
-      "mean_rgb": 230.5,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_029.crop02__picture.parse.md",
-        "json": "crops/slide_029.crop02__picture.parse.json"
-      },
-      "scale": 1.7785,
-      "size_px": [
-        1664,
-        916
-      ],
-      "margin_applied": [
-        61,
-        34
-      ],
-      "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
-      "children": [
-        "slide_029.crop03__picture"
-      ],
-      "transform": {
-        "origin_px": [
-          3.4,
-          21.0
-        ],
-        "scale": 1.7785,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_029.crop01__table",
-      "error": null
-    },
-    {
-      "id": "slide_029.crop03__picture",
-      "level": 3,
-      "class": "Picture",
-      "box_frame_px": [
-        36.3,
-        42.3,
-        868.9,
-        474.8
-      ],
-      "estimated": false,
-      "png": "crops/slide_029.crop03__picture.png",
-      "mean_rgb": 230.4,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_029.crop03__picture.parse.md",
-        "json": "crops/slide_029.crop03__picture.parse.json"
-      },
-      "scale": 1.7785,
-      "size_px": [
-        1664,
-        912
-      ],
-      "margin_applied": [
-        62,
-        34
-      ],
-      "stop_reason": null,
-      "stop_note": "chat advised CROP: The Picture candidate is a sparse chart block, and the child adds labels/structure such as \u201cPredicted as P N\u201d and \u201cFP TN\u201d that the parent lacked or garbled.",
-      "decision_source": "chat",
-      "children": [
-        "slide_029.crop04__picture"
-      ],
-      "transform": {
-        "origin_px": [
-          3.4,
-          23.2
-        ],
-        "scale": 1.7785,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_029.crop02__picture",
-      "error": null
-    },
-    {
-      "id": "slide_029.crop04__picture",
-      "level": 4,
-      "class": "Picture",
-      "box_frame_px": [
-        36.3,
-        41.6,
-        888.1,
-        493.6
-      ],
-      "estimated": false,
-      "png": "crops/slide_029.crop04__picture.png",
-      "mean_rgb": 230.4,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_029.crop04__picture.parse.md",
-        "json": "crops/slide_029.crop04__picture.parse.json"
-      },
-      "scale": 1.7785,
-      "size_px": [
-        1664,
-        912
-      ],
-      "margin_applied": [
-        63,
-        35
-      ],
-      "stop_reason": "no-new-information",
-      "stop_note": "child lines are a subset of the parent parse",
-      "decision_source": "deterministic",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          3.4,
-          23.2
-        ],
-        "scale": 1.7785,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_029.crop03__picture",
-      "error": null
-    }
-  ],
+  "crops": [],
   "recursion": {
-    "levels_processed": 5,
+    "levels_processed": 1,
     "backstop_hits": 0
   },
   "stats": {
-    "parse_calls": 5,
-    "chat_calls": 4,
-    "retries": 3,
-    "dedup_collapsed": 1,
-    "elements": 4
+    "parse_calls": 1,
+    "chat_calls": 1,
+    "retries": 0,
+    "dedup_collapsed": 0,
+    "elements": 1
   }
 }

@@ -11,8 +11,8 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
@@ -52,8 +52,8 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
-    "decision_source": "fallback",
+    "stop_note": "chat advised CROP: The parent excerpt is empty while the child recovered ROC/threshold table strings, and the picture candidate's extracted text is truncated and sparse, so a tighter crop could recover more.",
+    "decision_source": "chat",
     "children": [
       "slide_035.crop01__picture"
     ],
@@ -76,39 +76,39 @@
       "box_frame_px": [
         36.6,
         40.9,
-        861.5,
-        475.5
+        887.8,
+        475.8
       ],
       "estimated": false,
       "png": "crops/slide_035.crop01__picture.png",
-      "mean_rgb": 217.5,
+      "mean_rgb": 218.27,
       "precheck_ok": true,
       "backend": "pil",
       "parse_files": {
         "md": "crops/slide_035.crop01__picture.parse.md",
         "json": "crops/slide_035.crop01__picture.parse.json"
       },
-      "scale": 1.7912,
+      "scale": 1.7351,
       "size_px": [
         1664,
-        919
+        892
       ],
       "margin_applied": [
-        34,
+        36,
         19
       ],
       "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
+      "stop_note": "chat call failed: chat: giving up after 7 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
       "decision_source": "fallback",
       "children": [
         "slide_035.crop02__picture"
       ],
       "transform": {
         "origin_px": [
-          3.0,
+          1.0,
           22.0
         ],
-        "scale": 1.7912,
+        "scale": 1.7351,
         "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
       },
       "trigger": "root",
@@ -119,41 +119,41 @@
       "level": 2,
       "class": "Picture",
       "box_frame_px": [
-        35.7,
-        42.4,
-        862.7,
-        475.4
+        35.6,
+        41.3,
+        860.7,
+        476.4
       ],
       "estimated": false,
       "png": "crops/slide_035.crop02__picture.png",
-      "mean_rgb": 217.38,
+      "mean_rgb": 217.14,
       "precheck_ok": true,
       "backend": "pil",
       "parse_files": {
         "md": "crops/slide_035.crop02__picture.parse.md",
         "json": "crops/slide_035.crop02__picture.parse.json"
       },
-      "scale": 1.7912,
+      "scale": 1.7889,
       "size_px": [
         1664,
-        916
+        920
       ],
       "margin_applied": [
-        62,
-        34
+        60,
+        33
       ],
       "stop_reason": null,
-      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: HTTP 429: {\"error\":{\"code\":\"upstream_rate_limited\",\"message\":\"the upstream provider is rate limiting this gateway\",\"retry_after\":0,\"type\":\"rate_limit_error\"}} \u2014 conservative CROP fallback",
+      "stop_note": "chat call failed: chat: giving up after 7 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
       "decision_source": "fallback",
       "children": [
         "slide_035.crop03__picture"
       ],
       "transform": {
         "origin_px": [
-          3.0,
-          23.7
+          1.0,
+          22.0
         ],
-        "scale": 1.7912,
+        "scale": 1.7889,
         "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
       },
       "trigger": "slide_035.crop01__picture",
@@ -164,39 +164,39 @@
       "level": 3,
       "class": "Picture",
       "box_frame_px": [
-        35.7,
+        38.2,
         42.1,
-        862.7,
-        475.8
+        859.4,
+        474.5
       ],
       "estimated": false,
       "png": "crops/slide_035.crop03__picture.png",
-      "mean_rgb": 217.38,
+      "mean_rgb": 217.14,
       "precheck_ok": true,
       "backend": "pil",
       "parse_files": {
         "md": "crops/slide_035.crop03__picture.parse.md",
         "json": "crops/slide_035.crop03__picture.parse.json"
       },
-      "scale": 1.7912,
+      "scale": 1.7953,
       "size_px": [
         1664,
-        916
+        920
       ],
       "margin_applied": [
-        62,
+        61,
         34
       ],
       "stop_reason": "no-new-information",
-      "stop_note": "child lines are a subset of the parent parse",
-      "decision_source": "deterministic",
+      "stop_note": "chat advised STOP: Child excerpt is materially identical to the parent with only minor OCR noise, and the sole candidate is the current crop box itself with no tighter sub-region to isolate.",
+      "decision_source": "chat",
       "children": [],
       "transform": {
         "origin_px": [
-          3.0,
-          23.7
+          4.4,
+          23.1
         ],
-        "scale": 1.7912,
+        "scale": 1.7953,
         "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
       },
       "trigger": "slide_035.crop02__picture",
@@ -209,9 +209,9 @@
   },
   "stats": {
     "parse_calls": 4,
-    "chat_calls": 3,
-    "retries": 3,
-    "dedup_collapsed": 1,
-    "elements": 3
+    "chat_calls": 4,
+    "retries": 2,
+    "dedup_collapsed": 0,
+    "elements": 4
   }
 }

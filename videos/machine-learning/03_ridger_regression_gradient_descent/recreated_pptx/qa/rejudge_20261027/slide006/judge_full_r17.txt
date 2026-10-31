@@ -1,0 +1,35 @@
+## Element-by-element fidelity check (IMG1 recreation vs IMG2 original, 960Ã540 reference frame)
+
+**Ground rules applied first (not discrepancies):** house panel/border chrome (gray E9E9E7 panel, red C00000 left/right/bottom strokes, no top stroke), yellow badge with purple ring and "6"; IMG2's mouse cursor over "Linear|Separable" and the gray "â¦has just been saved" notification at bottom-left (capture artifacts, correctly omitted); typed vs. any ink difference (n/a here â both are typed).
+
+**Content inventory**
+| Element | IMG2 original | IMG1 recreation | Match |
+|---|---|---|---|
+| Title line | "Problems of Linear Regression" â bold sans, dark red, 1 line | identical text, bold sans, dark red, 1 line | â verbatim |
+| Subtitle line | "(With Linearly Separable Data)" â italic, pure blue, 1 line | identical text, italic, blue, 1 line | â verbatim, parens present |
+| Panel / strokes | E9E9E7, red left/right/bottom, no top | same | â |
+| Badge | yellow circle, purple ring, numeral "6" | same, numeral "6" | â |
+| Everything else | none (no body text, no figures, no tables) | none | â nothing missing |
+
+There is no equation, table, chart, diagram, or image in this frame, so no missing-element or delimiter/table-data issues arise.
+
+## Discrepancies (all minor; none blocking)
+
+1. **MINOR â inter-line spacing between title and subtitle is tighter.** In IMG2 the blue subtitle sits with a clearly open gap below the red title's descenders (~12â18 px clearance at 960-frame). In IMG1 the subtitle is pulled up, leaving only ~5â8 px clearance, so the parenthesis tops nearly crowd the "g" descender of "Regression." Baseline-to-baseline separation drops from ~39â40 px (IMG2) to ~35â36 px (IMG1), â10% tighter. Not a collision and still legible, but it is a measurable spacing change; this is the closest call to the founder's MAJOR line-spacing rule, and I rate it MINOR only because the reduction is ~5 px (<1% of frame height) and no ink touches.
+   Confidence: medium-high.
+
+2. **MINOR â vertical position of the title/subtitle block is ~10â19 px higher in IMG1.** Title cap-top sits â11 px above IMG2's position relative to the panel top and chrome badge; the subtitle is â17 px above. The original block reads as more centered in the panel; the recreation reads slightly high. Content is fully contained in the panel (no overflow), so this is placement, not containment.
+   Confidence: medium.
+
+3. **MINOR â title glyph metrics marginally differ.** Recreated title measures ~574 px wide vs ~586 px in IMG2 (â2% narrower) at slightly taller cap height, consistent with a marginally different Arial-family metric/weight/tracking rather than the original's exact face. Subtitle width matches closely (~457 vs ~461). No legibility impact.
+   Confidence: low-medium.
+
+## Visual-quality defects in the recreation
+- Subtitle line is crowded toward the title (see #1) â the only aesthetic flaw worth noting.
+- No text overflow or clipping; no collisions, no illegible glyphs, no element touching or crossing the panel/stroke boundaries; the numeral and badge render cleanly.
+- Font antialiasing and color rendering are clean; red â C00000 and blue â 0000FF match the original's hues.
+
+## Summary
+Every renderable content element is present and verbatim: title, subtitle with parentheses, colors, weight/italic treatment, single-line wrapping, and house chrome/badge all match. The only departures are a small upward shift of the text block and a ~5 px tightening of the title-to-subtitle gap (plus a ~2% title-width variance). There are no missing elements, no overflow, no delimiter or table-data problems, and no capture-artifact leakage.
+
+**FINAL VERDICT: PASS** for "faithful, usable recreation"

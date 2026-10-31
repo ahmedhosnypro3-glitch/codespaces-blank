@@ -14,3 +14,12 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query for the connected-curve step; the rest cross-referenced from the slide-29/34/28 records — no new query spent). Spec consumed: `analysis/slide_036_final.json`; frame `unique_slides/slide_036.jpg`.
+
+## Second-opinion (lane C, 2026-10-31, agy web search)
+
+- Threshold=1.0 endpoint (0,0) re-CONFIRMED with a NEW source detail: sklearn `roc_curve` sets `thresholds[0] = inf` (or max(y_score)+1) so the curve starts at FPR=TPR=0 — nothing predicted positive — per the sklearn `roc_curve` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html); Google ML Crash Course roc-and-auc confirms the curve geometrically starts at (0,0) and ends at (1,1). This corroborates the threshold=1.0 panel recorded here and on slide 035.
+- Connecting the per-threshold points in order traces the complete locus of operating points = the ROC curve: re-CONFIRMED — Google ML Crash Course roc-and-auc plus Evidently AI "Explain the ROC curve" and UVA Library ROC/AUC guide (https://library.virginia.edu/data/articles/roc-curves-and-auc-for-models-used-for-binary-classification, NEW source not previously banked). Both TPR and FPR are monotonically non-increasing in the threshold (TrainInData AUC/ROC analysis, https://blog.trainindata.com/auc-roc-analysis/), matching the frame's leftward/downward march. No corrections.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Full ROC plot with seven threshold-labeled points 0.0/0.1/0.3/0.4/0.6/0.7/1.0 from (1,1) down to (0,0), with "Best (TPR)"/"Best (FPR)" markers near the top-left: CONFIRMED — sklearn `roc_curve` (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html), Evidently AI ROC guide (https://www.evidentlyai.com/classification-metrics/explain-roc-curve), and Google ML Crash Course (https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc): threshold 0.0 -> (FPR=1, TPR=1), threshold 1.0 (sklearn's inf first threshold) -> (0,0); ideal corner is (0,1); best operating point chosen near top-left via min distance to (0,1) or max Youden's J = TPR-FPR. Local recomputation of all seven points from the frame's matrices matches the plotted labels; with the frame's printed values the max-J point is threshold 0.4 (J=0.8-0.16=0.64), consistent with the frame's "Best" marker near the 0.4/0.6 region. The 0.6 panel TPR=0.6 remains the known CORRECTED slip (0.75; see slide 033). No new corrections.

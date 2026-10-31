@@ -1,0 +1,35 @@
+## Fidelity check â slide 007, zoomed left-content crop (r17)
+
+**Scope confirmed:** crop-pair of the same left-hand region at matched scale. I compared ink color/weight, glyph shapes, all visible character strings, bullet marks, underline, the vertical rule, left-edge fill, and the vertical rhythm of the four text lines. No tables, equations, or delimiters occur in this crop, so those checks are N/A here.
+
+### Content match (what is correct)
+- Title text, underline, and wording match: "Linear regression model haâ¦" (right edge cropped) in both.
+- Bullet 1 reads "Overfitting Problem" in both â identical characters, no substitution.
+- Bullets 2 **and** 3 both read "Matrix Inversion Probleâ¦" in IMG1 and IMG2. The duplicated wording is present in the original too, so this is **not** a recreation error.
+- Baseline text color is the same blue in both; title is non-bold and underlined in both; body lines are bold in both.
+- The small pen/cursor shape floating in IMG2 at â(300â330, 210â245), between bullets 1 and 2, is a video-capture artifact, not slide content â ignored per ground rule (e).
+
+### Discrepancies
+
+1. **MINOR â Type is set ~5â8% larger/wider in the recreation.** The recreation's title cap height â30 px (yâ28â58) vs â27 px (yâ35â62) in IMG2; body line "Overfitting Problem" advances xâ97â518 in IMG1 vs xâ100â488 in IMG2. Consequence: at the shared right crop edge, IMG1 shows "â¦model **ha**" (xâ535â584) whereas IMG2 shows "â¦model" with only a sliver of the next word at xâ575â584 â i.e., the two crops truncate at different points, confirming a metric/size mismatch rather than a crop error. Confidence: high.
+
+2. **MINOR â Bullet glyph shape differs.** In IMG1 (xâ60â95, yâ125/220/332) the marker is a thin, open/outlined arrowhead; in IMG2 (same x-range) it is a **solid filled** arrowhead with a notched shoulder (classic Wingdings-style). Shape and fill of all three markers differ from the original. Confidence: high.
+
+3. **MINOR â Vertical placement and line spacing of the bullet block.** Recreation line tops: bullet 1 yâ125, bullet 2 yâ218, bullet 3 yâ330 (gaps 93 / 112 px). Original: yâ137, yâ237, yâ338 (gaps 100 / 101 px). The recreation sits â8â19 px high, with the 1â2 gap compressed and the 2â3 gap expanded. Relative offsets are small (â¤4% of crop height) but visible at this zoom. Confidence: medium-high.
+
+4. **MINOR â Left vertical rule color/hue.** The rule at IMG1 xâ37â41 is a saturated bright blue; the original at xâ40â46 is a deeper navy/indigo. Some of this may be capture color shift, but the recreation reads distinctly brighter. Confidence: medium.
+
+5. **MINOR â Left-edge fill band differs.** IMG2 shows a gray/darker band from xâ0 to â40 left of the rule; IMG1 shows white in the same strip, with the rule also shifted â3â5 px left. Small area, but a visible fill mismatch at the crop edge. Confidence: medium.
+
+6. **MINOR â Title inter-word spacing.** IMG2 shows a slightly wider gap before "model" (xâ430â450) than IMG1's normal single space. Confidence: low (may be capture artifacts).
+
+### Not defects (explicitly excluded)
+- Right-edge truncation of "Matrix Inversion Probleâ¦" occurs identically in both images (crop boundary, not missing content).
+- The duplicated third bullet ("Matrix Inversion Problem") is original content.
+- IMG2's cursor/pointer and JPEG softness/halos.
+- No wrong digits, swapped values, garbled glyphs, missing lines, or altered characters were found anywhere in this region.
+
+### Assessment
+Every visible string, the underline, the bullet order, and the overall blue-on-white treatment reproduce the original correctly. The residual issues are cosmetic fidelity nits (type scale, arrowhead style, a â¤4% vertical offset, and small edge/color differences), none of which impair legibility or usability, and none rising to MAJOR/BLOCKER under the stated criteria.
+
+FINAL VERDICT: PASS for 'faithful, usable recreation of this region'

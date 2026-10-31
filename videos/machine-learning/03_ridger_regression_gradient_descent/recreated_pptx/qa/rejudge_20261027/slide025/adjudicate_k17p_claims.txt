@@ -1,0 +1,16 @@
+== claim: TR z-axis labels 0/0.5/1/1.5 (orig has, render missing?) ==
+  z-label col x660..700 y190..345: orig ink=1602 render ink=1730
+  z-axis line x705..715 y190..345: orig ink=659 render ink=783
+== claim: garbled '025' in render at crop x85..105 y72..88 -> slide x~633..642 y~194..202 ==
+  orig ink=14 render ink=32
+== claim: BL top label 'Global Maxima' (orig) vs 'Global Minima' (render) at x236..278 y302..322 ==
+  label-box diff px(>60)=502 of 840 (59.8%) orig ink=256 render ink=347
+== claim: TR axis tick signs reversed (orig 100,50,0,-50,-100 vs render -100..100) ==
+  TR left-axis label band x640..705 y330..440: orig ink=1303 render ink=1432
+== claim: BR jagged path / bleed below panel bottom frame ==
+  BR below-bottom y528..539 x615..880: diff%=19.49 orig ink=523 render ink=526
+  BR band y472..517 x672..816 (CHECK1): diff%=3.38 orig ink=5210 render ink=5252
+== TR surface overall (unchanged bytes, k15->k17g): region x616..879 y115..317 ==
+  TR plot diff%=37.85  orig-only ink=5161 render-only ink=4847
+  densest TR cells (slide px): [(837, 714, 190), (834, 747, 190), (766, 714, 241), (740, 780, 190), (739, 681, 190), (695, 747, 241)]
+PROBE_DONE

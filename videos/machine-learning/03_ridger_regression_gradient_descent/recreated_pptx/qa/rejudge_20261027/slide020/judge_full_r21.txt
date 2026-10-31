@@ -1,0 +1,33 @@
+# Fidelity Check â Slide 20 (recreation IMG1 vs original IMG2)
+
+## Settled first (per ground rules â NOT discrepancies)
+- **(a) House chrome:** Both images show the white canvas, gray E9E9E7 panel, thin C00000 red strokes on **left/right/bottom only with no top red stroke** (correct â original also has none), and the yellow badge â20â at top-right (fill FDFD96, ring 6A5ACD, numeral 333333). Numeral = file number 20 in both. **Match.**
+- **(c) Cursor artifact:** IMG2 contains a small mouse pointer near lower-center (~x700,y590). This is a video-capture artifact and is **correctly absent** from IMG1. **Not a defect.**
+- IMG1 (1536Ã~866) is geometrically the same 16:9 frame as IMG2 (1366Ã768) at â1.125Ã scale (1536/1366 â 864/768 â 1.125), so absolute pixel sizes differ only by render DPI; relative geometry is comparable 1:1 after normalization.
+
+## Element-by-element comparison
+
+| Element | IMG2 (original) | IMG1 (recreation) | Verdict |
+|---|---|---|---|
+| Title line 1 | `[2] Ridge Regularization to overcome` | identical, verbatim | MATCH |
+| Title line 2 | `Inverse Problem of Singular Matrix` (underlined) | identical, verbatim, underlined | MATCH |
+| Line break | 2 lines, break after âovercomeâ | same 2-line break in same place | MATCH |
+| Title color | dark red (~C00000) | dark red (~C00000) | MATCH |
+| Title horizontal position | centered on panel axis | centered on panel axis (panel center = canvas center) | MATCH |
+| Title vertical position | block centered ~51% down the panel | same relative vertical center (~51%) | MATCH |
+| Line separation within title block | single consistent leading between the two lines | same relative leading (same pts after 1.125Ã normalization) | MATCH |
+| â[2]â delimiter | small square brackets enclosing â2â only, no overlap with text | same, no stroke over text, spans only its line | MATCH |
+| Underline geometry | red underline under full line 2, terminates with text | same span/termination | MATCH |
+| Badge â20â | top-right, yellow/purple ring/dark numeral | same | MATCH (house chrome) |
+| Panel/border | E9E9E7 panel; red L/R/bottom strokes; no top red stroke | same | MATCH |
+| Equations / tables / charts / images | none present in original | none present (nothing omitted, no empty equation region) | MATCH â nothing missing |
+| Frame containment | all ink well inside panel; nothing touches panel/stroke boundary | same; title and badge fully inside, large clear margins to every edge | PASS â no overflow |
+| Cursor | present (artifact) | omitted per rule (c) | correct omission |
+
+## Discrepancy list
+None found. Specifically checked and cleared: text verbatim & line breaks (match), title/line metrics (match after DPI normalization), centering (match), colors (match), delimiter geometry of `[2]` (match, single-line, non-overlapping), frame containment (no ink near any edge), missing elements (none â original is a content slide containing only the title), table data (n/a â no table). The two apparent differences â the mouse cursor in IMG2 and the absent top red stroke â are explicitly mandated/intentional per rules (c) and (a) and are therefore **not** counted.
+
+## Visual-quality defects in the recreation
+None. No overflow/clipping, no wrong wrapping, no collisions, no misalignment, no illegibility. Title is fully inside the panel with ample clearance from all four edges and from the badge.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation.

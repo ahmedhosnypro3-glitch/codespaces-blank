@@ -1,7 +1,7 @@
 # chat decision 02
 
-- box: [35.7, 42.4, 862.7, 475.4]
-- error: chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+- box: [35.6, 41.3, 860.7, 476.4]
+- error: chat: giving up after 7 attempts — last failure: TimeoutError: timed out
 - level: 1
 - model: docparsechat
 - node: slide_035.crop01__picture
@@ -33,16 +33,16 @@ further recursion or stops here.
 
 Context:
 - crop level: 1
-- crop box on the full frame, pixels [x, y, w, h]: [x=36, y=42, w=863, h=475]
+- crop box on the full frame, pixels [x, y, w, h]: [x=36, y=41, w=861, h=476]
 - candidate regions for a further crop (class, frame box, text the
   parser extracted inside them):
-- <class_Picture> frame box [x=36, y=42, w=863, h=475] extracted text: Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 PPR=3/(3+1)=0.6 FPR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.3 0.1 0.0 N Predicted as P N TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 P 3 2 PPR=0/(0+6)=0 TPR...
+- <class_Picture> frame box [x=36, y=41, w=861, h=476] extracted text: Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 P R=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.7 0.4 P 5 0 PFR=4/(4+2)=0.66 P 3 2 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Pred...
 
 Parent transcript excerpt:
-Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2 PPR=3/(3+2)=0.6 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N PPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P D 0 5 PPR=0/(0+5)=0 PFR=0/(0+6)=0 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P P TPR = TP + FN P P N P FP FN P FP+TN N FP TN Actual P N P PN
+Threshold=0.0 Threshold=0.6 35 P N P N TPR=5/(5+0)=1 P R=6/(6+0)=1 Actual P 3 1 PPR=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Threshold=0.1 Threshold=0.7 Best (FPR) P N P P =5/(5+0)=1 P R=4/(4+2)=0.66 P A P 3 2 PPR=3/(3+2)=0.6 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N PPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P D 0 5 PPR=0/(0+5)=0 1.0 FPR 1.0 Threshold=0.4 ROC Curve for Same Model -different thresholds P P TPR = TP + FN P N P FP FN P FP+TN N FP TN
 
 Child transcript excerpt:
-Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 PPR=3/(3+1)=0.6 FPR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.3 0.1 0.0 N Predicted as P N TPR=5/(5+0)=1 PPR=4/(4+2)=0.66 P 3 2 PPR=0/(0+6)=0 TPR 0.7 0.4 V P 0.6 N PTR Threshold=0.3 Threshold=1 Predicted as P N TPR=5/(5+0)=1 PPR=2/(2+4)=0.33 P 0 5 PPR=0/(0+5)=0 FPR=0/(0+6)=0 1.0 FPR 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P P NP P PN Actual P TN N TN
+Threshold=0.0 Predicted as P N TPR=5/(5+0)=1 P 3 1 P R=3/(3+1)=0.6 PFR=1/(1+5)=0.16 Actual P N 1 5 Best (FPR) P 0.7 0.4 P 5 0 PFR=4/(4+2)=0.66 P 3 2 PFR=0/(0+6)=0 TPR Threshold=0.3 Threshold=1 Predicted as P N P N TPR=0/(0+5)=0 PFR=0/(0+6)=0 Actual P 5 0 P FPR=2/(2+4)=0.33 P 0 5 PFR=0/(0+6)=0 1.0 FPR Threshold=0.4 ROC Curve for Same Model -different thresholds P N P TP FN P TN Actual N 1 5
 
 Rules of thumb:
 - STOP when the child adds no new or refined content beyond the
@@ -73,4 +73,4 @@ REASON: one short sentence naming the decisive evidence
 
 ## raw response
 
-chat: giving up after 4 attempts — last failure: TimeoutError: timed out
+chat: giving up after 7 attempts — last failure: TimeoutError: timed out

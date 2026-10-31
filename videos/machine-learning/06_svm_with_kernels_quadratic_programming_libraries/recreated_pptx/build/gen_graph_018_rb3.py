@@ -25,7 +25,7 @@ ax.axis("off")
 
 # pale-yellow ellipsoid region [0.383,0.302,0.616,0.663], tilted like the original
 ax.add_patch(Ellipse((0.4995, 0.4825), 0.233, 0.361, angle=20,
-                     facecolor="#FFFCC5", edgecolor="none", zorder=1))
+                     facecolor="#FFFDE7", edgecolor="none", zorder=1))
 
 # orange decision plane parallelogram (corners from original frame hull)
 plane = [(0.615, 0.427), (0.781, 0.424), (0.467, 0.837), (0.308, 0.812)]
@@ -60,12 +60,12 @@ orange = [(0.538, 0.640), (0.545, 0.690), (0.465, 0.700), (0.497, 0.645),
 ax.scatter(*zip(*orange), s=170, c="#EE5500", edgecolors="#CC3300",
            linewidths=1.4, zorder=7)
 
-out = BASE + "/slide_018_graph_rb4.png"
+out = BASE + "/slide_018_graph_rb5.png"
 fig.savefig(out, dpi=DPI, transparent=True)
 plt.close(fig)
 
 im = Image.open(out)
-info = {"path": "slide_018_graph_rb4.png", "w_px": im.size[0], "h_px": im.size[1],
+info = {"path": "slide_018_graph_rb5.png", "w_px": im.size[0], "h_px": im.size[1],
         "w_in": round(im.size[0] / DPI, 5), "h_in": round(im.size[1] / DPI, 5),
         "dpi": DPI}
 with open(out + ".json", "w") as f:

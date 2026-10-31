@@ -1,0 +1,21 @@
+CHECK1 BR band x672..816 y472..517 diff% = 97.18 (need <50) | orig colored%=71.2 ren colored%=80.6
+CHECK2 BL label anchors (dark-ink px, orig vs k17m):
+  top   Global Minima box x236..278 y302..322 : orig=55 ren=0
+  r-mid Local Minima  box x325..350 y388..401 : orig=0 ren=0
+  low-L Local Minima  box x138..205 y438..470 : orig=74 ren=0
+  low-R Global Minima box x300..346 y448..470 : orig=69 ren=0
+CHECK3 TR segment (652,189)->(667,165) red-hit%: orig=49.2 k17m=100.0
+winding (BR GD path seg/straight) = 27.35 (target ~6.0), path px=591
+markers red-px in 11x11 window (orig vs k17m):
+  (199,445): orig=35 k17m=50
+  (270,482): orig=42 k17m=50
+ztick ink dark px x729..740 y344..531: orig=104 k17m=48
+grid ink low-sat gray px in BR box (border 8): orig=2306 k17m=660
+BR colored% (border 8): orig=39.2 k17m=41.6
+BR jet hist/16 orig: [1480, 0, 0, 552, 813, 0, 1140, 4721, 2967, 3597, 4, 1517, 2063, 24, 0, 538]
+BR jet hist/16 k17m: [1455, 1248, 1362, 2414, 2710, 2103, 2131, 2242, 1781, 1295, 572, 609, 623, 5, 0, 63]
+BR diag jet-t: orig mean=0.333 std=0.236 | k17m mean=0.351 std=0.159
+BR surf bbox slide px: orig x625..864 y356..522 | k17m x654..840 y352..522
+BR rows y472..528 colored%% taper (orig | k17m), every 4 rows:
+  73|65 69|66 66|66 43|66 44|62 44|57 44|49 39|44 36|39 30|36 23|32 15|28 5|23 2|20 78|15
+PROBE_DONE

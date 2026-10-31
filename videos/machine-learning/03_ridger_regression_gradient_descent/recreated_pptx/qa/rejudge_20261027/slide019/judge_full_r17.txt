@@ -1,0 +1,50 @@
+## Elementâbyâelement comparison (IMG1 = 150 dpi recreation, IMG2 = original 960Ã540 frame)
+
+### 1. House chrome (settled, not scored)
+Gray E9E9E7 panel, darkâred C00000 left/right/bottom strokes with correctly **absent** top stroke, yellow FDFD96 badge with purple 6A5ACD ring and "19" â all present and matching. Correctly no top stroke. â (Not discrepancies per ground rule (a).)
+
+### 2. Title / TestâData block
+- "Test Data" title: present, blue boldâitalic, same position/scale in both. â
+- Three zâvectors zâ=(30/15), zâ=(40/20), zâ=(50/25) with blue y=60, y=80, y=100 below: all present, same order, same xâpositions, same stacking. â
+- Recreated fractions are stacked with bars and tall parentheses (mandated 2âD format, rule (e)) â not scored.
+- All content is inside the blue box; nothing touches the box edge. â
+
+### 3. Fourâcolumn header band
+- "Outlier" (blue italic), "NO Regularizer with (as if Î»Ì=0)" (blue + red parenthetical), "Ridge Regularizer with Î»Ì=3" (red), "Ridge Regularizer with Î»Ì=10" (green): all four verbatim, same case, same accent coloring, same leftâtoâright order and column widths (blue / red / green border accents match). â
+
+### 4. Outlier column
+x_s header plus the three groups 11â3â22, 30â3â22, 60â3â22; "22" green on yellow highlight in every group; row ordering and vertical band positions match. â
+
+### 5. Tables / data (9 cells) â all values compared cellâbyâcell
+| Cell | W vector | âWâÂ² | yârow |
+|---|---|---|---|
+| R1âNO | 0, 2, 0 | 4 | 60, 80, 100 â |
+| R1âÎ»3 | 0.1, 1.95, 0.03 | 3.8 | 59, 78.7, 98.4 â |
+| R1âÎ»10 | 0.13, 1.87, 0.09 | 3.5 | 57.4, 76.5, 95.6 â |
+| R2âNO | 2.7, 0.67, 0.64 | 8.11 | 32.4, 42.3, 52.3 â |
+| R2âÎ»3 | 1.2, 0.72, 0.77 | 2.45 | 34.1, 45.1, 56.1 â |
+| R2âÎ»10 | 0.54, 0.73, 0.81 | 1.48 | 34.6, 46, 57.4 â |
+| R3âNO | 4, 0.29, 0.78 | 16.7 | 24.4, 31.2, 38 â |
+| R3âÎ»3 | 1.77, 0.32, 0.99 | 4.2 | 26.2, 34.4, 42.5 â |
+| R3âÎ»10 | 0.82, 0.33, 1.1 | 1.92 | 26.8, 35.4, 44.1 â |
+
+- All Testâ/Testâ/Testâ headers present in all 9 tables; all xâ = 30/40/50 and xâ = 15/20/25 rows present; blue outlined block arrows present and pointing the right way; small diagonal corner mark at the topâright of each table present; yellow "y" result band present in every cell. **No missing rows, no truncated tables, no wrong values.** â
+- The mouse cursor sitting over the R2âÎ»10 xâ row in IMG2 is a capture artifact and its omission in IMG1 is correct (rule (c)). â
+
+### 6. Discrepancies found
+1. **MINOR â Table rowâlabel column placement (confidence: medium).** In IMG2 the xâ / xâ labels sit *inside* a narrow first column of the table grid (grid left border immediately right of the arrow). In IMG1 the labels are set just *outside* the grid, whose left border is shifted ~15â20 px right, so the bordered label column present in the original is not reproduced. No data is lost and labelâvalue alignment is preserved, so this is cosmetic/structuralâminor rather than a data defect.
+2. **MINOR â Wâvector ink and âWâÂ² label color (confidence: high).** All W values and all âWâÂ²=â¦ labels are rendered in red C00000 in IMG1; the original uses black/blue ink for these. Emphasis on the emphasized weight (e.g., the "2" in row 1) is retained, so nothing is lost semantically.
+3. **MINOR â Rowâ1 vertical compression (confidence: medium).** In row 1 the yellow yâband (60 / 80 / 100) sits roughly 8â12 px higher in IMG1 than in IMG2, so the white gap between the xâ row and the yellow band is tighter than in the original; rows 2 and 3 are unaffected. Text baselines remain separated and nothing collides.
+4. **MINOR â Microâtypography (confidence: medium).** Testâ/Testâ/Testâ header accent colors are red/dark in IMG1 vs the red/blue mix in IMG2, and the small decimal strings (78.7, 56.1, 26.8â¦) are noticeably smaller and lighter in IMG1, reducing legibility slightly at 150 dpi. Values remain correct and readable.
+
+No BLOCKER and no MAJORâclass discrepancy is present: no content is absent, no value is wrong, no element crosses or touches the panel, stroke, or cell boundary, and all multiâline delimiters (parentheses around W vectors and zâvectors) span the full enclosed stack without overlapping the enclosed glyphs.
+
+### 7. Visualâquality defects in the recreation
+- No text overflow, clipping, or collision; no illegible text.
+- Row 1 yâband slightly crowded against the xâ row (item 3 above).
+- Small red decimal/norm text is on the light side at 150 dpi but readable at 100 % zoom.
+- Table labelâcolumn cell borders omitted (item 1), which slightly weakens the "table" read of the xâ/xâ rows.
+
+## FINAL VERDICT: PASS
+
+All renderable content â titles, headers, outlier values, nine Wâvectors, nine âWâÂ² labels, all nine tables with every xâ/xâ/y value, arrows, highlights and corner marks â is present and numerically exact; the only deviations are minor color, labelâcolumnâborder and rowâ1 spacing nuances that do not impede faithful, usable use.

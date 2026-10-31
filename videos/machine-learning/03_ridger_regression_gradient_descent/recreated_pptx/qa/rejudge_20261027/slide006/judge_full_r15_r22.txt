@@ -1,0 +1,31 @@
+# Fidelity Check â Slide 6 recreation (IMG1) vs original lecture frame (IMG2)
+
+**Method:** both images normalized to the 960Ã540 frame coordinate system (IMG1's 150 dpi render of 13.33Ã7.5 in scales Ã0.48), then compared element by element.
+
+## Settled per ground rules (NOT discrepancies)
+- **House chrome (rule a):** IMG1 panel = gray âE9E9E7 at x54â903, y45â540; thin âC00000 1 pt strokes on left/right/bottom only â **no top stroke, which is correct** (IMG2 also has no top stroke). Badge circle at â(876, 73), dâ35, fill âFDFD96, ring â6A5ACD, bold "6" in â333333 â matches spec and IMG2.
+- **Video artifacts (rule c):** IMG2 shows a mouse cursor overlapping the subtitle and a "â¦has just been saved" toast at bottom-left â **correctly omitted** from IMG1.
+- **Rules b/d/e:** N/A â IMG2 is a real content slide (not a placeholder); both are typed text; no equations present.
+
+## Element-by-element comparison
+| Element | IMG2 original | IMG1 recreation | Result |
+|---|---|---|---|
+| Title text | "Problems of Linear Regression", bold red | identical, match |
+| Subtitle | "(With Linearly Separable Data)", italic blue | identical, verbatim incl. parentheses| Slide number | "6" | "6" | Panel / strokes / badge | per house spec | per house specrule a) |
+| Panel gray, badge colors, subtitle blue | âE9E9E7 / FDFD96+6A5ACD / â0000FF | same approx hex| Missing elements (rule 6) | none â only title+subtitle+badge | nothing omitted |
+| Frame containment (rule 5) | â | all ink inside panel; badge right edge â893 < stroke at 903; title/subtitle well clear of pass |
+| Delimiters (rule 7) | single-line parens, full line height, clear of text | same| Tables/charts/images | none in either | none |/A |
+| **Text-block position vs panel** | block ây251â331, center â290 â panel center 292.5 (gaps â206 above / â209 below â symmetric); block center âx490 (â11 px right of panel center 478.5) | block ây243â315, center â279 (gaps â198 above / â225 below â **visibly high**); block center âx481 (centered) | â **see D1** |
+
+## Discrepancy list
+1. **MAJOR â confidence ~65%:** Vertical (and slight horizontal) misplacement of the entire title block. IMG1's block sits â11â13 px (â2.2 % of the 540 px frame height) **too high** inside the gray panel â IMG2's block is essentially dead-centered vertically (206/209 gaps), while IMG1 shows â198 above vs â225 below. It is also â9â11 px left of the original's position (original block center âx490, recreation âx481). Cross-checked via badge-to-title gap (165 px original vs â153 px recreation). Per rule 4 and founder directive 2026-10-10, a region alignment/vertical-centering deviation vs the original is MAJOR even with verbatim text.
+2. **MINOR â confidence ~45%:** Title color shade â IMG1 renders the title in the house dark red âC00000 (same as the strokes); IMG2's title reads as a brighter red (âFF0000). Same hue family; approx-hex deviation only.
+3. **MINOR â confidence ~40%:** Title metrics â IMG1 title width â605 px vs IMG2 â627 px in frame coords (â3.5 % narrower; subtitle â482 vs â490, â1.6 %). Suggests a slightly smaller point size or different font metrics; line pitch also reads marginally tighter, consistent with D1.
+
+## Visual-quality defects in the recreation itself
+None observed: no overflow, clipping, wrong wrapping, collisions, or illegibility; all ink fully inside the panel; badge clear of all strokes; parentheses properly sized and vertically centered on the subtitle line.
+
+## Summary
+Content fidelity is perfect â every string verbatim, no missing elements, containment and delimiters clean, chrome correct per rule (a), artifacts correctly dropped per rule (c). The single blocking issue is the **positional offset of the main text block (â12 px up, â10 px left vs the original)**, which the founder rules classify as MAJOR.
+
+**FINAL VERDICT: FAIL** (sole blocker: D1, the MAJOR vertical/horizontal misalignment of the title block; all other checks pass â if D1 were judged within tolerance, the slide would otherwise pass).

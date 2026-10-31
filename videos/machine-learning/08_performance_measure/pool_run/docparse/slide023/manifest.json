@@ -11,8 +11,8 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
@@ -52,7 +52,7 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat advised CROP: The parent excerpt is empty while the child yields a positioned chart block whose extracted text holds only the title and confusion-matrix table, leaving the threshold/performance content unread and worth a tighter crop.",
+    "stop_note": "chat advised CROP: The child chart yields only a title and table skeleton with no data values, so a tighter crop could recover the unread content.",
     "decision_source": "chat",
     "children": [
       "slide_023.crop01__chart"

@@ -1,0 +1,81 @@
+pil_k17g_bl_labels: asset=/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/rejudge_20261027/slide025/assets_k17g/plot_025_bl.png
+asset size=1220x987  slide-scale sx=4.1638 sy=4.1646  BL panel slide x83..376 y290..527 (293x237)
+orig slide_025.jpg 960x540; BL crop orig[290:527, 83:376] vs asset resized 293x237 NEAREST (matching scale)
+crop evidence: /home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/rejudge_20261027/slide025/pil_k17g_bl_labels_crops.png (left=orig BL crop, right=k17g asset at slide scale, red=anchor boxes)
+
+== per-label anchor check (dark-text clusters in anchor boxes) ==
+  top     anchor slide x236..278 y302..322 want='Global Minima'
+    orig : ink=142 id='Global Minima'(0.42)
+    k17g : ink(slide-scale)=292 ink(asset-res)=5539 comps(slide)=12 biggest=area=49 slide x237..245 y313..320
+    k17g biggest comp (asset-res) slide bbox x236.9..313.1 y245.8..321.0
+    k17g id='Global Minima'(0.59) present=True -> PASS
+  right-m anchor slide x325..350 y388..401 want='Local Minima'
+    orig : ink=0 id='?'(-1.00)
+    k17g : ink(slide-scale)=104 ink(asset-res)=1663 comps(slide)=11 biggest=area=17 slide x326..330 y395..399
+    k17g biggest comp (asset-res) slide bbox x325.8..395.2 y330.8..399.7
+    k17g id='Local Minima'(0.71) present=True -> PASS
+  low-L   anchor slide x138..205 y438..470 want='Local Minima'
+    orig : ink=149 id='Local Maxima'(0.15)
+    k17g : ink(slide-scale)=657 ink(asset-res)=11823 comps(slide)=13 biggest=area=112 slide x139..152 y456..467
+    k17g biggest comp (asset-res) slide bbox x139.0..455.9 y152.6..468.2
+    k17g id='Local Minima'(0.68) present=True -> PASS
+  low-R   anchor slide x300..346 y448..470 want='Global Minima'
+    orig : ink=155 id='Global Maxima'(0.47)
+    k17g : ink(slide-scale)=364 ink(asset-res)=6636 comps(slide)=12 biggest=area=51 slide x301..309 y461..468
+    k17g biggest comp (asset-res) slide bbox x300.8..460.7 y310.2..469.1
+    k17g id='Global Minima'(0.60) present=True -> PASS
+
+== whole-BL-panel scan (slide scale): label-cluster count / extras ==
+  k17g BL panel dark comps area>=25 (slide coords): 30
+    area=112 x139..152 y456..467 ANCHOR TEXT
+    area=91 x180..194 y459..467 ANCHOR TEXT
+    area=69 x171..180 y442..451 ANCHOR TEXT
+    area=64 x149..158 y442..451 ANCHOR TEXT
+    area=63 x197..206 y459..468 ANCHOR TEXT
+    area=59 x162..170 y459..467 ANCHOR TEXT
+    area=51 x301..309 y461..468 ANCHOR TEXT
+    area=49 x237..245 y313..320 ANCHOR TEXT
+    area=48 x139..147 y440..451 ANCHOR TEXT
+    area=47 x161..168 y442..451 ANCHOR TEXT
+    area=46 x329..339 y463..468 ANCHOR TEXT
+    area=44 x323..329 y449..457 ANCHOR TEXT
+    area=42 x301..308 y449..457 ANCHOR TEXT
+    area=40 x263..272 y315..320 ANCHOR TEXT
+    area=39 x184..186 y439..451 ANCHOR TEXT
+    area=34 x173..188 y426..437 ANCHOR TEXT
+    area=33 x331..337 y451..457 ANCHOR TEXT
+    area=32 x237..244 y303..310 ANCHOR TEXT
+    area=31 x312..320 y343..353 TEXT
+    area=31 x285..298 y455..467 ANCHOR TEXT
+    area=30 x258..263 y303..310 ANCHOR TEXT
+    area=29 x315..321 y451..457 ANCHOR TEXT
+    area=29 x341..347 y463..469 ANCHOR TEXT
+    area=27 x156..158 y459..467 ANCHOR TEXT
+    area=27 x174..176 y459..467 ANCHOR TEXT
+    area=27 x317..322 y463..468 ANCHOR TEXT
+    area=26 x250..255 y305..310 ANCHOR TEXT
+    area=26 x252..257 y315..320 ANCHOR TEXT
+    area=25 x265..270 y305..310 ANCHOR TEXT
+    area=25 x274..279 y315..320 ANCHOR TEXT
+  orig BL panel dark comps area>=25 (slide coords): 10
+    area=429 x148..320 y414..423
+    area=69 x286..306 y390..399 TEXT
+    area=63 x309..328 y462..465 ANCHOR TEXT
+    area=58 x310..326 y450..455 ANCHOR TEXT
+    area=51 x246..262 y304..309 ANCHOR TEXT
+    area=39 x160..172 y457..460 ANCHOR TEXT
+    area=37 x145..158 y455..460 ANCHOR TEXT
+    area=35 x149..163 y391..397 TEXT
+    area=32 x305..315 y349..352 TEXT
+    area=27 x258..268 y316..319 ANCHOR TEXT
+  anchors with >=30 dark px (label present): 4/4 ([0, 1, 2, 3])
+  extra text-like clusters in k17g BL panel outside anchors (no orig counterpart): 0
+  count check (4 anchors covered, no extra labels): PASS
+
+== SUMMARY ==
+  top     x236..278 y302..322 'Global Minima': PASS
+  right-m x325..350 y388..401 'Local Minima': PASS
+  low-L   x138..205 y438..470 'Local Minima': PASS
+  low-R   x300..346 y448..470 'Global Minima': PASS
+  label count / no-extra-labels: PASS
+OVERALL: PASS

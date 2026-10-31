@@ -1,0 +1,17 @@
+Compared IMG1 (recreation crop) against IMG2 (original crop) regionâbyâregion. Chrome/panel fills/rings and the bottom âIteration 4â badge fill are excluded per rule (b); IMG2 JPEG halos excluded per rule (e).
+
+What was checked and found IDENTICAL (cropârelative coords; gray panel â x 20â385, y 125â410; six vector columns centered â x 70, 125, 185, 240, 295, 355; rows y â 215 / 255 / 295; xâlabels y â 190; Câlabels y â 335):
+
+- Yellow strip (y 0â95, top of crop cuts the upper halves in BOTH images identically): six columns show values 1, 1, 2, 4, 5, 6 with Câ Câ Câ (red) and Câ Câ Câ (blue) beneath; right side has âCâ positiveâ (red) and âCâ negâ¦â (blue) truncated at the right edge in both, plus the partial 7th column â( ââ at x â 520â560. Match.
+- Heading: âAugmented Vectors ( from Top )â â same start/end x (â 40â390), so same glyph count; no dropped leading letter. Match.
+- x labels xââ¦xâ: all six present, subscripts 1â6 intact, none truncated. Match.
+- Augmented vectors, cell by cell: xâ=(1,1,1), xâ=(1,2,1), xâ=(1,1,2), xâ=(1,5,41,6,5), xâ=(1,6,6). Identical in IMG1 and IMG2; no swapped value, no missing row. Under them: Câ Câ Câ Câ Câ Câ (red/blue, subscripts intact). Match.
+- Delimiter geometry: each vector has a paired â( )â that spans all three enclosed rows and clears the digits (gap â 10â15 px), does not touch the xâlabels above or Câlabels below; row spacing even and group vertically centered. Match. Rightâedge âCâ negativeâ/â( ââ truncation is the same crop edge in both, not a defect.
+- Badge text âIteration 4â (bottom, y > 505): identical in both.
+
+Discrepancies:
+- BLOCKER: none. Confidence: high.
+- MAJOR: none (no wrong digit, swapped cell, missing row/column, truncated subscript, or underâspanning delimiter). Confidence: high.
+- MINOR (ruleâexempt, listed for completeness): (M1) recreation uses typed/professional tall paired parens and typed x/C glyphs vs the originalâs handwritten strokes â inherent medium difference per rule (c); geometry still compliant. Confidence high. (M2) slight softening/hue drift on the purple heading and blue Câ in IMG2 â videoâcapture/JPEG artifact per rule (e), not a content/fill change. Confidence mediumâhigh.
+
+FINAL VERDICT: PASS

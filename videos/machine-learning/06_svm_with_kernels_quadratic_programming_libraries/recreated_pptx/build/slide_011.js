@@ -81,10 +81,10 @@ s.addShape(pres.shapes.RECTANGLE, {
 });
 s.addImage({ path: EQ + "eq_dual.png", x: 0.55, y: 3.06, w: 8.08333, h: 0.59667 });
 
-// Diagonal watermark
+// Diagonal watermark (large grey, as in original)
 s.addText("From Previous Lecture", {
-  x: 3.8, y: 3.78, w: 5.8, h: 0.4, rotate: -18,
-  fontSize: 14, bold: true, italic: true, color: "1F4E79", fontFace: FONT, margin: 0,
+  x: 3.2, y: 3.72, w: 6.6, h: 0.5, rotate: -18,
+  fontSize: 20, bold: true, italic: true, color: "808080", fontFace: FONT, margin: 0,
 });
 // Matrices row: X, G = X^T X, Y = (y_i y_j), Y∘G
 s.addImage({ path: EQ + "eq_X.png", x: 0.5, y: 4.25, w: 1.86333, h: 1.245 });
@@ -101,7 +101,7 @@ s.addText("Minimize:", {
   x: 0.5, y: 5.68, w: 1.3, h: 0.3,
   fontSize: 13, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
-// objective across three aligned lines
+// objective across three aligned lines, leading "[ +1a1^2+2a1a2-5.5a1a3-6a1a4..."
 s.addImage({ path: EQ + "eq_obj.png", x: 1.85, y: 5.64, w: 7.385, h: 1.02 });
 // four separate 0 <= alpha_i <= C rows, right side of panel
 s.addImage({ path: EQ + "eq_bounds.png", x: 9.6, y: 5.64, w: 1.055, h: 0.645 });

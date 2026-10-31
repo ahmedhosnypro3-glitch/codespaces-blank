@@ -109,10 +109,10 @@ rule(198, 45, 683, RED, 0.75);
 eqImg("eq1", 50, 117);   // blue:  d_j = O_j(1-O_j)[SUM_k (d_k w_kj)]
 eqImg("eq2", 50, 157);   // purple: Dw_ji = eta O_i O_j(1-O_j)[SUM...] = eta O_i d_j
 
-// ========== DELTA 6 / DELTA 7 LINE (y184-196) ==========
-txt(50, 183, 640, 18,
+// ========== DELTA 6 / DELTA 7 LINE (y184-196: 14pt -> ~10pt cap, matching the original) ==========
+txt(50, 181, 640, 18,
   "δ₆ = 0.791(1−0.791)(0−0.791) = −0.131        δ₇ = 0.791(1−0.791)(1−0.791) = 0.035",
-  13, BLACK, false, false);
+  14, BLACK, false, false);
 
 // ========== HEADING (y208-221) ==========
 s.addText([

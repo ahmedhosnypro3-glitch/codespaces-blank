@@ -48,6 +48,7 @@ function img(name) {
     x: m.x + (m.w - m.w_in) / 2,
     y: m.y + (m.h - m.h_in) / 2,
     w: m.w_in,
+    h: m.h_in,
   });
 }
 

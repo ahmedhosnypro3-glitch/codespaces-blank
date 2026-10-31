@@ -1,0 +1,290 @@
+[info] context header injected: VIEW: Slide 001 — forensic slide analysis for a high-fidelity recreation | CAPTURE: 960x540 lecture frame (machine learning, NN training and example)
+[warn] --timeout > 600s: the gateway at localhost:17844 is shared (Stitch proxy + vision). Long-timeout retry loops SATURATE it for everyone — prefer one modest call and retry later.
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1177240
+=== unique_slides/slide_001.jpg ===
+[winner] images (round 1, attempt 1)
+The user wants a forensic slide analysis of a 960x540 lecture frame. I need to transcribe everything verbatim, provide layout map, visual elements, colors, typography, numeric details, anomalies, fidelity risks, and verdict.
+
+Let me examine the image carefully:
+
+- Top right: a yellow circle badge with "1" in it (slide number).
+- Title: "Neural Network" in dark red, centered around y~110.
+- Subtitle: "Back Propagation Training Algorithm" in dark red, centered around y~210.
+- "CSAI 253 - Spring 2024" in blue/purple centered around y~270.
+- "Prepared By" in dark red/blue script-like, centered around y~315.
+- "Dr. Khaled Mostafa ElSayed" in blue, centered around y~345.
+- "kmelsayed@zewailcity.edu.eg" in blue, centered around y~372.
+- Left side: "Instructors:" in red italic, around x~60, y~410.
+- Under it: "Dr. Khaled Mostafa ElSayed" in blue bold/regular, x~75, y~440.
+- "kmelsayed@zewailcity.edu.eg" in blue, x~75, y~467.
+- "Dr. Mohamed Maher Ata" in blue, x~75, y~493.
+- "momaher@zewailcity.edu.eg" in blue, x~75, y~517.
+- Bottom right: Zewail City logo: teal/blue square with "ZEWAIL CITY" and "ESTABLISHED 2011" maybe? Actually logo text: "ZEWAIL CITY" in white? Let me look: The logo has a teal rectangle, inside white text "ZEWAIL CITY" and small "ESTABLISHED 2011" maybe. There is Arabic text to the right: "ÙÙÙÙÙØ¬ÙØ§" (University of Science and Technology). Below: "University of Science and Technology" in English.
+- The image has thin border lines around it? The slide has a light gray background maybe.
+- There is a small arrow/cursor pointer at top right around x~840, y~130? Looks like a pen or arrow annotation.
+
+I need to approximate positions in 960x540.
+
+Let me refine coordinates:
+
+Title "Neural Network": x~290, y~70, w~380, h~70. Font ~48pt. Color dark red (#8B0000 or #C00000?). Actually looks like a deep red maybe #A00000 or #800000. I'll call it dark red. Let's estimate #B03030? The text appears dark red/brownish red. Could be #9E1B1B. Hmm. Let's name "dark red" with hex #A52A2A? Better: slide uses red like #D9534F? Let's pick #B22222. But "Neural Network" maybe #AF1F1F. I'll state "dark red (approx #A00000)".
+
+Subtitle "Back Propagation Training Algorithm": x~140, y~175, w~680, h~60. Font ~40pt. Same dark red.
+
+"CSAI 253 - Spring 2024": x~320, y~250, w~320, h~40. Font ~28pt. Blue/purple (#0000FF? more like #3B3BB3?). Let's pick "blue-violet (#3333AA)". Actually looks like a dark blue / indigo (#00008B?). The text is bluish. Use "dark blue (#1F1FA0)".
+
+"Prepared By": x~430, y~305, w~100, h~30. Font ~20pt. Same dark red? It appears red italic script. Actually "Prepared By" in a handwriting-ish dark red? The image shows dark red/blue? "Prepared By" appears dark red (maybe #A00000). The whole line "Prepared By" is centered. The name below is blue. So Prepared By is red.
+
+"Dr. Khaled Mostafa ElSayed": x~310, y~338, w~340, h~35. Font ~26pt. Blue (#0000FF? deep blue). The email same blue, smaller ~20pt at x~350, y~370, w~260, h~25.
+
+Left block:
+"Instructors:" x~65, y~404, w~150, h~30. Font ~24pt. Red italic? Yes red italic bold. Color same dark red.
+
+"Dr. Khaled Mostafa ElSayed" x~90, y~434, w~320, h~28. Font ~20pt. Blue bold? Actually left entries appear blue, name maybe bold. Email x~90, y~458, w~290, h~24. Font ~16pt blue.
+"Dr. Mohamed Maher Ata" x~90, y~483, w~280, h~26. Font ~20pt blue.
+"momaher@zewailcity.edu.eg" x~90, y~507, w~270, h~24. Font ~16pt blue.
+
+Badge top right: circle centered x~910, y~27, diameter ~38. Yellow fill (#FFFF99 or #FFF2CC), black outline, number "1" black ~20pt.
+
+Logo bottom right: Teal square x~615, y~430, w~100, h~85? Actually logo area around x=615-715, y=432-512. It's a teal/cyan rounded rectangle with white icon: mountain? Text inside logo: "ZEWAIL CITY" (white, small caps) and "ESTABLISHED 2011" maybe. Hmm careful: It reads "ZEWAIL CITY" horizontally at top? There is a small building/mountain icon. Under: "ESTABLISHED 2011"? Let's inspect mentally: The logo is teal with white silhouette of a building/peak and the word "ZEWAIL CITY" below? Actually logo shows "ZEWAIL CITY" at top inside teal, maybe "ESTD 2011" tiny at bottom. But the image shows: teal box with white text "ZEWAIL CITY" and small "ESTABLISHED 2011" under it. There's an Arabic line to the right of logo. The logo occupies bottom right, and text to right:
+Arabic line "ÙÙÙÙÙØ¬ÙØ§" x~730, y~452, w~220, h~30. Dark red? It appears dark maroon/red? Actually the Arabic text is dark red/maroon. Font ~20pt.
+English "University of Science and Technology" x~730, y~478, w~220, h~25. Dark red? It might be dark red too. Actually in image, "University of Science and Technology" is in maroon/dark red. Let's check: bottom-right: to the right of teal logo, Arabic is red? It looks dark red. English line is also dark red? In the screenshot, the English line under Arabic appears dark red/brown. Hmm, I'll list as dark red (maroon). But the logo itself includes white text.
+
+Wait, the logo: I see a teal rounded rectangle with a white line drawing (like a flag/peak) and the words "ZEWAIL CITY" maybe in white? Actually the crop shows: teal rectangle, left side icon; text "ZEWAIL CITY" in white; below "ESTABLISHED 2011" in small white? But in the actual image, inside the teal logo I can read "ZEWAIL CITY" prominently and maybe "Zewail City of Science and Technology"? No. Let's just transcribe visible: "ZEWAIL CITY" and possibly "ESTABLISHED 2011". However I should mark unreadable if not sure. The instruction says never guess a character. The logo text is quite legible: "ZEWAIL CITY". The small text under it maybe "ESTABLISHED 2011" but uncertain. In many Zewail City logos, it says "ZEWAIL CITY" and "ESTABLISHED 2011". The image likely includes "ESTABLISHED 2011" tiny. But I shouldn't over-guess. I can transcribe "ZEWAIL CITY" confidently; for the subline I can put "[illegible small sub-logo text]" if uncertain. But visible? In the screenshot, I think I can see "ESTABLISHED 2011"? Hmm. Let's be safe: list "ZEWAIL CITY" and note small badge text possibly "ESTABLISHED 2011" [partially legible]. Actually the logotype: top part white symbol, text under "ZEWAIL CITY", and at bottom maybe "UNIVERSITY OF SCIENCE AND TECHNOLOGY"? No that's outside. The logo: teal square with text "ZEWAIL CITY" stacked with a building icon? It might have the campus building silhouette in white at top portion. The words "ZEWAIL CITY" are at the lower part. I won't invent "ESTABLISHED 2011"; but the image may include "ESTD 2011". To avoid guessing, I can mark "[illegible]" for tiny subline if present. But if I see it, transcribe? The user wants exact. I'll transcribe only the confident parts; for tiny text in the logo I'll put "[illegible]" rather than guess.
+
+Also there's a white/blank border around the slide: the image has a light background, maybe off-white. The outer edges show black border from capture? Not relevant.
+
+A cursor/pointer: there is a small black arrow/pen at x~848, y~128, w~25, h~35, pointing diagonally. It looks like an annotation arrow or mouse cursor. This is an element to note but not text.
+
+Colors: Background is light gray/off-white (#F2F2F2 or #EFEFEF). Title red. Text blue. Logo teal (#00838F?). Arabic/English institution text red. Badge yellow.
+
+Need section 6 numeric details: "1" in badge; "253"; "2024"; "Spring 2024"; maybe "2011" if legible; Slide 001 in capture but not printed in image. No chart.
+
+Need section 2 layout map: title bar? no bar. Reading order top-to-bottom.
+
+Need section 7 anomalies: The bottom of slide around y=530 is close to frame edge; text OCR? There is mouse pointer overlay. Potential occlusion? The logo text Arabic is right-to-left.
+
+Need top-3 fidelity risks: (1) exact e-mail strings and capitalization (ElSayed), (2) Arabic script and institution English subtitle right-to-left alignment, (3) colors: red vs blue distinction and badge.
+
+Need verdict recreatability 9? Almost all text extractable. Confidence high except tiny logo subline and exact hex. Score maybe 9. Some small logo line uncertain, but main content high. Use 8.5? The score must be 0-10. I'd say 9.
+
+Need output strictly sections; first characters exactly "## 1. VERBATIM TEXT". Ensure no preamble.
+
+Now I must make sure I preserve exact spelling: "Dr. Khaled Mostafa ElSayed" (capital E, capital L, lower ayed). Email: "kmelsayed@zewailcity.edu.eg". Name "Dr. Mohamed Maher Ata", email "momaher@zewailcity.edu.eg". Title: "Neural Network" newline "Back Propagation Training Algorithm". "CSAI 253 - Spring 2024" with spaces around hyphen. "Prepared By". "Instructors:".
+
+Positions: approximate. The image 960x540. Let me define:
+
+Badge: rectangle x 888-932, y 6-50? Actually circle top right: xâ888, yâ6, wâ44, hâ44. Number "1" centered.
+
+Title "Neural Network": xâ272, yâ65, wâ416, hâ65. Font maybe 44pt.
+
+Subtitle: xâ118, yâ168, wâ724, hâ62. Font maybe 38pt. Hmm "Back Propagation Training Algorithm" is long; at 38pt in PowerPoint, 724 px broad? Approx width 724. It is centered. Ensure within 960: x 118-842. Good.
+
+"CSAI 253 - Spring 2024": xâ333, yâ245, wâ294, hâ34. Font 26pt.
+
+"Prepared By": xâ430, yâ306, wâ100, hâ26. Font 20pt. It may be italic. "Prepared By" maybe in same red.
+
+"Dr. Khaled Mostafa ElSayed": xâ310, yâ334, wâ340, hâ30. Font 26pt. Email xâ352, yâ364, wâ256, hâ24. Font 18pt.
+
+Left: "Instructors:" xâ65, yâ401, wâ145, hâ28. Font 22pt red italic.
+"Dr. Khaled Mostafa ElSayed": xâ90, yâ431, wâ320, hâ27. Font 20pt blue.
+"kmelsayed@zewailcity.edu.eg": xâ90, yâ456, wâ290, hâ23. Font 16pt blue.
+"Dr. Mohamed Maher Ata": xâ90, yâ482, wâ270, hâ26. Font 20pt blue.
+"momaher@zewailcity.edu.eg": xâ90, yâ507, wâ260, hâ22. Font 16pt blue.
+
+Institution: logo xâ613, yâ432, wâ102, hâ80; Arabic xâ728, yâ445, wâ220, hâ30; English xâ728, yâ474, wâ220, hâ28. Actually the bottom text in image appears x~725-900. Arabic right top, English left? Wait alignment: For Arabic (RTL), it starts at right (x~910?) and extends left toward x~730? Let's parse ÙØ§ÙØªÙÙÙÙÙØ¬ÙØ§" is on top of "University of Science and Technology". In the image, the Arabic line is above the English, and both are to the right of the teal logo. The Arabic is longer than English? Arabic script rendered right-to-left; if centered under logo area, it might occupy x 715-905. Let's set Arabic xâ716, yâ448, wâ192, hâ28; English xâ718, yâ477, wâ190, hâ24. But the screenshot shows "University of Science and Technology" spans maybe x~715-910, width ~195. Good.
+
+Need exact Arabic characters? I can include Arabic verbatim. The machine text". Good. This is legible. Position near bottom right. Color maroon.
+
+Note: The English line below Arabic: "University of Science and Technology". It appears italic? No. It is dark red. It may be smaller than Arabic.
+
+Need mention colors as distinct: background light gray #F0F0F0, deep red text #A21D21, deep blue text #1B2FA0, teal logo #0E7C86, yellow badge #FFF2A8, black small cursor.
+
+Could title be #B11A1A? Let's choose approximate: "dark red (#A61919)". Subtitle and titles same red. "Instructors" red italic. "Prepared By" maybe dark red. Institution text red. Name/email blue.
+
+Potential color: The slide background maybe #EFEFEF. Outer image border maybe white. We'll mention dominant palette: light gray background, dark red headings, blue content, teal logo accent, yellow badge.
+
+Need section 5 typography: Title centered mid-upper, no title bar; subtitle; sans-serif? Main font likely Arial/Calibri? The name/email look like Arial? The title looks Arial bold. I can say headings sans-serif bold; body plain/italic for "Instructors:".
+
+Bold/italic: Heading not bold? Looking at "Neural Network" it may be bold. "Back Propagation Training Algorithm" bold. "CSAI 253 - Spring 2024" bold? It is maybe not bold but dark blue. "Prepared By" italic script. "Dr. Khaled Mostafa ElSayed" in center may be bold? It appears blue bold/italic? Actually "Prepared By" maybe handwritten italic, recipient bold blue. "Instructors:" italic red. Emails plain.
+
+Need section 3 diagrams: no charts, no tables. Logo. Pointer. Could mention a horizontal thin line under title? Not visible. No arrows.
+
+Need section 4 colors list with usage. Need mention slide-number badge.
+
+Need section 6 numeric details: list all numbers: slide badge "1"; "253"; "2024"; maybe "2011" in logo if visible. But because uncertain, maybe not include as numeric; if include with [illegible], maybe violate? I can list only legible: 1, 253, 2024. The slide number line of capture "Slide 001" is context not printed. The bottom right logo may contain "2011" but I can't confirm; avoid.
+
+But the rule "Every number visible" â if there's a number in logo and I don't transcribe due to uncertainty, note? I can say tiny logo sub-line may contain a year but is [illegible]. Hmm. I see "ZEWAIL CITY" and possibly "ESTD 2011". Let me not invent, but note in Â§1 as "[illegible small logo subtext]".
+
+Need check if "Zewail City" logo has text "ESTABLISHED 2011": In image it's tiny, could be there. I will transcribe "ZEWAIL CITY" and mark adjacent tiny line [illegible]. Maybe there is also ÙØ§ÙØªÙÙÙÙÙØ¬ÙØ§" in Arabic to right, not inside the logo. Good.
+
+Need mention "Zewail City" logo shape: rounded teal square with white mark. It might be a square with not rounded corners? In image, it appears as teal rectangle with rounded bottom? Actually logo shows a teal shape containing icon and text; maybe a square with white left icon? Hmm. The logo is about 105x80, slightly taller than wide. There is a white line drawing resembling a flag/banner and word. I will describe without overclaim: teal/cyan emblem, white typography, at bottom-right. It sits to the left of the institution block. It has white text "ZEWAIL CITY".
+
+Need section 2 reading order: The centered block is main; left block is supplementary; badge top-right; logo bottom-right. Reading order top-to-bottom: badge, title, subtitle, course, prepared-by, center name/email; left column; institutional block.
+
+Need maybe note "Prepared By" position relative: It is under course and above name; maybe not part of left block. Good.
+
+Need ensure every claim self-contained. We can avoid "as you can see."
+
+Potential issue: "Back Propagation Training Algorithm" maybe "Back Propagation Training Algorithm" but view line says "Neural Network Training and Example" not slide title. Use actual image. Good.
+
+Now final answer.
+
+Let's craft detailed sections.
+
+Section 1: Need "EVERY printed string" with position, size, color. I can group by region. Use exact strings. I need include Arabic string in verbatim. Also include [illegible small logo subtext]. Include "1" badge.
+
+Possible printed string on logo "ZEWAIL CITY" in logo; maybe all caps. Color white. Need include.
+
+Maybe inside logo also small text "University of Science and Technology"? No outside. The logo maybe includes "ZEWAIL CITY" and below a small "ESTD 2011"; I won't make it final unless confident. It would be safer to say: Logo text "ZEWAIL CITY"; adjacent sub-line within the teal badge is too small, marked [illegible]. That satisfies no guessing.
+
+Section 2: Layout map as list boxes.
+
+Section 3: Visual elements. No charts/tables/diagrams/equations. But mention no chart/table/diagram/equation. It asked Charts, Tables, Diagrams, Images/illustrations, Equations. I'll say None for charts/tables/diagrams/equations; describe logo and pointer. Need include "Images/illustrations" description. Good.
+
+Section 4: colors.
+
+Section 5: typography and style.
+
+Section 6: Numeric details.
+
+Section 7: anomalies.
+
+Section 8: risks.
+
+Section 9: verdict.
+
+Need maybe include "slide-number badge position, size, color, printed numeral" in typography. I'll mention in Â§5 too.
+
+Need decide hex colors: background #F0F0F0; red #A02020; blue #1B2FA0; teal #0E7C86; yellow #FFF2A8; black #000000 (cursor); white #FFFFFF (logo text). Good.
+
+Need mention dominant palette: light gray with dark red headings, blue instructor/preparer text, teal logo, yellow badge.
+
+Need ensure no pre/post text. First characters exactly as requested. The output starts with "## 1. VERBATIM TEXT". Good.
+
+Let's compose.
+
+Double-check positions relative to 960x540.
+
+- The title actually starts y~63 and is height 77. The subtitle y~172. Good.
+- The center "Prepared By" line: In image, "Prepared By" is centered at x~431, y~310. Yes.
+- "Dr. Khaled Mostafa ElSayed" central: x~309, y~337. Email x~351, y~365.
+
+Left instructor block: Top at y~403; bottom line at y~507. The frame is 540, so bottom line ends y~529, near edge. Good.
+
+Institution block bottom: Arabic y~447; English y~474. The logo y~431-511. Good.
+
+The pointer: At x~845,y~135, arrow shape. It could be a mouse cursor/pen pointer. Include as diagram? Not text. In layout map include "pointer cursor (black), small diagonal arrow". Good.
+
+Need maybe mention that there is a white margin frame? The image shows slide occupies entire frame, with thin border due to capture. No printed border.
+
+Need possible right-to-left: Arabic line: first word on right. Include in layout: RTL line.
+
+Need maybe use "word order" for sub/superscripts; no such strings. Emails have @; plain.
+
+Need "DATE"? Not present.
+
+Potential issue with color names: "blue-violet" for CSAI line. Use "dark blue/violet (#1F2A9C)".
+
+Now produce final. Ensure no closing remarks after section 9.</think>## 1. VERBATIM TEXT
+
+- Badge numeral: "1" â yellow circular badge, top-right; approx. x 889,y 7,w 43,h 43; size ~20pt; black.
+- Title: "Neural Network" â centered; approx. x 268,y 64,w 424,h 72; size ~44â48pt bold; dark red (#A02020).
+- Subtitle: "Back Propagation Training Algorithm" â centered; approx. x 118,y 172,w 724,h 62; size ~38â40pt bold; dark red (#A02020).
+- Course line: "CSAI 253 - Spring 2024" â centered; approx. x 333,y 244,w 294,h 34; size ~26pt; dark blue/violet (#1F2A9C).
+- "Prepared By" â centered; approx. x 430,y 305,w 100,h 28; size ~20pt italic; dark red (#A02020).
+- "Dr. Khaled Mostafa ElSayed" â centered; approx. x 309,y 334,w 342,h 32; size ~26pt bold; blue (#1F2A9C).
+- "kmelsayed@zewailcity.edu.eg" â centered; approx. x 353,y 363,w 254,h 26; size ~18pt; blue (#1F2A9C).
+- "Instructors:" â left-aligned; approx. x 65,y 401,w 148,h 28; size ~22pt bold italic; dark red (#A02020).
+- "Dr. Khaled Mostafa ElSayed" â left-aligned; approx. x 90,y 430,w 320,h 28; size ~20pt; blue (#1F2A9C).
+- "kmelsayed@zewailcity.edu.eg" â left-aligned; approx. x 90,y 455,w 290,h 24; size ~16pt; blue (#1F2A9C).
+- "Dr. Mohamed Maher Ata" â left-aligned; approx. x 90,y 480,w 272,h 28; size ~20pt; blue (#1F2A9C).
+- "momaher@zewailcity.edu.eg" â left-aligned; approx. x 90,y 505,w 262,h 24; size ~16pt; blue (#1F2A9C).
+- Logo text inside teal emblem: "ZEWAIL CITY" â approx. x 623,y 470,w 84,h 22; size ~14pt; white; small subline within emblem is [illegible].
+- Arabic institution nameÙÙÙÙÙØ¬ÙØ§" â bottom-right block; approx. x 716,y 446,w 194,h 30; size ~20pt; dark red/maroon (#A02020).
+- English institution line: "University of Science and Technology" â bottom-right block; approx. x 717,y 475,w 192,h 26; size ~16â18pt; dark red/maroon (#A02020).
+
+## 2. LAYOUT MAP
+
+- Slide-number badge: yellow circle, top-right corner; x â 889,y â 7,w â 43,h â 43.
+- Centered header stack, reading top-to-bottom:
+  - "Neural Network": x â 268,y â 64,w â 424,h â 72.
+  - "Back Propagation Training Algorithm": x â 118,y â 172,w â 724,h â 62.
+  - "CSAI 253 - Spring 2024": x â 333,y â 244,w â 294,h â 34.
+  - "Prepared By": x â 430,y â 305,w â 100,h â 28.
+  - "Dr. Khaled Mostafa ElSayed": x â 309,y â 334,w â 342,h â 32.
+  - "kmelsayed@zewailcity.edu.eg": x â 353,y â 363,w â 254,h â 26.
+- Left supplementary block:
+  - "Instructors:": x â 65,y â 401,w â 148,h â 28.
+  - Instructor 1 name/email: x â 90,y â 430,w â 320,h â 52.
+  - Instructor 2 name/email: x â 90,y â 480,w â 272,h â 50.
+- Bottom-right institutional block:
+  - Teal logo emblem: x â 613,y â 431,w â 103,h â 81.
+  - Arabic institution line: x â 716,y â 446,w â 194,h â 30.
+  - English institution line: x â 717,y â 475,w â 192,h â 26.
+- Small black diagonal pointer/cursor near top-right: x â 844,y â 126,w â 26,h â 38.
+- Overall reading order: badge â centered title stack â left instructor block â bottom-right institution/logo block.
+
+## 3. VISUAL ELEMENTS
+
+- Charts: none.
+- Tables: none.
+- Diagrams: none.
+- Images/illustrations:
+  - Yellow circular badge with black outline and printed numeral "1"; top-right.
+  - Small black diagonal mouse/pen pointer near upper-right; no label attached.
+  - Teal/cyan institutional emblem at bottom-right containing a white mark and the white/caps text "ZEWAIL CITY"; a smaller sub-line inside the emblem is [illegible].
+- Equations: none.
+
+## 4. COLORS
+
+- Slide background: light gray/off-white, approx. #F0F0F0.
+- Primary heading text: dark red, approx. #A02020; used for both title lines, "Prepared By", "Instructors:", Arabic and English institution names.
+- Secondary text: dark blue/violet, approx. #1F2A9C; used for "CSAI 253 - Spring 2024", preparer name/email, instructor names/emails.
+- Badge fill: pale yellow, approx. #FFF2A8; badge outline and "1" are black.
+- Institutional emblem fill: teal/cyan, approx. #0E7C86; emblem text/mark is white.
+- Pointer/cursor: black, approx. #000000.
+- Dominant palette: light gray background with dark red headings, blue content text, teal logo accent, and one yellow badge.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title position: centered upper-middle; estimated 44â48pt bold sans-serif.
+- Subtitle: centered below title; estimated 38â40pt bold.
+- Course line: centered; estimated 26pt, dark blue/violet.
+- "Prepared By": centered; estimated 20pt, italic.
+- Preparer and instructor names/emails: approximately 26pt for the primary preparer name and 18pt for its email; instructor names around 20pt, instructor emails around 16pt; blue.
+- "Instructors:" is bold italic red; instructor entries are plain blue.
+- No decorative border or background band is visible beyond the slide edge and badge outline.
+- Slide-number badge: yellow filled circle, top-right, approx. 43px diameter, black outline, black numeral "1".
+
+## 6. NUMERIC DETAILS
+
+- Slide badge numeral: "1" at top-right.
+- Course number: "253" in "CSAI 253 - Spring 2024".
+- Academic year: "2024" in "CSAI 253 - Spring 2024".
+- Season term: "Spring" in the same line.
+- No axis ranges, tick labels, plotted values, table values, or percentages are present.
+- No other numbers are reliably legible; any small year/subtext in the teal emblem is [illegible] and should not be guessed.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- Bottom-left instructor email line sits very close to the lower frame edge; leave enough bottom margin so it is not cropped on recreation.
+- A small black pointer/cursor artifact overlaps the empty upper-right area; it is not slide content and should either be omitted or recreated as a non-content cursor only if required.
+- The teal emblem contains very small supporting text that is not reliably readable; do not invent a year or motto.
+- Arabic text is right-to-left and must be placed above the English institution line, immediately to the right of the teal emblem.
+- The slide is text/logo only; there are no partially drawn animation states or overlapping text blocks.
+
+## 8. TOP-3 FIDELITY RISKS
+
+- Instructor/preparer contact strings: exact spelling of "Dr. Khaled Mostafa ElSayed" and emails "kmelsayed@zewailcity.edu.eg" / "momaher@zewailcity.edu.eg" is easy to alter; preserve capitalization and ".edu.eg" ending exactly.
+- Bottom-right institutional block: the Arabic string" and its RTL alignment relative to "University of Science and Technology" are easy to reorder or misalign; keep Arabic directly above English and to the right of the teal emblem.
+- Color separation: dark red heading/institution text versus dark blue/violet course and contact text can be merged into one color; keep two distinct text colors plus teal emblem and yellow badge.
+
+## 9. VERDICT
+
+- Recreatability score: 9/10.
+- Confidence: high for all main text and layout; medium only for the tiny sub-line inside the teal emblem.
+- Deliberately not transcribed: any text too small inside the institutional emblem, marked [illegible] rather than guessed.
+
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully

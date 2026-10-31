@@ -1,0 +1,46 @@
+## Scope settled first (per founder ground rules)
+
+- **House chrome (gray panel, three-sided darkâred strokes, yellow/purple slideânumber badge â19â)** treated as intentional; the **absent top stroke is correct**, not a defect. The badge numeral 19 matches the slide's file number.
+- The original is **not** a contentless âProcessingâ placeholder â it carries the full Test Data + ridgeâregression comparison content, so content must be present.
+- The **mouseâcursor/pen artifact** in the original (over the â15â in the Î»=10 column, second row, xâ row) is a capture artifact; its omission from the recreation is **correct**, not a discrepancy.
+- Handwritten vs typed ink differences are treated as inherent medium differences (â¤ MINOR); the TestâData fractions are evaluated on presence/spacing/containment, not on handwriting style.
+
+## Elementâbyâelement comparison
+
+| Element | Original | Recreation | Result |
+|---|---|---|---|
+| âTest Dataâ title (blue bold italic) | present, topâleft of blueâboxed panel | present, same position/style | Match |
+| zâ=(30/15), zâ=(40/20), zâ=(50/25) | stacked, red z, black digits, parenthesised | present, same 3 groups, same order, stacked | Match (style: MINOR notes below) |
+| y=60 / y=80 / y=100 (blue) | present, one under each z | present, aligned under each z | Match |
+| Left âOutlier / Xââ column + blue frame | 3 groups (11,3,22), (30,3,22), (60,3,22), 22 on yellow | same 3 groups, same values, same highlight, parens span the 3 lines | Match |
+| Col A header âNO Regularizer with (as if Î»=0)â | blue phrase + red italic parenthetical | identical wording, colouring, italics | Match |
+| Col B header âRidge Regularizer with Î»=3â | blue phrase, red Î»=3 | wording/placement same, but phrase rendered **red** | Minor color deviation |
+| Col C header âRidge Regularizer with Î»=10â | blue phrase, red Î»=10 | wording/placement same, blue+red | Match |
+| Wâvector boxes (W= + 3 stacked values), 9 total | 0/2/0, 2.7/0.67/0.64, 4/0.29/0.78; 0.1/1.95/0.03, 1.2/0.72/0.77, 1.77/0.32/0.99; 0.13/1.87/0.09, 0.54/0.73/0.81, 0.82/0.33/1.1 | identical values, identical order, W= label vertically centred beside the stack | Match |
+| Miniâtables: Testâ/Testâ/Testâ headers, xâ row, xâ row, y row | 9 tables, each xâ=30/40/50, xâ=15/20/25 | identical in all 9 tables; row labels and column order preserved | Match |
+| yârow values (highlighted) | 60/80/100; 32.4/42.3/52.3; 24.4/31.2/38; 59/78.7/98.4; 34.1/45.1/56.1; 26.2/34.4/42.5; 57.4/76.5/95.6; 34.6/46/57.4; 26.8/35.4/44.1 | every one of the 27 values matches exactly | Match |
+| âWâ³âÂ² annotations (9) | 4, 8.11, 16.7 / 3.8, 2.45, 4.2 / 3.5, 1.48, 1.92 | all 9 values match | Match |
+| Blue hollow rightâarrows (9) | between Wâbox and table | present, same position/scale, no text collision | Match |
+| Column frames (blue / red / green), outlier frame, gray band | present | present | Match |
+
+## Discrepancy list
+
+1. **MINOR â Header colour, Î»=3 column (confidence: medium).** In the original, âRidge Regularizer withâ is blue with only âÎ»=3â in red; in the recreation the phrase appears red (coloured to match the red panel). Text, position and size are correct; this is colour only and does not affect readability.
+2. **MINOR â TestâData equation delimiters (confidence: medium).** The recreation uses tall, heavy, mechanicallyâdrawn parentheses that extend noticeably below the digit stack and sit tighter to the digits than the originalâs compact handwritten parens. They do **not** overlap the digits and do span both fraction lines, so delimiterâgeometry rule (7) is satisfied; the heavier weight/looser fit is a typedâvsâhandwritten medium difference (rule d).
+3. **MINOR â Highlight saturation (confidence: medium).** The yârow cells and the â22â outlier highlight render as a pale yellowâgreen (â#F2F2A0) in the recreation versus the originalâs saturated yellow (â#FFFF00). Values and their placement are unaffected.
+4. **MINOR â Horizontal stretch of the threeâcolumn block (confidence: lowâmedium).** The recreationâs table block extends further right (green frame sits closer to the house right stroke) than the originalâs block sits to the originalâs chrome, i.e. the column widths/interâcolumn gaps are slightly redistributed. Likely a consequence of the mandated wider house panel; no content is clipped or lost.
+5. **MINOR â Testâ/Testâ/Testâ subâheader colouring (confidence: low).** In the original the middle âTestââ label reads blue against red âTestâ/Testââ; in the recreation the header labels read essentially uniformly red. Values in those headers are unaffected.
+
+## Visualâquality defects in the recreation
+
+- **No text overflow or clipping** detected in any of the 9 Wâboxes, 9 miniâtables, or the 9 norm annotations; no value is truncated.
+- **No element crosses a frame boundary**: the Wâboxes, arrows, tables and âWâ³âÂ² labels all sit inside their blue/red/green column frames and inside the gray house panel; the bottom row of tables clears the bottom stroke.
+- **No collisions**: arrows sit between the Wâboxes and the table left edges without running over the âxâ/xâ/yâ row labels.
+- **Vertical centring**: the âW =â label and its three stacked numbers are centred within each Wâbox; the multiâline parentheses in the Outlier column span all three values (11/3/22 etc.) in both images.
+- **Legibility**: smallest text (âWâ³âÂ² labels, Testâââ headers) is small but crisp at 150 dpi, consistent with the originalâs density.
+
+## Verdict
+
+No BLOCKER or MAJOR defect was found: every equation, table cell, Wâvector, norm annotation, arrow, frame, header and outlier value in the original is present and numerically/verbatim correct in the recreation, with no overflow, misalignment or missing region. The remaining deviations are cosmetic (header colour, delimiter weight, highlight saturation, minor columnâwidth redistribution).
+
+**FINAL VERDICT: PASS**

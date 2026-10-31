@@ -11,3 +11,7 @@
 
 ## Method
 Tool: `mcp__agy-cli-mcp__agy_web_search` (1 new query; 3 claims carried from slides 28-30 records). Spec consumed: `analysis/slide_031_final.json`; frame `unique_slides/slide_031.jpg`.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- Threshold=0.3 panel: matrix [[5,0],[2,4]] (TP=5, FN=0, FP=2, TN=4), TPR=5/(5+0)=1, FPR=2/(2+4)=.33: CONFIRMED — sklearn `roc_curve` docs (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html): thresholds sweep downward so the operating point marches from (1,1) at threshold 0.0 toward (0,0) as the threshold rises; with TP=5, FN=0 -> TPR=1, FP=2, TN=4 -> FPR=2/6=0.333 (frame prints .33; re-verified locally). Point (0.33, 1) lies left of the 0.1 point (0.66, 1), consistent with the frame's plotted order. No corrections.

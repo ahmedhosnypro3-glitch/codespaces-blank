@@ -1,0 +1,37 @@
+## Fidelity check â slide 013, zoomed crop pair (region: two "powersâofâtwo / Xâ" tables)
+
+### Structural / content audit (done before styling)
+
+**Top table â header row**
+| Cell | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| 1 | Xâ (blue, true subscript 1) | Xâ (blue, subscript 1) | â |
+| 2 | Xâ (red) | Xâ (red) | â |
+| 3 | Xâ (blue) | Xâ (blue) | â |
+| 4 | Xâ (red) | Xâ (red) | â |
+| 5 | X (blue) | X (blue) | â |
+| 6 | Xâ (red) | Xâ (red) | â |
+| 7 | Xâ (blue) | Xâ (blue) | â |
+| 8 (rightâedge cut) | Xâ¦ red, partial | Xâ¦ red, partial | â |
+
+**Top table â data row 1:** 1 (blue) | 2 (red) | 3 (blue) | 4 (red) | 8 (blue) | 9 (red) | 10 (blue) | 1â¦ (red, cut) â identical in both, digitâforâdigit, same colour parity.
+**Top table â data row 2:** 1 (blue) | 3 (red) | 5 (blue) | 6 (red) | 16 (blue) | 7 (red) | 5 (blue) | 3â¦ (red, cut) â identical.
+**Top table â data row 3:** 2 (blue) | 4 (red) | 6 (blue) | 8 (red) | 16 (blue) | 18 (red) | 20 (blue) | 2â¦ (red, cut) â identical.
+**Bottom table â header row:** Xââ¦Xâ + partial X (red) â identical colours, subscripts intact.
+**Bottom table â first data row:** 1 | 2 | 3 | 4 | 8 | 9 | 10 | **3 (red on yellow fill)** â identical, including the yellowâhighlighted last cell.
+
+No swapped values, no wrong digits, no missing/extra rows, no truncated or garbled subscripts, no clipped characters inside cells, no wrong colour parity, no broken/missing gridlines, no rows collapsed or merged, cell text vertically centred in both. Column widths, row heights and the table split (gap between the two tables) are consistent.
+
+### Discrepancies found
+
+1. **MINOR â yellow highlight fill saturation, farâright cell of the bottom table's first data row (crop x â 597â640, y â 375â427).** IMG1's fill reads as a pale creamy yellow; IMG2's reads as a more luminous/saturated yellowâgreen. Confidence: **mediumâlow**. This is very likely a videoâcapture colour/chroma shift in the original rather than a real fill change; if the source fill is the darker of the two, the recreation is slightly light. Not legibleâcontentâcritical.
+2. **MINOR â extreme topâleft blue tab with white italic glyph (crop x â 0â52, y â 0â27).** IMG1 shows a legible italic "m" with its lower swash; IMG2 shows only fragmented strokes (a thin vertical stem at the very left edge and small marks near x â 20â25). Confidence: **low**. Because both crops terminate at this edge and the surrounding table geometry aligns within a few pixels, this reads as a topâedge crop/framing offset plus capture softness, not a content substitution â but the recreation's glyph is fully formed where the original is truncated.
+3. **MINOR (artifact, effectively nonâscoring) â stroke softness / colour fringing throughout IMG2** (blurred gridlines, haloed blue and red glyph edges, slight magenta cast on blues). Per the ground rules this is a videoâcapture artifact; the recreation's cleaner, slightly crisper rendering of the same glyph shapes is not a defect.
+
+### Noted as intentional / nonâdiscrepancies
+House chrome (white canvas, gray E9E9E7 panel, thin darkâred strokes, no top stroke), typedâvsâhandwritten ink, and the professional 2D equation formatting were all excluded from scoring as mandated.
+
+### Summary
+Every table cell, every digit, every subscript, the red/blue colour parity, the yellow highlight, the grid geometry and the line/vertical centring match the original exactly. The only items are one lowâconfidence fillâsaturation shift and one topâedge crop/truncation artifact in the original. Nothing rises to MAJOR or BLOCKER.
+
+**FINAL VERDICT: PASS**

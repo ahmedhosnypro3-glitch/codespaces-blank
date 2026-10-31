@@ -5,7 +5,7 @@
 - level: 1
 - model: docparsechat
 - node: slide_031.crop01__chart
-- out_tokens: 967
+- out_tokens: 1137
 
 ## rendered prompt
 
@@ -76,32 +76,32 @@ REASON: one short sentence naming the decisive evidence
 
 ```json
 {
-  "id": "b9b952d075fd8746",
+  "id": "chatcmpl-3453162b-7167-419b-8906-4b2c3e19ba26",
   "choices": [
     {
       "index": 0,
       "message": {
-        "content": "DECISION: CROP\nREASON: The child adds the ROC title and threshold labels absent from the parent, so the picture block still merits a tighter crop.",
+        "content": "DECISION: CROP\nREASON: The child recovered the \"ROC Curve for Same Model\" labels absent from the parent, and the picture block's text is still merged and garbled, so a tighter crop could recover its structure.",
         "refusal": null,
         "role": "assistant",
-        "reasoning_content": "We need answer according to template. Need decide CROP or STOP. Need parse prompt. We are adjudicating one decision in crop cascade. Need output exactly two lines. Need reason short sentence decisive evidence.\n\nWe need analyze context. Crop level 1, crop box full frame? Candidate regions for further crop: one <class_Picture> frame box same as crop box [36,41,862,476] extracted text: \"Threshold=0.0 31 P N TPR=5/(5+0)=1 FPR=6/(6+0)=1 Actual P 5 0 N 4 2 TPR=5/(5+0)=1 FPR=4/(4+2)=0.66 TPR Threshold=0.3 Predicted as P N TPR=5/(5+0)=1 FPR=2/(2+4)=0.33 Actual ROC Curve for Same Model ...\"\n\nParent transcript excerpt: chart type bar with table rows. Child transcript excerpt: same-ish text plus \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\". Candidate region is Picture with extracted text not empty/sparse? It has text. Need decide whether branch earns further recursion or stops.\n\nRules:\n- STOP when child adds no new/refined content beyond parent \u2014 same strings, same structure, only re-ordered/reformatted.\n- STOP when child's content is faithful-empty region shell.\n- CROP when candidate region is picture/diagram/chart block whose extracted text is empty or sparse: image region content unread until zoomed crop parses it, so missing text there reason to crop.\n- CROP when child read contains strings, rows, labels, or structure parent lacked/garbled, and child still carries positioned class blocks worth isolating further.\n- CROP when child strings visibly garbled/merged and tighter re-cut could recover.\n- Never invent.\n\nHere child adds \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\" maybe parent lacked? Parent had chart table but not ROC Curve title? Parent transcript excerpt includes chart type bar and table rows, no \"ROC Curve...\" title. Child has title and labels. Candidate region is Picture with extracted text fairly dense. It is a chart block. The child read contains strings/labels parent lacked (ROC Curve for Same Model, different thresholds, P NP FP TN Actual). It still carries positioned class blocks worth isolating further? Candidate list only one Picture region same as crop box. Further crop would target same region? Hmm candidate region inside child that further crop would target. It is class_Picture frame box same as current crop box. If further crop same box? Could be nested? Need decide.\n\nNeed understand crop_cascade.py maybe decision template. It asks decide whether branch earns further recursion or stops. Candidate regions inside child that a further crop would target. If candidate region is a picture with extracted text empty/sparse -> CROP. Here extracted text is not empty/sparse? It has many strings. But child adds new content beyond parent. Rule says CROP when child read contains strings, rows, labels, or structure parent lacked or garbled, and child still carries positioned class blocks worth isolating further. Does child still carries positioned class blocks worth isolating further? Candidate region is a Picture block with text. It may be worth isolating further? The candidate region is same as crop box, not a subregion? But it is a class block. The child transcript includes title and labels parent lacked. So likely CROP.\n\nBut need be careful: The parent transcript excerpt is a chart table with rows; child transcript excerpt is OCR text from cropped region. It includes \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\" which parent lacked. Candidate region is Picture with extracted text. The child adds new/refined content. So CROP.\n\nNeed output exactly:\nDECISION: CROP\nREASON: Child adds the ROC title and threshold labels absent from the parent, and the picture block still merits a tighter crop.\n\nNeed ensure no extra after. The final answer should only two lines. But we need maybe mention decisive evidence. Use one short sentence. Could be \"The child adds the ROC title and labels the parent lacked, so the picture block still has unrefined content.\" Good.\n\nNeed consider if STOP because child adds no new? It does add \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\". Parent had chart type bar and table. It lacked title. So CROP.\n\nLet's craft concise."
+        "reasoning_content": "Let me analyze this carefully.\n\nWe have a crop cascade decision. The parent transcript excerpt shows a bar chart parse with tables: Threshold=0.0, 31, Predicted as P N, Actual P 5, N 6, Threshold=0.1, TPR=5/(5+0)=1 FPR=4/(4+2)=0.66, Actual P 5, N 4, Threshold=0.3, TPR=5/(5+0)=1 FPR=2/(2+4)=0.33, Actual P 5, N 0, N 2.\n\nThe child transcript excerpt adds: \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\" \u2014 this is new content not present in the parent. Also the child has a candidate region: class_Picture with frame box [x=36, y=41, w=862, h=476] (the whole crop), extracted text: \"Threshold=0.0 31 P N TPR=5/(5+0)=1 FPR=6/(6+0)=1 Actual P 5 0 N 4 2 TPR=5/(5+0)=1 FPR=4/(4+2)=0.66 TPR Threshold=0.3 Predicted as P N TPR=5/(5+0)=1 FPR=2/(2+4)=0.33 Actual ROC Curve for Same Model ...\"\n\nSo the child read contains strings the parent lacked: \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\". Also the child's content is somewhat garbled/merged (e.g., \"P 5 0 N 4 2\" merged). The candidate region is a Picture whose extracted text is... well, it's not empty; it's fairly dense. But the rule says: CROP when the child read contains strings, rows, labels, or structure the parent lacked or garbled, and the child still carries positioned class blocks worth isolating further.\n\nThe child adds \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\" which is new. And the candidate is a Picture block (the whole crop) containing that content. The child's text is garbled/merged (\"P 5 0 N 4 2\"), so a tighter re-cut could recover them.\n\nHmm, but wait \u2014 the candidate region is the entire crop box itself, i.e., the picture region covering the whole crop. Cropping it further would be the same region? The candidate frame box [x=36, y=41, w=862, h=476] equals the crop box on the full frame. So cropping the picture region would be identical to the current crop \u2014 no gain? Hmm, but the rules say to judge based on the candidate list.\n\nLet me think about the intended answer. The child adds new content: \"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\" \u2014 the parent lacked the ROC curve section. The candidate is a Picture whose extracted text is sparse-ish/garbled. The rule: \"CROP when a candidate region is a picture, diagram, or chart block whose extracted text is empty or sparse: an image region's content is unread until a zoomed crop parses it, so missing text there is the reason to crop, never a reason to stop.\"\n\nThe candidate picture's extracted text is not empty \u2014 it contains a fair amount. But the child read contains strings the parent lacked (\"ROC Curve for Same Model -different thresholds P P NP FP TN Actual\"), and the child still carries positioned class blocks (the Picture) worth isolating further. Also the child's strings are visibly garbled/merged (\"P 5 0 N 4 2\", \"TPR Threshold=0.3\").\n\nSo the decision should be CROP.\n\nBut wait \u2014 consider the STOP rule: \"STOP when the child adds no new or refined content beyond the parent \u2014 same strings, same structure, only re-ordered or reformatted.\" The child does add the ROC curve line. So not STOP.\n\nTherefore CROP. Reason: the child recovered the \"ROC Curve for Same Model\" labels absent from the parent, and the picture block's text remains merged/garbled, warranting a tighter crop.\n\nLet me double-check the candidate picture's extracted text: \"Threshold=0.0 31 P N TPR=5/(5+0)=1 FPR=6/(6+0)=1 Actual P 5 0 N 4 2 TPR=5/(5+0)=1 FPR=4/(4+2)=0.66 TPR Threshold=0.3 Predicted as P N TPR=5/(5+0)=1 FPR=2/(2+4)=0.33 Actual ROC Curve for Same Model ...\" \u2014 it's truncated with \"...\". The picture region contains the chart; the text is merged and garbled. A tighter crop could recover the ROC curve table structure.\n\nSo answer: CROP.\n\nOne short sentence naming decisive evidence: \"The child recovered the 'ROC Curve for Same Model' labels absent from the parent, and the picture block's text remains merged/garbled, so a tighter crop is warranted.\"\n\nExactly two lines, nothing after."
       },
       "finish_reason": "stop",
       "logprobs": null
     }
   ],
-  "created": 1793400831,
-  "model": "stepfun-ai/step-5-preview",
+  "created": 1793417320,
+  "model": "minimaxai/minimax-m3.1-flash",
   "object": "chat.completion",
   "usage": {
-    "prompt_tokens": 991,
-    "completion_tokens": 967,
-    "total_tokens": 1958,
+    "prompt_tokens": 1145,
+    "completion_tokens": 1137,
+    "total_tokens": 2282,
     "prompt_tokens_details": {
-      "cached_tokens": 192
+      "cached_tokens": 1024
     },
     "completion_tokens_details": {
-      "reasoning_tokens": 0
+      "reasoning_tokens": 1087
     }
   }
 }

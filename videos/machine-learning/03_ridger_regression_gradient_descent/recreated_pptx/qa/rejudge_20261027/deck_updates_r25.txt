@@ -1,0 +1,74 @@
+=== deck_updates_r25 2026-10-31T07:09:48Z ===
+--- update 14 ---
+structure OK: 51 pages, rels map rId(n+1)->slides/slideN.xml, content-type overrides present
+page 014: staged from slide_014_recreated.pptx (md5 18a724a03609dcf4a84ce81750ec2abe)
+deck updated atomically: pages [14]; md5 2eb86f2f83c74645e45bd0315cd794fb -> b5618139b5eb1117bb898056c88cb7b3
+update 14 EXIT=0
+--- render_check_pages 14 ---
+Traceback (most recent call last):
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 123, in <module>
+    main()
+    ~~~~^^
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 70, in main
+    deck_pdf = lo_convert(LO_PROFILE, gate, T.DECK)
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 39, in lo_convert
+    sh(["soffice", "--headless", f"-env:UserInstallation=file://{profile}",
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "--convert-to", "pdf", "--outdir", str(outdir), str(src)])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 32, in sh
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/subprocess.py", line 692, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command ['soffice', '--headless', '-env:UserInstallation=file:///home/codespace/ai_llm_slides/scratch/tmp/s21_lo_profile_299640', '--convert-to', 'pdf', '--outdir', '/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/final_deck_updates/gate_20261031-070956_p14', '/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/03_ridger_regression_gradient_descent_final.pptx'] returned non-zero exit status 1.
+render 14 EXIT=1
+--- update 19 ---
+structure OK: 51 pages, rels map rId(n+1)->slides/slideN.xml, content-type overrides present
+page 019: staged from slide_019_recreated.pptx (md5 e7da1c782adc886ed2845d1e54ba8d82)
+deck updated atomically: pages [19]; md5 76509780b4665759e72f826c3798092f -> d07d1f6ae618f287695f3e7244a44cbc
+update 19 EXIT=0
+--- render_check_pages 19 ---
+Traceback (most recent call last):
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 123, in <module>
+    main()
+    ~~~~^^
+  File "/home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/build/final_deck/render_check_pages.py", line 58, in main
+    shutil.rmtree(LO_PROFILE)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/shutil.py", line 859, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/shutil.py", line 721, in _rmtree_safe_fd
+    _rmtree_safe_fd_step(stack, onexc)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/shutil.py", line 803, in _rmtree_safe_fd_step
+    onexc(func, path, err, direntry=orig_entry, dir_fd=parent_fd)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.pyenv/versions/3.15.2/lib/python3.15/shutil.py", line 754, in _rmtree_safe_fd_step
+    os.rmdir(name, dir_fd=dirfd)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 39] Directory not empty: '/home/codespace/ai_llm_slides/scratch/tmp/s21_lo_profile_299640/user/uno_packages/cache/registry'
+render 19 EXIT=1
+--- update 33 ---
+structure OK: 51 pages, rels map rId(n+1)->slides/slideN.xml, content-type overrides present
+page 033: staged from slide_033_recreated.pptx (md5 655eb34ed827f01e499eda9ed1097f0e)
+deck updated atomically: pages [33]; md5 d07d1f6ae618f287695f3e7244a44cbc -> d46343879688da0887fd2b06f9862d3b
+update 33 EXIT=0
+--- render_check_pages 33 ---
+--- update 51 (r25 continuation) ---
+structure OK: 51 pages, rels map rId(n+1)->slides/slideN.xml, content-type overrides present
+page 051: staged from slide_051_recreated.pptx (md5 210712ebf0abea3b5804530f954ba32c)
+deck updated atomically: pages [51]; md5 d46343879688da0887fd2b06f9862d3b -> f88417e2eeb3f359bd0455d7e1769397
+update 51 EXIT=0
+procs on shared profile at launch: 2
+--- render_check_pages 14 19 33 51 attempt 1 2026-10-31T07:53:40Z ---
+page 014: PASS (0 px differ vs fresh 150dpi source render, same LO session)
+page 019: PASS (0 px differ vs fresh 150dpi source render, same LO session)
+page 033: PASS (0 px differ vs fresh 150dpi source render, same LO session)
+page 051: PASS (0 px differ vs fresh 150dpi source render, same LO session)
+ledger: render_check=PASS for pages [14, 19, 33, 51]
+render gate PASSED for pages [14, 19, 33, 51]; artifacts /home/codespace/ai_llm_slides/videos/machine-learning/03_ridger_regression_gradient_descent/recreated_pptx/qa/final_deck_updates/gate_20261031-075342_p14-19-33-51
+render 14 19 33 51 attempt 1 EXIT=0
+r25 page-gates done 2026-10-31T08:02:56Z

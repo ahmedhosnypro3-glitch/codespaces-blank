@@ -1,0 +1,38 @@
+=== Q1: upper-left numeral region (crop x0-150 y0-83 = slide x592-664 y160-200) ===
+dark-ink px render=1659 orig=1965 differing=982 of 12450
+  render text bands y: []
+  orig text bands y: []
+
+=== Q2: dark-ink row profile over whole crop (where are labels/lines?) ===
+  render dark bands (y0,y1,px): [(0, 246, 25353), (268, 271, 34)]
+  orig dark bands (y0,y1,px): [(14, 152, 11494), (153, 159, 1785), (167, 170, 29), (171, 219, 1654), (226, 240, 228), (242, 252, 169), (253, 266, 172), (268, 271, 42), (274, 282, 140), (291, 303, 160)]
+
+=== Q3: bottom band y300-434 dark ink by 20px rows ===
+  render: y300-320:40 y320-340:541 y340-360:0 y360-380:0 y380-400:561 y400-420:682 y420-434:629
+  orig: y300-320:1163 y320-340:0 y340-360:0 y360-380:0 y380-400:1102 y400-420:849 y420-434:1071
+
+=== Q4: red horizontal lines (rows with >80 red px) ===
+  render: rows>80redpx: [(138, 508), (139, 508), (140, 508), (141, 508), (155, 468), (156, 468), (157, 468), (158, 446), (322, 536), (389, 540)]
+  orig: rows>80redpx: [(137, 140), (138, 500), (139, 499), (140, 499), (141, 454), (154, 190), (155, 468), (156, 467), (157, 468), (158, 441), (317, 532), (318, 530), (319, 523), (392, 537), (393, 537), (394, 528)]
+
+=== Q5: diagonal red in upper-left (crop x0-260 y0-220) ===
+  render: red px in UL box = 2074  fit y=0.138x+104.7 R2=0.039 bbox x57-259 y0-219
+  orig: red px in UL box = 2745  fit y=0.194x+83.3 R2=0.054 bbox x57-259 y0-219
+
+=== Q6: surface shape — colored px per row in interior x50-598 ===
+  render: surface rows y0-433, widths: min=23 q1=89 med=169 q3=197 max=538
+        surface cols x55-594
+  orig: surface rows y0-395, widths: min=21 q1=128 med=191 q3=271 max=539
+        surface cols x50-592
+
+=== Q7: navy label-box ink (left strip x0-50 and elsewhere) ===
+  render: navy px whole crop=14143 left strip x0-50=4956
+  orig: navy px whole crop=9226 left strip x0-50=4688
+
+=== Q8: per-row colored% profile difference (3D vs flat) rows 0..327 step 30 ===
+  render: row-band colored% = ['13', '32', '39', '31', '31', '37', '28', '12', '1', '0', '4']
+  orig: row-band colored% = ['20', '32', '55', '47', '25', '35', '12', '1', '1', '1', '15']
+
+=== Q9: luminance column profile of colored surface (shading left->right) ===
+  render: col-band lum = ['155', '172', '182', '175', '173', '172', '172', '185', '171', '157']
+  orig: col-band lum = ['165', '173', '188', '184', '191', '189', '186', '187', '179', '186']

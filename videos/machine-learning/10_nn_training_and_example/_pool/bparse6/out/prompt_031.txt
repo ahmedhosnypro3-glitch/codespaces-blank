@@ -1,0 +1,9 @@
+You are verifying a document-parse transcript of ONE original lecture slide frame (960x540 px image). The image is ground truth; a separate automated parser produced a transcript and I need to know what it got wrong.
+
+This slide contains a neural-network diagram AND a block of arithmetic equations. Report:
+1. TOP: the title word(s) at top-left (color?), and the badge number in the circle at top-right.
+2. NETWORK DIAGRAM: every label visible - layer names (Input/Output/Target/Bias), input labels with their exact values (e.g. x1, x2 and the number in parentheses/brackets beside each), hidden node numbers (3,4,5...) and their O-labels, output node numbers (6,7...) and their O-labels, and the target labels near the output nodes (t6, t7, t1, t2 - read the EXACT subscript digit), plus the eta value. For each label give an approximate normalized position (x,y as fraction of 960x540).
+3. EQUATION BLOCK: transcribe every equation line verbatim, INCLUDING the last group of weight-update lines of the form W31=..., W42=..., W52=..., W5b=... . For the W42 line specifically, transcribe character-for-character: is it "W42=0.5+0.075=0.575" or "W42=0.075+0.075=0.15" or something else? Be exact about digits and which numbers are present.
+4. Any text that is small, faint, overlapping or hard to read - say which glyphs are uncertain.
+
+Do not speculate about content that is not visible. Be exhaustive about small labels and numbers.

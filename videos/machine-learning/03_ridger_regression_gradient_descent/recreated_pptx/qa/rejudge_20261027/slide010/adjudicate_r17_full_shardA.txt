@@ -1,0 +1,13 @@
+SHARD-A r17 spawn local PIL adjudication of judge_full_r17.txt (2026-10-31, FINAL VERDICT FAIL, clean no-429).
+Sole MAJOR: "chart/caption composition compressed to ~60% width, ~200pt dead band on the right,
+plots 280x285 vs orig 410x290".
+REFUTED by slide-space PIL measurements (render 2001x1125, sc 2.084):
+- cream caption boxes: ORIG x98-431 and x504-838; REND x98.1-431.6 and x504.0-838.4 (match within 0.6 px);
+- orange data-dot extent (chart band y270-475): ORIG x174-795, REND x173-797;
+- full content ink extent y100-530: ORIG x54-902, REND x54-901.3 (both fill the panel edge-to-edge);
+- blue chart borders: ORIG right chart right edge x869-870 = REND x870.6-871.5.
+No dead right band exists in the render. rejudge_adjudicate.py 010 --full: 7.778% diffuse,
+ink original-heavy 103,598 vs 19,047 (handwriting heavier), densest cells <=1084 px in caption
+band y495-517 — text AA, no localized missing block.
+Disposition: r17 FULL FAIL DISMISSED (MAJOR refuted by pixels) -> FULL=PASS(dismissed) per rule.
+No vision launched; no git; no evidence deleted.

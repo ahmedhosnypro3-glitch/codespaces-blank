@@ -88,7 +88,7 @@ JOBS = [
     ("s36rb3_cls_top",
      [["t", BLACK, r"\mathrm{Class\ of\ vector}\ Z \Rightarrow \mathrm{sign}(W^T Z + b)"]],
      [0.12, 0.47, 0.88, 0.51], []),
-    ("s36rb3_kern", [["k", RED, r"K(a,b) = \left(a^T b\right)^2"]], [0.59, 0.48, 0.71, 0.54], []),
+    ("s36rb3_kern", [["k", RED, r"K(a,b) = [a^T b]^2"]], [0.59, 0.48, 0.71, 0.54], []),
     ("s36rb3_lag_bot", lag(r"[X_i^T X_j]^2"), [0.08, 0.61, 0.92, 0.70], ["tail"]),
     ("s36rb3_b_bot", b_form(r"[W_i^T X_j]^2", r"[W_i^T X_j]^2"),
      [0.38, 0.71, 0.92, 0.78], []),

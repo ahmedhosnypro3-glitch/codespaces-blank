@@ -1,6 +1,8 @@
-// slide_032.js — FRESH rebuild (wave 3) from qa/reanalysis2/slide_032_analysis.txt only.
-// "New Kernel Functions can be derived From other Kernels": 4 blue-bordered panels,
-// equations as 2-D mathtext PNGs. No plots (spec IMAGERY: none).
+// slide_032.js — FRESH rebuild (wave 3, final) from qa/reanalysis2/slide_032_analysis.txt,
+// geometry pixel-verified on qa/rejudge2/orig_png/slide_032.png:
+// panels x 0.135..0.695 (left two-thirds), y-runs 0.30-0.426 / 0.456-0.583 /
+// 0.609-0.739 / 0.776-0.909; headers + equations left-aligned at x=0.059;
+// eq colors: K blue, K_1/K_2/K_3 red, alpha green; eqs 24pt left-aligned.
 // Run from project root: node <NS>/recreated_pptx/build/slide_032.js
 const fs = require("fs");
 const path = require("path");
@@ -24,31 +26,31 @@ s.addShape(pres.shapes.OVAL, { x: 12.48, y: 0.30, w: 0.5, h: 0.5, fill: { color:
 s.addText("32", { x: 12.48, y: 0.30, w: 0.5, h: 0.5, align: "center", valign: "middle", fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0 });
 s.addText("New Kernel Functions can be derived\nFrom other Kernels", { x: 0.6, y: 0.28, w: 12.13, h: 1.1, align: "center", valign: "top", fontSize: 30, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
 
-// Four panels: white fill, blue #0000FF border, spec section 4 coords
+// Four panels: white fill, blue #0000FF border, pixel-measured coords
 const panels = [
-  [0.05, 0.22, 0.95, 0.43],
-  [0.05, 0.45, 0.95, 0.60],
-  [0.05, 0.62, 0.95, 0.77],
-  [0.05, 0.79, 0.95, 0.94],
+  [0.135, 0.300, 0.695, 0.426],
+  [0.135, 0.456, 0.695, 0.583],
+  [0.135, 0.609, 0.695, 0.739],
+  [0.135, 0.776, 0.695, 0.909],
 ];
 panels.forEach(p => {
   const b = box(...p);
   s.addShape(pres.shapes.RECTANGLE, { x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1.5 } });
 });
 
-// Panel headers: verbatim spec strings, bold black, left-aligned at panel top
+// Panel headers: verbatim spec strings, bold black, left-aligned at x=0.059, panel top
 const headers = [
-  ["Sum of Kernels is a Kernel", 0.07, 0.228, 0.90, 0.282],
-  ["Scalar Product of Kernel is a kernel", 0.07, 0.458, 0.90, 0.502],
-  ["Product of Kernels is a Kernel", 0.07, 0.628, 0.90, 0.662],
-  ["Combination of the above rules is a Kernel", 0.07, 0.802, 0.93, 0.836],
+  ["Sum of Kernels is a Kernel", 0.235],
+  ["Scalar Product of Kernel is a kernel", 0.466],
+  ["Product of Kernels is a Kernel", 0.618],
+  ["Combination of the above rules is a Kernel", 0.786],
 ];
-headers.forEach(([t, x0, y0, x1, y1]) => {
-  const b = box(x0, y0, x1, y1);
+headers.forEach(([t, yc]) => {
+  const b = box(0.059, yc, 0.69, yc + 0.055);
   s.addText(t, { x: b.x, y: b.y, w: b.w, h: b.h, align: "left", valign: "middle", fontSize: 18, bold: true, color: "000000", fontFace: FONT, margin: 0 });
 });
 
-// Equations: 600-dpi mathtext PNGs at exact size (w_in = px/600), manifest-centered
+// Equations: 600-dpi mathtext PNGs at exact size (w_in = px/600), left-aligned
 ["eq1", "eq2", "eq3", "eq4"].forEach(k => {
   const m = manifest[k];
   s.addImage({ path: EQ + m.file, x: m.x, y: m.y, w: m.w_in, h: m.h_in });

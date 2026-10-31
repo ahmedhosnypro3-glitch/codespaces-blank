@@ -1,0 +1,10 @@
+You are verifying a document-parse transcript of ONE original lecture slide frame (960x540 px image). The image is ground truth; a separate automated parser produced a transcript and I need to know what it got wrong.
+
+This slide has a neural-network diagram in the upper area and a grid/table in the lower area. Report:
+1. TOP: the title word(s) at top-left (color?), and the badge number in the circle at top-right.
+2. NETWORK DIAGRAM: every label visible - layer names, input labels with their exact values (x1, x2 and the number beside each), hidden node numbers and O-labels, output node numbers and O-labels, target labels and their values, any eta value, and the color of each.
+3. TABLE/GRID: the exact column header text of each column (row 1), then EVERY row in order - the row label (first column) and the value in each of the O6, O7, and Squared Error columns. Include rows a parser commonly drops: an ellipsis row near the bottom and a final "Target" row - do they exist and what do they contain? For the "Squared Error" column, report the header EXACTLY - does it include a "1/2" factor, a sigma symbol, or just "Squared Error"? Also transcribe the exact digits of each Squared Error value.
+4. Anything the slide does NOT contain (is there a chart, a plotted curve, a second table?).
+5. Any text that is small, faint, overlapping or hard to read - say which glyphs are uncertain.
+
+Do not speculate about content that is not visible. Be exhaustive about small labels and numbers.

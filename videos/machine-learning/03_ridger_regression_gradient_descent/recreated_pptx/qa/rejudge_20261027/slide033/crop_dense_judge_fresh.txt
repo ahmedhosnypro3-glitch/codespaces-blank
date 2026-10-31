@@ -1,0 +1,27 @@
+Crop-relative check:
+
+- Top text region, approximately y=20â100:
+  - âX is in between -9.7 and color red boâ¦â matches.
+  - âf(x) is in between -8.08 and -8.011â matches.
+  - No wrong/garbled glyph found.
+
+- First dense table block, approximately y=115â205:
+  - Top row matches exactly as visible: `-10.8 -10.7 -10.6 -10.5 -10.4 -10.3 -10.2 -10.1`
+  - Second row matches exactly as visible: `-1.19 -2.26 -3.27 -4.19 -5.03 -5.77 -6.41 -6.95`
+
+- Second dense table block, approximately y=210â300:
+  - Top row matches exactly as visible: `-10.9 -10.8 -10.7 -10.6 -10.5 -10.4 -10.3 -10.2`
+  - Second row matches exactly as visible: `-0.04 -1.19 -2.26 -3.27 -4.19 -5.03 -5.77 -6.41`
+
+- Third visible dense table block, approximately y=310â370:
+  - Top row matches exactly as visible: `-10.7 -10.6 -10.5 -10.4 -10.3 -10.2 -10.1 -10`
+  - Row separators appear in the same crop-relative positions; no delimiter-spanning issue applies here because there are no equation enclosures in this region.
+
+Discrepancies:
+
+1. MINOR / medium confidence: The table-row fill tone in IMG1 is slightly more saturated/heavier yellow-green than in IMG2, especially across the middle rows. This looks at least partly like video-capture/JPEG/exposure behavior, but it is a small fill-color mismatch.
+2. MINOR / high confidence: Numeric glyph strokes in IMG1 are slightly darker/heavier than the upscaled original. No glyph shape or character identity difference is present; this is rendering/capture contrast/weight rather than content.
+
+No wrong values, swapped cells, missing rows, truncated subscripts, or incorrect line arrangements are present.
+
+FINAL VERDICT: PASS

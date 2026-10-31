@@ -1,0 +1,28 @@
+**Element-by-Element Fidelity Discrepancies**
+
+| # | Severity | Confidence | Discrepancy |
+|---|----------|------------|-------------|
+| 1 | **BLOCKER** | 95% | **Bottom-left 3-D figure content mismatch / missing annotations.** The original lower-left surface is a non-convex saddle annotated with **both** maxima and minima: âGlobal Maximaâ, âLocal Maximaâ, âLocal Minimaâ, and âGlobal Minimaâ, with red pointer arrows to each extremum. The recreation shows a *different* wavy surface carrying only minima labels (âGlobal Minimaâ top/bottom, âLocal Minimaâ left, red X marks). All original maxima labels, the pointer arrows, and the original surface topography are absent. This is a missing-content defect, not a styling choice. |
+| 2 | **BLOCKER** | 90% | **Missing axis annotations on the bottom-left figure.** The original plot displays explicit tick labels on its horizontal and vertical axes (Y-axis ticks such as 6, 4, 2, 0, â2, â4; X-axis ticks 2, 0, â2, plus visible X/Y axis identifiers). The recreationâs bottom-left plot has no numeric axes at all, removing interpretive context that the source frame provides. |
+| 3 | **MAJOR** | 80% | **Frame-containment overflow / boundary collision.** The outer black border of the bottom-left recreation plot runs along and appears to touch or slightly overlap the house panelâs bottom stroke (the dark-red 1px rule at yâ540 px). Content ink that touches the inner house boundary is an overflow. The right edge of the lower-right plot is also within a hair of the right house stroke (xâ903 px), effectively eliminating the visible margin. |
+| 4 | **MAJOR** | 85% | **Plot frame border color.** Each sub-figure in the original is enclosed by a thin **red** rectangle. The recreation enclcles every plot with a thin **black** rectangle. The house-chrome exemption applies only to the outer white/gray panel strokes, not to individual content frames. |
+| 5 | **MAJOR** | 85% | **Keyword color highlighting in blue labels.** The original label text is uniformly **white** on blue for all four callouts (âConcave Function One Maximaâ, âConvex Function One Minimaâ, âNon-Convex Multiple Minimaâ, âGradient Descent Path to reach Minimaâ). The recreation renders the first word(s) in **yellow** (âConcaveâ, âConvexâ, âNon-Convexâ, âGradient Descentâ), altering the original color scheme of the label text. |
+| 6 | **MAJOR** | 80% | **Top-right convex figure axis annotations.** Original z-tick labels read 0.5, 1, 2 with x/y grid labeled â100 / 0 / 100. The recreation adds â50 and 50 tick labels on the base axes and presents a different z-tick set (appearing to include â100). These numeric data labels are not present in the original frame, creating an inconsistent dataset presentation. |
+| 7 | **MINOR** | 90% | **Annotation glyph geometry.** The original bottom-left plot uses thin **red arrows** pointing from text to surface features. The recreation substitutes bold **red X** marks. The semantic idea is retained but the glyph shape differs. |
+| 8 | **MINOR** | 75% | **Layout drift of blue label boxes.** In the original, âGradient Descent Path to reach Minimaâ sits directly above the lower-right plot, and âNon-Convex Multiple Minimaâ sits lower-right of the lower-left plot. The recreation centers both labels in the middle gutter between the four plots, shifting their horizontal and vertical alignment relative to the figures they annotate. |
+| 9 | **MINOR** | 70% | **Red horizontal slice-line placement/count on top-right figure.** The original convex bowl shows two red contour slices (consistent with the 0.5 and ~1.5 Ã10â´ levels). The recreation shows more than two horizontal red lines crossing the surface, changing the visual emphasis on the convex region. |
+|10 | **MINOR** | 60% | **Extra artifact in lower-right plot.** The recreation includes a bright blue wavy horizontal strip along the very bottom edge of the gradient-descent figure. No analogous element appears in the original frame. |
+
+---
+
+**Visual-Quality Defects in the Recreation**
+
+- **Text truncation / clipping:** The bottom-left plotâs right-side label reads âLocal Minâ and is visually cut off; the original text is âLocal Minimaâ. The top-of-figure label âGlobal Minimaâ is also pushed up against the plot boundary and risks being clipped.
+- **Illegibility / clutter:** The extra â50 and 50 tick labels in the top-right figure crowd the base of the bowl and partially collide with the surface wireframe, reducing readability.
+- **Low contrast inconsistency:** The mixed yellow-on-blue text draws the eye to only the first word of each label, making the remaining white words harder to parse as a unified phrase.
+- **Semantic mislabeling:** The bottom-left figure labels the upper surface region as âGlobal Minimaâ, whereas the original identifies that region as âGlobal Maximaâ; the figure is internally misleading even aside from fidelity.
+- **Border-visual merge:** The black plot borders near the house panel bottom/right strokes visually collide with or sit flush against the slide chrome, weakening the separation between content and frame.
+
+---
+
+**FINAL VERDICT: FAIL**

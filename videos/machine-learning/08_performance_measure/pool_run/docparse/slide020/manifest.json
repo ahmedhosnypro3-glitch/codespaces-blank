@@ -11,15 +11,15 @@
   "parse_model": "nemotron-3.5-parse",
   "chat_model": "docparsechat",
   "caps": {
-    "max_retries": 3,
-    "max_parallel": 4,
+    "max_retries": 6,
+    "max_parallel": 2,
     "max_crops": 16,
     "max_parse_calls": 24,
     "max_depth": 6,
     "max_output_tokens": 9000
   },
-  "parse_calls_spent": 3,
-  "crops_spent": 2,
+  "parse_calls_spent": 2,
+  "crops_spent": 1,
   "degraded": {
     "chat": false,
     "reason": ""
@@ -52,7 +52,7 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat advised CROP: The parent excerpt is empty while the child recovered chart labels and rows, and the chart candidate's extracted text is truncated and sparse, so a tighter crop is warranted.",
+    "stop_note": "chat advised CROP: The candidate is a chart block with sparse extracted text, so a zoomed crop is needed to read its full content.",
     "decision_source": "chat",
     "children": [
       "slide_020.crop01__chart"
@@ -97,12 +97,10 @@
         35,
         19
       ],
-      "stop_reason": null,
-      "stop_note": "chat advised CROP: The candidate chart block still has sparse/garbled extracted text and lost parent labels, so a tighter crop may recover them.",
+      "stop_reason": "no-new-information",
+      "stop_note": "chat advised STOP: The only candidate is the same chart box already cropped, and its text is already parsed rather than empty or sparse.",
       "decision_source": "chat",
-      "children": [
-        "slide_020.crop02__chart"
-      ],
+      "children": [],
       "transform": {
         "origin_px": [
           1.0,
@@ -113,60 +111,17 @@
       },
       "trigger": "root",
       "error": null
-    },
-    {
-      "id": "slide_020.crop02__chart",
-      "level": 2,
-      "class": "Chart",
-      "box_frame_px": [
-        36.5,
-        42.2,
-        884.1,
-        475.7
-      ],
-      "estimated": false,
-      "png": "crops/slide_020.crop02__chart.png",
-      "mean_rgb": 217.9,
-      "precheck_ok": true,
-      "backend": "pil",
-      "parse_files": {
-        "md": "crops/slide_020.crop02__chart.parse.md",
-        "json": "crops/slide_020.crop02__chart.parse.json"
-      },
-      "scale": 1.7416,
-      "size_px": [
-        1664,
-        894
-      ],
-      "margin_applied": [
-        62,
-        33
-      ],
-      "stop_reason": "no-new-information",
-      "stop_note": "chat advised STOP: The child repeats the parent\u2019s same title and table rows, changing only the chart type.",
-      "decision_source": "chat",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          1.0,
-          23.0
-        ],
-        "scale": 1.7416,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "slide_020.crop01__chart",
-      "error": null
     }
   ],
   "recursion": {
-    "levels_processed": 3,
+    "levels_processed": 2,
     "backstop_hits": 0
   },
   "stats": {
-    "parse_calls": 3,
-    "chat_calls": 3,
+    "parse_calls": 2,
+    "chat_calls": 2,
     "retries": 0,
     "dedup_collapsed": 0,
-    "elements": 3
+    "elements": 2
   }
 }

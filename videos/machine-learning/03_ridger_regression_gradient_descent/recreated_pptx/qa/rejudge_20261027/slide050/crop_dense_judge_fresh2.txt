@@ -1,0 +1,20 @@
+Comparing IMG1 (recreation render) to IMG2 (original frame) for the âAugmented Vectors (from Top)â region only. I verified the table cellâbyâcell before listing anything.
+
+**Discrepancies**
+
+1. **Columnâheader variable case is wrong â all six headers.**
+   - **Where:** the label band directly above the parenthesized columns (roughly the upper third of the crop, spanning full width; above Xâ/Xâ and above Xââ).
+   - **IMG1 (recreation):** upright capital **X** with subscripts â `Xâ Xâ Xâ Xâ Xâ`.
+   - **IMG2 (original):** lowercase (italic, xâheight) **x** with subscripts â `xâ xâ xâ x xâ`.
+   - The lowercase reading is not a font illusion: in IMG2 those header glyphs are clearly shorter than the lining digits and the capâheight âCâ labels beneath them. This is a changed mathematical symbol, not a value error â the 18 vector entries themselves are all correct.
+   - **Severity: MAJOR** â **Confidence: High.**
+
+2. **âIteration 2â control is restyled (fill/text inversion).**
+   - **Where:** bottomâleft corner of the crop (â y 85â100%, x 0â30%).
+   - **IMG1:** white âIteration 2â on a saturated solidâred filled rectangle.
+   - **IMG2:** darkâred âIteration 2â on a light fill inside a thin darkâred rectangle outline that appears to lack a top rule (consistent with the deckâs left/right/bottomâonly frame).
+   - **Severity: MINOR** â auxiliary control, not table content; **Confidence: Medium** (it sits on the extreme crop edge and merges with the protected darkâred bottom stroke, so exact button bounds are uncertain â but the recreation clearly added a solid red fill behind white text where the original has no such fill).
+
+**Checked and clean (no discrepancy):** every vector digit in all six columns (Xâ..Xâ â `(1,1,1) (1,2,1) (1,1,2) (1,5,4) (1,6,6) (1,6,6)`); the Câ/Câ/Câ vs Câ/Câ/Câ grouping and their red/blue coloring; subscript integrity (none truncated); delimiter geometry (each `( )` spans its three entries and does not touch the digits); row spacing and vertical centering; and the header wording.
+
+FINAL VERDICT: **FAIL** â driven by Discrepancy 1: the tableâs column symbols are uppercase `X` where the original uses lowercase `x`; under the stated standard (wrong characters/glyphs in a table are MAJORâtoâBLOCKER even at fullâslide scale), the region is not a faithful recreation.

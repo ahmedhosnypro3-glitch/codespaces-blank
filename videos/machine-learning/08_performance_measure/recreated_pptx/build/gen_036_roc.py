@@ -46,7 +46,7 @@ pts = [
     (1 / 6, 0.8, "0.4", (-0.085, 0.0)),
     (1 / 6, 0.6, "0.6", (-0.02, -0.065)),
     (0.0, 0.6, "0.7", (-0.085, 0.0)),
-    (0.0, 0.0, "1.0", (0.0, -0.33)),   # threshold 1.0 at origin; label sits just below the x-axis (frame ~ (663,435))
+    (0.0, 0.0, None, (0.0, 0.0)),    # threshold 1.0 at origin; its '1.0' label sits BELOW the plot box (frame ~663,435) and is drawn as a slide text element in slide_036.js
 ]
 fpr = [p[0] for p in pts]
 tpr = [p[1] for p in pts]

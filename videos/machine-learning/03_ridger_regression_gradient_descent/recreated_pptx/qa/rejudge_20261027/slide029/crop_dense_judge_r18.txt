@@ -1,0 +1,32 @@
+## Fidelity check â Slide 29 zoomed crop pair (r18)
+
+### Method / settled ground rules applied
+Treated as a zoomed crop-pair of one region at matched scale; house-template chrome, typed-vs-handwritten ink, professional 2D equation formatting, and JPEG halos/soft edges in IMG2 are excluded from discrepancy finding. Only glyph geometry, characters/numbers, symbol identity, spacing/alignment, stroke continuity, and fill/ink color were audited.
+
+### Region content audit (line by line)
+
+| Line | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|
+| 1 | `â¦obtain Minimum` (left-edge partial glyph sliver âx 0â10; right edge clips final `m`) | `â¦obtain Minimum` (same clipped left sliver, same right clipping) | Identical characters, letterforms, weight, baseline |
+| 2 | `â¦unction using` (left-clipped `u`, full `nction using`, `g` descender intact) | `â¦unction using` (same clipping pattern, `g` descender intact) | Identical |
+| 3 | `â¦nt Descent (GD` (left-clipped `n`/`t`, `(` âx 508â545, `G` full, `D` clipped at right edge) | `â¦nt Descent (GD` (same clipped left, `(` âx 505â535, `G` with crossbar, `D` clipped at right edge) | Identical |
+
+Character-by-character: `obtain Minimum` / `unction using` / `nt Descent (GD` â no wrong, missing, swapped, or garbled glyphs in either crop. Dot positions on both `i` glyphs in `Minimum` and `using` match; the `G` carries the same inward horizontal spur in both; the parenthesis opens at the same height range (ây 350â435 in IMG1 vs ây 348â425 in IMG2) and does not touch the `G` or `D`.
+
+### Discrepancies found
+
+**Content discrepancies: NONE.**
+
+| # | Observation | Severity | Confidence |
+|---|---|---|---|
+| â | No character, glyph-shape, symbol, spacing, alignment, stroke-weight, or color-content discrepancy detected between IMG1 and IMG2. | â | High |
+
+### Non-content artifacts observed (explicitly NOT scored as discrepancies)
+1. **IMG2 softness/halo** â all IMG2 edges are blurrier with slight color fringing (e.g., around `Descent (GD` and the line-1 `M`) versus the crisp vector edges of IMG1. Captured-source compression artifact; excluded per ground rule (e).
+2. **Mouse pointer overlay in IMG2** at approximately crop-relative **(x 555â600, y 372â415)**, superimposed on the `G`/`D` region of line 3. This is a screen-capture pointer, not slide content; it does not indicate any content difference. (It partially masks the `G` crossbar in IMG2, but the `G` form in IMG1 is fully consistent with the visible portion in IMG2.)
+3. **Crop-edge clipping** is present identically in both images (left edge of lines 1â3 and right edge of lines 1 and 3), confirming the two crops cover the same region; the leading characters that are cut off in IMG1 are also cut off in IMG2, so no truncation was introduced by the recreation.
+
+### Bottom line
+The recreation reproduces the visible text of this region exactly â same characters, same red ink, same weight, same line breaks, same clipping, same parenthesis geometry â differing from the original only by the original's own video-capture softness and an on-screen cursor.
+
+FINAL VERDICT: PASS

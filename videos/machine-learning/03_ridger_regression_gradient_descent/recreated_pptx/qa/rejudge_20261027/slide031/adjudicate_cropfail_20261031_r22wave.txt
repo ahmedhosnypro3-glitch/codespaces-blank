@@ -1,0 +1,29 @@
+# slide 031 — newest clean CROP FAIL: crop_dense_judge_r17.txt 2026-10-31 07:02:04 (0x 429) — claims: table gridlines/cell borders missing in render
+slide 031 mode --crop render 634x434 scale=(0.660,0.804)
+diff px total: 71808 (26.097% of frame)
+densest diff cells (slide-space px coords, diff px count):
+  box x432-456 y472-495: 252 diff px
+  box x696-720 y472-495: 249 diff px
+  box x168-192 y472-495: 249 diff px
+  box x552-576 y472-495: 237 diff px
+  box x816-840 y472-495: 235 diff px
+  box x288-312 y472-495: 235 diff px
+  box x24-48 y472-495: 229 diff px
+  box x48-72 y472-495: 227 diff px
+  box x840-864 y472-495: 217 diff px
+  box x576-600 y472-495: 211 diff px
+  box x312-336 y472-495: 202 diff px
+  box x504-528 y472-495: 192 diff px
+ink only in render: 41893 px; ink only in original: 38301 px
+  (render-heavy = extra/off-position ink; original-heavy = missing content)
+slide 031 claim=031_grid crop 634x434
+RENDER: vertical-separator ink at boundaries (y30-410, x+-3):
+   x=78: 203   x=155: 203   x=235: 203   x=313: 203   x=395: 271   x=475: 408   x=555: 442
+   horiz rules (rows y30-410 with >300 ink px in x60-580): [(304, 520), (305, 520), (306, 520), (307, 520), (308, 520), (344, 520), (345, 520), (346, 520), (347, 520), (357, 520), (358, 520), (359, 520), (360, 520), (361, 520), (362, 520), (363, 520), (364, 520), (388, 520), (389, 520), (390, 520)]
+ORIG: vertical-separator ink at boundaries (y30-410, x+-3):
+   x=78: 515   x=155: 328   x=235: 336   x=313: 330   x=395: 514   x=475: 798   x=555: 755
+   horiz rules (rows y30-410 with >300 ink px in x60-580): [(31, 476), (32, 441), (33, 498), (34, 443), (110, 426), (111, 456), (112, 479), (113, 520), (121, 520), (122, 520), (123, 520), (124, 520), (125, 520), (200, 518), (201, 520), (202, 520), (203, 520), (204, 520), (215, 520), (216, 520)]
+y=33: RENDER dark px 15 meanlum 675 | ORIG dark px 486 meanlum 415
+y=110: RENDER dark px 0 meanlum 623 | ORIG dark px 425 meanlum 445
+y=200: RENDER dark px 0 meanlum 566 | ORIG dark px 518 meanlum 436
+DISPOSITION: CONFIRMED — solid dark horizontal rules in orig (y33/110/200: 486/425/518 dark px) absent in render (0 dark px). Fresh crop leg relaunched as r22 (pid 2631188). 2026-10-31 worker

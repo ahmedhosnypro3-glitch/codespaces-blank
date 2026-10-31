@@ -179,9 +179,9 @@ s.addShape(pptx.shapes.RECTANGLE, {
   x: P(641), y: P(80), w: P(895 - 641), h: P(386 - 80),
   fill: { type: "none" }, line: { color: BLUE, width: 2 },
 });
-// roc_032_v4.png 2233x2891 px at 600dpi; box x[634,902] y[43,390]
+// roc_032_v5.png 2233x2891 px at 600dpi; box x[634,902] y[43,390]
 s.addImage({
-  path: NS + "roc_032_v4.png",
+  path: NS + "roc_032_v5.png",
   x: P(634), y: P(43), w: 2233 / 600, h: 2891 / 600,
 });
 
@@ -243,7 +243,7 @@ s.addText("Predicted as", {
   align: "center", valign: "middle", fontSize: 7, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addText("Actual", {
-  x: P(LX), y: P(460), w: P(12), h: P(LH - 22),
+  x: P(757), y: P(460), w: P(12), h: P(LH - 22),
   align: "center", valign: "middle", fontSize: 7, color: RED2, fontFace: FONT, margin: 0,
   vert: "vert270",
 });
@@ -268,11 +268,12 @@ lcell(844, 460, 42, 19, "FN", BLACK, true);
 lcell(800, 479, 44, 20, "FP", BLACK, true);
 lcell(844, 479, 42, 20, "TN", "006400", true);
 
-// house title on top of all content panels
+// house title on top of all content panels (17pt top-anchored: glyphs stay above
+// the content border at y=48px so no ink crosses inner frame lines)
 s.addText("ROC Curve for Same Model -different thresholds", {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.8,
-  align: "center", valign: "middle",
-  fontSize: 26, bold: true, color: RED, fontFace: FONT, margin: 0,
+  x: 0.6, y: 0.28, w: 12.13, h: 0.62,
+  align: "center", valign: "top",
+  fontSize: 17, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
 pptx.writeFile({

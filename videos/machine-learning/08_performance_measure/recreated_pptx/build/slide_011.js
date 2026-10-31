@@ -1,6 +1,7 @@
-// slide_011.js — attempt 11: geometry rebuilt from PIL measurements of slide_011.jpg (1px=1pt)
-// Fixes vs attempt 10: fraction INSIDE the red "Recall =" box, calc inline right of box,
-// matrices as slide_009-certified text+shape pattern, tree panel contained, ovals on 28 (blue) and 2 (red).
+// slide_011.js — attempt 12: fixes vs attempt 11 from fresh FAIL corroboration reads
+// (judge_verify_10/15/18): note box split into 3 explicit lines, tree panel headings moved
+// to panel top (original: headings y4.15, planes y4.76, roots cy5.47), cream/formula gap,
+// curly underbrace PNG, calc backing box, wider rotated "Actual" label.
 const pptxgenpkg = require("pptxgenjs");
 
 const pptx = new pptxgenpkg();
@@ -27,8 +28,8 @@ s.addText("Correctly Classified (as Positive)", { x: 0.85, y: 1.70, w: 8.45, h: 
 s.addShape(pptx.shapes.LINE, { x: 1.11, y: 2.06, w: 7.86, h: 0, line: { color: RED, width: 2.25 } });
 s.addText("Total objects that should be retrieved (Actually Positive)", { x: 0.85, y: 2.14, w: 8.45, h: 0.34, align: "center", valign: "middle", fontSize: 17, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
 
-// 2. Meaning box (pale yellow, px 67,201..615,264)
-s.addShape(pptx.shapes.RECTANGLE, { x: 0.93, y: 2.79, w: 7.61, h: 0.85, fill: { color: "FFFFCC" }, line: { color: "CCC000", width: 0.75 } });
+// 2. Meaning box (pale yellow, px 67,201..615,264); h 0.80 so it clears the formula box
+s.addShape(pptx.shapes.RECTANGLE, { x: 0.93, y: 2.79, w: 7.61, h: 0.80, fill: { color: "FFFFCC" }, line: { color: "CCC000", width: 0.75 } });
 s.addText("Meaning", { x: 1.12, y: 2.84, w: 2.0, h: 0.34, fontSize: 24, bold: true, color: RED, fontFace: FONT, margin: 0, valign: "middle" });
 s.addText([
   { text: "Does the classifier " },
@@ -39,11 +40,13 @@ s.addText([
 ], { x: 1.12, y: 3.20, w: 8.15, h: 0.34, fontSize: 19, color: TEXT, fontFace: FONT, margin: 0, valign: "middle" });
 
 // 3. Formula box: ONE red rounded rect enclosing "Recall =" + the 2D fraction (px 70,262..317,322)
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { x: 0.97, y: 3.64, w: 3.44, h: 0.83, fill: { color: "FFFFFF" }, line: { color: RED, width: 2 } });
-s.addText("Recall =", { x: 1.10, y: 3.80, w: 1.90, h: 0.50, fontSize: 20, bold: true, color: TEXT, fontFace: FONT, margin: 0, valign: "middle" });
-s.addImage({ path: A + "/eq_011_v3_tpfn.png", x: 3.02, y: 3.71, w: 1.3017, h: 0.6133 });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { x: 0.97, y: 3.68, w: 3.44, h: 0.79, fill: { color: "FFFFFF" }, line: { color: RED, width: 2 } });
+s.addText("Recall =", { x: 1.10, y: 3.83, w: 1.90, h: 0.46, fontSize: 20, bold: true, color: TEXT, fontFace: FONT, margin: 0, valign: "middle" });
+s.addImage({ path: A + "/eq_011_v3_tpfn.png", x: 3.02, y: 3.72, w: 1.3017, h: 0.6133 });
 
-// 4. Worked example inline right of the formula box: "Recall=" + 28/(28+2) fraction + "=93.3%" (px 344..667, 292..354)
+// 4. Worked example inline right of the formula box, on a light-blue backing box
+//    (px 344..667, 292..354): "Recall=" + 28/(28+2) fraction + "=93.3%"
+s.addShape(pptx.shapes.RECTANGLE, { x: 4.58, y: 3.98, w: 2.80, h: 0.56, fill: { color: "D9E2F3" }, line: { color: LBLUE, width: 0.75 } });
 s.addText("Recall=", { x: 4.62, y: 4.10, w: 0.80, h: 0.32, fontSize: 15, bold: true, color: TEXT, fontFace: FONT, margin: 0, valign: "middle" });
 s.addImage({ path: A + "/eq_011_v3_frac28.png", x: 5.46, y: 4.02, w: 0.715, h: 0.42 });
 s.addText("=93.3%", { x: 6.26, y: 4.10, w: 1.05, h: 0.32, fontSize: 15, bold: true, color: "FF0000", fontFace: FONT, margin: 0, valign: "middle" });
@@ -58,27 +61,26 @@ function callout(x, y, w, h, line2) {
 callout(1.56, 4.58, 1.59, 0.61, "Classified as +ive");
 callout(3.12, 4.62, 1.31, 0.57, "Classified as -ive");
 
-// 6. Green underbrace (px 107,385..334,402) as line + end ticks + center tick
-s.addShape(pptx.shapes.LINE, { x: 1.49, y: 5.50, w: 3.15, h: 0, line: { color: GREEN, width: 2.5 } });
-s.addShape(pptx.shapes.LINE, { x: 1.49, y: 5.38, w: 0, h: 0.12, line: { color: GREEN, width: 2.5 } });
-s.addShape(pptx.shapes.LINE, { x: 4.64, y: 5.38, w: 0, h: 0.12, line: { color: GREEN, width: 2.5 } });
-s.addShape(pptx.shapes.LINE, { x: 3.065, y: 5.50, w: 0, h: 0.10, line: { color: GREEN, width: 2.5 } });
+// 6. Green curly underbrace (px 107,385..334,402) as rendered glyph image
+s.addImage({ path: A + "/brace_011_v4.png", x: 1.49, y: 5.36, w: 3.15, h: 0.25 });
 
 // 7. Red italic caption (px 96,408..329,419)
 s.addText("All Positive Samples in the Dataset", { x: 1.30, y: 5.66, w: 3.34, h: 0.26, align: "center", valign: "middle", fontSize: 12, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0 });
 
-// 8. Blue takeaway box (px 70,437..499,504)
+// 8. Blue takeaway box (px 70,437..499,504) — 3 explicit lines, no auto-wrap
+//    original line rows: 6.13..6.35 / 6.44..6.67 / 6.76..6.94 in
 s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { x: 0.97, y: 6.07, w: 5.96, h: 0.93, fill: { color: "ADD8E6" }, line: { color: LBLUE, width: 1 } });
 s.addText([
   { text: "Higher Recall means ", options: { color: "0000EE" } },
-  { text: "I HIGHLY trust you if you said I picked ALL Positive Objects.", options: { bold: true, color: TEXT } },
-], { x: 1.12, y: 6.15, w: 5.66, h: 0.30, fontSize: 12, fontFace: FONT, margin: 0, valign: "middle" });
+  { text: "I HIGHLY trust you if you said I picked", options: { bold: true, color: TEXT } },
+], { x: 1.12, y: 6.12, w: 5.66, h: 0.26, fontSize: 12, fontFace: FONT, margin: 0, valign: "middle" });
+s.addText("ALL Positive Objects.", { x: 1.12, y: 6.43, w: 5.66, h: 0.26, fontSize: 12, bold: true, color: TEXT, fontFace: FONT, margin: 0, valign: "middle" });
 s.addText([
   { text: "It Does ", options: { color: "0000EE" } },
   { text: "NOT", options: { bold: true, color: "0000EE" } },
   { text: " mean ", options: { color: "0000EE" } },
   { text: "All you said Positive are Actually Positive", options: { bold: true, color: TEXT } },
-], { x: 1.12, y: 6.51, w: 5.66, h: 0.30, fontSize: 12, fontFace: FONT, margin: 0, valign: "middle" });
+], { x: 1.12, y: 6.72, w: 5.66, h: 0.26, fontSize: 12, fontFace: FONT, margin: 0, valign: "middle" });
 
 // ===== RIGHT: confusion matrices (slide_009-certified text+shape pattern) =====
 function matrix(x, y, w, h) {
@@ -90,7 +92,7 @@ function matrix(x, y, w, h) {
   s.addText("Predicted as", { x: gx, y: y + 0.02, w: gw, h: hh, align: "center", valign: "middle", fontSize: 11, bold: true, color: RED, fontFace: FONT, margin: 0 });
   s.addText("P", { x: gx, y: y + hh, w: gw / 2, h: chh, align: "center", valign: "middle", fontSize: 11, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
   s.addText("N", { x: gx + gw / 2, y: y + hh, w: gw / 2, h: chh, align: "center", valign: "middle", fontSize: 11, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
-  s.addText("Actual", { x: x + 0.02, y: y + hh + 0.05, w: 0.22, h: rh * 2, align: "center", valign: "middle", fontSize: 9, bold: true, color: RED, fontFace: FONT, margin: 0, rotate: 270 });
+  s.addText("Actual", { x: x + 0.02, y: y + hh + 0.05, w: 0.5, h: rh * 2, align: "center", valign: "middle", fontSize: 9, bold: true, color: RED, fontFace: FONT, margin: 0, rotate: 270 });
   s.addText("P", { x: x, y: y + hh + chh, w: lw, h: rh, align: "center", valign: "middle", fontSize: 11, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
   s.addText("N", { x: x, y: y + hh + chh + rh, w: lw, h: rh, align: "center", valign: "middle", fontSize: 11, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
   s.addShape(pptx.shapes.LINE, { x: gx, y: y + hh, w: gw, h: 0, line: { color: RED, width: 0.75 } });
@@ -120,11 +122,12 @@ s.addShape(pptx.shapes.OVAL, { x: m2.gx + m2.cw / 2 - 0.21, y: m2.gy + m2.rh / 2
 s.addShape(pptx.shapes.OVAL, { x: m2.gx + m2.cw + m2.cw / 2 - 0.21, y: m2.gy + m2.rh / 2 - 0.21, w: 0.42, h: 0.42, fill: { type: "none" }, line: { color: RED, width: 1.5 } });
 
 // ===== TREE PANEL (red frame, px 535,290..882,503) =====
+// original vertical order: headings y4.15, planes y4.76, roots cy5.47, children cy6.34
 s.addShape(pptx.shapes.RECTANGLE, { x: 7.43, y: 4.03, w: 4.82, h: 2.96, fill: { color: "FFFFFF" }, line: { color: RED, width: 2 } });
+s.addText("Positive", { x: 8.28, y: 4.15, w: 1.0, h: 0.26, align: "center", valign: "middle", fontSize: 15, bold: true, color: RED, fontFace: FONT, margin: 0 });
+s.addText("Negative", { x: 10.75, y: 4.15, w: 1.08, h: 0.26, align: "center", valign: "middle", fontSize: 15, bold: true, color: GREEN, fontFace: FONT, margin: 0 });
 s.addImage({ path: A + "/plane_011_v3_pos.png", x: 8.17, y: 4.76, w: 1.1806, h: 0.4167 });
 s.addImage({ path: A + "/plane_011_v3_neg.png", x: 10.61, y: 4.76, w: 1.2222, h: 0.3333 });
-s.addText("Positive", { x: 8.09, y: 5.20, w: 1.0, h: 0.24, align: "center", valign: "middle", fontSize: 15, bold: true, color: RED, fontFace: FONT, margin: 0 });
-s.addText("Negative", { x: 10.61, y: 5.20, w: 1.0, h: 0.24, align: "center", valign: "middle", fontSize: 15, bold: true, color: GREEN, fontFace: FONT, margin: 0 });
 
 function node(cx, cy, num, fill) {
   s.addShape(pptx.shapes.OVAL, { x: cx - 0.21, y: cy - 0.21, w: 0.42, h: 0.42, fill: { color: fill }, line: { color: fill, width: 1 } });
@@ -139,19 +142,19 @@ function leaf(cx, label, color) {
   s.addText(label, { x: cx - 0.25, y: 6.62, w: 0.5, h: 0.26, align: "center", valign: "middle", fontSize: 11, bold: true, color: color, fontFace: FONT, margin: 0 });
 }
 // left (Positive) tree: 30 -> 28 (TP), 2 (FN)
-node(8.61, 5.56, "30", RED);
+node(8.61, 5.47, "30", RED);
 node(7.98, 6.34, "28", RED);
 node(9.18, 6.35, "2", GREEN);
-branch(8.61, 5.77, 7.98, 6.13);
-branch(8.61, 5.77, 9.18, 6.14);
+branch(8.61, 5.68, 7.98, 6.13);
+branch(8.61, 5.68, 9.18, 6.14);
 leaf(7.98, "TP", RED);
 leaf(9.18, "FN", GREEN);
 // right (Negative) tree: 70 -> 40 (TN), 30 (FP)
-node(11.11, 5.56, "70", GREEN);
+node(11.11, 5.47, "70", GREEN);
 node(10.47, 6.34, "40", GREEN);
 node(11.75, 6.34, "30", RED);
-branch(11.11, 5.77, 10.47, 6.13);
-branch(11.11, 5.77, 11.75, 6.13);
+branch(11.11, 5.68, 10.47, 6.13);
+branch(11.11, 5.68, 11.75, 6.13);
 leaf(10.47, "TN", GREEN);
 leaf(11.75, "FP", RED);
 

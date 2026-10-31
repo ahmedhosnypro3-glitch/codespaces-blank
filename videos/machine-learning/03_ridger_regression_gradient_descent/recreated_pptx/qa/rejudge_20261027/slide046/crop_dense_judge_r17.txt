@@ -1,0 +1,51 @@
+## Fidelity check â Slide 046, zoomed crop pair (IMG1 = 150dpi recreation, IMG2 = matched-scale original crop)
+
+### Ground rules applied first (not counted as discrepancies)
+- Zoomed crop-pair of one region (not a whole slide) â accepted as given.
+- House template chrome (white canvas, gray `E9E9E7` panel, `C00000` left/right/bottom strokes, no top stroke, yellow badge/purple ring â badge not in this crop) â accepted as intentional.
+- Typed vs handwritten/script ink in the source â capped at MINOR.
+- 2D equation formatting â no equations in this crop, so not applicable.
+- JPEG softness/halos in IMG2 â not counted.
+
+### Item-by-item verification
+
+**Augmented Vectors panel (approx. x 18â368, y 108â352 in both crops)**
+
+| Col | x-label (yâ166) | Rows (yâ205/237/269) | Class label (yâ310) | Match |
+|---|---|---|---|---|
+| 1 (xâ73) | xâ | 1 / 1 / 1 | Câ (red) | â exact |
+| 2 (xâ118) | xâ | 1 / 2 / 1 | Câ (red) | â exact |
+| 3 (xâ163) | xâ | 1 / 1 / 2 | Câ (red) | â exact |
+| 4 (xâ208) | xâ | 1 / 5 / 4 | Câ (blue) | â exact |
+| 5 (xâ252) | x | 1 / 6 / 5 | Câ (blue) | â exact |
+| 6 (xâ296) | xâ | 1 / 6 / 6 | Câ (blue) | â exact |
+
+- No swapped digits, no missing/extra rows, no truncated subscripts (all `â`/`â` present and correctly colored). Title reads "Augmented Vectors (from Top)" in both.
+- **Enclosure geometry:** all six three-row column parentheses span the full stack (ây 190â292) in both images; no paren touches a digit, no paren fails to span its rows. â
+- **Line separation / vertical centering:** row baselines â207 / 238 / 270 (IMG1) vs â207 / 237 / 268 (IMG2); row pitch â31 px both. Cells are evenly spaced and centered under their x-labels. â
+
+**Upper partial vector row (y 0â80)** â values 1, 1, 2, 4, 5, 6 with class labels Câ Câ Câ Câ Câ Câ (redÃ3 then blueÃ3), and at right the italic legend "Câ positive" (red Câ) and "Câ negâ¦" (blue Câ, cut by crop edge) plus the stray dash at xâ560. â identical in both, including the crop-edge truncation of "negâ¦".
+
+**Right-hand red frame corner (xâ533, yâ180)** â L-shaped `C00000` stroke, present in both. â
+
+**Bottom "Iteration 4" red banner (x 48â305, yâ398+)** â white text on red, top edge of box and partial glyphs match in position and content. â (both cut off by crop edge).
+
+### Discrepancies found
+
+1. **MINOR â Ink medium across the whole gray panel** (title, x-labels, digits, parens, C-labels; region x 18â368, y 125â325). IMG2 is a script/handwritten italic with irregular stroke weight and soft JPEG edges; IMG1 is clean typed serif/italic. Explicitly capped at MINOR by ground rule (c). Confidence: HIGH.
+2. **MINOR â Parenthesis glyph form in the vector stacks** (e.g. col 4â6, xâ200â310, y 190â292). IMG1 uses tall, narrow, near-straight/tapered parens; IMG2 uses fuller, rounder, hand-drawn parens. Span and containment are correct in both, so this is shape/medium only. Confidence: MEDIUM.
+3. **MINOR â Panel edge treatment of the "Augmented Vectors" box** (right edge xâ368, bottom edge yâ352). IMG2 shows a distinctly darker, slightly heavier shadow/bevel line on the right and bottom borders; IMG1's border is a very faint flat hairline. Small color/weight difference in the panel outline. Confidence: MEDIUM.
+4. **MINOR â "Iteration 4" glyph size/placement** (x 48â305, y 398â442). Recreation lettering appears ~8â12 % larger with the cap-height starting â415 vs â408, and the banner's top edge sits â2 px higher in IMG1. Content ("Iteration 4") is correct; only cropped-edge rendering/scale differs. Confidence: MEDIUM.
+5. **MINOR â Blue accent hue** (Câ labels at xâ200â305, yâ310; title at x 42â350, yâ137). Recreation blue is a slightly more saturated/electric blue, original reads marginally more violet-tinged; likewise the blue underline of the upper panel (yâ85) is marginally darker in IMG1. Small fill/stroke color difference. Confidence: LOWâMEDIUM (partly confounded by IMG2 compression).
+6. **MINOR (crop registration, not content) â Vertical alignment of the two crops.** The upper-row digits are clipped ~5â8 px lower in IMG2, and the right red frame's corner sits at yâ183 in IMG2 vs yâ180 in IMG1. This is a sub-1 % crop offset, not a content change; all in-panel content aligns within â1â2 px. Confidence: HIGH that this is registration, not a defect.
+
+### Explicitly checked and NOT discrepant
+- Every digit in every vector cell (12 triples + 6 upper-row values) â all identical.
+- Class assignments and their red/blue mapping â all identical.
+- Subscript glyphs on every Câ/Câ (panel, upper row, legend) â all present, correctly placed, none truncated.
+- Delimiter span across all three rows in all six stacks â correct in both.
+- Italic legend wording and its crop-edge truncation ("Câ negâ¦") â identical.
+- No top stroke added to the house template; red strokes confined to right side and bottom as mandated.
+
+### FINAL VERDICT: PASS
+The region is a faithful, usable recreation: all values, symbols, class labels, subscripts, enclosure geometry, spacing, and text content match the original exactly. The only differences are MINOR typography/medium, border-weight, slight hue, and sub-1 % crop-registration effects â no BLOCKER or MAJOR discrepancies.

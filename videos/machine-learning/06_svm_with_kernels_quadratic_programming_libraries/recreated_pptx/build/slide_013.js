@@ -117,7 +117,7 @@ txt("Solution", 0.503, 0.707, 0.698, 0.817,
 rect(0.708, 0.676, 0.842, 0.844, "00B050", 1.5);
 imgC("sol", 0.717, 0.694, 0.831, 0.830);
 
-// ---- bottom player bar ----
+// ---- bottom player bar (video-capture artifact of the original frame) ----
 s.addShape(pres.shapes.RECTANGLE, {
   x: X(0.036), y: Y(0.856), w: X(0.855), h: Y(0.144),
   fill: { color: "000000" }, line: { color: "000000" },

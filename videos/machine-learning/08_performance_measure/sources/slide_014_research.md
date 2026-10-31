@@ -10,3 +10,11 @@ Method: mandated web-source verification (deck scope 08_performance_measure, sli
 - Spec's transcribed operand line "68.7%+60% = 65.55%" is a vision misread: CORRECTED — local arithmetic re-check of the spec values — 64.5% + 66.6% averaged = 65.55%, which matches the printed result; "68.7%/60%" are transcription artifacts of the same digits. Frame wins for recreation; do not rewrite the pixels.
 
 Query budget: 2 of 3-6 (F1/harmonic-mean formula; discriminator arithmetic-average vs harmonic-mean example). No new query spent on claims already banked by slide 016.
+
+## Second-opinion (lane D, 2026-10-31)
+
+Method: `mcp__agy-cli-mcp__agy_web_search`, 5 batches x 4 queries, URLs resolved live; arithmetic re-computed locally in Python. Verdict: CORRECTED stands (the spec's "68.7%+60%" operand line is a transcription artifact; the frame's printed 64.5% + 66.6% -> 65.55% is arithmetically confirmed). Right "Not a Model" panel re-verified: all-positive classifier gives recall 30/(30+0) = 100%, precision = 30/100 = base rate (frame prints 30.3%), arithmetic mean ~65% while harmonic F1 = 0.46 — the mean hides the degenerate model (APXML f1-score-metric, DataCamp F1, Openlayer). New confirming sources: https://openlayer.com/blog/f1-score-precision-recall-balance, https://www.datacamp.com/tutorial/f1-score. Frame wins for recreation.
+
+## Cross-check (lane F, 2026-10-31, agy web search)
+
+- "Not a Model" all-positive classifier: Precision = 30/(30+70) = 30.3%, Recall = 30/(30+0) = 100%, Average = (30.3%+100%)/2 = 65% — and "Average is NOT a good idea": CONFIRMED — Python in Plain English classifier-metrics analysis (https://python.plainenglish.io/understanding-classifier-performance-metrics-in-machine-learning-398bbf1442f8) uses exactly this 30/70 degenerate example: arithmetic mean (0.3+1.0)/2 = 65% masks the useless classifier, while harmonic mean F1 = 2*0.3*1.0/1.3 ≈ 46% exposes it; Wikipedia F-score (https://en.wikipedia.org/wiki/F-score) defines F1 as the harmonic mean of precision and recall. All frame arithmetic re-verified locally (30/100=30%, 30/30=100%, avg 65.15%≈65%). No corrections.

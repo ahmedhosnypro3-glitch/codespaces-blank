@@ -1,0 +1,41 @@
+## Elementâbyâelement comparison
+
+**Title (top band)** â "Convex Function,   Learning Rate =0.3, Start at X=3" â present, verbatim, same word order, same threeâcolor scheme (red "Convex Function,", green "Learning Rate =0.3,", blue "Start at X=3"), same baseline/left inset (recreation left edge â +5 px vs original, ~0.5 % of width). No discrepancy beyond a hair of tracking.
+
+**Small parameter table (left, ~x82â195)** â rows "step | 0.3", "initial X | 3", "delta | 0.1" all present with identical values and identical row/column split; label column bold leftâaligned, value column centered, both vertically centered in their cells. Fills (green / pink / yellow) match the original's intent.
+
+**Equation callâout (redâbordered box)** â `f(x) = (x â 5)Â² + 1` present, red frame, "f(x)" red, "(x â 5)Â²" blue, "+1" red. Superscript Â² rendered as a true superscript in both. (Linearâ2âD equation rendering is mandated and irrelevant here since the original is already typeset.)
+
+**Green instruction box (two lines)** â "X   is in between 4.8 and color red bold 5.1" / "f(x) is in between 1.04 and 1.01": both lines verbatim, redâbold 4.8 / 5.1, blueâbold 1.04 / 1.01, blue italic "f(x)". Lineâtoâline separation â 19 px in both (recreation box â 40 px tall for 2 lines, original â 40 px). Box is ~10â12 px higher in the recreation (harmless, nothing to anchor to).
+
+**"Bouncing" label** â text present and correctly spelled; position is over the same 4.8/5.1 column region as the original (offset ~20â30 px right and ~15 px up).
+
+**Arrows** â one hollow redâoutlined downâleft arrow over the "3" column, four hollow blue down arrows over the 4.8 / 5.1 / 4.8 / 5.1 columns. Same count, same order, same target columns as the original; arrow tips stop just at/inside the table's top rule.
+
+**Graph (right)** â same plot rectangle, same light grid, same steelâblue parabola with vertex at (5,1), same red dashed vertical guide at x = 5, same horizontal black segment at y = 10 with black endpoints at (2,10) and (8,10), red marker point, green vertex point with "(5, 1)" label, "(2, 10)" and "(8, 10)" labels, and the same small "3" annotations above the line. Axis numerals (15/10/5 and â5/0/10/15) present. The small black cursor/pointer artifact present in the original below the axis is correctly absent (ground rule c).
+
+**Bottom table** â all 8 rows present ("x", "f(x)", "xâdelta", "f(xâdelta)", "x+delta", "f(x+delta)", "slope", "next x") with identical row fills (olive, white, purple, purple, peach, peach, white, pink), identical label italics for f(x), f(xâdelta), f(x+delta), 18 data columns, and all values verified cellâbyâcell (e.g., f(x) = 5, 3.89, 2.96, 2.21, 1.64, 1.25, 1.04, 1.01, 1.04, 1.01 â¦; slope = â8, â6.8, â5.6, â4.4, â3.2, â2, â0.8, 0.4 â¦; next x = 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 4.8 â¦). Row heights â 20â21 px in both; every value is centered in its cell and vertically centered in its row. No truncation, no dropped rows, no wrong numbers.
+
+**House chrome** â white canvas, E9E9E7 panel, C00000 left/right/bottom strokes with no top stroke, and the FDFD96/6A5ACD "31" badge: per the founderâmandated ground rules these are intentional and are **not** counted as discrepancies. Content ink stays inside the panel and inside the table frame (table right edge and bottom edge clear of the panel strokes; no clipped text or boxes).
+
+## Discrepancies
+
+| # | Item | Severity | Confidence | Detail |
+|---|---|---|---|---|
+| 1 | "Bouncing" label styling | MINOR | High | Original: plain italic serif purple text on the gray background. Recreation: upright bold sansâserif inside a solid lavender filled rectangle. Text is verbatim; only typeface/italics/fill differ. |
+| 2 | "Bouncing" label placement | MINOR | Medium | Recreation's label box sits ~20â30 px right and ~15 px higher than the original's text, i.e. directly above/touching the first blue arrow instead of clear of it. |
+| 3 | Green instruction box vertical position | MINOR | Medium | Recreation's box sits ~10â12 px higher than the original's; internal line spacing and twoâline structure are correct, so no centering fault. |
+| 4 | Table numeral typeface | MINOR | Medium | Original table numerals/labels read as a serif face; recreation uses a sans face at slightly smaller optical size. Values and alignment are unaffected. |
+| 5 | Small parameter table cell fills | MINOR | Low | Label cells in "step / initial X / delta" rows are more uniformly colorâfilled in the recreation than in the original, where the left column appears partially unfilled. |
+| 6 | Blue arrow length/termination | MINOR | Low | Recreation's arrow shafts are marginally shorter and terminate just at the table's top rule; the original's tips reach marginally further into the header row. No collision with data text either way. |
+
+No BLOCKER and no MAJOR discrepancies were found: no missing equation, graph, table row, column, label, or annotation; no wrong table values; no text overflow, clipping, wrapping, or frame/stroke crossing.
+
+## Visualâquality defects in the recreation
+
+- No text overflow or clipping; no wrapped or truncated strings.
+- No collisions between elements; the only nearâtouch is the "Bouncing" label box against the first blue arrow (item 2), which remains legible.
+- All table text is small but legible and numerically correct; row/column alignment is consistent.
+- Overall render is clean, with consistent antialiasing and no stray shapes.
+
+**FINAL VERDICT: PASS**

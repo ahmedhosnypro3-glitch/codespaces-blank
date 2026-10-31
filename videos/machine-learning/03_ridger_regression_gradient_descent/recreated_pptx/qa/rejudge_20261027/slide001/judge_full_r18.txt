@@ -1,0 +1,53 @@
+## Ground rules applied first
+
+- House chrome (gray E9E9E7 panel x54â903, y45â540, darkâred C00000 left/right/bottom strokes with **no top stroke**, yellow FDFD96 badge with 6A5ACD ring at (876,73) and numeral "333") is treated as **intentional** â not counted.
+- The small "+" crosshair near (698,68) in the original is a **video cursor artifact** â correct to omit.
+- No placeholder/"Processing" content in the original, so full content comparison applies.
+- Medium/equation rules are not relevant (title slide, no equations).
+- Original frame measurements below are converted to the **960Ã540 native frame scale**; recreation measurements are converted from the 900Ã506 preview to the same 540âheight scale so the two are directly comparable.
+
+## Elementâbyâelement comparison
+
+| Element | Original (960Ã540) | Recreation (scaled to 540 height) | Match? |
+|---|---|---|---|
+| Title text/line breaks | "Ridge Regression," / "Gradient Descent," / "And Perceptron" | identical, 3 lines, same breaks | |
+| Title color | dark red â C00000 | C00000 | |
+| Title block horizontal center | â x468 | â x471 | (â¤3 px) |
+| Title cap height / lineâtoâline spacing | cap â34 px, spacing â49â53 px | cap â31 px, spacing â47 px | â ï¸ smaller + tighter |
+| "CSAI 253 - Spring 2024" | bold blue â 0000FF, âx345â598, yâ307â327 | same text/color, âx350â596, yâ285â304 | text / position â ï¸ |
+| "Prepared By" | red, **serif italic**, yâ347â365 | red, **sansâserif italic**, yâ323â338 | style â ï¸ / position â ï¸ |
+| Author name | blue, **serif italic bold** | blue, **upright sans bold** | style â ï¸ |
+| Author email | blue, **serif italic** | blue, upright sans | style â ï¸ |
+| "Instructors:" | red bold, yâ418â435 | red bold, yâ386â403 | position â ï¸ |
+| Instructor names (2) | italic serif bold, "Dr. Khaled Mostafa ElSayed" / "Dr. Mohamed Maher Ata" | verbatim, upright bold sans | text / style â ï¸ |
+| Instructor emails | kmelsayed@zewailcity.edu.eg / momaher@zewailcity.edu.eg, italic | same two addresses, upright | text / style â ï¸ |
+| Zewail City logo (teal block + Arabic/English banner) | xâ591â884, yâ455â527 | xâ589â873, yâ419â496 | content / size+position â ï¸ |
+| Bottom panel margin (last email / logo â red bottom stroke) | â18 px (logo nearly on the stroke) | â50â55 px | â ï¸ major gap mismatch |
+
+## Discrepancies
+
+1. **MAJOR â Systematic vertical misâplacement of the lower half of the content block.** In the original, the author block, "Instructors:" block and logo sit markedly lower: "CSAI 253 â Spring 2024" is ~22 px lower (yâ307 vs 285), "Prepared By"/author ~24â26 px lower, "Instructors:" ~32 px lower (yâ418 vs 386), the instructor email list ends ~34 px lower (yâ522 vs 488), and the logo sits ~36 px lower (yâ455â527 vs 419â496). The recreation therefore shows a wide empty gray band (~50 px) between the last email/logo and the red bottom stroke, whereas the original compresses this to ~18 px. This is a clear regionâalignment deviation, not a 1â2 px jitter. **Confidence: high.**
+
+2. **MAJOR â Line spacing inside the 3âline title is tighter than the original.** Measured capâtop to capâtop: original â49â53 px; recreation â47 px (and title cap height â31 px vs â34 px). Per the founder directive, a visible lineâseparation deviation is a major fidelity defect even with verbatim text. **Confidence: mediumâhigh.**
+
+3. **MINOR â Title font size slightly small.** Original title is ~9â10 % larger (cap height â34 px vs â31 px), consistent with the tighter line spacing. **Confidence: medium.**
+
+4. **MINOR â Italic/serif styling dropped on the "Prepared By" / author / instructor blocks.** Original renders "Prepared By", the author name, both instructor names and the email addresses in an **italic (Timesâstyle serif)** face; the recreation uses an upright / sansâserif Arial face for these (only "Prepared By" remains italic, but in a sans face). Medium/typeface change is at most minor, and the wording is verbatim. **Confidence: high.**
+
+5. **MINOR â Logo slightly smaller and proportionally higher.** Original banner â293Ã72 px (960 scale); recreation â284Ã77 px, and its baseline is far from the bottom stroke (see #1). Artwork, colors (teal block, maroon Arabic + English text) and wording are otherwise correct. **Confidence: medium.**
+
+6. **MINOR â Microâtypography in the course line.** Original shows slightly wider spacing around the hyphen ("CSAI 253  -  Spring 2024") vs the recreation's single spaces. **Confidence: medium.**
+
+7. **MINOR â Title block sits ~3 px left of the original's optical center.** **Confidence: low** (near measurement noise).
+
+## Visualâquality defects in the recreation
+
+- **No text overflow, clipping, or collisions.** All text, the logo, and the badge are fully inside the house panel and clear of the C00000 strokes; nothing crosses the frame boundary (the deliberate noâtopâstroke chrome is correct).
+- **No illegible text**; all strings render crisply at 18 pt equivalent.
+- **No wrong wrapping** â line breaks match the original exactly.
+- **No missing elements** â title, course line, "Prepared By", author name/email, "Instructors:" label, both instructor names and emails, and the Zewail City logo are all present with correct verbatim content and colors.
+- The defect is **not** rendering quality but **geometry**: a loose bottom margin, an underâsized/tight title block, and lost italicâserif styling on the credit blocks.
+
+## FINAL VERDICT: FAIL
+
+Content and wording are complete and accurate, but the recreation's lower content regions (author block, instructors block, logo) are placed ~25â36 px too high and the title line spacing/size are off, so the slide does not reproduce the original's layout fidelity (and, under the founder's lineâspacing directive, the title spacing alone is a major deviation). Correcting the vertical placement of the lower blocks and the title metrics should bring this to a PASS.

@@ -2,7 +2,7 @@
 
 - source frame: `slide_028-.jpg` (md5 `f4aa8f8a64c4785534f6e03ea5ee06ab`)
 - parse model: `nemotron-3.5-parse` · chat model: `docparsechat`
-- degraded: True (chat probe failed — decisions use the deterministic-conservative fallback)
+- degraded: False
 - elements kept: 16 (dedup collapsed 0) · crops: 3 · failed calls: 0
 
 ## Positioned elements (reading order: y then x)
@@ -26,7 +26,7 @@
 - `<class_Text>` @(x=332, y=262, w=518, h=42) — from full/slide_028-.parse.md (level 0)
   Correctly Predicted as Positive / ALL Actual Positive Samples (Percentage of correctly retrieved Positive samples)
 - `<class_Caption>` @(x=562, y=316, w=131, h=16) — from full/slide_028-.parse.md (level 0)
-  **(Best Value is “1”)**
+  **(Best Value is "1")**
 - `<class_Text>` @(x=82, y=340, w=347, h=19) — from full/slide_028-.parse.md (level 0)
   **False Positive Rate (FPR)** is defined as:
 - `<class_Formula>` @(x=107, y=361, w=197, h=65) — from crops/slide_028-.crop03__formula.parse.md (level 1)
@@ -36,7 +36,7 @@
 - `<class_Text>` @(x=340, y=373, w=541, h=43) — from full/slide_028-.parse.md (level 0)
   Incorrectly Predicted as Positive / ALL Actual Negative Samples (Error percentage in samples Predicted as Positive)
 - `<class_Caption>` @(x=563, y=425, w=128, h=16) — from full/slide_028-.parse.md (level 0)
-  **(Best Value is “0”)**
+  **(Best Value is "0")**
 - `<class_Text>` @(x=81, y=458, w=594, h=20) — from full/slide_028-.parse.md (level 0)
   An ROC curve plots TPR vs. FPR <u>at different classification thresholds</u>.
 
@@ -51,4 +51,4 @@
 ## Notes
 
 - backstop stops: 0
-- parse calls spent: 4 · chat calls: 0 · retries: 0
+- parse calls spent: 4 · chat calls: 1 · retries: 0

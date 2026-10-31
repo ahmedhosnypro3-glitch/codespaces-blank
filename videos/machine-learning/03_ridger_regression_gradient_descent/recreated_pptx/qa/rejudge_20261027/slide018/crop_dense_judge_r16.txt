@@ -1,0 +1,15 @@
+Region check (this is the right-truncated table crop; both images show the same 6 visible lines: upper 2-row block, then header + 3 data rows of the lower X-table). I compared every visible cell value, symbol, subscript, and the blue/red column-parity coloring between IMG1 (render) and IMG2 (original).
+
+Cell-by-cell match (IMG1 vs IMG2) â all identical:
+- Upper block R1: 1(b) 3(r) 5(b) 6(r) 16(b) 7(r) 5(b) 3(r, edge-cut) â match.
+- Upper block R2: 2(b) 4(r) 6(b) 8(r) 16(b) 18(r) 20(b) 22(r, edge-cut) â match.
+- Lower header: Xâ(b) Xâ(r) Xâ(b) Xâ(r(b) Xâ(r) Xâ(b) Xâ¦(edge-cut); all subscripts complete (1,2,3,4,5,6,7) â match.
+- Lower data row A: 1(b) 2(r) 3(b) 4(r) 8(b) 9(r) 10(b) then the FDFD96-yellow highlighted cell showing â3â at the cut edge â match.
+- Lower data row B: 1(b) 3(r) 5(b) 6(r) 16(b) 7(r) 5(b) 3(edge-cut) â match. Note this is the row that carries the â1 3 5 6 16 7 5 3â sequence; values are the same in both.
+- Lower data row C: 2(b) 4(r) 30(b) 8(r) 16(b) 18(r) 20(b) 22(edge-cut) â â30â is intact in both.
+
+No wrong digits, no swapped/duplicated/missing cells, no garbled glyphs, no truncated subscript, no missing row, no broken stroke. No brackets/parentheses/enclosures and no equations appear in this region (delimiter-span and equation-format checks are N/A). The gray E9E9E7 band and all strokes are the intentional template chrome; the typed-ink medium difference and the JPEG halo/soft edge in IMG2 are capture/medium items, not content.
+
+Discrepancies: NONE found in this region.
+
+FINAL VERDICT: PASS

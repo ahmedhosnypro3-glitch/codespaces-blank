@@ -1,0 +1,61 @@
+## Setup / house chrome (settled, not discrepancies)
+
+Verified as intentional house chrome in IMG1: gray E9E9E7 panel, darkâred C00000 left/right/bottom strokes only (**no top stroke â correct**), yellow slideânumber badge with purple ring at (876,73) showing â14â. The mouse cursor visible in IMG2 is correctly omitted. All five original content regions (title, two label boxes, two objective rows, DefineâLoss row, Loss/Regularization boxes, bottom objective equation) are present, so **no BLOCKERâlevel omission** exists.
+
+---
+
+## Discrepancies (IMG1 recreation vs IMG2 original)
+
+### MAJOR
+
+1. **Vector delimiter shape is wrong in both label boxes.** IMG2 uses thin red **square brackets** `[ ]` around the label columns (yââ¦yâ and Å·ââ¦Å·â). IMG1 draws **large, heavy red round parentheses** `(` `)` instead. This is a delimiter curvature/shapeâstyle change (delimiterâgeometry rule 7(iii)), and it changes the visual structure of the matrices, not just styling. Confidence: **high**.
+
+2. **Label text blocks sit ~20 px too high in both top red boxes.** In IMG2 âOriginal Labels / from Training Samplesâ and âPredicted Labels / from Model Å¶ = X Wâ are roughly vertically centered in their boxes (text block center â y140â150 in a box spanning y93â218). In IMG1 the same text blocks sit at yâ113â140, i.e. topâheavy relative to the (now much taller) matrix parentheses, so labelâbox vertical alignment and vertical centering do not match. Confidence: **mediumâhigh**.
+
+3. **Both âObjectiveâ rows have lost their blue rectangle frames.** IMG2 shows each row as a fully blueâoutlined rectangle (row 1: x80â825, y228â262; row 2: x80â825, y283â312) with paleâyellow fill. IMG1 shows only a **bottom blue rule** (no top edge, no left/right verticals), so the text floats on an unframed fill rather than sitting inside the originalâs framed boxes. Confidence: **high**.
+
+4. **âDefine Loss function as squared distance between Å¶ and Yâ has lost its red box frame.** IMG2 = peach fill inside a complete red rectangle (x80â615, y325â363). IMG1 = peach fill with only a **red bottom rule** (âx83â617, yâ340) and the text sitting above it, outside any enclosure. Confidence: **high**.
+
+5. **Objective/Define bands are stretched to the full panel width and abut the house panel strokes.** In IMG1 the yellow bands and their blue rules run from âx54 to âx835 (the panelâs own left/right red strokes), versus the inset x80â825 in IMG2. Ink therefore touches the houseâpanel boundary strokes instead of being inset â frameâcontainment violation (rule 5), and also a regionâwidth deviation. Confidence: **medium**.
+
+6. **Vertical spacing / row rhythm compressed.** Measured from the tops of corresponding regions, IMG1 sits ~15â25 px higher than IMG2 for everything below the title: row 1 â212 vs 228, row 2 â268 vs 283, DefineâLoss â305 vs 325, Loss/Reg boxes â348 vs 372, bottom objective box â410 vs 435. Interârow gaps shrink accordingly (e.g. rowâ2âDefineâLoss gap â5 px vs â13 px in IMG2), and the slide ends with excess empty white space below the last box. This is a visible gap/verticalâposition deviation (directive 2026â10â10), not a uniform template shift because the offset grows down the slide. Confidence: **mediumâhigh**.
+
+### MINOR
+
+7. **Typography family changed:** IMG2 body text is serif (Timesâstyle); IMG1 is Arial/sans throughout (title, âOriginal Labelsâ, objective rows, equation labels). Content is verbatim, but glyph widths/line fills differ. Confidence: **high**.
+
+8. **Ellipsis glyph changed:** IMG2 uses a horizontal ââ¦â as the third matrix row; IMG1 uses a vertical ââ®â in both vectors. Confidence: **high**.
+
+9. **âNÃ1â annotation misâstyled/misâplaced:** IMG2 shows a small **red subscript** âNÃ1â immediately after yâ/Å·â inside the bracketed column; IMG1 shows it in **black, larger, outside/below the right parenthesis** (rightâbox instance sits very close to the right paren stroke). Confidence: **high**.
+
+10. **âLoss Termâ label color changed:** IMG2 renders âLoss Termâ in **blue bold**; IMG1 renders it in **red bold** (the rest of that equationâs red is preserved, so the color semantics diverge). Confidence: **mediumâhigh**.
+
+11. **Fraction rendered inline instead of stacked:** the bottom objective equation uses the single glyph âÂ½â rather than the stacked Â½ fraction shown in IMG2 (and less âprofessional 2Dâ than the mandated format). Value is still mathematically identical. Confidence: **medium**.
+
+12. **Bottomâequation bracket pair too small:** IMG2 uses tall, fullâheight square brackets around [(YâÅ¶)áµ(YâÅ¶) + Î»WáµW]; IMG1âs brackets are short inline glyphs that do not visually enclose the expression. Confidence: **mediumâhigh**.
+
+13. **Row 1 horizontal gap compressed:** IMG2 has a wide gap between âis minimumâ and âThis is calledâ; IMG1 nearly joins them (ââ¦minimum This is calledâ¦â). Confidence: **high**.
+
+14. **Row 2 operator spacing and parenthetical position shifted:** IMG2 reads âJ(W)=Loss(X,Y,W) + Î» R(W)â with spaces around â+â and between Î» and R(W), and the â(Î» is a weighting factor)â note sits further right (âx565). IMG1 compresses to â+Î»R(W)â and pulls the note left (âx400). Confidence: **mediumâhigh**.
+
+15. **LossâTerm box geometry:** IMG1âs peach/red Loss box is narrower (right edge â437 vs â470 in IMG2) and its text is set smaller/tighter; the RegâTerm box (blue frame, âRegularization Term R = ||W||Â² = WáµWâ, green WáµW) is substantially correct. Confidence: **medium**.
+
+16. **Top red boxes sit ~8 px higher than IMG2** (top edge â85 vs â93), reducing the titleâbox gap. Confidence: **medium**.
+
+---
+
+## Visualâquality defects in the recreation
+
+- **Borderless bands:** two objective rows and the DefineâLoss row have no enclosing rectangle, so their text reads as unboxed floating text (also breaks the visual grouping in the original).
+- **Nearâcollision/possible overlap** of the black âNÃ1â with the right parenthesis in the Predicted Labels box; same pattern (NÃ1 outside the delimiter) in the Original Labels box.
+- **Oversized matrix parentheses** relative to their contents and to the surrounding text, making the two top boxes read differently from the compact bracketed columns of the original.
+- **Empty lower band** of slide space (bottom ~40 px) because the content block is compressed upward.
+- No text overflow/clipping of glyphs or missing characters detected; the mathematical content itself (Å¶=Y, ||W||, J(W)=Loss(X,Y,W)+Î»R(W), ||YâÅ¶||Â²=(YâÅ¶)áµ(YâÅ¶), R=||W||Â²=WáµW, and the final objective) is transcribed correctly and is legible.
+
+---
+
+## Conclusion
+
+Text content and data are essentially complete and correct, and the mandated 2Dâequation tolerance covers the fraction styling. However, the recreation changes the **delimiter shape of both label matrices (parentheses for brackets)**, **drops the blue/red frames on three original boxed rows**, **lets fullâwidth bands touch the houseâpanel strokes**, **misâaligns the topâbox label blocks ~20 px high**, and **compresses the vertical row rhythm** â all explicitly enumerated MAJORâclass fidelity items. The slide is usable and legible but not a faithful, frameâaccurate recreation.
+
+**FINAL VERDICT: FAIL**

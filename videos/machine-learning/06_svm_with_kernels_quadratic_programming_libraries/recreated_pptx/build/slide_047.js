@@ -1,7 +1,7 @@
-// slide_047.js — REBUILD WAVE 3, built ONLY from qa/reanalysis2/slide_047_analysis.txt
-// Spec: no printed title; badge "47"; full-slide scatter plot (x 0-35 step 5,
-// y -10..40 step 10; gray dot lattice + blue/red/black spiral arms) rendered as
-// a generated matplotlib PNG (gen_slide_047_graph_rb3.py -> slide_047_graph_rb3.png).
+// slide_047.js — REBUILD WAVE 3, from qa/reanalysis2/slide_047_analysis.txt ONLY.
+// No printed title; badge "47"; full-slide generated scatter plot (x 0-35 step 5,
+// y -10..40 step 10, gray dot lattice + red/black/blue arms + black comb traced
+// from the original frame) via gen_slide_047_graph_rb4.py -> slide_047_graph_rb4.png.
 // Build from project root: node <NS>/recreated_pptx/build/slide_047.js
 const path = require("path");
 const pptxgen = require("pptxgenjs");
@@ -33,14 +33,14 @@ s.addText(String(NUM), {
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
 
-// House chrome: title box (spec has no printed title -> empty text, geometry kept)
+// House chrome: title box (spec: no printed title -> empty text, geometry kept)
 s.addText("", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
   fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// Full-slide generated plot (transparent PNG over the gray slide background)
+// Full-slide generated plot (transparent PNG over gray slide background)
 s.addImage({
   path: path.join(NS, "recreated_pptx/build/slide_047_graph_rb4.png"),
   x: 0, y: 0, w: W, h: H,

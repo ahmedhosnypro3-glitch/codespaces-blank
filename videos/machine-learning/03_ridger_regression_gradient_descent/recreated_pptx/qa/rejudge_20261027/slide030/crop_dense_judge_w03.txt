@@ -1,0 +1,29 @@
+## Region comparison â Slide 30 dense table crop (Convex Function / lr 0.2 / start x=3)
+
+**Cell-by-cell verification (all 8 rows Ã 6 columns):**
+
+| Row | Label | Values (IMG1 render) | Values (IMG2 original) | Match |
+|---|---|---|---|---|
+| 1 | x | **3** (red) Â· 3.2 Â· 3.4 Â· 3.6 Â· 3.8 | **3** (red) Â· 3.2 Â· 3.4 Â· 3.6 Â· 3.8 | â |
+| 2 | f(x) | 5 Â· 4.24 Â· 3.56 Â· 2.96 Â· 2.44 | 5 Â· 4.24 Â· 3.56 Â· 2.96 Â· 2.44 | â |
+| 3 | x-delta | 2.9 Â· 3.1 Â· 3.3 Â· 3.5 Â· 3.7 | 2.9 Â· 3.1 Â· 3.3 Â· 3.5 Â· 3.7 | â |
+| 4 | f(x-delta) | 5.41 Â· 4.61 Â· 3.89 Â· 3.25 Â· 2.69 | 5.41 Â· 4.61 Â· 3.89 Â· 3.25 Â· 2.69 | â |
+| 5 | x+delta | 3.1 Â· 3.3 Â· 3.5 Â· 3.7 Â· 3.9 | 3.1 Â· 3.3 Â· 3.5 Â· 3.7 Â· 3.9 | â |
+| 6 | f(x+delta) | 4.61 Â· 3.89 Â· 3.25 Â· 2.69 Â· 2.21 | 4.61 Â· 3.89 Â· 3.25 Â· 2.69 Â· 2.21 | â |
+| 7 | slope | â8 Â· â7.2 Â· â6.4 Â· â5.6 Â· â4.8 | â8 Â· â7.2 Â· â6.4 Â· â5.6 Â· â4.8 | â |
+| 8 | next x | 3.2 Â· 3.4 Â· 3.6 Â· 3.8 Â· **4** (cut at edge) | 3.2 Â· 3.4 Â· 3.6 Â· 3.8 Â· **4** (cut at edge) | â |
+
+Every digit, decimal, sign, hyphen ("x-delta"), and label is correct in both. No missing rows, no swapped values, no garbled glyphs. The red-highlighted **3** (top data cell, crop-relative ~xâ0.33, yâ0.12 in IMG1) is present and red in both. Row-order (yellow / purple / peach / green / pink bands) matches exactly. Values are horizontally centered and vertically centered in their cells in both.
+
+## Discrepancies
+
+1. **Gridline & outer-border stroke weight/color** â MINOR (confidence: high). Original (IMG2) uses noticeably heavier, darker (near-black) row separators, column rules, and table border; the recreation (IMG1) uses thin light-gray hairlines throughout, e.g. the separators at IMG1 yâ48, 78, 108, 138, 168, 198, 224 and the top-left corner (~x=60, y=25). Content unaffected.
+2. **Fill saturation and glyph weight** â NOT A DEFECT (per ground rule e). Original fills (yellow/purple/peach/green/pink) and text are washed/softer due to video capture + JPEG; recreation is more saturated/heavier as expected from a 150 dpi typed render. Hue *pattern* is identical row-for-row.
+3. **Red "3" shade** â NOT COUNTED (low-materiality). Slight shade variance between renders; both clearly red (C00000-family) vs surrounding black text â intent preserved.
+4. **Last-column value truncated at region boundary** â NOT A DEFECT. Both crops end on the "4" (crop xâ368 px frame edge); presumably "4.0" continues beyond the region in both, so no in-region comparison is possible.
+
+## Notes
+- The red annotation arrow (top-center, pointing to the red 3) is present in both; color lightness difference is a capture artifact.
+- No equations in this region; typed-vs-rendered medium rules not triggered.
+
+FINAL VERDICT: **PASS**

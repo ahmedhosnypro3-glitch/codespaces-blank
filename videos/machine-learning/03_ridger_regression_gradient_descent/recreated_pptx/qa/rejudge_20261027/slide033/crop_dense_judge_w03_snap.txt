@@ -1,0 +1,18 @@
+REGION VERIFIED: Slide 33 "Non-Convex Function" â top callout line (2 rows) + the leading end of the numeric table (5 value rows Ã 8 columns), bottom row vertically clipped identically in both crops.
+
+CELL-BY-CELL / GLYPH-BY-GLYPH CHECK (IMG1 recreation vs IMG2 original, same effective scale):
+
+- Callout line 1: `X is in between -9.7 and color red bo` â identical in both, including the crop-truncated right edge. `X` dark-red, `-9.7` dark-red in both. No wrong glyph.
+- Callout line 2: `f(x) is in between -8.08 and -8.011` â identical in both; `f(x)` and both numbers blue in both. Note `-8.08` (2 dp) vs `-8.011` (3 dp) is preserved exactly in both.
+- Table row 1 (x): `-10.8, -10.7, -10.6, -10.5, -10.4, -10.3, -10.2, -10.1` â matches all 8 cells; leading minus present on every cell incl. left edge.
+- Table row 2 (f(x)): `-1.19, -2.26, -3.27, -4.19, -5.03, -5.77, -6.41, -6.95` â matches all 8.
+- Table row 3 (x): `-10.9, -10.8, -10.7, -10.6, -10.5, -10.4, -10.3, -10.2` â matches all 8.
+- Table row 4 (f(x)): `-0.04, -1.19, -2.26, -3.27, -4.19, -5.03, -5.77, -6.41` â matches all 8 (including the shifted `-0.04` in column 1).
+- Table row 5 (x, bottom, vertically clipped): `-10.7, -10.6, -10.5, -10.4, -10.3, -10.2, -10.1, -10â¦` â matches; the leftmost `-10.7` carries its minus in both, and the trailing `-10` is clipped identically. No missing leading character.
+- Row background fills: rows 1â2 olive/tan, rows 3â4 lavender, row 5 olive/tan â identical in both. Horizontal separators present and continuous in both. Text is dark on both tan and lavender bands in both. Cell text is horizontally centered per column and vertically centered in each band in both.
+
+DISCREPANCIES (content): NONE. No wrong digit, swapped cell, missing row/cell, garbled glyph, broken delimiter (no equations/enclosures in this region â N/A), or stroke gap found at this scale.
+
+Capture-only differences that are explicitly NOT counted as discrepancies (per ground rule (e)): IMG2 shows global JPEG softness and a slightly washed/saturation-shifted cast â lavender rows read a touch more saturated and the blue `f(x)`/`-8.08`/`-8.011` text picks up a faint purple tint; these are video-render/compression artifacts, identical geometry, not content changes.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region.

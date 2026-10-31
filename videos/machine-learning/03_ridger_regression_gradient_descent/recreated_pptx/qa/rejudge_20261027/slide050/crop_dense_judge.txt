@@ -1,0 +1,13 @@
+Comparing the recreation crop (IMG1) against the original crop (IMG2), same region/effective scale.
+
+**Discrepancies found**
+
+| # | Item | Recreations (IMG1) | Original (IMG2) | Location in crop | Severity | Confidence |
+|---|---|---|---|---|---|---|
+| 1 | Column-header letter case | `Xâ Xâ Xâ Xâ Xâ` â uppercase **X** with subscripts | `xâ xâ xâ xâ xâ` â lowercase **x** with subscripts | Top row of the âAugmented Vectorsâ table, all six columns, centered-left of crop | MAJOR | High |
+| 2 | Panel title wording | â**Augmented** Vectors (from Top)â | â**Ugmented** Vectors (from Top)â â original misspelling preserved | Title line inside gray panel, upper-left of crop | MINOR | High |
+| 3 | Associated caption placement relative to panel | `Câ positive Câ negâ¦` sits **below** the gray panel, just right of the red âIteration 2â box | Same `Câ positive Câ negâ¦` line sits **above** the gray panel, upper-left of crop | Immediately above/below the gray panel border | MINOR | Medium â mostly clear relative-to-panel inversion, though crop boundary may contribute slightly |
+
+**Cell-by-cell checks (no defects):** all table entries in IMG1 and IMG2 match â col1 `1,1,1`; col2 `1,2,1`; col3 `1,1,2`; col4 `5,6,4`; col5 `6,6,5`; col6 `6,6,6`. Coefficient labels match: `Câ Câ Câ` red under columns 1â3 and `Câ Câ Câ` blue under columns 4â6. No swapped/missing values, no truncated subscripts. Parentheses are per-column in both and span the three rows without clipping digits; differences in edge softness in IMG2 are capture/JPEG artifacts, not content.
+
+**FINAL VERDICT: FAIL** â the systematic uppercase `X` substitution for lowercase `x` in the vector headers is a character-level error in a symbol-bearing table, bad enough on its own; the title wording change and caption reposition further reduce faithful usability.

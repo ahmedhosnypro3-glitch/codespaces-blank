@@ -118,15 +118,15 @@ s.addImage({
   x: px(88), y: px(238), w: 3.44, h: 1.555,
 });
 
-// ---------- calculation box (one pale box x73-536 y372-430) ----------
-rect(73, 372, 536, 430, PALE_C, null);
-text("Accuracy= (18+60)/(18+12+60+10)", 84, 377, 372, 397, 12, BLACK, { align: "left" });
-rtext([["= 78/100 = ", BLACK], ["78%", RED]], 84, 399, 372, 420, 12, { align: "left" });
-text("Accuracy of", 392, 378, 530, 398, 12, RED, { italic: true });
-text("ALL Classes", 392, 400, 530, 424, 12, RED, { italic: true });
+// ---------- calculation box (one pale box x53-538 y372-430, annotation right of it) ----------
+rect(53, 372, 538, 430, PALE_C, null);
+text("Accuracy= (18+60)/(18+12+60+10)", 64, 377, 380, 397, 12, BLACK, { align: "left" });
+rtext([["= 78/100 = ", BLACK], ["78%", QBLUE]], 64, 399, 380, 420, 12, { align: "left" });
+text("Accuracy of", 546, 378, 646, 398, 12, RED, { italic: true });
+text("ALL Classes", 546, 400, 646, 424, 12, RED, { italic: true });
 
-// ---------- questions / conclusion box (pale yellow, x75-516 y429-510) ----------
-rect(75, 429, 516, 510, PALE_Y, null);
+// ---------- questions / conclusion box (pale yellow, x75-516 y433-507) ----------
+rect(75, 433, 516, 507, PALE_Y, null);
 text("What About Precision of Positive Class ONLY  Results?", 85, 435, 510, 456, 13, QBLUE, { align: "left" });
 text("What About Recall % of Positive Samples ?", 85, 459, 510, 480, 13, QBLUE, { align: "left" });
 text("Conclusion: Accuracy is Good but Not Sufficient", 85, 484, 510, 505, 13, RED, { align: "left" });
@@ -140,10 +140,13 @@ function matrix(px0, py0, px1, py1, gx0, cx, gx1, hy1, hy2, gy1, cells) {
   text("N", (cx + gx1) / 2, hy1, gx1, hy2, 13, BLACK);
   text("P", gx0, hy2, cx, mid, 13, BLACK);
   text("N", gx0, mid, cx, gy1, 13, BLACK);
-  // rotated "Actual": box w = vertical span, h = strip thickness (pre-rotation)
+  // rotated "Actual": pre-rotation box w = vertical span, h = strip thickness,
+  // centered on the label strip so post-rotation ink sits at the panel's left edge
+  const aw = gy1 - hy1, ah = gx0 - px0 - 8;
   s.addText("Actual", {
-    x: px(px0 + 4), y: px(hy1), w: px(gy1 - hy1), h: px(gx0 - px0 - 8),
-    align: "center", valign: "middle", fontSize: 11, bold: true, color: RED,
+    x: px(px0 + (gx0 - px0) / 2 - aw / 2), y: px((hy1 + gy1) / 2 - ah / 2),
+    w: px(aw), h: px(ah),
+    align: "center", valign: "middle", fontSize: 13, bold: true, color: RED,
     fontFace: FONT, margin: 0, rotate: 270,
   });
   cells.forEach(([x0, y0, x1, y1, fill]) => { if (fill) rect(x0, y0, x1, y1, fill, null); });
@@ -158,16 +161,16 @@ function matrix(px0, py0, px1, py1, gx0, cx, gx1, hy1, hy2, gy1, cells) {
   cells.forEach(([x0, y0, x1, y1, , label]) => { if (label) text(label, x0, y0, x1, y1, 13, BLACK); });
 }
 
-// matrix 1 (symbolic): panel x673-867 y52-168
-matrix(673, 52, 867, 168, 698, 738, 845, 73, 98, 151, [
+// matrix 1 (symbolic): panel x673-867 y52-158 (gap before matrix 2)
+matrix(673, 52, 867, 158, 698, 738, 845, 73, 98, 151, [
   [738, 98, 791, 125, GREEN_CELL, "TP"],
   [791, 98, 845, 125, null, "FN"],
   [738, 125, 791, 151, null, "FP"],
   [791, 125, 845, 151, GREEN_CELL, "TN"],
 ]);
 
-// matrix 2 (numeric): panel x673-867 y167-291
-matrix(673, 167, 867, 291, 704, 746, 856, 191, 220, 283, [
+// matrix 2 (numeric): panel x673-867 y166-287 (gap above tree panel at y291)
+matrix(673, 166, 867, 287, 704, 746, 856, 191, 220, 283, [
   [746, 220, 800, 252, GREEN_CELL, "18"],
   [800, 220, 856, 252, PEACH, "12"],
   [746, 252, 800, 283, PEACH, "10"],
@@ -204,6 +207,7 @@ function plane(cx, cy, bodyColor) {
     fill: { color: bodyColor }, line: { color: bodyColor },
   });
 }
+// airplane icons above the parent circles (hand-drawn originals; typed medium = MINOR per rule d)
 plane(618, 352, "808080");
 plane(800, 352, "C0C0C0");
 

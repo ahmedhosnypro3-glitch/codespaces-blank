@@ -1,0 +1,1 @@
+<x_0.0254><y_0.4531>PROBE docparse lane E<x_0.3652><y_0.5273><class_Text>

@@ -1,0 +1,34 @@
+## Comparison â Slide 042 ("Perceptron weight update / Iteration 1")
+
+House chrome (gray panel x54â903/y45â540, C00000 left/right/bottom strokes, yellow 42 badge), the contentless-placeholder rule, the cursor artifact at the rowâ4/rowâ5 border of the original (correctly omitted per ground rule (c)), and the stackedâfraction/vector rendering are all treated as nonâdiscrepancies per the founderâmandated rules.
+
+### Elementâbyâelement check
+
+| Region | Original (2001Ã1125) | Recreation (960Ã540) | Result |
+|---|---|---|---|
+| Header yellow/blue box | xââ¦xâ with (1;1)(1;1)(1;2)(5;4)(6;5)(6;6); "Initial W = (4;â2)", red "Step Î· = 2"; "Check classes of Zâ,Zâ,Zâ = (0 7 3 / 0 6 2)"; legend line "Câ positive / Câ negative / Zero / is unaccepted" | All present, same values, same twoârow structure, same colors (red Câ/Câ, green Zero) | Match |
+| Left small box | "Augmented Vectors (from Top)", xââ¦xâ, (1;1)(1;1)(1;2)(1;4)(1;5)(1;6), class labels Câ Câ Câ Câ Câ Câ | All present, same order/values | Match (style issues below) |
+| Red "Iteration 1" banner | Present, left column | Present | Match (position/style, below) |
+| Row 1 | d(xâ)=[1 1 1 | (4;2;â2)]=0 â Update Weight, W=(4;â2)+2*(1;0;1)=(6;0;0), red â | Identical values, operators, colors, arrow | Match |
+| Row 2 | d(xâ)=[1 2 1 | (6;0;0)]=6 â Keep same Weight, W=(6;0;0) | Identical | Match |
+| Row 3 | d(xâ)=[1 1 2 | (6;0;0)]=6 â Keep same Weight, W=(6;0;0) | Identical | Match |
+| Row 4 | d(xâ)=[1 5 4 | (6;0;0)]=6 â Update Weight, W=(6;0;0)â2*(1;5;4)=(4;â10;â8), red â | Identical | Match |
+| Row 5 | d(x)=[1 6 5 | (4;â10;â8)]=â96 â Keep same Weight, W=(4;â10;â8) | Identical | Match |
+| Row 6 | d(xâ)=[1 6 6 | (4;â10;â8)]=â104 â Keep same Weight, W=(4;â10;â8) | Identical | Match |
+
+No equation, table cell, row, arrow, legend item, or color-coded value is absent; all multiâline vectors (W = (6;0;0), W = (4;â10;â8), header matrix (0 7 3 / 0 6 2)) are rendered as fullâheight delimiters spanning every enclosed line, with no clipping or overlap onto the enclosed numerals.
+
+### Discrepancies (none BLOCKER or MAJOR)
+
+1. **MINOR â Typeface substitution (body text).** Original body text ("Initial W =", "Check classes of", "is unaccepted", "d(xâ)", "Keep same Weight", "Augmented Vectors (from Top)", "Iteration 1") is Times/serif; recreation renders it in Arial/sansâserif. Readability and content are unaffected. Confidence: high.
+2. **MINOR â Smallâbox heading style.** "Augmented Vectors (from Top)" is bold *italic* serif in the original; recreation is bold upright sans. Confidence: high.
+3. **MINOR â Classâlabel color inside the left small box.** The original renders all six labels "Câ Câ Câ Câ Câ Câ" in red; the recreation renders the first three (Câ) in blue (Câ in red). Confidence: medium.
+4. **MINOR â Horizontal spacing of header legend line and rightâhand cluster.** In the original, the legend items "Câ positive / Câ negative / Zero / is unaccepted" sit tighter (â80â155 px scaled) and the "Check classes of (Zâ,Zâ,Zâ)" group and the rowâ1 green result vector / red â arrows terminate â30â40 px further right (scaled); the recreation spreads the legend and pulls those rightâedge items left. Ordering and wording are identical; only gaps/rightâmargin alignment differ. Confidence: mediumâhigh.
+5. **MINOR â Header panel is inset less than the original.** The yellow/blue header box starts flush with the house panel's left/top edge (xâ54, yâ45) in the recreation, whereas the original insets it ~4â6 px (scaled) inside the gray panel, so the blue left border sits flush against the C00000 left stroke instead of clearly inside it. No stroke is crossed, but it is an edgeâadjacency issue worth correcting. Confidence: medium (could escalate to MAJOR under strict frameâcontainment only if the blue border is actually drawn over the red stroke).
+6. **MINOR â "Iteration 1" banner placement.** Recreation banner sits â20 px (scaled) higher and is sansâserif versus the original's serif; horizontal placement is correct. Confidence: medium.
+
+### Visualâquality defects in the recreation
+
+No text overflow, clipping, collisions, wrong wrapping, or illegible content. All six row boxes, the green/red math vectors, and the leftâhand box are fully contained within their frames and within the house panel; the red â arrows, the "= 0 / = 6 / = â96 / = â104" results, and every stacked vector align horizontally and vertically with their labels.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation (all discrepancies are minor styling/spacing/placement items; no missing, wrong, or overflowing content).

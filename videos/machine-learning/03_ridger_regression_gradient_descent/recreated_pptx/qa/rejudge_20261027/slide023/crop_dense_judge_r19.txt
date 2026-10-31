@@ -1,0 +1,32 @@
+## Fidelity check â Slide 023, zoomed region (equation + body text)
+
+**Region covered:** top green equation panel (W = (XáµX + Î»I)â»Â¹X, "if Feature vectors are of dimensionâ¦"), the underlined "Regularâ¦" heading at the very top, and the three blue body lines below ("The standard matrix inversioâ¦", "which means that the compuâ¦", "the matrix (increasing cubicaâ¦"). Both crops truncate at the right edge in the same places.
+
+### Content verification (no discrepancies found)
+
+- **Equation, term by term:** IMG1 reads `W = (XáµX + Î»I)â»Â¹X`; IMG2 reads `W = (XáµX + Î»I)â»Â¹X`. Every glyph present and correct in IMG1: underlined **W**, `=`, opening paren, **X**, superscript **T**, second **X**, `+`, green **Î»**, green **I**, closing paren, red superscript **â1**, trailing **X**. No swapped operators, no dropped `I`, no wrong exponent sign, no misplaced superscript. Parens in IMG1 span the full enclosed height and clear the text â correct delimiter geometry.
+- **Inline qualifier line:** "if Feature vectors are of dimension" â identical wording and capitalization in both; same right-edge truncation.
+- **Body lines:** "The standard matrix inversioâ¦", "which means that the compuâ¦", "the matrix (increasing cubicaâ¦" â identical strings, identical line breaks, same three-line spacing in both crops.
+- **Colors:** red `â1` exponent, green `Î»I`, blue body text, light-green panel fill with green border, and the horizontal rule at crop y â 195â202 all match. The slightly softer/paler green and haloed edges in IMG2 are capture artifacts (ground rule e) and are not counted.
+- No table, no fraction, no â/limit structure in this crop, so those checks are not applicable here.
+
+### Discrepancies (all typography-level)
+
+| # | Location (crop-relative) | Description | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | x â 15â640, y â 215â400 (three blue lines) | Body text is upright sans-serif in IMG1; the original is italic serif (Times-like). Content, wording, breaks and spacing match; only the typeface/italic treatment differs. | MINOR | High |
+| 2 | x â 15â640, y â 125â160 ("if Feature vectorsâ¦") | Same substitution: upright sans-serif vs. italic serif. | MINOR | High |
+| 3 | x â 30â640, y â 20â120 (equation) | Math typeface differs: IMG1 uses sans-serif/light italic with a non-bold X and W; IMG2 uses bold serif math (bold italic X, W, Î», I). Glyph identity and structure are correct; only weight/style differs (medium/font difference, at most MINOR). | MINOR | High |
+| 4 | x â 30â95, y â 95â115 (under W) | Underline beneath **W** is a heavier, detached bar in IMG1; in IMG2 it is a thin rule tight to the glyph. | MINOR | Medium |
+| 5 | x â 30â200, y â 0â12 (top edge) | "Regularâ¦" heading is sans-serif bold in IMG1 vs. serif bold italic in IMG2; same partial crop of the word. | MINOR | High |
+
+### Non-discrepancies explicitly cleared
+- Linear typed equation in IMG1 vs. typeset original: mandated format upgrade (rule d) â not counted.
+- House-template chrome (panel/stroke/fill colors) â intentional (rule b) â not counted.
+- Soft edges/halos and slight green cast in IMG2 â capture artifact (rule e) â not counted.
+- Right-edge truncation of "inversioâ¦", "compuâ¦", "cubicaâ¦" and the trailing X is identical in both matched-scale crops â framing, not a defect.
+
+### Summary
+No wrong digits, swapped values, missing rows/symbols, garbled characters, truncated subscripts, or malformed delimiters. Every visible equation element and every word of body text is present and correctly ordered; the only deviations are font-family/weight/style differences between the recreation and the original, which are minor at this zoom level.
+
+FINAL VERDICT: PASS

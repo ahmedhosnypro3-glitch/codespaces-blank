@@ -1,0 +1,19 @@
+Element-by-element check of the two matched-scale crops (equation band + the first three body lines):
+
+- Header "Recall" (top-left of region): identical letterforms and identical underline stroke in both; no missing/extra characters.
+- Equation: `W = (X^T X + Î»I)^{-1} X`
+  - `W` â underlined bold W present in both, same glyph and same underline span.
+  - `X^T` â transpose superscript `T` present in both, same size and same upper-right placement; no truncation.
+  - Inner `X` â plain X in both.
+  - `+ Î»I` â black `+`; green `Î»`; the identity character is a capital `I` in both (not `1`/`l`), same spacing (`Î»I` closed up).
+  - Parentheses â left/right parens enclose exactly `X^T X + Î»I`; they do **not** enclose the trailing `X`, and they do not collide with the `T` superscript. Delimiter geometry and height match in both crops.
+  - `^{-1}` â red superscript attached to the closing paren (i.e., the whole product is inverted, not just the final `X`), correct superscript baseline, same `â` + `1` in both.
+  - Trailing `X` â sits outside the inversion in both.
+- Line under the green band: `if Feature vectors are of dimension` â same words, same casing, same truncation point.
+- Gray-panel body lines (lower half of region): `The standard matrix inversioâ¦`, `which means that the computiâ¦`, `the matrix (increasing cubicaâ¦` â identical words, identical open paren before `increasing`, identical truncation; line separation/leading and vertical placement within the panel match.
+
+Discrepancies: **none at content level.** No wrong/missing/garbled glyph, no wrong digit or symbol, no truncated subscript, no delimiter under-/over-span, no omitted or swapped text, no stroke break, and no fill/text-color mismatch is detectable within the crop.
+
+Notes (excluded by the ground rules, not counted as defects): IMG1 is a crisp 150 dpi render; IMG2 is a matched-scale video still with slight JPEG softness/halos (rule e). The region is fully typed in both, so the typed-vs-handwritten clause (rule c) is not even in play.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region.

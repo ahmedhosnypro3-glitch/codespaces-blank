@@ -1,0 +1,57 @@
+## Scope / ground rules applied first
+
+- House chrome (white canvas, gray E9E9E7 panel, red C00000 left/right/bottom strokes with **no top stroke**, yellow FDFD96 badge with 6A5ACD ring and "33"âstyle numeral in 333333) was treated as **intentional and nonâdiscrepant** (rule a).
+- The mouseâpointer artifact on the originalâs rightâhand axis area was treated as a capture artifact and correctly absent from the recreation (rule c).
+- The equation was accepted as a **mandated professional 2âD upgrade** (rule e): the originalâs compact `xÂ²cos(x)âx / 10` becomes a stacked fraction with a rule bar, larger ââstyle spacing/alignment conventions, and a properly superscripted Â². This was **not** counted as a discrepancy.
+- IMG2 is a contentâbearing lecture slide, not a placeholder, so full content fidelity was required (rule b).
+
+## Elementâbyâelement comparison
+
+| Element | IMG1 (recreation) | IMG2 (original) | Result |
+|---|---|---|---|
+| Title "NonâConvex Function" (dark red, bold, centered over leadâin) | Present, same wording/case/color | Present | Match |
+| Leadâin "May reach different minimum value based on:" (red) + "initial point and learning rate" (blue "initial point", red "and", blue "learning rate") | Present, same run colors | Present | Match (spacing note below) |
+| Equation | `f(x) = (xÂ²cos(x) â x)/10`, stacked fraction, superscript Â² | `f(x) = xÂ²cos(x) â x / 10` | Match per rule (e) |
+| Graph panel | Redâframed plot, cyan curve, black axes with arrowheads, red localâmin dot, orange arrow, green globalâmin dot, magenta "Reach / global Minima" tag | Same elements | Match (geometry notes below) |
+| Parameter miniâtable (step 0.2 / initial X 7 / delta 0.1) | Present, same three rows/values | Present | Match (size note below) |
+| Greenâbordered callâout | "X is in between 9.6 and color red bold 9.8" / "f(x) is in between â10.03 and â9.92" with X red, 9.6 red, 9.8 bold red, f(x)/â10.03/â9.92 blue | Identical wording, run colors, two lines | Match (position note below) |
+| Big table, 5 rowâgroups (X/f(x), xâdelta/f(xâdelta), x+delta/f(x+delta), slope, next it) | All 17 column headers and every numeric cell | All 17 headers and every numeric cell | **Values verified cellâbyâcell â all identical** (incl. â10.03, â9.92, â10.03 in the f(x) row; 3.19/2.74/2.07/1.2/0.14/â¦; 2.74/2.07/1.2/0.14/â¦; slope â4.5â¦â0.7/3.2/â0.7/3.2/â0.7; nextâit row 7.2â¦9.6/9.8/9.6/9.8) |
+| Highlight overlays | Green fill on the 9.6/9.8/9.6 f(x) cells, blue dashed rounded rect over that 3âcolumn block, green dashed rounded rect over the corresponding slope cells | Same overlays, same columns | Match |
+| Cursor artifact on right axis | Absent (correct) | Present | Correct omission (rule c) |
+
+## Discrepancies (all nonâblocking)
+
+1. **Global vertical compression / upward shift of lower half â MINOR, confidence MEDIUMâHIGH.**
+   The equation box, green callâout box, parameter table and the entire 5ârow table sit roughly **15â20 px higher** (in 960Ã540 space) than in the original, and the bottom whitespace between the table and the panelâs bottom edge is roughly doubled (â82 px vs â40 px). The title block is only ~5 px high, so the shift is not uniform â the recreation compresses the middle/lower content rather than scaling it uniformly. Nothing is clipped or missing; it is a placement/whiteâspace deviation.
+
+2. **Graph frame and plot vertically shorter â MINOR, confidence MEDIUM.**
+   Recreation: red frame â x570â795, y52â272. Original: â x570â795, y55â292. The recreationâs plot area is ~8 % shorter, the xâaxis rides ~12 px higher, and the yâaxis does not extend as far down, so the curve is slightly vertically squeezed. Curve shape, minima depths, dot/arrow placement relative to the curve, tick set and all annotation semantics are preserved.
+
+3. **"Reach global Minima" tag smaller and slightly off the minimum â MINOR, confidence MEDIUM.**
+   Recreation tag â 70Ã32 px, ending near x765; original â 90Ã52 px spanning under the green globalâminimum dot. In the original the tag is broader and centered more under the green dot; in the recreation it is smaller and sits slightly left of it. Text and twoâline structure (black "Reach" / purple "global Minima") are preserved.
+
+4. **Parameter miniâtable (step / initial X / delta) enlarged â MINOR, confidence HIGH.**
+   Recreation â 95Ã50 px with larger type and a wider labelâvalue gap; original â 64Ã35 px with tighter cells. Same three rows and same values (0.2 / 7 / 0.1). Also the "initial X" row appears pink/redâfilled in the recreation versus a yellow/neutral fill in the original â **color confidence LOW** at this resolution, but the size change is clearly visible.
+
+5. **Leadâin threeâline spacing tightened â MINOR, confidence MEDIUM.**
+   Original line pitch â 26 px between the three title lines; recreation â 22â23 px, so the block is ~5 px higher and ~10 % tighter. Text is verbatim and run colors match.
+
+6. **Equation box position/size â MINOR, confidence MEDIUMâHIGH.**
+   Recreation box â x440â563, y147â193; original â x437â568, y157â205 â ~10 px higher and ~8 px narrower. Contents identical (rule e).
+
+7. **yâaxis tickâlabel extent â MINOR, confidence LOW.**
+   The original appears to carry a â12 label at the bottom of the yâaxis; the recreationâs lowest clearly legible label is â10. Cannot be resolved conclusively at the comparison resolution.
+
+## Visualâquality defects in the recreation
+
+- **No text overflow, clipping, or collisions.** All table cells, the dashed highlight rectangles, the graph, and the callâout boxes sit fully inside their frames; the tableâs last column and the blue/green dashed overlays do not touch or cross the table border or the house panel strokes.
+- **No wrong wrapping.** Both callâout lines break exactly where the original breaks.
+- **Vertical centering** inside the green callâout box and the equation box is correct (text is centered, not topâhugging).
+- **Legibility:** the table numerals are very small in the downsampled comparison view, but at the stated 150 dpi render (2Ã the comparison raster) they are legible; this density is inherited from the original and is not a defect.
+- **No missing elements:** no absent equation, graph, table row, arrow, dot, or label was found; the equation region is populated.
+
+## Conclusion
+
+All renderable content is present: title and leadâin text verbatim with correct run colors, the equation (in the mandated 2âD professional format), the full graph with curve/dots/arrow/annotation, the parameter miniâtable, the callâout text, and a complete, dataâexact 17âcolumn Ã 5ârowâgroup table with matching highlight overlays. The deviations found are **cosmetic geometry offsets** (vertical compression of the lower half, shorter graph frame, smaller globalâminimum tag, enlarged miniâtable, slightly tighter title leading) â no blockers, no majors, no data errors, no overflow, and no missing content.
+
+FINAL VERDICT: PASS

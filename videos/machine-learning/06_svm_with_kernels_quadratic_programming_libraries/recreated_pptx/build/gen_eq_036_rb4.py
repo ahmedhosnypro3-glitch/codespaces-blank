@@ -42,7 +42,7 @@ def fit(segs, target_w_in, max_h_in):
     # mathtext scales linearly with fontsize: measure once at 20pt, then scale.
     ref, _ = compose(segs, 20.0)
     rw, rh = ref.shape[1] / DPI, ref.shape[0] / DPI
-    pt = 20.0 * min(target_w_in / rw, max_h_in / rh, 30.0 / 20.0)
+    pt = 20.0 * min(target_w_in / rw, max_h_in / rh, 40.0 / 20.0)
     pt = max(6.0, pt)
     c, boxes = compose(segs, pt)
     return c, boxes, pt, c.shape[1] / DPI, c.shape[0] / DPI
@@ -78,21 +78,23 @@ def b_form(t1, t2):
 
 # (name, segs, x_in, cy_in, target_w_in, max_h_in, highlights, center_x_in or None)
 JOBS = [
-    ("s36rb4_lag_top", lag(r"X_i^T X_j"), 1.0664, 2.30, 8.6, 1.10, ["tail"], None),
-    ("s36rb4_w_top", w_form(), 1.0664, 3.13, 3.2, 0.48, [], None),
-    ("s36rb4_b_top", b_form(r"W^T X_i", r"W^T X_i"), 5.0654, 3.13, 7.1, 0.48, [], None),
+    ("s36rb4_lag_top", lag(r"X_i^T X_j"), 1.0664, 2.22, 10.2, 0.85, ["tail"], None),
+    ("s36rb4_w_top", w_form(), 1.0664, 2.95, 3.4, 0.60, [], None),
+    ("s36rb4_b_top", b_form(r"W^T X_i", r"W^T X_i"), 5.0654, 2.95, 7.1, 0.60, ["t1", "t2"], None),
     ("s36rb4_cls_top",
      [["t", BLACK, r"\mathrm{Class\ of\ vector}\ Z \Rightarrow \mathrm{sign}(W^T Z + b)"]],
-     None, 3.675, 9.0, 0.28, [], 6.665),
+     None, 3.33, 4.5, 0.28, [], 6.265),
     ("s36rb4_kern", [["k", RED, r"K(a,b) = \left(a^T b\right)^2"]],
      None, 3.825, 1.9, 0.42, [], 8.6645),
-    ("s36rb4_lag_bot", lag(r"[X_i^T X_j]^2"), 1.0664, 5.00, 8.6, 1.10, ["tail"], None),
-    ("s36rb4_w_bot", w_form(), 1.0664, 5.85, 3.2, 0.48, [], None),
+    ("s36rb4_lag_bot", lag(r"[X_i^T X_j]^2"), 1.0664, 4.92, 10.2, 0.85, ["tail"], None),
+    ("s36rb4_w_bot", w_form(), 1.0664, 5.60, 3.4, 0.60, [], None),
     ("s36rb4_b_bot", b_form(r"[W_i^T X_j]^2", r"[W_i^T X_j]^2"),
-     5.0654, 5.85, 7.1, 0.48, [], None),
+     5.0654, 5.60, 7.1, 0.60, ["t1", "t2"], None),
     ("s36rb4_cls_bot",
-     [["t", BLACK, r"\mathrm{Class\ of\ vector}\ Z\ \mathrm{is}\ \mathrm{sign}([W^T Z]^2 + b)"]],
-     None, 6.375, 9.0, 0.28, [], 6.665),
+     [["pre", BLACK, r"\mathrm{Class\ of\ vector}\ Z\ \mathrm{is}\ \mathrm{sign}("],
+      ["kern", BLACK, r"[W^T Z]^2"],
+      ["post", BLACK, r" + b)"]],
+     None, 6.15, 4.5, 0.28, ["kern"], 6.265),
 ]
 
 

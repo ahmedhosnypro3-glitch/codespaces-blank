@@ -1,0 +1,19 @@
+House chrome is set aside per rules: no top stroke is correct, badge/panel/strokes are intentional; IMG2 is not contentless; no cursor artifact is counted; no equations are present, so the 2D-equation rule is not triggered.
+
+Discrepancies found, IMG1 recreation vs IMG2 original:
+
+| # | Element | Discrepancy | Severity | Confidence |
+|---|---|---|---|---|
+| 1 | Top-left âConcaveâ plot | IMG1 shows a narrow peak/Gaussian-like mound on a flat blue base; IMG2 shows the inverted paraboloid dome with contour projection at the base and the original axis ticks. Core chart geometry/content differs. | BLOCKER | High |
+| 2 | Top-right âConvexâ plot | IMG1 is essentially a flat heat-map/contour square with Ã10â´ and red slice lines; IMG2 is a 3D bowl with dotted background, raised colored rim and contained red lines. Chart type/rendering differs materially. | BLOCKER | High |
+| 3 | Bottom-left annotation text | IMG2 labels read âGlobal Maximaâ at top and âLocal Maximaâ on the right; IMG1 appears to read âGlobal Minimaâ at top and âLocal Minimaâ on the right â wrong terms in the diagram. | BLOCKER | High |
+| 4 | Bottom-right plot | IMG1 contains an extra rectangular photographic strip at the bottom inside the frame that is not in IMG2; the black descent path also follows a different trajectory. | BLOCKER / MAJOR | High for extra strip; Medium-high for path |
+| 5 | Red reference lines vs inner plot frames | In IMG1 the red lines cross/touch the red-bordered plot frames: top-left lines run past the plotâs right edge into the label gap; top-right long red lines protrude past the right plot border; bottom-left red line runs nearly full width and past the right border. IMG2 keeps these lines much more contained. Frame-containment overflow. | MAJOR | High |
+| 6 | Bottom-left red Ã markers / leaders | IMG1 places red Ã marks near the upper peaks and lower middle, while IMG2 marks the minima and uses leader/callout geometry to Global/Local Minima/Maxima. Mark placement/annotation semantics do not match. | MAJOR | Medium-high |
+| 7 | Region sizes/positions after normalizing scale | The 2Ã2 grid is only approximate: IMG1âs top-right plot is shorter/flatter than IMG2âs; bottom-right is raised and larger; several blue label boxes are wider and the gaps between plots/labels are not the same. Layout is recognizable but not pixel-faithful. | MAJOR | Medium |
+| 8 | Blue label typography | IMG2 appears to use âOne  Maximaâ with a wider gap and âNon- Convexâ with space after hyphen; IMG1 uses âOne Maximaâ and âNon-Convexâ. If read verbatim from IMG2, spacing/hyphenation differs. | MINOR | Low-medium |
+| 9 | Color saturation / colormap | IMG1 plots are more saturated/flat, especially top-right heat-map and bottom-right extra image; IMG2 is more muted with dotted background in the convex plot. Mostly a consequence of #1/#2, but visible independently. | MINORâMAJOR | Medium |
+
+Visual-quality defects in the recreation: red slice/reference lines overflow inner plot frames; bottom-right contains an inserted rectangular photo colliding with the surface; bottom-left labels/markers are semantically wrong and leader lines are not clearly matched; top-left and top-right surfaces are not the same renderable charts as the original. No house-chrome defects are charged.
+
+FINAL VERDICT: FAIL for 'faithful, usable recreation'

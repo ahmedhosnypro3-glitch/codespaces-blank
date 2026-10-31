@@ -2,7 +2,7 @@
 
 - source frame: `slide_027.jpg` (md5 `8f3c08aa61bf6a612073acb17674a5b6`)
 - parse model: `nemotron-3.5-parse` · chat model: `docparsechat`
-- degraded: True (chat probe failed — decisions use the deterministic-conservative fallback)
+- degraded: False
 - elements kept: 7 (dedup collapsed 0) · crops: 0 · failed calls: 0
 
 ## Positioned elements (reading order: y then x)
@@ -15,7 +15,7 @@
   **Same Model** **Same Test Samples**
 - `<class_Text>` @(x=81, y=250, w=747, h=20) — from full/slide_027.parse.md (level 0)
   **Performance Measures (TP, TN, FP, FN) are affected by selected threshold**
-- `<class_Text>` @(x=265, y=296, w=423, h=16) — from full/slide_027.parse.md (level 0)
+- `<class_Text>` @(x=265, y=296, w=424, h=16) — from full/slide_027.parse.md (level 0)
   **There is a Confusion Matrix for each threshold**
 - `<class_Text>` @(x=83, y=365, w=779, h=19) — from full/slide_027.parse.md (level 0)
   **Can we combine All thresholds and corresponding Confusion Matrices in one Graph?**

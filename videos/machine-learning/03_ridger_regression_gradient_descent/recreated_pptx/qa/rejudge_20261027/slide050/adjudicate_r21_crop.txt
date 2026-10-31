@@ -1,0 +1,26 @@
+slide 050 mode --crop render 592x434 scale=(0.617,0.804)
+diff px total: 44141 (17.180% of frame)
+densest diff cells (slide-space px coords, diff px count):
+  box x288-312 y517-540: 237 diff px
+  box x192-216 y517-540: 234 diff px
+  box x264-288 y157-180: 224 diff px
+  box x696-720 y67-90: 206 diff px
+  box x72-96 y157-180: 205 diff px
+  box x384-408 y517-540: 204 diff px
+  box x312-336 y517-540: 197 diff px
+  box x168-192 y517-540: 196 diff px
+  box x936-960 y67-90: 196 diff px
+  box x672-696 y67-90: 192 diff px
+  box x840-864 y517-540: 190 diff px
+  box x840-864 y247-270: 190 diff px
+ink only in render: 14404 px; ink only in original: 16001 px
+  (render-heavy = extra/off-position ink; original-heavy = missing content)
+
+== r21 classification of crop_dense_judge_fresh2.txt (04:57) FAIL claims vs pixels ==
+MAJOR 1 (column headers uppercase X vs original lowercase x): REFUTED by build source —
+  recreated_pptx/build/slide_050.js V_HDR renders { text: "x", italic: true } + subscript digit
+  (lowercase italic x1..x6), matching the original. PIL r21: header-band cells x72-96/x264-288
+  y157-180 hold 205/224 diff px — same order as the bottom-stroke cells (190-237 px), no localized
+  glyph block; 17.180% total diff is diffuse, ink orig-heavy 16,001 vs 14,404 (same bytes as r15).
+MINOR 2 (Iteration-2 fill inversion at crop edge): advisory; banner measured y277.3-304.7 vs orig
+  y278.0-305.0 (see adjudicate_r21_full.txt). VERDICT: CROP=PASS(dismissed).

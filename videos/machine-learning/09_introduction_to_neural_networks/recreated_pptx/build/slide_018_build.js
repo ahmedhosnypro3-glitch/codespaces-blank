@@ -1,16 +1,23 @@
 // Build slide 018: Saturation Problem in Activation Functions (badge 18)
 //
-// Frame-measured geometry (unique_slides/slide_018.jpg 960x540, PIL line detection):
+// All geometry measured from unique_slides/slide_018.jpg (960x540) with PIL.
+// The original frame's slide content occupies x 57..903, y 43..517; that box
+// maps onto the house frame rectangle (0.15in inset, 13.03 x 7.2 in).
+//
+// Measured layout (original-frame px):
 //   outer red frame   x  57..903  y  43..517
-//   left eq card      x  76..377  y 104..158
-//   right eq card     x 548..857  y 104..158
+//   left eq card      x  78..375  y 109..159   (pale pink fill, coral border)
+//   right eq card     x 550..855  y 107..158
+//   eq block L        brace x 285..289, values x=292, conditions x=314, y 116..155
+//   eq block R        brace x 742..746, values x=750, conditions x=783, y 114..154
 //   left step pane    x  70..340  y 168..274
 //   right step pane   x 509..780  y 168..274
-//   callout           x 347..496  y 195..246
-//   bottom charts     x  74..336 / 390..635 / 655..890, y 324..478
-//   caption row       y 485..503, centred at x 200 / 512 / 772
-// The black band at y 518..539 is a lecture capture artifact repeated on every
-// frame of this lecture; it is omitted. Equations render as 600-dpi 2D PNGs.
+//   callout           x 342..498  y 194..248  (sits in the gap between the panes)
+//   bottom charts     x  74..335 / 390..634 / 655..890, y 322..478
+//   caption row       y 486..503, centred at x 200 / 506 / 773
+//   dashed connector  x 201..208, y 274..321 (uni-polar pane -> sigmoid pane)
+// The black band at the very bottom of the original is a lecture-capture
+// artifact and is omitted. Equations are 600-dpi 2D PNGs (professional format).
 const pptxgen = require("pptxgenjs");
 
 const pres = new pptxgen();
@@ -48,99 +55,94 @@ s.addText("18", {
 s.addText("Saturation Problem in Activation Functions", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 20, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
 // ---- TOP ROW: definition cards ----
-function eqCard(px0, px1, py0, py1, term, eqKey) {
+// Measured card fill is pale pink (median 250,233,215) with a coral border.
+function eqCard(px0, px1, py0, py1, term, eqKey, headEnd) {
   const x = mx(px0), y = my(py0), w = sw(px0, px1), h = sh(py0, py1);
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-    x, y, w, h,
-    fill: { color: "F5E6D5" },
+    x, y, w, h, rectRadius: 0.08,
+    fill: { color: "FAE9D7" },
     line: { color: "FF4D4D", width: 1.5 },
   });
-  // heading sits on the first case line: "F(x) = " + term + " Unit Step ="
-  const hy = my(130.5) - sh(0, 22) / 2;
+  // heading is right-aligned so it ends just left of the brace
   s.addText([
     { text: "F(x) = " },
     { text: term, options: { color: "C00000" } },
     { text: " Unit Step =" },
   ], {
-    x: mx(86), y: hy, w: sw(86, 281), h: sh(0, 22),
-    align: "left", valign: "middle",
+    x: mx(px0 + 8), y: my(118), w: sw(px0 + 8, headEnd), h: sh(118, 141),
+    align: "right", valign: "middle",
     fontSize: 13, bold: true, color: "000000", fontFace: FONT, margin: 0,
   });
-  // 2D piecewise equation (600-dpi PNG), first case line aligned with the heading
+  // 2D piecewise equation (600-dpi PNG) placed at its measured frame box
   const eq = MANIFEST.equations[eqKey];
-  const ew = eq.w_in;
-  const eh = eq.h_in;
-  const ex = mx(283);
-  const ey = my(130.5) - eq.line1_frac * eh;
-  s.addImage({ path: BUILD + "/" + eq.image, x: ex, y: ey, w: ew, h: eh });
-}
-eqCard(76, 377, 104, 158, "Uni-polar", "unipolar");
-eqCard(548, 857, 104, 158, "Bi-polar", "bipolar");
-
-// ---- MIDDLE ROW: step-function panes ----
-function stepPane(px0, px1, key) {
-  const c = MANIFEST.charts[key];
-  const w = sw(px0, px1), h = w * (c.h_px / c.w_px);
+  const b = eq.box;
   s.addImage({
-    path: BUILD + "/" + c.image,
-    x: mx(px0), y: my(168), w: w, h: h,
+    path: BUILD + "/" + eq.image,
+    x: mx(b[0]), y: my(b[1]), w: eq.w_in, h: eq.h_in,
   });
 }
-stepPane(70, 340, "unipolar_step");
-stepPane(509, 780, "bipolar_step");
+eqCard(78, 375, 109, 159, "Uni-polar", "unipolar", 281);
+eqCard(550, 855, 107, 158, "Bi-polar", "bipolar", 738);
 
-// ---- CENTER CALLOUT ----
+// ---- MIDDLE ROW: step-function panes ----
+function stepPane(key) {
+  const c = MANIFEST.charts[key];
+  const b = c.box;
+  s.addImage({
+    path: BUILD + "/" + c.image,
+    x: mx(b[0]), y: my(b[1]), w: sw(b[0], b[2]), h: sh(b[1], b[3]),
+  });
+}
+stepPane("unipolar_step");
+stepPane("bipolar_step");
+
+// ---- CENTER CALLOUT (in the gap between the two step panes) ----
 s.addShape(pres.shapes.RECTANGLE, {
-  x: mx(347), y: my(195), w: sw(347, 496), h: sh(195, 246),
-  fill: { color: "FFF9EC" },
+  x: mx(342), y: my(194), w: sw(342, 498), h: sh(194, 248),
+  fill: { color: "F0FDE1" },
   line: { color: "FF4D4D", width: 1.5 },
 });
 s.addText("Saturation Problem", {
-  x: mx(350), y: my(200), w: sw(350, 493), h: sh(200, 214),
+  x: mx(348), y: my(199), w: sw(348, 492), h: sh(199, 214),
   align: "center", valign: "middle",
-  fontSize: 11, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 s.addText([
-  { text: "Same Output value" },
-  { text: " for Different input values", options: { italic: true } },
+  { text: "Same Output value", options: { breakLine: true } },
+  { text: "for Different input values" },
 ], {
-  x: mx(350), y: my(215), w: sw(350, 493), h: sh(215, 240),
+  x: mx(348), y: my(214), w: sw(348, 492), h: sh(214, 243),
   align: "center", valign: "middle",
-  fontSize: 10, color: "1F6FC0", fontFace: FONT, margin: 0,
+  fontSize: 13, color: "1F6FC0", fontFace: FONT, margin: 0,
 });
 
-// ---- DASHED RED CONNECTORS (left arrow + right Y-fork) ----
-const DASH = { color: "C0392B", width: 1.25, dash: "dash", endArrowType: "triangle" };
+// ---- DASHED RED CONNECTOR ----
+// The original has exactly ONE dashed red arrow: a vertical dashed segment at
+// x 201..208 running from the uni-polar pane's bottom edge (y=274) down to the
+// sigmoid pane's top edge (y=321). Pixel traces of the reanalysis' "Y-fork"
+// diagonals (610,268)->(483,307) and (610,268)->(730,307) contain no ink at
+// all, so no fork is drawn.
 s.addShape(pres.shapes.LINE, {
-  x: mx(195), y: my(274), w: 0, h: sh(274, 322), line: DASH,
-});
-s.addShape(pres.shapes.LINE, {
-  x: mx(610), y: my(274), w: 0, h: sh(274, 292), line: { color: "C0392B", width: 1.25, dash: "dash" },
-});
-s.addShape(pres.shapes.LINE, {
-  x: mx(483), y: my(292), w: sw(483, 610), h: sh(292, 322),
-  flipH: true, line: DASH,
-});
-s.addShape(pres.shapes.LINE, {
-  x: mx(610), y: my(292), w: sw(610, 730), h: sh(292, 322), line: DASH,
+  x: mx(205), y: my(274), w: 0, h: sh(274, 321),
+  line: { color: "C0392B", width: 1.25, dash: "dash", endArrowType: "triangle" },
 });
 
 // ---- BOTTOM ROW: three chart panels ----
-function chart(px0, px1, py0, py1, key) {
+function chart(key) {
   const c = MANIFEST.charts[key];
-  const w = sw(px0, px1), h = w * (c.h_px / c.w_px);
+  const b = c.box;
   s.addImage({
     path: BUILD + "/" + c.image,
-    x: mx(px0), y: my(py0), w: w, h: h,
+    x: mx(b[0]), y: my(b[1]), w: sw(b[0], b[2]), h: sh(b[1], b[3]),
   });
 }
-chart(74, 336, 324, 478, "sigmoid");
-chart(390, 635, 324, 478, "tanh");
-chart(655, 890, 324, 478, "arctan");
+chart("sigmoid");
+chart("tanh");
+chart("arctan");
 
 // ---- CAPTIONS below each panel ----
 function caption(cx, text) {
@@ -148,14 +150,14 @@ function caption(cx, text) {
     { text: "f(x) = " },
     { text: text, options: { color: "C00000" } },
   ], {
-    x: mx(cx) - 0.9, y: my(485), w: 1.8, h: sh(485, 503),
+    x: mx(cx) - 1.15, y: my(485), w: 2.3, h: sh(485, 504),
     align: "center", valign: "middle",
-    fontSize: 12, italic: true, color: "000000", fontFace: "Times New Roman", margin: 0,
+    fontSize: 20, italic: true, color: "000000", fontFace: "Times New Roman", margin: 0,
   });
 }
 caption(200, "Sigmoid(x)");
-caption(512, "tanh(x)");
-caption(772, "tan⁻¹(x)");
+caption(506, "tanh(x)");
+caption(773, "tan⁻¹(x)");
 
 const outPath = "slide_018_recreated.pptx";
 pres.writeFile({ fileName: outPath }).then(() => console.log("wrote", outPath));

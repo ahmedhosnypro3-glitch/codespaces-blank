@@ -27,4 +27,4 @@
 ## Notes
 
 - backstop stops: 0
-- parse calls spent: 5 · chat calls: 4 · retries: 3
+- parse calls spent: 5 · chat calls: 4 · retries: 0

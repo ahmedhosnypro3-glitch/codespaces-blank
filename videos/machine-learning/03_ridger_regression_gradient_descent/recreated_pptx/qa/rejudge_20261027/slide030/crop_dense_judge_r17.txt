@@ -1,0 +1,29 @@
+## Cell-by-cell verification (table body)
+
+| Row (crop position) | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| Yellow r1 (yâ83) | x \| **3** \| 3.2 \| 3.4 \| 3.6 \| 3.8 | x \| **3** \| 3.2 \| 3.4 \| 3.6 \| 3.8 | â all 6 cells |
+| Yellow r2 (yâ129) | f(x) \| 5 \| 4.24 \| 3.56 \| 2.96 \| 2.44 | identical | â all 6 |
+| Purple r3 (yâ180) | x-delta \| 2.9 \| 3.1 \| 3.3 \| 3.5 \| 3.7 | identical | â all 6 |
+| Purple r4 (yâ225) | f(x-delta) \| 5.41 \| 4.61 \| 3.89 \| 3.25 \| 2.69 | identical | â all 6 |
+| Peach r5 (yâ278) | x+delta \| 3.1 \| 3.3 \| 3.5 \| 3.7 \| 3.9 | identical | â all 6 |
+| Peach r6 (yâ323) | f(x+delta) \| 4.61 \| 3.89 \| 3.25 \| 2.69 \| 2.21 | identical | â all 6 |
+| Green r7 (yâ377) | slope \| -8 \| -7.2 \| -6.4 \| -5.6 \| -4.8 | identical | â all 6 |
+| Pink r8 (yâ430, clipped) | next x \| 3.2 \| 3.4 \| 3.6 \| 3.8 \| 4 | identical | â all 6 |
+
+Row order, row count, row labels (including the literal â-deltaâ/â+deltaâ hyphen spelling), minus-sign usage, column count and band grouping (yellow 2 + purple 2 + peach 2 + green 1 + pink 1), and the clipping of the last row all match. No wrong digit, swapped value, missing row, or garbled glyph found.
+
+## Discrepancies
+
+1. **MINOR â Color of the first-row â3â (â x=225, y=83; first data cell of the yellow header row).** IMG1 renders the digit in bright red; in IMG2 the â3â is the same dark/black ink as every other number in that row (the vivid red in IMG2 is only the arrow above it). Value/position correct, so this is an emphasis-color addition, not a content error. Confidence: high.
+2. **MINOR â Arrow glyph shape (â x=225â270, y=0â65, above the â3â).** IMG1 uses a small angular/lightning-style red outline with no shadow; IMG2 uses a larger classic hollow block arrow with a dark drop shadow, its tip overlapping the table's top border. The pointer lands on the same cell in both. Confidence: high.
+3. **MINOR â Row-label placement in the label column (column â x=53â181 in IMG1 / x=57â185 in IMG2).** IMG1 centers every label in the cell (xâ117â124), whereas IMG2's hand-placed labels drift right, most visibly the top-row âxâ (âx=173, essentially against the label/data divider) and âf(x)â (âx=165), with âslopeâ/ânext xâ also right of center (âx=143â145). This is hand-drawn jitter versus rigid centering (medium difference), so at most minor. Confidence: medium.
+4. **MINOR â Peripheral heading at top-right corner (IMG1 â x=595â632, y=0â25; IMG2 â x=580â632, y=0â30).** The partial purple italic caption is set in a bold sans-serif in IMG1 (âReâ) and a serif italic in IMG2 (âReaâ¦â), with slightly more of the word visible on the original due to a small crop offset. Chrome/heading region, not table content. Confidence: medium.
+5. **MINOR (low) â Overall fill/stroke grade of the table bands.** The yellow band is more saturated/lemony in IMG1 and more yellow-green in IMG2; the peach band is more orange in IMG1 and more tan in IMG2; the green and pink band borders are brighter/more saturated in IMG1 and darker (deeper green, maroon) in IMG2. The pattern is consistent with a global video-capture grade rather than per-cell color choices, so this is likely capture-related rather than a template error. Confidence: low.
+
+## Notes (not discrepancies)
+- Blue outer frame, panel chrome, red arrow color family, and gridline color/weight are consistent between the two; the blue frame is drawn crisply in IMG1 vs. hand-jittered in IMG2, within the typed-vs-handwritten allowance.
+- Row heights, internal line separation, and vertical centering of all numerals within their cells match; no cell is clipped or mis-centered.
+- Soft edges/halos in IMG2 treated as capture artifacts per ground rule (e).
+
+**FINAL VERDICT: PASS** â all tabular content (every value, row, label, and the arrow's target) is faithful; remaining differences are minor cosmetic/color/typography items that do not impair usability of this region.

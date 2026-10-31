@@ -1,0 +1,14 @@
+render=render.png size=(2001, 1125) scale=2.0844x2.0833
+1. BR band classdiff=87.5% raw=100.0% maxcell=108/108 (100%) -> FAIL
+   orig classes: white=28.8 blue=61.1 green=10.0 other=0.0
+   rend classes: white=0.8 blue=9.5 green=89.8 other=0.0
+2. BR row-profile corr=0.753 -> FAIL
+3. BR largest dark comp area=441 spanx=162 len=1160.6 straight=174.0 wind-ratio=6.670 -> PASS
+4. orig: left window -> 'Global Minima' (-0.109)  right window -> 'Global Maxima' (0.083)
+4. render: left window -> 'Local Minima' (-0.131)  right window -> 'Global Minima' (0.021)
+   CHECK4 (left=Local Minima, right=Global Minima, orig-calibrated): FAIL
+5. marker-like red comps orig=2 render=1 -> PASS
+   orig markers: [(67, np.int64(199), np.int64(445)), (60, np.int64(270), np.int64(482))]
+   render markers: [(16, np.int64(269), np.int64(482))]
+
+SUMMARY: FAILURES PRESENT

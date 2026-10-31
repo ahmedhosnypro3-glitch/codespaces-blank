@@ -1,0 +1,36 @@
+[info] context header injected: VIEW: judge slide 013 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 1343190
+[warn] comparison :: images :: attempt 1: ABORT HangError: hard wall-clock 330s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_013_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_013.jpg ===
+[winner] images (round 1, attempt 2)
+**CONTENT COMPARISON (slide 013, âClassification of âXORâ Truth Tableâ)**
+
+House chrome is present as specified (outer red frame, pale-yellow â13â badge, centered crimson title band with the title in one line). All four content regions â truth table, scatter plot, neuron schematic, caption â are present; nothing is omitted, so there is no BLOCKER for missing content.
+
+**Element-by-element read**
+
+- *Truth table (upper left):* 3 columns (Xâ | Xâ | O/P) + 4 data rows; all values correct (0/0/0; 0/1/1; 1/0/1; 1/1/0); bright-red outer border, thin gray internal gridlines; O/P digits sit inside centered rounded chips with the correct fills (#CCFFFF/#0070C0 for 0, #CCFFCC/#00A000 for 1). Cells are vertically centred, chip padding looks consistent. Data fidelity: clean.
+- *Scatter plot (upper right):* white panel, pale-pink hairline border; red axes with arrowheads; no numeric ticks, no legend, no data labels; xâ and xâ labels red italic at the correct ends. Six markers present: 2 red X strokes in the upper-left (left of the y-axis, above the x-axis), 2 chartreuse circles â one sitting on the y-axis, one on the x-axis â and 2 cyan circles, one upper-right and one essentially at the origin. Two parallel navy +45Â° lines are present and the lower one clips at the panel bottom, as in the original. Data/geometry: faithful.
+- *Neuron schematic (bottom left):* labels xâ, xâ, red â1â, each followed by a blue â?â; Î£ in a pale-blue circle; red arrow to a magenta-bordered activation box containing a drawn step glyph (not a text character); second red arrow to a bold âO/Pâ. The only departure is in the connector fan (see below).
+- *Caption:* pale-peach rounded rectangle with soft-pink border, âNot Linearly Separableâ in bold italic serif crimson, single line, vertically centred inside the box. Faithful.
+
+**DISCREPANCIES**
+
+1. MAJOR â Neuron connector fan geometry (confidence: medium-high). In the original, the three lavender connector lines spread as they approach the Î£ circle and terminate at three DISTINCT points on the circleâs left arc (upper-left, mid-left, lower-left), with the small red arrowhead just outside that arc. In the recreation all three lavender lines collapse to a single common junction point (with the red arrowhead) immediately left of the circle â a single-point fan rather than an arc-spanning fan, and the strokes stop short of the arc instead of touching it. This changes the diagramâs structure, not merely its styling.
+
+2. MINOR â Title typeface (confidence: high). The original title is bold sans-serif; the recreation sets it in a bold serif face. Colour (#C00000), size, centering and wording are correct; only the family differs.
+
+3. MINOR â Activation-box step glyph rendering (confidence: low-medium). The recreationâs step icon is drawn in a mixed blue/magenta stroke that reads slightly differently from the originalâs single dark/navy step icon, and the interior horizontal stroke proportions differ a little. It remains clearly a step-function glyph rather than a text character, so this is cosmetic.
+
+4. MINOR â Global content scale/offset relative to the original frame (confidence: medium). The recreationâs content block is uniformly enlarged and pushed outward: the truth table starts nearer the left frame edge (â0.06 of frame width vs â0.10 in the original), and the plot panel sits further right (right edge â0.92 vs â0.83), so the axes origin lands near 0.66 of frame width instead of â0.61. Internal proportions (table width : plot width, row heights, caption/plot alignment) are preserved, and nothing crosses the house frame, so this reads as template-induced rescaling rather than mis-composition.
+
+**VISUAL-QUALITY CHECKS ON THE RECREATION**
+
+No text overflow or clipping; no collisions between the table, plot, schematic and caption; no ink touching or crossing the house frame; all content is fully contained in its panels (plot panel, schematic panel, caption box, table border). No illegible ink â the blue â?â glyphs are crisp and legible, subscripts in Xâ/Xâ render as true lowered subscripts, and the Î£ glyph is clear. No empty equation/graph regions. Line spacing within the table rows is uniform, and enclosed content (digits in chips, caption text) is properly vertically centred. The only visual-quality blemish of substance is the connector-fan collapse described in discrepancy 1.
+
+Because the neuron schematicâs connector geometry is a visible, explicitly-specified structural departure from the original (three distinct arc terminations â one common junction), this counts as a MAJOR defect in an otherwise accurate slide.
+
+FINAL VERDICT: FAIL
+

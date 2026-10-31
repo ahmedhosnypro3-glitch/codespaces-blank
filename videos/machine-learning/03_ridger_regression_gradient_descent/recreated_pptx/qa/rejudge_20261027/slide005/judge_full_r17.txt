@@ -1,0 +1,59 @@
+## Fidelity check â Slide 5 (r17)
+
+**Ground rules applied (not counted as discrepancies):** house chrome (white canvas, gray E9E9E7 panel x54â903 / y45â540, C00000 left/right/bottom strokes, deliberately **no top stroke**, yellow badge with purple ring and â5â), cursor/capture artifacts (none material here), typed-vs-handwritten, and 2D professional equation formatting (fractions with bars, stacked sub/superscripts, aligned limits) â the recreationâs professional fraction/stacked rendering is accepted, not penalized.
+
+All comparisons below are made in the common 960-wide frame (the two displayed images share identical chrome geometry, so coordinates are directly comparable; values are Â±3 px estimates).
+
+---
+
+### Element-by-element comparison
+
+| Element | Original (IMG2) | Recreation (IMG1) | Result |
+|---|---|---|---|
+| Title âMinimization of Loss function to obtain BEST model parametersâ, BEST in blue | y â 60â74, x 152â676 | y â 60â73, x 152â728 | Text verbatim, color correct; recreationâs title is set slightly **wider** (larger/longer-tracked font) â MINOR |
+| Slide badge â5â | yellow, purple ring | identical | House chrome â OK |
+| Top yellow panel | x 67â838, y **91â248** | x 67â838, y **87â234** | Height 157 vs 147 px, bottom edge ~14 px too high |
+| Eq. 1 `Loss = Â½(YâÅ¶)áµ(YâÅ¶) = Â½(YâXW)áµ(YâXW)` | â115 | â110 | Content verbatim; variables not bold (see MINOR list) |
+| Eq. 2 `Loss = Â½[YáµY + (XW)áµ(XW) â Yáµ(XW) â (XW)áµY]` | â168 | â163 | Verbatim; brackets span the line correctly |
+| Eq. 3 `Loss = Â½[YáµY + (XW)áµ(XW) â 2(XW)áµY]` | â222 | â212 | Verbatim; lower line sits closer to panel floor |
+| Top âRememberâ box | x 635â825, y 116â213; âX is a matrix, W is a vector,â / âXW is a vectorâ / shaded `Yáµ(XW) = (XW)áµY` | same x, y 113â203; same three lines, same shaded strip | Text verbatim; box 7 % shorter; âRememberâ not italic (MINOR) |
+| Pink derivative box | x 67â477, y 258â306 | x 67â477, y **237â292** | Widths match; whole box ~20 px too high; instruction text set slightly smaller |
+| `âLoss/âW = 0` + âGet Best W that minimizes the lossâ (red bold W) | â272 / â284 baseline | â250 / â262 | Verbatim, fraction correctly stacked with bar, W red bold |
+| Bottom yellow panel | x 67â838, y **316â477** (161 tall) | x 67â838, y **305â440** (135 tall) | **16 % shorter**, entire block shifted up ~30â37 px |
+| Eq. A `âLoss/âW = 0 = Â½[(XW)áµ(X) + (X)áµ(XW) â 2(X)áµY]` | â342 | â325 | Verbatim, no missing terms |
+| Eq. B `âLoss/âW = 0 = Â½[2XáµXW â 2XáµY] â (XáµX)W = XáµY â W = (XáµX)â»Â¹XáµY` | â432; pink hollow block arrows; green-outlined result box 412â448 | â405; plain dark âââ glyphs; green result box 395â425 | Algebra verbatim; arrow shape/colour differ (MINOR) |
+| Bottom-right âRememberâ box `Xáµ(XW) = (XW)áµX` | x 615â818, y 330â375 | x 615â818, y 315â356 | Verbatim; shifted up ~20 px, 8 % shorter |
+| Green result box `W = (XáµX)â»Â¹XáµY` | x 645â825, y 412â448 | x 645â825, y 395â425 | Verbatim, correct superscript â1; box shifted up |
+| Gray margin below bottom yellow panel | â63 px | â100 px | **Excess empty band â37 px larger** |
+
+No equation, table, chart, image or box present in the original is missing from the recreation (no BLOCKER of the âomitted elementâ type).
+
+---
+
+### Discrepancies (all listed, with severity and confidence)
+
+1. **MAJOR â Vertical layout compressed / lower blocks shifted up (confidence: medium-high).** The bottom yellow panel is ~16 % shorter (135 vs 161 px) and ends ~37 px higher; the pink derivative box is ~20 px higher; the top panelâs bottom edge is ~14 px higher. Measured against the shared title baseline, the recreationâs content stack occupies ~9 % less vertical height than the original, and the slide ends with a ~100 px empty gray band instead of ~63 px. This is a visible deviation in panel sizing, block position and gap, not a house-chrome effect.
+2. **MAJOR â Line spacing inside the bottom panel reduced (confidence: medium).** The two derivative equations are separated by â80 px in the recreation vs â90 px in the original; the green result box and the âRememberâ box are likewise pushed together. Per the 2026-10-10 directive, visible spacing deviation is a MAJOR defect even with verbatim text.
+3. **MAJOR â Gap between the top yellow panel and the pink derivative box nearly closed (confidence: medium).** Recreation â3 px vs original â10 px; the panel edge visually almost touches the pink box, and the third `Loss` line sits closer to the panel floor than in the original.
+4. **MINOR â Implication arrows are plain text glyphs instead of the originalâs pink hollow block arrows (confidence: high).** Colour, stroke style and head shape differ in the bottom equation (`â â¦ â`).
+5. **MINOR â Math variables are not bold (confidence: medium-high).** Original sets X, W, Y in bold serif/italic throughout the loss algebra; the recreation renders them in a lighter serif face, so weight and typeface differ (typographic, content identical).
+6. **MINOR â âRememberâ headings lose italic and underline (confidence: medium).** Both callouts are bold red in the recreation but red bold *italic* (and underlined) in the original.
+7. **MINOR â âGet Best W that minimizes the lossâ is set slightly smaller/lighter in the recreation (confidence: low-medium).**
+8. **MINOR â Title is slightly wider than the original (confidence: low-medium).** Same wording and BEST-in-blue treatment, marginally larger tracking/size.
+
+---
+
+### Visual-quality defects in the recreation
+
+* No text overflow, no clipping, no truncated glyphs; all equations, boxes and callouts sit fully inside their enclosing panels and inside the house panel (checked the bottom green box, the bottom derivative fraction and the top panelâs third line â no ink touches any boundary).
+* No collisions or overlaps; nothing illegible; superscript/subscript stacking and fraction bars are clean and correctly aligned.
+* Minor only: the two âRememberâ labels read slightly heavy/non-italic relative to the original; the arrow glyphs are visually lighter than the originalâs pink arrows.
+* No blank/empty equation regions.
+
+---
+
+### Conclusion
+
+Content is complete and verbatim: all three loss expansions, the derivative box, both derivative equations with the implication chain, the final green-boxed solution, and both âRememberâ callouts are present and correct, with clean professional 2D equation formatting. However, the vertical geometry does not match the original: the lower content blocks are shifted up and compressed, the bottom panel is ~16 % shorter, internal line spacing is ~11 % tighter, the top panel nearly touches the derivative box, and the slide finishes with a visibly larger empty gray band than the original. Under the founderâs 2026-10-10 directive (visible deviations in spacing, gap and alignment are MAJOR), these are MAJOR defects for a faithful recreation.
+
+**FINAL VERDICT: FAIL**

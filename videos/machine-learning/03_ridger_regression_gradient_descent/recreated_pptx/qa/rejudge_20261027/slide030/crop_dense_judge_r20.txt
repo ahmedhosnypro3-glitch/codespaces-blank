@@ -1,0 +1,29 @@
+## Cell-by-cell verification (all values checked)
+
+| Row | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|
+| x | 3 (red) Â· 3.2 Â· 3.4 Â· 3.6 Â· 3.8 | 3 (black) Â· 3.2 Â· 3.4 Â· 3.6 Â· 3.8 | â values |
+| f(x) | 5 Â· 4.24 Â· 3.56 Â· 2.96 Â· 2.44 | 5 Â· 4.24 Â· 3.56 Â· 2.96 Â· 2.44 | â |
+| x-delta | 2.9 Â· 3.1 Â· 3.3 Â· 3.5 Â· 3.7 | 2.9 Â· 3.1 Â· 3.3 Â· 3.5 Â· 3.7 | â |
+| f(x-delta) | 5.41 Â· 4.61 Â· 3.89 Â· 3.25 Â· 2.69 | 5.41 Â· 4.61 Â· 3.89 Â· 3.25 Â· 2.69 | â |
+| x+delta | 3.1 Â· 3.3 Â· 3.5 Â· 3.7 Â· 3.9 | 3.1 Â· 3.3 Â· 3.5 Â· 3.7 Â· 3.9 | â |
+| f(x+delta) | 4.61 Â· 3.89 Â· 3.25 Â· 2.69 Â· 2.21 | 4.61 Â· 3.89 Â· 3.25 Â· 2.69 Â· 2.21 | â |
+| slope | â8 Â· â7.2 Â· â6.4 Â· â5.6 Â· â4.8 | â8 Â· â7.2 Â· â6.4 Â· â5.6 Â· â4.8 | â |
+| next x | 3.2 Â· 3.4 Â· 3.6 Â· 3.8 Â· 4(â¦) | 3.2 Â· 3.4 Â· 3.6 Â· 3.8 Â· 4(â¦) | â (both truncated identically) |
+
+Every number, decimal point, minus sign, and subscript-free label string matches. Row band fills (yellow / lavender / tan / green / pink) match. No missing rows, no swapped values, no garbled glyphs. Delimiter/enclosure geometry: N/A (no equations in region). Stroke continuity: no broken lines in either image.
+
+## Discrepancies
+
+1. **Glyph color â the initial "3"** (first data column, top "x" row, directly under the down-arrow): IMG1 renders it in dark red (C00000); in IMG2 it is the same near-black as its neighbors â the red annotation arrow points at it, but the digit itself is not red. **MINOR** (content correct; color-only deviation). Confidence ~80% (IMG2 is low-res JPEG, so a muted red can't be 100% excluded â verify against the source frame; if the original is black, this is an unmandated recolor of a single glyph).
+
+2. **Inner grid stroke color/weight** (applies to all cell borders): IMG1's cell rules are darker and slightly heavier (near-black / dark-red hairline); IMG2's are lighter medium-gray hairlines. The grouped-band separators (below f(x), below f(x-delta), below f(x+delta)) also read slightly heavier in IMG2. **MINOR** â stylistic, non-content. Confidence ~70%.
+
+3. **Row-label alignment** (label column: "x-delta", "f(x-delta)", "x+delta", "f(x+delta)", "slope", "next x"): IMG1 centers the labels vertically *and horizontally* in their cells; IMG2 appears to sit them left-weighted with padding. **MINOR**, low confidence (~55%) â IMG2's blur makes this hard to confirm; flagging for exactness only.
+
+## Notes
+- No top chrome stroke in IMG1 â consistent with house template (ground rule b), not a discrepancy.
+- Typed-vs-typed glyphs here: no medium mismatch to excuse; shapes are clean in both.
+- Vertical centering of cell contents: consistent in both.
+
+FINAL VERDICT: PASS

@@ -1,0 +1,13 @@
+Assuming the pasted order is **IMG1 = top/render crop** and **IMG2 = bottom/original crop**, and counting only contentânot the mandated chrome/format rulesâI find:
+
+- **BLOCKER â table extent/content mismatch, confidence 100%.** Within the stated same-region/scale premise, IMG1 shows only a small fragment: header row roughly `[blank | X1 | X2 | X3]` at lower-middle (crop xâ45â480, yâ145â210) and one data row `[X1 | 1 | 2 | 3]` (xâ45â480, yâ215â285). IMG2 instead fills the crop with an 8-column matrix `X1â¦X8` (top block xâ0â480, yâ5â70 header; rows yâ75â230) with visible rows `1 2 3 4 8 9 10 1`, `1 3 5 6 16 7 5 3`, `2 4 6 8 16 18 20 2`, plus a second lower table block (xâ0â480, yâ245â335) repeating `X1â¦X8` and a partial row starting `1 2 3 4 8 9 10 â¦` with a yellow-marked cell near the right edge. IMG1 is missing columns `X4âX8`, all additional rows, and the entire second table block.
+
+- **BLOCKER â structural mismatch even in the overlapping X1âX3 area, confidence ~90%.** IMG1 has a row-label column: blank header cell, then `X1` as a row label. IMG2âs corresponding area is a plain header row `X1 X2 X3 â¦` with numeric rows beneath and no blank row-label cell. So the first three columns are not the same table structure.
+
+- **MAJOR â unmatched header elements in the crop, confidence ~80%.** IMG1 contains a red `Effectâ¦` title at the top-right (xâ230â470, yâ0â55) and a blue `Train` badge above the table (xâ55â235, yâ85â160). IMG2 shows only table content in the same crop region, with no title/badge. Under the mandated same-region premise, these are unmatched content elements, not template chrome.
+
+- **MINOR â color emphasis differs where X1âX3 overlap, confidence ~70%.** IMG1 renders `X1`/`X3` header and values `1`/`3` in blue, `X2`/`2` in red, and the row label `X1` in black. In IMG2âs overlapping first cells, `X1`, `3`, `1` read dark/black while `X2`/`2` are red; IMG2 also has blue emphasis elsewhere (e.g. `10`, `16`, `20`) that has no counterpart in IMG1.
+
+- Not counted per ground rules: white/gray panel and dark-red strokes, any yellow badge chrome, typed-vs-handwritten ink, 2D-equation upgrading, JPEG halos/soft edges. There are no equations/delimiters in either crop to check.
+
+**FINAL VERDICT: FAIL** for âfaithful, usable recreation of this regionâ.

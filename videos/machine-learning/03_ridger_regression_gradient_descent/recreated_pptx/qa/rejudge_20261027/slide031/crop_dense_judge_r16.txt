@@ -1,0 +1,30 @@
+## Ground rules applied first (not discrepancies)
+Zoomed crop-pair of one region; house template chrome (white canvas, E9E9E7 panel, C00000 side/bottom strokes, no top stroke, badge colors) ignored; typed-vs-handwritten treated as at most MINOR; 2D equation formatting n/a here; JPEG softness/halos in IMG2 not content.
+
+## Value-by-value verification (all 8 rows, cell by cell)
+| Band | Row | IMG1 (recreation) | IMG2 (original) | Match |
+|---|---|---|---|---|
+| Yellow-green | 1 | 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, [5 clipped] | 4.2, 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, [5 clipped] | â all |
+| Yellow-green | 2 | 1.64, 1.25, 1.04, 1.01, 1.04, 1.01, 1.04, [1 clipped] | identical | â all |
+| Purple | 1 | 4.1, 4.4, 4.7, 5, 4.7, 5, 4.7 | identical | â all |
+| Purple | 2 | 1.81, 1.36, 1.09, 1, 1.09, 1, 1.09 | identical | â all |
+| Peach | 1 | 4.3, 4.6, 4.9, 5.2, 4.9, 5.2, 4.9, [5 clipped] | identical | â all |
+| Peach | 2 | 1.49, 1.16, 1.01, 1.04, 1.01, 1.04, 1.01, [1 clipped] | identical | â all |
+| Green | â | -3.2, -2, -0.8, 0.4, -0.8, 0.4, -0.8, [0 clipped] | identical | â all |
+| Red | â | 4.5, 4.8, 5.1, 4.8, 5.1, 4.8, 5.1, [4 clipped] | identical | â all |
+
+No wrong digit, swapped value, missing row, or garbled character found. Arrow count (4) and x-positions (~210, ~285, ~365, ~455) match; blue top rule and bottom blue rule present in both.
+
+## Discrepancies
+1. **Missing vertical column dividers across all five colored bands â MAJOR, high confidence.** IMG2 shows cell borders at every column boundary (x â 73, 158, 242, 328, 415, 500, 588 running the full height of the bands). IMG1 renders each band as one continuous flat color block with no vertical rules at all (visible across yellow-green y â 35â120, purple y â 125â205, peach y â 210â295, green y â 305â355, red y â 360â405). The omission is most conspicuous in the green row (~y 305â355) and red row (~y 360â405), where the original uses saturated green and dark-red cell borders that are entirely absent in the recreation.
+2. **Missing/understated colored perimeter rules on the green and red rows â MAJOR, high confidence.** Original green row is enclosed by strong bright-green top and bottom rules (y â 300 and 355); original red row by strong dark-red rules (y â 358 and 400). Recreation shows only flat fills, with the single dark-red line under the red band (y â 405) heavier and positioned differently than the original's red enclosure.
+3. **Missing faint inner horizontal rule between the two rows of each band pair â MINOR, medium confidence.** Original shows a low-contrast separator at the yellow pair mid-line (~y 80), purple pair (~y 170) and peach pair (~y 260); recreation shows only a slight tonal shift with no rule. Low-contrast in source, partly masked by capture softness.
+4. **Glyph style / weight of all numerals â MINOR, high confidence (per rule c, at most MINOR).** Original digits are heavier, slightly narrower and more irregular (video-capture typeface with soft, thickened strokes); recreation uses a clean, lighter, regular sans-serif. Values and decimal points are unambiguous in both.
+5. **Fill saturation â MINOR, medium confidence.** Recreation's purple band is a muted lavender versus a more saturated violet in the original; recreation's green and red bands read slightly washed out because their saturated border colors are missing. Yellow-green and peach fills are a close match.
+6. **Arrowhead rendering â MINOR, low confidence.** Recreation's arrows are hollow outlined chevron heads with a notch (tips at y â 32); original arrowheads read as darker, more solid triangular heads with a narrower point. Partly attributable to IMG2 compression, so confidence is low.
+7. **Crop registration / framing â MINOR (informational), medium confidence.** IMG1 carries ~45â50 px of blank white below the red band before the bottom blue rule (rule at y â 455) versus ~20 px in IMG2 (rule at y â 425), and the table rows sit ~5 px lower in IMG1. This is a crop-origin/extent difference, not a content defect, but it means the two crops are not pixel-registered.
+
+## Summary
+All data content is exactly correct: every row, every column, every value, every clipped edge digit and both blue rules and all four arrows are present and correct. The substantive fidelity loss is the table's cell structure â the column dividers and the saturated green/red band borders present in the original are absent in the recreation, so the original's gridded table reads as five flat color bands in IMG1. Typography, fill saturation and arrowhead fill are minor; the crop offset is framing only.
+
+FINAL VERDICT: FAIL â the numeric content is exact and usable, but the region is not yet a faithful recreation because the table's cell gridlines and the green/red row borders are missing (MAJOR). Adding the column dividers and the saturated green/red row rules (plus matching stroke weight) would make this region a pass.

@@ -5,7 +5,7 @@
 - level: 0
 - model: docparsechat
 - node: root
-- out_tokens: 550
+- out_tokens: 506
 
 ## rendered prompt
 
@@ -76,32 +76,32 @@ REASON: one short sentence naming the decisive evidence
 
 ```json
 {
-  "id": "96e307cbd097057d",
+  "id": "chatcmpl-33c398ed-8291-404d-9f74-0fb6e3774299",
   "choices": [
     {
       "index": 0,
       "message": {
-        "content": "DECISION: CROP\nREASON: The child exposes a chart block with sparse axis/annotation/table text absent from the parent, so a tighter crop may recover more chart detail.",
+        "content": "DECISION: CROP\nREASON: The child newly reveals AUC prose and a multi-line chart whose extracted text is sparse and truncated, so a tighter crop of the chart block could recover its curve and table detail.",
         "refusal": null,
         "role": "assistant",
-        "reasoning_content": "We need answer decision based on template. Need parse prompt. We need produce exactly two lines. Need decide CROP or STOP. Let's inspect.\n\nWe are adjudicating one decision inside crop cascade. crop level 0, crop box full frame [260,217,373,296]. Candidate regions for further crop: <class_Chart> frame box same as crop box, extracted text: chart type multi_line axis etc. Parent transcript excerpt empty. Child transcript excerpt contains text: \"37 **Area Under the Curve (AUC)** ... Best Model ... <chart type=...> ... table ... </chart>\". Candidate region is class_Chart with extracted text sparse? It has chart XML with axis, annotations, table. Parent empty. Child adds content. Candidate region is chart block whose extracted text maybe sparse? It has some text but chart content unread until zoomed crop. Rules: CROP when candidate region is picture/diagram/chart block whose extracted text is empty or sparse: image region content unread until zoomed crop parses it, missing text reason to crop. CROP when child read contains strings, rows, labels, structure parent lacked/garbled, and child still carries positioned class blocks worth isolating further. Here parent empty, child has chart block. Candidate region is chart block with extracted text maybe sparse (chart type, axes, annotations, table). Need decide further recursion? likely CROP because chart block with sparse extracted text and child added content. Need answer exactly.\n\nNeed be careful: Candidate region frame box same as current crop box. Further crop would target same region? The candidate region inside child is class_Chart frame box [x=260,y=217,w=373,h=296], same as crop box. If candidate region is same as current crop, further crop maybe no new area? But script likely asks whether branch earns further recursion. Candidate regions inside child that further crop would target. If candidate region equals current crop box, maybe no further crop? But rules say CROP when candidate region is chart block whose extracted text empty/sparse. The candidate is chart block. Extracted text includes chart XML and table, not empty but sparse relative to chart. Parent transcript empty. Child adds strings. So CROP.\n\nNeed final: DECISION: CROP\nREASON: The child exposes a chart block with sparse axis/annotation/table text absent from the parent, so a tighter crop may recover more chart detail.\n\nNeed exactly two lines and nothing after. Ensure no extra."
+        "reasoning_content": "Let me analyze this carefully.\n\nWe have a crop cascade decision. The parent transcript excerpt is empty (blank). The child transcript excerpt contains text: \"37 **Area Under the Curve (AUC)** ... Best Model is the model trying to reach the point at [FBR=0, TPR=1] ... <chart type=\"multi_line\"> ... table with FPR rows 0,1,2,3,4,5 and values 0,20,40,60,80,90 ... </chart>\".\n\nCandidate regions: one Chart class with frame box equal to the crop box [260,217,373,296], extracted text: \"<chart type=\"multi_line\"> axis[x]: FPR axis[y]: TPR bind: FPR ; ; x bind: Best Model Largest Area Under the Curve ; ; y annotation: callout ; label=Best Model Largest Area Under the Curve) annotati...\" \u2014 this is sparse-ish but has some text.\n\nRules:\n- STOP when child adds no new content beyond parent. Parent is empty, so child adds content. Not stop by that rule.\n- STOP when child is faithful-empty region shell. Not the case.\n- CROP when candidate region is a picture/diagram/chart block whose extracted text is empty or sparse: the chart's extracted text is sparse (axis labels, callout labels, truncated). The chart is a multi_line chart with a table of values. The extracted text is truncated (\"annotati...\") and sparse \u2014 the actual curve data isn't readable. So crop.\n- CROP when child read contains strings/rows/labels/structure the parent lacked or garbled, and child still carries positioned class blocks worth isolating further. Parent is empty; child has rows and labels; candidate chart block exists. So crop.\n\nTherefore DECISION: CROP. Reason: the child newly reveals AUC text and a chart whose extracted text is sparse/truncated, so a tighter crop of the chart could recover the curve/table detail.\n\nOne short sentence. Must be exactly two lines.\n\nREASON: The child newly reveals AUC prose and a multi-line chart whose extracted text is sparse and truncated, so a tighter crop of the chart block could recover its curve and table detail.\n\nThat's one sentence. Good."
       },
       "finish_reason": "stop",
       "logprobs": null
     }
   ],
-  "created": 1793401757,
-  "model": "stepfun-ai/step-5-preview",
+  "created": 1793421906,
+  "model": "minimaxai/minimax-m3.1-flash",
   "object": "chat.completion",
   "usage": {
-    "prompt_tokens": 861,
-    "completion_tokens": 550,
-    "total_tokens": 1411,
+    "prompt_tokens": 1012,
+    "completion_tokens": 506,
+    "total_tokens": 1518,
     "prompt_tokens_details": {
-      "cached_tokens": 0
+      "cached_tokens": 128
     },
     "completion_tokens_details": {
-      "reasoning_tokens": 0
+      "reasoning_tokens": 460
     }
   }
 }

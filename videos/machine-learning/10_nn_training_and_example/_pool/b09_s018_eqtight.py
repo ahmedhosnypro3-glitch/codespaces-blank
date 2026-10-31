@@ -18,8 +18,7 @@ def tight(img, reg, thr, minfrac=0.55):
     sub = img[y0:y1, x0:x1]
     rows = (sub < thr).sum(1)
     cols = (sub < thr).sum(0)
-    ry = np.nonzero(rows >= minfrac * cols.sum() * 0)[0] and [
-        i for i, v in enumerate(rows) if v > 0]
+    ry = [i for i, v in enumerate(rows) if v > 0]
     cx = [i for i, v in enumerate(cols) if v > 0]
     return (x0 + cx[0], y0 + ry[0], x0 + cx[-1], y0 + ry[-1]) if (ry and cx) else None
 

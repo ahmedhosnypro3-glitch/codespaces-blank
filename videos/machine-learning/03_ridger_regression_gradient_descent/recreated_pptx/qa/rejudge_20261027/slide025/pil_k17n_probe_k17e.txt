@@ -1,0 +1,70 @@
+== probe label: k17e  assets: assets_k17e ==
+== assets md5 ==
+  plot_025_tl.png  md5=d77ea0e08cc1172051ae36e5bfcf3ae0  size=243031
+  plot_025_tr.png  md5=b404ba0b045d4866ca6f775e15a6c9a6  size=427200
+  plot_025_bl.png  md5=9ab69ff50b9d622dbb2f2928afc613fa  size=330690
+  plot_025_br.png  md5=451a4e61438a5d5b0d39379344e53860  size=387172
+== md5 vs assets_k15 ==
+  plot_025_tl.png  k15=73cbaec1d8f2d9a6faf3aca1841b213e k17e=d77ea0e08cc1172051ae36e5bfcf3ae0  DIFFERENT=True
+  plot_025_tr.png  k15=375a2d7bef424fe275a6c27647d09756 k17e=b404ba0b045d4866ca6f775e15a6c9a6  DIFFERENT=True
+  plot_025_bl.png  k15=5acfb177d1e4d640b2fd7a08a1f21eda k17e=9ab69ff50b9d622dbb2f2928afc613fa  DIFFERENT=True
+  plot_025_br.png  k15=500287a3f4fe98a32ee0cac44e5bd5f8 k17e=451a4e61438a5d5b0d39379344e53860  DIFFERENT=True
+  ALL_MD5_DIFFERENT_FROM_K15: True
+
+== CHECK1: BR band slide x672..816 y472..517 diff vs orig ==
+  band 144x45 total diff px=6157 (95.0%)  maxcell=108/108 (100.0%)
+  cell row: [108, 108, 108, 108, 108, 108, 107, 108, 108, 108, 108, 108]
+  cell row: [42, 105, 108, 108, 108, 107, 108, 108, 108, 108, 108, 108]
+  cell row: [11, 78, 108, 108, 108, 107, 108, 108, 108, 108, 108, 98]
+  cell row: [99, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 105]
+  cell row: [33, 102, 106, 106, 108, 108, 108, 108, 108, 108, 103, 96]
+  CHECK1 (band diff < 50%): FAIL
+  per-row colored%% (x615..880) orig vs render, y466..530:
+    y466 orig= 76 render= 67
+    y469 orig= 75 render= 66
+    y472 orig= 73 render= 62
+    y475 orig= 70 render= 60
+    y478 orig= 71 render= 57
+    y481 orig= 57 render= 55
+    y484 orig= 43 render= 54
+    y487 orig= 44 render= 51
+    y490 orig= 42 render= 50
+    y493 orig= 43 render= 48
+    y496 orig= 44 render= 46
+    y499 orig= 39 render= 44
+    y502 orig= 38 render= 41
+    y505 orig= 34 render= 37
+    y508 orig= 30 render= 37
+    y511 orig= 27 render= 35
+    y514 orig= 18 render= 33
+    y517 orig= 14 render= 31
+    y520 orig=  5 render= 27
+    y523 orig=  4 render= 20
+    y526 orig= 98 render= 14
+    y529 orig=  0 render= 10
+  row-profile corr=0.789
+
+== CHECK2: BL labels at orig anchors (NCC template ID) ==
+  top     anchor x236..278 y302..322 want='Global Minima' | orig='Global Maxima'(0.09) render='Global Minima'(0.28) ink=43 -> OK
+  right-m anchor x325..350 y388..401 want='Local Minima' | orig='Local Maxima'(0.22) render='Global Minima'(0.20) ink=26 -> MISS
+  low-L   anchor x138..205 y438..470 want='Local Minima' | orig='Local Maxima'(-0.12) render='Global Minima'(-0.11) ink=46 -> MISS
+  low-R   anchor x300..346 y448..470 want='Global Minima' | orig='Global Maxima'(0.07) render='Global Minima'(0.18) ink=48 -> OK
+  CHECK2 (labels at anchors): FAIL
+
+== CHECK3: TR red segment (652,189)->(667,165) red-hit within 2px ==
+  orig (652,189)->(667,165): red-hit 54%
+  render (652,189)->(667,165): red-hit 53%
+  CHECK3 (render red-hit >= 20%, orig was 54%): PASS
+
+== CHECK4: BR winding path (largest dark comp, verify_k15 metric) ==
+  area=423 spanx=65 len=11467.8 straight=109.6 wind-ratio=104.613 (target ~6.02)
+  CHECK4 (winding ~6.02, ratio>1.02 & spanx>30): PASS
+
+== CHECK5: BL red marker-like comps ==
+  orig markers: [(67, np.int64(199), np.int64(445)), (60, np.int64(270), np.int64(482))]
+  render markers: [(18, np.int64(270), np.int64(482))]
+  marker areas in 60-67: False
+  CHECK5 markers: exactly 2 at (199,445),(270,482) area 60-67: FAIL
+
+SUMMARY: md5_all_diff=True CHECK1=FAIL (95.0%) CHECK2=FAIL CHECK3=PASS (53%) CHECK4 winding=104.613 PASS CHECK5 markers=FAIL
+OVERALL k17e: FAIL

@@ -1,0 +1,31 @@
+## Fidelity check â Slide 50
+
+**House chrome (excluded per ground rules):** white canvas, E9E9E7 panel, C00000 left/right/bottom strokes with no top stroke, and the FDFD96/6A5ACD "50" badge were treated as intentional and not counted.
+
+### Element-by-element comparison
+
+**Present and correct (no defect):**
+- Top blue-framed region: six xââ¦xâ columns with stacked 2-component vectors and class labels, "Initial W = (4, â2, â2)", "REPEAT using Step Î· = 1" (Step Î· = 1 in red), "Check classes of", Zâ Zâ Zâ candidate vectors, and the legend "Câ positive / Câ negative / Zero is unaccepted" (Zero in green) â all present with correct ordering, colors and relative gaps.
+- Right pink panel with W = (5, â1, â1) â present, correct values, correct vertical stack inside the pink box.
+- "Augmented Vectors (from Top)" table â all six columns, three vector rows each, class-label row present.
+- "Iteration 2" red badge, "No change in W / Stop Iterations" (Stop in red) â present.
+- Chart: red-framed scatter plot, axes 0â8 (x) / 0â7 (y), light gridlines, blue squares at (1,1),(1,2),(2,1), magenta diamonds at (5,4),(6,5),(6,6), red triangles at (0,0),(3,2),(7,6), red diagonal decision line through â(3,2) from (0,5) to (5.2,0), and the red "+ve" arrow annotation â all data points and the line are correct.
+- No element crosses the panel or chart frame; no clipping, no overflow; text is legible.
+
+### Discrepancies
+
+| # | Severity | Confidence | Discrepancy |
+|---|---|---|---|
+| 1 | **MAJOR** | Medium-high | **Chart region geometry/placement.** In the original the red chart frame spans roughly yâ163â455 (of ~506 display height) with the plot area yâ203â406; in the recreation the frame sits at yâ155â430 and the plot at yâ190â382. The frame is ~6 % shorter, its bottom edge sits ~25 px (~5 % of slide height) higher, and the plot box is ~5 % shorter, so every gridline, tick and data point is at a different pixel position than the original, and a much larger empty gray band remains under the chart. |
+| 2 | **MAJOR** | Medium | **Left-column vertical placement/compression.** The "Augmented Vectors" box is shifted up (~9 px) and ~12â13 px shorter in the recreation, with its three vector rows more tightly spaced; the "Iteration 2" badge sits ~20 px higher and the "No change in W / Stop Iterations" block ~18 px higher than in the original. The column does not share the original's baselines. |
+| 3 | MINOR | High | **Typeface substitution.** All text is Arial/sans in the recreation, whereas the original is a Times-style serif (e.g. "REPEAT using Step Î· = 1", "Check classes of", "Initial W =", "Augmented Vectors (from Top)", "Iteration 2", "No change in W / Stop Iterations"). |
+| 4 | MINOR | Medium-high | **"Iteration 2" badge treatment.** Recreation text is roughly half the original's cap height (original type nearly fills the badge height) and the badge is wider and positioned left of the original; the original also carries a small red stroke above the badge that is not reproduced. |
+| 5 | MINOR | Medium | **Emphasis styling.** Original "Stop" is bold **italic** serif and "Augmented Vectors (from Top)" is italic; both are upright/bold-only in the recreation, and the original header includes a space before the closing parenthesis ("(from Top )"). |
+| 6 | MINOR | Low-medium | **Vector delimiter shape.** The recreation's parenthesis pairs around the W-vectors (both in the top blue frame and the pink box) are drawn as narrow, tall, almost bracket-like strokes rather than the original's rounder parentheses. |
+
+### Visual-quality defects in the recreation
+- No text overflow, clipping, collision or illegibility; all content stays inside its frame and inside the house panel.
+- No missing elements: every table, vector, label, chart element, and annotation of the original is reproduced (the original's gray crosshair cursor artifact is correctly omitted per ground rule (c)).
+- Internal whitespace is unbalanced: the chart and left column are compressed upward, leaving a conspicuous dead gray band at the bottom of the panel.
+
+**FINAL VERDICT: FAIL** â content is complete and data-correct, but two MAJOR geometry deviations (chart region size/placement at ~5 % of slide height, and the upward shift/compression of the entire left column) mean this is not yet a faithful, usable recreation.

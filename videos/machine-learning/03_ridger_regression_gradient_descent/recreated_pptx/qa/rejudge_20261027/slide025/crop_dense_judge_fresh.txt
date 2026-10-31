@@ -1,0 +1,22 @@
+Coordinates below are crop-relative to the shown ~644Ã476 crop; the compared region is the upper red-bordered panel. I am not counting the template chrome (gray panel, red left/right/bottom strokes, no top stroke), the cropped blue block at the extreme left edge, or JPEG halos. No tables/equations/delimiters are present in this crop, so those checks are N/A.
+
+Discrepancies found:
+
+1. **BLOCKER â 3D relief/viewpoint is lost.**  
+   IMG2 shows an oblique 3D paraboloid/bowl: left vertical axis with labels **0, 0.5, 1, 1.5** around xâ70â105, yâ209/151/93/30; curved rising rim with red high tips at the rear corners; dotted projection/base-plane dots under the bowl. IMG1 renders the same region essentially as a **flat perspective heatmap**: straight rim edges, no bowl height, no red summit tips, no dotted base plane, and the z-axis stack is absent. Rough locations: IMG1 surface xâ130â575, yâ0â270; IMG2 xâ105â600, yâ0â335. Confidence: **high**.
+
+2. **MAJOR â left/front axis tick-label sequence appears reversed.**  
+   In IMG2 the left sloping axis runs **100 â 50 â 0 â â50 â â100** from the back/left toward the front corner, roughly (83,226) to (291,313). In IMG1 the corresponding left edge reads **â100 â â50 â 0 â 50 â 100** from back-left toward the front, roughly (110,111) to (245,276). The right/front axis roughly matches (â100 at front to 100 at right), so the left axis sign/order is the suspect one. Confidence: **medium-high**.
+
+3. **MAJOR â vertical z-axis labels are missing/collapsed in IMG1.**  
+   IMG2 has clean **1.5 / 1 / 0.5 / 0** at xâ70â105. IMG1 shows only a small garbled/overlapping cluster near the back-left corner around (105â120, 90â125), looking like â0.5â colliding with ââ100â, and lacks the full 0â1.5 stack. Confidence: **high** that the stack is not cleanly present; **medium** on exact cause because it is tied to the flattened view.
+
+4. **MAJOR â upper red reference line has wrong geometry / an extra detached segment.**  
+   IMG2 has one straight upper red line, roughly (119,92) â (583,73), with no separate stroke above it. IMG1 shows an additional short detached diagonal stroke near the top-left around (132,8) â (165,58), and the main upper red line runs roughly (132,113) â (574,82), lower/shallower than the original. The two lower horizontal red lines are broadly present in both (IMG1 â y158 and y181; IMG2 â y153 and y177), so the defect is specifically the upper line. Confidence: **medium**.
+
+5. **MINOR â surface fill/mesh emphasis differs beyond the geometry loss.**  
+   Color ramp is broadly consistent (blue low center â cyan/green â yellow/orange rim), so I do not count hue as a defect by itself. But IMG1âs rim is more uniformly orange/yellow with a smaller dark-blue core, while IMG2 has a broader green band, larger blue bowl interior, red rear tips, and dotted base markers. Most of this follows from item 1; as an isolated fill difference it is only **MINOR**. Confidence: **medium**.
+
+Not counted: red panel strokes/white-gray chrome; typed-vs-handwritten ink; JPEG soft edges in IMG2; bottom sliver of the next panel at the lower edge.
+
+FINAL VERDICT: **FAIL** â not a faithful, usable recreation of this region, because the 3D bowl/z-axis is flattened away and there are major axis-label and red-line geometry errors.

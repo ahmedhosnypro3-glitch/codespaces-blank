@@ -1,0 +1,47 @@
+slide 050 mode --full render 2001x1125 scale=(2.084,2.083)
+diff px total: 177272 (7.875% of frame)
+densest diff cells (slide-space px coords, diff px count):
+  box x168-192 y202-225: 1125 diff px
+  box x336-360 y112-135: 1118 diff px
+  box x192-216 y202-225: 1114 diff px
+  box x456-480 y112-135: 1089 diff px
+  box x480-504 y112-135: 1087 diff px
+  box x264-288 y112-135: 1080 diff px
+  box x648-672 y90-112: 1067 diff px
+  box x120-144 y202-225: 1040 diff px
+  box x432-456 y112-135: 1014 diff px
+  box x384-408 y45-67: 1013 diff px
+  box x456-480 y45-67: 1005 diff px
+  box x120-144 y180-202: 998 diff px
+ink only in render: 45106 px; ink only in original: 70408 px
+  (render-heavy = extra/off-position ink; original-heavy = missing content)
+== RENDER chart-frame (slide-space): h-borders rows [357, 358, 359, 360]...[1001, 1002, 1003, 1004]
+   v-borders cols [647, 648, 649, 650]...[1716, 1717, 1718, 1719]
+   frame top=171.3 bottom=481.7 left=310.4 right=824.7 h=310.4 w=514.3
+== RENDER left-col text ink rows y 99.8..299.4 (x60-350 y100-300)
+== ORIG   chart-frame (slide-space): h-borders rows [174, 175, 479, 480]...[174, 175, 479, 480]
+   v-borders cols [314]...[314]
+   frame top=174.0 bottom=480.0 left=314.0 right=314.0 h=306.0 w=0.0
+== ORIG   left-col text ink rows y 114.0..299.0 (x60-350 y100-300)
+== RENDER red rows x70-230 y250-340: extent 277.3..304.7
+== RENDER none
+== ORIG   red rows x70-230 y250-340: extent 278.0..305.0
+== ORIG   none
+== RENDER dark rows x70-350 y300-470: extent 300.0..391.2
+== ORIG   dark rows x70-350 y300-470: extent 300.0..389.0
+== RENDER dark rows x60-350 y80-210: extent 129.4..130.9
+== ORIG   dark rows x60-350 y80-210: extent 129.0..129.0
+
+== r21 classification of judge_full_fresh2.txt (05:47) FAIL claims vs pixels ==
+MAJOR 1 (chart frame geometry/placement, "y163-455 vs y155-430, bottom ~25px higher, ~6% shorter"):
+  REFUTED. Measured: ORIG frame top=174.0 bottom=480.0 h=306.0; RENDER top=171.3 bottom=481.7 h=310.4
+  (left 310.4 vs orig 313-314, right 824.7 vs orig 822-824). Max deviation 2.7 slide-px (~0.5% of 540),
+  height LONGER not shorter. No localized missing block.
+MAJOR 2 (left column up-shift ~9px, badge ~20px higher, box 12-13px shorter):
+  REFUTED. Iteration-2 banner ORIG y278.0-305.0 vs RENDER y277.3-304.7 (delta ~0.7px).
+  Aug-box ink extent x70-350 y300-470: ORIG 300.0-389.0 vs RENDER 300.0-391.2 (delta <=2.2px).
+  Top-frame bottom edge ORIG y129.0 vs RENDER y129.4-130.9 (~1px). Diffuse class, not localized.
+MINORs 3-6 (serif vs sans, badge cap-height, bold-italic, paren shape): advisory styling class,
+  consistent with banked dismissal adjudicate_050_full.txt + adjudicate_full_20261031.txt (7.9% diffuse).
+r21 census: 7.875% diff, ink orig-heavy 70,408 vs render 45,106, densest cells <=1125 px spread
+  across text bands y45-225 — no localized missing block. VERDICT: FULL=PASS(dismissed).

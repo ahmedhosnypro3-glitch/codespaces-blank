@@ -1,0 +1,17 @@
+Confirmed content discrepancies in the shared crop: **none at BLOCKER or MAJOR level**.
+
+Checked cell-by-cell / glyph-by-glyph:
+
+- Top visible vector row, top strip, crop-relative **yâ0â110**: visible columns match: `(1/1) (1/1) (1/2) (1/4) (1/5) (1/6)`; class labels match `Câ Câ Câ Câ Câ Câ`, then `Câ positive` and `Câ â¦` at the right edge. The far-right ânegativeâ is cut off by the crop boundary in the comparison; the visible initial glyphs match, so I am **not** counting it as missing.
+- Main gray panel, center-left **xâ27â405, yâ140â400**: title string is visually the same in both crops; headers `xââ¦xâ` match; vectors match exactly:
+  - `xâ=(1,1,1) Câ`, `xâ=(1,2,1) Câ`, `xâ=(1,1,2) Câ`
+  - `xâ=(1,5,4) Câ`,1,6,5) Câ`, `xâ=(1,6,6) Câ`
+  - labels `Câ Câ Câ Câ Câ Câ` match in color and order.
+- Delimiter geometry in the main panel: parentheses span all three enclosed rows without touching the numerals in both crops; no swapped numerator/denominator, no truncated subscripts.
+- Right-hand `d(Zâ)=â¦`, `d(Zâ)=â¦` boxes, **x>455**: only the left edge is visible in this crop; visible `d(Z` subscripts and `=` match. Any linear-vs-2D equation rendering is covered by ground rule (d), not a defect.
+
+Deliberately not flagged per ground rules: white/gray/yellow chrome and red edge strokes; JPEG halos/soft edges in IMG2; typed-vs-handwritten ink; professional 2D equation format vs linear original.
+
+MINOR-only observations, non-defects: softer edge contrast in IMG2 from capture compression; right-edge truncation of `negative`/`d(Z)` vectors due to crop boundary. Confidence: high.
+
+FINAL VERDICT: PASS

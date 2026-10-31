@@ -1,0 +1,44 @@
+======================================================================
+SLIDE 001 — r18 claims: lower blocks 22-36px too high; bottom gap 50-55 vs 18; title line pitch 47 vs 49-53, cap 31 vs 34
+ORIG: title bands [(127.0, 170.0), (179.0, 209.0)]
+   title pitch [52.0] cap-heights [44.0, 31.0]
+   course(blue) bands [(314.0, 335.0)]
+   credit red bands [(354.0, 373.0), (424.0, 437.0)]
+   bottom-zone ink bands [(400.0, 537.0)]  bottom stroke y=538.0
+   gap last-ink-bottom 537.0 -> stroke 538.0 = 1.0px
+REND: title bands [(127.67999999999999, 168.95999999999998), (178.55999999999997, 209.27999999999997)]
+   title pitch [50.87999999999998] cap-heights [42.27999999999999, 31.72]
+   course(blue) bands [(312.96, 334.08)]
+   credit red bands [(354.23999999999995, 371.03999999999996), (423.35999999999996, 437.28)]
+   bottom-zone ink bands [(399.84, 537.12)]  bottom stroke y=538.0799999999999
+   gap last-ink-bottom 537.12 -> stroke 538.1 = 1.0px
+======================================================================
+SLIDE 002 — r19 claims: title inter-line gap too large in render; block not tight
+ORIG: title red bands (top,bottom,peak) [(198.0, 231.0, 353), (273.0, 314.0, 249)]
+   pitch = [75.0]  gap = [41.0]
+REND: title red bands (top,bottom,peak) [(199.67999999999998, 230.39999999999998, 708), (274.56, 313.91999999999996, 484)]
+   pitch = [74.88000000000002]  gap = [43.160000000000025]
+======================================================================
+SLIDE 006 — r15_r22 claim D1: title block ~11-13px too high, ~9-11px left; gaps 198/225 vs 206/209
+ORIG: text bands y [(248, 289), (296, 329)]  x extent 175.0..797.0 (center 486.0)
+   block y 248..329 center 288.5; gap above panel-top(45) = 203, below to 540 = 211
+REND: text bands y [(360, 442), (452, 522)]  x extent 177.9910044977511..792.0839580209895 (center 485.0)
+   block y 360..522 center 441.0; gap above panel-top(45) = 315, below to 540 = 18
+======================================================================
+SLIDE 010 — r17 claim: chart pair spans x118-690 rend vs x68-890 orig; right dead band ~200px; grid aspect
+ORIG: chart blue-ink extent x 486.0..870.0 y 108.0..473.0; vlines [486.5, 869.5]; hlines [109.5, 471.5]
+   caption-zone ink x extent: (57.0, 902.0)
+REND: chart blue-ink extent x 94.5127436281859..871.2443778110944 y 106.55999999999999..473.76; vlines [94.8, 465.6, 486.0, 870.8]; hlines [106.8, 473.5]
+   caption-zone ink x extent: (57.5712143928036, 900.9895052473763)
+======================================================================
+SLIDE 013 — r18 BLOCKER re-verify: TEST tables label column X1/X2/y present in ORIG, absent in REND
+ORIG: band1 test-header ink col runs x600-900: [(600.0, 624.0), (669.0, 873.0)]
+   ORIG x669-719 y128-160 ink 81
+   ORIG x669-719 y161-190 ink 112
+   ORIG x669-719 y191-221 ink 121
+   ORIG x669-719 y222-252 ink 167
+REND: band1 test-header ink col runs x600-900: [(599.7, 623.2), (718.2, 872.2)]
+   REND x669-719 y128-160 ink 67
+   REND x669-719 y161-190 ink 60
+   REND x669-719 y191-221 ink 63
+   REND x669-719 y222-252 ink 63

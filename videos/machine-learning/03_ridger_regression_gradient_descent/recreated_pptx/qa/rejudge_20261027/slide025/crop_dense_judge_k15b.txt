@@ -1,0 +1,23 @@
+Discrepancies found in the zoomed crop pair:
+
+- **Main plotted object is different â BLOCKER, confidence high.**  
+  IMG1 shows a nearly flat/top-down radial false-color square surface on a tilted plane, with a yellow/orange outer field and a dark blue center. IMG2 shows a genuinely 3D, shaded surface with a ridge/valley shape and a different green/cyan/warm color field. This is not a rendering-equivalent view of the same plot; the plotted geometry itself is wrong.
+
+- **Vertical/z-axis is missing or incorrect â BLOCKER, confidence high.**  
+  In IMG2, the left side of the plot has a clear vertical scale with ticks such as **0, 0.5, 1, 1.5**. IMG1 has no corresponding z-axis tick set. Near the upper-left crop region, IMG1 has a stray numeral reading **â0.35â**, while IMG2 has the z-axis label region **â1.5â/â1â/â0.5â**. This is a wrong/missing scale and wrong numeral at roughly the same upper-left crop position.
+
+- **Axis range and tick placement are not faithful â MAJOR, confidence high.**  
+  IMG2âs bottom/axis labels visibly run through **-100, -50, 0, 50, 100** with conventional perspective placement. IMG1 shows a square/top-down mesh with labels around the perimeter and no matching vertical tick structure; the numerical layout is not the same region-wise.
+
+- **Surface color mapping differs materially â MAJOR, confidence high.**  
+  IMG1âs dominant fill is yellow/orange with a central blue depressed-looking region. IMG2âs surface is predominantly green/cyan/blue with warm/red high regions. This cannot be explained by JPEG halos or soft edges.
+
+- **Wireframe/3D grid structure differs â MAJOR, confidence high.**  
+  IMG2 includes background grid, vertical wall-like face, and 3D projected grid structure. IMG1 shows a flat plane mesh only. Missing/incorrect mesh and 3D guide lines are present.
+
+- **Red annotation-line geometry does not match â MAJOR, confidence medium-high.**  
+  IMG1 has a diagonal red stroke entering from the upper-left plus horizontal red strokes. IMG2 has horizontal red level lines through the plot area. The diagonal red stroke has no counterpart in IMG2, and the red line placement/height does not correspond. This is not the declared panel-edge chrome; it is inside the plotted region.
+
+No equation, table, fractions, or bracket comparison is applicable in this crop. I have not counted compression halos in IMG2 or template edge strokes as discrepancies.
+
+FINAL VERDICT: FAIL

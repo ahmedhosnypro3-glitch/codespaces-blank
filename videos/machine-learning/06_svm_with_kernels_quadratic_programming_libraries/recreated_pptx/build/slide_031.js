@@ -47,12 +47,8 @@ s.addText(TITLE, {
   fontSize: 21, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// Faint pale top rule (spec visual element)
-const topRule = IN([0.042, 0.067, 0.922, 0.072]);
-s.addShape(pres.shapes.RECTANGLE, {
-  x: topRule.x, y: topRule.y, w: topRule.w, h: topRule.h,
-  fill: { color: "D5DBE8" }, line: { type: "none" },
-});
+// Faint pale top rule was marked [?] in the spec and crosses the title text
+// (judged as a strikethrough artifact) — omitted.
 
 // Four kernel panels: white fill, blue-violet outline, bold black heading
 const PANELS = [
@@ -98,11 +94,10 @@ const EQS = [
 for (const [name, specBox] of EQS) {
   const m = manifest[name];
   const b = IN(specBox);
-  let w = m.w_in, h = m.h_in;
-  if (w > b.w) { h *= b.w / w; w = b.w; }
+  const w = m.w_in, h = m.h_in;
   s.addImage({
     path: path.join(EQ, m.file),
-    x: b.x + (b.w - w) / 2, y: b.y + (b.h - h) / 2, w, h,
+    x: b.x, y: b.y + (b.h - h) / 2, w, h,
   });
 }
 
@@ -113,13 +108,7 @@ s.addText([
   { text: " is called RBF Kernel bandwidth", options: { color: "000000", fontFace: FONT, fontSize: 11 } },
 ], { x: nb.x, y: nb.y, w: nb.w, h: nb.h, align: "left", valign: "middle", margin: 0 });
 
-// Tiny grey pointer glyph between RBF equation and bandwidth note
-const gb = IN([0.358, 0.717, 0.375, 0.743]);
-s.addShape(pres.shapes.RECTANGLE, {
-  x: gb.x + gb.w / 2 - 0.1, y: gb.y + gb.h / 2 - 0.007,
-  w: 0.2, h: 0.014, rotate: 40,
-  fill: { color: "6E6E6E" }, line: { type: "none" },
-});
+// Tiny grey pointer glyph [?] in the original is a capture/cursor artifact — omitted.
 
 // Bottom black strip of the original frame is a video-capture artifact
 // (ground rule: capture artifacts are correctly omitted) — not recreated.

@@ -1,0 +1,20 @@
+Crop-relative notes (origin = top-left of the zoomed pair). Both crops cover the same top ~2/3 of the iteration table plus the pointer arrow.
+
+CONTENT CHECK (cell-by-cell) â all match:
+- Row `x`: 3 | 3.2 | 3.4 | 3.6 | 3.8 â identical.
+- Row `f(x)`: 5 | 4.24 | 3.56 | 2.96 | 2.44 â identical.
+- Row `x-delta`: 2.9 | 3.1 | 3.3 | 3.5 | 3.7 â identical.
+- Row `f(x-delta)`: 5.41 | 4.61 | 3.89 | 3.25 | 2.69 â identical (including the recurring 3.89/3.25/2.69 overlaps).
+- Row `x+delta`: 3.1 | 3.3 | 3.5 | 3.7 | 3.9 â identical.
+- Row `f(x+delta)`: 4.61 | 3.89 | 3.25 | 2.69 | 2.21 â identical.
+- Row `slope`: -8 | -7.2 | -6.4 | -5.6 | -4.8 â identical (signs and the one-decimal vs integer formatting of `-8` match).
+- Row `next x`: 3.2 | 3.4 | 3.6 | 3.8 | 4â¦ â identical; the last cell is truncated by the same crop boundary in BOTH images, so this is not a missing value.
+Row labels, the inline `f(xâ¦ )` parentheses, and the grouped row fills (yellow `x`/`f(x)` block, the two mid blocks, green `slope`, red/pink `next x`) all match. No wrong/garbled glyphs, no swapped values, no missing rows; grid strokes continuous; text vertically centered in IMG1 the same way it sits in IMG2.
+
+Discrepancies found:
+1) Pointer arrow fill color â MINOR (confidence: med-high). Annotation arrow at top-center, head landing on the first data cell of the `x` row (around xâ0.28, head at yâ0.05â0.12). IMG1 draws it as a solid dark-red (C00000-type) arrow; IMG2 shows a white/light-filled arrow with only a thin dark outline. Geometry (down-pointing at the `3`) is the same; only the fill differs.
+2) Emphasis color of the leading `x` value `3` â MINOR (confidence: medium). First data cell of the `x` row (around xâ0.20, yâ0.13). IMG1 renders the digit `3` in red; in IMG2 the `3` sits in the same dark ink as the neighboring 3.2/3.4/â¦ values with no red cast.
+
+No BLOCKER/MAJOR defects: every number and symbol is correct, table is complete, and there are no bracket/enclosure or stacked-equation issues in this region (only inline parentheses).
+
+FINAL VERDICT: PASS

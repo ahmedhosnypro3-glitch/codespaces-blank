@@ -5,6 +5,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+os.environ["MATHTEXT_FONTSET"] = "dejavusans"
 import render_math as rm
 from PIL import Image
 
@@ -14,11 +15,11 @@ os.makedirs(OUT, exist_ok=True)
 BLUE, RED = "#1F49C7", "#C00000"
 # name -> (row segments joined by ||, size_pt, maxw_in, maxh_in)
 EQS = {
-    # x |-> phi(x) = [ x ; x^2 ] as a true 2-D column vector, blue ink
-    "eq_map": (f"{BLUE}:x\\;\\mapsto\\;\\varphi(x)\\;=\\;"
-               f"\\left[\\overset{{x}}{{x^{{2}}}}\\right]", 15, 2.00, 0.58),
-    "eq_x2": (f"{RED}:x^{{2}}", 15, 0.45, 0.35),
-    "eq_x": (f"{RED}:x", 15, 0.30, 0.35),
+    # x |-> phi(x) = [ x ; x^2 ] as a true 2-D column vector (brackets span both rows)
+    "eq_map": (f"{BLUE}:x\\;\\Rightarrow\\;\\varphi(x)\\;=\\;"
+               f"\\left[\\overset{{x}}{{x^{{2}}}}\\right]", 16, 1.95, 0.60),
+    "eq_x2": (f"{RED}:x^{{2}}", 22, 0.55, 0.45),
+    "eq_x": (f"{RED}:x", 22, 0.35, 0.45),
 }
 
 manifest = {}
