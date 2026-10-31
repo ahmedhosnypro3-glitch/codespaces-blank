@@ -30,13 +30,7 @@ s.addShape(pres.shapes.RECTANGLE, {
   line: { color: BORDER_RED, width: 1.5 },
 });
 
-// 2. Bottom black bar - from validation analysis
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 0, y: H - 0.35, w: W, h: 0.35,
-  fill: { color: BLACK }, line: { color: "none" },
-});
-
-// 3. Slide-number badge - HOUSE CHROME LAW (yellow oval at 12.48, 0.30, 0.5x0.5)
+// 2. Slide-number badge - HOUSE CHROME LAW (yellow oval at 12.48, 0.30, 0.5x0.5)
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: YELLOW }, line: { color: YELLOW, width: 0.5 },
@@ -47,7 +41,7 @@ s.addText(String(NUM), {
   fontSize: 18, bold: true, color: BADGE_NUM, fontFace: FONT, margin: 0,
 });
 
-// 4. Title box - HOUSE CHROME LAW (starts y=0.28, x=0.6, w=12.13, centered)
+// 3. Title box - HOUSE CHROME LAW (starts y=0.28, x=0.6, w=12.13, centered)
 // Three lines with specific colors per validation
 // Line 1: 'Test' and 'with' in RED (#c00000), 'Single Perceptron' in BLUE (#0000ff)
 // Line 2: all RED

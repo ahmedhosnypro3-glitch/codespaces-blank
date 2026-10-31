@@ -15,14 +15,14 @@ Accual
 P 3 1
 N 1 5
 Best (FPR)
-P
-0.7
-0.4
-TPR=5/(5+0)=1
-P R=4/(4+2)=0.66
+Out
+P 5 0
+P R=5/(5+0)=1
+P FPR=4/(4+2)=0.66
+Actual
 P 3 2
-P R=0/(0+6)=0
-PPR
+N 0 6
+TPR
 Threshold=0.3
 Predicted as
 P N

@@ -1,0 +1,33 @@
+## Comparison of IMG1 (recreation) vs IMG2 (original), slide 004 â "Concept of LOSS Function" region
+
+No tables, no stacked equations, and no bracket/parenthesis enclosures occur in this crop, so those exactness checks are N/A here. The checks that do apply are glyph shape/color, text metrics/position inside the yellow boxes, and stroke weight.
+
+### Discrepancies (crop-relative coordinates; IMG1 â 587Ã423)
+
+1. **MAJOR â Text scale and alignment in the top yellow box are wrong.** In IMG2 the line "Objective is Å¶=Y" is set large (cap height â30â33 px) and inset/centered inside the box, spanning roughly x 97â430, y 60â100. In IMG1 the same line is set markedly smaller (cap height â20â22 px) and hard-left-aligned at the box border, spanning roughly x 50â265, y 65â92. The box geometry itself matches (borders â x 37â500, y 20â140), so this is a genuine type-size/position error in the recreation, not a scaling artifact. Confidence: high.
+
+2. **MAJOR â Underlines on the Y symbols are missing.** In IMG2 both the hatted Y and the trailing plain Y in "Objective is Å¶=Y" carry short underline strokes (clearly visible beneath each Y, â y 95â100). IMG1 shows the hat and letters but no underline stroke beneath either Y. Location: top box, â x 175â265, y 55â100. Confidence: medium (the thin rule could be lost in the recreation's antialiasing, but it is not visible).
+
+3. **MAJOR â Middle-box line scale/position changes what content falls inside the region.** In IMG2 the line "If Å¶â Y â There is an" is large and runs off the crop edge (the red "Error (Loss)" is outside the region and therefore unseen). In IMG1 the smaller type allows the *entire* string "If Å¶â Y â There is an Error (Loss)" to fit inside the crop, ending at â x 485, y 195â225. Thus the region shown in IMG1 contains text that, in the original slide, lies beyond the region boundary, and the original's visible line is a different extent. This is a direct consequence of the type-size/position error in #1 and breaks spatial correspondence of the region content. Confidence: high.
+
+4. **MINOR â Color of the "Å¶â Y" term.** In IMG2 "Å¶", "â ", and the following "Y" (including the hat) are rendered in blue/violet ink. In IMG1 the same term is plain black (â x 100â160, y 188â225). Confidence: high.
+
+5. **MINOR â Implication arrow color.** The "â" in IMG2 is red (double-shaft red arrow, â x 300â360 in IMG2 coordinates; â x 160â190 in IMG1 coordinates). In IMG1 the arrow is black. Shape is broadly comparable; only the hue differs. Confidence: high.
+
+6. **MINOR â Hat glyph form.** IMG2 draws the hat as a detached, wide blue caret sitting above the Y; IMG1 uses a tight, black, precomposed circumflex that nearly touches the Y. Medium/glyph-shape difference (compounds #4). Confidence: medium.
+
+7. **MINOR â Typeface family and weight.** IMG2 uses a bold serif face ("Objective is", "If", "There is an", "Define â¦ function as" are all visibly serif and heavier). IMG1 uses a regular-weight sans-serif face for the same words. Within the allowance for an inherent medium/font difference, this still shifts texture and metrics. Confidence: high.
+
+8. **MINOR â Red panel stroke weight/offset at the bottom.** The third (red-stroked) box's top-left corner stroke in IMG2 is thicker (â3 px, softened by capture) and starts at x â 40, y â 318; IMG1's stroke is â1.5 px and starts at x â 30, y â 315. Slight weight/offset difference only; hue matches. Confidence: medium.
+
+9. **MINOR â Extent of the blue phrase in the bottom line.** IMG2 shows only "squâ¦" of the blue word before the crop edge; IMG1 shows "squared distaâ¦" in blue (cut mid-glyph at the same edge). This is the visible symptom of the metric mismatch in #1/#3 rather than a wrong character â no incorrect letters, colors, or order are present in the visible portion ("Define Loss function as" matches, "Loss" is red bold in both, the following phrase is blue in both). Confidence: high that the characters shown are correct.
+
+### Confirmed non-discrepancies
+- Yellow fill, gray panel background, blue/purple rings on the two yellow boxes, and the red-stroked lower box all correspond between the images.
+- Character content, ordering, and the "Objective is â¦ Y = Y" / "If Å¶ â  Y â â¦" / "Define Loss function as â¦" wording are correct; no wrong digits, missing rows, or garbled symbols in this region.
+- The lower red word "Loss" is red and bold in both; the trailing phrase is blue in both.
+
+### Verdict
+The region is readable and textually correct, but the recreation's type in the two upper yellow boxes is substantially smaller and differently aligned than the original, which changes the region's content extent, and the underline emphasis on both Y symbols is absent, with several color/glyph deviations. The region is therefore not a faithful match.
+
+FINAL VERDICT: FAIL

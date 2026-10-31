@@ -27,10 +27,18 @@ s.addText("Area Under the Curve (AUC)", {
   fontSize: 24, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 
-// --- white text box (measured px 98,94 - 822,205 on the 960x540 frame) ---
+// --- white text panel (original px 98..822 x 94..205; pink borders on left x96 and bottom y206 only) ---
 s.addShape(pptx.shapes.RECTANGLE, {
   x: 98 / 72, y: 94 / 72, w: (822 - 98) / 72, h: (205 - 94) / 72,
-  fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0.5 }
+  fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0 }
+});
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: 95.5 / 72, y: 94 / 72, w: 1.5 / 72, h: (206 - 94) / 72,
+  fill: { color: "F09CAC" }, line: { color: "F09CAC", width: 0 }
+});
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: 96 / 72, y: 205.5 / 72, w: (822 - 96) / 72, h: 1.5 / 72,
+  fill: { color: "F09CAC" }, line: { color: "F09CAC", width: 0 }
 });
 
 // subtitle (blue bold, 'different models' underlined) — px band y100..115, x105..782
@@ -43,10 +51,13 @@ s.addText([
   margin: 0
 });
 
-// body line 1 — px band y154..170, x105..687
-s.addText("Best Model is the model trying to reach the point at [FBR=0, TPR=1]", {
+// body line 1 — px band y154..170, x105..687; "[FBR=0, TPR=1]" is red in the original
+s.addText([
+  { text: "Best Model is the model trying to reach  the point at ", options: { fontSize: 17, color: INK, fontFace: FONT, breakLine: false } },
+  { text: "[FBR=0, TPR=1]", options: { fontSize: 17, bold: true, color: RED, fontFace: FONT, breakLine: false } }
+], {
   x: 105 / 72, y: 154 / 72, w: 9.6, h: 0.3, align: "left", valign: "top",
-  fontSize: 17, color: INK, fontFace: FONT, margin: 0
+  margin: 0
 });
 
 // body line 2 — px band y186..198, x105..787

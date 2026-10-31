@@ -337,9 +337,9 @@ s.addShape(pptx.ShapeType.rect, {
 const eqYStart = 3.25;
 const eqYStep = 0.6;
 s.addImage({ path: EQBASE + "eq2.png", x: 9.0, y: eqYStart, w: 1.69167, h: 0.43 });
-s.addImage({ path: EQBASE + "eq3.png", x: 9.0, y: eqYStart + eqYStep, w: 3.65, h: 0.65333 });
+s.addImage({ path: EQBASE + "eq3.png", x: 9.0, y: eqYStart + eqYStep, w: 2.505, h: 0.41833 });
 s.addImage({ path: EQBASE + "eq4.png", x: 9.0, y: eqYStart + 2*eqYStep, w: 4.42333, h: 0.525 });
-s.addImage({ path: EQBASE + "eq5.png", x: 9.0, y: eqYStart + 3*eqYStep, w: 3.58, h: 0.69833 });
+s.addImage({ path: EQBASE + "eq5.png", x: 9.0, y: eqYStart + 3*eqYStep, w: 2.30833, h: 0.455 });
 
 // Output file
 pptx.writeFile({

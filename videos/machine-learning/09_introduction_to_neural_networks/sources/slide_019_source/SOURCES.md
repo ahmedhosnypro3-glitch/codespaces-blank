@@ -221,3 +221,74 @@ https://www.alloprof.qc.ca/en/students/vl/mathematics/the-inverse-of-the-tangent
 - Doc-parse cascade: ✅ complete (advisory only — numeric content rejected, wave-1 verdict stands)
 - Web search: ✅ complete (2 wave-1 reads + 3 wave-2 reads = 5 independent query reads)
 - Sources banked: ✅ yes
+
+## Verified 2026-10-30 (wave 4, scope `src_w4_017_020`, agent `w4-src-017`)
+
+Fresh independent web-verification pass. Full register: `VERIFY_W4.md` in this directory.
+Query texts banked: `web/w4_q5_tanh_def.txt`; CLI-lane failure banked verbatim:
+`web/w4_agy_cli_q1.txt`.
+
+### Per-claim verification
+
+1. **Q:** Sigmoid panel — formula, range, mid-point, asymptotes? **A:** Yes —
+   `σ(x) = 1/(1+e^{−x})`, range `(0,1)`, `σ(0) = 0.5`, monotone S-shape flattening to the
+   asymptotes `y=0` and `y=1`, matching the frame's legend `sig(x) = 1/(1+e^-x)`, its y ticks
+   `0.0 … 1.0` and the mid-height crossing at x=0. **URL:**
+   https://en.wikipedia.org/wiki/Sigmoid_function ·
+   https://www.kdnuggets.com/2022/02/vanishing-gradient-problem.html
+2. **Q:** Sigmoid derivative? **A:** `σ'(x) = σ(x)(1−σ(x))`, maximum **0.25** at x=0.
+   **URL:** https://www.digitalocean.com/community/tutorials/vanishing-gradient-problem
+3. **Q:** Is `tanh(x) = sinh x / cosh x` correct? **A:** Yes — "By definition, the hyperbolic
+   tangent is the ratio of the hyperbolic sine (sinh) to the hyperbolic cosine (cosh)", i.e.
+   `(e^x − e^{−x})/(e^x + e^{−x})`; range `(−1,1)`, through `(0,0)`, odd, derivative
+   `1 − tanh²(x)`, saturating at ±1. **URL:**
+   https://sebastianraschka.com/faq/docs/tanh-sigmoid-relationship.html ·
+   https://www.baeldung.com/cs/sigmoid-vs-tanh-functions
+4. **Q:** Is tanh a rescaled sigmoid (`tanh(x) = 2σ(2x) − 1`)? **A:** Yes — proves out, and
+   explains the slide's two S-shaped panels over `0..1` vs `−1..1`.
+   **URL:** https://awni.github.io/jiro/practice/2017/01/12/tanh.html
+5. **Q:** Tan panel — period, asymptotes, zeros? **A:** Period `π`; asymptotes where `cos x = 0`,
+   i.e. `x = π/2 + kπ` → exactly the four drawn at `−3π/2, −π/2, π/2, 3π/2`; zeros at `x = kπ` →
+   `−π, 0, π`. **URL:** https://www.geeksforgeeks.org/maths/tangent-function/ ·
+   https://www.vaia.com/en-us/textbooks/math/precalculus-6-edition/chapter-4/problem-11-graph-two-periods-of-the-given-tangent-function-y/
+6. **Q:** Inverse-tangent panel and the `tan → tan⁻¹` arrow? **A:** `arctan(x) = tan⁻¹(x)`, range
+   `(−π/2, π/2)`, strictly increasing, odd, through `(0,0)`, derivative `1/(1+x²)`, and the inverse
+   of `tan` **restricted to** `(−π/2, π/2)`. **URL:** https://www.arxiv.org/pdf/2101.09957 ·
+   https://jamesmccaffrey.wordpress.com/2015/09/13/neural-network-arctan-activation-function/
+7. **Q:** Is the arctan panel's `±1` tick label the function's range? **A:** No — the true range is
+   `(−π/2, π/2)` ≈ ±1.571; the `±1` ticks are the **frame's own window** and must be reproduced as
+   drawn, not "corrected". **URL:** https://www.arxiv.org/pdf/2101.09957
+8. **Q:** Does `tan^{-1}(x)` mean a reciprocal power? **A:** No — it is the conventional
+   inverse-function notation for `arctan`, consistent with the slide's arrow.
+   **URL:** https://jamesmccaffrey.wordpress.com/2015/09/13/neural-network-arctan-activation-function/
+9. **Q:** Can the doc-parse numbers (legend `sig(t) = 1 (12+)`, y ticks `0.05/0.1/0.3/0.7/0.98`) be
+   verified? **A:** No — **rejected as hallucinated**: they match no axis on the frame (whose
+   sigmoid ticks are `0.0 0.2 0.4 0.6 0.8 1.0`), and the parse recovers none of the slide's
+   verbatim text. The wave-1 rejection stands.
+10. **Q:** The tanh chart's x-span "roughly −5 to 5"? **A:** Not web-verifiable — a frame-window
+    estimate; the `[?]` stays.
+
+### Search-lane note
+
+`agy -p` CLI: `RESOURCE_EXHAUSTED (429) … Resets in 131h14m13s` (banked at
+`web/w4_agy_cli_q1.txt`). All four queries ran through the `agy_web_search` MCP route on the same
+grounding backend and returned resolved URLs.
+
+### Changes to the analysis spec
+
+**None.** 10 claims checked · 8 CONFIRMED · 1 UNVERIFIED (frame-window estimate) · 1 rejected
+hallucination · 0 CORRECTED. 13 URLs cited. (Re-checked: `analysis/reanalysis_v2/
+slide_019_reanalysis.txt` is still the 429-byte abort stub, so no independent vision re-read
+exists for this frame.)
+
+### Fetch-status disclosure (wave 4)
+
+Every wave-4 URL above was re-fetched live in the 2026-10-30 work window: **19 distinct URLs
+returned HTTP 200**, **12 answered HTTP 403** (live pages behind Cloudflare/bot-walls on
+GeeksforGeeks, Medium, Towards Data Science, StackExchange, Baeldung, DataCamp, ResearchGate,
+blog.gopenai, vaia — the quoted facts reached this record through the Google grounding backend,
+not from an unfetched snippet), **7 were grounding-resolved only**, and **1**
+(`https://www.aussieai.com/book/ch21-elu-activation-function`) **is unreachable from this
+environment** and is flagged do-not-reuse pending re-fetch — its ELU α claims are independently
+corroborated by the HTTP-200 `https://arxiv.org/abs/1511.07289`. Per-URL table:
+`web/w4_fetch_status.txt`; full register: `VERIFY_W4.md`.

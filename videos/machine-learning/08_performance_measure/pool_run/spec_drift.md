@@ -21,6 +21,57 @@ A MATERIAL delta is text or a table/chart data value present in the reanalysis b
 - **Reanalysis (original frame)**: (Any value) → (-1, +1)
 - **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
 
+### Slide 009 — `verbatim_text.labels`
+
+- **Reanalysis (original frame)**: Classified as +ve
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 009 — `verbatim_text.labels`
+
+- **Reanalysis (original frame)**: Classified as +ve
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 009 — `visual_elements[table].data`
+
+- **Reanalysis (original frame)**: 90
+- **Consumed spec**: Symbolic 2x2 confusion matrix inside a blue rectangular frame. Red bold header 'Predicted as' centered above the two columns; column headers 'P' and 'N' in black; vertical red bold 'Actual' label rotated 90 degrees along the left edge; row headers 'P' and 'N' in black. Cells separated by thin red gr
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 011 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Recall = \frac{TP}{TP + FN}
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 011 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Recall= \frac{28}{28+2} = 93.3\%
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 012 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Recall = \frac{TP}{TP + FN}
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 013 — `verbatim_text.bullets`
+
+- **Reanalysis (original frame)**: Average= 68.7%+60% =65.55%
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 013 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Precision = \frac{TP}{TP + FP}
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 013 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Recall = \frac{TP}{TP + FN}
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 013 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: Average= 68.7%+60% =65.55%
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
 ### Slide 015 — `visual_elements[graph].data`
 
 - **Reanalysis (original frame)**: -6
@@ -190,6 +241,27 @@ A MATERIAL delta is text or a table/chart data value present in the reanalysis b
 - **Reanalysis (original frame)**: FPR = FP/(FP+TN)
 - **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
 
+### Slide 036 — `verbatim_text.labels`
+
+- **Reanalysis (original frame)**: 1.0
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 036 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: TPR = TP/(TP+FN)
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 036 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: FPR = FP/(FP+TN)
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 036 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.8
+- **Consumed spec**: ROC line chart (scatter-with-lines). X axis 'FPR' 0 to 1 (red label, bottom), Y axis 'TPR' 0 to 1 (red label, left). Light-blue gridlines on white. Single purple line with circular markers through points (FPR,TPR): (0,0) labeled '1.0'; (0,0.6) labeled '0.7'; (0.16,0.6) labeled '0.6'; (0.16,0.8) labe
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
 ### Slide 037 — `verbatim_text.labels`
 
 - **Reanalysis (original frame)**: the Curve)
@@ -198,7 +270,13 @@ A MATERIAL delta is text or a table/chart data value present in the reanalysis b
 ## Not compared
 
 - Slide 004: SKIP — verbatim_text.* no consumed final spec
+- Slide 007: SKIP — verbatim_text.* no consumed final spec
+- Slide 008: SKIP — verbatim_text.* no consumed final spec
+- Slide 010: SKIP — verbatim_text.* no consumed final spec
 - Slide 014: SKIP — verbatim_text.* no consumed final spec
 - Slide 016: SKIP — verbatim_text.* no consumed final spec
+- Slide 022: SKIP — verbatim_text.* no consumed final spec
+- Slide 023: SKIP — verbatim_text.* no consumed final spec
+- Slide 024: SKIP — verbatim_text.* no consumed final spec
 - Slide 035: SKIP — verbatim_text.* no consumed final spec
 

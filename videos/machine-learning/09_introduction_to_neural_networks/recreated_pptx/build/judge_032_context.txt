@@ -1,0 +1,39 @@
+PER-SLIDE CONTEXT — slide 032 (badge numeral 32), single-read certificate.
+
+GROUND TRUTH from `analysis/slide_032_final.json` (validate_slides verdict PASS_WITH_FIXES, recreatability 9/10):
+
+IMAGE 2 = ORIGINAL frame `unique_slides/slide_032.jpg` (960x540). It is a text-only lecture slide, no
+equation / graph / table / photo content of any kind.
+
+VERBATIM TEXT that must appear in IMAGE 1:
+- Title (red #C00000, bold, large, two lines, centered): "How to Update Weights in order to"
+  then "minimize Error ?"  — note the space before the "?" is part of the verbatim text.
+- Body (black #000000, medium, centered, two lines): "Move in the opposite direction of the gradients"
+  then "Of the whole NN"
+- Blue label (#0000FF, medium-large, centered): "(Back Propagation Algorithm)"
+- Slide-number badge numeral: 32
+
+EXPECTED ELEMENTS / LAYOUT (top to bottom):
+1. House chrome (overridden by house rule — never raise as a defect): solid #E8E8E8 background; outer
+   red rectangle outline x0.15 y0.15 w13.03 h7.2 line #C00000 1.5pt, no fill; yellow slide-number
+   circle x12.48 y0.30 w0.5 h0.5 fill #FFF9C4 with bold centered "32" in #333333; title text box
+   x0.6 y0.28 w12.13 horizontally centered.
+2. Title band red on light gray, roughly y 0.28-1.5in (10-25% of frame height), two centered lines.
+3. Main body, two centered black lines in the 35-55% vertical band.
+4. Blue parenthetical line below it, roughly the 58-65% vertical band, centered.
+5. A solid black horizontal bar spanning the FULL slide width at the very bottom edge of the frame
+   (visible in the original as a video-player overlay strip).
+
+COLORS (approx): background #F2F2F2 original (recreation uses house #E8E8E8 — overridden by house rule),
+title and border #C00000, body #000000, badge fill yellow, algorithm line #0000FF, bottom bar #000000.
+
+KNOWN ARTIFACTS IN IMAGE 2 that must NOT be treated as discrepancies:
+- A mouse-pointer / cursor artifact sits just above the black text block near the vertical center of
+  the original frame — a video-capture artifact, correctly omitted from the recreation.
+- The original is a video frame at 960x540 with slight JPEG softness; the recreation is a crisp
+  LibreOffice render at 150dpi. Sharpness/texture differences are medium artifacts, not defects.
+
+VERDICT BASELINE: the recreation should reproduce title text (verbatim, both lines), both body lines,
+the blue algorithm line, the badge, the red border, and the bottom black bar, in the original's
+vertical order and horizontal centering. This slide is intentionally sparse: comparing it against the
+original should show a near-identical text frame.

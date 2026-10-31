@@ -21,8 +21,8 @@
   "parse_calls_spent": 5,
   "crops_spent": 4,
   "degraded": {
-    "chat": true,
-    "reason": "chat probe failed \u2014 decisions use the deterministic-conservative fallback"
+    "chat": false,
+    "reason": ""
   },
   "root": {
     "id": "root",
@@ -52,7 +52,7 @@
       0
     ],
     "stop_reason": null,
-    "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+    "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
     "decision_source": "fallback",
     "children": [
       "slide_029.crop01__table"
@@ -98,7 +98,7 @@
         19
       ],
       "stop_reason": null,
-      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
       "decision_source": "fallback",
       "children": [
         "slide_029.crop02__picture"
@@ -143,7 +143,7 @@
         34
       ],
       "stop_reason": null,
-      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
+      "stop_note": "chat call failed: chat: giving up after 4 attempts \u2014 last failure: TimeoutError: timed out \u2014 conservative CROP fallback",
       "decision_source": "fallback",
       "children": [
         "slide_029.crop03__picture"
@@ -188,8 +188,8 @@
         34
       ],
       "stop_reason": null,
-      "stop_note": "chat lane unavailable \u2014 conservative CROP fallback",
-      "decision_source": "fallback",
+      "stop_note": "chat advised CROP: The Picture candidate is a sparse chart block, and the child adds labels/structure such as \u201cPredicted as P N\u201d and \u201cFP TN\u201d that the parent lacked or garbled.",
+      "decision_source": "chat",
       "children": [
         "slide_029.crop04__picture"
       ],
@@ -246,246 +246,6 @@
       },
       "trigger": "slide_029.crop03__picture",
       "error": null
-    },
-    {
-      "id": "supp.lbot",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        30,
-        345,
-        570,
-        175
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.lbot.png",
-      "parse_files": {
-        "md": "crops_supp/lbot/slide029.lbot.parse.md",
-        "json": "crops_supp/lbot/slide029.lbot.parse.json"
-      },
-      "scale": 2.9192982456140353,
-      "size_px": [
-        1664,
-        1532
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": "supplemental region leg",
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          30,
-          345
-        ],
-        "scale": 2.9192982456140353,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": null
-    },
-    {
-      "id": "supp.lmid",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        30,
-        190,
-        570,
-        175
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.lmid.png",
-      "parse_files": {
-        "md": "crops_supp/lmid/slide029.lmid.parse.md",
-        "json": "crops_supp/lmid/slide029.lmid.parse.json"
-      },
-      "scale": 2.9192982456140353,
-      "size_px": [
-        1664,
-        1532
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": null,
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          30,
-          190
-        ],
-        "scale": 2.9192982456140353,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": "finish_reason=length \u2014 repetition loop to the token ceiling (9000 out tokens)"
-    },
-    {
-      "id": "supp.ltop",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        30,
-        35,
-        570,
-        170
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.ltop.png",
-      "parse_files": {
-        "md": "crops_supp/ltop/slide029.ltop.parse.md",
-        "json": "crops_supp/ltop/slide029.ltop.parse.json"
-      },
-      "scale": 2.9192982456140353,
-      "size_px": [
-        1664,
-        1488
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": "supplemental region leg",
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          30,
-          35
-        ],
-        "scale": 2.9192982456140353,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": null
-    },
-    {
-      "id": "supp.mid_a",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        30,
-        190,
-        310,
-        175
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.mid_a.png",
-      "parse_files": {
-        "md": "crops_supp/mid_a/slide029.mid_a.parse.md",
-        "json": "crops_supp/mid_a/slide029.mid_a.parse.json"
-      },
-      "scale": 4.0,
-      "size_px": [
-        1240,
-        2048
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": "supplemental region leg",
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          30,
-          190
-        ],
-        "scale": 4.0,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": null
-    },
-    {
-      "id": "supp.mid_b",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        300,
-        190,
-        300,
-        175
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.mid_b.png",
-      "parse_files": {
-        "md": "crops_supp/mid_b/slide029.mid_b.parse.md",
-        "json": "crops_supp/mid_b/slide029.mid_b.parse.json"
-      },
-      "scale": 4.0,
-      "size_px": [
-        1200,
-        2048
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": null,
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          300,
-          190
-        ],
-        "scale": 4.0,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": "finish_reason=length \u2014 repetition loop to the token ceiling (9000 out tokens)"
-    },
-    {
-      "id": "supp.rcol",
-      "level": 1,
-      "class": "supplemental_region",
-      "box_frame_px": [
-        555,
-        35,
-        390,
-        485
-      ],
-      "estimated": false,
-      "png": "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/pool_run/docparse/slide029/crops_supp/slide029.rcol.png",
-      "parse_files": {
-        "md": "crops_supp/rcol/slide029.rcol.parse.md",
-        "json": "crops_supp/rcol/slide029.rcol.parse.json"
-      },
-      "scale": 3.0,
-      "size_px": [
-        1170,
-        2048
-      ],
-      "margin_applied": [
-        0,
-        0
-      ],
-      "stop_reason": "supplemental region leg",
-      "stop_note": "anchor-targeted re-cut outside the automated cascade's frame-covering crop set",
-      "decision_source": "supplemental",
-      "children": [],
-      "transform": {
-        "origin_px": [
-          555,
-          35
-        ],
-        "scale": 3.0,
-        "rule": "frame = png_px / scale + origin_px (scale cumulative png-per-source px; origin = png top-left in source px)"
-      },
-      "trigger": "supplemental region leg",
-      "error": null
     }
   ],
   "recursion": {
@@ -494,14 +254,9 @@
   },
   "stats": {
     "parse_calls": 5,
-    "chat_calls": 0,
-    "retries": 0,
+    "chat_calls": 4,
+    "retries": 3,
     "dedup_collapsed": 1,
-    "elements": 10,
-    "supplement_nodes": 6
-  },
-  "supplement_leg": {
-    "reason": "anchor-targeted region re-cut outside the automated cascade's frame-covering crop set",
-    "nodes_added": 6
+    "elements": 4
   }
 }

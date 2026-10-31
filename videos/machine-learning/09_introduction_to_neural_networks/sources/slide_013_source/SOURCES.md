@@ -129,3 +129,59 @@ Google-grounding endpoint (CLI individual quota hit 429 mid-run; same agy servic
 ### Verdict
 No content corrections needed: title, truth table, caption, and schematic semantics all match
 web-verified facts. House frame rule still overrides frame/badge/title-y for the build.
+
+---
+
+## Verified 2026-10-31 (wave-4 source audit, scope src_w4_013_016)
+
+Method: `agy` CLI individual quota was exhausted (HTTP 429, resets in ~131 h — recorded
+honestly; no agy CLI queries were spent this run). All searches below ran through the agy
+MCP Google-grounding endpoint (same agy service, file token), 9 queries total across the
+scope. Every URL cited was re-fetched live this window before earning CONFIRMED status.
+
+Evidence reads cross-checked:
+- `analysis/slide_013_final.json` (vision analysis; validation verdict PASS_WITH_FIXES).
+- `sources/docparse_cascades/slide_013/composed/slide_013_composed.md` (independent
+  nemotron-parse read — truth table identical to the vision read: X1|X2|O/P with rows
+  00→0, 01→1, 10→1, 11→0, plus "Not Linearly Separable" footer). Corroborates C1–C2.
+
+### Claims on this slide vs sources
+
+1. **XOR truth-table values** (frame: 00→0, 01→1, 10→1, 11→0) — CONFIRMED.
+   Quoted: "When exactly one of these binary values is equal to 1, the XOR function returns
+   1. Otherwise, it returns 0."
+   - https://www.deeplearningbook.org/contents/mlp.html (Goodfellow/Bengio/Courville,
+     Deep Learning, §6.1 "Learning XOR") — fetched live 2026-10-31.
+   - https://bnaskrecki.faculty.wmi.amu.edu.pl/nnets/_build/html/part3_limitations/ch08_xor_problem.html
+     (§1 "XOR Definition", truth table 0 0→0 / 0 1→1 / 1 0→1 / 1 1→0) — fetched live 2026-10-31.
+2. **"Not Linearly Separable"** (the slide's caption) — CONFIRMED, with the same
+   four-inequality impossibility proof the earlier waves cited, now verified verbatim.
+   Quoted: "no such w₁, w₂, b exist" after the constraints "b < 0", "w₂ + b ≥ 0",
+   "w₁ + b ≥ 0", "w₁ + w₂ + b < 0" are combined; plus the convex-hull proof:
+   "conv(C₀) ∩ conv(C₁) = {(0.5, 0.5)} ≠ ∅, the XOR dataset is not linearly separable".
+   - https://bnaskrecki.faculty.wmi.amu.edu.pl/nnets/_build/html/part3_limitations/ch08_xor_problem.html
+   - https://www.educative.io/answers/xor-problem-in-neural-network (agy MCP grounding result)
+3. **Scatter-plot class layout** (class 0 on the diagonal {(0,0),(1,1)}, class 1 on the
+   anti-diagonal {(0,1),(1,0)}) — CONFIRMED.
+   Quoted: "conv(C₀) = {(t, t) : t ∈ [0,1]}", "conv(C₁) = {(1−s, s) : s ∈ [0,1]}";
+   "Class 0: XOR=0" = blue circles at (0,0),(1,1), "Class 1: XOR=1" at (0,1),(1,0).
+   - https://bnaskrecki.faculty.wmi.amu.edu.pl/nnets/_build/html/part3_limitations/ch08_xor_problem.html
+4. **Single-perceptron schematic semantics** (inputs x₁, x₂, 1 with unknown weights → Σ →
+   step function → O/P; one straight boundary w₁x₁ + w₂x₂ + b = 0) — CONFIRMED.
+   Quoted: perceptron computes z = w·x + b then "a step/activation function" (Rosenblatt's
+   Heaviside); "the equation w₁x₁ + w₂x₂ + b = 0 represents a straight line (in 2D)".
+   - https://www.statworx.com/en/content-hub/blog/the-rosenblatt-perceptron-the-early-beginnings-of-deep-learning (agy MCP grounding result)
+   - https://en.wikipedia.org/wiki/Perceptron (agy MCP grounding result)
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-1-neural-network-foundations/perceptron-limitations (agy MCP grounding result)
+5. **Historical anchor: Minsky & Papert, *Perceptrons* (1969) — XOR was the impossibility
+   result that triggered the first AI winter** — CONFIRMED.
+   Quoted: "The crux of Perceptrons is a number of mathematical proofs … The most important
+   one is related to the computation of some predicates, such as the XOR function" and
+   "Marvin Minsky and Seymour Papert and published in 1969".
+   - https://en.wikipedia.org/wiki/Perceptrons_(book) — fetched live 2026-10-31.
+
+### Corrections
+None. Every data claim on this slide matches the sources; the doc-parse composed read
+corroborates the truth table and footer independently. The `[?]` items from the vision
+analysis (handwritten scatter annotation, badge-circle yellow hex, `?` weight glyphs) are
+layout/pixel facts, not source-verifiable claims — unchanged.

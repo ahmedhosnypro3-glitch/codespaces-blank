@@ -96,3 +96,71 @@ recreation must keep the red "Sum 1/2/3" labels, the blue italic "Still Linear E
 annotation, the numbered stage circles 1/2/3, and the cream inset showing the equivalent
 single perceptron. Equation text must be rendered in Professional 2D format per the house
 math rule.
+
+---
+
+## Verified 2026-10-31 (wave-4 source audit, scope src_w4_013_016)
+
+Method: `agy` CLI individual quota exhausted (HTTP 429 — recorded honestly; 0 CLI queries
+spent). All searches ran through the agy MCP Google-grounding endpoint; every cited URL was
+re-fetched live in this window.
+
+Evidence reads cross-checked, plus a **pixel adjudication** the earlier waves left open:
+- `analysis/slide_014_final.json` (PASS_WITH_FIXES) — equation list.
+- `sources/docparse_cascades/slide_014/composed/slide_014_composed.md` (crop03 read of the
+  equation panel).
+- `unique_slides/slide_014.jpg`, equation panel cropped at 2× (`scratch/w4_crops/014_eqpanel.png`)
+  and read directly — resolves the wave-3 `[?]` about the x₂ coefficient.
+
+### Printed equation lines (pixel-verified, verbatim)
+
+```
+Sum 1 = W₁₁ x₁ + W₁₂ x₂                                        Sum 2 = W₂₁ x₁ + W₂₂ x₂
+Sum 3 = (W₁₁ x₁ + W₁₂ x₂) w₃₁ + (W₂₁ x₁ + W₂₂ x₂) w₃₂
+      = (W₁₁ w₃₁ + W₂₁ w₃₂) x₁ + (W₂₁ w₃₁ + W₂₂ w₃₂) x₂
+      = W'₁ x₁ + W'₂ x₂        ⇒   Still Linear Equation
+```
+
+### Claims vs sources
+
+1. **"Sum 1 / Sum 2" are plain weighted sums; z = Wx form** — CONFIRMED (standard
+   dest-first indexing, z_i = Σ_j W_ij x_j).
+   - https://medium.com/data-science/neural-networks-i-notation-and-building-blocks-817b1d2ea04b (agy MCP grounding result)
+   - https://orbit.dtu.dk/files/131600547/Matrix_representation_of_a_Neural_Network.pdf (agy MCP grounding result)
+2. **The punchline: two linear layers collapse to one linear layer** — CONFIRMED.
+   Quoted (verbatim, fetched live): "Linear operations performed on linear operations are
+   still linear." and "the sigmoid serves as an activation function … a nonlinear transform".
+   - https://developers.google.com/machine-learning/crash-course/neural-networks/activation-functions — fetched live 2026-10-31.
+   Quoted (verbatim, fetched live): "Unfortunately, if f⁽¹⁾ were linear, then the feedforward
+   network as a whole would remain a linear function of its input … We could represent this
+   function as f(x) = xᵀw′ where w′ = Ww."
+   - https://www.deeplearningbook.org/contents/mlp.html (§6.1) — fetched live 2026-10-31.
+3. **Weight-index convention W_ij = "to i, from j"** — CONFIRMED for the slide's convention
+   (W₁₁/W₁₂/W₂₁/W₂₂ destination-first; w₃₁/w₃₂ hidden→output), noting the reverse convention
+   also exists in the literature (the slide is self-consistent).
+   - https://medium.com/data-science/neural-networks-i-notation-and-building-blocks-817b1d2ea04b
+   - https://orbit.dtu.dk/files/131600547/Matrix_representation_of_a_Neural_Network.pdf
+4. **Step semantics ">0 ⇒ 1 / ≤0 ⇒ 0"** — CONFIRMED (weighted sum + Heaviside threshold).
+   - https://www.statworx.com/en/content-hub/blog/the-rosenblatt-perceptron-the-early-beginnings-of-deep-learning (agy MCP grounding result)
+   - https://developers.google.com/machine-learning/crash-course/neural-networks/activation-functions (fetched live)
+
+### CORRECTED — analysis spec is not verbatim to the frame (x₂ coefficient)
+
+The printed x₂ coefficient is **`W₂₁ w₃₁ + W₂₂ w₃₂`** (pixel-verified: the second glyph pair
+in that term is subscript "21", matching the doc-parse crop03 read). Mathematically this is a
+slip in the slide — grouping the x₂ terms of the two hidden units gives
+`W₁₂ w₃₁ + W₂₂ w₃₂` (W₁₂ is the x₂ weight into neuron 1) — but the frame is ground truth for
+recreation.
+
+`analysis/slide_014_final.json` records the line as
+`= (W11 w31 + W21 w32)x1 + (W12 w31 + W22 w32)x2` — i.e. the transcription silently replaced
+the printed `W₂₁` with the algebraically correct `W₁₂`. That violates the verbatim-frame law
+for transcribed text. **Recommendation for the builder/validation owner (outside this scope's
+write boundary): reproduce the printed `W₂₁ w₃₁ + W₂₂ w₃₂` verbatim, and patch the analysis
+equation string to the printed form.** This supersedes the wave-3 `[?]`, which guessed the
+frame might read W₁₂ — the pixels show it does not.
+
+### Corrections
+- Frame-vs-spec: x₂ coefficient `W₂₁ w₃₁ + W₂₂ w₃₂` (printed) ≠ `W₁₂ w₃₁ + W₂₂ w₃₂` (analysis
+  spec). No other claim on the slide needs correction; the four equations, the collapse
+  punchline, and the equivalent-single-perceptron inset are all confirmed.

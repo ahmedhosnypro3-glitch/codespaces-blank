@@ -199,8 +199,8 @@ text(664, 222, 22, 14, "0.6", 12, INK, true, { align: "center", valign: "middle"
 
 // --- bottom-right stacked-fraction equations (600dpi PNG, exact size) ---
 const ASSETS = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets";
-s.addImage({ path: ASSETS + "/eq_033_tpr.png", x: P(650), y: P(416), w: 2.59833, h: 0.56333 });
-s.addImage({ path: ASSETS + "/eq_033_fpr.png", x: P(651), y: P(465), w: 2.59167, h: 0.56333 });
+s.addImage({ path: ASSETS + "/eq_033_tpr.png", x: P(650), y: P(424), w: 1.47333, h: 0.33 });
+s.addImage({ path: ASSETS + "/eq_033_fpr.png", x: P(651), y: P(473), w: 1.46833, h: 0.33 });
 
 // --- legend matrix: x 771..886, y 438..499 (cols 771/803/844/886, rows 438/457/478/499) ---
 text(803, 428, 83, 10, "Predicted as", 10, INK, false, { align: "center", valign: "middle" });
@@ -219,8 +219,8 @@ rect(lc[0], lr[1], lc[1] - lc[0], lr[2] - lr[1], PINK, INK, 1);
 rect(lc[0], lr[2], lc[1] - lc[0], ly1 - lr[2], PINK, INK, 1);
 text(lc[0], lr[1], lc[1] - lc[0], lr[2] - lr[1], "P", 11, INK, true, { align: "center", valign: "middle" });
 text(lc[0], lr[2], lc[1] - lc[0], ly1 - lr[2], "N", 11, INK, true, { align: "center", valign: "middle" });
-// Actual rotated left of legend
-text(757, lr[1], 12, ly1 - lr[1], "Actual", 10, INK, false, { align: "center", valign: "middle", rotate: 270 });
+// Actual rotated left of legend (original: x747-767)
+text(756, lr[1], 12, ly1 - lr[1], "Actual", 10, INK, false, { align: "center", valign: "middle", rotate: 270 });
 // cells: TP green, TN green, FN/FP plain
 rect(lc[1], lr[1], lc[2] - lc[1], lr[2] - lr[1], GREEN, INK, 1);
 rect(lc[2], lr[2], lx1 - lc[2], ly1 - lr[2], GREEN, INK, 1);

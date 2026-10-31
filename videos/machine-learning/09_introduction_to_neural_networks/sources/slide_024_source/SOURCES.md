@@ -67,3 +67,97 @@ tool — none invented. Raw log: `wave3_agy/search_log.md`.
 3. **The "Remember" box `d/dx (1/x) = -1/x^2` (power rule on x^-1)** — CONFIRMED.
    - https://brilliant.org/wiki/power-rule/
    - https://iacedcalculus.com/power-rule-proof/
+
+
+---
+
+## Verified 2026-10-30 (wave 4, fresh worker `w4-src-021`, scope `src_w4_021_024`)
+
+Mandated by `videos/machine-learning/09_introduction_to_neural_networks/AGENTS.md` rule 5.
+Method: `agy -p` CLI attempted first and returned HTTP 429 `RESOURCE_EXHAUSTED`
+("Individual quota reached … Resets in 131h18m6s"); searches therefore ran through the
+**agy MCP web-search tool** (same Google-grounding backend, grounding redirect URLs resolved
+to real page URLs). Every URL below was returned by that tool — none invented. Content
+evidence: `analysis/slide_024_final.json` and
+`sources/docparse_cascades/slide_024/composed/slide_024_composed.md` (independent second read,
+4 dedicated formula crops).
+Full claim register: `VERIFY_W4.md` in this directory.
+
+### Claim-by-claim verification
+
+1. **Sigmoid definition `f(x) = Sigmoid(x) = 1/(1+e^{-x})`, written as `(1+e^{-x})^{-1}` so the
+   chain rule applies** — CONFIRMED.
+   - Question: *Is the sigmoid definition as printed, and is the negative-exponent form the
+     chain-route first step?*
+   - Answer: Yes — `f(x) = 1/(1+e^{-x})`; rewriting as `(1+e^{-x})^{-1}` is the standard
+     chain-rule route.
+   - https://builtin.com/articles/derivative-of-sigmoid-function
+
+2. **First derivation step `f'(x) = e^{-x}/(1+e^{-x})^2`** (chain rule on u⁻¹, u = 1+e^{-x};
+   minus one × minus one) — CONFIRMED.
+   - Question: *What is the first chain-rule result for the sigmoid derivative?*
+   - Answer: `f'(x) = e^{-x}/(1+e^{-x})^2`.
+   - https://builtin.com/articles/derivative-of-sigmoid-function
+   - https://courses.csail.mit.edu/6.034f/ai3/netmath.pdf
+
+3. **The add/subtract-one manipulation the slide performs through its intermediate boxes —
+   `e^{-x} = (1+e^{-x}) − 1`, split as `1/(1+e^{-x}) × (1+e^{-x}−1)/(1+e^{-x})`, then
+   `(1+e^{-x})/(1+e^{-x}) − 1/(1+e^{-x}) = 1 − f(x)`, arriving at
+   `f'(x) = f(x)(1 − f(x))`** — CONFIRMED. Every intermediate box on the slide is a step of
+   this canonical derivation.
+   - Question: *Does a derivation that adds and subtracts 1 in the numerator reach
+     `f(x)(1 − f(x))`, and is that the standard presentation?*
+   - Answer: Yes — that "clever algebraic manipulation" is a standard route to the compact
+     form.
+   - https://builtin.com/articles/derivative-of-sigmoid-function
+   - https://www.gyansetu.in/machine-learning/sigmoid-function/
+
+4. **"Sigmoid (aka Logistic function) … squashing function used to convert an unbounded values
+   to a bounded probabilistic space (from 0 to 1)"** — CONFIRMED, including the implied
+   σ(0) = 0.5.
+   - Question: *Is the sigmoid a logistic squashing function mapping unbounded inputs into
+     (0,1) with a probability reading, and what is its value at 0?*
+   - Answer: Yes — output range (0,1); `σ(0) = 1/2 = 0.5`; outputs represent probabilities in
+     binary classification.
+   - https://developers.google.com/machine-learning/crash-course/logistic-regression/sigmoid-function
+   - https://www.geeksforgeeks.org/machine-learning/derivative-of-the-sigmoid-function/
+
+5. **The "Remember" box `∂/∂x (1/x) = −1/x²`** (power rule on x⁻¹) — CONFIRMED.
+   - Question: *Is ∂/∂x(1/x) = −1/x², and is it just the power rule?*
+   - Answer: Yes — rewrite 1/x as x⁻¹, apply `d/dx(x^n) = n·x^(n−1)` with n = −1, convert
+     back → −1/x².
+   - https://en.wikipedia.org/wiki/Power_rule
+   - https://www.mathsisfun.com/calculus/derivatives-rules.html
+
+### Doc-parse cross-check (independent second read)
+
+`sources/docparse_cascades/slide_024/composed/slide_024_composed.md` (14 elements, 4 formula
+crops, 0 failed calls) agrees with the vision spec step by step:
+- crop01 `f(x)= Sigmoid (x) = 1 /(1+e−x)` → claim 1
+- crop02 `f '(x)= e^{-x} /((1+e^{-x})(1+e^{-x})) = 1*(1+ e^{-x} -1) /((1+e^{-x})(1+e^{-x}))`
+  → **the slide's add/subtract-one manipulation, read independently** → claim 3
+- crop03 `f '(x)= 1/(1+e^{-x}) ( (1+e^{-x}-1)/(1+e^{-x}) )` and
+  `= 1/(1+e^{-x}) ( (1+e^{-x})/(1+e^{-x}) · -1/(1+e^{-x}) )` → claims 2–3
+- crop04 `f '(x)= 1/(1+e^{-x}) (1 - 1/(1+e^{-x}))` plus `⇒ f '(x)= f(x) [1−f(x)]` → claim 3's result
+- `Remember: ∂/∂x (1/x) = −1/x²` (with `x<sup>2</sup>`) → claim 5
+- `Sigmoid (aka Logistic function)` + `It is a **squashing** function used to convert an
+  unbounded values to a bounded **probabilistic** space (from 0 to 1)` → claim 4, including
+  the word-level emphasis the recreation must carry.
+
+### Uncertain items carried forward — unchanged
+
+- The `| … |` delimiters in derivation boxes 4–6 ("absolute value-style") may actually be
+  large parentheses/brackets in the original; kept verbatim.
+- Red `#c0392b` inside the peach boxes: whether it is text color or a box border is
+  unverifiable without the image.
+- Whether the final red `⇒` is a drawn arrow shape or a text glyph is unverifiable.
+- Equation 5's `-1/(1+e^{-x})` may originally read `− 1/(1+e^{-x})`; kept verbatim.
+- Exact pixel coordinates / box dimensions are not in the source; positions are relative.
+
+### Corrections
+
+**None.** All 5 data claims in `analysis/slide_024_final.json` stand as written; 0 changes.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

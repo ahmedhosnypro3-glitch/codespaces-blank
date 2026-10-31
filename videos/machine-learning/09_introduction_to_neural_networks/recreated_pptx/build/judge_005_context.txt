@@ -1,0 +1,59 @@
+PER-SLIDE CONTEXT — slide 005, 09_introduction_to_neural_networks
+(ORIGINAL IMAGE = Image 2; RECREATION RENDER = Image 1)
+
+SOURCE OF TRUTH: analysis/slide_005_final.json (validated by validate_slides) cross-checked
+against the fresh paid re-analysis analysis/reanalysis_v2/slide_005_reanalysis.txt.
+Text content of both reads is IDENTICAL — no content mismatch. Only color-assignment
+notes differ (re-analysis describes the diagram x/w labels and O/P and the decision-rule
+operators as blue/red inks; the certified build renders them black) — treat those as
+findings for this judge to weigh, not as pre-agreed truth.
+
+VERBATIM TEXT (exact, nothing else may appear as content):
+- Title: "Visualization of Single Perceptron" (red, bold, centered top)
+- Badge: "5" (top-right yellow circle — HOUSE RULE, not a discrepancy)
+- Left panel: column vectors "X = [x1; x2; ...; xn]" and (after a rightward arrow)
+  "X = [1; x1; x2; ...; xn]", captioned "Augmented Vector" (blue italic)
+- Right panel: "W = [b; w1; w2; ...; wn]", captioned "Model Weights" (blue italic)
+- Middle banner equation (single line, left-aligned):
+  "d(X) = W^T X = w1x1 + w2x2 + ...... + wnxn + b*1"
+- Middle banner right side, three stacked rules grouped by a tall curly brace:
+  ">0 => Class I" / "<0 => Class II" / "=0 => Undefined Class"
+- Bottom diagram labels: x1, x2, x3, ..., xn (input column); w1, w2, w3, ..., wn (weight
+  column); 1 (bias input, lowest row); b (bias weight, lowest row); summation circle "Σ";
+  step-function rectangle; output arrow label "O/P"
+- Bottom-right beige caption box: "Binary Classification (2 Classes)"
+
+EXPECTED LAYOUT REGIONS (percent of the 13.33x7.5in canvas):
+- Title row y 0.03-0.12; badge top-right (house rule position)
+- Top-left bordered box x 9-42%, y 13-45%: two column vectors + arrow + caption
+- Top-right bordered box x 46-80%, y 13-45%: W column vector + caption
+- Middle wide bordered box x 9-80%, y 48-62%: equation left, brace + 3 rules right
+- Bottom-left bordered box x 24-64%, y 64-94%: the perceptron schematic diagram
+- Bottom-right beige box x 66-85%, y 74-82%: the caption text
+
+EXPECTED DIAGRAM (bottom panel, left to right):
+input column (x1,x2,x3,...,xn, then red 1) ; weight column aligned row-by-row
+(w1,w2,w3,...,wn, then red b) ; 6 thin connector lines from each input/weight pair
+fanning into a light-blue circle holding a black "Σ"; black arrow to a pink
+step-function rectangle (Heaviside staircase glyph); black arrow to "O/P".
+
+EXPECTED COLORS: title and all inner panel borders #C00000; body/equations/variable text
+black; captions "Augmented Vector", "Model Weights" blue #0000FF italic; decision-rule
+comparison operators red, class names blue (re-analysis); diagram ink mostly blue per the
+re-analysis read; beige caption box #E8E0C8; light-blue Σ circle #ADD8E6; pink
+step-function rectangle #FFB6C1; slide background light gray; badge yellow.
+
+EQUATION FORMAT GROUND RULE: the d(X) equation is rendered in linear/typed notation in
+BOTH the recreation and the original — per ground rule (e) that is acceptable and NOT a
+discrepancy. The column vectors use Unicode stacked subscripts (x1..xn), matching the
+original's bracket notation.
+
+GENERATED-GRAPH NOTE: the bottom perceptron schematic is a matplotlib-generated image
+(slide_005_graph.png, 600dpi-style asset) embedded by the build — the recreation's job is
+to reproduce the original's schematic accurately (inputs, weights, connector lines, Σ
+circle, step-function box, O/P). Judge the diagram on shape/position/label fidelity, not
+on pixel-identical rendering of a hand-drawn figure.
+
+KNOWN NON-CONTENT HOUSE ITEMS (do not report): background gray vs original cream, the
+house red frame/badge/title-y, and the fact that the recreation's panels are white while
+the original's panels are cream.

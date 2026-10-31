@@ -1,21 +1,29 @@
+// Slide 001 attempt 2: fixes vs slide_001.js (attempt 1)
+//  - add missing SERIF binding (attempt 1 crashes: ReferenceError: SERIF is not defined)
+//  - logo: embed exact crop of the original lockup at measured position
+//    original frame 960x540, crop (588,436)-(840,513) -> 252x77 px
+//    inches: x=588/960*13.33, y=436/540*7.5, w=252/960*13.33, h=77/540*7.5
 const pptxgen = require("pptxgenjs");
-const fs = require("fs");
 
 const FONT = "Arial";
+const SERIF = "Times New Roman";
 const NUM = 1;
 const TITLE = "Neural Network";
 const SUBTITLE = "Back Propagation Training Algorithm";
 
-const BG = "E8E8E8";              // House background
-const TITLE_COLOR = "D32F2F";     // Red from spec
-const SUBTITLE_COLOR = "D32F2F";  // Red from spec
-const COURSE_COLOR = "1565C0";    // Blue from spec
-const BODY_COLOR = "1565C0";      // Blue from spec
-const LABEL_COLOR = "D32F2F";     // Red for labels
-const FRAME_COLOR = "C00000";     // House red frame
-const BADGE_FILL = "FFF9C4";      // House badge
-const BADGE_LINE = "FFF9C4";      // House badge line
-const BADGE_TEXT = "333333";      // House badge text
+const BG = "E8E8E8";
+const TITLE_COLOR = "D32F2F";
+const SUBTITLE_COLOR = "D32F2F";
+const COURSE_COLOR = "1565C0";
+const BODY_COLOR = "1565C0";
+const LABEL_COLOR = "D32F2F";
+const FRAME_COLOR = "C00000";
+const BADGE_FILL = "FFF9C4";
+const BADGE_LINE = "FFF9C4";
+const BADGE_TEXT = "333333";
+
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example";
+const OUT = process.argv[2] || (NS + "/recreated_pptx/build/slide_001_recreated.pptx");
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -37,13 +45,11 @@ s.addText(String(NUM), {
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: BADGE_TEXT, fontFace: FONT, margin: 0,
 });
-// Title box at house position
 s.addText(TITLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
   fontSize: 44, bold: true, color: TITLE_COLOR, fontFace: SERIF, margin: 0,
 });
-// Subtitle below title
 s.addText(SUBTITLE, {
   x: 0.6, y: 0.85, w: 12.13, h: 0.65,
   align: "center", valign: "top",
@@ -58,31 +64,27 @@ s.addText("CSAI 253 - Spring 2024", {
 });
 
 // ========== PREPARED BY BLOCK (centered, 3 lines) ==========
-// "Prepared By" - red italic serif
 s.addText("Prepared By", {
   x: 0.6, y: 2.50, w: 12.13, h: 0.4,
   align: "center", valign: "top",
   fontSize: 22, italic: true, color: LABEL_COLOR, fontFace: SERIF, margin: 0,
 });
-// Author name - blue bold serif
 s.addText("Dr. Khaled Mostafa ElSayed", {
   x: 0.6, y: 2.95, w: 12.13, h: 0.4,
   align: "center", valign: "top",
   fontSize: 22, bold: true, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
-// Email - blue regular serif (smaller)
 s.addText("kmelsayed@zewailcity.edu.eg", {
   x: 0.6, y: 3.35, w: 12.13, h: 0.35,
   align: "center", valign: "top",
   fontSize: 16, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
 
-// ========== INSTRUCTORS BLOCK (bottom left, 5 lines with indentation) ==========
-// Move lower to match original (y ~5.1 start)
-const INS_X_LABEL = 1.2;    // Label position
-const INS_X_NAME = 1.8;     // Name indented
-const INS_X_EMAIL = 1.8;    // Email same as name
-const INS_Y_START = 5.10;   // Moved lower to match original
+// ========== INSTRUCTORS BLOCK (bottom left) ==========
+const INS_X_LABEL = 1.2;
+const INS_X_NAME = 1.8;
+const INS_X_EMAIL = 1.8;
+const INS_Y_START = 5.10;
 const INS_LINE_H = 0.38;
 
 s.addText("Instructors:", {
@@ -96,30 +98,30 @@ s.addText("Dr. Khaled Mostafa ElSayed", {
   fontSize: 20, bold: true, italic: true, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
 s.addText("kmelsayed@zewailcity.edu.eg", {
-  x: INS_X_EMAIL, y: INS_Y_START + 2*INS_LINE_H, w: 5.0, h: INS_LINE_H,
+  x: INS_X_EMAIL, y: INS_Y_START + 2 * INS_LINE_H, w: 5.0, h: INS_LINE_H,
   align: "left", valign: "top",
   fontSize: 14, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
 s.addText("Dr. Mohamed Maher Ata", {
-  x: INS_X_NAME, y: INS_Y_START + 3*INS_LINE_H, w: 5.0, h: INS_LINE_H,
+  x: INS_X_NAME, y: INS_Y_START + 3 * INS_LINE_H, w: 5.0, h: INS_LINE_H,
   align: "left", valign: "top",
   fontSize: 20, bold: true, italic: true, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
 s.addText("momaher@zewailcity.edu.eg", {
-  x: INS_X_EMAIL, y: INS_Y_START + 4*INS_LINE_H, w: 5.0, h: INS_LINE_H,
+  x: INS_X_EMAIL, y: INS_Y_START + 4 * INS_LINE_H, w: 5.0, h: INS_LINE_H,
   align: "left", valign: "top",
   fontSize: 14, color: BODY_COLOR, fontFace: SERIF, margin: 0,
 });
 
 // ========== UNIVERSITY LOGO (bottom right) ==========
-// Embed the extracted logo image
+// Exact crop of the original lockup: frame px (588,436)-(840,513) on 960x540,
+// mapped to inches at 13.33x7.5 (aspect preserved: 252/77 = 3.5/1.0694).
 s.addImage({
-  path: "/home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/recreated_pptx/build/assets/logo_slide001.png",
-  x: 10.5, y: 6.10, w: 2.6, h: 1.2,
+  path: NS + "/recreated_pptx/build/assets/logo_slide001_crop.png",
+  x: 588 / 960 * 13.33, y: 436 / 540 * 7.5,
+  w: 252 / 960 * 13.33, h: 77 / 540 * 7.5,
 });
 
-const BASEDIR = "/home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example";
-
-pres.writeFile({ fileName: BASEDIR + "/recreated_pptx/build/slide_001_recreated.pptx" })
-  .then(() => console.log("wrote slide_001_recreated.pptx"))
+pres.writeFile({ fileName: OUT })
+  .then(() => console.log("wrote " + OUT))
   .catch(err => { console.error(err); process.exit(1); });

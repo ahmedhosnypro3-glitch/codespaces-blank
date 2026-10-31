@@ -76,18 +76,13 @@ const layerSub = ["i", "j", "k"];
 // Three node rows matching the original (source px y=180/255/330)
 const rowsY = [px(180), px(255), px(330)];
 
-// Node-Bias input node (purple circled 1) feeding the summation column
-const biasX = px(78), biasY = px(140);
-s.addShape(pres.shapes.OVAL, { x: biasX - px(11), y: biasY - px(11), w: px(22), h: px(22),
-  fill: { color: "800080" }, line: { color: "800080" , width: 0 } });
-s.addText("1", { x: biasX - px(11), y: biasY - px(11), w: px(22), h: px(22),
-  align: "center", valign: "middle", fontSize: 11, bold: true, color: "FFFFFF", fontFace: FONT, margin: 0 });
-s.addShape(pres.shapes.LINE, { x: biasX, y: biasY + px(11), w: sumX[0] - biasX,
-  h: rowsY[0] - biasY - px(11), line: { color: "800080", width: 1 } });
-rowsY.forEach((y) => {
-  s.addShape(pres.shapes.OVAL, { x: inX - px(8), y: y - px(8), w: px(16), h: px(16),
+// Input column: 4 purple dots at PIL-measured original positions
+// (x=78, y = 224/247/270/293 in 960-space), each feeding the first Sigma column.
+const dotY = [224, 247, 270, 293];
+dotY.forEach((y) => {
+  s.addShape(pres.shapes.OVAL, { x: inX - px(8), y: px(y) - px(8), w: px(16), h: px(16),
     fill: { color: "800080" }, line: { color: "800080", width: 0 } });
-  s.addShape(pres.shapes.LINE, { x: inX + px(8), y, w: sumX[0] - inX - px(8), h: 0,
+  s.addShape(pres.shapes.LINE, { x: inX + px(8), y: px(y), w: sumX[0] - inX - px(8), h: 0,
     line: { color: "000000", width: 1, headEndType: "triangle" } });
 });
 
@@ -237,6 +232,6 @@ s.addText("1", { x: px(395), y: px(365), w: px(23), h: px(23),
   align: "center", valign: "middle", fontSize: 12, bold: true,
   color: "FFFFFF", fontFace: FONT, margin: 0 });
 
-pres.writeFile({ fileName: VID + "/recreated_pptx/build/slide_003_recreated.pptx" })
-  .then(() => console.log("wrote slide_003_recreated.pptx"))
+pres.writeFile({ fileName: VID + "/recreated_pptx/build/slide_003_attempt1_recreated.pptx" })
+  .then(() => console.log("wrote slide_003_attempt1_recreated.pptx"))
   .catch((e) => { console.error(e); process.exit(1); });

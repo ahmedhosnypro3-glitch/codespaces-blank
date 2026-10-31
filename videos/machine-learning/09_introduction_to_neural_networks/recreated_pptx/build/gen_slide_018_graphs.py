@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Generate slide 018 assets: 5 charts + 2D piecewise equations.
+"""Generate slide 018 assets: 5 charts + 2 2D piecewise equations.
 
 Measured from unique_slides/slide_018.jpg (960x540):
-  step panes  : blue-bordered white boxes (270x106 px), black arrowed axes,
-                RED step curve, yellow saturation ellipses
-  bottom charts: blue-bordered white panels (~255x150 px), gray grid, RED curves;
-                sigmoid has green vertical guides + yellow tail highlights and an
-                internal title; arctan panel carries an internal
-                "Inverse Tangent Graph" title
-  equations  : red curly brace spanning two lines, red "for x<0" case,
-                green "for x>=0" case
+  step panes   : blue-bordered white boxes, arrowed axes, DARK RED step curve,
+                 filled translucent yellow saturation ellipses (~#F0F078)
+  bottom charts: blue-bordered panels, grey grid, PINK curves (~#F2A6B0);
+                 sigmoid carries interior green guide lines, a grey circle
+                 marker, a top-left legend box, a green "sigmoid" label and two
+                 filled yellow blobs; tanh carries an in-pane "tanh" title;
+                 arctan carries "Inverse Tangent Graph" at its top-left
+  equations    : red curly brace spanning both case lines, first case red,
+                 second case green
 """
 import json
 import numpy as np
@@ -22,39 +23,14 @@ OUT = "/home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_
 CHART_DPI = 300
 EQ_DPI = 600
 
-RED = "#C0392B"
+RED_STEP = "#C0392B"
+PINK = "#F2A6B0"
 GREEN = "#2E8B57"
 BLUE_BORDER = "#261F7F"
 AXIS = "#333333"
 GRID = "#CCCCCC"
 YELLOW = "#F2E94E"
 WHITE = "#FFFFFF"
-
-
-def _save_trimmed(fig, path, pad=3):
-    fig.canvas.draw()
-    buf = np.asarray(fig.canvas.buffer_rgba())
-    ink = buf[:, :, 3] > 8
-    rows = np.where(ink.any(axis=1))[0]
-    cols = np.where(ink.any(axis=0))[0]
-    if len(rows) == 0:
-        plt.close(fig)
-        return 0, 0
-    y0, y1 = max(rows[0] - pad, 0), min(rows[-1] + pad + 1, buf.shape[0])
-    x0, x1 = max(cols[0] - pad, 0), min(cols[-1] + pad + 1, buf.shape[1])
-    Image.fromarray(buf[y0:y1, x0:x1]).save(path)
-    w, h = x1 - x0, y1 - y0
-    plt.close(fig)
-    return int(w), int(h)
-
-
-def _arrow(ax, x0, y0, x1, y1, color, lw=1.4, head=0.20, halfw=0.10):
-    ax.plot([x0, x1], [y0, y1], color=color, lw=lw, solid_capstyle="butt", zorder=3)
-    d = np.hypot(x1 - x0, y1 - y0)
-    ux, uy = (x1 - x0) / d, (y1 - y0) / d
-    ax.fill([x1, x1 - head * ux + halfw * -uy, x1 - head * ux - halfw * -uy],
-            [y1, y1 - head * uy + halfw * ux, y1 - head * uy - halfw * ux],
-            color=color, lw=0, zorder=3)
 
 
 def step_chart(fname, y_lo, y_hi):
@@ -72,50 +48,57 @@ def step_chart(fname, y_lo, y_hi):
     ax.set_xlim(-3, 3)
     ax.set_ylim(y_lo, y_hi)
 
-    _arrow(ax, -3, 0, 2.85, 0, AXIS)
-    _arrow(ax, -3, y_lo, -3, y_hi - 0.15, AXIS)
-    ax.text(2.8, y_lo + (y_hi - y_lo) * 0.06, "x", fontsize=6.5, color=AXIS,
-            ha="right", va="bottom")
-    ax.text(-3.25, (y_lo + y_hi) / 2, "f(x)", fontsize=6.5, color=AXIS,
-            ha="center", va="center", rotation=90)
+    # arrowed axes
+    ax.annotate("", xy=(3.0, 0), xytext=(-3, 0),
+                arrowprops=dict(arrowstyle="-|>", color=AXIS, lw=1.4))
+    ax.annotate("", xy=(-3, y_hi - 0.1), xytext=(-3, y_lo),
+                arrowprops=dict(arrowstyle="-|>", color=AXIS, lw=1.4))
 
     cases = (0, 1) if y_lo == 0 else (-1, 1)
     xs = np.linspace(-3, 3, 200)
     ys = np.where(xs < 0, cases[0], cases[1])
-    ax.plot(xs, ys, color=RED, lw=2.0, zorder=4)
-    ax.plot([0, 0], [cases[0], cases[1]], color=RED, lw=2.0, zorder=4)
+    ax.plot(xs, ys, color=RED_STEP, lw=2.0, zorder=4)
+    ax.plot([0, 0], [cases[0], cases[1]], color=RED_STEP, lw=2.0, zorder=4)
 
+    # small red arrowheads marking the saturated flat branches
     h = y_hi - y_lo
+    for xv, yv in ((-1.15, cases[0]), (1.15, cases[1])):
+        ax.annotate("", xy=(xv, yv), xytext=(xv - 0.55, yv),
+                    arrowprops=dict(arrowstyle="-|>", color=RED_STEP, lw=1.3),
+                    zorder=5)
+
+    # filled translucent yellow saturation ellipses
     for yv in cases:
-        for xv in (-1.6, 1.6):
+        for xv in (-1.45, 1.45):
             ax.add_patch(plt.matplotlib.patches.Ellipse(
-                (xv, yv), width=1.25, height=0.55 * h / 2.2,
-                fill=False, edgecolor=YELLOW, linewidth=2.4, zorder=5))
+                (xv, yv), width=1.6, height=0.42 * h / 2.2,
+                facecolor=YELLOW, edgecolor="#D9C93A", alpha=0.72,
+                linewidth=1.0, zorder=6))
     fig.savefig(f"{OUT}/{fname}", dpi=CHART_DPI, facecolor=WHITE,
                 edgecolor=BLUE_BORDER)
     plt.close(fig)
     im = Image.open(f"{OUT}/{fname}")
-    return {"image": fname, "w_px": im.size[0], "h_px": im.size[1],
-            "dpi": CHART_DPI}
+    return {"image": fname, "w_px": im.size[0], "h_px": im.size[1], "dpi": CHART_DPI}
 
 
 def smooth_chart(fname, kind, xlim, ylim, yticks, ylabels, internal=None,
-                 annotate=False):
+                 internal_pos="center", annotate=False, legend=False,
+                 ylabel_side=False):
     w_in, h_in = 255 / 72, 150 / 72
     fig = plt.figure(figsize=(w_in, h_in), dpi=CHART_DPI)
     fig.patch.set_facecolor(WHITE)
     fig.patch.set_edgecolor(BLUE_BORDER)
     fig.patch.set_linewidth(2.0)
-    ax = fig.add_axes([0.18, 0.16, 0.74, 0.66])
+    ax = fig.add_axes([0.20, 0.16, 0.72, 0.66])
     ax.set_facecolor(WHITE)
-    xs = np.linspace(xlim[0], xlim[1], 500)
+    xs = np.linspace(xlim[0], xlim[1], 600)
     if kind == "sigmoid":
         ys = 1 / (1 + np.exp(-xs))
     elif kind == "tanh":
         ys = np.tanh(xs)
     else:
         ys = np.arctan(xs)
-    ax.plot(xs, ys, color=RED, lw=2.0, zorder=4)
+    ax.plot(xs, ys, color=PINK, lw=2.0, zorder=4)
     ax.set_xlim(*xlim)
     ax.set_ylim(*ylim)
     ax.set_yticks(yticks)
@@ -129,66 +112,104 @@ def smooth_chart(fname, kind, xlim, ylim, yticks, ylabels, internal=None,
         s.set_color(AXIS)
         s.set_linewidth(1.0)
     ax.set_xlabel("x", fontsize=6.5, color=AXIS, labelpad=1)
-    ax.set_ylabel("f(x)", fontsize=6.5, color=AXIS, labelpad=1)
+    if ylabel_side:
+        ax.set_ylabel("sigmoid", fontsize=6.5, color=GREEN, labelpad=1)
+        ax.yaxis.set_label_position("right")
+    else:
+        ax.set_ylabel("f(x)", fontsize=6.5, color=AXIS, labelpad=1)
     if internal:
-        ax.text(0.5, 0.98, internal, transform=ax.transAxes, fontsize=7,
-                color=AXIS, ha="center", va="top")
+        if internal_pos == "left":
+            ax.text(0.02, 0.98, internal, transform=ax.transAxes, fontsize=7,
+                    color=AXIS, ha="left", va="top")
+        else:
+            ax.text(0.5, 0.98, internal, transform=ax.transAxes, fontsize=7,
+                    color=AXIS, ha="center", va="top")
+    if legend:
+        ax.plot([0.03, 0.30], [0.90, 0.90], transform=ax.transAxes,
+                color=PINK, lw=2.0, zorder=6)
+        ax.add_patch(plt.matplotlib.patches.Rectangle(
+            (0.02, 0.82), 0.31, 0.15, transform=ax.transAxes, facecolor=WHITE,
+            edgecolor=GRID, lw=0.6, zorder=5))
     if annotate:
-        for xv in (xlim[0], xlim[1]):
-            ax.axvline(xv, color=GREEN, lw=1.0)
-        for xv, yv in ((xlim[0] + 0.6, ylim[0] + 0.05),
-                       (xlim[1] - 0.6, ylim[1] - 0.05)):
+        for xv in (1.0, 2.0, 3.0):
+            ax.axvline(xv, color=GREEN, lw=1.0, zorder=2)
+        xm, ym = 1.0, 1 / (1 + np.exp(-1.0))
+        ax.plot([xm], [ym], marker="o", ms=4, color="#888888", zorder=7)
+        for (xv, yv) in ((3.6, 0.97), (-3.6, 0.03)):
             ax.add_patch(plt.matplotlib.patches.Ellipse(
-                (xv, yv), width=1.7, height=0.16, fill=False,
-                edgecolor=YELLOW, linewidth=2.4, zorder=5))
+                (xv, yv), width=2.6, height=0.30, facecolor=YELLOW,
+                edgecolor="#D9C93A", alpha=0.72, linewidth=1.0, zorder=6))
     fig.savefig(f"{OUT}/{fname}", dpi=CHART_DPI, facecolor=WHITE,
                 edgecolor=BLUE_BORDER)
     plt.close(fig)
     im = Image.open(f"{OUT}/{fname}")
-    return {"image": fname, "w_px": im.size[0], "h_px": im.size[1],
-            "dpi": CHART_DPI}
+    return {"image": fname, "w_px": im.size[0], "h_px": im.size[1], "dpi": CHART_DPI}
 
 
-def piecewise(cases, fname, w_in, h_in, fs_val, fs_cond, fs_brace):
-    """2D piecewise: red brace spanning all lines; red negative case, green x>=0."""
+def piecewise(cases, fname):
+    """2D piecewise: red brace spanning both case lines; first case red, second green.
+
+    Sized for the slide directly (1.43 x 0.66 in at 600 dpi) so the build plates
+    it at native size: brace ~0.6 in tall, case-line pitch ~0.19 in. Reports the
+    measured row fraction of each case line so the build can align them.
+    """
+    w_in, h_in = 1.43, 0.66
     fig = plt.figure(figsize=(w_in, h_in), dpi=EQ_DPI)
     fig.patch.set_alpha(0.0)
     ax = fig.add_axes([0, 0, 1, 1])
     ax.axis("off")
-    n = len(cases)
-    tops = [0.80 - i * (0.60 / max(n - 1, 1)) for i in range(n)]
-    for (val, cond), y, col in zip(cases, tops, (RED, GREEN)):
-        ax.text(0.42, y, val, fontsize=fs_val, color=col, ha="right",
+    spans = [0.644, 0.356]
+    for (val, cond), y, col in zip(cases, spans, ("#C00000", GREEN)):
+        ax.text(0.145, y, val, fontsize=21, color=col, ha="left",
                 va="center", fontweight="bold")
-        ax.text(0.46, y, f"for {cond}", fontsize=fs_cond, color=col,
+        ax.text(0.34, y, f"for {cond}", fontsize=15, color=col,
                 ha="left", va="center")
-    ax.text(0.12, (tops[0] + tops[-1]) / 2, "{", fontsize=fs_brace, color=RED,
+    ax.text(0.045, 0.5, "{", fontsize=50, color="#C00000",
             ha="center", va="center")
-    w, h = _save_trimmed(fig, f"{OUT}/{fname}")
-    return {"image": fname, "w_px": w, "h_px": h, "dpi": EQ_DPI,
-            "w_in": round(w / EQ_DPI, 5), "h_in": round(h / EQ_DPI, 5)}
+    path = f"{OUT}/{fname}"
+    fig.savefig(path, dpi=EQ_DPI, transparent=True)
+    plt.close(fig)
+    im = Image.open(path)
+    al = np.asarray(im)[:, :, 3]
+    h_px, w_px = im.size[1], im.size[0]
+    cond_x0 = int(0.30 * w_px)
+    prof = (al[:, cond_x0:] > 10).sum(axis=1)
+    bands = []
+    cur = None
+    for y in range(h_px):
+        if prof[y] > 0:
+            cur = [y, y] if cur is None else [cur[0], y]
+        elif cur is not None:
+            bands.append(cur)
+            cur = None
+    if cur is not None:
+        bands.append(cur)
+    line1_frac = round((bands[0][0] + bands[0][1]) / 2 / h_px, 4)
+    line2_frac = round((bands[1][0] + bands[1][1]) / 2 / h_px, 4)
+    return {"image": fname, "w_px": w_px, "h_px": h_px, "dpi": EQ_DPI,
+            "w_in": round(w_px / EQ_DPI, 5), "h_in": round(h_px / EQ_DPI, 5),
+            "line1_frac": line1_frac, "line2_frac": line2_frac}
 
 
 charts = {
     "unipolar_step": step_chart("slide_018_unipolar_step.png", 0.0, 1.6),
     "bipolar_step": step_chart("slide_018_bipolar_step.png", -1.6, 1.6),
     "sigmoid": smooth_chart("slide_018_sigmoid.png", "sigmoid", (-4, 4),
-                            (-0.08, 1.08), [0.0, 0.5, 1.0],
-                            ["0.0", "0.5", "1.0"],
-                            internal="f(x) = Sigmoid(x)", annotate=True),
+                            (-0.10, 1.10), [0.0, 0.5, 1.0], ["0.0", "0.5", "1.0"],
+                            annotate=True, legend=True, ylabel_side=True),
     "tanh": smooth_chart("slide_018_tanh.png", "tanh", (-4, 4), (-1.1, 1.1),
                          [-1.0, -0.5, 0.0, 0.5, 1.0],
-                         ["-1.0", "-0.5", "0", "0.5", "1.0"]),
+                         ["-1.0", "-0.5", "0", "0.5", "1.0"],
+                         internal="tanh", internal_pos="left"),
     "arctan": smooth_chart("slide_018_arctan.png", "arctan", (-4, 4),
-                           (-1.65, 1.65), [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5],
+                           (-1.65, 1.65),
+                           [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5],
                            ["-1.5", "-1.0", "-0.5", "0", "0.5", "1.0", "1.5"],
-                           internal="Inverse Tangent Graph"),
+                           internal="Inverse Tangent Graph", internal_pos="left"),
 }
 eqs = {
-    "unipolar": piecewise([("0", "x<0"), ("1", "x>=0")], "eq_018_unipolar.png",
-                          1.30, 0.40, 8, 6.5, 24),
-    "bipolar": piecewise([("-1", "x<0"), ("1", "x>=0")], "eq_018_bipolar.png",
-                         1.30, 0.40, 8, 6.5, 24),
+    "unipolar": piecewise([("0", "x<0"), ("1", "x>0")], "eq_018_unipolar.png"),
+    "bipolar": piecewise([("-1", "x<0"), ("1", "x>0")], "eq_018_bipolar.png"),
 }
 manifest = {"charts": charts, "equations": eqs}
 with open(f"{OUT}/gen_slide_018_manifest.json", "w") as f:

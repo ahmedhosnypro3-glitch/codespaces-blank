@@ -129,3 +129,104 @@ with the Arabic university name above. No frame text depends on it.
 ### Uncertain items (marked [?])
 - Semester/year "Spring 2024" is frame-printed and plausible; no public page confirms the
   exact term — keep verbatim.
+
+---
+
+## Verified 2026-10-30 (wave 4, `src_w4_001_004`)
+
+Fresh independent re-verification pass. Wave-1 and wave-3 sections above are left untouched.
+
+**Transport note**: `agy -p` CLI was quota-blocked this wave (HTTP 429 `RESOURCE_EXHAUSTED /
+Individual quota reached`, resets ~131h). Searches ran through the **agy MCP web-search tool** — the
+same Google grounding via the antigravity proxy with redirect URLs resolved. Every URL below was
+returned by the search service; none invented. Direct `FetchURL` of the Zewail City pages returned
+only the JS shell (client-rendered SPA), so those pages are cited from the grounding engine's read
+of them — recorded honestly, not treated as a contradiction.
+
+Full register: `sources/slide_001_source/VERIFY_W4.md`.
+
+### Claim → question → answer → citation
+
+1. **"CSAI 253" is a real course at Zewail City, School of Computational Sciences and Artificial
+   Intelligence.**
+   *Question:* Is CSAI 253 a listed Zewail City course, and what is its catalog title, credit count,
+   and prerequisites?
+   *Answer:* Yes. The official program page lists **CSAI 253 — Machine Learning**, 3 credits
+   [2+3], prerequisites **CSAI 201 (Data Structures)** and **MATH 105 (Probability and Statistics)**.
+   *Citation:* https://www.zewailcity.edu.eg/program/40 ; also
+   https://www.zewailcity.edu.eg/ar/academics/undergraduate-studies/schools/program/82
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+2. **The catalog course title is "Machine Learning"; the slide's "Introduction to Artificial Neural
+   Networks (ANN)" is the lecture topic inside that course, not the catalog title.**
+   *Question:* What does the CSAI 253 catalog entry actually cover, and is ANN the catalog title?
+   *Answer:* The catalog entry covers Regression, Classification, Clustering, Prediction, Reinforcement
+   Learning, Dimensionality Reduction, with applications in Data Mining, Pattern Recognition, and
+   Text and Language Processing; CSAI 253 is the prerequisite of DSAI 308 (Deep Learning). "Introduction
+   to ANN" is therefore a lecture within CSAI 253, not the catalog title.
+   *Citation:* https://www.scribd.com/document/772961333/CSAI-Catalog-2024 ;
+   https://www.zewailcity.edu.eg/program/40
+   *Status:* **CONFIRMED** (DATA note for slide notes; frame text unchanged).
+
+3. **"Dr. Khaled Mostafa ElSayed" / kmelsayed@zewailcity.edu.eg.**
+   *Question:* Is this a Zewail City faculty member and is the email on the frame correct?
+   *Answer:* Yes — Professor in the School of Computational Sciences and Artificial Intelligence,
+   Director of the Data Science Program, office Academic Building S018, email
+   kmelsayed@zewailcity.edu.eg. Research covers machine learning, neural networks, computer vision,
+   pattern recognition and deep learning.
+   *Citation:* https://www.zewailcity.edu.eg/ar/about/member/53 ;
+   https://www.researchgate.net/profile/Khaled-El-Sayed-3 ;
+   https://www.researchgate.net/scientific-contributions/Khaled-M-Elsayed-2112986768
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+4. **"Dr. Mohamed Maher Ata" / momaher@zewailcity.edu.eg.**
+   *Question:* Is this a Zewail City faculty member and is the email on the frame correct?
+   *Answer:* Yes — Associate Professor in the School of Computational Sciences and Artificial
+   Intelligence; Ph.D. from the Electrical Communication and Electronics Department, Faculty of
+   Engineering, Tanta University, in cooperation with the University of Regina (Canada). Research:
+   AI and deep learning, computer vision and image/video processing, object recognition and
+   detection, intelligent transportation systems, optimization.
+   *Citation:* https://www.zewailcity.edu.eg/about/member/29 ;
+   https://scholar.google.com/citations?user=ZvA8nX4AAAAJ&hl=en ;
+   https://www.researchgate.net/profile/Mohamed-Maher-8 ; https://www.mecs-press.org/authors/111304.html
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+5. **Institution branding: "ZEWAL CITY" wordmark, Arabic "جامعة العلوم والتكنولوجيا زويل",
+   "University of Science and Technology".**
+   *Question:* What are the institution's official English and Arabic names?
+   *Answer:* The university component's official English name is **"University of Science and
+   Technology at Zewail City" (UST)** and its Arabic name **"جامعة العلوم والتكنولوجيا بمدينة زويل"**;
+   the parent city project is **"Zewail City of Science, Technology and Innovation"** (formerly
+   Zewail City of Science and Technology), Arabic **"مدينة زويل للعلوم والتكنولوجيا والابتكار"**.
+   *Citation:* https://www.unirank.org/eg/uni/university-of-science-and-technology-at-zewail-city/ ;
+   https://www.zewailcity.edu.eg/about-ust ;
+   https://en.wikipedia.org/wiki/Zewail_City_of_Science,_Technology_and_Innovation ;
+   https://www.zewailcity.edu.eg/ar
+   *Status:* **CONFIRMED** (DATA clarification). The frame's "ZEWAL CITY" (one L) is an OCR
+   misspelling of the official wordmark "Zewail City", and the official Arabic includes "بمدينة
+   زويل" — both are literal/frame-text items and stay **verbatim** on the rebuilt slide.
+
+6. **"Spring 2024" semester label.**
+   *Question:* Is the Spring 2024 term independently documented for CSAI 253?
+   *Answer:* No public page confirms the exact teaching term for this course. The catalog in
+   circulation is the 2024 catalog, so the label is plausible but not independently verifiable.
+   *Citation:* https://www.scribd.com/document/772961333/CSAI-Catalog-2024 (context only)
+   *Status:* **UNVERIFIED** — honest note; frame text kept as printed.
+
+### Doc-parse corroboration
+
+`sources/docparse_cascades/slide_001/composed/slide_001_composed.md` (nemotron-3.5-parse,
+degraded: False, 10 elements, 0 failed calls) independently reads the same title, course code,
+"Prepared By" block, both instructor lines with both emails, and the Arabic/English footer. The
+logo-region crop parse is garbage ("ZEWAIL CITY STATE LAKE 2024 INDUSTRATE") — decorative branding
+only, no frame text depends on it. **No analysis correction was required.**
+
+### Corrections to the analysis record
+
+**None.** No factual or DATA claim in `analysis/slide_001_final.json` was contradicted by any
+source; nothing was patched. The only notes are the DATA clarifications above (catalog course
+title, official institutional names), which inform slide notes and never change frame text.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

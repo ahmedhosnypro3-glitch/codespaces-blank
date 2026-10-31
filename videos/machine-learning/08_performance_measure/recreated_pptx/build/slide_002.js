@@ -1,7 +1,7 @@
 // Slide 002 — Training Samples with Labels [0,1] (Two Classes)
 // Rebuilt from PIL measurements of unique_slides/slide_002.jpg (960x540 px, 1px = 1pt = 1/72 in)
 // plus pool_run/image_analysis/slide_002_analysis.txt (fresh read) and spec_gaps.md slide_002:
-// the mapping line "(Any value) → (-1 , +1)" appears under BOTH Model boxes, verbatim with
+// the mapping line "(Any value) → (-1 , +1)" appears inside BOTH Model boxes, verbatim with
 // arrow glyph and printed spacing.
 const pptxgen = require("pptxgenjs");
 const path = require("path");
@@ -20,7 +20,6 @@ const RED_BRIGHT = "FF0000";
 const GREEN = "2E7D32";
 const BLUE = "0070C0";
 const BLUE_BORDER = "2E75B6";
-const PURPLE = "8E44AD";
 const PINK_STRIP = "F8DBDD";
 const GREEN_STRIP = "E4FFEE";
 const ACT_BG = "F1FAFF";
@@ -33,11 +32,11 @@ const WHITE = "FFFFFF";
 const BLACK = "000000";
 
 const ASSETS = path.join(__dirname, "assets");
-const AIR_ENEMY = path.join(ASSETS, "eq_019_airplane_enemy.png"); // 745x672 px @600dpi
-const AIR_SAFE = path.join(ASSETS, "eq_019_airplane_safe.png");
-const SIGMOID = path.join(ASSETS, "sigmoid_002.png");            // 801x291 px @300dpi
-const AIR_W = 0.83, AIR_H = 0.75;        // drawn size in inches
-const SIG_W = 801 / 300, SIG_H = 291 / 300; // 2.67 x 0.97 in
+// Plane panes copied pixel-for-pixel from the original frame (defect Pattern A fix).
+const PANE_POS = path.join(ASSETS, "pane_pos_002.png"); // 146x357 px
+const PANE_NEG = path.join(ASSETS, "pane_neg_002.png"); // 142x359 px
+const SIGMOID = path.join(ASSETS, "sigmoid_002.png");   // 801x291 px @300dpi
+const SIG_W = 801 / 300, SIG_H = 291 / 300;
 
 const s = pres.addSlide();
 s.background = { color: BG };
@@ -56,247 +55,240 @@ s.addText("2", {
   fontSize: 18, bold: true, color: INK, fontFace: FONT, margin: 0,
 });
 
-// ---- title (house rule: y=0.28, x=0.6, w=12.13, centered; navy box echoes original) ----
+// ---- title (house rule: y=0.28, x=0.6, w=12.13, centered) -------------------
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.62,
   fill: { color: WHITE }, line: { color: NAVY, width: 1.5 },
 });
 s.addText([
-  { text: "Training Samples with Labels ", options: { fontSize: 24, bold: true, color: NAVY, fontFace: FONT } },
-  { text: "[0,1]", options: { fontSize: 24, bold: true, color: RED_BRIGHT, fontFace: FONT } },
-  { text: " (Two Classes)", options: { fontSize: 24, bold: true, color: NAVY, fontFace: FONT } },
+  { text: "Training Samples with Labels ", options: { fontSize: 30, bold: true, color: NAVY, fontFace: FONT } },
+  { text: "[0,1]", options: { fontSize: 30, bold: true, color: RED_BRIGHT, fontFace: FONT } },
+  { text: " (Two Classes)", options: { fontSize: 30, bold: true, color: NAVY, fontFace: FONT } },
 ], {
   x: 0.6, y: 0.28, w: 12.13, h: 0.62, align: "center", valign: "middle", margin: 0,
 });
 
-// ---- left: Positive Class -------------------------------------------------
+// ---- left container -------------------------------------------------------
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 57 / 72, y: 91 / 72, w: 499 / 72, h: 425 / 72,
+  fill: { color: WHITE }, line: { color: BLACK, width: 1.5 },
+});
+
+// class headers + subtitles
 s.addText("Positive Class", {
-  x: 1.33, y: 1.32, w: 2.9, h: 0.44, align: "left", valign: "top",
-  fontSize: 20, bold: true, color: RED, fontFace: FONT, margin: 0,
+  x: 103 / 72, y: 100 / 72, w: 1.9, h: 0.45, align: "left", valign: "top",
+  fontSize: 16, bold: true, color: RED, fontFace: FONT, margin: 0,
+});
+s.addText("Negative Class", {
+  x: 356 / 72, y: 100 / 72, w: 1.9, h: 0.42, align: "left", valign: "top",
+  fontSize: 16, bold: true, color: GREEN, fontFace: FONT, margin: 0,
 });
 s.addText("\u201cShoot the Enemy\u201d", {
-  x: 1.33, y: 1.86, w: 2.9, h: 0.35, align: "left", valign: "top",
-  fontSize: 15, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0,
+  x: 103 / 72, y: 135 / 72, w: 1.9, h: 0.34, align: "left", valign: "top",
+  fontSize: 13, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0,
 });
-// rotated "Label" caption left of the positive plane pane
+s.addText("\u201cSafe\u201d", {
+  x: 356 / 72, y: 138 / 72, w: 1.9, h: 0.3, align: "left", valign: "top",
+  fontSize: 13, bold: true, italic: true, color: GREEN, fontFace: FONT, margin: 0,
+});
+// "Label" captions above each value strip
 s.addText("Label", {
-  x: 1.05, y: 3.55, w: 1.9, h: 0.3, align: "center", valign: "middle",
-  fontSize: 12, color: RED, fontFace: FONT, margin: 0, rotate: 270,
+  x: 255 / 72, y: 117 / 72, w: 0.56, h: 0.2, align: "center", valign: "top",
+  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
 });
-// positive plane pane (red border)
+s.addText("Label", {
+  x: 502 / 72, y: 117 / 72, w: 0.56, h: 0.2, align: "center", valign: "top",
+  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
+});
+
+// positive pane (red border) + artwork copied from the original frame
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.82, y: 1.81, w: 2.47, h: 5.29,
+  x: 81 / 72, y: 137 / 72, w: 156 / 72, h: 367 / 72,
   fill: { color: WHITE }, line: { color: RED, width: 2 },
 });
-const posPlaneY = [2.60, 3.32, 4.33, 5.07, 6.00];
-for (const py of posPlaneY) {
-  s.addImage({ path: AIR_ENEMY, x: 1.10, y: py, w: AIR_W, h: AIR_H });
-}
+s.addImage({ path: PANE_POS, x: 86 / 72, y: 142 / 72, w: 146 / 72, h: 357 / 72 });
+
 // pink +1 strip
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 3.36, y: 2.24, w: 0.79, h: 4.86,
+  x: 238 / 72, y: 158 / 72, w: 60 / 72, h: 353 / 72,
   fill: { color: PINK_STRIP }, line: { color: RED, width: 1 },
 });
-const plusY = [2.50, 3.57, 4.43, 5.29, 6.14];
+const plusY = [184, 247, 309, 371, 432]; // px, box tops for glyph centers 194..442
 for (const py of plusY) {
   s.addText("+1", {
-    x: 3.36, y: py, w: 0.79, h: 0.28, align: "center", valign: "middle",
+    x: 238 / 72, y: py / 72, w: 60 / 72, h: 20 / 72, align: "center", valign: "middle",
     fontSize: 13, bold: true, color: BLACK, fontFace: FONT, margin: 0,
   });
 }
 
-// ---- left: Negative Class -------------------------------------------------
-s.addText("Negative Class", {
-  x: 4.93, y: 1.32, w: 2.9, h: 0.44, align: "left", valign: "top",
-  fontSize: 20, bold: true, color: GREEN, fontFace: FONT, margin: 0,
-});
-s.addText("\u201cSafe\u201d", {
-  x: 4.93, y: 1.86, w: 2.9, h: 0.35, align: "left", valign: "top",
-  fontSize: 15, bold: true, italic: true, color: GREEN, fontFace: FONT, margin: 0,
-});
-s.addText("Label", {
-  x: 6.55, y: 3.55, w: 1.9, h: 0.3, align: "center", valign: "middle",
-  fontSize: 12, color: GREEN, fontFace: FONT, margin: 0, rotate: 270,
-});
-// negative plane pane (green border)
+// negative pane (green border) + artwork copied from the original frame
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 4.58, y: 1.92, w: 2.14, h: 5.15,
+  x: 330 / 72, y: 138 / 72, w: 154 / 72, h: 371 / 72,
   fill: { color: WHITE }, line: { color: GREEN, width: 2 },
 });
-const negPlaneY = [2.30, 3.20, 4.10, 4.95, 5.90];
-for (const py of negPlaneY) {
-  s.addImage({ path: AIR_SAFE, x: 4.80, y: py, w: AIR_W, h: AIR_H });
-}
-// green 0 strip
+s.addImage({ path: PANE_NEG, x: 336 / 72, y: 144 / 72, w: 142 / 72, h: 359 / 72 });
+
+// green 0 strip — the original prints six "0" digits (measured glyph rows)
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 6.89, y: 2.22, w: 0.65, h: 4.60,
+  x: 494 / 72, y: 160 / 72, w: 49 / 72, h: 339 / 72,
   fill: { color: GREEN_STRIP }, line: { color: GREEN, width: 1 },
 });
-const zeroY = [2.44, 3.31, 3.94, 4.67, 6.36];
-for (const py of zeroY) {
+const zeroY = [166, 228, 274, 326, 386, 448]; // px, box tops for glyph centers 176..458
+for (const zy of zeroY) {
   s.addText("0", {
-    x: 6.89, y: py, w: 0.65, h: 0.28, align: "center", valign: "middle",
+    x: 494 / 72, y: zy / 72, w: 49 / 72, h: 20 / 72, align: "center", valign: "middle",
     fontSize: 13, bold: true, color: BLACK, fontFace: FONT, margin: 0,
   });
 }
 
 // ---- right: Activation Function panel --------------------------------------
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 7.97, y: 1.18, w: 4.39, h: 1.13,
+  x: 574 / 72, y: 91 / 72, w: 308 / 72, h: 74 / 72,
   fill: { color: ACT_BG }, line: { color: BLUE_BORDER, width: 1.5 },
 });
 s.addText("Activation Function", {
-  x: 8.11, y: 1.30, w: 3.0, h: 0.30, align: "left", valign: "top",
+  x: 584 / 72, y: 96 / 72, w: 3.0, h: 0.4, align: "left", valign: "top",
   fontSize: 15, bold: true, color: BLUE, fontFace: FONT, margin: 0,
 });
 s.addText("Sigmoid function (0 , +1)", {
-  x: 8.11, y: 1.62, w: 3.2, h: 0.26, align: "left", valign: "top",
+  x: 584 / 72, y: 134 / 72, w: 3.2, h: 0.32, align: "left", valign: "top",
   fontSize: 12, color: BLUE, fontFace: FONT, margin: 0,
 });
 s.addText("Threshold at \u201c0.5\u201d", {
-  x: 8.11, y: 1.90, w: 3.2, h: 0.26, align: "left", valign: "top",
+  x: 584 / 72, y: 158 / 72, w: 3.2, h: 0.3, align: "left", valign: "top",
   fontSize: 12, color: RED, fontFace: FONT, margin: 0,
 });
-// sigmoid plot
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 9.58, y: 1.32, w: 2.67, h: 0.97,
-  fill: { color: WHITE }, line: { color: "9A9A9A", width: 0.75 },
-});
-s.addImage({ path: SIGMOID, x: 9.58, y: 1.32, w: SIG_W, h: SIG_H });
+// sigmoid curve with axes, drawn in the panel's right area (original: curve x693-853 y108-141)
+s.addImage({ path: SIGMOID, x: 690 / 72, y: 96 / 72, w: 193 / 72, h: 69 / 72 });
 
 // ---- right: Training panel --------------------------------------------------
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 7.99, y: 2.92, w: 4.54, h: 2.51,
+  x: 574 / 72, y: 205 / 72, w: 328 / 72, h: 177 / 72,
   fill: { color: TRAIN_BG }, line: { color: RED, width: 1.5 },
 });
 s.addText("Training", {
-  x: 8.11, y: 2.98, w: 1.6, h: 0.30, align: "left", valign: "top",
+  x: 584 / 72, y: 226 / 72, w: 1.6, h: 0.3, align: "left", valign: "top",
   fontSize: 15, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
-// Input Sample ellipse (amber)
+// Input Sample ellipse
 s.addShape(pres.shapes.OVAL, {
-  x: 7.93, y: 3.40, w: 1.29, h: 0.42,
-  fill: { color: AMBER }, line: { color: "843C0C", width: 1 },
+  x: 556 / 72, y: 236 / 72, w: 58 / 72, h: 44 / 72,
+  fill: { color: WHITE }, line: { color: BLACK, width: 1 },
 });
 s.addText("Input Sample", {
-  x: 7.93, y: 3.40, w: 1.29, h: 0.42, align: "center", valign: "middle",
-  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
+  x: 556 / 72, y: 236 / 72, w: 58 / 72, h: 44 / 72, align: "center", valign: "middle",
+  fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
 });
-// arrow Input Sample -> Model
 s.addShape(pres.shapes.RIGHT_ARROW, {
-  x: 9.24, y: 3.52, w: 0.14, h: 0.18,
-  fill: { color: "7B241C" }, line: { type: "none" },
+  x: 8.52, y: 3.50, w: 0.12, h: 0.16, fill: { color: "7B241C" }, line: { type: "none" },
 });
-// Model box (training)
+// Model box (training) — mapping line INSIDE the box, verbatim
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: 8.33, y: 3.33, w: 2.07, h: 0.91,
+  x: 613 / 72, y: 245 / 72, w: 123 / 72, h: 60 / 72,
   fill: { color: MODEL_BG }, line: { color: RED, width: 1.5 },
 });
 s.addText("Model", {
-  x: 8.42, y: 3.42, w: 0.9, h: 0.30, align: "left", valign: "middle",
-  fontSize: 13, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  x: 620 / 72, y: 246 / 72, w: 0.8, h: 0.3, align: "left", valign: "middle",
+  fontSize: 12, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
-// mini sigmoid icon inside Model box
-s.addImage({ path: SIGMOID, x: 9.15, y: 3.42, w: 1.15, h: 0.42 });
-// MISSING mapping line from spec_gaps.md slide_002 — verbatim, arrow + spacing as printed
+s.addImage({ path: SIGMOID, x: 648 / 72, y: 250 / 72, w: 80 / 72, h: 29 / 72 });
 s.addText("(Any value) \u2192 (-1 , +1)", {
-  x: 8.27, y: 3.72, w: 2.22, h: 0.25, align: "center", valign: "top",
-  fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0,
+  x: 613 / 72, y: 272 / 72, w: 123 / 72, h: 0.25, align: "center", valign: "top",
+  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
 });
 // arrow Model -> LOSS
 s.addShape(pres.shapes.RIGHT_ARROW, {
-  x: 10.42, y: 3.62, w: 0.30, h: 0.18,
-  fill: { color: "7B241C" }, line: { type: "none" },
+  x: 10.30, y: 3.55, w: 0.30, h: 0.16, fill: { color: "7B241C" }, line: { type: "none" },
 });
-// LOSS circle (amber in original)
+// LOSS amber circle
 s.addShape(pres.shapes.OVAL, {
-  x: 10.75, y: 3.42, w: 0.76, h: 0.76,
+  x: 774 / 72, y: 245 / 72, w: 55 / 72, h: 56 / 72,
   fill: { color: AMBER }, line: { color: "843C0C", width: 1 },
 });
 s.addText("LOSS", {
-  x: 10.75, y: 3.42, w: 0.76, h: 0.76, align: "center", valign: "middle",
-  fontSize: 11, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  x: 774 / 72, y: 245 / 72, w: 55 / 72, h: 56 / 72, align: "center", valign: "middle",
+  fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
-// Predicted Class label above the Model->LOSS arrow region
+// Predicted Class ellipse (upper right)
 s.addShape(pres.shapes.OVAL, {
-  x: 11.08, y: 3.33, w: 1.38, h: 0.42,
+  x: 793 / 72, y: 232 / 72, w: 108 / 72, h: 41 / 72,
   fill: { color: WHITE }, line: { color: BLACK, width: 1 },
 });
 s.addText("Predicted Class", {
-  x: 11.08, y: 3.33, w: 1.38, h: 0.42, align: "center", valign: "middle",
-  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
+  x: 793 / 72, y: 232 / 72, w: 108 / 72, h: 41 / 72, align: "center", valign: "middle",
+  fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
 });
-// Label of Input Sample ellipse (pale blue) below, arrow up into LOSS
+// arrow Predicted Class -> LOSS (down)
+s.addShape(pres.shapes.DOWN_ARROW, {
+  x: 11.45, y: 3.90, w: 0.16, h: 0.28, fill: { color: "7B241C" }, line: { type: "none" },
+});
+// Label of Input Sample ellipse (below) + (+1, 0)
 s.addShape(pres.shapes.OVAL, {
-  x: 9.69, y: 4.88, w: 1.29, h: 0.50,
+  x: 697 / 72, y: 344 / 72, w: 93 / 72, h: 34 / 72,
   fill: { color: LBLUE }, line: { color: BLUE_BORDER, width: 1 },
 });
 s.addText("Label of Input Sample", {
-  x: 9.69, y: 4.88, w: 1.29, h: 0.50, align: "center", valign: "middle",
-  fontSize: 8, color: BLACK, fontFace: FONT, margin: 0,
+  x: 697 / 72, y: 344 / 72, w: 93 / 72, h: 34 / 72, align: "center", valign: "middle",
+  fontSize: 7.5, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addText("(+1, 0)", {
-  x: 11.10, y: 4.95, w: 1.27, h: 0.28, align: "center", valign: "middle",
+  x: 795 / 72, y: 358 / 72, w: 90 / 72, h: 0.28, align: "center", valign: "middle",
   fontSize: 11, color: BLACK, fontFace: FONT, margin: 0,
 });
-// arrow Label -> LOSS (up-right)
+// arrow Label -> LOSS (up)
 s.addShape(pres.shapes.UP_ARROW, {
-  x: 10.62, y: 4.30, w: 0.18, h: 0.55,
-  fill: { color: BLACK }, line: { type: "none" }, rotate: 35,
+  x: 10.55, y: 4.22, w: 0.16, h: 0.42, fill: { color: BLACK }, line: { type: "none" },
 });
 
 // ---- right: Evaluation panel ------------------------------------------------
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 7.99, y: 5.44, w: 4.54, h: 1.67,
+  x: 574 / 72, y: 384 / 72, w: 328 / 72, h: 132 / 72,
   fill: { color: EVAL_BG }, line: { color: RED, width: 1.5 },
 });
 s.addText("Evaluation", {
-  x: 8.11, y: 5.50, w: 1.6, h: 0.30, align: "left", valign: "top",
+  x: 584 / 72, y: 390 / 72, w: 1.6, h: 0.3, align: "left", valign: "top",
   fontSize: 15, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
-// Test Sample ellipse (amber)
+// Test Sample ellipse
 s.addShape(pres.shapes.OVAL, {
-  x: 7.93, y: 5.90, w: 1.29, h: 0.42,
-  fill: { color: AMBER }, line: { color: "843C0C", width: 1 },
+  x: 561 / 72, y: 410 / 72, w: 58 / 72, h: 41 / 72,
+  fill: { color: WHITE }, line: { color: BLACK, width: 1 },
 });
 s.addText("Test Sample", {
-  x: 7.93, y: 5.90, w: 1.29, h: 0.42, align: "center", valign: "middle",
-  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
+  x: 561 / 72, y: 410 / 72, w: 58 / 72, h: 41 / 72, align: "center", valign: "middle",
+  fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addShape(pres.shapes.RIGHT_ARROW, {
-  x: 9.24, y: 6.02, w: 0.14, h: 0.18,
-  fill: { color: "7B241C" }, line: { type: "none" },
+  x: 8.55, y: 5.85, w: 0.12, h: 0.16, fill: { color: "7B241C" }, line: { type: "none" },
 });
-// Model box (evaluation)
+// Model box (evaluation) — mapping line INSIDE the box, verbatim (second occurrence)
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: 8.33, y: 5.83, w: 2.07, h: 0.91,
+  x: 613 / 72, y: 420 / 72, w: 123 / 72, h: 60 / 72,
   fill: { color: MODEL_BG }, line: { color: RED, width: 1.5 },
 });
 s.addText("Model", {
-  x: 8.42, y: 5.92, w: 0.9, h: 0.30, align: "left", valign: "middle",
-  fontSize: 13, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  x: 620 / 72, y: 421 / 72, w: 0.8, h: 0.3, align: "left", valign: "middle",
+  fontSize: 12, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
-s.addImage({ path: SIGMOID, x: 9.15, y: 5.92, w: 1.15, h: 0.42 });
-// MISSING mapping line (verbatim, second occurrence)
+s.addImage({ path: SIGMOID, x: 648 / 72, y: 425 / 72, w: 80 / 72, h: 29 / 72 });
 s.addText("(Any value) \u2192 (-1 , +1)", {
-  x: 8.27, y: 6.22, w: 2.22, h: 0.25, align: "center", valign: "top",
-  fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0,
+  x: 613 / 72, y: 447 / 72, w: 123 / 72, h: 0.25, align: "center", valign: "top",
+  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addShape(pres.shapes.RIGHT_ARROW, {
-  x: 10.42, y: 6.12, w: 0.30, h: 0.18,
-  fill: { color: "7B241C" }, line: { type: "none" },
+  x: 10.30, y: 5.90, w: 0.30, h: 0.16, fill: { color: "7B241C" }, line: { type: "none" },
 });
 // Predicted Class ellipse (evaluation)
 s.addShape(pres.shapes.OVAL, {
-  x: 11.08, y: 5.83, w: 1.38, h: 0.42,
+  x: 790 / 72, y: 408 / 72, w: 111 / 72, h: 41 / 72,
   fill: { color: WHITE }, line: { color: BLACK, width: 1 },
 });
 s.addText("Predicted Class", {
-  x: 11.08, y: 5.83, w: 1.38, h: 0.42, align: "center", valign: "middle",
-  fontSize: 10, color: BLACK, fontFace: FONT, margin: 0,
+  x: 790 / 72, y: 408 / 72, w: 111 / 72, h: 41 / 72, align: "center", valign: "middle",
+  fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
 });
 s.addText("(+1, 0)", {
-  x: 11.10, y: 6.30, w: 1.27, h: 0.28, align: "center", valign: "middle",
+  x: 790 / 72, y: 452 / 72, w: 90 / 72, h: 0.28, align: "center", valign: "middle",
   fontSize: 11, color: BLACK, fontFace: FONT, margin: 0,
 });
 

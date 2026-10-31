@@ -128,3 +128,104 @@ sources. Useful for slide notes; NOT printed on this frame.
 ### Uncertain items (marked [?])
 - None — the frame carries only a title and the badge; all verified concepts are the
   announced review topic, not printed frame text.
+
+---
+
+## Verified 2026-10-30 (wave 4, `src_w4_001_004`)
+
+Fresh independent re-verification pass. Wave-1 and wave-3 sections above are left untouched.
+
+**Transport note**: `agy -p` CLI was quota-blocked this wave (HTTP 429 `RESOURCE_EXHAUSTED /
+Individual quota reached`, resets ~131h). Searches ran through the **agy MCP web-search tool** — the
+same Google grounding via the antigravity proxy with redirect URLs resolved. Every URL below was
+returned by the search service; none invented. Unlike slide 001, several non-SPA academic pages
+were **fetched live and returned full content** — marked "live-fetched".
+
+Full register: `sources/slide_002_source/VERIFY_W4.md`.
+
+### Claim → question → answer → citation
+
+1. **The Perceptron is Rosenblatt's single-layer binary classifier.**
+   *Question:* Is "Perceptron Algorithm" the Rosenblatt model, and what is the primary paper?
+   *Answer:* Yes — Frank Rosenblatt, "The Perceptron: A Probabilistic Model for Information Storage
+   and Organization in the Brain", *Psychological Review* 65(6):386–408 (1958), doi:10.1037/h0042519,
+   PMID 13602029 — the paper that introduced the perceptron as the first computational model of an
+   artificial neural network capable of learning from experience.
+   *Citation:* https://en.wikipedia.org/wiki/Perceptrons_(book) (live-fetched; carries the full
+   bibliographic citation) ; https://pubmed.ncbi.nlm.nih.gov/13602029/ ;
+   https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf (search-resolved; direct fetch
+   failed to extract — recorded as unextracted, not invalid)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+2. **Model ŷ = f(w·x + b) with a step/sign activation; weights w, bias b.**
+   *Question:* What is the classifier form, and is the bias absorbable into the weight vector?
+   *Answer:* "h(x_i) = sign(wᵀx_i + b)", y_i ∈ {−1,+1}; the notes state "we 'absorb' it into the
+   feature vector w by adding one additional constant dimension", giving h(x_i) = sign(wᵀx).
+   *Citation:* https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html
+   (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+3. **Error-correction learning rule: on a misclassified sample w ← w + η·y·x; no update when
+   correctly classified; η = learning rate.**
+   *Question:* What is the update rule and when does it fire?
+   *Answer:* "If y_n ŷ_n = −1, β̂ ← β̂ + η·y_n x_n" — the update fires **only** on misclassified
+   samples; "an observation is correctly classified if y_n ŷ_n = 1 and misclassified if y_n ŷ_n = −1".
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched:
+   "y_i(wᵀx_i) > 0 ⟺ x_i is classified correctly")
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+4. **Perceptron Convergence Theorem (Novikoff 1962): linearly separable data ⇒ convergence in a
+   finite number of updates; mistake bound k ≤ R²/δ² (≡ M ≤ 1/γ² under unit-radius normalization).**
+   *Question:* Who proved the theorem, under what hypothesis, and what is the bound?
+   *Answer:* "While the perceptron algorithm was invented by Rosenblatt, this theorem and its proof
+   were from NYU mathematician Albert B. J. Novikoff in 1962." If the training set is linearly
+   separable with margin δ, the perceptron "must converge to a linear separator after at most R²/δ²
+   mistakes (updates) where R = max ‖x‖"; the Cornell version gives "at most 1/γ² mistakes" with
+   ‖x‖ ≤ 1. The bound is independent of dimensionality, of dataset size, and of cycling order, and
+   scales quadratically with separation difficulty.
+   *Citation:* https://web.engr.oregonstate.edu/~huanlian/teaching/ML/2024fall/unit2/convergence.html
+   (live-fetched) ; https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html
+   (live-fetched) ; primary paper scan: https://cs.uwaterloo.ca/~y328yu/classics/novikoff.pdf ;
+   proof sketch: https://math.stackexchange.com/questions/2183227/novikoff-s-proof-for-perceptron-convergence
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+5. **Single-layer perceptron cannot compute XOR (non-linearly separable) — Minsky & Papert 1969.**
+   *Question:* What did *Perceptrons* (1969) prove, and which predicate is the canonical example?
+   *Answer:* *Perceptrons: An Introduction to Computational Geometry*, Minsky & Papert, published 1969;
+   "the most important one is related to the computation of some predicates, such as the XOR
+   function", and the single-layer perceptron cannot compute parity under conjunctive localness
+   (Theorem 3.1.1). The Cornell notes' history section cites "the XOR problem (Minsky 1969)" as the
+   canonical non-linearly separable example.
+   *Citation:* https://en.wikipedia.org/wiki/Perceptrons_(book) (live-fetched) ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+6. **The 1969 limitation contributed to the first "AI Winter"; multi-layer nets + backpropagation
+   (Rumelhart, Hinton & Williams 1986) were the way forward.**
+   *Question:* What was the historical consequence of the 1969 result?
+   *Answer:* The book "is the center of a long-standing controversy … pessimistic predictions made
+   by the authors were responsible for a change in the direction of research in AI, concentrating
+   efforts on so-called 'symbolic' systems, a line of research that petered out and contributed to
+   the so-called AI winter of the 1980s"; Cornell: "Then, contributed to the A.I. Winter."
+   *Citation:* https://en.wikipedia.org/wiki/Perceptrons_(book) (live-fetched) ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+### Doc-parse corroboration
+
+`sources/docparse_cascades/slide_002/composed/slide_002_composed.md` (nemotron-3.5-parse,
+degraded: False, 2 elements, 0 failed calls) independently reads exactly two elements: the badge
+"2" and the section header "Revision of Perceptron Algorithm". This corroborates the analysis
+JSON's `subtitle_or_header: null`, empty `bullets`/`equations`, and its deliberate documentation of
+the absence rather than fabrication of body content. **No analysis correction was required.**
+
+### Corrections to the analysis record
+
+**None.** No factual or DATA claim in `analysis/slide_002_final.json` was contradicted by any
+source; nothing was patched. All verified items are the announced review topic, not printed frame
+text.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

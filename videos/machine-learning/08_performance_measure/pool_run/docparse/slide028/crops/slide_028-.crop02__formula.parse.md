@@ -1,0 +1,1 @@
+<x_0.0><y_0.0>\(TPR=\frac{TP}{TP+FN}\)<x_0.9971><y_0.9922><class_Formula>

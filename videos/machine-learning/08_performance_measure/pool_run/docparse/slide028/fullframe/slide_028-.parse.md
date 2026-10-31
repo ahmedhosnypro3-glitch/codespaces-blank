@@ -1,0 +1,27 @@
+<x_0.1865><y_0.1266>**Receiver Operating Characteristic (ROC) Curve**<x_0.7822><y_0.1758><class_Section-header>
+
+<x_0.8896><y_0.0938>28<x_0.9336><y_0.168><class_Picture>
+
+<x_0.085><y_0.2078>ROC is a graph showing the performance of a classification model at all classification thresholds.<x_0.835><y_0.2797><class_Text>
+
+<x_0.0859><y_0.3344>This curve plots two parameters: [1] True Positive Rate [2] False Positive Rate<x_0.7861><y_0.3688><class_Text>
+
+<x_0.0869><y_0.4188>**True Positive Rate (TPR)** is a synonym for **recall** and is therefore defined as:<x_0.7705><y_0.4547><class_Text>
+
+<x_0.1201><y_0.4703>_TPR_ = _TP_ / TP + FN<x_0.3115><y_0.5781><class_Formula>
+
+<x_0.3457><y_0.4859>Correctly Predicted as Positive / ALL Actual Positive Samples
+(Percentage of correctly retrieved Positive samples)<x_0.8857><y_0.5641><class_Text>
+
+<x_0.585><y_0.5844>**(Best Value is “1”)**<x_0.7217><y_0.6141><class_Caption>
+
+<x_0.0859><y_0.6297>**False Positive Rate (FPR)** is defined as:<x_0.4473><y_0.6656><class_Text>
+
+<x_0.1191><y_0.6719>FPR = FP / FP + TN<x_0.3105><y_0.7844><class_Formula>
+
+<x_0.3545><y_0.6906>Incorrectly Predicted as Positive / ALL Actual Negative Samples
+(Error percentage in samples Predicted as Positive)<x_0.918><y_0.7703><class_Text>
+
+<x_0.5869><y_0.7875>**(Best Value is “0”)**<x_0.7207><y_0.818><class_Caption>
+
+<x_0.084><y_0.8484>An ROC curve plots TPR vs. FPR <u>at different classification thresholds</u>.<x_0.7031><y_0.8852><class_Text>

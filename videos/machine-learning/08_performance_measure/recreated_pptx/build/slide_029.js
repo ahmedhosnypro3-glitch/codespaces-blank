@@ -10,7 +10,8 @@ const pptx = new pptxgenpkg();
 pptx.layout = "LAYOUT_WIDE";
 
 const BG = "E8E8E8", RED = "C00000", HOUSE_RED = "C00000", BADGE = "FFF9C4", NUM = "333333";
-const INK = "000000", RED2 = "FF0000", BLUE = "0000FF";
+// Pixel forensics on the original: reds are dark C00000, blues are navy 000080.
+const INK = "000000", RED2 = "C00000", BLUE = "000080";
 const FONT = "Arial";
 const P = (px) => px / 72; // px -> inches
 
@@ -106,9 +107,9 @@ const cell = (cx0, cx1, cy0, cy1, txt, col) => s.addText(txt, {
   align: "center", valign: "middle", fontSize: 13, color: col, fontFace: FONT, margin: 0
 });
 cell(117, 166, 112, 136, "5", BLUE);
-cell(166, 218, 112, 136, "0", INK);
+cell(166, 218, 112, 136, "0", RED2);
 cell(117, 166, 136, 157, "6", RED2);
-cell(166, 218, 136, 157, "0", INK);
+cell(166, 218, 136, 157, "0", BLUE);
 
 // --- metrics box (pale yellow fill, red border) x224..341 y98..148 ---
 s.addShape(pptx.shapes.RECTANGLE, {
@@ -135,8 +136,8 @@ s.addShape(pptx.shapes.RECTANGLE, {
   fill: { color: "E7E6E4" }, line: { color: BLUE, width: 1.5 }
 });
 s.addText([
-  { text: "ROC Curve for", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT, breakLine: true } },
-  { text: "Same Model -different thresholds", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT, breakLine: false } }
+  { text: "ROC Curve for", options: { fontSize: 17, bold: true, color: RED2, fontFace: FONT, breakLine: true } },
+  { text: "Same Model -different thresholds", options: { fontSize: 17, bold: true, color: RED2, fontFace: FONT, breakLine: false } }
 ], {
   x: P(354), y: P(425), w: P(624 - 354), h: P(477 - 425),
   align: "center", valign: "middle", margin: 0, lineSpacing: 20
@@ -183,16 +184,20 @@ s.addText("0.0", {
   align: "center", valign: "middle", fontSize: 10, color: INK, fontFace: FONT, margin: 0
 });
 
-// --- formula box (red border) x650..750 y410..505 with 2D fraction PNGs ---
+// --- two stacked formula boxes (red borders), original outlines at y416..454 and y466..502 ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(650), y: P(410), w: P(750 - 650), h: P(505 - 410),
+  x: P(650), y: P(416), w: P(750 - 650), h: P(454 - 416),
+  fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 }
+});
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: P(650), y: P(466), w: P(750 - 650), h: P(502 - 466),
   fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 }
 });
 const ASSETS = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets";
 // eq_029_tpr.png: 712x240 px @600dpi -> 1.18667 x 0.4 in ; eq_029_fpr.png: 699x240 -> 1.165 x 0.4 in
 const fcx = P(650) + P(100) / 2;
-s.addImage({ path: ASSETS + "/eq_029_tpr.png", x: fcx - 1.18667 / 2, y: P(418), w: 1.18667, h: 0.4 });
-s.addImage({ path: ASSETS + "/eq_029_fpr.png", x: fcx - 1.165 / 2, y: P(462), w: 1.165, h: 0.4 });
+s.addImage({ path: ASSETS + "/eq_029_tpr.png", x: fcx - 1.18667 / 2, y: P(420), w: 1.18667, h: 0.4 });
+s.addImage({ path: ASSETS + "/eq_029_fpr.png", x: fcx - 1.165 / 2, y: P(470), w: 1.165, h: 0.4 });
 
 // --- generic confusion matrix (red border) x784..880 y446..499 ---
 const GX = P(784), GY = P(446), GW = P(880 - 784), GH = P(499 - 446);

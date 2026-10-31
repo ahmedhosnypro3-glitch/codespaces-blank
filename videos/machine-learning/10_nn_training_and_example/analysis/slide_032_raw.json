@@ -1,0 +1,131 @@
+{
+  "slide_title": "Initialized weights",
+  "subtitle_or_header": "Updated weights (after iteration # 1)",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Initialized weights",
+      "Updated weights (after iteration # 1)",
+      "Input",
+      "Output",
+      "Target",
+      "Bias",
+      "x\u2081",
+      "x\u2082",
+      "O\u2083",
+      "O\u2084",
+      "O\u2085",
+      "O\u2086",
+      "O\u2087",
+      "t\u2086",
+      "t\u2087",
+      "\u03b7 = 5",
+      "32",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "1"
+    ],
+    "equations": [
+      "Input vector: x = ( 1 ; 5 ) with x\u2081 = 1, x\u2082 = 5 (shown in both panels)",
+      "Output vector, top panel: ( 0.791 ; 0.791 )",
+      "Output vector, bottom panel: ( 0.352 ; 0.835 )",
+      "Target vector, both panels: ( 0 ; 1 ) with t\u2086 = 0, t\u2087 = 1",
+      "\u03b7 = 5 (bottom-right of each panel)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Landscape slide on a light-gray background with a thin dark-red/maroon rectangular frame inset near the edges. A yellow circle badge with '32' sits at the top-right corner. The body is two red-bordered rectangular panels stacked vertically with a small gap: the top panel is headed 'Initialized weights' and the bottom panel 'Updated weights (after iteration # 1)' (both in red italic at the panel's top-left). Inside each panel the content flows left-to-right: Input column at far left (header 'Input', column vector x=(1,5), two black input dots, 'Bias' + blue '1' circle), hidden layer of three yellow circles (3 top, 4 middle, 5 bottom) at center-left with a second 'Bias' + blue '1' circle below node 5, output layer of two peach circles (6 top, 7 bottom) at center-right, then a bold output column vector, a red double-headed arrow (\u21d4), and at far right the 'Target' header above a bold target column vector with t\u2086/t\u2087 beside it. '\u03b7 = 5' in red sits at the bottom-right inside each panel.",
+    "regions": [
+      {
+        "name": "slide-number badge",
+        "position": "top-right corner, roughly top 4-12% of slide height, right 2-7% of width",
+        "content": "yellow circle with purple outline containing the dark text '32'"
+      },
+      {
+        "name": "top panel: Initialized weights",
+        "position": "top half of slide, roughly top 14% to 53% height, spanning nearly full width inside the maroon frame",
+        "content": "red-bordered box; red italic title 'Initialized weights' at top-left; full neural-network diagram with initial weights (green input\u2192hidden weights 0.1/0.2/0.4, 0.3/0.5/0.6, 0.1/0.1/0.1; magenta hidden\u2192output weights 0.3/0.3, 0.4/0.4, 0.5/0.5, 0.2/0.2); output vector (0.791, 0.791); target vector (0, 1); \u03b7 = 5"
+      },
+      {
+        "name": "bottom panel: Updated weights (after iteration # 1)",
+        "position": "bottom half of slide, roughly top 56% to 96% height, spanning nearly full width inside the maroon frame",
+        "content": "identical diagram structure with updated weights (green 0.125/0.215/0.527, 0.305/0.575/0.625, 0.125/0.115/0.105; magenta -0.29/-0.458, -0.218/-0.565, -0.134/-0.669, -0.445/-0.375); output vector (0.352, 0.835); target vector (0, 1); \u03b7 = 5"
+      }
+    ],
+    "hierarchy": "The two red italic panel titles are the largest text and anchor each panel. Next in size are the blue underlined italic section labels (Input, Output) and the black underlined italic 'Target'. The network nodes are the dominant shapes: yellow hidden circles and peach output circles are largest, black input dots smaller, light-blue bias circles smallest. Weight values are small green/magenta text along thin gray edges. Output/target vectors are bold black with large parentheses. The yellow '32' badge is a small accent at top-right."
+  },
+  "visual_elements": [
+    {
+      "type": "network (feedforward neural network diagram)",
+      "description": "TOP PANEL ('Initialized weights'). Architecture: 2 inputs + 1 bias \u2192 3 hidden neurons + 1 bias \u2192 2 output neurons. Far left: blue underlined italic 'Input' header; column vector with rows 'x\u2081 ( 1 )' and 'x\u2082 ( 5 )' (x labels blue, values black, large parentheses); to the right of the vector two solid black circles (input neurons), each with a small red dot on its right edge; below them blue italic 'Bias' and a light-blue circle containing '1'. Center-left: three yellow circles stacked vertically, numbered 3 (top), 4 (middle), 5 (bottom) in bold blue, each with a blue label O\u2083 / O\u2084 / O\u2085 at its upper right and a small red dot on its left edge; below node 5 another blue italic 'Bias' label with a light-blue '1' circle. Center-right: two peach circles numbered 6 (top) and 7 (bottom) in bold blue, with blue labels O\u2086 and O\u2087 above-right. Far right: blue underlined italic 'Output' header above the output nodes; to their right a bold black column vector ( 0.791 ; 0.791 ); then a red double-headed horizontal arrow (\u21d4); then black underlined italic 'Target' header above a bold black column vector ( 0 ; 1 ) with blue t\u2086 beside 0 and t\u2087 beside 1. Thin gray lines connect every input/bias node to every hidden node, and every hidden/bias node to every output node. GREEN weight labels on input\u2192hidden edges: from x\u2081: 0.1 (to node 3), 0.2 (to node 4), 0.4 (to node 5); from x\u2082: 0.3 (to 3), 0.5 (to 4), 0.6 (to 5); from bias: 0.1, 0.1, 0.1. MAGENTA weight labels on hidden\u2192output edges: from node 3: 0.3 (to 6), 0.3 (to 7); from node 4: 0.4, 0.4; from node 5: 0.5, 0.5; from bias: 0.2 (to 6), 0.2 (to 7). Red '\u03b7 = 5' at the panel's bottom-right corner.",
+      "colors": [
+        "#C00000 red panel border and title",
+        "#0000FF blue labels and node numbers",
+        "#00A651 green input\u2192hidden weight text",
+        "#C0006F magenta hidden\u2192output weight text",
+        "#FFFF99 yellow hidden-node fill",
+        "#F8CBAD peach output-node fill",
+        "#000000 black input dots and vector text",
+        "#FF0000 small red connector dots",
+        "#9DC3E6 light-blue bias circles",
+        "#BFBFBF gray connection lines",
+        "#C00000 red \u03b7 = 5 and \u21d4 arrow"
+      ],
+      "position": "top panel, spanning from ~8% to ~92% of slide width, vertically centered in the top half"
+    },
+    {
+      "type": "network (feedforward neural network diagram)",
+      "description": "BOTTOM PANEL ('Updated weights (after iteration # 1)'). Identical structure to the top panel: 'Input' header; vector x\u2081 ( 1 ), x\u2082 ( 5 ); two black input dots; 'Bias' + light-blue '1' circle; hidden yellow circles 3/4/5 with O\u2083/O\u2084/O\u2085; second 'Bias' + '1' circle; output peach circles 6/7 with O\u2086/O\u2087; output vector; red \u21d4 arrow; 'Target' header with vector ( 0 ; 1 ) and t\u2086/t\u2087; '\u03b7 = 5' bottom-right. UPDATED GREEN input\u2192hidden weights: from x\u2081: 0.125 (to 3), 0.215 (to 4), 0.527 (to 5); from x\u2082: 0.305 (to 3), 0.575 (to 4), 0.625 (to 5); from bias: 0.125 (to 3), 0.115 (to 4), 0.105 (to 5). UPDATED MAGENTA hidden\u2192output weights: from node 3: -0.29 (to 6), -0.458 (to 7); from node 4: -0.218 (to 6), -0.565 (to 7); from node 5: -0.134 (to 6), -0.669 (to 7); from bias: -0.445 (to 6), -0.375 (to 7). Output vector now reads ( 0.352 ; 0.835 ). Target unchanged: ( 0 ; 1 ).",
+      "colors": [
+        "#C00000 red panel border and title",
+        "#0000FF blue labels and node numbers",
+        "#00A651 green input\u2192hidden weight text",
+        "#A000A0 magenta/purple hidden\u2192output weight text (negative values)",
+        "#FFFF99 yellow hidden-node fill",
+        "#F8CBAD peach output-node fill",
+        "#000000 black input dots and vector text",
+        "#FF0000 small red connector dots",
+        "#9DC3E6 light-blue bias circles",
+        "#BFBFBF gray connection lines",
+        "#C00000 red \u03b7 = 5 and \u21d4 arrow"
+      ],
+      "position": "bottom panel, spanning from ~8% to ~92% of slide width, vertically centered in the bottom half"
+    }
+  ],
+  "imagery": [
+    "Slide-number badge: flat yellow circle with purple outline and dark '32' text, top-right corner \u2014 the only icon-like element; all other graphics are simple vector shapes (circles, lines, parentheses, arrows) and text."
+  ],
+  "colors": {
+    "background": "#F2F2F2",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF blue (labels, node numbers)",
+      "#00A651 green (input\u2192hidden weights)",
+      "#C0006F / #A000A0 magenta (hidden\u2192output weights)",
+      "#FFFF99 yellow (hidden nodes)",
+      "#F8CBAD peach (output nodes)",
+      "#9DC3E6 light blue (bias nodes)",
+      "#FF0000 red dots/arrows",
+      "#FFFF00 yellow badge fill",
+      "#7030A0 purple badge outline",
+      "#8B1A1A dark maroon outer frame"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout (Calibri/Arial-like). Panel titles: red, italic, roughly 18-20 pt. Section labels 'Input'/'Output': blue, italic, underlined, ~14 pt. 'Target': black, italic, underlined. Node numbers (3,4,5,6,7): bold blue ~16 pt centered in circles. Weight values: small ~10-11 pt, green or magenta, placed along the connection lines near their source node. Vector entries (1, 5, 0.791, 0.352, 0.835, 0, 1): bold black ~14-16 pt inside large drawn parentheses. '\u03b7 = 5': red, ~14 pt. Subscript Unicode characters used for x\u2081, x\u2082, O\u2083-O\u2087, t\u2086, t\u2087. Slide number '32': dark text ~14 pt in yellow circle.",
+  "animation_state": "Static \u2014 both panels are fully rendered at once; no partial build or mid-animation state is visible (a tiny mouse-cursor mark appears near the bottom panel title, an artifact of the recording, not slide content).",
+  "recreation_brief": "1) Set slide background to light gray #F2F2F2 and draw a thin dark-maroon (#8B1A1A) rectangle frame inset ~2% from all edges. 2) Top-right: add a yellow (#FFFF00) circle with purple (#7030A0) outline containing '32'. 3) Draw the top red-bordered (#C00000) rectangle occupying roughly the top 14%-53% of slide height; type 'Initialized weights' in red italic at its top-left inside. 4) Inside the top panel, far left: blue italic underlined 'Input'; draw a column vector with large parentheses containing 1 (row labeled x\u2081 in blue) and 5 (row labeled x\u2082 in blue); place two solid black circles to the right of the vector rows, each with a small red dot; below them blue italic 'Bias' and a light-blue (#9DC3E6) circle with '1'. 5) At center-left draw three yellow (#FFFF99) circles stacked vertically, labeled 3, 4, 5 in bold blue, with blue O\u2083/O\u2084/O\u2085 at each upper-right; below node 5 add 'Bias' + light-blue '1' circle. 6) Connect every left node (2 inputs + bias) to every hidden node with thin gray lines; put green (#00A651) labels near the source ends: 0.1/0.2/0.4 from x\u2081, 0.3/0.5/0.6 from x\u2082, 0.1/0.1/0.1 from bias. 7) At center-right draw two peach (#F8CBAD) circles labeled 6 and 7 in bold blue with O\u2086/O\u2087 labels; connect all hidden nodes + bias to them with gray lines and magenta labels: 0.3/0.3 from node 3, 0.4/0.4 from node 4, 0.5/0.5 from node 5, 0.2/0.2 from bias. 8) Right of the output nodes: blue underlined 'Output' header; bold column vector (0.791 over 0.791); a red double-headed arrow \u21d4; black underlined italic 'Target' above bold vector (0 over 1) with t\u2086, t\u2087 to its right. 9) Add red '\u03b7 = 5' at the panel's bottom-right. 10) Repeat steps 3-9 for the bottom panel (top ~56%-96% height) with title 'Updated weights (after iteration # 1)' and the updated values: green 0.125/0.215/0.527 (x\u2081), 0.305/0.575/0.625 (x\u2082), 0.125/0.115/0.105 (bias); magenta -0.29/-0.458 (node 3), -0.218/-0.565 (node 4), -0.134/-0.669 (node 5), -0.445/-0.375 (bias); output vector (0.352 over 0.835); target (0 over 1) with t\u2086/t\u2087; '\u03b7 = 5' bottom-right.",
+  "_meta": {
+    "frame": "slide_032.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 32,
+      "image": "slide_032.jpg",
+      "badge": "32"
+    },
+    "elapsed_s": 292.3
+  }
+}

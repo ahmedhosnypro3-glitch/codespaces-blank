@@ -157,3 +157,80 @@ Query texts banked under `web/`:
 - Web search: ✅ complete (3 query reads; `agy -p` CLI succeeded once, then quota-
   exhausted; MCP route over the same grounding backend supplied the cited URLs)
 - Sources banked: ✅ yes
+## Verified 2026-10-30 (wave 4, scope `src_w4_017_020`, agent `w4-src-017`)
+
+Fresh independent web-verification pass. Full register: `VERIFY_W4.md` in this directory.
+Query texts banked: `web/w4_q1_identity.txt`; CLI-lane failure banked verbatim:
+`web/w4_agy_cli_q1.txt`.
+
+**Substitution note.** The dispatch expected no `analysis/slide_017_final.json` and asked for the
+raw JSON plus the re-analysis. The sibling worker completed both mid-flight:
+`analysis/slide_017_final.json` (12,382 B, verdict `PASS_WITH_FIXES`, recreatability 9/10) and
+`analysis/reanalysis_v2/slide_017_reanalysis.txt` (12,648 B, a full structural read — **not** the
+429-byte abort stub wave 2 saw) now exist. Both were read and audited together with the raw JSON.
+
+### Per-claim verification
+
+1. **Q:** Is `F(x) = x` the identity/linear activation, with range `(-∞, ∞)` and a constant
+   derivative? **A:** Yes — identity passes the input unchanged, range `(-∞, ∞)`, derivative
+   constant (`1`; `c` for the general `f(x) = cx`). Matches the frame's top panel (straight red
+   line of slope 1 through the origin) and the label "Linear (No Activation)".
+   **URL:** https://www.geeksforgeeks.org/artificial-intelligence/how-neural-networks-solve-the-xor-problem/ ·
+   https://www.innovatiana.com/en/glossary/xor-problem
+2. **Q:** Does stacking linear layers collapse to one affine map (no added depth)? **A:** Yes —
+   "multiple successive layers without non-linearities … compress into a single affine
+   transformation `y = W_equivalent x + b_equivalent` … Adding more hidden layers provides no
+   extra expressive power." **URL:**
+   https://towardsdatascience.com/how-neural-networks-solve-the-xor-problem-59763136bdd7/
+3. **Q:** Can a linear network solve XOR? **A:** No — XOR is not linearly separable, and a net that
+   collapses to one linear map is restricted to linear decision boundaries.
+   **URL:** https://www.innovatiana.com/en/glossary/xor-problem
+4. **Q:** Is the uni-polar unit step `f(x) = 1` for `x ≥ 0`, `0` for `x < 0`? **A:** Yes, exactly
+   as printed. **URL:** https://kobiso.github.io/research/research-activation-functions/
+5. **Q:** Is the bi-polar unit step `f(x) = +1` for `x ≥ 0`, `−1` for `x < 0`? **A:** Yes, exactly
+   as printed. **URL:** https://machinelearninggeek.com/activation-functions/
+6. **Q:** What is the step function's gradient, and can it be trained by backpropagation? **A:**
+   "`df/dx = 0` (for all `x ≠ 0`, and undefined at `x = 0`) … the error cannot be backpropagated
+   through the network, making learning impossible."
+   **URL:** https://medium.com/@deepyachowdary/understanding-different-activation-functions-6aed5ed1c785
+7. **Q:** Did the classical perceptron use this rule, and what is the biological lineage? **A:**
+   "The standard choice for the classical perceptron is the Heaviside step function … `1 if
+   Σwᵢxᵢ + b ≥ 0` … this mathematical step function directly mirrors the biological 'all-or-none'
+   firing threshold conceptualized by McCulloch and Pitts." **URL:**
+   https://en.wikipedia.org/wiki/Perceptron ·
+   https://www.statworx.com/en/content-hub/blog/the-rosenblatt-perceptron-the-early-beginnings-of-deep-learning ·
+   https://home.csulb.edu/~cwallis/artificialn/History.htm
+8. **Q:** Is the printed naming ("Linear (No Activation)", "Uni-polar"/"Bi-polar Unit Step") a
+   source-attested term? **A:** No — the literature uses "identity"/"linear activation" and
+   "binary step"/"sign function"; the slide's wording is **course-authored** and must not be
+   "corrected" toward the literature. Frame/naming fact only.
+
+### Doc-parse cross-check
+
+`docparse_cascades/slide_017/composed/slide_017_composed.md` recovers only
+`17 Linear and Unit Step Activation Functions` (whole slide as one `<class_Picture>`): it
+**corroborates the title and badge numeral** and nothing else. Advisory; no equation text.
+
+### Search-lane note
+
+`agy -p` CLI: `RESOURCE_EXHAUSTED (429) … Resets in 131h14m13s` (banked at
+`web/w4_agy_cli_q1.txt`). All three queries ran through the `agy_web_search` MCP route on the
+same grounding backend and returned resolved URLs — same CLI-vs-MCP split as wave 2.
+
+### Changes to the analysis spec
+
+**None.** 9 claims checked · 7 CONFIRMED · 1 CONFIRMED-as-course-authored · 1 CONFIRMED-and-
+narrowed (wave-1's `f(x) = cx` note narrowed to the frame's identity form) · 0 CORRECTED ·
+0 UNVERIFIED. 14 URLs cited.
+
+### Fetch-status disclosure (wave 4)
+
+Every wave-4 URL above was re-fetched live in the 2026-10-30 work window: **19 distinct URLs
+returned HTTP 200**, **12 answered HTTP 403** (live pages behind Cloudflare/bot-walls on
+GeeksforGeeks, Medium, Towards Data Science, StackExchange, Baeldung, DataCamp, ResearchGate,
+blog.gopenai, vaia — the quoted facts reached this record through the Google grounding backend,
+not from an unfetched snippet), **7 were grounding-resolved only**, and **1**
+(`https://www.aussieai.com/book/ch21-elu-activation-function`) **is unreachable from this
+environment** and is flagged do-not-reuse pending re-fetch — its ELU α claims are independently
+corroborated by the HTTP-200 `https://arxiv.org/abs/1511.07289`. Per-URL table:
+`web/w4_fetch_status.txt`; full register: `VERIFY_W4.md`.

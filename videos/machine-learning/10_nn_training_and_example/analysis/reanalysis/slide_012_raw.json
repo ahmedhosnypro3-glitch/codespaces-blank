@@ -1,0 +1,195 @@
+{
+  "slide_title": "At Output Layer",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "At Output Layer",
+      "12",
+      "O_i",
+      "O_i",
+      "O_i",
+      "w_ji",
+      "w_ji",
+      "w_ji",
+      "\u03b4_j",
+      "\u03b4_j",
+      "\u03b4_j",
+      "O_j",
+      "O_j",
+      "O_j",
+      "Error",
+      "t_j",
+      "t_j",
+      "t_j"
+    ],
+    "equations": [
+      "\u0394_ji = \u03b7   O_i   O_j(1\u2212O_j)   (t_j \u2212 O_j)",
+      "\u0394_ji = \u03b7   O_i   \u03b4_j",
+      "Where:   \u03b4_j  =  O_j(1\u2212O_j)  (t_j \u2212 O_j)"
+    ]
+  },
+  "layout": {
+    "arrangement": "Thin maroon border frames the entire slide. Title 'At Output Layer' (maroon, bold, underlined) sits top-left; a yellow circular badge with '12' sits top-right. Center of slide is dominated by a large maroon-bordered rectangle containing a 3-layer neural-network fragment diagram (3 green input nodes left, 3 orange output nodes middle, a tall vertical 'Error' box right of them, 3 blue target boxes far right) with a pale-green formula bar along the bottom of that rectangle. A separate smaller maroon-bordered box at bottom-left holds the two-line weight-update formula.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top-left, roughly x 6-30%, y 10-18%",
+        "content": "Underlined maroon bold title 'At Output Layer'"
+      },
+      {
+        "name": "slide_number_badge",
+        "position": "top-right corner, roughly x 89-95%, y 8-17%",
+        "content": "Yellow circle with dark outline containing '12'"
+      },
+      {
+        "name": "main_diagram_box",
+        "position": "center, roughly x 15-85%, y 20-73%",
+        "content": "Maroon-bordered rectangle holding the network diagram (input nodes, weights, output nodes, Error box, target boxes) and, at its bottom, the green formula bar"
+      },
+      {
+        "name": "formula_bar",
+        "position": "inside main box, bottom strip, roughly x 25-78%, y 60-68%",
+        "content": "Pale-green bar with color-coded equation \u0394_ji = \u03b7 O_i O_j(1\u2212O_j) (t_j \u2212 O_j)"
+      },
+      {
+        "name": "bottom_formula_box",
+        "position": "bottom-left, roughly x 7-48%, y 75-92%",
+        "content": "Maroon-bordered white box with '\u0394_ji = \u03b7 O_i \u03b4_j' and 'Where: \u03b4_j = O_j(1\u2212O_j) (t_j \u2212 O_j)'"
+      },
+      {
+        "name": "input_nodes",
+        "position": "left column inside main box, roughly x 32-38%, y 25-52%",
+        "content": "Three light-green circles, each labeled 'O_i' in red at upper right"
+      },
+      {
+        "name": "weight_labels",
+        "position": "between input and output columns, roughly x 40-45%, y 26-46%",
+        "content": "Three blue 'w_ji' labels on the connection lines"
+      },
+      {
+        "name": "output_nodes",
+        "position": "middle column inside main box, roughly x 45-51%, y 26-53%",
+        "content": "Three peach/orange circles, each with red '\u03b4_j' at left and red 'O_j' at right; a small red upward arrow points at the bottom node"
+      },
+      {
+        "name": "error_box",
+        "position": "right of output nodes inside main box, roughly x 55-60%, y 22-53%",
+        "content": "Tall vertical white rectangle with maroon border, word 'Error' rotated 90\u00b0 (reads bottom-to-top)"
+      },
+      {
+        "name": "target_boxes",
+        "position": "far right inside main box, roughly x 66-72%, y 25-52%",
+        "content": "Three light-blue rectangles, each labeled 't_j' in red, with leftward arrows into the Error box"
+      }
+    ],
+    "hierarchy": "The title and the central diagram box dominate; the diagram's Error box and the color-coded formula bar are the next visual anchors; the bottom-left formula box is secondary. Red/maroon is used for borders, titles, and error-related symbols (\u03b4_j, t_j\u2212O_j); blue for weights and O_i in formulas; green for nodes and the O_j(1\u2212O_j) factor."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Backpropagation output-layer diagram: 3 green input circles (left, vertically stacked, each labeled O_i in red) fully connected by thin gray lines to 3 peach output circles (middle, vertically stacked, each labeled \u03b4_j in red on the left and O_j in red on the right); each connection group is labeled w_ji in blue. From each output circle a rightward arrow enters the left side of a tall vertical rectangle labeled 'Error' (text rotated 90\u00b0 CCW). From each of 3 blue rectangles labeled t_j (far right, vertically stacked) a leftward arrow enters the right side of the Error box. A small red upward-pointing arrow sits below the bottom output circle, highlighting its \u03b4_j.",
+      "colors": [
+        "#C6E0B4 (green node fill)",
+        "#70AD47 (green node border)",
+        "#F8CBAD (orange node fill)",
+        "#ED7D31 (orange node border)",
+        "#BDD7EE (blue target box fill)",
+        "#2E75B6 (blue target box border)",
+        "#A93226 (Error box border)",
+        "#FF0000 (red labels O_i, O_j, \u03b4_j, t_j)",
+        "#0070C0 (blue w_ji labels)",
+        "#000000 (arrows/lines)"
+      ],
+      "position": "center of slide inside the large maroon-bordered rectangle"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pale-green horizontal bar containing the color-coded equation: '\u0394_ji = \u03b7' in black, 'O_i' in blue, 'O_j(1\u2212O_j)' in green, '(t_j \u2212 O_j)' in red.",
+      "colors": [
+        "#E2EFDA (bar fill)",
+        "#000000",
+        "#0070C0",
+        "#00B050",
+        "#FF0000"
+      ],
+      "position": "bottom strip inside the main diagram box"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with maroon border, two lines: line 1 '\u0394_ji = \u03b7   O_i   \u03b4_j' (\u0394_ji and \u03b7 black, O_i blue, \u03b4_j red); line 2 'Where:   \u03b4_j = O_j(1\u2212O_j)  (t_j \u2212 O_j)' (Where: black, \u03b4_j red, O_j(1\u2212O_j) green, (t_j \u2212 O_j) red).",
+      "colors": [
+        "#FFFFFF (fill)",
+        "#A93226 (border)",
+        "#000000",
+        "#0070C0",
+        "#FF0000",
+        "#00B050"
+      ],
+      "position": "bottom-left of slide, below the main diagram box"
+    },
+    {
+      "type": "icon",
+      "description": "Small red upward arrow (outline style) beneath the lowest output node, pointing at its \u03b4_j label.",
+      "colors": [
+        "#FF0000"
+      ],
+      "position": "inside main box, below bottom orange node, roughly x 47-49%, y 53-58%"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow circle badge with dark outline and the number '12' in dark text \u2014 slide number.",
+      "colors": [
+        "#FFFF00 (fill)",
+        "#7F6000 (border)",
+        "#000000 (text)"
+      ],
+      "position": "top-right corner of slide"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#A93226",
+    "body_text": "#000000",
+    "accents": [
+      "#A93226 (maroon borders/title)",
+      "#FF0000 (red math symbols/labels)",
+      "#0070C0 (blue)",
+      "#00B050 (green)",
+      "#C6E0B4 (green node fill)",
+      "#F8CBAD (orange node fill)",
+      "#BDD7EE (blue box fill)",
+      "#E2EFDA (formula bar fill)",
+      "#FFFF00 (slide-number badge)"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout (Calibri/Arial-like) for labels; math symbols (\u0394, \u03b7, O, \u03b4, w, t) appear in an italic math style (Cambria Math-like) with true subscripts. Title is bold, underlined, all in maroon, roughly 28-32pt. Diagram labels ~14-16pt. Formula text ~18-20pt, bold-ish. 'Error' is rotated 90\u00b0 counterclockwise inside its box. No bullets; no all-caps except none present.",
+  "animation_state": "Static, fully revealed \u2014 no mid-build elements; all nodes, arrows, formulas, and the slide-number badge are visible.",
+  "recreation_brief": [
+    "1. Add a white slide; draw a thin maroon (#A93226) rectangle border inset ~3% from all edges to frame the slide.",
+    "2. Top-left: text box with 'At Output Layer', font bold, ~30pt, color #A93226, underline on.",
+    "3. Top-right: yellow (#FFFF00) circle ~0.55in diameter with dark (#7F6000) outline; center the text '12' in black ~16pt.",
+    "4. Center: draw a large rectangle with maroon (#A93226) 1.5pt border, white fill, spanning roughly x 15-85%, y 20-73% of the slide.",
+    "5. Inside it, left column: three circles (~0.45in) filled #C6E0B4 with #70AD47 border, vertically spaced; to the upper-right of each, red (#FF0000) italic label 'O_i'.",
+    "6. Draw thin gray lines from each green circle to each orange circle (fully connected 3x3); place blue (#0070C0) italic 'w_ji' labels along the lines between the columns (three labels, one per row band).",
+    "7. Middle column: three circles filled #F8CBAD with #ED7D31 border; place red italic '\u03b4_j' at the left of each and red italic 'O_j' at the right of each.",
+    "8. Below the bottom orange circle, insert a small red upward arrow shape pointing at that node.",
+    "9. Right of the orange nodes: a tall vertical rectangle (~0.6in wide, ~2.2in tall), white fill, maroon (#A93226) border; inside, the word 'Error' rotated -90\u00b0 (reading bottom-to-top), dark red/black, bold.",
+    "10. Draw rightward arrows from each orange node into the left edge of the Error box.",
+    "11. Far right: three rectangles (~0.9in x 0.35in) filled #BDD7EE with #2E75B6 border, vertically aligned with the orange nodes; each contains red italic 't_j'; draw leftward arrows from each blue box into the right edge of the Error box.",
+    "12. Along the bottom inside the main rectangle: a pale-green (#E2EFDA) bar containing one line of mixed-color text: '\u0394_ji = \u03b7' black, 'O_i' blue (#0070C0), 'O_j(1\u2212O_j)' green (#00B050), '(t_j \u2212 O_j)' red (#FF0000), using italic math font with subscripts, ~20pt.",
+    "13. Bottom-left of slide: a white rectangle with maroon (#A93226) border (~x 7-48%, y 75-92%); line 1: '\u0394_ji = \u03b7   O_i   \u03b4_j' with O_i in blue and \u03b4_j in red; line 2: 'Where:   \u03b4_j = O_j(1\u2212O_j)  (t_j \u2212 O_j)' with \u03b4_j red, O_j(1\u2212O_j) green, (t_j \u2212 O_j) red; 'Where:' and '=' in black; ~18pt italic math for symbols.",
+    "14. Use the minus sign '\u2212' (U+2212) in the formulas exactly as shown; keep spacing between the color-coded segments as on the slide."
+  ],
+  "_meta": {
+    "frame": "slide_012.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 12,
+      "image": "slide_012.jpg",
+      "badge": "12"
+    },
+    "elapsed_s": 90.7
+  }
+}

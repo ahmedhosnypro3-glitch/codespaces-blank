@@ -117,3 +117,40 @@ Evidence basis: fresh vision re-analysis `analysis/reanalysis_v2/slide_005_reana
 6. https://www.cs.cmu.edu/~mgormley/courses/10601bd-f18/slides/lecture6-perc.pdf — HTTP 200; threshold unit formulation.
 7. https://svivek.com/teaching/machine-learning/lectures/slides/perceptron/perceptron.pdf — HTTP 200.
 8. https://users.cs.utah.edu/~zhe/pdf/lec-10-perceptron-upload.pdf — HTTP 200 (also cited in Wave-2).
+
+## Verified 2026-10-30 (wave 4 — scope src_w4_005_008)
+
+Evidence basis: `analysis/slide_005_final.json` + fresh vision read `analysis/reanalysis_v2/slide_005_reanalysis.txt` (9,510 B) + doc-parse cascade `sources/docparse_cascades/slide_005/composed/slide_005_composed.md` (independent second read) + 3 agy searches + 4 live URL fetches. Tooling note: the `agy -p` CLI is quota-exhausted this wave (re-tested 2026-10-30: `RESOURCE_EXHAUSTED (HTTP 429)`, "Individual quota reached", resets in ~131 h), so searches ran through the agy MCP web-search tool — the same Antigravity/Google grounding backend the CLI drives (verified via `agy_check_setup`: token valid, no blockers). Every URL below was re-fetched live on 2026-10-30; the ones that failed are recorded as failures, not as citations. Frame text unchanged — DATA-only.
+
+### Verification questions asked (agy, this wave)
+1. "perceptron decision boundary d(X)=W^T X with augmented input vector constant 1 for bias: what is the standard notation and what does d(X)>0 vs d(X)<0 vs d(X)=0 mean for class assignment?"
+2. (re-fetch check) does the Cornell CS4780 note still state the bias-absorption convention and the origin argument verbatim?
+3. (re-fetch check) does the Oregon State perceptron page still print x = (1, x1, ..., xd) with bias feature x0 = 1 at the head, and its dot-product sign decision rule?
+
+### Claim-by-claim verification (DATA only)
+
+1. **Augmented input vector X = [1; x1; x2; ...; xn] — constant 1 at the HEAD, becoming the bias feature x0** — CONFIRMED. Oregon State (live): "each `x = (1, x_1, ..., x_d)` is already in the `d+1` dimensional space with one bias feature `x_0=1` and `d` real features". Literature uses both head and tail placement for the constant (Cornell-style augmentation "add[s] one additional constant dimension" without fixing which end); the frame's head placement is a valid convention and the one the recreation must use. Doc-parse corroborates: `X = x1 1 X2 → X = x2 ... W =` (constant 1 present in the augmented column).
+2. **Augmented weight vector W = [b; w1; w2; ...; wn]** — CONFIRMED. The companion of (1): the bias b is the weight paired with the constant-1 input; UCSD's multiclass-perceptron handout carries independent biases b1...bk alongside weight rows w1...wk, same pattern.
+3. **d(X) = W^T X = w1x1 + w2x2 + ...... + wnxn + b*1** — CONFIRMED as the linear discriminant / net input of the perceptron. Cornell CS4780 (live, verbatim): "`b` is the bias term (without the bias term, the hyperplane that `w` defines would always have to go through the origin). Dealing with `b` can be a pain, so we 'absorb' it into the feature vector `w` by adding one additional constant dimension." The slide's `+ b*1` term is exactly that absorbed bias. Doc-parse corroborates verbatim: "d(X) = W T X = w1 x1 +w2 x2 +...... +wn xn+b*1".
+4. **Decision rules: d(X) > 0 ⇒ Class I; d(X) < 0 ⇒ Class II; d(X) = 0 ⇒ Undefined Class** — CONFIRMED as a valid boundary convention, with the literature nuance recorded. Oregon State (live, verbatim): "we said we output positive if the dot product is positive and negative if otherwise" and the tie case `w·x = 0` counts as a mistake. Cornell: `h(x) = sign(w^T x + b)`. So the standard sign implementations fold the zero case into one class; the slide's third case "=0 ⇒ Undefined Class" is this lecture's own (correct, pedagogically standard) boundary convention — render it verbatim as printed. Doc-parse corroborates all three lines verbatim, including "=0 ⇒ Undefined Class".
+5. **Diagram: inputs x1..xn plus bias 1 → per-input weights w1..wn plus b → Σ summation node → step/threshold activation → O/P, tagged "Binary Classification (2 Classes)"** — CONFIRMED as the canonical single-perceptron block; a single perceptron is a linear BINARY classifier (Wikipedia on Minsky & Papert: "The perceptron convergence theorem was proved for single-layer neural nets"). Nothing on the frame contradicts the standard topology.
+6. **Non-DATA items (step-glyph style, exact reds, box geometry, ellipsis row)** — UNVERIFIED: no source counterpart; these are visual, for the build/judge lanes. No spec change.
+
+### Data-only corrections
+None. No claim on this slide is contradicted by a source, so no patch to `analysis/slide_005_final.json` was needed.
+
+### Uncertain items (carried, non-DATA)
+- Step-glyph appearance, leader geometry, `#ff0000` vs `#c00000` assignment — visual only.
+
+### Citations (wave 4; re-fetched live 2026-10-30)
+1. https://web.engr.oregonstate.edu/~huanlian/teaching/ML/2025fall/unit2/perceptron.html — HTTP 200; text extracted; quotes verified above (x0=1 head placement, positive/negative sign rule, zero tie case).
+2. https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html — HTTP 200; text extracted; quote verified above (bias absorption, hyperplane-through-origin argument, sign classifier).
+3. https://cseweb.ucsd.edu/~dasgupta/151/multiclass-handout.pdf — HTTP 200; pdftotext extracted; per-class weights w1…wk and biases b1…bk, argmax readout.
+4. https://en.wikipedia.org/wiki/Perceptrons_(book) — HTTP 200; Minsky & Papert 1969, parity/XOR limits, single-layer convergence theorem.
+Failed this wave (honest record; NOT cited as verified):
+5. https://apxml.com/courses/introduction-to-deep-learning/chapter-1-neural-network-foundations/perceptron-simplest-network — HTTP 403 on live fetch (bot-blocked); kept only as an agy search lead, status unverified.
+6. https://interactiveaudiolab.github.io/course-deep-learning/slides/DL_perceptrons.pdf — HTTP 200 but the fetch tool returned non-parseable binary PDF bytes; unverified.
+
+## Wave-4 result register
+
+See `sources/slide_005_source/VERIFY_W4.md` — 6 claims: 5 CONFIRMED, 0 CORRECTED, 1 UNVERIFIED (visual-only), 4 verified URLs + 2 honest fetch failures.

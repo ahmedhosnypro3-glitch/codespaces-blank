@@ -58,7 +58,7 @@ s.addText("P", { x: gX, y: gY + gHeadH + gColH, w: gLabelW, h: gCellH, fontSize:
 s.addText("N", { x: gX, y: gY + gHeadH + gColH + gCellH, w: gLabelW, h: gCellH, fontSize: 10, bold: true, color: BLACK, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 const gCells = [
   { lbl: "TP", fill: GREEN, txt: WHITE, cx: 0, cy: 0 },
-  { lbl: "FN", fill: "FFFF00", txt: BLACK, cx: 1, cy: 0 },
+  { lbl: "FN", fill: "F4CCCC", txt: BLACK, cx: 1, cy: 0 },
   { lbl: "TN", fill: GREEN, txt: WHITE, cx: 0, cy: 1 },
   { lbl: "FP", fill: "FFFF00", txt: BLACK, cx: 1, cy: 1 },
 ];
@@ -70,8 +70,8 @@ for (const c of gCells) {
 
 // ---------- NUMERIC CONFUSION MATRIX (below, 4/1/1/5, red grid) ----------
 // original region px x66-229, y175-248
-const nX = 0.92, nY = 2.43;
-const nLabelW = 0.40, nCellW = 0.75, nHeadH = 0.20, nColH = 0.24, nCellH = 0.50;
+const nX = 0.92, nY = 2.40;
+const nLabelW = 0.40, nCellW = 0.75, nHeadH = 0.18, nColH = 0.20, nCellH = 0.42;
 s.addText("Predicted as", {
   x: nX + nLabelW, y: nY, w: nCellW * 2, h: nHeadH,
   fontSize: 8, bold: true, color: BLACK, fontFace: FONT, align: "center", valign: "middle", margin: 0,
@@ -121,7 +121,7 @@ arrowRight(tsX + tsW, fy);
 const mX = 6.28, mW = 1.00;
 s.addShape(pptx.shapes.RECTANGLE, { x: mX, y: fy - bh / 2, w: mW, h: bh, fill: { color: "FFF2CC" }, line: { color: RED, width: 1.25 } });
 s.addText("Model", { x: mX, y: fy - bh / 2, w: mW, h: bh, fontSize: 11, bold: true, color: BLACK, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
-s.addText("[Any value] \u2013 (0, +1)", { x: mX - 0.10, y: fy + bh / 2 + 0.02, w: mW + 0.20, h: 0.20, fontSize: 7, color: BLACK, fontFace: FONT, align: "center", margin: 0 });
+s.addText("[Any value] \u2192 (0, +1)", { x: mX - 0.10, y: fy + bh / 2 + 0.02, w: mW + 0.20, h: 0.20, fontSize: 7, color: BLACK, fontFace: FONT, align: "center", margin: 0 });
 
 arrowRight(mX + mW, fy);
 
@@ -176,8 +176,8 @@ const thrX = axL + (axR - axL) * 0.5;          // 0.5 tick = px 487
 
 // airplanes: 5 left of threshold (plain), 6 right (red dot) — TP=4,FN=1,FP=1,TN=5
 const planesLeft = [
-  { x: 1.67, y: 3.54 }, { x: 2.50, y: 3.75 }, { x: 1.53, y: 4.86 },
-  { x: 2.36, y: 5.00 }, { x: 3.47, y: 4.31 },
+  { x: 3.30, y: 3.85 }, { x: 2.95, y: 4.60 }, { x: 1.60, y: 4.95 },
+  { x: 2.40, y: 5.20 }, { x: 4.30, y: 4.55 },
 ];
 const planesRight = [
   { x: 5.28, y: 3.68 }, { x: 6.94, y: 4.24 }, { x: 7.85, y: 4.38 },

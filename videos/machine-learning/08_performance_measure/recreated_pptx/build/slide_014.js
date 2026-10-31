@@ -50,10 +50,11 @@ s.addText("Combine Precision and Recall in one number", {
 });
 
 // ============================================================
-// TWO PANELS (original: L x68-413, R x423-768, y113-516)
+// TWO PANELS (original frames wrap only the tree region: y113-324;
+// desc boxes and metric rows sit below on the gray background)
 // ============================================================
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(68, 113, 345, 403), fill: { color: WHITE }, line: { color: BORDER, width: 1 } });
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(423, 113, 345, 403), fill: { color: WHITE }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.RECTANGLE, { ...rect(68, 113, 345, 211), fill: { color: WHITE }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.RECTANGLE, { ...rect(423, 113, 345, 211), fill: { color: WHITE }, line: { color: BORDER, width: 1 } });
 
 // headers Positive / Negative (original y118-135)
 const hdr = (x, label, color) => s.addText(label, {
@@ -131,7 +132,7 @@ node(733, 278.5, "70", NODE_RED);     tag(733, "FP", RED);
 // ============================================================
 // DESCRIPTION BOXES (original y324-395)
 // ============================================================
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(68, 324, 345, 71), fill: { color: "E2F0D9" }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(78, 324, 329, 71), fill: { color: "E9FFF6" }, line: { color: BORDER, width: 1 } });
 s.addText("Good Model:", {
   ...rect(80, 334, 250, 18), fontSize: 12, bold: true, color: GREEN_HDR, fontFace: FONT, margin: 0, valign: "middle"
 });
@@ -142,7 +143,7 @@ s.addText("Properly Classifies 59 out of 70 as Negative", {
   ...rect(80, 370, 320, 18), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
 
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(423, 324, 345, 71), fill: { color: "F9E4CF" }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(428, 324, 329, 71), fill: { color: "F9E4CF" }, line: { color: BORDER, width: 1 } });
 s.addText("Actually:", {
   ...rect(429, 334, 250, 18), fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
 });
@@ -158,14 +159,13 @@ s.addText("It classifies ALL Samples as Positive", {
 });
 
 // ============================================================
-// EQUATION ROWS (gray strip y396-516, three white rows per panel)
+// METRIC ROWS (original: three separated filled rows per panel on the
+// gray background; L x85-369, R x440-725; fills pale yellow / blue / gray)
 // ============================================================
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(68, 396, 345, 120), fill: { color: "E8E8E8" } });
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(423, 396, 345, 120), fill: { color: "E8E8E8" } });
-const eqRow = (x, y, h) =>
-  s.addShape(pptx.shapes.RECTANGLE, { ...rect(x, y, 345, h), fill: { color: WHITE }, line: { color: "BFBFBF", width: 0.75 } });
-eqRow(68, 401, 23); eqRow(68, 440, 24); eqRow(68, 482, 28);
-eqRow(423, 401, 23); eqRow(423, 440, 24); eqRow(423, 482, 28);
+const eqRow = (x, y, h, fill) =>
+  s.addShape(pptx.shapes.RECTANGLE, { ...rect(x, y, 284, h), fill: { color: fill }, line: { color: "BFBFBF", width: 0.75 } });
+eqRow(85, 401, 23, "F6FBD4"); eqRow(85, 440, 24, "D9E2FF"); eqRow(85, 482, 27, "E8E8F0");
+eqRow(440, 401, 23, "F6FBD4"); eqRow(440, 440, 24, "D9E2FF"); eqRow(440, 482, 27, "E8E8F0");
 
 const eqText = (x, y, h, text) => s.addText(text, {
   ...rect(x, y, 330, h), fontSize: 11, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
@@ -181,7 +181,7 @@ eqText(448, 482, 28, "Average= 30.3%+100% =65%");
 // BLUE REFERENCE FORMULA BOXES (original x749-896; box1 y122-168, box2 y168-228)
 // stacked 2D fractions TP/(TP+FP) and TP/(TP+FN)
 // ============================================================
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(749, 122, 147, 46), fill: { color: "FDFBCB" }, line: { color: NAVY, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(749, 122, 147, 46), fill: { color: "FDFBCB" }, line: { color: NAVY, width: 1 } });
 s.addText("Precision =", {
   ...rect(756, 127, 62, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
@@ -193,7 +193,7 @@ s.addText("TP+FP", {
   ...rect(822, 143, 52, 13), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
 
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(749, 168, 147, 60), fill: { color: "D3FFFE" }, line: { color: NAVY, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(749, 168, 147, 60), fill: { color: "D3FFFE" }, line: { color: NAVY, width: 1 } });
 s.addText("Recall =", {
   ...rect(756, 180, 62, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
@@ -208,12 +208,12 @@ s.addText("TP+FN", {
 // ============================================================
 // CONCLUSION BOX (original x737-895, y430-484)
 // ============================================================
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(737, 430, 158, 54), fill: { color: "F9DCFA" }, line: { color: "7030A0", width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(737, 430, 158, 54), fill: { color: "F9DCFA" }, line: { color: "7030A0", width: 1 } });
 s.addText("Conclusion:", {
   ...rect(745, 433, 145, 13), fontSize: 11, bold: true, color: PURPLE, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("Average", {
-  ...rect(745, 449, 145, 13), fontSize: 10, bold: true, italic: true, color: PURPLE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(745, 449, 145, 13), fontSize: 10, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("is NOT good idea", {
   ...rect(745, 465, 145, 14), fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"

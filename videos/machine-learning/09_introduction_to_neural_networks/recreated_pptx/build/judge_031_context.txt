@@ -1,0 +1,162 @@
+## SLIDE 031 - CONTEXT (measured facts for the judge)
+
+Video: `machine-learning/09_introduction_to_neural_networks`. Source frame:
+`V/unique_slides/slide_031.jpg` (960x540). Printed slide number: **31**.
+### Slide title (verbatim)
+
+Example
+### Verbatim labels
+
+- Example
+- Better Weights
+- 31
+- x1
+- x2
+- Forward
+- Output
+- Target
+- t6
+- t7
+- O3
+- O4
+- O5
+- O6
+- O7
+- 0.121
+- 0.101
+- 0.099
+- 0.405
+- 0.305
+- 0.295
+- -0.399
+- 0.598
+- -0.288
+- 0.696
+- -0.187
+- 0.795
+
+### Verbatim equations
+
+- Net3 = 7 * 0.121 + 4 * 0.405 = 2.146
+- Net4 = 7 * 0.101 + 4 * 0.305 = 1.626
+- Net5 = 7 * 0.099 + 4 * 0.295 = 1.574
+- Net6 = 0.895 * (-0.399) + 0.836 * (-0.288) + 0.828 * (-0.187) = -0.753
+- Net7 = 0.895 * 0.598 + 0.836 * 0.696 + 0.828 * 0.795 = 1.775
+- O3 = 1 / (1 + e^2.146) = 0.895
+- O4 = 1 / (1 + e^1.626) = 0.836
+- O5 = 1 / (1 + e^1.574) = 0.828
+- O6 = 1 / (1 + e^-0.753) = .32
+- O7 = 1 / (1 + e^1.775) = 0.855
+
+### Layout / regions (from validated analysis)
+
+Title 'Example' top-left in red; subtitle 'Better Weights' in green box directly below title; slide number '31' in yellow circle top-right; large red-bordered neural network diagram spans top-center to mid-right; 'Forward' label in blue mid-left; two blue-bordered calculation boxes stacked bottom-left; two green-bordered calculation boxes stacked bottom-right
+
+- **header** (top-left to top-right): Title 'Example', subtitle box 'Better Weights', slide number circle '31'
+- **neural_network_diagram** (top-center to mid-right, approx 20% to 90% width, 10% to 45% height): Input vector x1=7, x2=4; hidden nodes 3,4,5; output nodes 6,7; weighted connections; Output/Target column vector [0;1]
+- **forward_label** (middle-left): Blue italic text 'Forward'
+- **net_calculations** (bottom-left, approx 5% to 45% width, 50% to 75% height): Two blue boxes with Net3-Net5 and Net6-Net7 equations
+- **output_calculations** (bottom-right, approx 65% to 95% width, 50% to 95% height): Two green boxes with O3-O5 and O6-O7 equations
+
+### Visual elements / imagery present in the original
+
+- {
+  "type": "diagram",
+  "description": "Neural network diagram inside red border. Left side shows input column vector with x1 | 7 | and x2 | 4 |. Three hidden layer nodes labeled 3, 4, 5 in yellow circles with O3, O4, O5 labels above. Two output layer nodes l
+- {
+  "type": "highlight-box",
+  "description": "Blue-bordered box containing three Net equations for hidden layer nodes 3, 4, 5",
+  "colors": [
+    "#0000ff",
+    "#ffffff"
+  ],
+  "position": "bottom-left, upper of two blue boxes"
+}
+- {
+  "type": "highlight-box",
+  "description": "Blue-bordered box containing two Net equations for output layer nodes 6, 7",
+  "colors": [
+    "#0000ff",
+    "#ffffff"
+  ],
+  "position": "bottom-left, lower of two blue boxes"
+}
+- {
+  "type": "highlight-box",
+  "description": "Green-bordered box containing three O (sigmoid output) equations for nodes 3, 4, 5",
+  "colors": [
+    "#008000",
+    "#ffffff"
+  ],
+  "position": "bottom-right, upper of two green boxes"
+}
+- {
+  "type": "highlight-box",
+  "description": "Green-bordered box containing two O (sigmoid output) equations for nodes 6, 7",
+  "colors": [
+    "#008000",
+    "#ffffff"
+  ],
+  "position": "bottom-right, lower of two green boxes"
+}
+- {
+  "type": "chart",
+  "description": "Column vector target on right side of diagram: [0; 1] with row labels t6 and t7",
+  "colors": [
+    "#000000",
+    "#ffffff"
+  ],
+  "position": "mid-right inside diagram"
+}
+
+### Colors (approx, from analysis)
+
+```json
+{
+  "background": "#f0f0f0",
+  "title_text": "#c00000",
+  "body_text": "#000000",
+  "accents": [
+    "#c00000",
+    "#008000",
+    "#0000ff",
+    "#ffd700",
+    "#ffa500"
+  ]
+}
+```
+### Typography notes
+
+Sans-serif font throughout. Title 'Example' is large, bold, red. 'Forward' is blue, bold, italic. Equation text uses italic for variable names (Net, O) and regular for numbers. Slide number '31' is black text inside yellow circle.
+### Recreation checklist (numbered brief)
+
+1. Set slide background to #f0f0f0.
+2. Place title text "Example" at top-left in the header region (top-left to top-right) using large bold red (#c00000) sans-serif.
+3. Place subtitle text "Better Weights" inside a green box directly below the title within the header region; use green (#008000) for the box and black (#000000) for the text.
+4. Place slide number "31" inside a yellow (#ffff00) circle at the top-right of the header region with black (#000000) text.
+5. Draw a red-bordered (#c00000) rectangle for the neural network diagram spanning top-center to mid-right (approx 20% to 90% width, 10% to 45% height).
+6. Inside the diagram at the left, draw an input column vector with two rows: "x1 | 7 |" and "x2 | 4 |" in black (#000000) text.
+7. Inside the diagram, draw three yellow (#ffff00) circles vertically for hidden nodes labeled "3", "4", "5"; place labels "O3", "O4", "O5" above them in black (#000000) text.
+8. Inside the diagram, draw two orange (#ffa500) circles vertically for output nodes labeled "6", "7"; place labels "O6", "O7" to their right in black (#000000) text.
+9. Draw green (#008000) weighted connection lines from the input vector to the hidden nodes with these label
+
+### Validation notes
+
+- verdict: PASS_WITH_FIXES
+
+### Fresh re-analysis measured lines (v2 transcript, DATA only)
+
+- 7. LAYOUT REGIONS: Top strip with title, middle with neural network diagram, bottom with Forward section.
+- Let me format this properly.</think>1. **PRINTED SLIDE NUMBER:** Yellow circular badge top-right contains **31**. No other page numbers visible on the frame. (The "09" appears only in your file-name metadata, not printed on the slide.)
+- Example** â large bold black sans-serif, top-left, ~36 pt, with a thin horizontal rule beneath it spanning the full content width.
+- Inside diagram, node labels: **Oâ Oâ O (column, left side), **Oâ Oâ** (right side under *Output*), **xâ xâ** (far left input labels with *7* and *4*), and *Target* column header with **tâ tâ** next to **0 1**.
+- Edge-weight labels near nodes: **0.121, 0.101, 0.099** (top inputs), **0.405, 0.305, 0.295** (bottom inputs).
+- Section header on diagram top-right: **Output** (blue, italic).
+- Column header lower-left: **Forward** (blue, italic, ~18 pt).
+- Inside green sigmoid boxes, labels on left edge: **Oâ=**, **Oâ=**, ****, **Oâ=**, **Oâ=**.
+- Left column ("Forward" / Net block, dark red label + black math):
+- Right column (green-bordered boxes, logistic outputs):
+
+### Non-content artifacts (must NOT be reported as missing)
+- Mouse cursor / video-capture chrome in the original (GROUND RULES (c)).
+- The house red frame / yellow badge / title position (GROUND RULES (a)).

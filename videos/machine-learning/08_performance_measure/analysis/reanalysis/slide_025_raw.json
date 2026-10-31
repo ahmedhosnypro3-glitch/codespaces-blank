@@ -1,0 +1,192 @@
+{
+  "slide_title": "Effect of Selecting Threshold Value on Model Performance",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "25",
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "Threshold=0.6",
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "3",
+      "2",
+      "1",
+      "5",
+      "Test Sample",
+      "Predicted Value",
+      "Model",
+      "[Any value] \u2192 (0, +1)",
+      "(0 --- 1)",
+      "Threshold (e.g. 0.5)",
+      "Class I",
+      "Class II",
+      "0.0",
+      "0.5",
+      "1.0"
+    ],
+    "equations": [
+      "[Any value] \u2192 (0, +1)"
+    ]
+  },
+  "layout": {
+    "arrangement": "White slide enclosed in a thin maroon rectangular frame. Bold maroon title centered across the top, with a yellow circular slide-number badge (25) at the top-right corner. Upper-left quadrant holds a small generic confusion matrix (TP/FN/FP/TN) with a red-bordered 'Threshold=0.6' label to its right and a larger numeric confusion matrix (3,2 / 1,5) below it. Upper-center/right holds a cream rounded-rectangle flowchart: Test Sample \u2192 Model \u2192 (0 --- 1) \u2192 Threshold \u2192 Class I / Class II. The entire bottom half is a number-line scatter: a horizontal 0.0\u20131.0 axis with tick marks and red labels, a dashed purple vertical line at \u22480.6, and nine hand-drawn airplane sketches scattered above the axis (five red-dotted planes left of the line, four blue-dotted skull-marked planes right of it).",
+    "regions": [
+      {
+        "name": "title bar",
+        "position": "top, full width, ~8-15% height",
+        "content": "Maroon bold title centered; yellow circle badge with '25' at top-right (~89-93% x, 9-15% y)"
+      },
+      {
+        "name": "confusion matrices + threshold label",
+        "position": "top-left, ~17-42% height, ~8-32% width",
+        "content": "Small 3x3 TP/FN/FP/TN matrix (~8-17% x, 17-26% y); red-bordered 'Threshold=0.6' box to its right (~19-32% x, 20-26% y); larger numeric matrix with cells 3,2 / 1,5 below (~10-24% x, 28-42% y)"
+      },
+      {
+        "name": "pipeline flowchart",
+        "position": "top-center to top-right, ~19-39% height, ~34-88% width",
+        "content": "Cream rounded rectangle containing: 'Test Sample' label + small gray plane sketch \u2192 red arrow \u2192 maroon 'Model' box with yellow '[Any value] \u2192 (0, +1)' and purple sigmoid circle \u2192 red arrow \u2192 blue-bordered '(0 --- 1)' box under 'Predicted Value' label \u2192 red arrow \u2192 tall red-bordered vertical 'Threshold (e.g. 0.5)' box \u2192 two branching red arrows \u2192 green 'Class I' box and pink 'Class II' box"
+      },
+      {
+        "name": "number-line scatter area",
+        "position": "bottom half, ~40-95% height, full width",
+        "content": "Horizontal dark-red axis at ~79% height from ~9% to ~93% width with ticks every 0.1 and red labels 0.0 / 0.5 / 1.0; dashed purple vertical line at ~58% x (\u22480.6) running from below the flowchart down to the axis; nine airplane sketches above the axis; small black cursor arrow near the line's base"
+      }
+    ],
+    "hierarchy": "The maroon bold title is the largest text and dominates the top. The cream flowchart is the largest single graphic (top-right). The two confusion matrices are small supporting elements at top-left. By area, the airplane scatter plus the 0\u20131 axis dominate the bottom half. Red/maroon accents (title, frame, threshold box, matrix numbers, flow arrows, axis, red dots) visually unify the slide; purple marks the sigmoid and the threshold line; green/pink mark the two output classes."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Small generic confusion matrix, 3x3 grid with black thin borders. Top label 'Predicted as' above the two column headers; column headers 'P' and 'N'; rotated 'Actual' label on the left spanning both rows; row headers 'P' and 'N'. Cells: row P = TP (green fill), FN; row N = FP, TN (green fill). Corner cell empty.",
+      "colors": [
+        "#000000 borders/text",
+        "#92D050 green fill on TP and TN",
+        "#FFFFFF fill elsewhere"
+      ],
+      "position": "top-left, ~8-17% x, ~17-26% y"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White rectangle with red border containing red bold text 'Threshold=0.6'.",
+      "colors": [
+        "#FF0000 border and text",
+        "#FFFFFF fill"
+      ],
+      "position": "top-left area, ~19-32% x, ~20-26% y, right of the small matrix"
+    },
+    {
+      "type": "table",
+      "description": "Larger numeric confusion matrix, 3x3 grid with red borders on all cells. 'Predicted as' label above columns; column headers 'P', 'N'; rotated 'Actual' label at left; row headers 'P', 'N'. Cell values: row P = 3, 2; row N = 1, 5. All numbers red.",
+      "colors": [
+        "#FF0000 borders and numbers",
+        "#000000 row/column header text",
+        "#FFFFFF fill"
+      ],
+      "position": "top-left, ~10-24% x, ~28-42% y, below the small matrix"
+    },
+    {
+      "type": "flowchart",
+      "description": "Cream rounded-rectangle container holding a left-to-right pipeline. Node 1: bold black label 'Test Sample' above a small gray-outline airplane sketch. Red arrow \u2192 Node 2: maroon filled rectangle with white bold 'Model' and yellow small text '[Any value] \u2192 (0, +1)' beneath; a purple-outlined circle with light-purple fill containing a purple sigmoid (S) curve overlaps the right side of the Model box. Red arrow \u2192 Node 3: white box with blue border and blue text '(0 --- 1)', with bold black label 'Predicted Value' above it. Red arrow \u2192 Node 4: tall narrow white box with red border containing vertically rotated red text 'Threshold (e.g. 0.5)'. Two red arrows branch from its right side: upper arrow \u2192 green rounded rectangle 'Class I'; lower arrow \u2192 pink rounded rectangle 'Class II'.",
+      "colors": [
+        "#FFF2CC container fill",
+        "#BF9000 container border",
+        "#9E1B32 Model box fill",
+        "#FFFFFF Model text",
+        "#FFD966 Model subtext",
+        "#7030A0 sigmoid circle border/curve with #E4D7F5 fill",
+        "#4472C4 (0 --- 1) border/text",
+        "#FF0000 arrows and Threshold box border/text",
+        "#C6E0B4 Class I fill with #70AD47 border",
+        "#F8BBD0 Class II fill with red/pink border",
+        "#000000 labels"
+      ],
+      "position": "top-center/right, ~34-88% x, ~19-39% y"
+    },
+    {
+      "type": "chart",
+      "description": "Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at \u22480.6 extends from just below the flowchart down to the axis. Nine hand-drawn airplane outline markers sit above the axis at varied heights: five planes with a red dot at the tail located left of the dashed line (approx. x 16-41%), four planes with a blue dot and a small skull-and-crossbones on the fuselage located right of the line (approx. x 58-86%, one at bottom-center essentially at the line).",
+      "colors": [
+        "#C00000 axis line and ticks",
+        "#FF0000 axis labels and red plane dots",
+        "#7030A0 dashed threshold line",
+        "#808080 plane outlines",
+        "#0070C0 blue plane dots",
+        "#000000 skull marks"
+      ],
+      "position": "bottom half, axis at ~79% height spanning ~9-93% width; planes between ~43-72% height"
+    },
+    {
+      "type": "annotation",
+      "description": "Dashed purple vertical threshold line at x \u2248 58% (value \u2248 0.6) from ~40% height down to the axis; a small black mouse-cursor arrow points at the line just above the axis (~62% x, ~79% y) \u2014 screenshot artifact.",
+      "colors": [
+        "#7030A0 dashed line",
+        "#000000 cursor arrow"
+      ],
+      "position": "center-bottom, x \u2248 58%, y \u2248 40-79%"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow circle badge in the top-right corner containing the dark slide number '25'.",
+      "colors": [
+        "#FFD966 fill",
+        "#404040 text"
+      ],
+      "position": "top-right, ~89-93% x, ~9-15% y"
+    },
+    {
+      "type": "other",
+      "description": "Thin maroon rectangular frame inset ~2% from all slide edges, enclosing the entire content area.",
+      "colors": [
+        "#9E1B32"
+      ],
+      "position": "full slide border"
+    }
+  ],
+  "imagery": [
+    "Nine hand-drawn airplane sketches (gray outline, propeller-plane doodle style) scattered above the number line: five on the left of the dashed line each with a small red dot at the tail; four on the right each with a small blue dot at the tail and a tiny skull-and-crossbones drawn on the fuselage (pirate planes). One blue-dot plane sits at bottom-center essentially where the dashed line meets the axis.",
+    "One small gray-outline airplane sketch inside the flowchart container, representing the 'Test Sample' input (~40 px wide).",
+    "Purple sigmoid (S-shaped) curve drawn inside a light-purple circle, attached to the right side of the maroon 'Model' box.",
+    "Small black mouse-cursor arrow near the base of the dashed purple line (screenshot artifact)."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#9E1B32",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000 (red: Threshold=0.6 box, matrix numbers/borders, flow arrows, axis labels, red plane dots, Threshold box)",
+      "#9E1B32 (maroon: outer frame, title, Model box)",
+      "#92D050 (green: TP/TN cells)",
+      "#FFD966 (yellow: slide-number badge, Model subtext)",
+      "#FFF2CC (cream: flowchart container fill)",
+      "#BF9000 (gold: flowchart container border)",
+      "#7030A0 (purple: sigmoid circle/curve, dashed threshold line)",
+      "#4472C4 (blue: (0 --- 1) box border/text, blue plane dots)",
+      "#C6E0B4 (light green: Class I box)",
+      "#F8BBD0 (pink: Class II box)",
+      "#808080 (gray: airplane outlines)",
+      "#C00000 (dark red: axis line)"
+    ]
+  },
+  "typography_notes": "All text is sans-serif (Calibri/Arial-like). Title is bold, ~30 pt, maroon, horizontally centered near the top. Flowchart labels 'Test Sample', 'Predicted Value', 'Model' are bold ~13-14 pt (black, except white 'Model'). Matrix text ~11 pt black; matrix numbers red ~12 pt. 'Actual' labels in both matrices and the 'Threshold (e.g. 0.5)' text are rotated 90\u00b0 (vertical, reading bottom-to-top). Axis labels red ~12 pt. No italics, no bullet lists, no all-caps except matrix abbreviations (TP/FN/FP/TN, P/N).",
+  "animation_state": "Fully revealed; no partial build or hidden elements. A small black mouse-cursor arrow is visible just right of the dashed threshold line near the axis (screenshot artifact, not slide content).",
+  "recreation_brief": "1. Start with a blank white 16:9 slide; draw a thin maroon (#9E1B32) rectangle border inset ~2% around the whole slide. 2. Add the centered title at top: 'Effect of Selecting Threshold Value on Model Performance' \u2014 bold, ~30 pt, sans-serif, color #9E1B32. 3. Top-right: yellow (#FFD966) circle with dark text '25'. 4. Top-left: build a 3x3 table with black borders \u2014 label 'Predicted as' above columns, headers P/N, rotated 'Actual' label at left, rows P/N; fill TP and TN cells green (#92D050); cells read TP, FN / FP, TN. 5. To its right: white box with red (#FF0000) border and red bold text 'Threshold=0.6'. 6. Below: second 3x3 table, same structure, all cells red-bordered with red numbers: row P = 3, 2; row N = 1, 5; 'Predicted as' above, rotated 'Actual' at left. 7. Top-center/right: draw a cream (#FFF2CC) rounded rectangle with gold (#BF9000) border. Inside, left to right: bold 'Test Sample' label above a small gray airplane sketch; red arrow; maroon (#9E1B32) rectangle with white bold 'Model' and yellow (#FFD966) small text '[Any value] \u2192 (0, +1)'; purple (#7030A0) circle with light-purple fill and a purple sigmoid curve overlapping the Model box's right edge; red arrow; white box with blue (#4472C4) border and blue text '(0 --- 1)' with bold 'Predicted Value' label above; red arrow; tall narrow white box with red border containing vertical (rotated 90\u00b0) red text 'Threshold (e.g. 0.5)'; two red arrows branching right to a green (#C6E0B4, #70AD47 border) rounded box 'Class I' and a pink (#F8BBD0, red border) rounded box 'Class II'. 8. Bottom: draw a dark-red (#C00000) horizontal axis line with tick marks every 0.1; add red labels '0.0', '0.5', '1.0' beneath left end, middle, right end. 9. Draw a dashed purple (#7030A0) vertical line at the 0.6 position from below the flowchart down to the axis; optionally add a small black arrow pointing at it. 10. Scatter nine airplane doodle sketches (gray outlines) above the axis: five with a red dot at the tail placed left of the dashed line at varied heights/sizes, four with a blue dot and small skull-and-crossbones placed right of the line (one at bottom-center at the line). 11. Use Calibri/Arial throughout; bold for title and flowchart labels; rotate 'Actual' and 'Threshold (e.g. 0.5)' text 90\u00b0.",
+  "_meta": {
+    "frame": "slide_025.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 25,
+      "image": "slide_025.jpg"
+    },
+    "elapsed_s": 330.7
+  }
+}

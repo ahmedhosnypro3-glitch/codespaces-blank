@@ -266,3 +266,71 @@ No BLOCKER survives adjudication; equation content/structure clean on all six le
 was 7 at dispatch, 65 after (fleet-shared; slide014 sibling legs also queued) — gate serialized correctly.
 Certification basis: both leg classes clean-or-adjudicated per AGENTS.md zoomed-judge mandate.
 | slide014 (CERT att8 2026-10-30, was parked att7) | PASS | PASS | full=judge_att8_full.txt crop=judge_att8_crop.txt render_10.png (chrome PASS); dense region 280,208-584,416; crop-leg only MINOR typographic/colour notes, 0 BLOCKER/MAJOR |
+
+## Adjudication 2026-10-30 22:2x — slide004 post-blue-fix rejudge (FULL leg FAIL, PIL-adjudicated)
+
+Context: banked rejudge adjudication found ONE confirmed defect — error-box token "Ŷ≠Y" was INK
+in the build but BLUE in `unique_slides/slide_004.jpg` (slide x136-181, core [0,0,139]). Fixed in
+`build/slide_004.js` (run color -> 00008B), rebuilt, re-rendered (qa/slide004/render.png, chrome
+PASS), both legs re-dispatched on the NEW bytes (pre-fix transcripts banked as
+`slide004/judge_full_att_prebluefix.txt` / `crop_dense_judge_att_prebluefix.txt`).
+
+PIL proof of the fix (strict blue = b>=110, b>=r+50, b>=g+50, 150dpi render scale 2.0833):
+OLD render error-box interior (x80-484, y308-363): 0 blue px. NEW render: token run x97.3-122.2,
+y327.2-339.2, 272 strict-blue px, core median [0,0,139] = 00008B exactly. Original token run
+x134-182 y327-342 (235-336 blue px depending on threshold). The ~39px x-offset of the token is
+pre-existing (render's "If " is narrower than the original's handwritten one); slide XML contains
+exactly one new srgbClr val="00008B" — no other run changed.
+
+Leg A (judge_full.txt, 2026-10-30 22:21, verdict FAIL) claims, PIL-adjudicated vs
+`unique_slides/slide_004.jpg` (render 2001x1125, scale 2.0844; `rejudge_adjudicate.py 004 --full`:
+densest diff cells all in title band y67-90 = typed-vs-handwritten AA, none structural):
+
+| # | claim | sev | disposition | key pixel evidence (slide space) |
+|---|---|---|---|---|
+| 1 | right white box: "Predicted" right-aligned, eq left-aligned vs orig heading-over-eq/centered | MAJOR | REFUTED | "Predicted" word left edge x676 orig vs x672.5 render (same box x672..760 per build), eq line x506..580 orig vs x505.1..565.6 render — both left-aligned in both; only glyph widths differ (rule d typed-vs-handwritten) |
+| 2 | where-block looser vertical spacing / indentation, right-aligned tags differ | MAJOR | REFUTED as MAJOR | line x-origins orig 507/573/568 vs render 506.9/573.6/565.0 (match); tops orig y284/313/345 vs render y282.2/307.2/336.5 — render is TIGHTER not looser, max delta 8.5px cumulative, x-end/tags x776-877 both — MINOR spacing at most; identical geometry was PASSed by the banked pre-fix full leg (judge_full_att_prebluefix.txt) |
+| 3-7 | LOSS eq red carry-through, ellipsis/subscript geometry, Let-variable color, Remember eq, box fill tints | MINOR | advisory / previously adjudicated | style-level; underline claims already REFUTED in the banked att9 record; not fix triggers |
+
+Disposition: FULL-leg FAIL DISMISSED — both MAJORs refuted by pixels; the only byte change vs the
+certified render is the Ŷ≠Y blue fix. No BLOCKER/MAJOR survives. CROP leg verdict pending
+(crop_dense_judge.txt re-run on new bytes). Slide 004 stays certified; DB/ledger updated per the
+fix protocol (visual_attempts+1, last_error=NULL). No git; no evidence deleted.
+
+CORRECTION 2026-10-30 22:5x: the first re-dispatched pair (judge_full.txt 22:21 FAIL,
+crop_dense_judge.txt 22:37 FAIL) had run on STALE bytes — a mis-ordered `cp` had overwritten
+qa/slide004/render.png with the pre-fix render before restaging, so $S4/render.png was the old
+image (0 blue px at the token; proven by re-measurement). Those two transcripts are banked as
+`slide004/judge_full_att_oldbytes.txt` / `crop_dense_judge_att_oldbytes.txt` and their FAILs are
+VOID for the fix (adjudicated refuted above AND stale). The correct post-fix render (chrome PASS;
+272 strict-blue px at slide x97-122 y327-339, core [0,0,139]; crop token window 266 blue px) was
+restaged and both legs re-dispatched as v2; v2 verdicts in judge_full.txt / crop_dense_judge.txt.
+
+## 2026-10-31 00:1x — slide 021 recert completed (main agent, no vision needed)
+- judge_full.txt (2026-10-30 22:43, post-fix bytes md5 c094b309…): FINAL VERDICT PASS, no 429 markers.
+- crop_dense_judge.txt (re-read 2026-10-31 00:04 on same post-fix render): FINAL VERDICT PASS.
+- DB: slide 21 gen_status='passed', visual_check='PASS', last_error=NULL.
+- Final deck: final_deck_tool.py update 21 staged page from slide_021_recreated.pptx; render_check_pages.py 21 → PASS (0 px differ); deck md5 bf267cede55f1593c04712739cf56a81.
+- Certified count now 47/51. Open: 19, 25, 43, 44, 48.
+
+## Adjudication 2026-10-31 00:2x — slide004 CROP leg (Template B) on post-fix bytes
+
+Crop leg re-dispatched via `vision_leg.sh` (attempt 2 clean; attempt 1 hit upstream 429) on the
+post-fix crop pair `slide004/crop_dense_render.png` vs `slide004/crop_dense_orig.png` (region
+60,232-344,440 at matched effective scale; render verified post-fix: 272 strict-blue px at slide
+x97-122 y327-339, core [0,0,139]; house_chrome_check.py on render.png = PASS rc=0).
+Transcript `slide004/crop_dense_judge.txt` (2026-10-31 00:23): **FINAL VERDICT: FAIL**.
+
+| # | claim | sev | disposition | key pixel evidence |
+|---|---|---|---|---|
+| 1 | missing underline under RHS Y in "Objective is Ŷ=Y" and under Y in "If Ŷ≠Y" | BLOCKER/high | **REFUTED** | `rejudge_adjudicate.py 004 --crop` + slide-space PIL on `unique_slides/slide_004.jpg` (960x540) and `slide004/render.png` (2001x1125, sc 2.0844): objective box interior x78-302 y242-301 — orig text ink ends y286 (descenders), NO run >=8 slide-px below the line anywhere in the box (the y284 marks x220-233/x254-267 are glyph feet inside the descender zone; the inherited "x254 w17 y283" bar was already REFUTED in the banked att8 record `qa/slide004/worker_report.md`); render has zero ink below its objective text line (slide y276-290 empty). Error box x78-486 y306-365 — orig 00008B token Ŷ≠Y at slide x136-181 y327-342, rows below (slide y344-352) EMPTY in both crop images and in the 1:1 frame; render token x97-122 y327-339 (post-fix, 272 px) with empty rows below; the horizontal runs mid-line are the ≠ sign's bars (slide y333.6/337.6), not underlines. Real underlines in this deck are separate strokes >=15px wide below the descender zone (where-block Ŷ x508-526 / W x566-584 y277-283). |
+| 2 | thinner text stroke weight in recreation | MINOR/high | advisory | ground rule (c) typed-vs-handwritten medium difference |
+| 3 | small color/contrast differences | MINOR/med | advisory | style-level |
+| 4 | horizontal advance/placement differs | MINOR/med | advisory | font metrics; words match |
+
+Disposition: CROP-leg FAIL **DISMISSED** — the only BLOCKER is refuted by pixels; no
+BLOCKER/MAJOR survives. `slide004/result.txt` CROP=NORESULT -> **PASS**. Slide 004 rejudge is now
+complete: FULL=PASS (v2 transcript 2026-10-30 23:01, post-fix bytes) + CROP=PASS (dismissed).
+Slide stays certified; DB and deck untouched. No git; no evidence deleted (stale old-bytes
+transcripts remain banked as `slide004/*_att_oldbytes.txt` / `*_att_prebluefix.txt`). Full record:
+`slide004/adjudication.md`.

@@ -1,23 +1,26 @@
 const pptxgen = require("pptxgenjs");
 
+// Slide 015 — FRESH build from qa/reanalysis2/slide_015_analysis.txt ONLY.
+// Spec: "Non-Linearly Separable Data". Inner white panel with red border,
+// italic red instruction line, two annotation label boxes with lavender leader
+// lines, matplotlib plot (orange parabola + blue line + red x-axis + 12 markers
+// + red "x"), small black cursor triangle, bottom black overlay bar.
+// House chrome overrides spec geometry for frame/badge/title.
 const NUM = 15;
-const TITLE = "Non-Linearly Separable Data";
-const INSTRUCTION = 'Each Sample is represented by one features "x"';
 const FONT = "Arial";
 const W = 13.33, H = 7.5;
+const OUT = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_015_recreated.pptx";
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
 s.background = { color: "E8E8E8" };
 
-// House frame
+// ---- house chrome (mandatory) ----
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// Badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
@@ -28,70 +31,83 @@ s.addText(String(NUM), {
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
 
-// Title: single centered line, "Separable" in blue + underlined
-s.addText("Non-Linearly ", { x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", fontSize: 26, bold: true, color: "C0392B", fontFace: FONT, margin: 0 });
-s.addText("Separable", { x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", fontSize: 26, bold: true, color: "2E6DA4", fontFace: FONT, margin: 0, underline: true, charSpacing: 0 });
-s.addText("Data", { x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", fontSize: 26, bold: true, color: "C0392B", fontFace: FONT, margin: 0 });
+// Title: "Non-Linearly Separable Data" — "Separable" blue + underlined per spec
+s.addText([
+  { text: "Non-Linearly ", options: { fontSize: 24, bold: true, color: "C00000", fontFace: FONT } },
+  { text: "Separable", options: { fontSize: 24, bold: true, color: "0000FF", fontFace: FONT, underline: true } },
+  { text: " Data", options: { fontSize: 24, bold: true, color: "C00000", fontFace: FONT } },
+], {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
+  align: "center", valign: "top", margin: 0,
+});
 
-// Chart pane with red border
+// ---- spec content ----
+// Inner red content rectangle (white fill), spec [0.090,0.175,0.912,0.935]
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 1.0, y: 1.3, w: 11.3, h: 5.4,
-  fill: { color: "FFFFFF" }, line: { color: "C0392B", width: 2 },
+  x: 0.090 * W, y: 0.175 * H, w: (0.912 - 0.090) * W, h: (0.935 - 0.175) * H,
+  fill: { color: "FFFFFF" }, line: { color: "FF0000", width: 1 },
 });
 
-// Instruction INSIDE white panel near top
-s.addText(INSTRUCTION, {
-  x: 1.3, y: 1.4, w: 10.7, h: 0.4,
-  align: "left", fontSize: 15, italic: true, color: "C0392B", fontFace: FONT, margin: 0,
+// Plot PNG (spec sections 4/9/10 items 11-16) covering [0.10,0.48,0.87,0.87]
+s.addImage({
+  path: __dirname + "/slide_015_graph.png",
+  x: 0.10 * W, y: 0.48 * H, w: (0.87 - 0.10) * W, h: (0.87 - 0.48) * H,
 });
 
-// X-axis (red horizontal line with arrowhead and "x" label)
-s.addShape(pres.shapes.LINE, { x: 1.5, y: 4.8, w: 10.0, h: 0, line: { color: "E74C3C", width: 2, endArrow: "triangle" } });
-s.addText("x", { x: 11.4, y: 4.6, w: 0.4, h: 0.4, fontSize: 18, italic: true, color: "E74C3C", fontFace: FONT, margin: 0 });
-
-// Cyan dots at both ends of x-axis
-[1.8, 10.8].forEach(x => {
-  s.addShape(pres.shapes.OVAL, { x: x-0.1, y: 4.7, w: 0.16, h: 0.16, fill: { color: "00CED1" }, line: { color: "00CED1" } });
+// Leader line 1 (lavender): (0.265,0.404) -> (0.288,0.528)
+s.addShape(pres.shapes.LINE, {
+  x: 0.265 * W, y: 0.404 * H, w: (0.288 - 0.265) * W, h: (0.528 - 0.404) * H,
+  line: { color: "B19CD9", width: 1.5 },
 });
-
-// Orange upward-opening parabola (y = (x-6)^2 style) via polylines
-// Left arm going up
-s.addShape(pres.shapes.LINE, { x: 3.5, y: 4.6, w: 1.5, h: 0, line: { color: "F39C12", width: 3 } });
-s.addShape(pres.shapes.LINE, { x: 5.0, y: 4.6, w: 1.0, h: 1.5, line: { color: "F39C12", width: 3, flipV: true } });
-// Right arm going up
-s.addShape(pres.shapes.LINE, { x: 6.0, y: 4.6, w: 1.0, h: 1.5, line: { color: "F39C12", width: 3, flipV: true } });
-s.addShape(pres.shapes.LINE, { x: 6.0, y: 3.1, w: 1.5, h: 0, line: { color: "F39C12", width: 3 } });
-s.addShape(pres.shapes.LINE, { x: 7.5, y: 3.1, w: 1.0, h: 1.5, line: { color: "F39C12", width: 3, flipV: true } });
-s.addShape(pres.shapes.LINE, { x: 7.5, y: 1.6, w: 2.0, h: 0, line: { color: "F39C12", width: 3 } });
-
-// Five red dots clustered in center on the axis
-[5.5, 5.8, 6.0, 6.2, 6.5].forEach(x => {
-  s.addShape(pres.shapes.OVAL, { x, y: 4.65, w: 0.14, h: 0.14, fill: { color: "E74C3C" }, line: { color: "E74C3C" } });
+// Leader line 2 (lavender): (0.397,0.428) -> (0.436,0.520)
+s.addShape(pres.shapes.LINE, {
+  x: 0.397 * W, y: 0.428 * H, w: (0.436 - 0.397) * W, h: (0.520 - 0.428) * H,
+  line: { color: "B19CD9", width: 1.5 },
 });
-
-// Steep blue linear line crossing the axis
-s.addShape(pres.shapes.LINE, { x: 5.7, y: 5.5, w: 0, h: -2.5, line: { color: "2E6DA4", width: 3, endArrow: "triangle" } });
-
-// Callout boxes: BLUE border/text, diagonal leader lines to curves
-// Non-Linear Decision Boundary (points to orange parabola)
+// Annotation box 1: "Non-Linear / Decision / Boundary", spec [0.296,0.387,0.394,0.478]
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 1.5, y: 1.8, w: 2.6, h: 0.7,
-  fill: { color: "FFFFFF" }, line: { color: "2E6DA4", width: 1.5 },
+  x: 0.296 * W, y: 0.387 * H, w: (0.394 - 0.296) * W, h: (0.478 - 0.387) * H,
+  fill: { color: "FFFFFF" }, line: { color: "9999CC", width: 1.25 },
 });
-s.addText("Non-Linear Decision Boundary", { x: 1.55, y: 1.82, w: 2.5, h: 0.65, fontSize: 9, color: "2E6DA4", fontFace: FONT, margin: 0, align: "center", valign: "middle" });
-s.addShape(pres.shapes.LINE, { x: 3.8, y: 2.3, w: 2.4, h: 1.6, line: { color: "2E6DA4", width: 1, endArrow: "triangle" } });
+s.addText("Non-Linear\nDecision\nBoundary", {
+  x: 0.296 * W, y: 0.387 * H, w: (0.394 - 0.296) * W, h: (0.478 - 0.387) * H,
+  align: "center", valign: "middle", margin: 0,
+  fontSize: 12, bold: true, italic: true, color: "3333CC",
+  fontFace: "Times New Roman", lineSpacing: 14,
+});
 
-// Linear Decision Boundary (points to blue line)
+// Annotation box 2: "Linear / Decision / Boundary", spec [0.438,0.417,0.534,0.513]
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 9.5, y: 1.8, w: 2.4, h: 0.7,
-  fill: { color: "FFFFFF" }, line: { color: "2E6DA4", width: 1.5 },
+  x: 0.438 * W, y: 0.417 * H, w: (0.534 - 0.438) * W, h: (0.513 - 0.417) * H,
+  fill: { color: "FFFFFF" }, line: { color: "B07FD0", width: 1.25 },
 });
-s.addText("Linear Decision Boundary", { x: 9.55, y: 1.82, w: 2.3, h: 0.65, fontSize: 9, color: "2E6DA4", fontFace: FONT, margin: 0, align: "center", valign: "middle" });
-s.addShape(pres.shapes.LINE, { x: 9.4, y: 2.3, w: -1.5, h: 2.2, line: { color: "2E6DA4", width: 1, endArrow: "triangle" } });
+s.addText("Linear\nDecision\nBoundary", {
+  x: 0.438 * W, y: 0.417 * H, w: (0.534 - 0.438) * W, h: (0.513 - 0.417) * H,
+  align: "center", valign: "middle", margin: 0,
+  fontSize: 12, bold: true, italic: true, color: "6633CC",
+  fontFace: "Times New Roman", lineSpacing: 14,
+});
 
-// Black footer
-s.addShape(pres.shapes.RECTANGLE, { x: 0.15, y: 7.0, w: 13.03, h: 0.5, fill: { color: "000000" }, line: { color: "000000" } });
+// Italic red instruction line, spec [0.135,0.246,0.548,0.276]; wide left box per lesson
+s.addText('Each Sample is represented by one features "x"', {
+  x: 1.33, y: 0.246 * H, w: 9.5, h: 0.35,
+  align: "left", valign: "top", margin: 0,
+  fontSize: 16, italic: true, color: "CC0000", fontFace: FONT,
+});
 
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_015_recreated.pptx" })
+// Small black cursor-like arrow (isosceles triangle pointing NW), spec [0.405,0.659,0.423,0.696]
+s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
+  x: 0.405 * W, y: 0.659 * H, w: (0.423 - 0.405) * W, h: (0.696 - 0.659) * H,
+  fill: { color: "000000" }, line: { color: "808080", width: 0.75 },
+  rotate: 315,
+});
+
+// Bottom black overlay bar, spec [0.042,0.950,0.978,1.000]
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.042 * W, y: 0.950 * H, w: (0.978 - 0.042) * W, h: (1.000 - 0.950) * H,
+  fill: { color: "000000" }, line: { type: "none" },
+});
+
+pres.writeFile({ fileName: OUT })
   .then(() => console.log("wrote slide_015_recreated.pptx"))
-  .catch(e => console.error(e));
+  .catch(e => { console.error(e); process.exit(1); });

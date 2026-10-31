@@ -21,8 +21,36 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Web sources: `sources/slide_002_research.md`
 - Gap kinds: verbatim_text.equations, verbatim_text.labels
 - REQUIRED CONTENT (verbatim from the original frame):
-  - `verbatim_text.labels` → (Any value) → (-1, +1)
   - `verbatim_text.equations` → (Any value) → (-1, +1)
+  - `verbatim_text.labels` → (Any value) → (-1, +1)
+
+## slide_009
+- Source of truth: `pool_run/image_analysis/slide_009_analysis.txt` (fresh script read)
+- Machine cross-check: `analysis/reanalysis/slide_009_raw.json`
+- Web sources: `sources/slide_009_research.md`
+- Gap kinds: verbatim_text.labels, visual_elements[table].data
+- REQUIRED CONTENT (verbatim from the original frame):
+  - `verbatim_text.labels` → Classified as +ve
+  - `verbatim_text.labels` → Classified as +ve
+  - `visual_elements[table].data` → 90
+- **Consumed spec**: Symbolic 2x2 confusion matrix inside a blue rectangular frame. Red bold header 'Predicted as' centered above the two columns; column headers 'P' and 'N' in black; vertical red bold 'Actual' label rotated 90 degrees along the left edge; row headers 'P' and 'N' in black. Cells separated by thin red gr
+
+## slide_011
+- Source of truth: `pool_run/image_analysis/slide_011_analysis.txt` (fresh script read)
+- Machine cross-check: `analysis/reanalysis/slide_011_raw.json`
+- Web sources: `sources/slide_011_research.md`
+- Gap kinds: verbatim_text.equations
+- REQUIRED CONTENT (verbatim from the original frame):
+  - `verbatim_text.equations` → Recall = \frac{TP}{TP + FN}
+  - `verbatim_text.equations` → Recall= \frac{28}{28+2} = 93.3\%
+
+## slide_012
+- Source of truth: `pool_run/image_analysis/slide_012_analysis.txt` (fresh script read)
+- Machine cross-check: `analysis/reanalysis/slide_012_raw.json`
+- Web sources: `sources/slide_012_research.md`
+- Gap kinds: verbatim_text.equations
+- REQUIRED CONTENT (verbatim from the original frame):
+  - `verbatim_text.equations` → Recall = \frac{TP}{TP + FN}
 
 ## slide_015
 - Source of truth: `pool_run/image_analysis/slide_015_analysis.txt` (fresh script read)
@@ -31,7 +59,9 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Gap kinds: visual_elements[graph].data
 - REQUIRED CONTENT (verbatim from the original frame):
   - `visual_elements[graph].data` → -6
+- **Consumed spec**: Square Cartesian grid with red border. x-axis ticks from -6 to 6; y-axis ticks from -3 to 3; origin unlabeled. Black axes with arrowheads and labels x and y. Red hyperbola y = 1/x drawn in quadrants I and III. Translucent yellow oval highlight around the steep branches near the y-axis. Caption 'y =
   - `visual_elements[graph].data` → 6
+- **Consumed spec**: Square Cartesian grid with red border. x-axis ticks from -6 to 6; y-axis ticks from -3 to 3; origin unlabeled. Black axes with arrowheads and labels x and y. Red hyperbola y = 1/x drawn in quadrants I and III. Translucent yellow oval highlight around the steep branches near the y-axis. Caption 'y =
 
 ## slide_019
 - Source of truth: `pool_run/image_analysis/slide_019_analysis.txt` (fresh script read)
@@ -39,9 +69,9 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Web sources: `sources/slide_019_research.md`
 - Gap kinds: verbatim_text.equations, verbatim_text.labels
 - REQUIRED CONTENT (verbatim from the original frame):
-  - `verbatim_text.labels` → [Any value]  →   (-1 , +1)
-  - `verbatim_text.labels` → [Any value]  →   (-1 , +1)
   - `verbatim_text.equations` → [Any value]  →   (-1 , +1)
+  - `verbatim_text.labels` → [Any value]  →   (-1 , +1)
+  - `verbatim_text.labels` → [Any value]  →   (-1 , +1)
 
 ## slide_020
 - Source of truth: `pool_run/image_analysis/slide_020_analysis.txt` (fresh script read)
@@ -49,9 +79,9 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Web sources: `sources/slide_020_research.md`
 - Gap kinds: verbatim_text.equations, verbatim_text.labels
 - REQUIRED CONTENT (verbatim from the original frame):
-  - `verbatim_text.labels` → (Any value → (0, +1))
-  - `verbatim_text.labels` → (Any value → (0, +1))
   - `verbatim_text.equations` → Any value → (0, +1)
+  - `verbatim_text.labels` → (Any value → (0, +1))
+  - `verbatim_text.labels` → (Any value → (0, +1))
 
 ## slide_028
 - Source of truth: `pool_run/image_analysis/slide_028_analysis.txt` (fresh script read)
@@ -68,10 +98,10 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Web sources: `sources/slide_029_research.md`
 - Gap kinds: verbatim_text.equations, verbatim_text.labels
 - REQUIRED CONTENT (verbatim from the original frame):
-  - `verbatim_text.labels` → TPR = TP/(TP+FN)
-  - `verbatim_text.labels` → FPR = FP/(FP+TN)
   - `verbatim_text.equations` → TPR = TP/(TP+FN)
   - `verbatim_text.equations` → FPR = FP/(FP+TN)
+  - `verbatim_text.labels` → TPR = TP/(TP+FN)
+  - `verbatim_text.labels` → FPR = FP/(FP+TN)
 
 ## slide_030
 - Source of truth: `pool_run/image_analysis/slide_030_analysis.txt` (fresh script read)
@@ -88,10 +118,11 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
 - Web sources: `sources/slide_031_research.md`
 - Gap kinds: verbatim_text.equations, verbatim_text.labels, visual_elements[chart].data
 - REQUIRED CONTENT (verbatim from the original frame):
-  - `verbatim_text.labels` → 1.0
   - `verbatim_text.equations` → TPR = TP/(TP+FN)
   - `verbatim_text.equations` → FPR = FP/(FP+TN)
+  - `verbatim_text.labels` → 1.0
   - `visual_elements[chart].data` → 1.0
+- **Consumed spec**: ROC-space plot. Vertical axis is labeled TPR with an upward arrow; horizontal axis is labeled FPR with a rightward arrow; both range from 0 to 1 with a light grid. A black diagonal arrow/line runs from lower-left toward upper-right. Three red-outlined circle markers are labeled '0.3' near the left s
 
 ## slide_032
 - Source of truth: `pool_run/image_analysis/slide_032_analysis.txt` (fresh script read)
@@ -102,9 +133,13 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
   - `verbatim_text.equations` → TPR = TP/(TP+FN)
   - `verbatim_text.equations` → FPR = FP/(FP+TN)
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: ROC curve scatter/line plot. Y-axis 'TPR' ranges 0 to 1 with upward arrow. X-axis 'FPR' ranges 0 to 1 with rightward arrow. Background grid. Four red data points connected by red line: (0.33,1.0) labeled '0.3', (0.66,1.0) labeled '0.1', (1.0,1.0) labeled '0.0', (0.16,0.8) labeled '0.4'.
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: ROC curve scatter/line plot. Y-axis 'TPR' ranges 0 to 1 with upward arrow. X-axis 'FPR' ranges 0 to 1 with rightward arrow. Background grid. Four red data points connected by red line: (0.33,1.0) labeled '0.3', (0.66,1.0) labeled '0.1', (1.0,1.0) labeled '0.0', (0.16,0.8) labeled '0.4'.
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: ROC curve scatter/line plot. Y-axis 'TPR' ranges 0 to 1 with upward arrow. X-axis 'FPR' ranges 0 to 1 with rightward arrow. Background grid. Four red data points connected by red line: (0.33,1.0) labeled '0.3', (0.66,1.0) labeled '0.1', (1.0,1.0) labeled '0.0', (0.16,0.8) labeled '0.4'.
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: ROC curve scatter/line plot. Y-axis 'TPR' ranges 0 to 1 with upward arrow. X-axis 'FPR' ranges 0 to 1 with rightward arrow. Background grid. Four red data points connected by red line: (0.33,1.0) labeled '0.3', (0.66,1.0) labeled '0.1', (1.0,1.0) labeled '0.0', (0.16,0.8) labeled '0.4'.
 
 ## slide_033
 - Source of truth: `pool_run/image_analysis/slide_033_analysis.txt` (fresh script read)
@@ -115,7 +150,9 @@ correct, then run BOTH judge reads in original-first order (see `pool_run/REBUIL
   - `verbatim_text.equations` → TPR = TP/(TP+FN)
   - `verbatim_text.equations` → FPR = FP/(FP+TN)
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: Scatter plot with blue border. X-axis labeled 'FPR' ranging 0.0 to 1.0. Y-axis labeled 'TPR' ranging 0.0 to 1.0. Light gray grid lines. A blue diagonal reference line runs from (0,0) to (1,1). Five red circular data points are plotted and labeled with threshold values: '0.0' near (0.0, high TPR), '0
   - `visual_elements[graph].data` → 1.0
+- **Consumed spec**: Scatter plot with blue border. X-axis labeled 'FPR' ranging 0.0 to 1.0. Y-axis labeled 'TPR' ranging 0.0 to 1.0. Light gray grid lines. A blue diagonal reference line runs from (0,0) to (1,1). Five red circular data points are plotted and labeled with threshold values: '0.0' near (0.0, high TPR), '0
 
 ## slide_034
 - Source of truth: `pool_run/image_analysis/slide_034_analysis.txt` (fresh script read)

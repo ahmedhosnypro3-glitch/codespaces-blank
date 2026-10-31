@@ -1,0 +1,12 @@
+[info] context header injected: VIEW: slide 015 — original lecture frame, 09_introduction_to_neural_networks | CAPTURE: 960x540 lecture slide frame, original
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 280541
+[warn] analysis :: images :: attempt 1: ABORT HangError: hard wall-clock 270s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[warn] analysis :: images :: attempt 2: HTTP 429: {"error":{"code":"upstream_rate_limited","message":"the upstream provider is rate limiting this gateway","retry_after":2,"type":"rate_limit_error"}}
+[warn] analysis :: round 1: all models failed, restarting race
+[warn] analysis :: images :: attempt 1: HTTP 429: {"error":{"code":"upstream_rate_limited","ironrouter":{"candidate":"nva…ONSM","provider":"Nvidia"},"message":"the upstream provider is rate limiting this gateway","type":"rate_limit_error"}}
+[error] None: every model failed:
+  images: attempt 1: ABORT HangError: hard wall-clock 270s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+  images: attempt 2: HTTP 429: {"error":{"code":"upstream_rate_limited","message":"the upstream provider is rate limiting this gateway","retry_after":2,"type":"rate_limit_error"}}
+  images: attempt 1: HTTP 429: {"error":{"code":"upstream_rate_limited","ironrouter":{"candidate":"nva…ONSM","provider":"Nvidia"},"message":"the upstream provider is rate limiting this gateway","type":"rate_limit_error"}}
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 0/1 result(s) analyzed successfully

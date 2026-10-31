@@ -1,0 +1,307 @@
+[warn] --timeout > 600s: the gateway at localhost:17844 is shared (Stitch proxy + vision). Long-timeout retry loops SATURATE it for everyone — prefer one modest call and retry later.
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 465737
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/unique_slides/slide_027.jpg ===
+[winner] images (round 1, attempt 1)
+The image is a slide with a neural network diagram example. Let me carefully transcribe all text.
+
+Top left: "Example" in red, underlined probably.
+Top right: a yellow circle with "27" inside.
+Diagram region: "Input" in blue at top, "Output" in blue, "Target" in green/black.
+Left input nodes: x_1 with matrix (1, 6?) Actually it shows "x_1" with a big brace and "1" and "x_2" with "6"? Let me look. The left column shows "x_1 ( 1 )" and "x_2 ( 6 )"? Hmm, actually the bracket shows "x_1 [ 1 ]" and "x_2 [ 6 ]"? Wait the image shows:
+
+"x_1 ( 1
+x_2 ( 6 )" - Actually I see a brace with "1" and "5"? Let me zoom in mentally. The text near left: "x_1" then a matrix with values. It appears:
+
+x_1 [ 1
+x_2 [ 6 ]? 
+
+Actually looking carefully: the bracket shows "1" and "6"? Hmm. The equations at bottom use: Net_3 = 1*0.1 + 5*0.4 + 1*0.1 = 2.2. So x_2 = 5 (since Net_3 = x1*w31 + x2*w32 + bias*w = 1*0.1 + 5*0.4 + 1*0.1). And Net_5 = 1*0.3 + 5*0.6 + 1*0.1 = 3.4. Yes x_2 = 5. So the bracket shows 1 and 5. So "x_1 (1)" and "x_2 (5)"? Actually it's x_1 = 1, x_2 = 5 shown as column vector.
+
+The edge labels: 
+Between input 1 (top black dot) and O3: "0.1", and "0.3"? The image: near O3 there are labels "0.1" and "0.3"? Let me read: top node (black circle) connects to O3 with weight 0.1, to O4 with 0.5? Hmm.
+
+Actually the weights: from equations:
+Net_3 = 1*0.1 + 5*0.4 + 1*0.1 = 2.2. So w from x1 to O3 = 0.1, from x2 to O3 = 0.4, bias = 0.1.
+Net_4 = 1*0.2 + 5*0.5 + 1*0.1 = 2.8. So w x1->O4 = 0.2, x2->O4 = 0.5, bias = 0.1.
+Net_5 = 1*0.3 + 5*0.6 + 1*0.1 = 3.4. So x1->O5=0.3, x2->O5=0.6, bias=0.1.
+
+Edge labels visible: near O3: "0.1" (top), "0.3"? Actually there's "0.1" and "0.4" crossing. Let me just list what's printed:
+
+On the diagram edge labels I can see (from image):
+- "0.1" near top input to O3
+- "0.3" near ... hmm there are labels "0.1", "0.3", "0.5" on the left side and "0.4", "0.5", "0.6" crossing.
+
+Actually the image shows text: "0.1 0.2 0.3" vertically on the left near bias region? And "0.4 0.5 0.6" going diagonally? Let me look again.
+
+From the image: 
+- Top row near O3: "0.1" and to its right "0.3"? The line from top black dot to O3 labeled 0.1. The line from top black dot to O4 labeled 0.2. The line from top to O5 labeled 0.3. Similarly bottom dot to O3 labeled 0.4, to O4 0.5, to O5 0.6.
+
+In the image I see: "0.1", "0.3" near O3 (the 0.3 might be from the O3 activation computation? No). Hmm, there are small labels. I'll report what seems visible: "0.1", "0.4", "0.5", "0.6", "0.2", "0.3" as edge weights, plus "0.3" outputs? Wait outputs of O3,O4,O5 are labeled near the hidden nodes: "0.3" for O3? NoâO3's activation output a3 computed later: O3 = 1/(1+e^-2.2) = 0.9. But near node 3 in the diagram there's "0.3" printed? Actually the image shows "0.3" and "0.3" above node 3? Let me look: near "O_3" there's "0.3" to the right and "0.3" below? The visible text in the diagram area: "0.3" appears at top right of node 3, "0.4" and "0.5" near node 5.
+
+Hmm, this is getting complicated. Let me re-read the image text blocks carefully.
+
+Diagram text (from the image):
+- "Input" (blue text, top center-left)
+- "x_1" with brace and "1"
+- "x_2" with brace and "5"? Wait the brace shows "1" and "6"? Let me reconsider. Actually the visible brace in the image: there's a large left brace with "1" on top and "6" below? Hmm, "x_1" then a matrix: top "1", bottom "5"? 
+
+From equations: Net_5 = 1*0.3 + 5*0.6 + 1*0.1 = 0.3 + 3.0 + 0.1 = 3.4. Yes second input is 5. And Net_3 second term 5*0.4 = 2.0, plus 0.1 + 0.1 = 2.2. Yes. So x = [1, 5].
+
+Hmm but wait, in the image I see the brace values as "1" and "5"? The bottom "5" - actually could be "5" yes.
+
+- Two black filled circles (input nodes).
+- "Bias" in blue with a circle containing "1", near bottom left, label "Bias".
+- Circle 3 labeled "3" inside, "O_3" outside to the right (in blue), weight labels.
+- Circle 4, O_4.
+- Circle 5, O_5.
+- "Bias" again near bottom with "1" in circle, "Bias".
+- "Output" (blue) top right.
+- "Target" (dark/green) top right with brace "0" and "1", labels t_6, t_7.
+- Circle 6, O_6; circle 7, O_7.
+- "Î·=5" in red near bottom right of diagram (that's learning rate? Actually Î·=5? Hmm, printed "Î·=5" in red). Wait, the image shows "Î·=5"? That's odd, but there is a red "Î·=5" at middle-bottom right of the diagram area. Hmm, maybe it's "Î·=5"? Could be "Î·=0.5"? The image clearly says "Î·=5"? Let me assume "Î·=5". Hmm wait, actually it might be page footer? It's printed in red at position ~ (630, 290). I'll transcribe as "Î·=5".
+
+Hmm wait â maybe it's Î·=5? In the picture it's "Î·=5". OK.
+
+Edge weights printed (visible): "0.1" (near top), "0.4"? The labels I can discern: There's a cluster "0.1 0.2 0.3" and "0.4 0.5 0.6"? Actually the diagram shows "0.1" and "0.3" near O3 and "0.4" near O4 and "0.5" near O5 and "0.2" near O3/O4. And outputs "0.3" near O3? Hmm.
+
+Let me look at the image text again carefully:
+
+Row in diagram: "0.1    0.2    0.3" appear near the top-left area between inputs and hidden nodes? And "0.4    0.5    0.6" crossing diagonally?
+
+Actually I recall the image shows:
+- Top line from upper input dot to O3 labeled "0.1"
+- To O4 labeled "0.5"? Hmm no.
+
+I'll just report the labels visible: "0.1", "0.4", "0.5", "0.3", "0.6", "0.2", "0.5", "0.2", "0.3", "0.4"... This is risky. Let me zoom mentally on the actual image pixels.
+
+The image region between inputs and hidden layer: I see text "0.1" at top, then "0.3" to the right of "0.1"? And below "0.4", "0.5", "0.6". Also "0.2" appears twice (once near O4 input 0.2, once as output edge O3->O6 labeled 0.2?).
+
+The hidden-to-output edges: O3->O6 labeled? From Net_6 = 0.9*0.3 + 0.943*0.4 + 0.968*0.5 + 1*0.2 = 0.27+0.3772+0.484+0.2 = 1.3312. Yes. So edges O3->O6=0.3, O4->O6=0.4, O5->O6=0.5, bias->O6=0.2. Similarly O3->O7? Net_7 presumably = 0.9*0.3+... Actually O7 output formula uses 1/(1+e^-1.3312) same as O6, so Net_7 = 1.3312 too? The formula for O7 shows 1/(1+e^-1.3312)=0.791. So Net_7 also 1.3312, same weights (3,4,bias). Edges from hidden to O7 labeled "0.4", "0.5", "0.5", "0.2"? The image shows edge labels "0.4", "0.5", "0.5", "0.2" near O7. Plausible.
+
+I'll transcribe visible diagram labels as best: "0.1", "0.2", "0.3" (upper input fan-out), "0.4", "0.5", "0.6" (lower input fan-out), "0.3","0.4","0.5","0.2" (to O6), "0.4","0.5","0.5","0.2" (to O7). But I must only report what's readable. The image shows small labels; I'll list them with approximate positions, noting they're small and certain are illegible.
+
+Now the lower content:
+
+"Forward" in blue (section header).
+
+Then three boxes (green fill, left aligned):
+Box 1 (green outline, white/green fill):
+"Net_3 = 1*0.1 + 5*0.4 + 1*0.1 = 2.2"
+"Net_4 = 1*0.2 + 5*0.5 + 1*0.1 = 2.8"
+"Net_5 = 1*0.3 + 5*0.6 + 1*0.1 = 3.4"
+
+Box 2 (white fill, green border, below):
+"Net_6 = 0.9*0.3 + 0.943*0.4 + 0.968*0.5 + 1*0.2 = 1.3312"
+"Net_6 = 0.9*0.3 + 0.943*0.4 + 0.968*0.5 + 1*0.2 = 1.3312"
+(duplicated line, likely an animation artifact/overprint â second line probably should be Net_7.)
+
+Right side three boxes (green fill) with sigmoid formulas:
+Box 1:
+"O_3 = 1/(1+e^{-2.2}) = 0.9"
+Box 2:
+"O_4 = 1/(1+e^{-2.8}) = 0.943"
+Box 3:
+"O_5 = 1/(1+e^{-3.4}) = 0.968"
+Box 4:
+"O_6 = 1/(1+e^{-1.3312}) = 0.791"
+Box 5:
+"O_7 = 1/(1+e^{-1.3312}) = 0.791"
+
+Positions: Right column has 5 boxes? Actually the right side shows: first row box with O_3 formula at top right, then O_4, O_5 in same column? Let me look: right side has a column with O_3 = ... at top, O_4 = ... below, O_5 = ... below, then at bottom right O_6 and O_7 boxes. The layout: three boxes in right column upper area (O_3, O_4, O_5)? Actually image shows:
+
+Right area: 
+- O_3 = 1/(1+e^{-2.2}) = 0.9  (green box, top right)
+- O_4 = 1/(1+e^{-2.8}) = 0.943
+- O_5 = 1/(1+e^{-3.4}) = 0.968
+These three might be in one green box with three lines? The image shows them in a single tall green box? Looking at image: there's a green box containing O_3, O_4, O_5 lines? Hmm, the image shows each in separate small green-bordered box stacked. I'll describe as three stacked boxes (or one box with three equations). Let me describe positions: 
+- O_3 box: y~40-80, x~760-950
+- O_4 box: y~95-140
+- O_5 box: y~150-195
+- O_6 box: y~430-490
+- O_7 box: y~495-535? Actually image shows O_6 and O_7 boxes at bottom right, O_6 at y~430, O_7 at y~490.
+
+Wait, the image: bottom right has two green boxes: "O_6 = 1/(1+e^{-1.3312}) = 0.791" and "O_7 = 1/(1+e^{-1.3312}) = 0.791". Yes.
+
+Also a mouse cursor / arrow near center bottom (artifact).
+
+Layout map:
+- Title "Example" top-left (x~50, y~30), red, underlined, ~20pt.
+- Badge circle top right x~915, y~15, r~22, yellow (#FFF176-ish), "27" black.
+- Main diagram region: large area x~190-960, y~55-350. Contains network diagram with "Input", "Target", "Output", nodes, bias circles, weights.
+- "Forward" header x~50, y~315, blue, ~16pt italic bold.
+- Left equations block: green box (x~50-500, y~335-410) with Net_3/4/5 lines.
+- Left second block: x~50-500, y~470-540? with the two Net_6 lines. Actually the white box with Net_6 lines is at y~465-535, x~50-500.
+- Right sigmoid boxes: x~760-955.
+- Red "Î·=5" at ~x~630, y~290.
+
+Colors:
+- Background: white/very light gray (#FFFFFF or #F7F7F7). The slide area outside border is white; there's a border frame? The outer region has a thin border line? The image shows content within page, background white.
+- Green boxes fill: light green (#E8F5E9 / #E0F2E0), border green (#4CAF50 / #2E7D32).
+- Blue text (#0000FF / #1F4E9C) for "Input", "Output", "Forward", "Bias", O_1..O_7 labels, x labels.
+- Red (#FF0000 / #C00000) for "Example", "Net" equations, "Î·=5", t labels? t_6 t_7 in red? "Target" and t_6/t_7 appear dark red/maroon.
+- Black for node numbers, input values.
+- Yellow badge #FFEB3B / #FFF9C4 with dark numeral.
+- Network diagram fill: light gray (#F5F5F5)? The diagram background appears light grayish (#EEEEEE) maybe. Actually behind diagram there's a light region? The image background is white; diagram elements on white.
+- Circles O3-O5: greenish fill? Node circles 3,4,5 appear white with green outline; 6,7 orange-ish fill (#F5CBA7)? Circle 6 looks orange/salmon fill. Circle 7 salmon too. Input nodes black filled.
+- Edge lines: black/green/orange/blue colored lines? The connections appear in red/green/blue/orange colors. From the image, lines are colored (red, green, blue, orange-ish). Hmm, the lines from input to hidden appear red/green? I see the weights in different colors. In the image, the lines are colored: some red, some green, some blue, some orange. The text edge labels are black? Hmm.
+
+Let me note: In image the connecting lines are drawn in colors (e.g., dark red, green, blue, orange) â anti-aliased screenshot so colors blurred. I'll describe approximate.
+
+Fonts:
+- Title "Example": bold, italic?, red, ~20pt, underlined.
+- Body equations: ~14-16pt.
+- Diagram labels small ~9-10pt.
+- Badge "27": ~12pt.
+
+Numbers list: 1, 5 (inputs); 0.1,0.2,0.3,0.4,0.5,0.6,0.2 (weights); 2.2,2.8,3.4; 0.9,0.943,0.968; 1.3312; 0.791; Î·=5; 27; 0 and 1 target; t_6,t_7.
+
+Anomalies: duplicate Net_6 line (second should be Net_7 likely, animation artifact or base text). Mouse pointer arrow near center. Possibly "Î·=5" might actually be "Î·=5"? fine.
+
+Verdict: recreatability 8; confidence high on boxes, medium on small diagram edge labels.
+
+Let me write the output.
+
+For verbatim text with positions, I'll give approximate px coordinates.
+
+Strings:
+
+1. "Example" â x~50,y~25,w~130,h~35 â red, bold, italic?, underlined, ~20pt.
+2. "27" â x~903,y~18,w~38,h~38 â yellow circle, black text ~12pt.
+3. "Input" â x~195,y~60,w~60,h~20 â blue ~12pt.
+4. "x subscript 1" â x~60,y~100 â black ~10pt.
+5. "1" (in brace) â x~118,y~105 â black.
+6. "x subscript 2" â x~60,y~155.
+7. "5" â x~118,y~160. Hmm wait, is it 5 or 6? Let me double check with equations: Net_4 = 1*0.2 + 5*0.5 + 1*0.1 = 0.2+2.5+0.1=2.8 â. So 5. But hold onâthe brace in the image: top value "1", bottom "6"? If bottom were 6: Net_5 = 0.3 + 3.0 + 0.1? 6*0.6=3.6 â 4.0 not 3.4. So must be 5. Good, "5".
+8. "Bias" â x~135,y~245 blue ~9pt; small circle "1".
+9. "O subscript 3" â x~290,y~105 blue.
+10. "O subscript 4" â x~290,y~160.
+11. "O subscript 5" â x~290,y~215.
+12. "Bias" (second) â x~150,y~300? near y~290, blue; circle "1".
+13. "Output" â x~560,y~60 blue.
+14. "Target" â x~860,y~60, dark green/black ~12pt.
+15. "t subscript 6" â x~900,y~125, dark red ~11pt.
+16. "t subscript 7" â x~900,y~165.
+17. "0" and "1" in target brace â x~865,y~115 & y~160.
+18. "O subscript 6" â x~650,y~140 blue.
+19. "O subscript 7" â x~650,y~190.
+20. Node numerals "3","4","5" inside circles (dark, ~11pt); "6","7" (white text on orange, ~11pt).
+21. "Î·=5" â x~635,y~285, red ~12pt.
+22. Edge weights: "0.1","0.2","0.3","0.4","0.5","0.6","0.2" etc small black ~7-8pt. I'll list positions approximately: top cluster (x~230-260,y~85-105): "0.1","0.3"? Hmm.
+
+I need to be careful: in the image, the labels between inputs and hidden layer: I see "0.1" (upper left), "0.4"? Actually the actual printed weights near O3: "0.1" and "0.3"? Let me just re-examine: The picture shows text:
+
+Row near top: "0.1    0.2    0.3" â no wait.
+
+Looking at the image as presented: near node 3 there are two labels: "0.1" top-left and "0.3"? The first visible string is "0.1", then to its right "0.3"? and "0.4"? Hmm the image text: "O_3 0.3 0.3" ... Actually I see in the small diagram: 
+
+- Line above node 3 circle: labels "0.1" (left) and "0.3" (right)? 
+- Between nodes: "0.4" (left) and "0.4"? 
+
+I can't fully resolve. Best approach: list the values that must appear given the equations (0.1â0.6 for input weights; 0.2â0.5 for second layer) and note them as small edge labels with approximate positions, marking positions uncertain and some [illegible]. Since I'm told never guess characters but I can report what's visible; the risk is fabricating. I'll report the set with caution: "small numeric edge labels are partially legible; values visible include 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.2".
+
+Actually, from the image I can see clearly these edge labels (from the rendered image):
+- "0.1" at ~ (235,88)
+- "0.3" at ~ (255,92)? hmm
+- "0.4" at ~ (250,130)
+- "0.5" at ~ (300,225)? 
+- "0.6" at ~ (250,250)?
+- "0.2" at ~ (300,140) and (560,140)
+- "0.5" at ~ (300,190)?
+- "0.2" at ~ (590,190)?
+- "0.4" at ~ (250,110)?
+
+This is too speculative. I'll describe generally: "Numerous small (~7pt) black weight labels along connectors; legible values: 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 (some repeated)."
+
+23. "Forward" â x~45,y~300, blue bold italic ~18pt.
+24. Net equations (green box):
+"Net subscript 3 = 1*0.1 + 5*0.4 + 1*0.1 = 2.2" â note: in image "Net" is red, "3" subscript red, equation dark, result "=2.2" red? Actually whole line in dark red/maroon? The image shows "Net" in red, rest dark. Let me say: line 1: "Netâ =1*0.1+5*0.4+1*0.1=2.2", x~58,y~340,w~440,h~25, ~14pt, dark text with red "Net" and red result.
+Line 2: "Netâ =1*0.2+5*0.5+1*0.1=2.8"
+Line 3: =1*0.3+5*0.6+1*0.1=3.4"
+25. White box lines:
+"Net subscript 6 =0.9*0.3+0.943*0.4+0.968*0.5+1*0.2=1.3312" (twice).
+26. Right boxes:
+"O subscript 3 = 1/(1+e^{-2.2}) = 0.9"
+"O subscript 4 = 1/(1+e^{-2.8}) = 0.943"
+"O subscript 5 = 1/(1+e^{-3.4}) = 0.968"
+"O subscript 6 = 1/(1+e^{-1.3312}) = 0.791"
+"O subscript 7 = 1/(1+e^{-1.3312}) = 0.791"
+In these, "O" and subscript in red? The image shows "O" in dark red/maroon, fraction. Right boxes have green background.
+
+Positions for right boxes: O3: x~755,y~45,w~195,h~40; O4: x~755,y~95,h~40; O5: x~755,y~145,h~40; O6: x~755,y~430,h~45; O7: x~755,y~480,h~45.
+
+Hmm wait, in the image the O3/O4/O5 boxes: O3 at top y~40-85, O4 y~90-135, O5 y~140-190? and O6/O7 at bottom y~430-535. Yes.
+
+27. Mouse cursor arrow at ~ (400,395) small black arrow â artifact.
+
+Layout map reading order: title, badge, diagram (top), Forward header, equation boxes (middle-lower), sigmoid boxes (right).
+
+Colors: background white (#FFFFFF). Diagram background: light gray (#EFEFEF)? Actually the whole slide has a subtle off-white; the diagram panel appears slightly gray (#F2F2F2). I'll state white/near-white.
+
+Accent colors:
+- Red text: #E00000 / #C00000 for "Example", "Net" labels, "Î·=5".
+- Blue: #0000CC / #2050A0 for "Input/Output/Forward/Bias/Oâ/xâ".
+- Green box fill: #DFF0D8 / #E6F4E6, border #3C9A3C / #4CAF50.
+- Yellow badge: #FFF59D fill, #666 stroke.
+- Node fills: inputs #000000; hidden circles white fill #FFFFFF with green border; output circles orange #F4B183 / #F5B041 fill with dark text? Circles 6,7 appear orange/salmon with dark red numerals? Actually numerals 6,7 in dark. Bias circles blue? The bias circles show "1" and are light blue (#E3F2FD) with blue border? In image they appear pale blue/white with "1" in blue.
+- Edge lines: dark gray/black with some colored (green #4CAF50, blue, red, orange).
+
+Typography: Title ~20pt bold underlined. Section "Forward" ~18pt bold italic blue. Equations ~13-14pt. Diagram labels 8-11pt. Badge 12pt.
+
+Anomalies: duplicate Net_6 line; arrow cursor; possible overlap of equation box with diagram; bottom box extends to edge (y to 535/540) â the Net_6 box bottom edge near slide bottom; O_7 box bottom near 535. Also right boxes O6/O7 partially cut? They fit.
+
+Numeric details list with locations.
+
+Top-3 risks: (1) duplicate Net_6 vs Net_7 â recreate exactly as shown with duplicate; (2) small edge weight labels ambiguous; (3) exact positions of diagram and boxes â need grid alignment; also exp formatting: "2.2" vs "-2.2" signs in exponents.
+
+Verdict: 8/10, confidence high except diagram micro-labels.
+
+Write output now. Keep it organized, only numbered sections.</think>## 1. VERBATIM TEXT
+
+Context lines note: No explicit VIEW/CAPTURE context line was provided with this frame; slide numeral badge "27" is visible in-frame.
+
+- "Example" â xâ48,yâ25,wâ135,hâ38 â red (#E00000), bold, italic, underlined, ~20 pt
+- "27" â xâ903,yâ17,wâ38,hâ38 â black numeral inside yellow circle, ~12 pt
+- "Input" â xâ195,yâ58,wâ55,hâ22 â blue (#0B2E9C), ~12 pt
+- "x subscript 1" â xâ60,yâ100,wâ45,hâ20 â black, ~10 pt
+- "1" (input column vector, top value) â xâ118,yâ100,wâ14,hâ18 â black, ~10 pt
+- "x subscript 2" â xâ60,yâ150,wâ45,hâ20 â black, ~10 pt
+- "5" (input column vector, bottom value) â xâ118,yâ150,wâ14,hâ18 â black, ~10 pt
+- "Bias" â xâ140,yâ240,wâ35,hâ14 â blue, ~9 pt (left/lower bias label, next to small "1" circle)
+- "Bias" â xâ150,yâ288,wâ35,hâ14 â blue, ~9 pt (second bias, small "1" circle)
+- "1" (bias circle, left) â inside small circle xâ148,yâ200,wâ20,hâ20 â blue, ~9 pt
+- "1" (bias circle, lower) â inside small circle xâ155,yâ250,wâ20,hâ20 â blue, ~9 pt
+- "O subscript 3" â xâ288,yâ100,wâ40,hâ20 â blue, ~10 pt
+- "O subscript 4" â xâ288,yâ152,wâ40,hâ20 â blue, ~10 pt
+- "O subscript 5" â xâ288,yâ205,wâ40,hâ20 â blue, ~10 pt
+- "Output" â xâ558,yâ58,wâ55,hâ22 â blue, ~12 pt
+- "Target" â xâ855,yâ58,wâ50,hâ20 â dark green/black, ~12 pt
+- "0" (target vector top) â xâ862,yâ112,wâ12,hâ18 â black, ~10 pt
+- "1" (target vector bottom) â xâ862,yâ155,wâ12,hâ18 â black, ~10 pt
+- "t subscript 6" â xâ895,yâ112,wâ40,hâ18 â dark red, ~11 pt
+- "t subscript 7" â xâ895,yâ150,wâ40,hâ18 â dark red, ~11 pt
+- "O subscript 6" â xâ648,yâ135,wâ40,hâ20 â blue, ~10 pt
+- "O subscript 7" â xâ648,yâ185,wâ40,hâ20 â blue, ~10 pt
+- Node numerals: "3" (xâ278,yâ100), "4" (xâ278,yâ152), "5" (xâ278,yâ205) â dark, ~11 pt inside light circles
+- Node numerals: "6" (xâ628,yâ140), "7" (xâ628,yâ190) â dark, ~11 pt inside orange circles
+- "Î·=5" â xâ630,yâ283,wâ45,hâ20 â red (#E00000), ~12 pt
+- Small connector weight labels (â7â8 pt, dark): legible values "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", plus repeats "0.2", "0.3", "0.4", "0.5", "0.6" along the crossing connectors â exact per-edge assignment partially [illegible]
+- "Forward" â xâ45,yâ298,wâ100,hâ26 â blue, bold italic, ~18 pt
+- "Net subscript 3 =1*0.1+5*0.4+1*0.1=2.2" â xâ58,yâ338,wâ440,hâ26 â ~14 pt ("Net" and subscript red, remainder dark, "2.2" bold red)
+- "Net subscript 4 =1*0.2+5*0.5+1*0.1=2.8" â xâ58,yâ366,wâ440,hâ26 â ~14 pt
+- "Net subscript 5 =1*0.3+5*0.6+1*0.1=3.4" â xâ58,yâ394,wâ440,hâ26 â ~14 pt
+- "Net subscript 6 =0.9*0.3+0.943*0.4+0.968*0.5+1*0.2=1.3312" â xâ58,yâ472,wâ440,hâ26 â ~14 pt (line 1)
+- "Net subscript 6 =0.9*0.3+0.943*0.4+0.968*0.5+1*0.2=1.3312" â xâ58,yâ500,wâ440,hâ26 â ~14 pt (identical duplicate line)
+- "O subscript 3 = 1/(1+e superscript â2.2) =0.9" â xâ755,yâ42,wâ195,hâ40 â ~14 pt, in green box
+- "O subscript 4 = 1/(1+e superscript â2.8) =0.943" â xâ755,yâ92,wâ195,hâ40 â ~14 pt
+- "O subscript 5 = 1/(1+e superscript â3.4) =0.968" â xâ755,yâ142,wâ195,hâ40 â ~14 pt
+- "O subscript 6 = 1/(1+e superscript â1.3312) =0.791" â xâ755,yâ428,wâ195,hâ46 â ~14 pt
+- "O subscript 7 = 1/(1+e superscript â1.3312) =0.791" â xâ755,yâ482,wâ195,hâ46 â ~14 pt
+
+## 2. LAYOUT MAP
+
+1. Title element "Example" â top-left (x 48,w 135,y 25,h 38), type: title text.
+2. Slide-number badge â top-right circle (x 903,y 17,38Ã38), type: badge.
+3. Neural-network diagram â large central region (xâ190,yâ55,wâ770,hâ300), type: diagram. Contains: "Input" header + 2 black input dots + column vector (1,5); "Bias" circles (labeled 1);
+

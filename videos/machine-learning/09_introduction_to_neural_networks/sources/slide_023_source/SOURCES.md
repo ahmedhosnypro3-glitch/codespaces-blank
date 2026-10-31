@@ -108,3 +108,96 @@ The earlier section above flagged the tanh row as "WRONG on slide" (claiming the
 Per `analysis/slide_023_final.json` the slide has FIVE rows and every row is correct:
 tanh -> `f'(x) = 1 - f(x)^2`, and arctan is its OWN fifth row -> `f'(x) = 1/(x^2+1)`. No slide
 error; the earlier "slide typo" claims are withdrawn.
+
+
+---
+
+## Verified 2026-10-30 (wave 4, fresh worker `w4-src-021`, scope `src_w4_021_024`)
+
+Mandated by `videos/machine-learning/09_introduction_to_neural_networks/AGENTS.md` rule 5.
+Method: `agy -p` CLI attempted first and returned HTTP 429 `RESOURCE_EXHAUSTED`
+("Individual quota reached … Resets in 131h18m6s"); searches therefore ran through the
+**agy MCP web-search tool** (same Google-grounding backend, grounding redirect URLs resolved
+to real page URLs). Every URL below was returned by that tool — none invented. Content
+evidence: `analysis/slide_023_final.json` (FIVE rows) and
+`sources/docparse_cascades/slide_023/composed/slide_023_composed.md` (independent second read).
+Full claim register: `VERIFY_W4.md` in this directory.
+
+### Claim-by-claim verification
+
+1. **Uni-polar Unit Step = Heaviside step, `f(x) = { 0 for x<0 ; 1 for x>=0 }`** — CONFIRMED.
+   - Question: *Is the "Uni-polar Unit Step" the Heaviside step function?*
+   - Answer: Yes — `H(x) = 0 for x < 0` and `1 for x > 0`; the engineering name "uni-polar"
+     distinguishes it from the bi-polar signum function.
+   - https://en.wikipedia.org/wiki/Heaviside_step_function
+
+2. **Uni-polar Unit Step derivative `f'(x) = { 0 for x≠0 ; ? for x=0 }`** — CONFIRMED. The
+   slide's `?` marks the mathematically undefined point.
+   - Question: *Is the derivative of the Heaviside step 0 for x≠0 and undefined at x=0?*
+   - Answer: Yes classically — flat (derivative 0) on both sides of the origin, undefined at
+     the jump discontinuity; distributionally the derivative is the Dirac delta δ(x).
+   - https://math.stackexchange.com/questions/13898/how-to-prove-that-the-derivative-of-heavisides-unit-step-function-is-the-dirac
+   - https://pmc.ncbi.nlm.nih.gov/articles/PMC4447849/
+
+3. **Bi-polar Unit Step = sign function, `f(x) = { -1 for x<0 ; 1 for x>=0 }`, derivative
+   0 for x≠0 and undefined at 0 — zero gradient makes it unusable for backprop** — CONFIRMED.
+   - Question: *Is the "Bi-polar Unit Step" the sign function, and is its derivative zero
+     almost everywhere?*
+   - Answer: Yes — the bi-polar step jumps from −1 to +1; its derivative is zero everywhere
+     except the threshold, where it is undefined or delta-like, so the chain rule gives no
+     weight update signal.
+   - https://en.wikipedia.org/wiki/Heaviside_step_function
+   - https://arxiv.org/pdf/1901.09948
+
+4. **Sigmoid `f(x) = 1/(1+e^{-x})`** — CONFIRMED.
+   - Question: *Is the slide's Sigmoid definition the logistic function?*
+   - Answer: Yes — `σ(x) = 1/(1+e^{-x})`, the logistic function.
+   - https://developers.google.com/machine-learning/crash-course/logistic-regression/sigmoid-function
+
+5. **Sigmoid derivative `f'(x) = f(x)(1-f(x))`** — CONFIRMED (banked; re-cited, no new query).
+   - https://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x
+
+6. **tanh `f(x) = sinh x / cosh x`, derivative `f'(x) = 1 − f(x)^2 = sech^2(x)`** — CONFIRMED
+   (banked; re-cited, no new query).
+   - https://derivative-calculator.org/proofs/tanh/
+
+7. **tan⁻¹(x) (arctan) `f'(x) = 1/(x^2+1)`** — CONFIRMED.
+   - Question: *What is the derivative of arctan(x)?*
+   - Answer: `1/(1+x^2)` — by implicit differentiation: `tan(y) = x` → `sec²y · dy/dx = 1`
+     → `dy/dx = 1/sec²(y) = 1/(1+tan²(y)) = 1/(1+x²)`.
+   - https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/37028101f134cc6e0e41572fdc6735d8_MIT18_01SCF10_Ses15b.pdf
+   - https://www.geeksforgeeks.org/maths/derivative-of-arctan/
+
+### Doc-parse cross-check (independent second read)
+
+`sources/docparse_cascades/slide_023/composed/slide_023_composed.md` (nemotron-3.5-parse,
+1 parse call + 1 chat call, 0 failures) reads:
+`f(x)=Uni-polar Unit Step = 0 for x<0 1 for x≥0 Derivative f' (x)= 0 for x≠0 ? for x=0`
+and the identical form for the Bi-polar row — **independently corroborating claims 1–3,
+including the literal `?` at x = 0** as genuine printed content. The Sigmoid row corroborates
+claim 4 (`Sigmoid (x)= 1 /(1+e−x)`) and its derivative row corroborates claim 5
+(`f' (x)=f(x) ( 1–f(x) )`). The tanh and arctan rows appear in the doc-parse output with its
+known row-interleaving garbling (`Derive f' (x)= tan−1(x)` / `Derive f' (x)= 1–f(x)2`);
+already adjudicated in the wave-2 section above — the slide has FIVE rows and every row is
+correct, so the earlier "slide typo" claim stays withdrawn.
+
+### Uncertain items carried forward — unchanged
+
+- **The `?` at x=0 in rows 1 and 2 is a literal character printed on the slide** (the
+  lecturer leaves the unit-step derivative at the jump undefined). It is slide content, not
+  an extraction marker, and must be reproduced as-is.
+- Estimated hex values for box fills/borders (`#FDE9E0`, `#E06666`, `#FFFDE0`, `#9999FF`) and
+  font sizes are vision-model estimates; verify against the source frame only if pixel-exact
+  fidelity is required.
+- The solid black bar across the bottom ~4% of the captured image is a video letterbox
+  artifact, not slide content.
+
+### Corrections
+
+**None.** All 7 data claims in `analysis/slide_023_final.json` stand as written; 0 changes.
+(The only correction on record is the withdrawal of the earlier wave's erroneous
+"slide typo" finding, already documented in the wave-2 section above.)
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

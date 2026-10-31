@@ -1,0 +1,47 @@
+CONTEXT BLOCK (judge 026 rejudge wave 4 — written by worker, DATA only)
+
+SOURCE OF TRUTH for this slide: analysis/slide_026_final.json (validated by validate_slides,
+PASS_WITH_FIXES) cross-checked against the fresh visual re-analysis. Any statement below is
+context to help you locate elements; the two IMAGES are the actual evidence and your verdict
+must be based on what you can see in them.
+
+ORIGINAL SLIDE (image 2) — expected content:
+- Printed slide number in the top-right badge: 26 (the number printed on the original frame).
+  NOTE: the recreation's badge intentionally reads 26; if you see a different numeral in the
+  recreation, that is a defect. The badge geometry (yellow #FFF9C4 oval, 0.5in) is house chrome
+  per ground rule (a) — the NUMERAL value is NOT house chrome and is judged.
+- Title: "Sigmoid vs Tanh", dark red #c0392b, bold, centered at top.
+- Two equation rows in the upper-middle (Sigmoid row above Tanh row), each with the formula on
+  the left and a cream #fdf2e9 value box on the right:
+  * Row 1: f(x) = Sigmoid(x) = 1/(1+e^-x) => f'(x) = f(x)(1-f(x))   |  "at x=0   f(0)=0.5   f'(0)=0.25"
+  * Row 2: f(x) = tanh(x) = sinh x / cosh x => f'(x) = 1-f(x)^2     |  "at x=0   f(0)=0     f'(0)=1"
+  Fractions in the ORIGINAL are stacked (numerator over denominator). Rendered in the recreation
+  in mandated Professional 2D Format — that upgrade is NOT a discrepancy (ground rule e).
+- Shared chart header "Sigmoid vs Tanh" centered above the two charts; no per-chart titles.
+- LEFT chart (line chart): y ticks 1.00/0.75/0.50/0.25/0.00/-0.25/-0.50/-0.75/-1.00 (top to bottom),
+  x ticks -4/-2/0/2/4. Legend inside top-left: Tanh (red #e74c3c, steeper, range -1..1) and
+  Sigmoid (blue #3498db, shallower, range 0..1). A small black arrow/cursor glyph sits low-left in
+  the plot area — a video-capture artifact, per ground rule (c) its ABSENCE in the recreation is
+  correct, never a defect.
+- RIGHT chart (line chart): y ticks 1.0/0.8/0.6/0.4/0.2/0.0, x ticks -4/-2/0/2/4.
+  Legend inside top-right: Tanh Derivative (green #27ae60, peaks 1.0 at x=0) and
+  Sigmoid Derivative (purple #9b59b6, peaks 0.25 at x=0). Red #e74c3c annotation "1.0" with a
+  horizontal line at y=1.0 and red "0.25" with a horizontal line at y=0.25, both near left.
+- FOOTER (bottom, full width): white box with red #e74c3c border, two numbered lines, dark text:
+  [1] The range of the sigmoid function is fixed at 0 to 1, whereas the range of the tanh function is fixed at -1 to 1.
+  [2] The sigmoid function has a slower rate of change than the tanh function, which means that the derivative of the sigmoid function will be smaller than the derivative of the tanh function for a given input
+  (line [2] has no terminal period in the source; treat that as verbatim, not a defect.)
+
+RECREATION (image 1) — what was intentionally done:
+- House outer red frame, yellow badge, title at y=0.28 — ground rule (a), never a discrepancy.
+- The two equation rows and the two value boxes are EMBEDDED 2D IMAGES rendered from matplotlib
+  mathtext (stacked fractions, proper stacked layout) — ground rule (e) upgrade from the original's
+  linear notation. Judge their fidelity by the equation CONTENT and general geometry, not their medium.
+- The two charts are generated matplotlib images (numpy sigmoid/tanh/sech curves) matched to the
+  original's tick values, legend placement, series colors and peak heights.
+
+COLORS: title #c0392b, Tanh #e74c3c, Sigmoid #3498db, Tanh Derivative #27ae60,
+Sigmoid Derivative #9b59b6, cream value box #fdf2e9, footer border #e74c3c, body text #333333,
+chart plot background white.
+
+Thank you. End with: FINAL VERDICT: PASS or FAIL for 'faithful, usable recreation'.

@@ -29,7 +29,7 @@ s.addText("8", {
 });
 s.addText("Precision", {
   x: 0.6, y: 0.28, w: 12.13, h: 1.6, align: "center", valign: "middle",
-  fontSize: 42, bold: true, color: RED, fontFace: FONT, margin: 0
+  fontSize: 46, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 
 // --- DEFINITION BAND (gray) ---
@@ -39,15 +39,15 @@ s.addShape(pptx.shapes.RECTANGLE, {
 });
 s.addText("Correctly Classified (as Positive)", {
   x: P(67), y: P(118), w: P(573), h: P(22), align: "center", valign: "middle",
-  fontSize: 17, bold: true, color: INK, fontFace: FONT, margin: 0
+  fontSize: 19, bold: true, color: INK, fontFace: FONT, margin: 0
 });
 s.addShape(pptx.shapes.RECTANGLE, { // red rule
-  x: P(79), y: P(139), w: P(552), h: P(3),
+  x: P(81), y: P(139), w: P(558), h: P(3),
   fill: { color: RED }, line: { color: RED, width: 0.5 }
 });
 s.addText("Total Classified as Positive (either Correct and Erroneous)", {
   x: P(67), y: P(151), w: P(573), h: P(21), align: "center", valign: "middle",
-  fontSize: 17, bold: true, color: INK, fontFace: FONT, margin: 0
+  fontSize: 19, bold: true, color: INK, fontFace: FONT, margin: 0
 });
 
 // --- MEANING BAND (pale yellow) ---
@@ -57,14 +57,14 @@ s.addShape(pptx.shapes.RECTANGLE, {
 });
 s.addText("Meaning", {
   x: P(80), y: P(205), w: P(92), h: P(25), align: "left", valign: "middle",
-  fontSize: 20, bold: true, color: RED, fontFace: FONT, margin: 0
+  fontSize: 22, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 s.addText([
-  { text: "% of what you ", options: { fontSize: 17, color: INK, fontFace: FONT, breakLine: false } },
-  { text: "Predicted", options: { fontSize: 17, bold: true, underline: true, color: RED, fontFace: FONT, breakLine: false } },
-  { text: " as ", options: { fontSize: 17, color: INK, fontFace: FONT, breakLine: false } },
-  { text: "POSITIVE", options: { fontSize: 17, bold: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: " is Actually Positive", options: { fontSize: 17, color: INK, fontFace: FONT, breakLine: false } }
+  { text: "% of what you ", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } },
+  { text: "Predicted", options: { fontSize: 17, bold: true, underline: true, charSpacing: 1.5, color: RED, fontFace: FONT, breakLine: false } },
+  { text: " as ", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } },
+  { text: "POSITIVE", options: { fontSize: 17, bold: true, charSpacing: 3, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: " is Actually Positive", options: { fontSize: 17, bold: true, charSpacing: 1.4, color: INK, fontFace: FONT, breakLine: false } }
 ], {
   x: P(80), y: P(232), w: P(531), h: P(23), align: "left", valign: "middle",
   margin: 0, lineSpacing: 20
@@ -72,16 +72,16 @@ s.addText([
 
 // --- FORMULA BOX (white, red outline) ---
 s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
-  x: P(67), y: P(262), w: P(263), h: P(60),
+  x: P(67), y: P(262), w: P(249), h: P(60),
   fill: { color: "FFFFFF" }, line: { color: RED, width: 2.25 }
 });
 s.addText("Precision =", {
-  x: P(86), y: P(284), w: P(140), h: P(28), align: "left", valign: "middle",
-  fontSize: 20, bold: true, color: INK, fontFace: FONT, margin: 0
+  x: P(86), y: P(283), w: P(140), h: P(30), align: "left", valign: "middle",
+  fontSize: 26, bold: true, color: INK, fontFace: FONT, margin: 0
 });
 s.addImage({
   path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_frac.png",
-  x: P(228), y: P(278), w: 0.76333, h: 0.37833
+  x: P(226), y: P(276), w: 0.76333, h: 0.37833
 });
 
 // --- WORKED EXAMPLE BOX (pale blue) ---
@@ -91,7 +91,7 @@ s.addShape(pptx.shapes.RECTANGLE, {
 });
 s.addImage({
   path: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/build/assets/eq_008_worked.png",
-  x: P(341), y: P(293), w: 2.31667, h: 0.25
+  x: P(341), y: P(298), w: 2.31667, h: 0.25
 });
 
 // --- CALLOUT BOXES ---
@@ -130,23 +130,22 @@ s.addImage({
 
 // --- BLUE NOTE BOX ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(67), y: P(430), w: P(477), h: P(82),
+  x: P(72), y: P(431), w: P(427), h: P(83),
   fill: { color: "D7FFFA" }, line: { color: "2E75B6", width: 1.25 }
 });
 s.addText([
-  { text: "Higher Precision value ", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: "DOES NOT", options: { fontSize: 12, italic: true, bold: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: " mean you correctly retrieved ", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: "more", options: { fontSize: 12, italic: true, bold: true, underline: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: " Positive samples.", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: true } },
-  { text: " ", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: true } },
-  { text: "It means I ", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: "HIGHLY", options: { fontSize: 12, italic: true, bold: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: " trust you if you said this sample is ", options: { fontSize: 12, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
-  { text: "Positive", options: { fontSize: 12, italic: true, bold: true, color: RED, fontFace: FONT, breakLine: false } }
+  { text: "Higher Precision value ", options: { fontSize: 15, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: "DOES NOT", options: { fontSize: 15, italic: true, bold: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: " mean you correctly retrieved ", options: { fontSize: 15, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: "more", options: { fontSize: 15, italic: true, bold: true, underline: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: " Positive samples.", options: { fontSize: 15, italic: true, color: BLUE, fontFace: FONT, breakLine: true } },
+  { text: "It means I ", options: { fontSize: 15, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: "HIGHLY", options: { fontSize: 15, italic: true, bold: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: " trust you if you said this sample is ", options: { fontSize: 15, italic: true, color: BLUE, fontFace: FONT, breakLine: false } },
+  { text: "Positive", options: { fontSize: 15, italic: true, bold: true, color: RED, fontFace: FONT, breakLine: false } }
 ], {
-  x: P(79), y: P(434), w: P(420), h: P(74), align: "left", valign: "top",
-  margin: 0, lineSpacing: 20
+  x: P(79), y: P(435), w: P(412), h: P(76), align: "left", valign: "top",
+  margin: 0, lineSpacing: 19
 });
 
 // --- helpers for matrices ---
@@ -185,11 +184,11 @@ s.addText("Actual", {
   fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0
 });
 // cells: TP green, FN white, FP white, TN green
-s.addShape(pptx.shapes.RECTANGLE, { x: P(737), y: P(100), w: P(53), h: P(24), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
+s.addShape(pptx.shapes.RECTANGLE, { x: P(749), y: P(101), w: P(39), h: P(23), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
 cellText(737, 100, 53, 24, "TP");
 cellText(790, 100, 54, 24, "FN");
 cellText(737, 127, 53, 23, "FP");
-s.addShape(pptx.shapes.RECTANGLE, { x: P(790), y: P(127), w: P(54), h: P(23), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
+s.addShape(pptx.shapes.RECTANGLE, { x: P(799), y: P(127), w: P(39), h: P(23), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
 cellText(790, 127, 54, 23, "TN");
 
 // --- MATRIX 2 (numbers) ---
@@ -229,12 +228,12 @@ s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
 });
 cellText(737, 252, 53, 30, "2");
 // 68 green
-s.addShape(pptx.shapes.RECTANGLE, { x: P(790), y: P(252), w: P(54), h: P(30), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
+s.addShape(pptx.shapes.RECTANGLE, { x: P(808), y: P(254), w: P(40), h: P(27), fill: { color: GREEN }, line: { color: GREEN, width: 0.25 } });
 cellText(790, 252, 54, 30, "68");
 
 // --- TREE PANEL (red frame) ---
 s.addShape(pptx.shapes.RECTANGLE, {
-  x: P(536), y: P(298), w: P(344), h: P(205),
+  x: P(536), y: P(291), w: P(346), h: P(212),
   fill: { color: "FFFFFF" }, line: { color: RED, width: 1.5 }
 });
 s.addText("Positive", {
@@ -298,7 +297,7 @@ cap(560, "TP"); cap(646, "FN"); cap(738, "TN"); cap(832, "FP");
 // hollow red down-arrows flanking the panel
 for (const ax of [556, 862]) {
   s.addShape(pptx.shapes.RECTANGLE, { x: P(ax), y: P(396), w: P(2), h: P(30), fill: { color: RED }, line: { color: RED, width: 0.25 } });
-  s.addShape(pptx.shapes.ISOCELES_TRIANGLE, {
+  s.addShape("triangle", {
     x: P(ax - 5), y: P(426), w: P(12), h: P(9), rotate: 180,
     fill: { color: "FFFFFF" }, line: { color: RED, width: 1.25 }
   });

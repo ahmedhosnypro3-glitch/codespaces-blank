@@ -21,7 +21,7 @@ s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText("18", {
+s.addText("26", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
@@ -35,36 +35,20 @@ s.addText("Sigmoid vs Tanh", {
 });
 
 // ---- SLIDE CONTENT ----
+const EQ = JSON.parse(require("fs").readFileSync("slide_026_equations.json", "utf8")).equations;
+function eqImage(e, x, y) {
+  s.addImage({ path: e.image, x, y, w: e.w_in, h: e.h_in });
+}
 
-// Equation row 1: Sigmoid formula + x=0 values
-s.addText("f(x) = Sigmoid(x) = 1/(1+e^-x) ⇒ f'(x) = f(x)(1-f(x))", {
-  x: 0.5, y: 1.0, w: 5.5, h: 0.4,
-  align: "left", fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-// Cream box with x=0 values
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 6.5, y: 1.0, w: 4.0, h: 0.4,
-  fill: { color: "FDF2E9" }, line: { color: "C00000", width: 1 },
-});
-s.addText("at x=0   f(0)=0.5   f'(0)=0.25", {
-  x: 6.5, y: 1.0, w: 4.0, h: 0.4,
-  align: "center", valign: "middle", fontSize: 13, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
+// Equation row 1: Sigmoid formula (2D PNG) + x=0 values box
+eqImage(EQ[0], 0.5, 1.05);
+// Cream box with x=0 values (2D PNG)
+eqImage(EQ[2], 4.5, 1.06);
 
-// Equation row 2: Tanh formula + x=0 values
-s.addText("f(x) = tanh(x) = sinh x / cosh x ⇒ f'(x) = 1-f(x)^2", {
-  x: 0.5, y: 1.6, w: 5.5, h: 0.4,
-  align: "left", fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-// Cream box with x=0 values
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 6.5, y: 1.6, w: 4.0, h: 0.4,
-  fill: { color: "FDF2E9" }, line: { color: "C00000", width: 1 },
-});
-s.addText("at x=0   f(0)=0     f'(0)=1", {
-  x: 6.5, y: 1.6, w: 4.0, h: 0.4,
-  align: "center", valign: "middle", fontSize: 13, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
+// Equation row 2: Tanh formula (2D PNG)
+eqImage(EQ[1], 0.5, 1.6);
+// Cream box with x=0 values (2D PNG)
+eqImage(EQ[3], 4.5, 1.61);
 
 // Shared chart header
 s.addText("Sigmoid vs Tanh", {

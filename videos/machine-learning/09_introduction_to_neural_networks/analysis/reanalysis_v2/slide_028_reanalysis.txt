@@ -1,0 +1,50 @@
+usage: analyze_image.py [-h] MODE ...
+
+Analyze images by racing vision models in parallel; first working response wins (HTTP 200, JSON parses, non-empty choices[0].message.content, no error wrapper).
+
+positional arguments:
+  MODE
+    analysis    EXACTLY ONE image, one prompt -> one race, one response
+    comparison  EXACTLY TWO images, ONE API request carrying both
+    batch       ANY number of images, ONE shared prompt, ONE API request
+    per-image   PREFERRED: image+prompt pairs + master prompt; each image in
+                its OWN sequential request
+
+options:
+  -h, --help    show this help message and exit
+
+modes (every arg with shape + description; details also via `MODE -h`):
+  analysis IMG -p/--prompt PROMPT
+      IMG: exactly one image path; PROMPT: question for the models
+      (default: full visual-QA description).
+  comparison IMG1 IMG2 -p/--prompt PROMPT
+      IMG1 IMG2: exactly two image paths (both in ONE API request); PROMPT
+      (default: similarities/differences/which-is-better comparison spec).
+  batch IMG [IMG ...] -p/--prompt PROMPT
+      one or more image paths sharing ONE prompt in ONE API request.
+  per-image --image IMG --prompt P (repeatable pairs) --master-prompt M (required)
+      each image gets its OWN sequential API request; prompt = M + P;
+      len(images) must equal len(prompts) >= 1.
+
+examples (one per mode):
+  analysis    python3 scripts/analyze_image.py analysis IMG.png -p "PROMPT"
+  comparison  python3 scripts/analyze_image.py comparison IMG1.png IMG2.png -p "PROMPT"
+  batch       python3 scripts/analyze_image.py batch IMG1.png IMG2.png -p "PROMPT"
+  per-image   python3 scripts/analyze_image.py per-image \
+                  --image IMG1.png --prompt "p1" \
+                  --image IMG2.png --prompt "p2" --master-prompt "master"
+
+global flags (all modes):
+  --timeout N          per-request read timeout in seconds (default 600)
+  --rounds N           full-race restarts if every model fails (default 2)
+  --tries N            attempts per model per round (default 2)
+  --models M1,M2,...   comma-separated model list override (default: images)
+  --max-tokens N       max_tokens for the completion (default 8192)
+  --json               JSON-Lines output (per-image: one line per image)
+  --transcript PATH    write the winning body to PATH (a degenerate/failed
+                       run never overwrites an existing transcript)
+
+pacing: the gateway is SHARED (Stitch proxy + vision) — prefer per-image mode for
+multi-image workloads (sequential requests); never wrap this script in retry loops.
+
+[error] argument MODE: invalid choice: 'analyze', maybe you meant 'analysis'? (choose from 'analysis', 'comparison', 'batch', 'per-image')

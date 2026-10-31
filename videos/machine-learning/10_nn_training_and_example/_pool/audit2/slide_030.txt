@@ -1,0 +1,272 @@
+[info] context header injected: VIEW: Slide 030 — 'Neural Network Training and Example' lecture slide, printed badge 030 | CAPTURE: 960x540 CSS px, 1x scale, lecture video frame
+[warn] --timeout > 600s: the gateway at localhost:17844 is shared (Stitch proxy + vision). Long-timeout retry loops SATURATE it for everyone — prefer one modest call and retry later.
+[info] mode analysis | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 184419
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/10_nn_training_and_example/unique_slides/slide_030.jpg ===
+[winner] images (round 1, attempt 1)
+## 1. VERBATIM TEXT
+
+- "Example" â large red bold italic, top-left, approx x=30,y=20,w=150,h=45, ~30 pt.
+- "Î´_j = O_j(1âO_j) [ Î£ (Î´_k w_kj) ]" â blue text, top-left equation line, approx x=30,y=105,w=260,h=25, ~13 pt. (The formula appears with a capital sigma sum.)
+- "Î_j = Î· O_j(1âO_j) [ Î£ (Î´_k w_kj) ] = Î· O_j Î´_j" â purple/magenta text, second equation line, approx x=30,y=135,w=380,h=25, ~13 pt.
+- "Î´_0 = 0.791(1â0.791)(0â0.791) = â0.131" â black text with blue/red highlighted numbers, approx x=30,y=175,w=330,h=25, ~13 pt. ("Î´_0" appears as Î´ with subscript 0; the value 0.791 appears in blue, (1â0.791) also rendered, final 0.035 at right of second line.)
+- "Î´_7 = 0.791(1â0.791)(1â0.791) = 0.035" â same style, same row right side, approx x=360,y=175,w=330,h=25.
+- "Backward ( Update hidden Layer Weights)" â bold black text with "Backward (" black, "Update" and "hidden" in red, "Layer Weights)" black; approx x=30,y=215,w=340,h=30, ~14 pt, italic or bold.
+- "Î´_3 = O_3(1âO_3)[Î´_6*W_63 + Î´_7*W_73]" â blue/purple text, approx x=30,y=245,w=300,h=25, ~13 pt.
+- "Î´_4 = 0.9(1â0.9)[â0.131*â0.29 + 0.035*0.458] = 0.005" â approx x=30,y=275,w=340,h=25, ~13 pt, with some sub-numbers in red.
+- "Î´_5 = 0.943(1â0.9943)[â0.131*â0.218 + 0.035*0.565] = 0.003" â approx x=30,y=305,w=360,h=25, ~13 pt.
+- "Î´_6 = 0.968(1â0.968)[â0.131*â0.134 + 0.035*0.669] = 0.001" â approx x=30,y=335,w=360,h=25, ~13 pt.
+- Weight update grid (left column, "Î W" values in black, boxed/underlined in some cells):
+  - "Î W_31 = 5*0.005*1 = 0.025" approx x=30,y=370,w=200,h=22
+  - "Î W_32 = 5*0.005*1 = 0.125" approx x=30,y=395,w=200,h=22 â the second factor "5" rendered as "*5*" likely multiplier 5.
+  - "Î W_3b = 5*0.005*1 = 0.025" approx x=30,y=420,w=200,h=22
+  - "Î W_41 = 5*0.003*1 = 0.015" approx x=30,y=445,w=200,h=22
+  - "Î W_42 = 5*0.003*1 = 0.075" approx x=30,y=470,w=200,h=22
+  - "Î W_4b = 5*0.003*1 = 0.015" approx x=30,y=495,w=200,h=22
+  - "Î W_51 = 5*0.001*1 = 0.005" approx x=30,y=520,w=200,h=22
+  - "Î W_52 = 5*0.001*1 = 0.025" approx x=30,y=545,w=200,h=22 â cropped at bottom edge.
+  - "Î W_5b = 5*0.001*1 = 0.005" approx x=30,y=570,w=200,h=22 â off-frame/cropped.
+- Weight update grid (right column, "W" final values in blue):
+  - "W_31 = 0.1 + 0.025 = 0.125" approx x=370,y=370,w=210,h=22
+  - "W_32 = 0.4 + 0.125 = 0.525" approx x=370,y=395,w=210,h=22
+  - "W_3b = 0.1 + 0.025 = 0.125" approx x=370,y=420,w=210,h=22
+  - "W_41 = 0.2 + 0.015 = 0.215" approx x=370,y=445,w=210,h=22
+  - "W_42 = 0.5 + 0.075 = 0.575" approx x=370,y=470,w=210,h=22
+  - "W_4b = 0.1 + 0.015 = 0.115" approx x=370,y=495,w=210,h=22
+  - "W_51 = 0.3 + 0.005 = 0.305" approx x=370,y=520,w=210,h=22
+  - "W_52 = 0.6 + 0.025 = 0.625" approx x=370,y=545,w=210,h=22
+  - "W_5b = 0.1 + 0.005 = 0.105" approx x=370,y=570,w=210,h=22
+- Neural network diagram (top-right, approx x=430,y=45,w=490,h=205):
+  - "Input" label, blue, top of diagram.
+  - "x_1 ( 1 )" and "x_2 ( 15 )" â input nodes at x=445. The node labels "1" and "15" are inside circles.
+  - Hidden layer nodes labeled "3", "4", "5" in circles, with a "Bias" label below (blue).
+  - Output layer nodes labeled "6" and "7" in circles (drawn as larger red circles).
+  - "Output" and "Target" labels above output/target at top-right.
+  - "O_6 ( 1 )" and "t_6:" â target labels right side.
+  - "Î· = 5" â bottom-right of diagram, blue, approx x=570,y=205.
+  - Weight labels along edges, small italic values including "0.3", "0.6", "0.2", "0.5", "â0.29", "â0.219", "0.035", "0.458", "0.565", "â0.131", etc. Several are small and may be partially unreadable.
+- Output formulas block (right side, approx x=610,y=255,w=320,h=180):
+  - "O_3 = 1 / (1 + e^â8.2) = 0.9" (blue numerator, red exponent) approx x=610,y=265
+  - "O_4 = 1 / (1 + e^â2.8) = 0.943" approx x=610,y=290
+  - "O_5 = 1 / (1 + e^â3.4) = 0.968" approx x=610,y=315
+  - "O_6 = 1 / (1 + e^â1.3312) = 0.791" approx x=610,y=345
+  - "O_7 = 1 / (1 + e^â1.3312) = 0.791" approx x=610,y=370
+- Slide-number badge: yellow-green circle with black border, white/cream numeral "30", top-right corner approx x=930,y=10,w=45,h=45.
+- A red/orange small pointer/arrow cursor near x=400,y=248 in the diagram area (mouse cursor artifact).
+
+## 2. LAYOUT MAP
+
+- Top-left: Title "Example" in red (x=30,y=20,w=150,h=45).
+- Left column equation block (x=30,y=100 to y=360): three formula lines plus two delta calculations.
+- "Backward..." heading (x=30,y=215,w=340,h=30) followed by delta rows 3â6.
+- Two-column weight update grid (x=30 to x=580, y=370 to y=595): left column "Î W", right column "W".
+- Top-right: Neural network diagram (x=430,y=45,w=490,h=205).
+- Output formulas column (x=600,y=255,w=330,h=185).
+- Top-right corner: Badge "30" (x=930,y=10,w=45,h=45).
+- Background: white/cream slide, content arranged left-to-right; equations in upper-left, diagram upper-right, weight tables bottom.
+
+## 3. VISUAL ELEMENTS
+
+- Diagram: Feedforward neural network with two input nodes ("1", "15"), three hidden nodes ("3", "4", "5"), two output nodes ("6", "7" red circles). Edges labeled with weights. Input labeled left, Output and Target right.
+- No charts or tables in the chartographic sense; the weight update region is a two-column list.
+- Equations: logistic sigmoid fractions of form 1/(1+e^(âvalue)); backpropagation delta rules with bracketed sums; delta-weight update formula ÎW = Î· * O * Î´ (Î·=5).
+- Boxed/underlined values: some ÎW and resulting W lines are boxed or have highlight boxes.
+
+## 4. COLORS
+
+- Background: white/off-white.
+- Title "Example": red (#C00000 or similar).
+- Body equations: blue (#0000FF / #1F3864) and purple/magenta (#7030A0) for delta formulas.
+- Black for numeric worked examples.
+- Green used in neural network diagram nodes (hidden layer) and some connectors; red for output nodes.
+- Yellow-green badge (#A6CE39 or #92D050) with black border and black "30".
+- Blue highlight boxes around output formulas "O_3", "O_4", "O_5".
+- Some formulas' numbers rendered red inside black equations (e.g., weights involved).
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title "Example" is large, bold, red, likely 30 pt italic serif/sans.
+- Body text in formula blocks is small ~13 pt serif or Cambria Math style.
+- "Backward (Update hidden Layer Weights)" in bold with colored emphasis words.
+- Weight update rows use small monospace/standard text ~12â13 pt.
+- No decorative borders except around the slide-number badge.
+- Badge: circle, approx 45 px diameter, yellow-green fill, black ring, white/black numeral 30.
+
+## 6. NUMERIC DETAILS
+
+- Î· = 5 (learning rate).
+- Inputs: 1 and 15 (labeled x1(1), x2(15)).
+- Example output/target lines:
+  - O_3=0.9, O_4=0.943, O_5=0.968, O_6=0.791, O_7=0.791.
+- Sigmoid exponents: â8.2, â2.8, â3.4, â1.3312, â1.3312.
+- Î´ calculations:
+  - Î´_0=â0.131, Î´_7=0.035.
+  - Î´_3 formula; Î´_4=0.005, Î´_5=0.003, Î´_6=0.001.
+- Weight update pairs (old â new):
+  - W31 0.1â0.125; W32 0.4â0.525; W3b 0.1â0.125.
+  - W41 0.2â0.215; W42 0.5â0.575; W4b 0.1â0.115.
+  - W51 0.3â0.305; W52 0.6â0.625; W5b 0.1â0.105.
+- Slide number: 30.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- Bottom rows of the weight grid (Î W_52, Î W_5b, W_52, W_5b) are cropped by the 540px frame edge; they should be inferred but marked cropped.
+- Diagram edge labels are small; many weights in the neural network drawing may be partially illegible (e.g., "â0.29", "â0.219", "0.035" appear but small).
+- A mouse cursor artifact is present near the upper-middle of the diagram.
+- The formula "Î´_0 = ..." subscript appears to be 0, though visually it could be another digit; treat as Î´_0 as printed.
+- The "15" printed inside input node x_2 may be intended as the input value 15; transcribe as printed.
+- Highlight boxes around certain formula lines exist; approximate their extents.
+
+## 8. TOP-3 FIDELITY RISKS
+
+1. The two-column weight update grid values (old + delta = new) â risk of misaligning Î values with final W rows; ensure rows pair correctly per node.
+2. Neural network diagram edge weight labels â small font and overlap risk; several labels are nearly illegible and may be dropped or guessed.
+3. Exact output sigmoid exponents and equals values (especially O_5 exponent shown as "â3.4" while O_5=0.968) â ensure the printed exponent and result are transcribed as shown, not recomputed.
+
+## 9. VERDICT
+
+- Recreatability score: 8/10.
+- Confidence: medium-high for text/formula blocks; medium for diagram edge labels; low confidence on the small printed weights inside the neural network drawing.
+- Deliberately not transcribed: exact fonts, precise color hexes, and any invisible slide furniture; cropped bottom rows are listed but flagged as partially occluded.</think>## 1. VERBATIM TEXT
+
+- "Example" â red bold italic title, top-left, approx x=28,y=16,w=170,h=48, ~30 pt.
+- "Î´ subscript j = O subscript j(1âO subscript j) [ Î£ (Î´ subscript k w subscript kj) ]" â blue, top-left equation, approx x=30,y=105,w=270,h=25, ~13 pt.
+- "Î subscript j = Î· O subscript j(1âO subscript j) [ Î£ (Î´ subscript k w subscript kj) ] = Î· O subscript j Î´ subscript j" â purple/magenta, approx x=30,y=132,w=390,h=25, ~13 pt.
+- "Î´ subscript 0 = 0.791(1â0.791)(0â0.791) = â0.131" â black/blue with red accents, approx x=30,y=172,w=330,h=26, ~13 pt.
+- "Î´ subscript 7 = 0.791(1â0.791)(1â0.791) = 0.035" â black/blue, same row right side, approx x=365,y=172,w=330,h=26.
+- "Backward ( Update hidden Layer Weights)" â bold, "Backward (" and ")" black, "Update" and "hidden" red, approx x=30,y=212,w=350,h=28, ~14 pt.
+- "Î´ subscript 3 = O subscript 3(1âO subscript 3)[Î´ subscript 6*W subscript 63 + Î´ subscript 7*W subscript 73]" â blue/purple, approx x=30,y=242,w=310,h=26.
+- "Î´ subscript 4 = 0.9(1â0.9)[â0.131*â0.29 + 0.035*0.458] = 0.005" â approx x=30,y=270,w=345,h=26.
+- "Î´ subscript 5 = 0.943(1â0.9943)[â0.131*â0.218 + 0.035*0.565] = 0.003" â approx x=30,y=298,w=360,h=26.
+- "Î´ subscript 6 = 0.968(1â0.968)[â0.131*â0.134 + 0.035*0.669] = 0.001" â approx x=30,y=326,w=360,h=26.
+
+Left "Î W" column:
+- "Î W subscript 31 = 5*0.005*1 = 0.025" â approx x=30,y=368,w=205,h=24.
+- "Î W subscript 32 = 5*0.005*1 = 0.125" â approx x=30,y=392,w=205,h=24.
+- "Î W subscript 3b = 5*0.005*1 = 0.025" â approx x=30,y=416,w=205,h=24.
+- "Î W subscript 41 = 5*0.003*1 = 0.015" â approx x=30,y=440,w=205,h=24.
+- "Î W subscript 42 = 5*0.003*1 = 0.075" â approx x=30,y=464,w=205,h=24.
+- "Î W subscript 4b = 5*0.003*1 = 0.015" â approx x=30,y=488,w=205,h=24.
+- "Î W subscript 51 = 5*0.001*1 = 0.005" â approx x=30,y=512,w=205,h=24.
+- "Î W subscript 52 = 5*0.001*1 = 0.025" â approx x=30,y=536,w=205,h=24.
+- "Î W subscript 5b = 5*0.001*1 = 0.005" â approx x=30,y=560,w=205,h=24 (cropped at bottom).
+
+Right "W" column:
+- "W subscript 31 = 0.1 + 0.025 = 0.125" â blue, approx x=372,y=368,w=210,h=24.
+- "W subscript 32 = 0.4 + 0.125 = 0.525" â approx x=372,y=392,w=210,h=24.
+- "W subscript 3b = 0.1 + 0.025 = 0.125" â approx x=372,y=416,w=210,h=24.
+- "W subscript 41 = 0.2 + 0.015 = 0.215" â approx x=372,y=440,w=210,h=24.
+- "W subscript 42 = 0.5 + 0.075 = 0.575" â approx x=372,y=464,w=210,h=24.
+- "W subscript 4b = 0.1 + 0.015 = 0.115" â approx x=372,y=488,w=210,h=24.
+- "W subscript 51 = 0.3 + 0.005 = 0.305" â approx x=372,y=512,w=210,h=24.
+- "W subscript 52 = 0.6 + 0.025 = 0.625" â approx x=372,y=536,w=210,h=24.
+- "W subscript 5b = 0.1 + 0.005 = 0.105" â approx x=372,y=560,w=210,h=24 (cropped at bottom).
+
+Neural network diagram (upper-right):
+- "Input" â blue label, approx x=445,y=48,w=45,h=16.
+- "x subscript 1 ( 1 )" â approx x=442,y=70,w=70,h=20.
+- "x subscript 2 ( 15 )" â approx x=442,y=135,w=75,h=20.
+- "Bias" â blue, approx x=444,y=160,w=35,h=16.
+- Hidden node labels "3", "4", "5" inside green/blue circles, approx x=510â545,y=60â165.
+- Output node labels "6", "7" inside red circles, approx x=735,y=105 and x=735,y=145.
+- "Output" â blue, approx x=700,y=48,w=45,h=16.
+- "Target" â blue, approx x=790,y=48,w=40,h=16.
+- "O subscript 6 ( 1 )" / "t subscript 6" â approx x=790,y=95,w=80,h=20.
+- "O subscript 7 ( 1 )" / "t subscript 7" â approx x=790,y=140,w=80,h=20.
+- Edge-weight labels on connectors, including values such as "0.3", "0.6", "0.2", "0.5", "â0.29", "â0.219", "0.035", "0.458", "0.565", "â0.131", "0.2", "0.4", "â0.219", "0.565", "â0.29", "0.458", "â0.134", "0.669"; several are small italic red/blue text; some [illegible].
+- "Î· = 5" â blue, approx x=575,y=205,w=45,h=18.
+
+Output formula column (right-middle):
+- "O subscript 3 = 1/(1 + e superscript â8.2) = 0.9" â approx x=612,y=255,w=310,h=24, blue with red exponent.
+- "O subscript 4 = 1/(1 + e superscript â2.8) = 0.943" â approx x=612,y=282,w=310,h=24.
+- "O subscript 5 = 1/(1 + e superscript â3.4) = 0.968" â approx x=612,y=308,w=310,h=24.
+- "O subscript 6 = 1/(1 + e superscript â1.3312) = 0.791" â approx x=612,y=338,w=320,h=24.
+- "O subscript 7 = 1/(1 + e superscript â1.3312) = 0.791" â approx x=612,y=368,w=320,h=24.
+
+Badge:
+- "30" â black numeral inside yellow-green circle, approx x=925,y=10,w=45,h=45.
+
+## 2. LAYOUT MAP
+
+1. Badge "30" â top-right, x=925,y=10,w=45,h=45.
+2. Title "Example" â x=28,y=16,w=170,h=48.
+3. Delta/eta rule equations â x=30,y=100 to y=158.
+4. Two delta numeric examples (Î´0, Î´7) â x=30,y=165 to x=700,y=200.
+5. "Backward..." heading â x=30,y=210,w=350,h=30.
+6. Delta equations Î´3âÎ´6 â x=30,y=238 to x=390,y=350.
+7. Neural network diagram â x=430,y=42,w=495,h=205.
+8. Output sigmoid formulas column â x=605,y=250,w=325,h=180.
+9. Weight update left column "Î W" â x=30,y=362,w=210,h=228.
+10. Weight update right column "W" â x=370,y=362,w=215,h=228.
+
+Reading order: top-left equations, top-right diagram, then bottom-left update grid with numeric outputs at right.
+
+## 3. VISUAL ELEMENTS
+
+- Diagram: feedforward neural network, 2 input nodes ("1","15"), 3 hidden nodes ("3","4","5"), 2 output nodes ("6","7" red circles), curved/straight connectors with italic weight labels; "Bias" tag at hidden layer; "Input"/"Output"/"Target" section labels.
+- No bar/line charts.
+- No traditional tables; the weight update area is a two-column equation list with boxed/underlined values.
+- Equations: sigmoid form 1/(1+e^(âvalue)); delta rules with bracketed sums; ÎW = Î·Â·OÂ·Î´ worked examples.
+- Highlight boxes visible around some output formula lines (O3âO5) and around some delta lines in the left grid.
+
+## 4. COLORS
+
+- Background: off-white/near white (#FFFFFF).
+- Title "Example": red (#C00000 / #D00000).
+- Delta rule equations: blue (#0000FF) and purple (#7030A0).
+- Worked numeric lines: black (#000000) with blue/red numeric accents.
+- Diagram nodes/labels: blue (#0000FF), green (#008000), red (#FF0000); edge label text dark red/blue.
+- Badge: yellow-green fill (#A6CE39 / #92D050) with black border and black numeral.
+- Dominant palette: white background, black body text, red/blue accents, yellow-green badge.
+
+## 5. TYPOGRAPHY & STYLE
+
+- Title: large bold italic red ~30 pt, positioned top-left.
+- Body/formula text: ~12â14 pt, serif/math style.
+- "Backward (Update hidden Layer Weights)": bold with colored emphasis words.
+- Weight update rows: small regular weight text, some underlined/boxed.
+- Decorative borders: only the circular slide-number badge and formula highlight boxes.
+- Badge: circle at top-right, diameter ~45 px, numeral "30".
+
+## 6. NUMERIC DETAILS
+
+- Learning rate Î· = 5.
+- Inputs: 1 and 15.
+- Outputs/targets: O3=0.9, O4=0.943, O5=0.968, O6=0.791, O7=0.791.
+- Sigmoid exponents: â8.2, â2.8, â3.4, â1.3312, â1.3312.
+- Î´0 = â0.131; Î´7 = 0.035.
+- Î´4 = 0.005; Î´5 = 0.003; Î´6 = 0.001.
+- Weight updates:
+  - W31: 0.1 + 0.025 = 0.125
+  - W32: 0.4 + 0.125 = 0.525
+  - W3b: 0.1 + 0.025 = 0.125
+  - W41: 0.2 + 0.015 = 0.215
+  - W42: 0.5 + 0.075 = 0.575
+  - W4b: 0.1 + 0.015 = 0.115
+  - W51: 0.3 + 0.005 = 0.305
+  - W52: 0.6 + 0.025 = 0.625
+  - W5b: 0.1 + 0.005 = 0.105
+- Diagram edge weight values as listed in Â§1 (several small).
+- Slide number 30.
+
+## 7. ANOMALIES / RECREATION NOTES
+
+- Bottom rows of the weight update grid extend to the 540 px frame edge; W52/W5b and ÎW52/ÎW5b lines are cropped.
+- Diagram edge labels are very small and some are [illegible]; a mouse cursor artifact is present over the drawing near x=400,y=245.
+- Some subscripts are visually tiny; Î´0 subscript could be read as 0 as printed.
+- Highlight boxes surround selected formula lines; their extents should be approximate.
+- x_2 node prints "15" inside the circle as the input value.
+
+## 8. TOP-3 FIDELITY RISKS
+
+1. Pairing of the left "Î W" column with the right "W" column â wrong row pairing would corrupt every weight update; keep by subscript number.
+2. Small italic weight labels on the neural network connectors â likely to be dropped or misread; transcribe only clearly legible values and mark the rest [illegible].
+3. Exact sigmoid exponents and result values (e.g., "â8.2" vs "â3.4", "â1.3312") â copy the printed values verbatim rather than recomputing.
+
+## 9. VERDICT
+
+- Recreatability score: 8/10.
+- Confidence: high for title, equations, and weight update grid; medium for output sigmoid column; low for small diagram edge labels.
+- Deliberately not transcribed: exact font names, precise hex values, and non-legible micro labels.
+

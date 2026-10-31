@@ -10,6 +10,7 @@ const CIRC_GREEN = "0B843D"; // green tree circles
 const GREEN = "86FF08";      // TP/TN/18/60 cell fill (measured ~#86FF08)
 const FN_FILL = "F8E3C8";    // FN / 12 cell fill (measured peach)
 const FP_FILL = "F9FFC3";    // FP / 10 cell fill (measured pale yellow)
+const PINK_FILL = "F4CCCC";  // small-matrix FN/FP fill (measured light pink)
 const BLUE = "3C3289";       // matrix panel borders (measured dark blue-violet)
 const DEF_FILL = "DEFFFF";   // definition box fill (measured pale cyan)
 const DEF_LINE = "97ACED";   // definition box border (measured light blue)
@@ -122,8 +123,8 @@ function matrix(px0, py0, px1, py1, gx0, gy0, cx, gx1, hy1, hy2, gy1, cells) {
 // panel x76-278 y88-216; label col strip x76-110; grid gx0=110 gx1=263; cx=152; header hy1=142 hy2=174? measured rows: hdr 112-142 (P/N letters), rows 142-174, 174-205
 matrix(76, 88, 278, 216, 110, 112, 152, 263, 112, 142, 205, [
   [152, 142, 206, 174, GREEN, "TP"],
-  [206, 142, 263, 174, null, "FN"],
-  [152, 174, 206, 205, null, "FP"],
+  [206, 142, 263, 174, PINK_FILL, "FN"],
+  [152, 174, 206, 205, PINK_FILL, "FP"],
   [206, 174, 263, 205, GREEN, "TN"],
 ]);
 // "Predicted as" sits above grid inside panel top band (y97-107 over P/N cols)

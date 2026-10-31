@@ -1,0 +1,11 @@
+Q1 (MCP agy_web_search): activation function saturation problem same output value for different input values
+zero gradient flat region
+Q2 (MCP): ReLU f(x) = max(0, x) derivative 1 for x>0 and 0 for x<0 dying ReLU problem negative inputs
+always output zero
+Q3 (MCP): Parametric ReLU PReLU learnable parameter alpha He et al 2015 Delving Deep into Rectifiers
+optimized by backpropagation
+Q4 (MCP): ELU exponential linear unit f(x) = x for x>0, alpha(e^x - 1) for x<=0, alpha hyperparameter
+common values, Clevert 2016 fast and accurate deep network learning
+Q5 (MCP): SoftPlus activation f(x) = log(1 + e^x), derivative is sigmoid, smooth approximation of ReLU
+Q6 (MCP): ELU alpha parameter values used in practice Clevert paper alpha = 1 default different alpha values
+saturation limit -alpha

@@ -143,3 +143,108 @@ noise only. Also note the slide's `Error = Σ WᵀXᵢ` line is *provisional* by
   slide — treated as annotation per the fresh vision analysis (they carry no math meaning).
 - The frame's "discriminent" misspelling is confirmed as printed; do not silently correct
   it on the rebuilt slide (it is frame text, not analysis text).
+
+---
+
+## Verified 2026-10-30 (wave 4, `src_w4_001_004`)
+
+Fresh independent re-verification pass. Wave-1 and wave-3 sections above are left untouched.
+
+**Transport note**: `agy -p` CLI was quota-blocked this wave (HTTP 429 `RESOURCE_EXHAUSTED /
+Individual quota reached`, resets ~131h). Searches ran through the **agy MCP web-search tool** — the
+same Google grounding via the antigravity proxy with redirect URLs resolved. Every URL below was
+returned by the search service; none invented. The Cornell notes and the `mlbook` perceptron
+chapter were **fetched live** and returned full content.
+
+Full register: `sources/slide_003_source/VERIFY_W4.md`.
+
+### Claim → question → answer → citation
+
+1. **`d(X) = WᵀX` is a two-class linear discriminant function; the bias is absorbable.**
+   *Question:* Is a bias-free `d(X) = WᵀX` a standard two-class discriminant form, and where does
+   the bias go?
+   *Answer:* Yes. The standard form is `g(x) = wᵀx + w₀`, and "sometimes written simply as
+   g(x) = wᵀx if the bias/threshold w₀ is absorbed into w by augmenting x with a constant feature of
+   1"; the Cornell notes give the same move ("we 'absorb' it into the feature vector w by adding
+   one additional constant dimension", simplifying h(x_i) to sign(wᵀx)).
+   *Citation:* https://www.ece.iastate.edu/~julied/classes/ee547/Textfigs/dudafigs05.pdf ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched) ;
+   also https://www.cse.iitm.ac.in/~vplab/courses/SLT/PDF/PAT_RECOGN_CSLT.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+2. **Decision rule: `d(X) > 0` ⇒ class I; `d(X) < 0` ⇒ class II; d = 0 lies on the separating
+   hyperplane.**
+   *Question:* What is the two-class sign decision rule?
+   *Answer:* "Decide ω₁ if g(x) > 0; Decide ω₂ if g(x) < 0"; if g(x) = 0 the pattern lies on the
+   decision boundary. The Cornell notes state the equivalent test
+   "y_i(wᵀx_i) > 0 ⟺ x_i is classified correctly" with y_i ∈ {−1,+1}.
+   *Citation:* https://www.ece.iastate.edu/~julied/classes/ee547/Textfigs/dudafigs05.pdf ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+3. **Misclassification conditions: a class-I point has d(X) < 0; a class-II point has d(X) > 0.**
+   *Question:* What exactly counts as misclassified?
+   *Answer:* "an observation is correctly classified if y_n ŷ_n = 1 and misclassified if
+   y_n ŷ_n = −1"; with ŷ_n = sign(β̂ᵀx_n) and y_n ∈ {−1,+1} this is precisely y_n(wᵀx_n) < 0,
+   i.e. the two wrong-sign cases printed on the frame.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+4. **`Error = Σ WᵀXᵢ` over all misclassified vectors (i), annotated "(WᵀXᵢ) take positive and
+   negative values" — the naive sum is not guaranteed positive.**
+   *Question:* Is this the standard perceptron objective, or a provisional one?
+   *Answer:* It is **provisional**, and the frame's own annotation is correct. The standard
+   perceptron criterion carries a label sign factor: "the perceptron attempts to minimize the
+   perceptron criterion, defined as L(β̂) = −Σ_{n∈M} y_n(β̂ᵀx_n)", over the misclassified set M —
+   that sign factor is exactly what makes every term positive. The raw Σ WᵀXᵢ over misclassified
+   vectors has mixed-sign terms, which is what the slide's red annotation warns about; slide 004
+   re-derives the sum with δᵢ.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf
+   *Status:* **CONFIRMED** as a deliberately provisional definition. **Do not** "fix" the frame's
+   Error line to the textbook criterion — the frame wins for recreation.
+
+5. **δᵢ = −1 for a class-I point misclassified as Class II (d(X) < 0); δᵢ = +1 for a class-II
+   point misclassified as Class I (d(X) > 0); both give d(X)δᵢ > 0.**
+   *Question:* Is this sign convention the standard one, and what is it called?
+   *Answer:* Yes — it is exactly **δᵢ = −yᵢ**: class I carries y = +1 ⇒ δ = −1; class II carries
+   y = −1 ⇒ δ = +1. With targets y_n ∈ {−1,+1} and the misclassified set M = {n : y_n ŷ_n = −1},
+   the criterion −Σ_{n∈M} y_n(β̂ᵀx_n) becomes Σ_{i∈M} δᵢ wᵀxᵢ, every term positive because
+   misclassified ⇒ yᵢ(wᵀxᵢ) < 0.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf ;
+   https://www.cse.iitb.ac.in/~swaprava/courses/cs217/scribes/CS217_2024_lec09.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+6. **The δᵢ rewrite exists to give a differentiable objective for gradient descent.**
+   *Question:* Why introduce δᵢ rather than keep the raw misclassification count?
+   *Answer:* The standard treatment replaces the 0-1 misclassification count (which has no usable
+   gradient) with a linear, differentiable sum over the misclassified set: "The perceptron criterion
+   does not penalize correctly classified observations but penalizes misclassified observations based
+   on the magnitude of β̂ᵀx_n — that is, how wrong they were"; "We obviously can't set this equal to 0
+   and solve for β̂, so we have to estimate β̂ through gradient descent."
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+### Doc-parse corroboration
+
+`sources/docparse_cascades/slide_003/composed/slide_003_composed.md` (nemotron-3.5-parse,
+degraded: False, 10 elements, 1 crop, 0 failed calls) independently reads the same four panels:
+"Define two classes: *class I* and *Class II* … let d(X) be a discriminant function = WᵀX … if X ∈
+class I then d(X) > 0 / if X ∈ class II then d(X) < 0"; "For misclassified X:" with the two
+wrong-sign cases; "Define Error function as:" with `Error = ∑ WᵀXᵢ` over "all mislclassified
+vectors(i)" and the annotation "(WᵀXᵢ) take positive and negative values"; "Define δᵢ as:" with
+δᵢ = −1 / δᵢ = +1, both giving d(X)δᵢ > 0. This corroborates the analysis JSON's structure and
+every formula. The parse's "miscalssified"/"mislclassified"/"mislassified" spellings and the stray
+"∨" glyph are **OCR noise**, not printed text — the frame's own spelling stays verbatim.
+
+### Corrections to the analysis record
+
+**None.** No factual or DATA claim in `analysis/slide_003_final.json` was contradicted by any
+source; nothing was patched. The DATA clarification recorded for claim 4 (provisional Error line)
+is already how the analysis JSON treats it.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

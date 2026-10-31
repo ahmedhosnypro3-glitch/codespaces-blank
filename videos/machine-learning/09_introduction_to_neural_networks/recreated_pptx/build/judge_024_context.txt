@@ -1,0 +1,148 @@
+## SLIDE 024 - CONTEXT (measured facts for the judge)
+
+Video: `machine-learning/09_introduction_to_neural_networks`. Source frame:
+`V/unique_slides/slide_024.jpg` (960x540). Printed slide number: **24**.
+### Slide title (verbatim)
+
+For Sigmoid Function
+### Verbatim bullets
+
+- Sigmoid (aka Logistic function)
+- It is a squashing function used to convert an unbounded values to a bounded probabilistic space (from 0 to 1)
+
+### Verbatim labels
+
+- 24
+
+### Verbatim equations
+
+- f(x) = Sigmoid(x) = \frac{1}{1+e^{-x}}
+- Remember: \frac{\partial}{\partial x} (\frac{1}{x}) = - \frac{1}{x^2}
+- f'(x) = \frac{e^{-x}}{(1+e^{-x})(1+e^{-x})} = \frac{1*(1+ e^{-x} - 1)}{(1+e^{-x})(1+e^{-x})}
+- = \frac{1}{(1+e^{-x})} \left| \frac{(1+e^{-x}-1)}{(1+e^{-x})} \right|
+- = \frac{1}{(1+e^{-x})} \left| \frac{(1+e^{-x})}{(1+e^{-x})} \frac{-1}{(1+e^{-x})} \right|
+- f'(x) = \frac{1}{(1+e^{-x})} \left| 1 - \frac{1}{(1+e^{-x})} \right|
+- ⇒ f'(x) = f(x) [1 - f(x)]
+
+### Layout / regions (from validated analysis)
+
+Title 'For Sigmoid Function' at top-left in red. Slide-number badge (yellow circle, black '24') at top-right. Below the title the body splits into two columns. LEFT column, top to bottom (4 boxes): peach sigmoid-definition box; large white derivation box with the first f'(x) equality spanning most of the left-column width; white derivation box with exactly 2 continuation lines; white derivation box with the single f'(x) line. RIGHT column, top to bottom (3 boxes): light-blue 'Remember' box; peach 'Sigmoid (aka Logistic function)' description box; peach final-result box with red ⇒ arrow. Total: 7 content boxes plus title and slide-number badge (9 regions).
+
+- **title** (top-left): Red bold text 'For Sigmoid Function'
+- **slide_number** (top-right): Yellow (#f1c40f) circle with black number '24'
+- **sigmoid_definition_box** (upper-left): Peach (#fdf2e9) box with red formula f(x) = Sigmoid(x) = 1/(1+e^{-x})
+- **remember_box** (upper-right): Light blue (#e3f2fd) box with 'Remember: ∂/∂x (1/x) = −1/x²'
+- **derivation_step_1** (middle-left): Large white box with f'(x) = e^{-x}/((1+e^{-x})(1+e^{-x})) = 1*(1+ e^{-x} - 1)/((1+e^{-x})(1+e^{-x}))
+- **sigmoid_description_box** (middle-right): Peach box, red header 'Sigmoid (aka Logistic function)', body 'It is a squashing function used to convert an unbounded values to a bounded probabilistic space (from 0 to 1)'
+- **derivation_step_2** (lower-middle-left): White box with exactly 2 continuation lines splitting the fraction, using absolute-value-style delimiters
+- **derivation_step_3** (bottom-left): White box with f'(x) = 1/(1+e^{-x}) | 1 - 1/(1+e^{-x}) |
+- **final_result_box** (bottom-right): Peach box with red ⇒ arrow and f'(x) = f(x) [1 - f(x)]
+
+### Visual elements / imagery present in the original
+
+- {
+  "type": "slide-number-badge",
+  "description": "Yellow circle containing the slide number '24' in black text",
+  "colors": [
+    "#f1c40f",
+    "#000000"
+  ],
+  "position": "top-right"
+}
+- {
+  "type": "highlight-box",
+  "description": "Peach/light orange rectangular box containing the sigmoid definition formula f(x) = Sigmoid(x) = 1/(1+e^{-x}); formula text in red (#c0392b) per the element's fill/text color pairing",
+  "colors": [
+    "#fdf2e9",
+- {
+  "type": "highlight-box",
+  "description": "Light blue rectangular box containing 'Remember:' and the derivative rule for 1/x, text in dark gray (#333333)",
+  "colors": [
+    "#e3f2fd",
+    "#333333"
+  ],
+  "position": "upper-right"
+}
+- {
+  "type": "other",
+  "description": "Large white rectangular box containing the first derivative derivation: f'(x) = e^{-x}/((1+e^{-x})(1+e^{-x})) = 1*(1+ e^{-x} - 1)/((1+e^{-x})(1+e^{-x})), text in dark gray (#333333)",
+  "colors": [
+    "#ffffff",
+    "#33
+- {
+  "type": "highlight-box",
+  "description": "Peach/light orange rectangular box containing red header 'Sigmoid (aka Logistic function)' followed by a dark-gray description paragraph with italic and underlined words",
+  "colors": [
+    "#fdf2e9",
+    "#c0392b
+- {
+  "type": "other",
+  "description": "White rectangular box containing exactly 2 lines of f'(x) derivation with absolute-value-style delimiters, text in dark gray (#333333)",
+  "colors": [
+    "#ffffff",
+    "#333333"
+  ],
+  "position": "lower-middle-left"
+}
+- {
+  "type": "other",
+  "description": "White rectangular box containing f'(x) = 1/(1+e^{-x}) | 1 - 1/(1+e^{-x}) |, text in dark gray (#333333)",
+  "colors": [
+    "#ffffff",
+    "#333333"
+  ],
+  "position": "bottom-left"
+}
+- {
+  "type": "highlight-box",
+  "description": "Peach/light orange rectangular box with a red (#c0392b) '⇒' arrow symbol followed by the final simplified derivative formula f'(x) = f(x) [1 - f(x)] in dark gray (#333333)",
+  "colors": [
+    "#fdf2e9",
+    "#c039
+
+### Colors (approx, from analysis)
+
+```json
+{
+  "background": "#f0f0f0",
+  "title_text": "#c0392b",
+  "body_text": "#333333",
+  "accents": [
+    "#fdf2e9",
+    "#e3f2fd",
+    "#c0392b",
+    "#f1c40f",
+    "#000000"
+  ]
+}
+```
+### Typography notes
+
+Sans-serif font throughout. Title is red (#c0392b), larger and bold. Body text is dark gray/black (#333333). In the Sigmoid description box, 'squashing' is italicized, 'unbounded' and 'probabilistic' are underlined, and '(from 0 to 1)' is red and italicized. All equations are typeset as stacked fractions (LaTeX-style); no specific font names are given in the source.
+### Recreation checklist (numbered brief)
+
+1. BACKGROUND: fill the entire slide with light gray #f0f0f0; no other background decoration. 2. TITLE: place a text box at the top-left with exactly 'For Sigmoid Function' in bold sans-serif, red #c0392b, larger than body text. 3. SLIDE-NUMBER BADGE: draw a circle at the top-right, fill yellow #f1c40f, with the number '24' centered inside in black #000000. 4. SIGMOID DEFINITION BOX: draw a rectangle at the upper-left directly below the title, fill peach #fdf2e9, containing the stacked-fraction equation f(x) = Sigmoid(x) = \frac{1}{1+e^{-x}} with text in red #c0392b. 5. REMEMBER BOX: draw a rectangle at the upper-right, fill light blue #e3f2fd, containing exactly 'Remember: \frac{\partial}{\partial x} (\frac{1}{x}) = - \frac{1}{x^2}' (stacked fractions) in dark gray #333333. 6. DERIVATION BOX 1: draw a wide white #ffffff rectangle at the middle-left spanning most of the left-column width, containing f'(x) = \frac{e^{-x}}{(1+e^{-x})(1+e^{-x})} = \frac{1*(1+ e^{-x} - 1)}{(1+e^{-x})(1+e^{-x})} (stacked fractions) in #333333. 7. SIGMOID DESCRIPTION BOX: draw a rectangle at the middle-right, fill peach #fdf2e9; header 'Sigmoid (aka Logistic function)' in red #c0392b; body 'It is a squas
+
+### Validation notes
+
+- verdict: PASS_WITH_FIXES
+- uncertain_items: [
+  "The \\left| ... \\right| delimiters in derivation equations 4-6 are only described as 'absolute value-style'; they may actually be large parentheses/brackets in the original slide. Kept verbatim from the extraction.",
+  "Red #c0392b inside the peach boxes' color arrays was interpreted as text/a
+
+### Fresh re-analysis measured lines (v2 transcript, DATA only)
+
+- 1. PRINTED SLIDE NUMBER
+- 24** â inside a yellow circular/rounded badge at the top-right of the slide (black numerals on pale-yellow fill, with a dark maroon/purple ring around the circle).
+- "For Sigmoid Function"** â single span, dark red / crimson (â #A80000), bold **italic**, with a thin red underline running the full width of the text (underline sits just below the baseline, â y 80â82 px).
+- Font size estimate: â **24â26 px** cap-height class (roughly 24 pt at 960Ã540 export).
+- Position: top-left of the content frame, x â 85â295 px, y â 57â82 px.
+- 3. ALL OTHER TEXT (verbatim, line breaks and reading order preserved)
+- A. Top-left panel (pink/red border, pale peach fill), x â 78â310, y â 100â152**
+- Single line; `f(x)`, `Sigmoid(x)`, `=` in black bold serif; fraction bar black; denominator `1+e` black with the exponent `âx` in **red**. â 20 px main glyphs, fraction numerator/denominator â 16 px. No bullet.
+- B. Top-right panel (blue border, white fill), x â 592â800, y â 100â148**
+- One line, â 17â18 px. "Remember:" blue (#0000CC), bold italic serif; `â/âx` black; `(1/x)` **red**; `=` black; `â1/xÂ²` **blue** with a small superscript 2. No bullet.
+
+### Non-content artifacts (must NOT be reported as missing)
+- Mouse cursor / video-capture chrome in the original (GROUND RULES (c)).
+- The house red frame / yellow badge / title position (GROUND RULES (a)).

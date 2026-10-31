@@ -1,1 +1,2 @@
 [2026-10-30T22:16:43Z] PARK: no window in 1502s (pgrep=75)
+[2026-10-30T23:17:40Z] Wave att18 PARK wave1 (rc42, no window in 1502s, pgrep=75); wave att18b PARK (rc42, no window in 3611s, pgrep=185). Fleet vision saturation sustained 21:50-23:17Z (pgrep 26->225; all 16 gate flock slots BUSY). Re-dispatching as att18c with park cap 10800s. No verdicts exist for render_17 bytes; honest no-verdict stands.

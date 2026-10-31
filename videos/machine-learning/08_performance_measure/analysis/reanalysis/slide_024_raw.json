@@ -1,0 +1,143 @@
+{
+  "slide_title": "Effect of Selecting Threshold Value on Model Performance",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Predicted as",
+      "P",
+      "N",
+      "Actual",
+      "P",
+      "N",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "4",
+      "1",
+      "1",
+      "5",
+      "Threshold=0.5",
+      "Test Sample",
+      "Model",
+      "[Any value] \u2014 (0, +1)",
+      "(0 \u2014 1)",
+      "Threshold (e.g. 0.5)",
+      "Class I",
+      "Class II",
+      "Predicted",
+      "0.0",
+      "0.5",
+      "1.0",
+      "24"
+    ],
+    "equations": []
+  },
+  "layout": {
+    "arrangement": "Title spans top-left to center; yellow slide-number circle at extreme top-right. Below title, a horizontal band holds the confusion matrix (far left), the text 'Threshold=0.5' (center-left), and a beige flowchart container (right). The lower ~60% of the slide is dominated by a horizontal predicted-value axis with airplane icons arranged above it.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top, left/center",
+        "content": "Main title in bold dark red"
+      },
+      {
+        "name": "slide_number",
+        "position": "top-right",
+        "content": "Yellow circle with black '24'"
+      },
+      {
+        "name": "confusion_matrix",
+        "position": "top-left",
+        "content": "2x2 contingency table with TP/FN/FP/TN and counts 4/1/1/5"
+      },
+      {
+        "name": "threshold_annotation",
+        "position": "top-center",
+        "content": "Text 'Threshold=0.5'"
+      },
+      {
+        "name": "flowchart",
+        "position": "top-right",
+        "content": "Cream container with Test Sample \u2192 Model \u2192 Threshold \u2192 Class I/II flow"
+      },
+      {
+        "name": "prediction_axis",
+        "position": "bottom, full width",
+        "content": "Horizontal 0.0\u20131.0 axis with tick marks, dashed 0.5 line, red marker, and airplane icons above"
+      }
+    ],
+    "hierarchy": "Title is largest and boldest. The dark-red 'Model' box and beige flowchart form the secondary focal point. The axis and airplane field provide the visual foundation. The confusion matrix is smallest and most detailed."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Confusion matrix. Column header 'Predicted as' spans P and N. Row header 'Actual' labels P and N rows. Cell (Actual P, Predicted P) = TP with value 4, light green fill. Cell (Actual P, Predicted N) = FN with value 1, light red/pink fill. Cell (Actual N, Predicted P) = FP with value 1, light red/pink fill. Cell (Actual N, Predicted N) = TN with value 5, light green fill.",
+      "colors": [
+        "#90EE90",
+        "#FFB6C1",
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "top-left"
+    },
+    {
+      "type": "flowchart",
+      "description": "Left-to-right pipeline inside a cream rounded rectangle. 'Test Sample' box (with small plane thumbnail) \u2192 thick arrow \u2192 'Model' box (dark red fill, white bold text, small ROC-curve icon) with sub-caption '[Any value] \u2014 (0, +1)' beneath \u2192 arrow labeled '(0 \u2014 1)' \u2192 'Threshold (e.g. 0.5)' box \u2192 two branching arrows to 'Class I' (light green, upper right) and 'Class II' (light pink, lower right).",
+      "colors": [
+        "#FFFACD",
+        "#8B0000",
+        "#FFFFFF",
+        "#98FB98",
+        "#FFB6C1"
+      ],
+      "position": "top-right"
+    },
+    {
+      "type": "diagram",
+      "description": "Horizontal predicted-value number line from 0.0 to 1.0 in dark red with minor tick marks and major labeled ticks at 0.0, 0.5, 1.0. A vertical dashed line at 0.5 (dark blue) intersects the axis at a solid red circle. Above the axis sit two rough rows of gray airplane outline icons: planes left of 0.5 are plain; planes right of 0.5 display a skull-and-crossbones decal.",
+      "colors": [
+        "#8B0000",
+        "#FF0000",
+        "#0000FF",
+        "#808080",
+        "#FFFFFF"
+      ],
+      "position": "bottom, full width"
+    }
+  ],
+  "imagery": [
+    "Small gray airplane icon inside the 'Test Sample' flowchart box",
+    "Small white ROC-style curve icon inside the dark-red 'Model' box",
+    "Approximately twelve gray outline airplane illustrations in two rows above the axis; left-side planes are plain with red/blue detail dots, right-side planes bear a black skull-and-crossbones symbol",
+    "Yellow filled circle with black numeral '24' at top right"
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#8B0000",
+    "body_text": "#8B0000",
+    "accents": [
+      "#FFFF00",
+      "#8B0000",
+      "#90EE90",
+      "#FFB6C1",
+      "#FFFACD",
+      "#98FB98",
+      "#FF0000",
+      "#0000FF"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout. Title is large (~32pt) bold dark red. Flowchart box text is mixed case; 'Model' is white bold. Confusion-matrix labels TP/FN/FP/TN are small caps with colored fills; counts 4/1/1/5 are bold black. Axis labels are small dark red. No serif fonts observed.",
+  "animation_state": "Static; no mid-build indicators. The red dot at 0.5 denotes the currently selected threshold value.",
+  "recreation_brief": "1. Set slide background to white. 2. Add title 'Effect of Selecting Threshold Value on Model Performance' top-left in bold dark red (#8B0000), ~32pt. 3. Place a yellow (#FFFF00) circle at top-right containing '24' in black. 4. Build the confusion matrix at top-left: header 'Predicted as' over columns P/N; row header 'Actual' over rows P/N; fill cells TP=4 (light green #90EE90), FN=1 (light red #FFB6C1), FP=1 (light red #FFB6C1), TN=5 (light green #90EE90) with thin black borders. 5. Add bold dark-red text 'Threshold=0.5' just right of the matrix. 6. Draw a large cream (#FFFACD) rounded rectangle in the upper-right. Inside it, left-to-right: a 'Test Sample' box with a small plane icon; a thick arrow to a dark-red (#8B0000) 'Model' box with white text and a small curve icon, plus sub-text '[Any value] \u2014 (0, +1)'; an arrow labeled '(0 \u2014 1)' to a 'Threshold (e.g. 0.5)' box; two branching arrows to a light-green (#98FB98) 'Class I' box (top) and a light-pink (#FFB6C1) 'Class II' box (bottom). 7. Near the bottom, draw a dark-red horizontal axis labeled 'Predicted' at the left, spanning 0.0 to 1.0 with tick marks; label 0.0, 0.5, and 1.0. 8. Add a dark-blue vertical dashed line at 0.5 with a solid red (#FF0000) circle marker on the axis. 9. Scatter gray airplane outline icons in two rows above the axis: plain planes left of 0.5, skull-decalled planes right of 0.5. 10. Ensure all text uses a clean sans-serif font and the overall border is a thin gray rectangle.",
+  "_meta": {
+    "frame": "slide_024.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 24,
+      "image": "slide_024.jpg"
+    },
+    "elapsed_s": 573.2
+  }
+}

@@ -6,7 +6,7 @@ const W = 13.33, H = 7.5;
 
 const BG = "E8E8E8";
 const RED = "C00000";
-const RED2 = "D32F2F";
+const RED2 = "C00000";
 const YELLOW = "FFF9C4";
 const DARK = "333333";
 const BLUE = "0000FF";
@@ -40,42 +40,29 @@ s.addText("Receiver Operating Characteristic (ROC) Curve", {
 });
 
 // ============================================================
-// SLIDE 27 CONTENT — text block with red/blue alternating lines
+// SLIDE 27 CONTENT — 7 lines, positions measured from the original
+// frame in px at 960x540 (1px = 1pt = 1/72in)
 // ============================================================
-const blockX = 0.8;
-const blockY = 1.4;
-const blockW = 11.5;
+const px = (v) => v / 72;
+const blockW = 12.2;
 
 const lines = [
-  { text: "Conclusion from Previous Experiments:", color: RED2, bold: true, fontSize: 18, indent: false },
-  { text: "Same Model", color: BLUE, bold: false, fontSize: 16, indent: true },
-  { text: "Same Test Samples", color: BLUE, bold: false, fontSize: 16, indent: true },
-  { text: "Performance Measures (TP, TN, FP, FN) are affected by selected threshold", color: RED2, bold: true, fontSize: 18, indent: false },
-  { text: "There is a Confusion Matrix for each threshold", color: BLUE, bold: false, fontSize: 16, indent: false },
-  { text: "Can we combine All thresholds and corresponding Confusion Matrices in one Graph?", color: RED2, bold: true, fontSize: 18, indent: false },
-  { text: "Solution: Use ROC Curve", color: BLUE, bold: false, fontSize: 16, indent: false },
+  { text: "Conclusion from Previous Experiments:", x: px(59),  y: px(140), color: RED2, bold: true,  fontSize: 20 },
+  { text: "Same Model",                          x: px(83),  y: px(185), color: BLUE, bold: false, fontSize: 16 },
+  { text: "Same Test Samples",                   x: px(84),  y: px(207), color: BLUE, bold: false, fontSize: 16 },
+  { text: "Performance Measures (TP, TN, FP, FN) are affected by selected threshold", x: px(59), y: px(250), color: RED2, bold: true, fontSize: 20 },
+  { text: "There is a Confusion Matrix for each threshold", x: px(267), y: px(297), color: BLUE, bold: false, fontSize: 16 },
+  { text: "Can we combine All thresholds and corresponding Confusion Matrices in one Graph?", x: px(59), y: px(367), color: RED2, bold: true, fontSize: 20 },
+  { text: "Solution: Use ROC Curve",             x: px(84),  y: px(412), color: BLUE, bold: false, fontSize: 16 },
 ];
 
-// Render lines with explicit line spacing (mandatory per pattern law)
-const lineH = 0.55;
-let curY = blockY;
 for (const line of lines) {
-  const x = line.indent ? blockX + 0.4 : blockX;
   s.addText(line.text, {
-    x: x, y: curY, w: blockW, h: lineH,
+    x: line.x, y: line.y, w: blockW, h: px(30),
     fontSize: line.fontSize, bold: line.bold, color: line.color,
-    fontFace: FONT, align: "left", valign: "middle", margin: 0,
+    fontFace: FONT, align: "left", valign: "top", margin: 0,
   });
-  curY += lineH;
 }
-
-// ============================================================
-// FOOTER: solid black bar spanning full width at bottom
-// ============================================================
-s.addShape(pptx.shapes.RECTANGLE, {
-  x: 0.15, y: H - 0.35, w: W - 0.3, h: 0.2,
-  fill: { color: BLACK }, line: { type: "none" },
-});
 
 // ============================================================
 // OUTPUT

@@ -1,25 +1,34 @@
 // Pattern: house-chrome + slide 003 content (corrected from judge feedback v2)
+// Colors/bold/underline spec verified pixel-by-pixel against unique_slides/slide_003.jpg.
 // Build: NODE_PATH=$(npm root -g) node slide_003_recreated.js
 const pptxgen = require("pptxgenjs");
 
 const NUM = 3;
 const TITLE = "Problem Formulation";
-const FONT = "Arial";
+const FONT = "Times New Roman";
 const W = 13.33, H = 7.5;
+
+// palette measured from the original frame
+const RED = "C00000";   // title red
+const BLUE = "0000CC";  // "class I" / "Class II" emphasis (pixel-confirmed)
+const GREEN = "008000"; // d(X), W^T X, delta_i, standalone X
+const BLACK = "000000";
+const BORDERC = "9E1B1B";
+const FILLC = "F0F0F0";
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
-s.background = { color: "F0F0F0" };
+s.background = { color: FILLC };
 
 // 1. outer red house frame (0.15in inset from every edge)
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" },
-  line: { color: "C00000", width: 1.5 },
+  line: { color: RED, width: 1.5 },
 });
 
-// 2. slide-number badge (yellow oval + centered bold numeral)
+// 2. slide-number badge (house oval + centered bold numeral)
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
@@ -34,163 +43,70 @@ s.addText(String(NUM), {
 s.addText(TITLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 36, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 32, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
-// 4. Four stacked content boxes with red borders
+// 4. panels. Original: borders y=90,203,217,301,315,404,419,516 of 540,
+// fills span the full inner height, last panel ends at 95.6%.
 const boxX = 0.67;
 const boxW = 12.0;
-const boxH1 = 1.125; // 15% of 7.5
-const boxH2 = 1.125;
-const boxH3 = 1.125;
-const boxH4 = 1.5;   // 20% of 7.5
-const gap = 0.15;    // 2% gap
+const topY = 1.15;          // just below the title box
+const gapY = 0.017 * 7.5;   // ~2px of 540 scaled
+const heights = [1.575, 0.781, 0.829, 1.005]; // px-ratio panel heights (of 540)
+let boxY = topY;
 
-let boxY = 0.15 + 0.55 + 0.15 + gap; // after title (0.28+0.55) + gap
+function panel(h) {
+  s.addShape(pres.shapes.RECTANGLE, {
+    x: boxX, y: boxY, w: boxW, h: h,
+    fill: { color: FILLC },
+    line: { color: BORDERC, width: 1 },
+  });
+}
 
-// Box 1 - Define two classes, discriminant function
-s.addShape(pres.shapes.RECTANGLE, {
-  x: boxX, y: boxY, w: boxW, h: boxH1,
-  fill: { color: "FFFFFF" },
-  line: { color: "C00000", width: 1 },
-});
-s.addText([
-  { text: "Define two classes: ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class I", options: { color: "C00000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " and ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "Class II", options: { color: "008000", fontSize: 20, fontFace: FONT, italic: true } },
-], {
-  x: boxX + 0.2, y: boxY + 0.1, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "let d(X) be a discriminant function = ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "W^T X", options: { color: "000000", fontSize: 20, fontFace: FONT, italic: true } },
-], {
-  x: boxX + 0.2, y: boxY + 0.4, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "if X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class I", options: { color: "C00000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " then d(X) ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "> 0", options: { color: "C00000", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.7, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "if X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class II", options: { color: "008000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " then d(X) ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "< 0", options: { color: "0000FF", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 1.0, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
+function line(y, parts, opts) {
+  const runs = parts.map((p) => ({ text: p[0], options: Object.assign({}, opts, p[1]) }));
+  s.addText(runs, {
+    x: boxX + 0.25, y: boxY + y, w: boxW - 0.5, h: 0.30,
+    align: "left", valign: "top", margin: 0,
+  });
+}
 
-boxY += boxH1 + gap;
+// ---- Panel 1 : Define two classes ----
+panel(heights[0]);
+line(0.10, [["Define two classes: ", {}], ["class I", { color: RED, italic: true, bold: true }], [" and ", {}], ["Class II", { color: BLUE, italic: true, bold: true }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.42, [["let ", {}], ["d(X)", { color: GREEN, bold: true }], [" be a discriminent function = ", {}], ["W", { bold: true }], ["T", { superscript: true }], [" X", { color: GREEN, bold: true }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.74, [["if ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class I", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" ", {}], ["> 0", { color: RED }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(1.06, [["if ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class II", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" ", {}], ["< 0", { color: BLUE }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+boxY += heights[0] + gapY;
 
-// Box 2 - For misclassified X
-s.addShape(pres.shapes.RECTANGLE, {
-  x: boxX, y: boxY, w: boxW, h: boxH2,
-  fill: { color: "FFFFFF" },
-  line: { color: "C00000", width: 1 },
-});
-s.addText([
-  { text: "For misclassified ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "X", options: { color: "008000", fontSize: 20, fontFace: FONT, italic: true } },  // Judge: X should be green
-  { text: " :", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.1, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "If X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class I", options: { color: "C00000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " and misclassified as Class II then d(X) will be ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "<0", options: { color: "C00000", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.4, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "If X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class II", options: { color: "008000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " and misclassified as Class I then d(X) will be ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: ">0", options: { color: "0000FF", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.7, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
+// ---- Panel 2 : For misclassified X ----
+panel(heights[1]);
+line(0.10, [["For misclassified ", { color: BLUE, italic: true }], ["X", { color: GREEN, bold: true }], [" :", {}]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.42, [["If ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class I", { color: BLUE, italic: true }], [" and ", {}], ["misclassified", { color: RED, italic: true }], [" as ", {}], ["Class II", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" will be ", {}], ["<0", { color: RED }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.74, [["If ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class II", { color: BLUE, italic: true }], [" and ", {}], ["misclassified", { color: RED, italic: true }], [" as ", {}], ["class I", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" will be ", {}], [">0", { color: BLUE }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+boxY += heights[1] + gapY;
 
-boxY += boxH2 + gap;
-
-// Box 3 - Define Error function - USE 2D EQUATION PNG
-s.addShape(pres.shapes.RECTANGLE, {
-  x: boxX, y: boxY, w: boxW, h: boxH3,
-  fill: { color: "FFFFFF" },
-  line: { color: "C00000", width: 1 },
-});
-s.addText("Define Error function as:", {
-  x: boxX + 0.2, y: boxY + 0.1, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top",
-  fontSize: 20, color: "000000", fontFace: FONT, margin: 0,
-});
-// Embed the 2D equation PNG - centered vertically
-// eq_error.png: w_in=7.225, h_in=0.492, baseline_frac=0.932
-// Center vertically in the box: boxH3 = 1.125
-const eqErrorY = boxY + (boxH3 - 0.492) / 2;
-// Add "Error = " text label before the equation image
-s.addText("Error = ", {
-  x: boxX + 0.2, y: eqErrorY + 0.05, w: 1.5, h: 0.3,
-  align: "left", valign: "top",
-  fontSize: 16, color: "000000", fontFace: FONT, margin: 0,
-});
+// ---- Panel 3 : Define Error function as ----
+panel(heights[2]);
+line(0.08, [["Define Error function as:", { bold: true, underline: true }]], { fontSize: 20, color: BLACK, fontFace: FONT });
 s.addImage({
   path: "assets/eq_error.png",
-  x: boxX + 1.5,
-  y: eqErrorY,
-  w: 7.225,
-  h: 0.492,
+  x: boxX + 0.25,
+  y: boxY + 0.40,
+  w: 11.5,
+  h: 11.5 / 17.6119,
 });
-// Red X inline at right end of equation line
 s.addText("X", {
-  x: boxX + 8.8, y: eqErrorY + 0.1, w: 1.0, h: 0.3,
+  x: boxX + 11.05, y: boxY + 0.42, w: 1.0, h: 0.3,
   align: "left", valign: "top",
-  fontSize: 20, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 20, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
+boxY += heights[2] + gapY;
 
-boxY += boxH3 + gap;
-
-// Box 4 - Define delta_i
-s.addShape(pres.shapes.RECTANGLE, {
-  x: boxX, y: boxY, w: boxW, h: boxH4,
-  fill: { color: "FFFFFF" },
-  line: { color: "C00000", width: 1 },
-});
-s.addText("Define \u03B4_i as :", {
-  x: boxX + 0.2, y: boxY + 0.1, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top",
-  fontSize: 20, color: "000000", fontFace: FONT, margin: 0,
-});
-s.addText([
-  { text: "If X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class I", options: { color: "C00000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " and misclassified as Class II then d(X) will be ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "<0 \u21D2 \u03B4_i = -1 \u21D2 d(X) \u03B4_i >0", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.4, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
-s.addText([
-  { text: "If X \u2208 ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: "class II", options: { color: "008000", fontSize: 20, fontFace: FONT, italic: true } },
-  { text: " and misclassified as Class I then d(X) will be ", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-  { text: ">0 \u21D2 \u03B4_i = +1 \u21D2 d(X) \u03B4_i >0", options: { color: "000000", fontSize: 20, fontFace: FONT } },
-], {
-  x: boxX + 0.2, y: boxY + 0.7, w: boxW - 0.4, h: 0.3,
-  align: "left", valign: "top", margin: 0,
-});
+// ---- Panel 4 : Define delta_i ----
+panel(heights[3]);
+line(0.08, [["Define ", { bold: true, underline: true }], ["\u03b4", { color: GREEN, bold: true }], ["i", { color: GREEN, bold: true, subscript: true }], [" as :", { bold: true, underline: true }]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.40, [["If ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class I", { color: BLUE, italic: true }], [" and ", {}], ["misclassified", { color: RED, italic: true }], [" as ", {}], ["Class II", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" will be ", {}], ["<0", { color: RED }], [" \u21d2 ", {}], ["\u03b4", { color: GREEN, bold: true }], ["i", { color: GREEN, bold: true, subscript: true }], [" = -1 \u21d2 ", {}], ["d(X)", { color: GREEN, bold: true }], [" ", {}], ["\u03b4", { color: GREEN, bold: true }], ["i", { color: GREEN, bold: true, subscript: true }], [" >0", {}]], { fontSize: 20, color: BLACK, fontFace: FONT });
+line(0.72, [["If ", {}], ["X", { bold: true, underline: true }], [" ", {}], ["\u2208 ", {}], ["class II", { color: BLUE, italic: true }], [" and ", {}], ["misclassified", { color: RED, italic: true }], [" as ", {}], ["class I", { color: BLUE, italic: true }], [" then ", {}], ["d(X)", { color: GREEN, bold: true }], [" will be ", {}], [">0", { color: BLUE }], [" \u21d2 ", {}], ["\u03b4", { color: GREEN, bold: true }], ["i", { color: GREEN, bold: true, subscript: true }], [" = +1 \u21d2 ", {}], ["d(X)", { color: GREEN, bold: true }], [" ", {}], ["\u03b4", { color: GREEN, bold: true }], ["i", { color: GREEN, bold: true, subscript: true }], [" >0", {}]], { fontSize: 20, color: BLACK, fontFace: FONT });
 
 pres.writeFile({ fileName: "slide_003_recreated.pptx" }).then(() => console.log("wrote slide_003_recreated.pptx"));

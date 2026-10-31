@@ -212,3 +212,92 @@ below were returned by the tool — none invented. Raw log: `wave3_agy/search_lo
   standard `alpha*x` but it is NOT substituted into the verbatim text.
 - The trailing `+` after the PReLU brace on slide 022 and exact curve coordinates remain
   vision measurements, not source-derived.
+
+
+---
+
+## Verified 2026-10-30 (wave 4, fresh worker `w4-src-021`, scope `src_w4_021_024`)
+
+Mandated by `videos/machine-learning/09_introduction_to_neural_networks/AGENTS.md` rule 5.
+Method: `agy -p` CLI attempted first and returned HTTP 429 `RESOURCE_EXHAUSTED`
+("Individual quota reached … Resets in 131h18m6s"); searches therefore ran through the
+**agy MCP web-search tool** (same Google-grounding backend, grounding redirect URLs resolved
+to real page URLs). Every URL below was returned by that tool — none invented. Content
+evidence: `analysis/slide_021_final.json` and
+`sources/docparse_cascades/slide_021/composed/slide_021_composed.md` (independent second read).
+Full claim register: `VERIFY_W4.md` in this directory.
+
+### Claim-by-claim verification
+
+1. **ReLU `f(x) = { 0 for x<0 ; x for x>=0 }` = `max(0,x)`; hockey-stick plot** — CONFIRMED.
+   - Question: *Is the ReLU definition and its hockey-stick plot as shown on the slide?*
+   - Answer: Yes — ReLU is `max(0,x)`: flat at 0 for x<0, identity line of slope 1 for x>0.
+   - https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf
+     — "f(y_i) = y_i if y_i > 0 … PReLU with α=0 degenerates to ReLU"
+   - https://arxiv.org/abs/1502.01852
+   - Doc-parse cross-check: `slide_021_composed.md` reads the ReLU series
+     x = −10/−5/0/5/10 → f = 0/0/0/5/10 in both the full and the level-1 crop pass.
+
+2. **PReLU negative branch is `alpha*x`, alpha learnable (He et al. 2015)** — CONFIRMED.
+   - Question: *Is the PReLU negative branch `alpha*x` with a learnable alpha?*
+   - Answer: Yes — `f(y_i) = max(0, y_i) + α_i min(0, y_i)`; α is learned by backprop, unlike
+     Leaky ReLU's fixed hyperparameter.
+   - https://arxiv.org/abs/1502.01852
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/relu-variants
+     — "PReLU allows α to adapt during backpropagation via gradient descent"
+   - https://allthingsphi.com/blog/2016/12/10/delving-deep-into-rectifiers-surpassing-human-level-performance-on-imagenet-classification.html
+     — "f(y_i) = max(0, y_i) + α_i min(0, y_i)"
+
+3. **The slide's four PReLU curves alpha = 0.1 / 0.2 / 0.5 / 1.0 are the standard PReLU
+   family (alpha = 1.0 degenerates to the identity line)** — CONFIRMED.
+   - Question: *Does a four-alpha PReLU plot family with these values exist in the literature?*
+   - Answer: Yes — PReLU's alpha sweeps the negative-slope coefficient; α = 1 gives the plain
+     45° identity line on the positive branch and the mirror on the negative branch.
+   - https://arxiv.org/abs/1502.01852
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/relu-variants
+
+4. **ELU `f(x) = { alpha*(e^x − 1) for x<0 ; x for x>=0 }`, saturating to `-alpha`** — CONFIRMED.
+   - Question: *What is the ELU definition and where does its negative branch saturate?*
+   - Answer: `alpha*(e^x − 1)` for x<0, `x` for x>=0; as x → −∞ the branch tends to −alpha.
+   - https://www.geeksforgeeks.org/deep-learning/elu-activation-function-in-neural-network/
+
+5. **The slide's ELU legend alpha = 0.1 / 0.2 / 0.5 / 1.0 matches the standard per-alpha
+   asymptote family (−0.1 / −0.2 / −0.5 / −1.0), all four merging on `y = x` for x >= 0** —
+   CONFIRMED.
+   - Question: *What do ELU curves for alpha = 0.1/0.2/0.5/1.0 look like plotted together?*
+   - Answer: One curve per alpha; each flattens at its own −alpha asymptote; all four coincide
+     with the identity line for x > 0 — exactly the slide's plot.
+   - https://www.aivasu.com/notes/dl/elu
+   - https://www.emergentmind.com/topics/exponential-linear-unit-elu
+
+6. **ELU saturates for negative inputs (mean activations closer to zero)** — CONFIRMED (carried
+   from the wave-2 record, same source re-cited; no new query spent).
+   - https://www.geeksforgeeks.org/deep-learning/elu-activation-function-in-neural-network/
+
+7. **SoftPlus `f(x) = log_e(1 + e^x)`** — CONFIRMED.
+   - Question: *What is the SoftPlus definition?*
+   - Answer: `Softplus(x) = ln(1 + e^x)`.
+   - https://www.datacamp.com/tutorial/softplus
+
+8. **SoftPlus is a smooth approximation of ReLU and `f(0) = ln 2 ≈ 0.693`** — CONFIRMED.
+   - Question: *Is SoftPlus a smooth ReLU approximation, and what is its value at x = 0?*
+   - Answer: Yes — "Softplus(0) = ln(1+e^0) = ln(2) ≈ 0.693", a smooth curve without ReLU's
+     kink; matches the slide's y-intercept just under 1.
+   - https://www.geeksforgeeks.org/deep-learning/softplus-function-in-neural-network/
+   - https://www.datacamp.com/tutorial/softplus
+
+### Uncertain items carried forward — unchanged
+
+- The PReLU `x < 0` case value on the slide is a **solid red filled circle** and stays `[?]`.
+  Sources give the standard `alpha*x` as context only; it is NOT substituted into the frame
+  text. No source speaks to the glyph.
+- Axis tick values and exact curve coordinates are vision-model measurements.
+- The black bar along the bottom edge is a video letterbox/crop artifact, not slide content.
+
+### Corrections
+
+**None.** All 8 data claims in `analysis/slide_021_final.json` stand as written; 0 changes.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

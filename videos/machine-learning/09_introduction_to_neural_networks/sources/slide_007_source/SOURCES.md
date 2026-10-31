@@ -106,3 +106,41 @@ Evidence basis: fresh vision re-analysis `analysis/reanalysis_v2/slide_007_reana
 5. https://web.cs.hacettepe.edu.tr/~erkut/ain311.f22/slides/l10-linear-discriminant-functions-perceptron.pdf — HTTP 200; linear discriminant functions, hyperplane geometry.
 6. https://introml.mit.edu/notes/classification.html — HTTP 200; linear classifier positive/negative half-spaces.
 7. https://web.stanford.edu/class/stats202/notes/Classification/LDA.html — HTTP 200; discriminant regions and linear boundaries (also cited in Wave-2).
+
+## Verified 2026-10-30 (wave 4 — scope src_w4_005_008)
+
+Evidence basis: `analysis/slide_007_final.json` + fresh vision read `analysis/reanalysis_v2/slide_007_reanalysis.txt` (11,488 B) + doc-parse cascade `sources/docparse_cascades/slide_007/composed/slide_007_composed.md` (independent second read) + 3 agy searches + 3 live URL fetches. Tooling note: the `agy -p` CLI is quota-exhausted this wave (re-tested 2026-10-30: HTTP 429 RESOURCE_EXHAUSTED, resets in ~131 h); searches ran through the agy MCP web-search tool — the same Antigravity/Google grounding backend the CLI drives. Every URL below was re-fetched live on 2026-10-30 with HTTP status recorded. Frame text unchanged — DATA-only. This wave's primary new evidence is a verbatim text extraction of the mlrefined One-versus-All post (the strongest single source for both slide 007 and slide 008).
+
+### Verification questions asked (agy, this wave)
+1. "one-vs-all classification dead zone region where no binary classifier returns positive undefined class ambiguity overlap regions in 2D feature space"
+2. (re-fetch check) does the mlrefined OvA post still state, verbatim, the positive-side-of-more-than-one-classifier overlap regions and the central negative-side-of-all-classifiers region, plus the argmax fusion rule?
+3. (re-fetch check) does the Microsoft Learn One-vs-All component page still describe one binary model per class judged against its complement?
+
+### Claim-by-claim verification (DATA only)
+
+1. **Title/concept: multi-class classification via [ONE VS ALL] binary classifiers** — CONFIRMED. Microsoft Learn (live): "This component implements the one-versus-all method, in which a binary model is created for each of the multiple output classes. The component assesses each of these binary models for the individual classes against its complement (all other classes in the model)". Doc-parse corroborates the exact title text.
+2. **One linear binary classifier per class; in 2D its boundary d_k(x)=0 is a straight line** — CONFIRMED. mlrefined: the c-th classifier is written `w_0^(c) + x^T w^(c) = 0` — a hyperplane, hence a straight line in 2D; UCSD's multiclass perceptron scores w_j·x + b_j are the same per-class linear functions.
+3. **"+ve" marks the positive half-space of each boundary, containing that class's points** — CONFIRMED, verbatim. mlrefined §1.3: "the class to be distinguished from the rest lies on the positive side of its respective classifier, with the remainder of the points lying on the negative side... for the c-th classifier we have for the p-th point x_p that `w_0^(c) + x_p^T w^(c) > 0 if y_p = c` and `< 0 if y_p ≠ c`." Doc-parse corroborates the "+ve" marks: chart table "C1 | +ve", "C2 | +ve", "C3 | +ve"; picture text "+ ve C1 + ve C2 + ve + ve".
+4. **Independent hard-threshold OvA leaves overlap regions (positive for more than one classifier) and an all-negative central region — which is the geometry slide 007 draws and slide 008 annotates** — CONFIRMED, verbatim. mlrefined §1.4: "there are regions left uncolored above that do not fall into this first category... These include regions where points are on the positive side of more than one classifier - these are the three triangular white regions bordered by two decision boundaries." §1.5: "they include the one in the very middle of the plot whose points are on the negative side of all three classifiers." This is the strongest grounding yet for the 007→008 pair.
+5. **The joint rule argmax_k d_k(x) tiles the plane with per-class regions** — CONFIRMED, verbatim. mlrefined "[1.6] Putting it all together": the single rule `y = argmax_{j=1..C} w_0^(j) + x^T w^(j)` "applies to the entire space of our problem"; and the resulting multi-class boundary "arises at points where the fusion rule does not provide a unique solution". UCSD gives the same prediction rule for the multiclass perceptron.
+6. **The plot's dot clusters are illustrative synthetic data (unlabeled, un-ticked axes; no numeric ranges printed)** — CONFIRMED as a schematic: no source dataset is implied by the frame, the doc-parse records no axis numbers, and the fresh vision read reports no tick labels. Treat counts/positions as rendering detail.
+7. **Q(x) label** — UNVERIFIED / `[?]` (unchanged from Wave-3). The doc-parse chart table lists a "Q(x) | +ve" row; neither the fresh vision read (12 text blocks: C1/C2/C3, d1/d2/d3, three "+ve", badge 7) nor any source surfaces a Q(x) label. Do not render Q(x); check the original frame at build time.
+8. **Exact slopes/intercepts of the three lines and exact point positions** — UNVERIFIED: no source, rendering detail for graphgen, not DATA.
+
+### Data-only corrections
+None. No claim on this slide is contradicted by a source; no patch to `analysis/slide_007_final.json`.
+
+### Uncertain items (carried, non-DATA)
+- Q(x) glyph presence — `[?]` (above).
+- Exact line geometry / dot counts — graphgen rendering detail.
+
+### Citations (wave 4; re-fetched live 2026-10-30)
+1. https://rezaborhani.github.io/mlr/blog_posts/Linear_Supervised_Learning/Part_5_One_versus_all.html — HTTP 200; full text extracted; verbatim quotes for the positive half-space rule, the "positive side of more than one classifier" overlap regions, the "negative side of all three classifiers" region, and the argmax fusion rule.
+2. https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/one-vs-all-multiclass?view=azureml-api-2 — HTTP 200; verbatim "a binary model is created for each of the multiple output classes" judged "against its complement", prediction "choosing the prediction with the highest confidence score".
+3. https://cseweb.ucsd.edu/~dasgupta/151/multiclass-handout.pdf — HTTP 200; per-class linear scores w_j·x + b_j, argmax readout.
+4. https://en.wikipedia.org/wiki/Perceptrons_(book) — HTTP 200 (context: single-layer linear boundaries).
+Failed/unverified this wave: none new (see slide_005/006 records for the two blocked URLs).
+
+## Wave-4 result register
+
+See `sources/slide_007_source/VERIFY_W4.md` — 8 claims: 6 CONFIRMED, 0 CORRECTED, 2 UNVERIFIED (Q(x) glyph = `[?]`; line geometry = visual), 4 verified URLs, 0 fetch failures.

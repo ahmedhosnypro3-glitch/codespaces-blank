@@ -67,18 +67,15 @@ s.addText("15", {
   fontSize: 18, bold: true, color: DARK, fontFace: FONT, margin: 0
 });
 
-s.addShape(pptx.shapes.RECTANGLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.8,
-  fill: { color: BG }, line: { color: DARK_RED, width: 1.5 }
-});
-
+// title text only: the original has no title-bar rectangle (its title sits inside
+// the slide's own outer frame), and a bar here would cross the house badge.
 s.addText([
   { text: "Required to ", options: { color: DARK_RED } },
   { text: "PENALIZE", options: { color: BRIGHT_RED, underline: true } },
   { text: " small values of Precision and Recall", options: { color: DARK_RED } }
 ], {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.8,
-  align: "center", valign: "middle",
+  x: 0.6, y: 0.28, w: 12.13, h: 0.79,
+  align: "center", valign: "bottom",
   fontSize: 19, bold: true, fontFace: FONT, margin: 0
 });
 
@@ -114,12 +111,12 @@ s.addText("Using", {
   x: px(93), y: boxTop(rBase3, TF), w: 0.9, h: 0.35,
   fontSize: TF, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "frac1_prec", px(145), rTop3 * PX);
+eqImg(s, "frac1_prec", px(145), rTop3);
 s.addText("and", {
   x: px(243), y: boxTop(rBase3, TF), w: 0.55, h: 0.35,
   fontSize: TF, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "frac1_rec", px(291), rTop3 * PX);
+eqImg(s, "frac1_rec", px(291), rTop3);
 s.addText("+", {
   x: px(333), y: boxTop(rBase3, TF), w: 0.3, h: 0.35,
   fontSize: TF, color: BLACK, fontFace: FONT, margin: 0, valign: "top"
@@ -160,12 +157,12 @@ s.addText([
   x: px(85), y: boxTop(bBase1, BF), w: 4.2, h: 0.35,
   fontSize: BF, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "paren_prec", px(372), bTop1 * PX);
+eqImg(s, "paren_prec", px(372), bTop1);
 s.addText("and", {
   x: px(530), y: boxTop(bBase1, BF), w: 0.5, h: 0.35,
   fontSize: BF, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "paren_rec", px(590), bTop1 * PX);
+eqImg(s, "paren_rec", px(590), bTop1);
 s.addText("Increases", {
   x: px(680), y: boxTop(bBase1, BF), w: 1.4, h: 0.35,
   fontSize: BF, bold: true, color: GREEN, fontFace: FONT, margin: 0, valign: "top"
@@ -178,17 +175,17 @@ s.addText("Define:", {
   x: px(83), y: boxTop(bBase2, BF), w: 1.0, h: 0.35,
   fontSize: BF, bold: true, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "frac1_f1", px(150), bTop2 * PX);
+eqImg(s, "frac1_f1", px(150), bTop2);
 s.addText("=", {
   x: px(190), y: boxTop(bBase2, BF), w: 0.3, h: 0.35,
   fontSize: BF, color: BLACK, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "frac1_prec", px(208), bTop2 * PX);
+eqImg(s, "frac1_prec", px(208), bTop2);
 s.addText("+", {
   x: px(296), y: boxTop(bBase2, BF), w: 0.3, h: 0.35,
   fontSize: BF, color: BLACK, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "frac1_rec", px(314), bTop2 * PX);
+eqImg(s, "frac1_rec", px(314), bTop2);
 s.addText("\u21d2", {
   x: px(400), y: boxTop(bBase2, BF), w: 0.3, h: 0.35,
   fontSize: BF, color: BRIGHT_RED, fontFace: FONT, margin: 0, valign: "top"
@@ -234,7 +231,7 @@ s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
 const OF = 16;
 const oBase = px(457);
 const oInkTop = px(433);
-eqImg(s, "frac1_f1_sm", px(560), oInkTop * PX);
+eqImg(s, "frac1_f1_sm", px(560), oInkTop);
 s.addText("=", {
   x: px(596), y: boxTop(oBase, OF), w: 0.3, h: 0.3,
   fontSize: OF, color: BLACK, fontFace: FONT, margin: 0, valign: "top"
@@ -247,7 +244,7 @@ s.addText("\u00d7", {
   x: px(652), y: boxTop(oBase, OF), w: 0.3, h: 0.3,
   fontSize: OF, color: BLACK, fontFace: FONT, margin: 0, valign: "top"
 });
-eqImg(s, "paren_sum", px(676), oInkTop * PX);
+eqImg(s, "paren_sum", px(676), oInkTop);
 
 const outFile = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/slide_015_recreated.pptx";
 pptx.writeFile({ fileName: outFile }).then(() => console.log("done"));

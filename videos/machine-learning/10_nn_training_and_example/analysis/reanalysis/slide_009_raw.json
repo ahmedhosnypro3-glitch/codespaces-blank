@@ -1,0 +1,141 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Where \u0394_ji = -\u03b7 \u2202E/\u2202W_ji"
+    ],
+    "labels": [
+      "Gradient Descent",
+      "Where",
+      "For Sigmoid Activation",
+      "Node Bias",
+      "\u03a3",
+      "f",
+      "Net_j",
+      "O_i",
+      "O_j",
+      "w_ij",
+      "w_ji",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Error Error",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "1",
+      "9"
+    ],
+    "equations": [
+      "W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji",
+      "W_ji^Updated = W_ji^old + \u0394_ji",
+      "\u0394_ji = -\u03b7 \u2202E/\u2202W_ji",
+      "E = (1/2) \u03a3_j (t_j - O_j)^2",
+      "O_j = f(Net_j) = 1/(1 + e^(-Net_j))",
+      "Net_j = \u03a3_i (w_ji O_i)",
+      "\u2202E/\u2202O_j = -(t_j - O_j)",
+      "\u2202O_j/\u2202Net_j = O_j(1 - O_j)",
+      "\u2202Net_j/\u2202W_ji = O_i",
+      "\u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji",
+      "= -(t_j - O_j) * O_j(1-O_j) * O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "White slide enclosed in a thick dark-maroon border. Top-left: a bordered box headed 'Gradient Descent' in red italic with three weight-update equations. Top-right (largest element): a beige-panel feedforward neural-network diagram with 4 purple input dots, 3 hidden-layer nodes, 3 output nodes, magenta weight lines, dashed backprop arrows, a red vertical 'Error Error Error' bar with green Class boxes, and a yellow circle '9' at the far top-right corner. Middle band: three equations side by side (error E on the left, sigmoid O_j in the center under a blue 'For Sigmoid Activation' kicker, Net_j on the right), with three small boxed partial derivatives in a row beneath them. Bottom-left: one large bordered box containing the chain-rule expansion of \u2202E/\u2202W_ji. Bottom-right: a pale-yellow box repeating the three partial derivatives.",
+    "regions": [
+      {
+        "name": "gradient_descent_box",
+        "position": "top-left, roughly x 3%-35%, y 8%-38%",
+        "content": "Red italic header 'Gradient Descent'; equations W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji; W_ji^Updated = W_ji^old + \u0394_ji; red 'Where' + \u0394_ji = -\u03b7 \u2202E/\u2202W_ji"
+      },
+      {
+        "name": "network_diagram",
+        "position": "top-right, roughly x 38%-86%, y 8%-38%",
+        "content": "Beige-panel 3-layer network: input dots, hidden \u03a3/f nodes with O_i outputs and bias node '1' ('Node Bias'), output \u03a3/f nodes with O_j, weight labels w_ij/w_ji, Net_j labels, dashed feedback arrows, blue up arrows, red 'Error Error Error' bar with green Class 1/2/m boxes"
+      },
+      {
+        "name": "slide_number_badge",
+        "position": "far top-right, roughly x 88%-94%, y 9%-17%",
+        "content": "Yellow circle with black bold '9'"
+      },
+      {
+        "name": "middle_equation_band",
+        "position": "middle, roughly y 40%-58%, full width x 3%-93%",
+        "content": "E = (1/2) \u03a3_j (t_j - O_j)^2 (left); blue italic 'For Sigmoid Activation' + O_j = f(Net_j) = 1/(1+e^(-Net_j)) (center); Net_j = \u03a3_i (w_ji O_i) (right); below them three boxed derivatives: \u2202E/\u2202O_j = -(t_j - O_j), \u2202O_j/\u2202Net_j = O_j(1 - O_j), \u2202Net_j/\u2202W_ji = O_i"
+      },
+      {
+        "name": "chain_rule_box",
+        "position": "bottom-left, roughly x 3%-70%, y 60%-86%",
+        "content": "Large bordered box: \u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji, then = -(t_j - O_j) * O_j(1-O_j) * O_i"
+      },
+      {
+        "name": "derivative_summary_box",
+        "position": "bottom-right, roughly x 76%-93%, y 60%-86%",
+        "content": "Pale-yellow box listing \u2202E/\u2202O_j = -(t_j - O_j); \u2202O_j/\u2202Net_j = O_j(1 - O_j); \u2202Net_j/\u2202W_ji = O_i"
+      }
+    ],
+    "hierarchy": "The beige neural-network diagram is the largest and most dominant visual (top-right). All math is black serif and medium-sized; the only colored text is the red italic headers ('Gradient Descent', 'Where') and the blue italic kicker ('For Sigmoid Activation'). The small yellow '9' badge is the brightest accent on the slide."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Feedforward neural network diagram on a beige panel. Far left: 4 small purple/magenta dots stacked vertically (input layer). Hidden layer: 3 horizontal rows, each row = a circle labeled '\u03a3' connected to a small box labeled 'f' connected to three tiny circles (node outputs); beneath each hidden row is a blue upward arrow; below the hidden layer sits a purple circle containing '1' with the caption 'Node Bias' to its lower left, with an arrow feeding the hidden nodes. Black lines run from the input dots to each hidden \u03a3. Each hidden row's output is labeled 'O_i', and the lines from hidden outputs to the output layer are labeled 'Net_j' and carry weight labels 'w_ij'/'w_ji' drawn as magenta/pink lines. Output layer: 3 horizontal rows, each = '\u03a3' circle \u2192 'f' box \u2192 'O_j', labeled 'Output 1', 'Output 2', 'Output m' to the right; blue upward arrows beneath the output layer. Dashed curved arrows arc from the output/weight area back over the top toward the earlier weights (backpropagation arrows). To the right of the output nodes: a tall red vertical bar with vertical white text 'Error Error Error', and beside it three green boxes reading 'Class 1', 'Class 2', 'Class m'.",
+      "colors": [
+        "#E9DFC9 beige panel",
+        "#9B30B0 purple dots/bias node",
+        "#000000 black \u03a3/f text and input lines",
+        "#D24FD0 magenta weight lines",
+        "#2E75B6 blue arrows",
+        "#C00000 red error bar",
+        "#FFFFFF white error-bar text",
+        "#92D050 green class boxes",
+        "#006100 dark green class text"
+      ],
+      "position": "top-right of slide, roughly x 38%-86%, y 8%-38%"
+    }
+  ],
+  "imagery": [
+    "Vector-style (non-photographic) neural-network diagram on a beige panel: 4 purple input dots, 3 hidden rows each with \u03a3 circle + f box + three small output dots, a purple bias node '1' captioned 'Node Bias', 3 output rows each with \u03a3 + f + O_j labeled Output 1/2/m, magenta connection lines labeled w_ij/w_ji with Net_j labels, dashed curved backprop arrows across the top, blue upward arrows under hidden and output layers, a red vertical 'Error Error Error' bar with green 'Class 1/2/m' boxes, and a yellow circular badge with '9' at the top-right corner of the slide."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#E60000",
+    "body_text": "#000000",
+    "accents": [
+      "#E60000 red italic headers",
+      "#0000CD blue italic kicker",
+      "#FFFF00 yellow slide-number badge",
+      "#92D050 green class boxes",
+      "#C00000 red error bar",
+      "#E9DFC9 beige diagram panel",
+      "#D24FD0 magenta weight lines",
+      "#9B30B0 purple nodes/dots",
+      "#2E75B6 blue arrows",
+      "#FFFFCC pale-yellow summary box",
+      "#8B0000 maroon slide border"
+    ]
+  },
+  "typography_notes": "All mathematics is set in an italic serif face (Times New Roman-like); partial derivatives are written inline as \u2202E/\u2202W_ji, and 'Updated'/'old' appear as small superscripts. Red headers 'Gradient Descent' and 'Where' are italic serif; 'For Sigmoid Activation' is blue italic serif. Diagram labels (\u03a3, f, Net_j, O_i, O_j, w_ij, w_ji, Output 1/2/m, Node Bias, Class 1/2/m) are small sans-serif. The slide number '9' is bold black sans-serif inside a yellow circle. Note: in this italic serif font the numeral '1' in O_j(1 - O_j) can visually resemble a lowercase 'i'.",
+  "animation_state": "Static and fully built \u2014 every box, equation, and diagram element is visible; no partial bullet reveals or mid-animation states.",
+  "recreation_brief": [
+    "1. Insert a blank white slide and draw a thick dark-maroon (#8B0000) rectangle border inset about 2% from every edge of the slide.",
+    "2. Top-left box (approx. x 3%, y 8%, w 32%, h 30%): thin gray border, white fill. Type red (#E60000) italic serif header 'Gradient Descent'. Below it, in black italic serif, type: 'W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji', then 'W_ji^Updated = W_ji^old + \u0394_ji', then a line starting with red italic 'Where' followed by black '\u0394_ji = -\u03b7 \u2202E/\u2202W_ji'.",
+    "3. Top-right diagram (approx. x 38%, y 8%, w 48%, h 30%): fill a rectangle beige (#E9DFC9). Draw 4 small purple (#9B30B0) dots vertically at the left edge. Draw 3 hidden rows: circle with '\u03a3' \u2192 small box 'f' \u2192 three tiny circles; label each row's output 'O_i'; add a blue (#2E75B6) up-arrow under each row. Add a purple circle '1' below with caption 'Node Bias'. Connect input dots to hidden \u03a3 nodes with black lines. Draw 3 output rows: '\u03a3' \u2192 'f' \u2192 'O_j', labeled 'Output 1', 'Output 2', 'Output m'; add blue up-arrows beneath. Draw magenta (#D24FD0) lines from hidden outputs to output \u03a3 nodes, labeled 'Net_j' and 'w_ij'/'w_ji'. Add dashed curved arrows arcing from the output side back to the top weights. At the right edge of the panel draw a tall red (#C00000) vertical bar with vertical white text 'Error Error Error' and three green (#92D050) boxes 'Class 1', 'Class 2', 'Class m'.",
+    "4. Slide number: yellow (#FFFF00) circle at approx. x 89%, y 9% with bold black '9'.",
+    "5. Middle band (y approx. 40%-58%): left, black serif 'E = (1/2) \u03a3_j (t_j - O_j)^2'; center, blue (#0000CD) italic serif 'For Sigmoid Activation' above 'O_j = f(Net_j) = 1/(1 + e^(-Net_j))'; right, 'Net_j = \u03a3_i (w_ji O_i)'. Beneath them, three small white boxes with thin gray borders containing: '\u2202E/\u2202O_j = -(t_j - O_j)', '\u2202O_j/\u2202Net_j = O_j(1 - O_j)', '\u2202Net_j/\u2202W_ji = O_i'.",
+    "6. Bottom-left large box (approx. x 3%, y 60%, w 67%, h 26%): thin border, white fill, black italic serif: '\u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji' on the first line, and '= -(t_j - O_j) * O_j(1-O_j) * O_i' on the second line.",
+    "7. Bottom-right box (approx. x 76%, y 60%, w 17%, h 26%): pale-yellow (#FFFFCC) fill, listing the three partial derivatives: '\u2202E/\u2202O_j = -(t_j - O_j)', '\u2202O_j/\u2202Net_j = O_j(1 - O_j)', '\u2202Net_j/\u2202W_ji = O_i'.",
+    "8. Use an italic serif font (Times New Roman) for all equations with superscript 'Updated'/'old', small sans-serif (Arial) for diagram labels, and keep the red/blue header accents exactly as specified."
+  ],
+  "_meta": {
+    "frame": "slide_009.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 9,
+      "image": "slide_009.jpg",
+      "badge": "9"
+    },
+    "elapsed_s": 191.6
+  }
+}

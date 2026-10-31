@@ -219,3 +219,106 @@ tool — none invented. Raw log: `wave3_agy/search_log.md`.
 
 - The trailing `+` after the PReLU closing brace on the slide stays verbatim; no source explains
   it and it is not corrected.
+
+
+---
+
+## Verified 2026-10-30 (wave 4, fresh worker `w4-src-021`, scope `src_w4_021_024`)
+
+Mandated by `videos/machine-learning/09_introduction_to_neural_networks/AGENTS.md` rule 5.
+Method: `agy -p` CLI attempted first and returned HTTP 429 `RESOURCE_EXHAUSTED`
+("Individual quota reached … Resets in 131h18m6s"); searches therefore ran through the
+**agy MCP web-search tool** (same Google-grounding backend, grounding redirect URLs resolved
+to real page URLs). Every URL below was returned by that tool — none invented. Content
+evidence: `analysis/slide_022_final.json` and
+`sources/docparse_cascades/slide_022/composed/slide_022_composed.md` (independent second read).
+Full claim register: `VERIFY_W4.md` in this directory.
+
+### Claim-by-claim verification
+
+1. **ReLU derivative `f'(x) = { 0 for x<0 ; 1 for x>=0 }`** — CONFIRMED.
+   - Question: *What is ReLU's derivative, and what does it imply for training?*
+   - Answer: 1 on the positive half-line, 0 on the negative; conventionally 0 or 1 at the
+     x=0 kink. Constant 1 on the positive side is what makes ReLU trainable in depth.
+   - https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
+
+2. **PReLU `f(x) = { alpha*x for x<0 ; x for x>=0 }`, alpha learnable** — CONFIRMED.
+   - Question: *Is the PReLU definition with a learnable alpha*
+   - Answer: Yes — `f(x) = x if x > 0 ; αx if x ≤ 0`, equivalently `max(0,x) + α·min(0,x)`;
+     α adapts during backpropagation, distinct from Leaky ReLU's fixed hyperparameter.
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/relu-variants
+   - https://www.semanticscholar.org/paper/Delving-Deep-into-Rectifiers%3A-Surpassing-on-He-Zhang/d6f2f611da110b5b5061731be3fc4c7f45d8ee23
+
+3. **PReLU derivative `f'(x) = { alpha for x<0 ; 1 for x>=0 }`** — CONFIRMED.
+   - Question: *What is PReLU's derivative?*
+   - Answer: 1 for x > 0 and α for x ≤ 0 — a constant negative slope, hence a non-vanishing
+     negative gradient.
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/relu-variants
+   - https://serengil.wordpress.com/2018/01/02/elu-as-a-neural-networks-activation-function/
+
+4. **PReLU's parameter gradient `df/dalpha = { x for x<=0 ; 0 for x>0 }`** — CONFIRMED.
+   - Question: *How is alpha learned in PReLU — what is the gradient wrt alpha?*
+   - Answer: For x > 0, f(x)=x is independent of α → ∂f/∂α = 0; for x ≤ 0, f(x)=αx →
+     ∂f/∂α = x. Only negative inputs update alpha.
+   - https://apxml.com/courses/introduction-to-deep-learning/chapter-2-activation-functions-architecture/relu-variants
+   - https://datascience.stackexchange.com/questions/18583/leakyrelu-vs-prelu
+
+5. **ELU `f(x) = { alpha (e^x − 1) for x<0 ; x for x>=0 }`** — CONFIRMED.
+   - Question: *What is the ELU definition?*
+   - Answer: α>0 (typically 1.0); `x` for x ≥ 0 and `α(e^x − 1)` for x < 0.
+   - https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
+
+6. **ELU derivative `f'(x) = { f(x) + alpha for x<0 ; 1 for x>=0 }`** — CONFIRMED (the slide's
+   non-obvious form; the derived identity is exactly what the slide prints).
+   - Question: *Why is ELU's derivative written `f(x) + alpha` instead of `alpha*e^x`?*
+   - Answer: The direct derivative is `alpha*e^x`, and since the forward pass computes
+     `f(x) = alpha*e^x − alpha`, rearranging gives `alpha*e^x = f(x) + alpha`. Using that form
+     lets the backward pass reuse the cached activation instead of recomputing exp.
+   - https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
+   - https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5be4f3f50&appId=PPGMS
+
+7. **SoftPlus `f(x) = log_e (1 + e^x)`** — CONFIRMED.
+   - Question: *What is the SoftPlus definition?*
+   - Answer: `Softplus(x) = ln(1 + e^x)`; approaches 0 for x → −∞ and x for x → +∞.
+   - https://maelfabien.github.io/deeplearning/act/
+
+8. **SoftPlus derivative `f'(x) = 1/(1+e^{-x})` = the logistic sigmoid** — CONFIRMED.
+   - Question: *What is SoftPlus's derivative?*
+   - Answer: `d/dx[ln(1+e^x)] = e^x/(1+e^x)`, which equals the sigmoid `1/(1+e^{-x})` after
+     dividing numerator and denominator by `e^x`.
+   - https://maelfabien.github.io/deeplearning/act/
+   - https://www.datacamp.com/tutorial/softplus
+
+9. **Pedagogical spine of slides 021–022: ReLU's zero negative-side gradient forces these
+   three variants, which keep a non-zero negative gradient** — CONFIRMED.
+   - Question: *Why do Leaky ReLU / PReLU / ELU exist?*
+   - Answer: ReLU's derivative is 0 on the whole negative half-line, so the error signal
+     vanishes (dying ReLU). The variants keep a non-zero gradient for negative inputs.
+   - https://maelfabien.github.io/deeplearning/act/
+   - https://neurohive.io/en/guides/activation-functions-2/
+
+### Doc-parse cross-check (independent second read)
+
+`composed/slide_022_composed.md` crop `slide_022.crop01__picture.parse.md` reads the PReLU row
+as `f(x)= P arametric ReLU = \big\{α x for x≤0 +` — **corroborating both the `αx` negative
+branch (claim 2) and the trailing `+`** as genuine printed glyphs rather than a vision
+extraction artifact. The same read confirms the ELU row's `α ( e^X-1 ) for x<0` (claim 5) and
+`SoftPlus=loge (1+e^x)` (claim 7). Wave-1's row-merging artifacts (left-hand sides fused with
+the following row's right-hand sides) were already adjudicated in the wave-2 section above and
+remain withdrawn.
+
+### Uncertain items carried forward — unchanged
+
+- **Trailing `+` after the PReLU closing brace.** Kept verbatim. No source explains it and the
+  doc-parse read independently reproduces it, so it is a genuine glyph, not a defect — but it
+  is not corrected either.
+- Relative placement of the word "Derivative" versus the `⇒` arrow (stacked vs inline).
+- Font sizes are recreation guidance, not measurements.
+
+### Corrections
+
+**None.** All 9 data claims in `analysis/slide_022_final.json` stand as written; 0 changes.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

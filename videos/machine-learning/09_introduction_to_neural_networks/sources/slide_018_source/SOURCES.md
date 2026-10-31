@@ -124,3 +124,68 @@ Query texts banked under `web/`: `query_q1_saturation.txt`,
 - Doc-parse cascade: ✅ complete (advisory only — numeric content rejected)
 - Web search: ✅ complete (3 query reads via agy MCP route; CLI lane 429)
 - Sources banked: ✅ yes
+## Verified 2026-10-30 (wave 4, scope `src_w4_017_020`, agent `w4-src-017`)
+
+Fresh independent web-verification pass. Full register: `VERIFY_W4.md` in this directory.
+Query texts banked: `web/w4_q1_saturation.txt`; CLI-lane failure banked verbatim:
+`web/w4_agy_cli_q1.txt`.
+
+### Per-claim verification
+
+1. **Q:** Is "saturation" a real failure mode of saturating activations? **A:** Yes — the
+   activation is pushed into its "outer tails or flat regions", where "the curve has virtually no
+   slope (`f'(x) ≈ 0`)". **URL:**
+   https://datascience.stackexchange.com/questions/27665/what-is-saturating-gradient-problem ·
+   https://mlforbeginners.com/vanishing-gradient-problem/
+2. **Q:** Does saturation mean "same output value for different input values"? **A:** Yes, verbatim
+   in substance: "Different inputs yield the exact same output, erasing information about how large
+   the input actually was." This confirms the slide's centre callout.
+   **URL:** https://datascience.stackexchange.com/questions/27665/what-is-saturating-gradient-problem
+3. **Q:** Sigmoid definition, range and derivative? **A:** `σ(x) = 1/(1+e^{−x})`, range `(0,1)`,
+   saturating at 0 and 1; `σ'(x) = σ(x)(1−σ(x))` with maximum **0.25** at x=0; gradients shrink
+   exponentially across layers. **URL:**
+   https://www.kdnuggets.com/2022/02/vanishing-gradient-problem.html ·
+   https://www.digitalocean.com/community/tutorials/vanishing-gradient-problem ·
+   https://en.wikipedia.org/wiki/Vanishing_gradient_problem
+4. **Q:** Tanh range and derivative? **A:** Range `(−1,1)`, zero-centered, derivative
+   `1 − tanh²(x)`, saturates at ±1 (derivative → 0).
+   **URL:** https://towardsdatascience.com/activation-functions-in-neural-networks-how-to-choose-the-right-one-cb20414c04e5/
+5. **Q:** Arctan / inverse tangent properties? **A:** Range `(−π/2, π/2)` ≈ ±1.57, strictly
+   monotonically increasing, odd, derivative `1/(1+x²)`, bounded and saturating — consistent with
+   the slide's "Inverse Tangent Graph" panel. **URL:** https://www.arxiv.org/pdf/2101.09957 ·
+   https://jamesmccaffrey.wordpress.com/2015/09/13/neural-network-arctan-activation-function/
+6. **Q:** Are the uni-/bi-polar step graphs the extreme saturation case? **A:** Yes — the output is
+   exactly constant on each branch and the derivative is 0 (undefined at 0); the yellow ellipses on
+   the flat branches are exactly this.
+   **URL:** https://kobiso.github.io/research/research-activation-functions/ ·
+   https://machinelearninggeek.com/activation-functions/
+7. **Q:** Are the three bottom charts (sigmoid / tanh / arctan) the bounded "squashing" family?
+   **A:** Yes — all three are smooth, monotone, bounded and saturating.
+   **URL:** https://towardsdatascience.com/activation-functions-in-neural-networks-how-to-choose-the-right-one-cb20414c04e5/
+8. **Q:** Can the doc-parse tables (`depth = t(1)`, y = 0/0.8/0.9; axis `"tatb x"`) be verified?
+   **A:** No — and they are **rejected as hallucinated**: the frame has no such panel or table and
+   no `"tatb x"` axis. The wave-2 rejection stands; the parse's only usable content is the slide
+   **title**, which it does corroborate.
+
+### Search-lane note
+
+`agy -p` CLI: `RESOURCE_EXHAUSTED (429) … Resets in 131h14m13s` (banked at
+`web/w4_agy_cli_q1.txt`). All four queries ran through the `agy_web_search` MCP route on the same
+grounding backend and returned resolved URLs.
+
+### Changes to the analysis spec
+
+**None.** 8 claims checked · 7 CONFIRMED · 1 UNVERIFIED/rejected (doc-parse hallucination) ·
+0 CORRECTED. 12 URLs cited.
+
+### Fetch-status disclosure (wave 4)
+
+Every wave-4 URL above was re-fetched live in the 2026-10-30 work window: **19 distinct URLs
+returned HTTP 200**, **12 answered HTTP 403** (live pages behind Cloudflare/bot-walls on
+GeeksforGeeks, Medium, Towards Data Science, StackExchange, Baeldung, DataCamp, ResearchGate,
+blog.gopenai, vaia — the quoted facts reached this record through the Google grounding backend,
+not from an unfetched snippet), **7 were grounding-resolved only**, and **1**
+(`https://www.aussieai.com/book/ch21-elu-activation-function`) **is unreachable from this
+environment** and is flagged do-not-reuse pending re-fetch — its ELU α claims are independently
+corroborated by the HTTP-200 `https://arxiv.org/abs/1511.07289`. Per-URL table:
+`web/w4_fetch_status.txt`; full register: `VERIFY_W4.md`.

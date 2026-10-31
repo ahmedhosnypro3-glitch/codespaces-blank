@@ -162,3 +162,129 @@ the slide notes.
   vision/parse reading; the math content is confirmed.
 - The lower band contains a small annotation arrow labelled "Update after each sample";
   its exact glyph style (arrow shape) is a vision measurement, not source-verifiable.
+
+---
+
+## Verified 2026-10-30 (wave 4, `src_w4_001_004`)
+
+Fresh independent re-verification pass. Wave-1 and wave-3 sections above are left untouched.
+
+**Transport note**: `agy -p` CLI was quota-blocked this wave (HTTP 429 `RESOURCE_EXHAUSTED /
+Individual quota reached`, resets ~131h). Searches ran through the **agy MCP web-search tool** — the
+same Google grounding via the antigravity proxy with redirect URLs resolved. Every URL below was
+returned by the search service; none invented. The Cornell notes and the `mlbook` perceptron
+chapter were **fetched live** and returned full content.
+
+Full register: `sources/slide_004_source/VERIFY_W4.md`.
+
+### Claim → question → answer → citation
+
+1. **δᵢ = −1 for a class-I point misclassified as Class II (d(X) < 0); δᵢ = +1 for a class-II
+   point misclassified as Class I (d(X) > 0); both give d(X)δᵢ > 0.**
+   *Question:* Is this the standard sign convention, and what is δᵢ in terms of the class label?
+   *Answer:* Yes — the frame's δᵢ is **the negative of the class label**, δᵢ = −yᵢ: class I ⇒
+   y = +1 ⇒ δ = −1; class II ⇒ y = −1 ⇒ δ = +1. Live source: "y_n ∈ {−1,+1}", "misclassified if
+   y_n ŷ_n = −1", criterion "−Σ_{n∈M} y_n(β̂ᵀx_n)"; and "y_i(wᵀx_i) > 0 ⟺ x_i is classified
+   correctly".
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+2. **`Error = Σ (all misclassified vectors (i)) δᵢ WᵀXᵢ` — "Summation is always positive".**
+   *Question:* Is this the standard perceptron criterion, and is the sum really positive?
+   *Answer:* It is identical to the standard perceptron criterion
+   "L(β̂) = −Σ_{n∈M} y_n(β̂ᵀx_n)" once δᵢ = −yᵢ is substituted, giving Σ_{i∈M} δᵢ wᵀxᵢ. Since a
+   misclassified sample has yᵢ(wᵀxᵢ) < 0, each term δᵢwᵀxᵢ = −yᵢwᵀxᵢ is strictly positive — so the
+   sum is positive. The frame's "Summation is always positive" is therefore correct.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+3. **"⇒ (WᵀXᵢ) takes positive and negative values and δᵢ has the same sign".**
+   *Question:* Are the sign relationships as stated?
+   *Answer:* Yes. A mistake has yᵢ(wᵀxᵢ) < 0, i.e. wᵀxᵢ has the **opposite** sign to yᵢ; therefore
+   δᵢ = −yᵢ has the **same** sign as wᵀxᵢ, and their product is positive.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://mldemystified.com/posts/basics-of-ml/perceptrons/post/
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+4. **`∂Error/∂W = Σ (misclassified vectors) δᵢXᵢ`.**
+   *Question:* What is the gradient of the perceptron criterion?
+   *Answer:* "The gradient of the perceptron criterion is ∂L(β̂)/∂β̂ = −Σ_{n∈M} y_n x_n". With
+   δᵢ = −yᵢ this is exactly Σ_{i∈M} δᵢ xᵢ, as printed on the frame.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cis.upenn.edu/~cis5190/fall2015/lectures/04_LinearClassificationPerceptron.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+5. **`W^(updated) = W^old − η ∂Error/∂W` — gradient descent with step η.**
+   *Question:* Is this the standard gradient-descent step, and what is η?
+   *Answer:* Yes — "w_new = w_old − η ∇L(w_old)"; η is the learning rate / step size, a positive
+   scalar controlling step magnitude. The perceptron's own procedure is described as estimating β̂
+   "through gradient descent" with learning rate η.
+   *Citation:* https://www.ibm.com/think/topics/learning-rate ;
+   https://inst.eecs.berkeley.edu/~cs188/fa22/assets/notes/cs188-fa22-note21.pdf ;
+   https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+6. **`W^(updated) = W^old − η Σ (misclassified vectors ONLY (i)) δᵢXᵢ` — batch over misclassified.**
+   *Question:* Does the batch gradient-descent step match the frame?
+   *Answer:* Yes — substituting the criterion's gradient −Σ_{n∈M} y_n x_n (≡ Σ δᵢxᵢ) into the
+   gradient-descent step gives exactly this expression.
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cs.cmu.edu/~mgormley/courses/10601bd-f18/slides/lecture6-perc.pdf
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+7. **"Update after each sample" ⇒ per-sample rule `W^(updated) = W^old − η δᵢXᵢ`.**
+   *Question:* Does the per-sample step equal the classic perceptron rule?
+   *Answer:* Yes — dropping the sum gives the single-sample step, which is **algebraically identical
+   to w ← w + η·y·x** because δᵢ = −yᵢ: "If y_n ŷ_n = −1, β̂ ← β̂ + η·y_n x_n". The Cornell notes show
+   the same update geometrically (for a −1-labelled point, "w_{t+1} = w_t − x").
+   *Citation:* https://dafriedman97.github.io/mlbook/content/c3/s1/perceptron.html (live-fetched) ;
+   https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote03.html (live-fetched)
+   *Status:* **CONFIRMED**. Frame text unchanged.
+
+### Correction re-confirmed (DATA note, frame untouched)
+
+Wave 1's note said the minus sign "means δ_i is defined as (prediction − target)". **That
+characterization is wrong and is corrected again here.** The frame's δᵢ is the **negative of the
+class label** (δᵢ = −yᵢ): −1 for a class-I point, +1 for a class-II point. With that definition the
+slide's `W_new = W_old − η δᵢXᵢ` is algebraically identical to the textbook perceptron rule
+`w ← w + η·y·x`, so the slide's gradient-descent derivation is self-consistent and standard — only
+the sign convention differs. Wave 3 reached the same conclusion; this wave re-confirms it from a
+freshly live-fetched source. **No change to `analysis/slide_004_final.json`** — this is a DATA note
+for slide notes.
+
+### Distinction that must not be blurred (DATA note)
+
+The frame's rule is the **perceptron rule in gradient-descent form**, not the Widrow–Hoff / LMS
+(delta) rule, which uses a linear output and minimizes mean-squared error
+(MSE = (1/N)Σ(d − s)²) rather than the classification-count objective. Because the frame already
+names its variable δᵢ, a note-writer could mistakenly label this the "delta rule". It is not.
+*Citation:* https://www-isl.stanford.edu/~widrow/papers/j199030years.pdf ;
+https://en.wikipedia.org/wiki/Learning_rule ;
+https://www.nrcmec.org/pdf/Content/NR23/ECE/materials/iv/i-semester/artificial-neural-networks/unit-2/material.pdf
+
+### Doc-parse corroboration
+
+`sources/docparse_cascades/slide_004/composed/slide_004_composed.md` (nemotron-3.5-parse,
+degraded: False, 11 elements, 1 crop, 0 failed calls) independently reads: badge "4"; title
+"Problem Formulation"; "Define δᵢ as :" with both conditional lines (δᵢ = −1 and δᵢ = +1, each
+⇒ d(X)δᵢ > 0); "Redefine Error function as:" with `Error = ∑ δᵢ WᵀXᵢ` over "all mislassified
+vectors(i)" and "⇒ (WᵀXᵢ) takes positive and negative values and δᵢ has the same sign"; "Summation
+is always positive"; "Minimize the Error using Gradient Descent with step η";
+`W(updated) = Wold − η ∂Error/∂W`, "where", `∂Error/∂W = ∑ mislcassed vectors δᵢXᵢ`,
+`W(updated) = Wold − η ∑ mislcassed vectors ONLY (i)`, "Update after each sample", and the
+right-hand box `W(updated) = Wold − η δᵢXᵢ`. This corroborates every formula and the panel structure
+in the analysis JSON. The parse's "σ Error ∂W" and its "mislcassed"/"mislcassified" spellings are
+**OCR noise**, not printed text — the slide's printed "misclassified" is correct English and the
+parse typos must not be reproduced.
+
+### Corrections to the analysis record
+
+**None.** No factual or DATA claim in `analysis/slide_004_final.json` was contradicted by any
+source; nothing was patched.
+
+### Law reminder
+
+The frame wins for recreation; the source wins for understanding.

@@ -1,0 +1,212 @@
+{
+  "slide_title": "Recall",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Correctly Classified (as Positive)",
+      "Total objects that should be retrieved (Actually Positive)",
+      "Meaning",
+      "Does the classified miss any of Positive Objects ?",
+      "Recall =",
+      "Precision= 30/(30+0) =100%",
+      "All Positive Samples in the Dataset",
+      "Model Try to catch ALL Positive Samples",
+      "(Irrespective of classifying NEGATIVE Objects as Positive)"
+    ],
+    "labels": [
+      "12",
+      "Meaning",
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "TP",
+      "FN",
+      "FP",
+      "TN",
+      "30",
+      "70",
+      "0",
+      "Positive",
+      "Negative",
+      "Positive Classified as +ive",
+      "Positive Classified as -ive",
+      "All Positive Samples in the Dataset",
+      "Model Try to catch ALL Positive Samples",
+      "(Irrespective of classifying NEGATIVE Objects as Positive)"
+    ],
+    "equations": [
+      "\\frac{\\text{Correctly Classified (as Positive)}}{\\text{Total objects that should be retrieved (Actually Positive)}}",
+      "Recall = \\frac{TP}{TP + FN}",
+      "Precision= 30/(30+0) =100%"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-center; left column below title contains the definition fraction panel, the Meaning callout, the Recall formula with annotation callouts, and the green/blue/red note; right column contains two confusion matrices at top and middle, and a Positive/Negative split diagram at bottom; slide number badge sits at the top-right corner.",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center, roughly x 30-60%, y 5-15%",
+        "content": "Large dark-red title text Recall"
+      },
+      {
+        "name": "definition_panel",
+        "position": "top-left/center, roughly x 4-56%, y 16-30%",
+        "content": "Fraction-style panel with numerator and denominator lines"
+      },
+      {
+        "name": "meaning_and_formula",
+        "position": "left middle, roughly x 4-58%, y 33-75%",
+        "content": "Meaning heading, question, Recall fraction, annotation callouts, and Precision calculation"
+      },
+      {
+        "name": "note",
+        "position": "left lower, roughly x 4-58%, y 72-90%",
+        "content": "Green caption, blue model instruction, red parenthetical"
+      },
+      {
+        "name": "confusion_matrix_legend",
+        "position": "top right, roughly x 62-96%, y 4-35%",
+        "content": "Legend confusion matrix with TP, FN, FP, TN"
+      },
+      {
+        "name": "numeric_confusion_matrix",
+        "position": "right middle, roughly x 62-96%, y 38-63%",
+        "content": "Numeric confusion matrix with 30, 0, 70, 0"
+      },
+      {
+        "name": "class_split_diagram",
+        "position": "bottom right, roughly x 60-97%, y 64-92%",
+        "content": "Positive and Negative class split diagrams with circles and arrows"
+      },
+      {
+        "name": "slide_number",
+        "position": "top right corner, roughly x 93-98%, y 2-8%",
+        "content": "Yellow circle containing 12"
+      }
+    ],
+    "hierarchy": "Title dominates in size and dark-red color; Meaning and Positive/Negative headers are secondary; tables and diagrams provide visual support; small body text and colored notes are tertiary."
+  },
+  "visual_elements": [
+    {
+      "type": "highlight-box",
+      "description": "Fraction-style definition panel with a horizontal divider; upper line reads Correctly Classified (as Positive), lower line reads Total objects that should be retrieved (Actually Positive).",
+      "colors": [
+        "#F2F2F2",
+        "#C00000",
+        "#000000"
+      ],
+      "position": "top-left/center below title"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Pale yellow callout with red border containing the heading Meaning and the question Does the classified miss any of Positive Objects ?; miss is red and Positive is blue.",
+      "colors": [
+        "#FFF2CC",
+        "#C00000",
+        "#0000FF",
+        "#000000"
+      ],
+      "position": "left middle"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with red border containing Recall = and the fraction TP over TP + FN. A left green callout reads Positive Classified as +ive and points to TP; a right pink callout reads Positive Classified as -ive and points to the denominator. Black text to the right reads Precision= 30/(30+0) =100%.",
+      "colors": [
+        "#FFFFFF",
+        "#C00000",
+        "#E2EFDA",
+        "#FCE4E4",
+        "#000000"
+      ],
+      "position": "left middle"
+    },
+    {
+      "type": "other",
+      "description": "Green under-brace/caption All Positive Samples in the Dataset, followed by blue text Model Try to catch ALL Positive Samples and red parenthetical (Irrespective of classifying NEGATIVE Objects as Positive).",
+      "colors": [
+        "#008000",
+        "#0000FF",
+        "#C00000"
+      ],
+      "position": "left lower"
+    },
+    {
+      "type": "table",
+      "description": "Confusion-matrix legend. Top header Predicted as spans columns P and N; left header Actual labels rows P and N. Cells: Actual P/P = TP green, Actual P/N = FN red, Actual N/P = FP red, Actual N/N = TN green.",
+      "colors": [
+        "#00B050",
+        "#FF0000",
+        "#000000",
+        "#0070C0"
+      ],
+      "position": "top right"
+    },
+    {
+      "type": "table",
+      "description": "Numeric confusion matrix. Columns Predicted as P and N; rows Actual P and N. Cells: Actual P/P = 30 with blue highlight border, Actual P/N = 0 green, Actual N/P = 70 white, Actual N/N = 0 green.",
+      "colors": [
+        "#FFFFFF",
+        "#00B050",
+        "#0070C0",
+        "#000000"
+      ],
+      "position": "right middle"
+    },
+    {
+      "type": "diagram",
+      "description": "Two class-split diagrams under headers Positive in red and Negative in green, each with a small airplane icon. Positive side has a pale yellow container; top orange circle 30 arrows down-left to orange circle 30 labeled TP and down-right to green circle 0 labeled FN. Negative side has top red circle 70 arrows down-left to green circle 0 labeled TN and down-right to red circle 70 labeled FP.",
+      "colors": [
+        "#FFF2CC",
+        "#C55A11",
+        "#A9D08E",
+        "#C00000",
+        "#008000",
+        "#000000"
+      ],
+      "position": "bottom right"
+    },
+    {
+      "type": "other",
+      "description": "Small yellow circle at the top-right corner containing the number 12.",
+      "colors": [
+        "#FFFF00",
+        "#000000"
+      ],
+      "position": "top right corner"
+    }
+  ],
+  "imagery": [
+    "Small gray airplane icon under the Positive header, sitting above the Positive split diagram",
+    "Small gray/green airplane icon under the Negative header, sitting above the Negative split diagram"
+  ],
+  "colors": {
+    "background": "#F5F5F5",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#C00000",
+      "#00B050",
+      "#FF0000",
+      "#0000FF",
+      "#FFFF00",
+      "#FFF2CC",
+      "#C55A11",
+      "#A9D08E",
+      "#0070C0",
+      "#008000"
+    ]
+  },
+  "typography_notes": "Sans-serif throughout, Arial/Calibri-like. Title is very large bold dark red. Section headings Meaning, Positive, and Negative are smaller bold. Body text is small black; key words are color-coded and some are capitalized for emphasis. Table and diagram labels are short bold sans-serif. No serif or script text.",
+  "animation_state": "No mid-build; all elements appear fully revealed.",
+  "recreation_brief": "1. Set a 16:9 slide with background #F5F5F5.\n2. Add a centered title text box at the top: Recall, bold, about 54pt, color #C00000.\n3. Below the title, add a light-gray rounded rectangle from about x=4% to x=56%, y=16% to y=30%, fill #F2F2F2, border #C00000. Put a horizontal divider inside; above it write Correctly Classified (as Positive), below it write Total objects that should be retrieved (Actually Positive), black text about 20pt.\n4. Add a pale-yellow callout at x=4%, y=33%, width 54%, height 12%, fill #FFF2CC, border #C00000. Inside, write Meaning in bold red, then Does the classified miss any of Positive Objects ? with miss in red and Positive in blue.\n5. Add a white formula box with red border at x=4%, y=47%, width 30%, height 13%. Write Recall = and the fraction TP over TP + FN. Add a small green callout Positive Classified as +ive with an arrow to TP, and a small pink callout Positive Classified as -ive with an arrow to TP + FN. To the right of the box, add black text Precision= 30/(30+0) =100%.\n6. Under the formula, add a green under-brace labeled All Positive Samples in the Dataset in green. Below it add blue bold text Model Try to catch ALL Positive Samples. Below that add red text (Irrespective of classifying NEGATIVE Objects as Positive).\n7. In the top-right, build a confusion-matrix legend: header Predicted as over columns P and N, header Actual beside rows P and N. Fill TP and TN cells green #00B050; fill FN and FP cells red #FF0000. Use black cell text.\n8. Below it, build the same matrix with numbers: Actual P/P = 30 with a blue highlight border, Actual P/N = 0 green, Actual N/P = 70 white, Actual N/N = 0 green.\n9. At the bottom-right, add headers Positive in red and Negative in green with small airplane icons. For Positive, use a pale-yellow container #FFF2CC; place an orange circle 30 at the top, arrows to an orange circle 30 labeled TP and a green circle 0 labeled FN. For Negative, place a red circle 70 at the top, arrows to a green circle 0 labeled TN and a red circle 70 labeled FP.\n10. Add a small yellow circle at the top-right corner with the number 12 in black.",
+  "_meta": {
+    "frame": "slide_012.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 12,
+      "image": "slide_012.jpg"
+    },
+    "elapsed_s": 1252.3
+  }
+}

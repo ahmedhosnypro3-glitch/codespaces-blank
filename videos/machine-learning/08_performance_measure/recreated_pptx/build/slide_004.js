@@ -52,7 +52,7 @@ s.addText("4", {
 });
 s.addText("Radar Shooting of Positive Target (Enemy plane)", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.6, align: "center", valign: "middle",
-  fontSize: 20, bold: true, color: RED, fontFace: FONT, margin: 0,
+  fontSize: 21, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
 // ---------- helpers ----------
@@ -94,21 +94,21 @@ vline(68, 93, 435, TABLE_LINE, 1);     // left edge / label column separator
 hline(68, 600, 250, TABLE_LINE, 1);    // Actual | Model Output divider
 hline(68, 600, 435, TABLE_LINE, 1);    // table bottom
 
-// rotated row labels in the narrow left column (x 68-98)
-s.addText("Actual", {
-  x: px(70), y: px(136), w: px(30), h: px(92),
-  align: "center", valign: "middle", fontSize: 13, bold: true, color: RED,
-  fontFace: FONT, margin: 0, rotate: 270,
-});
-s.addText("Model Output", {
-  x: px(70), y: px(277), w: px(30), h: px(120),
-  align: "center", valign: "middle", fontSize: 13, bold: true, color: BLUE,
-  fontFace: FONT, margin: 0, rotate: 270,
-});
+// rotated row labels in the narrow left column (x 68-98); wide-short boxes so the
+// text does not wrap before the 270 rotation is applied
+function vlabel(str, cx, cy, len, color) {
+  s.addText(str, {
+    x: px(cx - len / 2), y: px(cy - 10), w: px(len), h: px(20),
+    align: "center", valign: "middle", fontSize: 13, bold: true, color: color,
+    fontFace: FONT, margin: 0, rotate: 270,
+  });
+}
+vlabel("Actual", 85, 181, 70, RED);
+vlabel("Model Output", 85, 337, 115, BLUE);
 
 // ---------- column headers ----------
-text("Positive", 305, 104, 385, 126, 16, RED);
-text("Negative", 510, 104, 590, 126, 16, GREEN_TXT);
+text("Positive", 300, 102, 390, 128, 18, RED);
+text("Negative", 505, 102, 595, 128, 18, GREEN_TXT);
 
 // ---------- plane icons (cropped from the original frame, white->transparent) ----------
 s.addImage({ path: PLANE_POS, x: px(308), y: px(132), w: px(89), h: px(66) });
@@ -163,14 +163,14 @@ function matrix(y0, hy1, mid, y1, cells, predictedAsY) {
   rect(644, y0 - 23, 708, y1 + 4, STRIP_GRAY, null);
   vline(670, y0 - 23, y1 + 4, STRIP_BLUE, 2);
   s.addText("Actual", {
-    x: px(678), y: px(y0 - 10), w: px(26), h: px(y1 - y0 + 20),
-    align: "center", valign: "middle", fontSize: 13, bold: true, color: RED,
+    x: px(695 - 30), y: px((y0 + y1) / 2 + 7), w: px(60), h: px(18),
+    align: "center", valign: "middle", fontSize: 14, bold: true, color: RED,
     fontFace: FONT, margin: 0, rotate: 270,
   });
   // grid box
   rect(708, y0, 860, y1, WHITE, RED, 1.5);
   // "Predicted as" above the box, over the P/N columns
-  text("Predicted as", 750, predictedAsY, 860, predictedAsY + 14, 13, RED);
+  text("Predicted as", 750, predictedAsY, 860, predictedAsY + 15, 14, RED);
   // header letters P / N
   text("P", 750, y0, 804, hy1, 13, BLACK);
   text("N", 804, y0, 860, hy1, 13, BLACK);
@@ -195,7 +195,7 @@ matrix(199, 228, 260, 291, [
   [804, 260, 860, 291, CELL_GREEN, "TN"],
 ], 182);
 
-text("Confusion Matrix", 700, 310, 870, 324, 14, NAVY);
+text("Confusion Matrix", 695, 308, 875, 326, 16, NAVY);
 
 matrix(374, 403, 436, 466, [
   [750, 403, 804, 436, CELL_GREEN, "18"],

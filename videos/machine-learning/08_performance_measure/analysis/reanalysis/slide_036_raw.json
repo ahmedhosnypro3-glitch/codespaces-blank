@@ -1,0 +1,280 @@
+{
+  "slide_title": "ROC Curve for Same Model -different thresholds",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Threshold=0.0",
+      "Threshold=0.1",
+      "Threshold=0.3",
+      "Threshold=0.4",
+      "Threshold=0.6",
+      "Threshold=0.7",
+      "Threshold=1",
+      "Predicted as",
+      "Actual",
+      "P",
+      "N",
+      "ROC Curve for Same Model -different thresholds",
+      "TPR",
+      "FPR",
+      "The Best (If Any)",
+      "Best (TPR)",
+      "Best (FPR)",
+      "0.3",
+      "0.1",
+      "0.0",
+      "0.4",
+      "0.6",
+      "0.7",
+      "1.0",
+      "36",
+      "TP",
+      "FN",
+      "FP",
+      "TN"
+    ],
+    "equations": [
+      "TPR=5/(5+0)=1",
+      "FPR=6/(6+0)=1",
+      "TPR=5/(5+0)=1",
+      "FPR=4/(4+2)=0.66",
+      "TPR=5/(5+0)=1",
+      "FPR=2/(2+4)=0.33",
+      "TPR=4/(4+1)=4/5",
+      "FPR=1/(1+5)=0.16",
+      "TPR=3/(3+1)=0.6",
+      "FPR=1/(1+5)=0.16",
+      "TPR=3/(3+2)=0.6",
+      "FPR=0/(0+6)=0",
+      "TPR=0/(0+5)=0",
+      "FPR=0/(0+6)=0",
+      "TPR = TP/(TP+FN)",
+      "FPR = FP/(FP+TN)"
+    ]
+  },
+  "layout": {
+    "arrangement": "No top title bar; full-bleed white canvas. Left ~66% is a 2-column x 4-row grid of red-bordered threshold panels: column 1 top-to-bottom = Threshold 0.0, 0.1, 0.3, 0.4; column 2 top-to-bottom = Threshold 0.6, 0.7, 1, and a centered title box reading 'ROC Curve for Same Model -different thresholds'. Right ~34% is split vertically: top ~70% is the ROC line chart (with a yellow circular badge '36' at its top-right corner), bottom ~28% is a strip holding two stacked formula boxes on the left and a small green-highlighted confusion-matrix legend on the right.",
+    "regions": [
+      {
+        "name": "threshold panels, left column",
+        "position": "left edge, x ~4-36%, y ~6-98% (four stacked panels)",
+        "content": "Panels Threshold=0.0, 0.1, 0.3, 0.4, each with a red-bordered threshold label, a 3x3 confusion matrix, and a pale-yellow TPR/FPR box"
+      },
+      {
+        "name": "threshold panels, middle column",
+        "position": "x ~37-66%, y ~6-98% (four stacked cells)",
+        "content": "Panels Threshold=0.6, 0.7, 1 plus the bottom cell containing the centered title text 'ROC Curve for Same Model -different thresholds'"
+      },
+      {
+        "name": "ROC chart",
+        "position": "right side, x ~66-99%, y ~6-76%",
+        "content": "Purple ROC curve on white with light-blue gridlines, red TPR (y) and FPR (x) axis labels, seven labeled points, three annotation arrows, green best-point dot, yellow '36' badge at top-right"
+      },
+      {
+        "name": "formulas strip",
+        "position": "bottom-right, x ~66-80%, y ~78-98%",
+        "content": "Two stacked pale boxes with fraction formulas TPR = TP/(TP+FN) and FPR = FP/(FP+TN)"
+      },
+      {
+        "name": "legend matrix",
+        "position": "bottom-right corner, x ~80-99%, y ~80-98%",
+        "content": "Small 3x3 confusion-matrix legend (Predicted as P/N; Actual P/N) with cells TP, FN, FP, TN; TP and TN cells filled bright green"
+      },
+      {
+        "name": "slide number badge",
+        "position": "top-right corner of chart area, x ~89-96%, y ~8-15%",
+        "content": "Yellow circle containing '36' in dark red"
+      }
+    ],
+    "hierarchy": "The panel grid (left) and the ROC chart (right) are co-dominant. Within panels, bold red threshold labels and red TPR/FPR text pop against white; blue vs red matrix numbers encode actual class. On the right, the purple curve is the strongest color accent, followed by the green 'best point' callout and red 'Best (TPR)'/'Best (FPR)' callouts; the yellow '36' badge is a small corner marker."
+  },
+  "visual_elements": [
+    {
+      "type": "table",
+      "description": "Threshold=0.0 panel: red-bordered label 'Threshold=0.0' at top-left; 3x3 confusion matrix with gray header cells ('Predicted as' merged over columns 'P' and 'N'; vertical 'Actual' label at left; row headers 'P' and 'N'); data cells: P row = 5, 0; N row = 6, 0 (P-row numbers blue, N-row numbers red). To the right a pale-yellow box with red text 'TPR=5/(5+0)=1' and 'FPR=6/(6+0)=1'.",
+      "colors": [
+        "#C04040 panel border",
+        "#C0C0C0 header fill",
+        "#0000FF P-row numbers",
+        "#FF0000 N-row numbers and label text",
+        "#FFFFCC formula box fill"
+      ],
+      "position": "top-left panel, x ~4-36%, y ~6-30%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=0.6 panel: label 'Threshold=0.6'; matrix cells: P row = 3, 1; N row = 1, 5; yellow box: 'TPR=3/(3+1)=0.6' and 'FPR=1/(1+5)=0.16'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "top of middle column, x ~37-66%, y ~6-30%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=0.1 panel: label 'Threshold=0.1'; matrix cells: P row = 5, 0; N row = 4, 2; yellow box: 'TPR=5/(5+0)=1' and 'FPR=4/(4+2)=0.66'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "second row left, x ~4-36%, y ~32-56%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=0.7 panel: label 'Threshold=0.7'; matrix cells: P row = 3, 2; N row = 0, 6; yellow box: 'TPR=3/(3+2)=0.6' and 'FPR=0/(0+6)=0'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "second row middle, x ~37-66%, y ~32-56%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=0.3 panel: label 'Threshold=0.3'; matrix cells: P row = 5, 0; N row = 2, 4; yellow box: 'TPR=5/(5+0)=1' and 'FPR=2/(2+4)=0.33'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "third row left, x ~4-36%, y ~58-82%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=1 panel: label 'Threshold=1'; matrix cells: P row = 0, 5; N row = 0, 6; yellow box: 'TPR=0/(0+5)=0' and 'FPR=0/(0+6)=0'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "third row middle, x ~37-66%, y ~58-82%"
+    },
+    {
+      "type": "table",
+      "description": "Threshold=0.4 panel: label 'Threshold=0.4'; matrix cells: P row = 4, 1; N row = 1, 5; yellow box: 'TPR=4/(4+1)=4/5' and 'FPR=1/(1+5)=0.16'.",
+      "colors": [
+        "#C04040 border",
+        "#C0C0C0 header",
+        "#0000FF / #FF0000 numbers",
+        "#FFFFCC box",
+        "#FF0000 text"
+      ],
+      "position": "bottom-left panel, x ~4-36%, y ~84-98%"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Centered text box in the bottom cell of the middle column, two lines: 'ROC Curve for' / 'Same Model -different thresholds', dark red bold text on white.",
+      "colors": [
+        "#C00000 text"
+      ],
+      "position": "bottom of middle column, x ~37-66%, y ~84-98%"
+    },
+    {
+      "type": "chart",
+      "description": "ROC line chart (scatter-with-lines). X axis 'FPR' 0 to 1 (red label, bottom), Y axis 'TPR' 0 to 1 (red label, left). Light-blue gridlines on white. Single purple line with circular markers through points (FPR,TPR): (0,0) labeled '1.0'; (0,0.6) labeled '0.7'; (0.16,0.6) labeled '0.6'; (0.16,0.8) labeled '0.4'; (0.33,1) labeled '0.3'; (0.66,1) labeled '0.1'; (1,1) labeled '0.0'. Threshold labels sit in small white boxes with thin gray borders. A solid green dot marks (0,1). Annotations: green text 'The Best (If Any)' upper-left with green block arrow to the green dot; red text 'Best (TPR)' near top with red block arrow pointing to the '0.3' point; red text 'Best (FPR)' mid-chart with red block arrow pointing left to the '0.4' point.",
+      "colors": [
+        "#9932CC curve",
+        "#FF0000 axis labels and red annotations/arrows",
+        "#00B050 green dot/arrow/text",
+        "#B0E0E6 gridlines",
+        "#FFFFFF plot background",
+        "#808080 label-box borders"
+      ],
+      "position": "right side, x ~66-99%, y ~6-76%"
+    },
+    {
+      "type": "other",
+      "description": "Two stacked pale boxes at bottom-right-left containing fraction-style formulas in dark red: 'TPR = TP/(TP+FN)' (TP over TP+FN) and 'FPR = FP/(FP+TN)' (FP over FP+TN).",
+      "colors": [
+        "#FFFFCC box fill",
+        "#C00000 text"
+      ],
+      "position": "x ~66-80%, y ~78-98%"
+    },
+    {
+      "type": "table",
+      "description": "Legend confusion matrix, 3x3: header 'Predicted as' merged over columns 'P' and 'N'; vertical 'Actual' label at left; row headers 'P' and 'N'; cells: P row = TP, FN; N row = FP, TN. TP and TN cells are filled bright green.",
+      "colors": [
+        "#C0C0C0 header fill",
+        "#00FF00 highlight on TP and TN cells",
+        "#000000 text"
+      ],
+      "position": "bottom-right corner, x ~80-99%, y ~80-98%"
+    },
+    {
+      "type": "arrow",
+      "description": "Three block callout arrows inside the chart: one green arrow from 'The Best (If Any)' text down to the green dot at (0,1); one red arrow from 'Best (TPR)' text pointing down-left to the point labeled '0.3'; one red arrow from 'Best (FPR)' text pointing left to the point labeled '0.4'. Plus the solid green dot at (0,1).",
+      "colors": [
+        "#00B050 green arrow/dot",
+        "#FF0000 red arrows"
+      ],
+      "position": "inside ROC chart area, x ~66-99%, y ~6-76%"
+    },
+    {
+      "type": "icon",
+      "description": "Yellow circle badge with '36' in dark red, slide number, at the top-right corner of the chart area.",
+      "colors": [
+        "#FFFF00 fill",
+        "#C00000 text"
+      ],
+      "position": "x ~89-96%, y ~8-15%"
+    }
+  ],
+  "imagery": [
+    "No photographic imagery. Only vector icons/shapes: a yellow circular slide-number badge '36' (top-right), a solid green dot at (0,1) on the ROC plot, and three block callout arrows (one green, two red) used as annotations on the chart."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#C00000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000 red text/numbers/arrows/axis labels",
+      "#C04040 panel borders",
+      "#0000FF blue P-row matrix numbers",
+      "#9932CC purple ROC curve",
+      "#00B050 green dot/arrow/text",
+      "#00FF00 green TP/TN cell highlight",
+      "#FFFF00 yellow badge",
+      "#FFFFCC pale-yellow formula boxes",
+      "#C0C0C0 gray table headers",
+      "#B0E0E6 light-blue chart gridlines"
+    ]
+  },
+  "typography_notes": "All text is a clean sans-serif (Calibri/Arial-like). Threshold labels are bold red inside thin red-bordered rectangles. Matrix headers are bold black on gray fill; 'Actual' appears as a vertical (rotated) label on the left of each matrix. TPR/FPR lines are red regular weight on pale-yellow boxes. Chart annotations: green for 'The Best (If Any)', red for 'Best (TPR)' and 'Best (FPR)'. Axis names TPR/FPR and single-letter codes P/N/TP/FN/FP/TN are uppercase. No italics, no numbered bullets.",
+  "animation_state": "Static, fully revealed; nothing appears mid-build.",
+  "recreation_brief": [
+    "1. Start with a blank white 16:9 slide; do not add a title placeholder.",
+    "2. Draw the left grid: 8 red-bordered rectangles (border ~1.5pt, #C04040) in 2 columns x 4 rows covering x ~4-66%, y ~6-98%. Column 1 top-to-bottom: Threshold=0.0, 0.1, 0.3, 0.4. Column 2 top-to-bottom: Threshold=0.6, 0.7, 1, and the title box cell.",
+    "3. In each of the 7 threshold panels: (a) small white box with red border at the panel's top-left containing bold red text 'Threshold=X'; (b) a 3x3 table on the left with gray (#C0C0C0) header cells - top-left cell holds 'Actual' rotated 90 degrees, 'Predicted as' merged across the two right columns, column headers 'P' and 'N', row headers 'P' and 'N'; (c) fill the four data cells with P-row values in blue (#0000FF) and N-row values in red (#FF0000): 0.0 -> 5,0 / 6,0; 0.1 -> 5,0 / 4,2; 0.3 -> 5,0 / 2,4; 0.4 -> 4,1 / 1,5; 0.6 -> 3,1 / 1,5; 0.7 -> 3,2 / 0,6; 1 -> 0,5 / 0,6; (d) to the right of the table, a pale-yellow (#FFFFCC) box with two lines of red text: 0.0: 'TPR=5/(5+0)=1','FPR=6/(6+0)=1'; 0.1: 'TPR=5/(5+0)=1','FPR=4/(4+2)=0.66'; 0.3: 'TPR=5/(5+0)=1','FPR=2/(2+4)=0.33'; 0.4: 'TPR=4/(4+1)=4/5','FPR=1/(1+5)=0.16'; 0.6: 'TPR=3/(3+1)=0.6','FPR=1/(1+5)=0.16'; 0.7: 'TPR=3/(3+2)=0.6','FPR=0/(0+6)=0'; 1: 'TPR=0/(0+5)=0','FPR=0/(0+6)=0'.",
+    "4. In the 8th grid cell (bottom of column 2) place a centered text box, dark red (#C00000) bold, two lines: 'ROC Curve for' / 'Same Model -different thresholds'.",
+    "5. Right side: draw the ROC plot area x ~66-99%, y ~6-76%, white fill with light-blue (#B0E0E6) gridlines; add red axis labels 'TPR' (vertical, left side) and 'FPR' (horizontal, bottom).",
+    "6. Plot one purple (#9932CC) line with circle markers through (FPR,TPR): (0,0), (0,0.6), (0.16,0.6), (0.16,0.8), (0.33,1), (0.66,1), (1,1).",
+    "7. Add small white label boxes with thin gray borders next to each point: '1.0' at (0,0), '0.7' at (0,0.6), '0.6' at (0.16,0.6), '0.4' at (0.16,0.8), '0.3' at (0.33,1), '0.1' at (0.66,1), '0.0' at (1,1).",
+    "8. Add a solid green (#00B050) dot at (0,1); green text 'The Best (If Any)' at upper-left with a green block arrow pointing to the dot; red text 'Best (TPR)' near the top with a red block arrow pointing to the '0.3' point; red text 'Best (FPR)' mid-chart with a red block arrow pointing left to the '0.4' point.",
+    "9. Top-right corner of the chart: yellow (#FFFF00) circle containing '36' in dark red (#C00000).",
+    "10. Bottom-right strip (y ~78-98%): on the left, two stacked pale-yellow boxes with fraction formulas 'TPR = TP/(TP+FN)' and 'FPR = FP/(FP+TN)' in dark red; on the right, a 3x3 legend table ('Predicted as' over 'P'/'N', 'Actual' rows 'P'/'N') with cells TP, FN / FP, TN, where the TP and TN cells are filled bright green (#00FF00).",
+    "11. Use a sans-serif font (Calibri) throughout; bold red for threshold labels; no other decoration, footers, or logos."
+  ],
+  "_meta": {
+    "frame": "slide_036.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 36,
+      "image": "slide_036.jpg"
+    },
+    "elapsed_s": 377.1
+  }
+}

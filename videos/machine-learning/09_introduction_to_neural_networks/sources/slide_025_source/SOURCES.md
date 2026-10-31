@@ -240,3 +240,64 @@ it is NOT printed on the frame.
 - The doc-parse `composed/` file for 025 recovers only the title text (the graph
   panels were treated as one picture element), so all geometry here rests on
   `slide_025_final.json` + vision; not resolvable from text evidence.
+
+---
+
+## Verified 2026-10-30 (wave 4 — scope `src_w4_025_028`, worker `w4-src-025`)
+
+**Method**: mandated by this deck's `AGENTS.md` rule 5 + the slide-recreation skill's
+`references/source-research.md`. Spec read = `analysis/slide_025_final.json`
+(vision `images`, `validate_slides` verdict PASS_WITH_FIXES, recreatability 9/10);
+independent second read = `sources/docparse_cascades/slide_025/composed/slide_025_composed.md`
+(frame md5 `a82380b2460d1b93d2a3e0e52bedea34`). Wave-1/-2/-3 sections above are unchanged.
+
+**Search transport (honest note)**: the `agy -p` CLI is quota-exhausted —
+HTTP 429 `RESOURCE_EXHAUSTED / Individual quota reached`, "Resets in 131h15m36s"
+(CLI probe transcript banked at `sources/slide_025_source/agy_wave4/w4_cli_probe_429.txt`;
+the probe failed identically to the other slides' probes). Per the operations
+tool-down law the remaining queries ran through the **agy web-search MCP** route
+— the same Google grounding service, different transport. Every URL cited below
+was returned by that service; none are invented.
+
+**Compact register**: `sources/slide_025_source/VERIFY_W4.md` (per-claim status,
+evidence URL, questions asked, changes to the spec).
+
+### Claim-by-claim verification (wave 4)
+
+| # | Claim (DATA-level) | Question asked | Answer | Verdict |
+|---|---|---|---|---|
+| 1 | `F(x) = x` — Linear (No Activation) | "linear identity activation function f(x)=x no activation" | Passes input through unchanged; range (−∞,+∞); stacked linear layers collapse to one linear op; regression output layer | CONFIRMED — https://medium.com/@sushmita2310/12-types-of-activation-functions-in-neural-networks-a-comprehensive-guide-a441ecefb439 · https://www.roboflow.com/blog/activation-function-computer-vision |
+| 2 | Unipolar unit step {0 for x<0 ; 1 for x≥0} | "binary step unipolar unit step 1 if x≥0 else 0 range {0,1}" | Threshold: 1 if x≥0 else 0; range {0,1}; f′=0 a.e., undefined at 0 | CONFIRMED — https://towardsdatascience.com/what-are-activation-functions-in-deep-learning-cc4f1e1cf5c/ · https://en.wikipedia.org/wiki/Activation_function |
+| 3 | Bipolar unit step {−1 for x<0 ; 1 for x≥0} | "bipolar unit step sign function +1 if x≥0 else −1 range {−1,+1}" | +1 if x≥0 else −1; range {−1,+1}; used where bipolar/zero-centred representation is wanted (Adaline, Hopfield) | CONFIRMED (Wave-1 OCR ambiguity stays resolved as −1) — https://en.wikipedia.org/wiki/Activation_function · https://encord.com/blog/activation-functions-neural-networks/ · https://towardsdatascience.com/what-are-activation-functions-in-deep-learning-cc4f01e1cf5c/ |
+| 4 | The three panels are schematic function curves | (implicit in #1–#3) | Identity line, {0,1} step and {−1,+1} step are textbook schematic curves; no dataset behind them | CONFIRMED — build as matplotlib line plots, not data charts |
+| 5 | Step nets are not trainable by backprop (f′=0 a.e.) | (implicit in #2–#3) | "not differentiable at x=0 and derivative 0 everywhere else, impossible to train using gradient descent / backprop" | CONFIRMED (context only — NOT printed on frame) — https://en.wikipedia.org/wiki/Activation_function · https://encord.com/blog/activation-functions-neural-networks/ |
+| 6 | Badge numeral on the frame | — (not a web question) | Web research cannot settle a printed numeral | `[?]` — see below |
+| 7 | Axis ranges / tick values on the three plots | — (not a web question) | Doc-parse carried the graph panels as one `<class_Picture>`; no ticks readable | `[?]` — keep schematic, pending vision measurement |
+
+### Wave-4 sources banked (new this wave)
+
+1. https://medium.com/@sushmita2310/12-types-of-activation-functions-in-neural-networks-a-comprehensive-guide-a441ecefb439
+2. https://www.roboflow.com/blog/activation-function-computer-vision
+3. https://towardsdatascience.com/what-are-activation-functions-in-deep-learning-cc4f01e1cf5c/
+4. https://en.wikipedia.org/wiki/Activation_function
+5. https://encord.com/blog/activation-functions-neural-networks/
+
+### Uncertain items (marked [?]) — wave 4
+
+- **Badge numeral — partially resolved, builder must confirm against the frame.**
+  `slides_index.json` (the human-approved index) maps `slide_025.jpg` → badge `25`,
+  and the printed numeral the fresh vision analysis reads is **17**. Both readings
+  are banked. Web research cannot settle a printed numeral; the house badge rule
+  requires reading it off the frame (`unique_slides/slide_025.jpg`). This is the
+  third wave to flag it; it stays open.
+- Axis ranges/tick values on the three plots — still unrecovered (doc-parse gave
+  no ticks; the analysis spec carries none). Keep schematic
+  (x ≈ [−3,3], f(x) ticks at −1/0/1). The y-levels 1 / ±1 derive from the paired
+  equations, not from axis readings.
+
+### Net effect on the analysis spec (wave 4)
+
+**0 changes.** Every DATA-level claim in `slide_025_final.json` is either
+CONFIRMED by this wave's sources or is a frame-pixel question web research cannot
+answer (badge numeral, axis tick values). No `[?]` was removed. Frame text is
+unchanged — sources confirm/correct DATA only.

@@ -1,17 +1,37 @@
-PER-SLIDE CONTEXT for slide 004 of machine-learning/09_introduction_to_neural_networks.
-Measured facts about the ORIGINAL frame (unique_slides/slide_004.jpg, 960x540, 1px = 1pt):
+PER-SLIDE CONTEXT for slide 004 of machine-learning/09_introduction_to_neural_networks (wave 4).
+All geometry re-measured by PIL on unique_slides/slide_004.jpg (960x540) and on the fresh render;
+canvas is 13.33 x 7.5 in.
 
-- PRINTED SLIDE NUMBER on the badge: "4". Badge = yellow circle at x 11.78-12.47 in, y 0.62-1.21 in, with a purple-ish outline and a black bold "4". (The top-left corner contains NO number — a transcript claiming a "10" there is a hallucination; the corner is empty background.)
-- TITLE: "Problem Formulation", single span, bold red, centered. Red ink bbox x 4.90-8.74 in, y 0.85-1.12 in (20px cap height ≈ 28-30 pt).
-- Three stacked full-width panels, all sharing red borders at x 0.819-12.528 in, i.e. flush to the outer red frame:
-  * PANEL 1 (square corners, WHITE fill: measured mode #FCFCFC): top border y=1.417-1.444 in, bottom border y=2.792-2.806 in. Contains "Define δi as :", then two indented conditional lines (class I / Class II misclassification), each ending "d(X) δi > 0".
-  * PANEL 2 (rounded, CREAM fill: measured mode #FCFCE4): top border y=3.042-3.069 in, bottom border y=4.528-4.556 in. Contains "Redefine Error function as:", the Error summation line, and "Summation is always positive".
-  * PANEL 3 (rounded, PEACH fill: measured modes #EAD8C6 / #E4D8C6): top border y=4.889 in, bottom border y=7.167 in. Contains the Gradient Descent heading, the update equations, and the bottom row of two boxes.
-- BOTTOM RIGHT pair inside PANEL 3, both GREEN-BORDERED rounded boxes, measured y 6.38-6.94 in:
-  * LEFT box: LIGHT-GREEN fill (measured #DEFCEA), left edge x≈1.083 in, right edge x≈6.569 in — holds the batch update equation W^(updated) = W^(old) - η Σ_{misclassified vectors ONLY (i)} δi Xi.
-  * RIGHT box: PALE-YELLOW fill (measured #F6FCB4), left edge x≈6.65 in, right edge x≈12.06 in — holds the per-sample update W^(updated) = W^(old) - η δi Xi.
-- CENTER CAPTION between the two boxes: red text "Update after each sample" at x 5.806-7.347 in, y 6.306-6.819 in (a single ~12 px line), and beneath it a dark double-headed arrow glyph "⇔" plus the trailing equation, measured dark ink y 6.111-7.083 in at x 5.417-7.208 in.
-- EQUATIONS (all present in the original, rendered LINEAR in the source — any 2D professional-format upgrade in the recreation is permissive, NOT a discrepancy):
-  Error = Σ_{all misclassified vectors (i)} δi W^T Xi ; ∂Error/∂W = Σ_{misclassified vectors} δi Xi ; W^(updated) = W^(old) - η ∂Error/∂W ; W^(updated) = W^(old) - η Σ_{misclassified vectors ONLY (i)} δi Xi ; W^(updated) = W^(old) - η δi Xi.
-- LECTURE-VIDEO ARTIFACTS to be ignored (correctly omitted from any recreation): a mouse pointer icon near the bottom-center, red squiggle/underline overlays, and a black player strip along the very bottom edge of the capture.
-- HOUSE CHROME (intentional, never a discrepancy): outer red frame x 0.15 y 0.15 w 13.03 h 7.2, badge circle x 12.48 y 0.30 w 0.5 h 0.5, title box y 0.28 x 0.6 w 12.13, canvas #E8E8E8.
+- PRINTED SLIDE NUMBER: yellow badge top-right reading "4" (the top-left corner has NO number).
+- TITLE: "Problem Formulation", single span, bold red, centered. Measured red ink bbox x 4.90-8.74 in, y 0.85-1.12 in.
+- Three stacked panels, all sharing the same red border x 0.82-12.52 in:
+  * PANEL 1 square corners, WHITE fill (mode #FFFFFF): y 1.417-2.806 in. Three text lines, left edge x 0.944 in:
+    "Define δi as:" (ink y 1.58-1.75), conditional line 1 (y 1.94-2.11), conditional line 2 (y 2.29-2.47).
+  * PANEL 2 rounded, CREAM fill (measured mode 254,255,232 = #FEFFE8): y 3.042-4.556 in.
+    "Redefine Error function as:" (ink y 3.24-3.42), the Error summation equation on one row (ink x 1.14-5.75, y 3.51-4.04), the parenthetical clause to its right (x 5.82-12.05), and "Summation is always positive" (x 1.07-3.21, y 4.17-4.29).
+  * PANEL 3 rounded, TAN fill (measured mode 234,219,200 = #EADBC8): y 4.889-7.167 in.
+    Heading "Minimize the Error using Gradient Descent with step η" (x 1.17-7.28, y 4.92-5.08);
+    equation row: W-update equation (x 1.15-4.65), "where" (x 5.69-6.43), gradient equation (x 7.11-10.57), ink y 5.42-5.99.
+- BOTTOM ROW inside PANEL 3 (both y 6.15-6.93 in), separated by a 2.2 in peach gap centered on x 7.9 in:
+  * LEFT box: MINT fill (measured mode 223,255,238 = #DFFFEE), x 1.09-6.73 in — holds
+    W^(updated) = W^(old) - η Σ_{misclassified vectors ONLY (i)} δi Xi on the main line (x 1.17-4.87, y 6.29-6.52)
+    with a smaller red caption (x 3.6-6.05, y 6.74-6.88) under the Σ.
+  * RIGHT box: PALE-YELLOW fill (measured mode 246,252,182 = #F6FCB4), x 8.99-12.33 in — holds
+    W^(updated) = W^(old) - η δi Xi (x 9.16-12.00).
+  * CENTER: red single-line text "Update after each sample" (x 6.87-8.79, y 6.31-6.46) with a red double-headed
+    arrow glyph beneath it (x 6.50-7.94, y 6.53-6.66) and a dark horizontal rule under the text (y 6.486, x 6.87-9.18).
+  * Both boxes carry a muted green border (measured ~#8A9D59 anti-aliased over the fills).
+- EQUATIONS (linear in the source; any 2D professional-format upgrade in the recreation is permissive per rule (e)):
+  Error = Σ_{all misclassified vectors (i)} δi W^T Xi; (W^T Xi) takes positive and negative values and δi has the same sign;
+  W^(updated) = W^(old) - η ∂Error/∂W; ∂Error/∂W = Σ_{misclassified vectors} δi Xi;
+  W^(updated) = W^(old) - η Σ_{misclassified vectors ONLY (i)} δi Xi; W^(updated) = W^(old) - η δi Xi.
+  The Σ limits/subscripts are printed in red italic in the original.
+- LECTURE-VIDEO ARTIFACTS to be ignored: mouse pointer near the bottom centre, the black video-player strip along the
+  very bottom edge (measured y 7.18-7.5, x 0.555-12.775 — it is a capture artifact deliberately reproduced as chrome).
+- HOUSE CHROME (intentional, never a discrepancy): outer red frame x 0.15 y 0.15 w 13.03 h 7.2, badge circle
+  x 12.48 y 0.30 w 0.5 h 0.5, title box y 0.28 x 0.6 w 12.13, canvas #E8E8E8.
+- INK CONTAINMENT verified by PIL on the render: no element crosses a panel border; the bottom box row ends at
+  y 6.93 in, leaving 0.24 in of tan before the panel 3 border at y 7.167 in.
+
+Write your analysis compactly (the geometry above is already measured — do not re-derive it), then list every
+discrepancy with severity and confidence, then end with: FINAL VERDICT: PASS or FAIL.

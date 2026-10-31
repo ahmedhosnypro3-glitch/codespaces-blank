@@ -1,0 +1,17 @@
+Ground rules acknowledged: crop-pair of the densest region of slide 021, matched effective scale, house chrome/medium/equation-format rules applied first. I compared cell-by-cell, glyph-by-glyph, and delimiter-by-delimiter.
+
+Confirmed matches (no defect): 
+- Table is 3Ã3 with identical values in every cell in both images: row1 = 17 | 10 | 15, row2 = 10 | 43 | 46, row3 = 20 | 80 | 95. No swapped value, no missing row/column, no garbled digit.
+- Yellow diagonal highlight is on the same three cells in both: 17 (r1c1), 43 (r2c2), 95 (r3c3).
+- Top expression structure identical: `(X^T X + Î»I)` with a raised superscript T; exponent `-1` on the closing parenthesis of the bottom `(X^T X + Î»I)^{-1}` is present and raised in both. No truncated subscript/superscript, no missing factor.
+- The right-hand absolute-value delimiter is a continuous vertical stroke that runs alongside the full 3-row enclosure and does not touch the cell text in either image (spanning geometry OK). Row separators/cell borders are present with matching line separation; numbers are vertically centered in their cells to the same degree.
+- The green âÎ» = 3â annotation is present in both; `Î»` and `I` are blue, `X` terms are dark red in both.
+
+Discrepancies found:
+1. Underline on the matrix variable X â MINOR, confidence: moderate. In IMG2 the two `X` glyphs carry a visible underline (bold/vector emphasis); IMG1 omits it. No value or symbol is changed, but it is a deliberate typographic element of the original that is not reproduced.
+2. Color of the `+` in `X + Î»I` â MINOR, confidence: moderate. In IMG2 the whole left term reads uniformly red (`X`, superscript `T`, X, and the `+`); in IMG1 the `+` reads black/dark against the red Xâs, so the term is no longer single-colored.
+3. Annotation `Î» = 3` (upper right) â MINOR, confidence: low. IMG2 renders the token uniformly green; IMG1 appears to color `Î»` green while `= 3` reads darker, and spacing around `=` looks looser. This is partly JPEG-limbo, so flagged low rather than asserted.
+
+No BLOCKER or MAJOR defect in this region: every number, table value, subscript/superscript, delimiter span, and equation structure is faithful; the only issues are the two minor formatting/color items (and one low-confidence annotation item), which do not affect correctness or usability.
+
+FINAL VERDICT: PASS

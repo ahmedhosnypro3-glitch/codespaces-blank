@@ -185,3 +185,93 @@ query texts are banked under `web/`:
 - Web search: ✅ 3 independent query reads via the agy MCP route (CLI lane 429,
   error banked verbatim)
 - Sources banked: ✅ yes
+
+## Verified 2026-10-30 (wave 4, scope `src_w4_017_020`, agent `w4-src-017`)
+
+Fresh independent web-verification pass. Full register: `VERIFY_W4.md` in this directory.
+Query texts banked: `web/w4_q1_relu.txt`; CLI-lane failure banked verbatim:
+`web/w4_agy_cli_q1.txt`.
+
+### Per-claim verification
+
+1. **Q:** Is the printed ReLU box `0 for x < 0 ; x for x > 0` the standard ReLU? **A:** Yes —
+   `f(x) = max(0, x)`: "if the input x is positive, it outputs x directly; if the input x is
+   negative or zero, it outputs 0". **URL:**
+   https://www.geeksforgeeks.org/deep-learning/relu-activation-function-in-deep-learning/
+2. **Q:** ReLU derivative? **A:** 1 for `x > 0`, 0 for `x < 0` (undefined at 0); ReLU therefore does
+   **not** saturate on the positive side. **URL:**
+   https://www.geeksforgeeks.org/deep-learning/relu-activation-function-in-deep-learning/
+3. **Q:** Does the callout's "Same Output value for Different Input values" describe ReLU's flat
+   negative branch? **A:** Yes — "Because negative inputs always output 0 … the neuron acts as a
+   'switch' that turns off the neuron's contribution"; the flat branch gives the same output for
+   every distinct negative input and zero gradient. **URL:**
+   https://datascience.stackexchange.com/questions/5706/what-is-the-dying-relu-problem-in-neural-networks ·
+   https://mlforbeginners.com/vanishing-gradient-problem/
+4. **Q:** Dying ReLU? **A:** Yes — always-zero output → zero gradient → no weight updates → "can
+   never recover or learn anything new". **URL:**
+   https://blog.gopenai.com/understanding-the-dying-relu-problem-and-its-variants-in-neural-networks-e94200fbc117 ·
+   https://aiml.com/what-is-dying-relu-or-dead-relu-and-why-is-this-a-problem-in-neural-network-training/
+5. **Q:** Is PReLU's α a learnable parameter (and from which paper)? **A:** Yes — "aᵢ is the
+   coefficient controlling the slope of the negative part … **optimized directly via
+   backpropagation**", channel-specific or channel-shared; source: He, Zhang, Ren, Sun, *Delving
+   Deep into Rectifiers*, ICCV 2015. **URL:**
+   https://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html ·
+   https://arxiv.org/abs/1502.01852 ·
+   https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf
+6. **Q:** ELU definition and the role of α? **A:** `f(x) = x for x > 0 ; α(e^x − 1) for x ≤ 0`;
+   "α is a hyperparameter that defines the value to which an ELU saturates for heavily negative
+   inputs"; as `x → −∞` the limit is `−α`. **URL:** https://arxiv.org/abs/1511.07289 ·
+   https://www.researchgate.net/publication/284579051_Fast_and_Accurate_Deep_Network_Learning_by_Exponential_Linear_Units_ELUs
+7. **Q:** Are the legend's `a = 0.1 / 0.5 / 1.0 / 2.0` the field's **standard** ELU α choices?
+   **A:** **No — corrected/narrowed.** "**α = 1.0** is the default setting" in Clevert et al. and in
+   PyTorch (`F.elu`) / TensorFlow-Keras; α is "rarely tuned away from 1.0", and practitioners who
+   do tune it stay "between 0.1 and 1.0" (`0 < α ≤ 1`). α = 2.0 lies outside that usual range, so
+   the four legend values are a **course-authored sweep over the α parameter**, not a list of
+   standard defaults. The frame is reproduced as drawn; only this prose claim is corrected.
+   **URL:** https://www.geeksforgeeks.org/deep-learning/elu-activation-function-in-neural-network/ ·
+   https://www.aussieai.com/book/ch21-elu-activation-function ·
+   https://mlforbeginners.com/elu-activation-function/
+8. **Q:** Is the frame's ELU y-window consistent with the legend? **A:** Consistently, yes — the
+   α = 2.0 curve saturates at `−2` and the α = 1.0 curve dips to about `−1`, matching the frame's
+   `[?]`-marked y ticks `−2` and `2` and the green curve "dips to about −1". The tick labels
+   themselves stay `[?]` (frame data).
+   **URL:** https://www.aussieai.com/book/ch21-elu-activation-function
+9. **Q:** SoftPlus definition, derivative, and behaviour? **A:** `f(x) = ln(1 + e^x)`;
+   `f'(x) = 1/(1+e^{−x}) = σ(x)` (the sigmoid); "for negative values of x, f(x) smoothly approaches
+   0, but never quite reaches it"; derivative strictly positive everywhere, so it has **no flat
+   (saturated) segment** — a smooth ReLU approximation with no dying neurons.
+   **URL:** https://www.geeksforgeeks.org/deep-learning/softplus-function-in-neural-network/ ·
+   https://www.analyticsvidhya.com/blog/2025/12/softplus-activation-function/ ·
+   https://www.datacamp.com/tutorial/softplus
+10. **Q:** Can the ELU axis tick labels be verified from sources? **A:** No — plot windows are frame
+    data; no web source states an ELU axis window. The `[?]` markers stay.
+11. **Q:** Can the doc-parse legends (`x = R.I / R.F / R.B / S.R`, `z = 0.1 / 0.2 / 0.3 / 1.0`) and
+    tables be verified? **A:** No — **rejected as hallucinated**: they match no axis on the frame
+    (whose ELU legend is `a = 0.1 / 0.5 / 1.0 / 2.0`), and the parse recovers none of the slide's
+    verbatim text. The wave-3 rejection stands. The parse does corroborate the **slide title** and
+    the multi-panel layout.
+
+### Search-lane note
+
+`agy -p` CLI: `RESOURCE_EXHAUSTED (429) … Resets in 131h14m13s` (banked at
+`web/w4_agy_cli_q1.txt`). All six queries ran through the `agy_web_search` MCP route on the same
+grounding backend and returned resolved URLs.
+
+### Changes to the analysis spec
+
+**No change to the analysis JSON.** 11 claims checked · 7 CONFIRMED · 1 CONFIRMED-with-narrowing ·
+1 UNVERIFIED (frame-window ticks) · 1 rejected hallucination · **1 CORRECTED** (claim 7 above,
+prose-only). 18 URLs cited. (Re-checked: `analysis/reanalysis_v2/slide_020_reanalysis.txt` still
+does not exist, so no independent vision re-read exists for this frame.)
+
+### Fetch-status disclosure (wave 4)
+
+Every wave-4 URL above was re-fetched live in the 2026-10-30 work window: **19 distinct URLs
+returned HTTP 200**, **12 answered HTTP 403** (live pages behind Cloudflare/bot-walls on
+GeeksforGeeks, Medium, Towards Data Science, StackExchange, Baeldung, DataCamp, ResearchGate,
+blog.gopenai, vaia — the quoted facts reached this record through the Google grounding backend,
+not from an unfetched snippet), **7 were grounding-resolved only**, and **1**
+(`https://www.aussieai.com/book/ch21-elu-activation-function`) **is unreachable from this
+environment** and is flagged do-not-reuse pending re-fetch — its ELU α claims are independently
+corroborated by the HTTP-200 `https://arxiv.org/abs/1511.07289`. Per-URL table:
+`web/w4_fetch_status.txt`; full register: `VERIFY_W4.md`.

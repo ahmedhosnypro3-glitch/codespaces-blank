@@ -2,8 +2,8 @@
 """Generate slide_020 activation-function plots (ReLU, PReLU, ELU, SoftPlus).
 
 Real closed-form activation functions rendered with matplotlib at the panel
-sizes measured from the original 960x540 frame. Blue frame is drawn natively in
-the pptx (not baked), so the PNGs carry only axes, grid, ticks and curves.
+sizes measured from the original 960x540 frame. The thin blue frame is baked
+into each PNG (measured 1 px blue stroke) so the pptx places frames exactly.
 """
 import os
 import matplotlib
@@ -20,11 +20,11 @@ GRAY_GRID = "#D3D3D3"
 BLACK = "#000000"
 WHITE = "#FFFFFF"
 
-# Blue panel borders measured in the 960x540 original (1 px = 1 pt).
-TOP = (338, 114, 616, 277)   # w 278, h 163
+Four thin blue #0000FF frames measured in the 960x540 original (1 px = 1 pt).
+TOP = (318, 114, 616, 277)   # w 298, h 163
 BL = (84, 336, 320, 475)     # w 236, h 139
-BC = (362, 338, 591, 473)    # w 229, h 135
-BR = (640, 337, 875, 473)    # w 235, h 136
+BC = (362, 336, 592, 474)    # w 230, h 138
+BR = (638, 336, 876, 474)    # w 238, h 138
 
 # Axes (data area) fractions inside each panel, from measured gridlines:
 #   TOP: x ticks 379.5/427.75/476/524.25/572.5, y rows 129/193.5/258
@@ -59,6 +59,12 @@ def make_panel(name, path, box, draw_fn, xlim=(-10, 10), ylim=(0, 10),
         sp.set_visible(False)
     draw_fn(ax, x0, y0, x1, y1, w_px, h_px)
     ax.tick_params(labelsize=6, colors=BLACK, length=2, width=0.6, pad=1.0)
+    # thin blue panel frame, inscribed so the stroke straddles the measured box
+    fig.add_artist(plt.Rectangle(
+        (x0 + 1.0 / (DPI * 1.0) * 0, y0), 0.0, 0.0, fill=False))
+    frame = fig.add_artist(plt.Rectangle(
+        (0, 0), 1, 1, transform=fig.transFigure, fill=False,
+        edgecolor=BLUE, linewidth=1.0, joinstyle="miter"))
     fig.savefig(path, dpi=DPI, facecolor=WHITE)
     plt.close(fig)
     print("wrote", path)

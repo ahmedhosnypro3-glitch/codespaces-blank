@@ -1,0 +1,215 @@
+{
+  "slide_title": "Neural Network Model",
+  "subtitle_or_header": "(How Weights of hidden layer affect Calculated Error)",
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Input Sample",
+      "Target Label",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "Error Error",
+      "Node Bias",
+      "1",
+      "Previous Layer (l)",
+      "Current Layer (You are here)",
+      "Next Layer (K)",
+      "For Layer \"j\"",
+      "Note: Layer \"j\" is NOT Output Layer",
+      "16"
+    ],
+    "equations": [
+      "Net_j = \u03a3 (w_ji * O_i)",
+      "O_j = f(Net_j) = 1 / (1 + e^-Net_j)",
+      "E = 1/2 \u03a3_j (t_j - O_j)^2 \u00d7 \u00d7 \u00d7"
+    ]
+  },
+  "layout": {
+    "arrangement": "Title top-center; slide number 16 in circle top-right; main neural network diagram occupies center; 'Input Sample' box top-left; 'Target Label' box top-right; vertical red 'Error Error' bar far right; bottom strip contains layer annotation boxes (Previous/Current/Next Layer), a note box, and two equation boxes",
+    "regions": [
+      {
+        "name": "title",
+        "position": "top center",
+        "content": "Main title 'Neural Network Model' in dark red, subtitle in blue below it"
+      },
+      {
+        "name": "slide_number",
+        "position": "top right",
+        "content": "Circle with number 16"
+      },
+      {
+        "name": "input_box",
+        "position": "top left",
+        "content": "Purple box labeled 'Input Sample' with arrow into network"
+      },
+      {
+        "name": "target_box",
+        "position": "top right",
+        "content": "Purple box labeled 'Target Label' with arrow from network"
+      },
+      {
+        "name": "neural_diagram",
+        "position": "center",
+        "content": "Multi-layer neural network with input, hidden, and output layers; nodes, weights, activation functions, outputs, purple bias circles labeled '1' with 'Node Bias' text, and curved dashed error backpropagation arrows"
+      },
+      {
+        "name": "error_bar",
+        "position": "right edge",
+        "content": "Vertical red bar labeled 'Error Error' connecting outputs to class labels"
+      },
+      {
+        "name": "bottom_annotations",
+        "position": "bottom strip",
+        "content": "Layer labels (Previous Layer (l), Current Layer (You are here), Next Layer (K)), note box, and two equation boxes"
+      }
+    ],
+    "hierarchy": "Title is largest and darkest red; subtitle is blue and slightly smaller; diagram nodes and labels are medium black text; equation text is small black; accent boxes use purple, green, blue, and orange"
+  },
+  "visual_elements": [
+    {
+      "type": "diagram",
+      "description": "Neural network diagram: Left side shows input dots feeding into three input nodes (circles with \u03a3). Middle hidden layer has green nodes (circles with \u03a3) labeled O_j. Right output layer has orange nodes (circles with \u03a3) labeled O_k feeding into boxes labeled Output 1, Output 2, Output m. Arrows show weights w_ji between input and hidden, w_kj between hidden and output. Activation function boxes labeled 'f' appear after summation nodes. Bias nodes shown as purple circles with '1'. Curved dashed arrows show error backpropagation paths from outputs. Far right vertical red bar labeled 'Error Error' points to Class 1, Class 2, Class m boxes.",
+      "colors": [
+        "#F5E8D0",
+        "#FFFFFF",
+        "#000000",
+        "#00FF00",
+        "#FFA500",
+        "#800080",
+        "#0000FF",
+        "#FF0000"
+      ],
+      "position": "center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple rounded rectangle labeled 'Input Sample' with left-pointing arrow into network",
+      "colors": [
+        "#DDA0DD",
+        "#800080"
+      ],
+      "position": "top left"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Purple rounded rectangle labeled 'Target Label' with right-pointing arrow from network",
+      "colors": [
+        "#DDA0DD",
+        "#800080"
+      ],
+      "position": "top right"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Vertical red rectangle with white vertical text 'Error Error'",
+      "colors": [
+        "#8B0000",
+        "#FFFFFF"
+      ],
+      "position": "right edge"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Blue box labeled 'Previous Layer (l)' with upward arrow labeled 'i'",
+      "colors": [
+        "#E6F3FF",
+        "#0000FF"
+      ],
+      "position": "bottom left-center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Green box labeled 'Current Layer (You are here)' with upward arrow labeled 'j'",
+      "colors": [
+        "#E6FFE6",
+        "#008000"
+      ],
+      "position": "bottom center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Orange box labeled 'Next Layer (K)' with upward arrow labeled 'k'",
+      "colors": [
+        "#FFE6CC",
+        "#FF8C00"
+      ],
+      "position": "bottom right-center"
+    },
+    {
+      "type": "highlight-box",
+      "description": "White box with red border labeled 'Note: Layer \"j\" is NOT Output Layer'",
+      "colors": [
+        "#FFFFFF",
+        "#FF0000"
+      ],
+      "position": "bottom right"
+    },
+    {
+      "type": "table",
+      "description": "Equation box bottom-left: header 'For Layer \"j\"', then two equations: Net_j = \u03a3 (w_ji * O_i) and O_j = f(Net_j) = 1 / (1 + e^-Net_j)",
+      "colors": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "position": "bottom left"
+    },
+    {
+      "type": "other",
+      "description": "Equation bottom-right: E = 1/2 \u03a3_j (t_j - O_j)^2 followed by three red X marks",
+      "colors": [
+        "#FFFFFF",
+        "#000000",
+        "#FF0000"
+      ],
+      "position": "bottom right"
+    }
+  ],
+  "imagery": [],
+  "colors": {
+    "background": "#F5E8D0",
+    "title_text": "#8B0000",
+    "body_text": "#000000",
+    "accents": [
+      "#0000FF",
+      "#800080",
+      "#008000",
+      "#FF8C00",
+      "#FF0000",
+      "#DDA0DD"
+    ]
+  },
+  "typography_notes": "Sans-serif font throughout. Title is bold, large, dark red. Subtitle is bold, blue. Body labels are black, regular weight. Equation text is black, smaller. Some text is all-caps or mixed case as shown.",
+  "animation_state": "All elements appear static; no mid-build animation visible.",
+  "recreation_brief": "1. Set slide background to light beige (#F5E8D0).\n2. Add title text \"Neural Network Model\" at top center, bold, large, dark red (#8B0000).\n3. Add subtitle text \"(How Weights of hidden layer affect Calculated Error)\" directly below the title, bold, blue (#0000FF).\n4. Add a circle in the top-right corner containing the number \"16\".\n5. Place three white input-node circles on the left side of the center diagram, each containing \"\u03a3\".\n6. Place green (#00FF00) hidden-layer node circles in the middle of the diagram, each containing \"\u03a3\" and labeled \"O_j\".\n7. Place orange (#FFA500) output-layer node circles on the right side of the diagram, each containing \"\u03a3\" and labeled \"O_k\".\n8. Draw arrows from the input nodes to the hidden nodes labeled \"w_ji\".\n9. Draw arrows from the hidden nodes to the output nodes labeled \"w_kj\".\n10. Add small \"f\" boxes immediately after each summation node in the diagram.\n11. Add purple (#800080) bias circles containing \"1\" near the hidden layer.\n12. Add text label \"Node Bias\" adjacent to the purple bias circles.\n13. Add curved dashed arrows from the output nodes back toward earlier layers to show error backpropagation paths.\n14. Add a purple (#DDA0DD fill, #800080 border/text) rounded rectangle at top left labeled \"Input Sample\" with a left-pointing arrow into the network.\n15. Add a purple (#DDA0DD fill, #800080 border/text) rounded rectangle at top right labeled \"Target Label\" with a right-pointing arrow from the network.\n16. Add boxes to the right of the output nodes labeled \"Output 1\", \"Output 2\", and \"Output m\".\n17. Add a vertical red (#8B0000) rectangle at the far right edge with white vertical text \"Error Error\".\n18. Add boxes to the right of the red error bar labeled \"Class 1\", \"Class 2\", and \"Class m\".\n19. Add a blue (#E6F3FF fill, #0000FF border/text) rectangle at bottom left-center labeled \"Previous Layer (l)\" with an upward arrow labeled \"i\".\n20. Add a green (#E6FFE6 fill, #008000 border/text) rectangle at bottom center labeled \"Current Layer (You are here)\" with an upward arrow labeled \"j\".\n21. Add an orange (#FFE6CC fill, #FF8C00 border/text) rectangle at bottom right-center labeled \"Next Layer (K)\" with an upward arrow labeled \"k\".\n22. Add a white rectangle with a red (#FF0000) border at bottom right labeled \"Note: Layer \\\"j\\\" is NOT Output Layer\".\n23. Add a white equation box at bottom left with header \"For Layer \\\"j\\\"\" followed by the equations \"Net_j = \u03a3 (w_ji * O_i)\" and \"O_j = f(Net_j) = 1 / (1 + e^-Net_j)\" in black text.\n24. Add a white equation box at bottom right containing \"E = 1/2 \u03a3_j (t_j - O_j)^2\" followed by three red X marks.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Rewrote recreation_brief into a 24-step ordered checklist specifying exact text, position, color, and shape for every element.",
+      "Added missing 'Node Bias' label to the neural_diagram region description and recreation_brief.",
+      "Removed unsupported green color attribution for 'Class 1', 'Class 2', and 'Class m' boxes.",
+      "Specified exact shapes (circle, rounded rectangle, vertical rectangle) and hex color codes for all placed elements.",
+      "Ensured all verbatim labels and equations from the source are referenced in the recreation steps."
+    ],
+    "uncertain_items": [
+      "Exact number of hidden-layer nodes and output-layer nodes is not specified in the source JSON.",
+      "Exact spatial position of the 'Node Bias' text label relative to the bias circles is not specified."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_016.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 16,
+      "image": "slide_016.jpg",
+      "badge": "16"
+    },
+    "elapsed_s": 67.0,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 670.5
+  }
+}

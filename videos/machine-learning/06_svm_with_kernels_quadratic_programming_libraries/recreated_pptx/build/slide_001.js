@@ -35,11 +35,11 @@ s.addText("SVM with Kernels &\nQuadratic Programming Libraries", {
 
 // ---- spec content at measured y; wide boxes so text never wraps/overlaps ----
 // normalized y -> inches: y*7.5. Centered lines span the title width; left lines start at 0.10*13.33.
-function cline(ynorm, text, size, color) {
+function cline(ynorm, text, size, color, extra) {
   s.addText(text, {
     x: 0.6, y: ynorm * 7.5, w: 12.13, h: 0.42,
     align: "center", valign: "top", fontSize: size, bold: true,
-    color, fontFace: FONT, margin: 0,
+    color, fontFace: FONT, margin: 0, ...(extra || {}),
   });
 }
 function lline(ynorm, text, size, color) {
@@ -50,9 +50,9 @@ function lline(ynorm, text, size, color) {
   });
 }
 // Prepared By block (centered, red label / blue name+email)
-cline(0.53, "Prepared By", 18, RED);
-cline(0.57, "Dr. Khaled Mostafa ElSayed", 16, BLUE);
-cline(0.62, "kmelsayed@zewailcity.edu.eg", 13, BLUE);
+cline(0.53, "Prepared By", 18, "C00000", { italic: true });
+cline(0.565, "Dr. Khaled Mostafa ElSayed", 16, BLUE);
+cline(0.615, "kmelsayed@zewailcity.edu.eg", 13, BLUE);
 
 // Instructors block (left, red label / blue name+email pairs)
 lline(0.70, "Instructors:", 18, RED);
@@ -67,10 +67,14 @@ s.addShape(pres.shapes.RECTANGLE, {
   x: lg.x, y: lg.y, w: lg.w, h: lg.h,
   fill: { color: "007E7A" }, line: { color: "007E7A", width: 0 },
 });
-// white emblem mark at left of the teal box
-s.addShape(pres.shapes.OVAL, {
-  x: lg.x + 0.12, y: lg.y + 0.10, w: 0.40, h: 0.40,
-  fill: { type: "none" }, line: { color: "FFFFFF", width: 2 },
+// white emblem mark at left of the teal box: stylized mountain/book mark
+s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
+  x: lg.x + 0.10, y: lg.y + 0.16, w: 0.44, h: 0.30,
+  fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0.5 },
+});
+s.addShape(pres.shapes.RECTANGLE, {
+  x: lg.x + 0.10, y: lg.y + 0.40, w: 0.44, h: 0.06,
+  fill: { color: "FFFFFF" }, line: { color: "FFFFFF", width: 0 },
 });
 // white Arabic line over English line (web-verified: جامعة العلوم والتكنولوجيا)
 s.addText("جامعة العلوم والتكنولوجيا", {
