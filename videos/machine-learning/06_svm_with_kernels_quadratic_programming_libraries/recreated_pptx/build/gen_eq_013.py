@@ -52,13 +52,14 @@ EQS = {
     "h_row8": (r"#000000:1", 16, 0.24, 0.26),
     "arow": (r"#FF0000:A=\left[1\ \ 1\ \ -1\ \ -1\right]_{1\times 4}", 22, 2.519, 0.3975),
     "brow": (r"#FF0000:b=\left[0\right]_{1\times 1}", 22, 0.907, 0.345),
+    "hvec": (r"#000000:\left(\underset{1}{\underset{1}{\underset{1}{\underset{1}{\underset{0}{\underset{0}{\underset{0}{0}}}}}}}\right)", 60, 0.55, 2.10),
 }
 
 # multi-row assets: name -> (list of row specs, base pt, max w, max h, rowgap px)
 MULTI = {
-    "sol": ([r"#FF0000:" + A + r"_{1}=0.0000002,\ ", r"#FF0000:" + A + r"_{2}=0.06897,\ ",
-             r"#FF0000:" + A + r"_{3}=0.06897,\ ", r"#FF0000:" + A + r"_{4}=0.00000008"],
-            18, 1.533, 1.02, 14),
+    "sol": ([r"#FF0000:" + A + r"_{1}=0.0000002,\ " + A + r"_{2}=0.06897,",
+             r"#FF0000:" + A + r"_{3}=0.06897,\ " + A + r"_{4}=0.00000008"],
+            18, 1.70, 1.05, 10),
 }
 
 

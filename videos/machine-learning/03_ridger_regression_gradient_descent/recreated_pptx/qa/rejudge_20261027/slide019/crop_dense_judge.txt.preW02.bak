@@ -1,0 +1,19 @@
+Region-relative notes below; percentages are measured from the cropâs top-left.
+
+I found no MAJOR/BLOCKER content defects in this region. In particular, I verified cell-by-cell that the numeric content matches:
+
+- Top vectors match: `zâ=(30/15), y=60`; `zâ=(40/20), y=80`; `zâ=(50/25), y=100`.
+- Table values match: `xâ: 30/40/50`, `xâ: 15/20/25`, `y: 60/80/100`.
+- Left explanatory vector matches: `0/2/0`; associated norm text matches.
+- Ridge panel matches: `W=(0.1/1.95/0.03)` and `âWâÂ²=3.8`.
+- Delimiter spans, table row separation, and vertical centering look consistent.
+
+Minor discrepancies:
+
+1. **Table header subscripting** â In the upper-middle table header, roughly xâ57â84%, yâ23â31%: IMG1 renders `Testâ / Testâ / Testâ`, while IMG2 appears to render `Test1 / Test2 / Test3` without subscripts. Same semantic labels and no wrong digits.  
+   **Severity: MINOR â Confidence: HIGH**
+
+2. **Color of top-right `zâ` label** â Top-right vector area, roughly xâ84â92%, yâ8â14%: IMG1âs `zâ` appears black/dark gray rather than red like the other `z` labels; IMG2 shows it red. This may be partly compression/color-sampling related, but it is visible at zoom.  
+   **Severity: MINOR â Confidence: MEDIUM**
+
+FINAL VERDICT: PASS

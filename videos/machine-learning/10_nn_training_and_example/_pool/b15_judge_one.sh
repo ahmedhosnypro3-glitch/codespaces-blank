@@ -16,11 +16,11 @@ verdict() { grep -q 'FINAL VERDICT: PASS' "$OUT" 2>/dev/null && echo PASS && ret
 
 for try in 1 2 3; do
   echo "=== slide $N judge attempt $2 try $try $(date +%F\ %T) ==="
-  timeout 540 env VISION_SLOTS=3 bash "$NS/_pool/vision_gate.sh" \
+  timeout 900 env VISION_SLOTS=3 bash "$NS/_pool/vision_gate.sh" \
     python3 "$SKILL/scripts/analyze_image.py" comparison "$RENDER" "$ORIG" \
     --view "Slide ${N#0} recreation render vs original lecture frame" \
     --capture "13.33x7.5in slide, 150dpi render (2001x1125px) vs 960x540px original frame" \
-    -p "$PROMPT" --timeout 420 --rounds 1 --tries 1 > "$OUT.tmp" 2>&1
+    -p "$PROMPT" --timeout 780 --rounds 1 --tries 1 > "$OUT.tmp" 2>&1
   rc=$?
   mv "$OUT.tmp" "$OUT"
   v=$(verdict)

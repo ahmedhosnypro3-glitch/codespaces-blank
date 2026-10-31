@@ -67,30 +67,34 @@ s.addText("kmelsayed@zewailcity.edu.eg", {
   fontSize: 18, italic: true, color: "000080", fontFace: FONT, margin: 0,
 });
 
-// 6. Instructors list (bottom-left) - indented per judge
-const instX = 1.1;  // indented from left edge
+// 6. Instructors list (bottom-left)
+// Measured from the original frame: "Instructors:" label ink starts x=87,
+// names/emails indent to x=125; label->name gap 26px, name->email 22px,
+// email->next-name 21px. At 960x540, 1px = 1pt.
+const instLabelX = 1.21;  // label left edge
+const instX = 1.74;       // names/emails indent
 s.addText("Instructors:", {
-  x: instX, y: 4.0, w: 5.0, h: 0.45,
+  x: instLabelX, y: 4.0, w: 5.0, h: 0.45,
   align: "left", valign: "top",
   fontSize: 22, bold: true, italic: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 s.addText("Dr. Khaled Mostafa ElSayed", {
-  x: instX, y: 4.45, w: 5.0, h: 0.45,
+  x: instX, y: 4.40, w: 5.0, h: 0.45,
   align: "left", valign: "top",
   fontSize: 20, bold: true, italic: true, color: "000080", fontFace: FONT, margin: 0,
 });
 s.addText("kmelsayed@zewailcity.edu.eg", {
-  x: instX, y: 4.9, w: 5.0, h: 0.45,
+  x: instX, y: 4.74, w: 5.0, h: 0.45,
   align: "left", valign: "top",
   fontSize: 16, italic: true, color: "000080", fontFace: FONT, margin: 0,
 });
 s.addText("Dr. Mohamed Maher Ata", {
-  x: instX, y: 5.35, w: 5.0, h: 0.45,
+  x: instX, y: 5.00, w: 5.0, h: 0.45,
   align: "left", valign: "top",
   fontSize: 20, bold: true, italic: true, color: "000080", fontFace: FONT, margin: 0,
 });
 s.addText("momaher@zewailcity.edu.eg", {
-  x: instX, y: 5.8, w: 5.0, h: 0.45,
+  x: instX, y: 5.33, w: 5.0, h: 0.45,
   align: "left", valign: "top",
   fontSize: 16, italic: true, color: "000080", fontFace: FONT, margin: 0,
 });

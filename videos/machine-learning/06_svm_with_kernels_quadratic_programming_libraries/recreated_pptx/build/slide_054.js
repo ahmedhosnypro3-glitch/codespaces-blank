@@ -1,38 +1,52 @@
-// slide_054.js — 16 2x2 blue/red dot groupings on lattice
-const { newPres, addHouseChrome, addPlotShell, addCluster, addDot, addLegend, W, H } = require("./shared.js");
+// slide_054.js — rebuild wave 3, built ONLY from qa/reanalysis2/slide_054_analysis.txt.
+// Spec: pure scatter plot — no title, no body text, no legend, no axis titles, no
+// equations. White plot box with light-red border, black left/bottom axes, tick
+// labels 0,5,10,15,20,25 on both axes, 5x5 checkerboard of 2x2 red/blue dot
+// clusters, small black cursor arrow near the upper-right field.
+// Run from PROJECT ROOT: NODE_PATH=$(npm root -g) node <NS>/recreated_pptx/build/slide_054.js
+const path = require("path");
+const pptxgen = require("pptxgenjs");
 
-const pres = newPres();
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const W = 13.33, H = 7.5;
+
+const pres = new pptxgen();
+pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
-addHouseChrome(pres, s, 54, "SVM Kernel Visualization — Lattice of Decision Regions");
+s.background = { color: "E8E8E8" };
 
-const m = addPlotShell(pres, s, 1.5, 1.0, 11.0, 6.0, 0, 25, 0, 25, "Feature 1", "Feature 2");
-
-// 16 2x2 dot groupings on ~5-unit lattice
-const latticeCenters = [
-  [3, 20], [8, 20], [13, 20], [18, 20],
-  [3, 15], [8, 15], [13, 15], [18, 15],
-  [3, 10], [8, 10], [13, 10], [18, 10],
-  [3, 5], [8, 5], [13, 5], [18, 5],
-];
-
-latticeCenters.forEach(([cx, cy], idx) => {
-  const color = (idx % 2 === 0) ? "0000FF" : "FF0000";  // alternating blue/red
-  // 2x2 grid
-  for (let dx = -0.8; dx <= 0.8; dx += 1.6) {
-    for (let dy = -0.8; dy <= 0.8; dy += 1.6) {
-      addDot(pres, s, m, cx + dx, cy + dy, color, 0.04);
-    }
-  }
+// House chrome (mandatory, overrides spec): outer red frame.
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2,
+  fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
+});
+// House chrome: slide-number badge "54".
+s.addShape(pres.shapes.OVAL, {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
+});
+s.addText("54", {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  align: "center", valign: "middle",
+  fontSize: 18, bold: true, color: "333333", fontFace: "Arial", margin: 0,
+});
+// House chrome: title box. Spec SLIDE_TITLE is "none" — box stays empty, no invented text.
+s.addText("", {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
+  align: "center", valign: "top",
+  fontSize: 24, bold: true, color: "C00000", fontFace: "Arial", margin: 0,
 });
 
-// Gray arrow cursor (from vision) - omit as it's an artifact
-// s.addText("▶", { x: m.toX(18), y: m.toY(19), w: 0.3, h: 0.3, fontSize: 14, color: "888888", fontFace: "Arial", margin: 0 });
+// Plot image: gen_graph_054.py drew it 1:1 from the original frame's measured pixels
+// (white plot box x 206..753, y 64..501 in 960x540 frame) — dot colors are the
+// original's own red/blue pixels, so the checkerboard parity matches exactly.
+const PX0 = 206 / 960, PY0 = 64 / 540, PX1 = 753 / 960, PY1 = 501 / 540;
+s.addImage({
+  path: path.join(__dirname, "slide_054_graph.png"),
+  x: PX0 * W, y: PY0 * H,
+  w: (PX1 - PX0) * W, h: (PY1 - PY0) * H,
+});
 
-addLegend(pres, s, 1.7, 1.2, [
-  { text: "● Blue dot clusters", color: "0000FF" },
-  { text: "● Red dot clusters", color: "FF0000" },
-]);
-
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_054_recreated.pptx" })
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_054_recreated.pptx") })
   .then(() => console.log("wrote slide_054_recreated.pptx"))
-  .catch(err => console.error(err));
+  .catch(e => { console.error(e); process.exit(1); });

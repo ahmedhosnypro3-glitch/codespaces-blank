@@ -1,138 +1,89 @@
-// slide_027.js — Polynomial Kernel (with dark app frame)
-// Vision: Dark app frame, light gray header "Polynomial Kernel" + badge 27, white body with blue border
-// Math: vectors a,b with red/blue components, "Remember: (aᵀb)² = ...", expansion (aᵀb + 1)², feature mapping φ(a)ᵀφ(b) with 6D column vector, "2D ⇒ 6D"
-// Run: NODE_PATH=$(npm root -g) node slide_027.js
-
+// slide_027.js — "Polynomial Kernel" (REBUILD WAVE 3, from qa/reanalysis2/slide_027_analysis.txt only)
+// Build from project root: cd /home/codespace/ai_llm_slides && NODE_PATH=$(npm root -g) node <NS>/recreated_pptx/build/slide_027.js
 const pptxgen = require("pptxgenjs");
-
-const NUM = 27;
-const TITLE = "Polynomial Kernel";
-const FONT = "Arial";
-
+const path = require("path");
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx/build/eq_027") + "/";
+const W = 13.33, H = 7.5;
+const MATH = "Times New Roman";
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
-const W = 13.33, H = 7.5;
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" };
+s.background = { color: "E8E8E8" }; // house rule
 
-// 1. House red frame (0.15in inset)
+// House chrome (mandatory, overrides spec)
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Slide-number badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
-  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
-  align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
-
-// 3. Title box
-s.addText(TITLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
-  align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-
-// 4. Light gray header bar (from vision)
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 1.0, y: 1.0, w: 11.33, h: 0.5,
-  fill: { color: "D0D0D0" }, line: { color: "999999", width: 0.5 },
+s.addText("27", {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5, align: "center", valign: "middle",
+  fontSize: 18, bold: true, color: "333333", fontFace: "Arial", margin: 0,
 });
 s.addText("Polynomial Kernel", {
-  x: 1.0, y: 1.0, w: 11.33, h: 0.5,
-  align: "center", valign: "middle",
-  fontSize: 20, bold: true, color: "333333", fontFace: FONT, margin: 0,
+  x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", valign: "top",
+  fontSize: 28, bold: true, color: "C00000", fontFace: MATH, margin: 0,
 });
 
-// 5. Main white body with blue border
-const bodyX = 1.0, bodyY = 1.7, bodyW = 11.33, bodyH = 5.2;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bodyX, y: bodyY, w: bodyW, h: bodyH,
-  fill: { color: "FFFFFF" }, line: { color: "0066CC", width: 2 },
-});
+// normalized spec box -> inches
+const bx = (x0, y0, x1, y1) => ({ x: x0 * W, y: y0 * H, w: (x1 - x0) * W, h: (y1 - y0) * H });
+const meta = (n) => require(EQ + n + ".png.json");
+// image at exact native size (px/600), centered in spec box
+const imgC = (n, x0, y0, x1, y1) => {
+  const m = meta(n), b = bx(x0, y0, x1, y1);
+  s.addImage({ path: EQ + n + ".png", x: b.x + (b.w - m.w_in) / 2, y: b.y + (b.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+};
+// image at exact native size, left-aligned in spec box
+const imgL = (n, x0, y0, x1, y1) => {
+  const m = meta(n), b = bx(x0, y0, x1, y1);
+  s.addImage({ path: EQ + n + ".png", x: b.x, y: b.y + (b.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+};
 
-// 6. Top-left math block - vectors a (red) and b (blue)
-s.addText("Vectors:", {
-  x: bodyX + 0.3, y: bodyY + 0.2, w: bodyW, h: 0.3,
-  fontSize: 14, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("a = [a₁, a₂]ᵀ", {
-  x: bodyX + 0.3, y: bodyY + 0.5, w: 3.0, h: 0.3,
-  fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-s.addText("b = [b₁, b₂]ᵀ", {
-  x: bodyX + 3.5, y: bodyY + 0.5, w: 3.0, h: 0.3,
-  fontSize: 14, bold: true, color: "0000FF", fontFace: FONT, margin: 0,
-});
-
-// 7. Top-right "Remember:" callout
-const rememberX = bodyX + bodyW - 4.5, rememberY = bodyY + 0.2, rememberW = 4.0, rememberH = 0.8;
+// inner light-blue rounded content frame, capped inside the house red frame
+const f = bx(0.028, 0.185, 0.992, 0.988);
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: rememberX, y: rememberY, w: rememberW, h: rememberH,
-  fill: { color: "F0F0F0" }, line: { color: "999999", width: 1 },
-});
-s.addText("Remember:", {
-  x: rememberX + 0.1, y: rememberY + 0.05, w: rememberW - 0.2, h: 0.3,
-  fontSize: 12, bold: true, color: "666666", fontFace: FONT, margin: 0,
-});
-s.addText("(aᵀb)² = a₁²b₁² + 2a₁a₂b₁b₂ + a₂²b₂²", {
-  x: rememberX + 0.1, y: rememberY + 0.35, w: rememberW - 0.2, h: 0.3,
-  fontSize: 12, color: "333333", fontFace: FONT, margin: 0,
+  x: f.x, y: f.y, w: Math.min(f.w, 13.18 - f.x), h: Math.min(f.h, 7.35 - f.y),
+  fill: { type: "none" }, line: { color: "7BA7D9", width: 1 },
 });
 
-// 8. Middle expansion block - (aᵀb + 1)² spanning full width
-s.addText("(aᵀb + 1)² = (aᵀb)² + 2(aᵀb) + 1", {
-  x: bodyX + 0.3, y: bodyY + 1.2, w: bodyW - 0.6, h: 0.4,
-  fontSize: 16, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("= a₁²b₁² + 2a₁a₂b₁b₂ + a₂²b₂² + 2(a₁b₁ + a₂b₂) + 1", {
-  x: bodyX + 0.3, y: bodyY + 1.6, w: bodyW - 0.6, h: 0.4,
-  fontSize: 16, color: "333333", fontFace: FONT, margin: 0,
-});
+// vector boxes a and b with stacked components
+for (const [lbl, x0, x1, imgn] of [["a", 0.060, 0.130, "eq_veca"], ["b", 0.138, 0.208, "eq_vecb"]]) {
+  const b = bx(x0, 0.203, x1, 0.272);
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+    x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "DAE3F3" }, line: { color: "1F4E79", width: 1 },
+  });
+  s.addText(lbl, {
+    x: b.x, y: b.y, w: 0.34, h: b.h, align: "center", valign: "middle",
+    fontSize: 20, italic: true, color: "C00000", fontFace: MATH, margin: 0,
+  });
+  const m = meta(imgn);
+  s.addImage({ path: EQ + imgn + ".png", x: b.x + 0.36, y: b.y + (b.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+}
 
-// 9. Bottom feature-mapping block
-s.addText("φ(a)ᵀφ(b) = [a₁², √2 a₁a₂, a₂², √2 a₁, √2 a₂, 1] · [b₁², √2 b₁b₂, b₂², √2 b₁, √2 b₂, 1]", {
-  x: bodyX + 0.3, y: bodyY + 2.3, w: bodyW - 0.6, h: 0.4,
-  fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("Where: φ(x) = [x₁², √2 x₁x₂, x₂², √2 x₁, √2 x₂, 1]ᵀ", {
-  x: bodyX + 0.3, y: bodyY + 2.8, w: bodyW - 0.6, h: 0.4,
-  fontSize: 14, color: "006600", fontFace: FONT, margin: 0,
-});
+imgL("eq_remember", 0.300, 0.212, 0.805, 0.252);
+imgL("eq_label", 0.095, 0.338, 0.335, 0.368);
 
-// 10. Right column vector (6D) - tall column
-const vecX = bodyX + bodyW - 3.0, vecY = bodyY + 3.3, vecW = 2.5, vecH = 3.0;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: vecX, y: vecY, w: vecW, h: vecH,
-  fill: { color: "F8F8F8" }, line: { color: "999999", width: 1 },
-});
-s.addText("φ(x) =", {
-  x: vecX, y: vecY + 0.1, w: vecW, h: 0.3,
-  align: "center", fontSize: 12, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("x₁²\n√2 x₁x₂\nx₂²\n√2 x₁\n√2 x₂\n1", {
-  x: vecX, y: vecY + 0.4, w: vecW, h: vecH - 0.5,
-  align: "center", fontSize: 12, color: "333333", fontFace: FONT, margin: 0,
-});
+// tan kernel boxes
+for (const [x0, y0, x1, y1, imgn] of [[0.063, 0.372, 0.185, 0.430, "eq_tan1"], [0.063, 0.528, 0.183, 0.585, "eq_tan2"]]) {
+  const b = bx(x0, y0, x1, y1);
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+    x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "FBE4D5" }, line: { color: "C55A11", width: 1.25 },
+  });
+  imgC(imgn, x0, y0, x1, y1);
+}
 
-// 11. "2D ⇒ 6D" red at bottom-right corner
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: bodyX + bodyW - 2.0, y: bodyY + bodyH - 0.6, w: 1.8, h: 0.4,
-  fill: { color: "FFF0F0" }, line: { color: "C00000", width: 1 },
-});
-s.addText("2D ⇒ 6D", {
-  x: bodyX + bodyW - 2.0, y: bodyY + bodyH - 0.6, w: 1.8, h: 0.4,
-  align: "center", valign: "middle", fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
+imgL("eq_exp1", 0.185, 0.378, 0.995, 0.425);
+imgL("eq_exp2", 0.188, 0.428, 0.995, 0.470);
+imgL("eq_strip", 0.098, 0.483, 0.405, 0.512);
+imgC("eq_phib", 0.398, 0.495, 0.472, 0.672);
+imgL("eq_where", 0.500, 0.575, 0.680, 0.615);
+imgC("eq_phix", 0.698, 0.495, 0.800, 0.672);
+imgL("eq_2d6d", 0.835, 0.618, 0.940, 0.652);
 
-// Note: Dark app frame and bottom black strip from original treated as capture chrome, omitted per house rule
-
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_027_recreated.pptx" })
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_027_recreated.pptx") })
   .then(() => console.log("wrote slide_027_recreated.pptx"))
-  .catch(err => console.error(err));
+  .catch((e) => { console.error(e); process.exit(1); });

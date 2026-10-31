@@ -1,104 +1,117 @@
-// slide_028.js — Polynomial Kernel proof (two-panel: theory + numeric)
-// Vision: Top panel cream with blue border - general identity [aᵀb+1]² = φ(a)ᵀφ(b) + Where: φ(x)
-// Bottom panel white with blue border - numeric proof a=[1,2], b=[3,4], result 144
-// Run: NODE_PATH=$(npm root -g) node slide_028.js
-
+// slide_028.js — FRESH REBUILD (wave 3, rb3) from qa/reanalysis2/slide_028_analysis.txt only.
+// Spec coords [x0,y0,x1,y1] normalized -> inches: x*13.33, y*7.5, w=(x1-x0)*13.33, h=(y1-y0)*7.5.
+// Run: cd recreated_pptx/build && NODE_PATH=$(npm root -g) node slide_028.js
 const pptxgen = require("pptxgenjs");
+const fs = require("fs");
+const path = require("path");
 
-const NUM = 28;
-const TITLE = "Polynomial Kernel Proof";
-const FONT = "Arial";
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = NS + "/recreated_pptx/build/eq_028/";
+const man = JSON.parse(fs.readFileSync(EQ + "manifest_rb3.json", "utf8"));
+const W = 13.33, H = 7.5, FONT = "Arial";
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
-const W = 13.33, H = 7.5;
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" };
+s.background = { color: "E8E8E8" }; // house rule
 
-// 1. House red frame (0.15in inset)
+// House chrome (overrides spec): outer red frame + badge. Spec has NO title -> no title text.
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Slide-number badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
+s.addText("28", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-
-// 3. Title box
-s.addText(TITLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
-  align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+// House title box (spec has no printed title -> empty text, chrome geometry only)
+s.addText("", {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.4,
+  align: "center", valign: "middle",
+  fontSize: 18, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// 4. Top panel - cream with blue border (general identity)
-const topX = 1.0, topY = 1.0, topW = 11.33, topH = 2.8;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: topX, y: topY, w: topW, h: topH,
-  fill: { color: "FFFDD0" }, line: { color: "0066CC", width: 1.5 },
-});
-s.addText("[aᵀb + 1]² = aᵀa bᵀb + 2aᵀb + 1 = φ(a)ᵀφ(b)", {
-  x: topX + 0.3, y: topY + 0.2, w: topW - 0.6, h: 0.5,
-  fontSize: 16, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("Where: φ(x) = [x₁², √2 x₁x₂, x₂², √2 x₁, √2 x₂, 1]ᵀ", {
-  x: topX + 0.3, y: topY + 0.8, w: topW - 0.6, h: 0.5,
-  fontSize: 16, color: "006600", fontFace: FONT, margin: 0,
-});
-s.addText("φ(x) ∈ ℝ⁶ — 2D input mapped to 6D feature space", {
-  x: topX + 0.3, y: topY + 1.4, w: topW - 0.6, h: 0.5,
-  fontSize: 14, color: "666666", fontFace: FONT, margin: 0,
-});
-s.addText("φ(a)ᵀφ(b) = a₁²b₁² + 2a₁a₂b₁b₂ + a₂²b₂² + 2a₁b₁ + 2a₂b₂ + 1", {
-  x: topX + 0.3, y: topY + 2.0, w: topW - 0.6, h: 0.5,
-  fontSize: 16, color: "333333", fontFace: FONT, margin: 0,
-});
+function box(x0, y0, x1, y1) {
+  return { x: x0 * W, y: y0 * H, w: (x1 - x0) * W, h: (y1 - y0) * H };
+}
 
-// 5. Bottom panel - white with blue border (numeric proof)
-const botX = 1.0, botY = topY + topH + 0.3, botW = 11.33, botH = 3.2;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: botX, y: botY, w: botW, h: botH,
-  fill: { color: "FFFFFF" }, line: { color: "0066CC", width: 1.5 },
-});
-s.addText("Numeric Example: a = [1, 2]ᵀ, b = [3, 4]ᵀ", {
-  x: botX + 0.3, y: botY + 0.2, w: botW - 0.6, h: 0.4,
-  fontSize: 16, bold: true, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("aᵀb = 1·3 + 2·4 = 3 + 8 = 11", {
-  x: botX + 0.3, y: botY + 0.7, w: botW - 0.6, h: 0.4,
-  fontSize: 16, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("[aᵀb + 1]² = (11 + 1)² = 12² = 144", {
-  x: botX + 0.3, y: botY + 1.1, w: botW - 0.6, h: 0.4,
-  fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-s.addText("φ(a) = [1, √2·2, 4, √2·1, √2·2, 1]ᵀ = [1, 2√2, 4, √2, 2√2, 1]ᵀ", {
-  x: botX + 0.3, y: botY + 1.6, w: botW - 0.6, h: 0.4,
-  fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("φ(b) = [9, √2·12, 16, √2·3, √2·4, 1]ᵀ = [9, 12√2, 16, 3√2, 4√2, 1]ᵀ", {
-  x: botX + 0.3, y: botY + 2.0, w: botW - 0.6, h: 0.4,
-  fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("φ(a)ᵀφ(b) = 1·9 + (2√2)(12√2) + 4·16 + √2·3√2 + (2√2)(4√2) + 1·1 = 9 + 48 + 64 + 6 + 16 + 1 = 144", {
-  x: botX + 0.3, y: botY + 2.4, w: botW - 0.6, h: 0.6,
-  fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("✓ [aᵀb + 1]² = 144 = φ(a)ᵀφ(b) — Kernel trick verified", {
-  x: botX + 0.3, y: botY + botH - 0.5, w: botW - 0.6, h: 0.4,
-  fontSize: 16, bold: true, color: "008000", fontFace: FONT, margin: 0,
-});
+// Black letterbox band at bottom (measured in orig_png: x 39-935, y 519-540)
+s.addShape(pres.shapes.RECTANGLE, Object.assign(
+  box(0.041, 0.961, 0.974, 1.0),
+  { fill: { color: "000000" }, line: { type: "none" } }));
 
-// Note: Bottom black strip from original is treated as capture chrome and omitted
+// Upper blue panel [0.065,0.152,0.783,0.411], white fill
+s.addShape(pres.shapes.RECTANGLE, Object.assign(
+  box(0.065, 0.152, 0.783, 0.411),
+  { fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1.5 } }));
+// Lower blue panel [0.065,0.426,0.833,0.843], white fill
+s.addShape(pres.shapes.RECTANGLE, Object.assign(
+  box(0.065, 0.426, 0.833, 0.843),
+  { fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1.5 } }));
 
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_028_recreated.pptx" })
+// Peach rounded chip behind "a^T b + 1" [0.069,0.246,0.136,0.309]
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, Object.assign(
+  box(0.069, 0.246, 0.136, 0.309),
+  { fill: { color: "FFE4C4" }, line: { color: "DDDDDD", width: 0.5 }, adj: 0.25 }));
+
+// Tall black vertical rules beside the beta column and the 3^2 column
+s.addShape(pres.shapes.RECTANGLE, Object.assign(
+  box(0.427, 0.167, 0.430, 0.398),
+  { fill: { color: "000000" }, line: { type: "none" } }));
+s.addShape(pres.shapes.RECTANGLE, Object.assign(
+  box(0.453, 0.539, 0.460, 0.735),
+  { fill: { color: "000000" }, line: { type: "none" } }));
+
+// Red hollow left-pointing arrows (outline only)
+function larrow(x0, y0, x1, y1) {
+  s.addShape(pres.shapes.LEFT_ARROW, Object.assign(
+    box(x0, y0, x1, y1),
+    { fill: { type: "none" }, line: { color: "FF0033", width: 1.5 } }));
+}
+larrow(0.654, 0.754, 0.691, 0.780); // beside the = 144 sum
+larrow(0.350, 0.796, 0.386, 0.822); // beside the bottom-left computation
+
+// Small diagonal pointer artifact [0.276,0.644,0.293,0.670], #333333
+s.addShape(pres.shapes.LINE, Object.assign(
+  box(0.276, 0.644, 0.293, 0.670),
+  { line: { color: "333333", width: 1.5 } }));
+
+// Equation PNGs at exact size (w_in = px/600, h_in = px/600), left-aligned,
+// vertically centered within each spec box.
+function eq(name) {
+  const m = man[name];
+  const b = box(m.box[0], m.box[1], m.box[2], m.box[3]);
+  s.addImage({
+    path: EQ + m.file,
+    x: b.x, y: b.y + Math.max(0, (b.h - m.h_in) / 2),
+    w: m.w_in, h: m.h_in,
+  });
+}
+// Upper panel content
+eq("chip");   // a^T b + 1 (red, on peach chip)
+eq("sq");     // ^2 =
+eq("arow");   // red alpha row vector
+eq("bcol");   // blue beta 6-line column with ^T
+eq("eq");     // = phi(a)^T phi(b)
+eq("where");  // Where: phi(x) = (x1 x2)^T
+eq("arrow");  // red =>
+eq("phicol"); // black phi(x) 6-line column
+// Lower panel content
+eq("a");      // a = (1 2)^T red bold
+eq("b");      // b = (3 4)^T blue bold
+eq("leq");    // phi(a)^T phi(b) =
+eq("row");    // red numeric row (1^2, 2^2, ...)
+eq("bcol2");  // blue numeric 6-line column with ^T
+eq("prod");   // = red product row
+eq("numcol"); // blue (9, 16, 12sqrt2, ...)
+eq("sum");    // = 9+64+48+6+16+1 = 144
+eq("bot");    // |a^T b+1|^2 = (1+3+2*4+1)^2 = 12^2 = 144
+
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_028_recreated.pptx") })
   .then(() => console.log("wrote slide_028_recreated.pptx"))
-  .catch(err => console.error(err));
+  .catch(err => { console.error(err); process.exit(1); });

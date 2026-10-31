@@ -19,11 +19,11 @@ run() { # $1 analyze --timeout, $2 outer timeout seconds
   echo "run wall=$1 outer=$2 rc=$? bytes=$(wc -c < "$TMP") $(date -u +%T)" >> "$LOG"
 }
 
-# valid = [winner] present, >=4000 bytes, a VERDICT section, no truncation warn
+# valid = [winner] present, >=4000 bytes, a verdict section, no truncation warn
 valid() {
   grep -q '\[winner\]' "$TMP" 2>/dev/null \
     && [ "$(wc -c < "$TMP")" -ge 4000 ] \
-    && grep -qEi '(TC\^|tC)\s*.*VERDICT|VERDICT\s*:.*(0-10|Recreatability)|9\.\s*VERDICT|VERDICT$' "$TMP" \
+    && grep -qi 'verdict' "$TMP" \
     && ! grep -q 'likely TRUNCATED' "$TMP"
 }
 

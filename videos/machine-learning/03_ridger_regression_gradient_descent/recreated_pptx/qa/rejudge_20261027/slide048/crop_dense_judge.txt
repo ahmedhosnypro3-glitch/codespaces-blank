@@ -1,0 +1,33 @@
+Comparand: the âUgmented Vectors (from Top)â column-vector table plus the adjacent `d(xâ)` / `d(xâ)` enclosures and the red `Iteration 1` banner. Both crops are treated as the same region/scale; house-template chrome is ignored.
+
+Discrepancies found:
+
+1. **Vector table, row 3, column `xâ`** â IMG1 renders the third vector entry as **`(1)`**; IMG2 original renders **`(2)`**.  
+   Crop-relative: approx `xâ0.27, yâ0.62`, inside the third stacked vector column, bottom value.  
+   Severity: **BLOCKER**. Confidence: high.
+
+2. **Vector table, row 3, column `xâ`** â IMG1 renders **`(5)`**; IMG2 original renders **`(4)`**.  
+   Crop-relative: approx `xâ0.38, yâ0.62`, fourth stacked vector column, bottom value.  
+   Severity: **BLOCKER**. Confidence: high.
+
+3. **Vector table, row 3, column`** â IMG1 renders **`(4)`**; IMG2 original renders **`(5)`**.  
+   Crop-relative: approx `xâ0.49, yâ0.62`, fifth stacked vector column, bottom value.  
+   Severity: **BLOCKER**. Confidence: high.
+
+These are not formatting/medium artifacts: they are digit-level errors in the core numeric table, exactly the class called out as major-to-blocker.
+
+4. **Column header case** â IMG1 uses uppercase sub/superscript headers **`Xâ â¦ Xâ`**; IMG2 original uses lowercase **`xâ â¦ xâ`**.  
+   Crop-relative: approx `yâ0.23`, across the vector-table header row.  
+   Severity: **MAJOR**. Confidence: high. Wrong glyph/case for the indexed vector variable.
+
+5. **Upper leading band coverage** â IMG1 includes an upper red-ruled band containing `(1)(1)(2)(4)(5)(6)`, `Câ Câ Câ Câ Câ Câ`, and `Câ positive / Câ negative`; there is no matching visible content at that vertical position in IMG2.  
+   Crop-relative: approx upper band `yâ0.03â0.30` above the âUgmented Vectorsâ heading.  
+   Severity: **MINOR** as a content defect, flagged mainly as a likely crop-window/offset mismatch rather than a drawing error. Confidence: medium.
+
+6. **`Câ` ink color** â IMG1âs `Câ` labels/note text read purple/magenta-toned; IMG2âs corresponding `Câ` marks read as a cooler blue.  
+   Crop-relative: approx `yâ0.77` under the vector columns, and in the upper note band.  
+   Severity: **MINOR**. Confidence: low (color/JDPEG uncertainty at this zoom).
+
+Not discrepancies: the shared âUgmentedâ misspelling/spacing, paren-only stacked vector style, broad two-box formula layout, and `Iteration 1` banner appearance. The formulas themselves are too cropped to compare numerator/denominator order fully.
+
+FINAL VERDICT: FAIL

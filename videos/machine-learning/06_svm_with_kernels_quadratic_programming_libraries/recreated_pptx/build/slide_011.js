@@ -1,6 +1,10 @@
+// slide_011.js — REBUILD WAVE 3, built only from qa/reanalysis2 + judge findings + doc-parse
+// of unique_slides/slide_011.jpg. Run: NODE_PATH=$(npm root -g) node slide_011.js
 const pptxgen = require("pptxgenjs");
+const path = require("path");
 
-// ---- parameters ----
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx/build/eq_011") + "/";
 const NUM = 11;
 const TITLE = "Training Vectors: SVM QP Formulation";
 const FONT = "Arial";
@@ -11,13 +15,11 @@ pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
 s.background = { color: "E8E8E8" };
 
-// 1. House frame
+// House chrome
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
@@ -27,40 +29,97 @@ s.addText(String(NUM), {
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-
-// 3. Title box
 s.addText(TITLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
   fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// Training data
-s.addText("Training Vectors:", { x: 0.5, y: 0.9, w: 6.0, h: 0.3, fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
-s.addText("x1 = (1, 1), y1 = 1", { x: 0.5, y: 1.2, w: 6.0, h: 0.25, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("x2 = (2, 2), y2 = 1", { x: 0.5, y: 1.45, w: 6.0, h: 0.25, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("x3 = (7, 4), y3 = 1", { x: 0.5, y: 1.7, w: 6.0, h: 0.25, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("x4 = (4, 8), y4 = -1", { x: 0.5, y: 1.95, w: 6.0, h: 0.25, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
+// Top-left: Training Vectors box with all four vectors + labels
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.35, y: 0.95, w: 4.35, h: 1.9,
+  fill: { color: "FBF7C8" }, line: { color: "BFBFBF", width: 1 },
+});
+s.addText("Training Vectors", {
+  x: 0.5, y: 1.02, w: 4.0, h: 0.28,
+  fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+s.addImage({ path: EQ + "eq_vecs.png", x: 0.5, y: 1.32, w: 2.81167, h: 1.495 });
 
-s.addText("Use C = 1", { x: 6.5, y: 0.9, w: 6.3, h: 0.3, fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
+// Top-middle: Test Vectors box
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 4.85, y: 0.95, w: 2.7, h: 1.9,
+  fill: { color: "FBF7C8" }, line: { color: "BFBFBF", width: 1 },
+});
+s.addText("Test Vectors", {
+  x: 5.0, y: 1.02, w: 2.4, h: 0.28,
+  fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+s.addImage({ path: EQ + "eq_test.png", x: 5.15, y: 1.45, w: 1.76167, h: 0.94667 });
+// Top-right: "Use C=1" inside a red rectangular callout box
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 7.7, y: 0.95, w: 2.3, h: 0.5,
+  fill: { color: "FFFFFF" }, line: { color: "C00000", width: 2 },
+});
+s.addText("Use C=1", {
+  x: 7.7, y: 0.95, w: 2.3, h: 0.5,
+  align: "center", valign: "middle",
+  fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
 
-// Objective
-s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.3, w: 12.3, h: 1.5, fill: { color: "FFFFFF" }, line: { color: "3498DB", width: 1.5 } });
-s.addText("Maximize L = \u2211 \u03b1_i - \u00bd \u2211 \u2211 \u03b1_i \u03b1_j y_i y_j x_i^T x_j", { x: 0.7, y: 2.4, w: 11.8, h: 0.3, fontSize: 15, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("=> Minimize L_D(\u03b1) = \u00bd \u2211 \u2211 \u03b1_i \u03b1_j y_i y_j x_i^T x_j - \u2211 \u03b1_i", { x: 0.7, y: 2.75, w: 11.8, h: 0.3, fontSize: 15, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
-s.addText("\u03b1_1 y_1 + \u03b1_2 y_2 + \u03b1_3 y_3 + \u03b1_4 y_4 = 0", { x: 0.7, y: 3.1, w: 11.8, h: 0.3, fontSize: 15, color: "333333", fontFace: FONT, margin: 0 });
+// Top-right: constraint box — equality + four separate 0<=alpha_i<=C rows
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 7.7, y: 1.55, w: 5.28, h: 1.3,
+  fill: { color: "FFFFFF" }, line: { color: "C00000", width: 1.5 },
+});
+s.addImage({ path: EQ + "eq_cons.png", x: 7.85, y: 1.68, w: 2.45333, h: 0.84833 });
 
-// Quadratic equation
-s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 3.95, w: 12.3, h: 2.5, fill: { color: "FFFFFF" }, line: { color: "C00000", width: 1.5 } });
-s.addText("Minimize: [ +\u03b1_1^2 + 2\u03b1_1\u03b1_2 - 5.5\u03b1_1\u03b1_3 - 6\u03b1_1\u03b1_4 + 2\u03b1_2\u03b1_1 + 4\u03b1_2^2 - 11\u03b1_2\u03b1_3 - 12\u03b1_2\u03b1_4", { x: 0.7, y: 4.05, w: 11.8, h: 0.3, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("          - 5.5\u03b1_3\u03b1_1 - 11\u03b1_3\u03b1_2 + 32.5\u03b1_3^2 + 36\u03b1_3\u03b1_4 - 6\u03b1_4\u03b1_1 - 12\u03b1_4\u03b1_2 + 36\u03b1_4\u03b1_3 + 40\u03b1_4^2 ]", { x: 0.7, y: 4.35, w: 11.8, h: 0.3, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("          - [ \u03b1_1 + \u03b1_2 + \u03b1_3 + \u03b1_4 ]", { x: 0.7, y: 4.65, w: 11.8, h: 0.3, fontSize: 13, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("Subject to: \u03b1_1 + \u03b1_2 - \u03b1_3 - \u03b1_4 = 0", { x: 0.7, y: 5.0, w: 11.8, h: 0.3, fontSize: 14, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
-s.addText("\u03b1_1, \u03b1_2, \u03b1_3, \u03b1_4 \u2264 1 (C)", { x: 0.7, y: 5.35, w: 11.8, h: 0.3, fontSize: 14, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("\u03b1_1, \u03b1_2, \u03b1_3, \u03b1_4 \u2265 0", { x: 0.7, y: 5.7, w: 11.8, h: 0.3, fontSize: 14, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("Quadratic Equation in \u03b1 with constraints", { x: 0.7, y: 6.05, w: 11.8, h: 0.3, fontSize: 14, bold: true, color: "E74C3C", fontFace: FONT, margin: 0 });
+// Middle band: Maximize => Minimize dual (blue outline)
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.35, y: 3.0, w: 12.63, h: 0.72,
+  fill: { color: "FFFFFF" }, line: { color: "1F4E79", width: 1.5 },
+});
+s.addImage({ path: EQ + "eq_dual.png", x: 0.55, y: 3.06, w: 8.08333, h: 0.59667 });
 
-// Write
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_011_recreated.pptx" })
+// Diagonal watermark
+s.addText("From Previous Lecture", {
+  x: 3.8, y: 3.78, w: 5.8, h: 0.4, rotate: -18,
+  fontSize: 14, bold: true, italic: true, color: "1F4E79", fontFace: FONT, margin: 0,
+});
+// Matrices row: X, G = X^T X, Y = (y_i y_j), Y∘G
+s.addImage({ path: EQ + "eq_X.png", x: 0.5, y: 4.25, w: 1.86333, h: 1.245 });
+s.addImage({ path: EQ + "eq_G.png", x: 3.0, y: 4.2, w: 2.33167, h: 1.32167 });
+s.addImage({ path: EQ + "eq_Y.png", x: 6.2, y: 4.22, w: 2.43833, h: 1.295 });
+s.addImage({ path: EQ + "eq_YG.png", x: 9.2, y: 4.2, w: 1.81167, h: 1.325 });
+
+// Lower red panel: quadratic objective + constraints
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.35, y: 5.6, w: 12.63, h: 1.75,
+  fill: { color: "FFF7F7" }, line: { color: "C00000", width: 1.5 },
+});
+s.addText("Minimize:", {
+  x: 0.5, y: 5.68, w: 1.3, h: 0.3,
+  fontSize: 13, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+// objective across three aligned lines
+s.addImage({ path: EQ + "eq_obj.png", x: 1.85, y: 5.64, w: 7.385, h: 1.02 });
+// four separate 0 <= alpha_i <= C rows, right side of panel
+s.addImage({ path: EQ + "eq_bounds.png", x: 9.6, y: 5.64, w: 1.055, h: 0.645 });
+
+// "Subject to:" on its own line
+s.addText("Subject to:", {
+  x: 0.5, y: 6.78, w: 1.3, h: 0.3,
+  fontSize: 12, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+s.addImage({ path: EQ + "eq_subj.png", x: 1.85, y: 6.72, w: 7.39333, h: 0.565 });
+
+// "Quadratic Equation in α with constraints" bottom-RIGHT of the panel
+s.addText("Quadratic Equation in \u03b1 with constraints", {
+  x: 8.3, y: 6.95, w: 4.6, h: 0.35,
+  align: "right", valign: "middle",
+  fontSize: 12, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+});
+
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_011_recreated.pptx") })
   .then(() => console.log("wrote slide_011_recreated.pptx"))
   .catch(e => console.error(e));

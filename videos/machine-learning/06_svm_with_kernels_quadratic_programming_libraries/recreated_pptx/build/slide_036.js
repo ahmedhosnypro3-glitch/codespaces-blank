@@ -1,18 +1,22 @@
-const pptxgen = require("pptxgenjs");
+// Slide 036 — REBUILD WAVE 3, built ONLY from qa/reanalysis2/slide_036_analysis.txt.
+// "How to Kernelize SVM" / Example: Quadratic Kernel: two blue-bordered white
+// panels (primal dual top, kernelized dual bottom), center "Kernelize using" +
+// red K(a,b)=(a^T b)^2 boxes with a red down arrow, two peach class-of-vector
+// strips. Equations are segmented 600-dpi mathtext PNGs (eq_036/s36rb3_*).
+// Build from project root: cd /home/codespace/ai_llm_slides && node <NS>/recreated_pptx/build/slide_036.js
 const fs = require("fs");
+const path = require("path");
+const pptxgen = require("pptxgenjs");
 
-// Slide 036 — FRESH rebuild (wave 3) from qa/reanalysis2/slide_036_analysis.txt ONLY.
-// Spec: "How to Kernelize SVM" — two white/blue panels with primal vs kernelized
-// dual equations (2-D mathtext PNGs), center "Kernelize using" + K(a,b)=(a^T b)^2
-// boxes with red down arrow, two peach class-of-vector boxes.
-// Run: cd recreated_pptx/build && NODE_PATH=$(npm root -g) node slide_036.js
-
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
 const NUM = 36;
-const FONT = "Arial";
 const W = 13.33, H = 7.5;
-const BASE = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
-const EQ = BASE + "/recreated_pptx/build/eq_036/";
-const OUT = BASE + "/recreated_pptx/slide_036_recreated.pptx";
+const EQ = path.join(__dirname, "eq_036");
+const OUT = path.join(NS, "recreated_pptx", "slide_036_recreated.pptx");
+const M = JSON.parse(fs.readFileSync(path.join(EQ, "eq_s36rb3_manifest.json"), "utf8"));
+const FONT = "Arial";
+const IN_X = 13.33, IN_Y = 7.5;
+const N = b => ({ x: b[0] * IN_X, y: b[1] * IN_Y, w: (b[2] - b[0]) * IN_X, h: (b[3] - b[1]) * IN_Y });
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -29,99 +33,71 @@ s.addShape(pres.shapes.OVAL, {
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
 s.addText(String(NUM), {
-  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
-  align: "center", valign: "middle",
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5, align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
 s.addText("How to Kernelize SVM", {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
-  align: "center", valign: "top",
+  x: 0.6, y: 0.28, w: 12.13, h: 0.55, align: "center", valign: "top",
   fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
 // ---- helpers ----
-const X = n => n * 13.33, Y = n => n * 7.5;
-function box(x0, y0, x1, y1, fill, line, shape) {
-  s.addShape(shape || pres.shapes.RECTANGLE, {
-    x: X(x0), y: Y(y0), w: X(x1 - x0), h: Y(y1 - y0),
-    fill: { color: fill }, line: { color: line, width: 1.25 },
-  });
+function box(b, fill, line, shape) {
+  s.addShape(shape || pres.shapes.RECTANGLE,
+    Object.assign(N(b), { fill: { color: fill }, line: { color: line, width: 1.25 } }));
 }
-function img(name, x, y) {
-  const m = JSON.parse(fs.readFileSync(EQ + name + ".png.json"));
-  s.addImage({ path: EQ + name + ".png", x, y, w: m.w_in, h: m.h_in });
-  return m;
-}
-function imgIn(name, x0n, y0n, wN, hN) { // centered inside a normalized box
-  const m = JSON.parse(fs.readFileSync(EQ + name + ".png.json"));
-  s.addImage({
-    path: EQ + name + ".png",
-    x: X(x0n) + (X(wN) - m.w_in) / 2, y: Y(y0n) + (Y(hN) - m.h_in) / 2,
-    w: m.w_in, h: m.h_in,
-  });
-  return m;
-}
-// wide text box at spec y (lesson from slide 001 judge FAIL: never narrow boxes)
-function cline(ynorm, text, size, color, extra) {
-  s.addText(text, {
-    x: 0.6, y: Y(ynorm), w: 12.13, h: 0.42,
-    align: "center", valign: "top", fontSize: size, color, fontFace: FONT,
-    margin: 0, ...(extra || {}),
-  });
+function label(b, text, color, italic) {
+  const r = N(b);
+  s.addText(text, Object.assign(r, {
+    align: "center", valign: "middle", fontSize: 12, italic: !!italic,
+    color, fontFace: FONT, margin: 0,
+  }));
 }
 
-// ---- header: "Example: Quadratic Kernel" rounded label [0.06,0.08,0.32,0.14] ----
-box(0.06, 0.08, 0.32, 0.14, "FFFFFF", "3333CC", pres.shapes.ROUNDED_RECTANGLE);
-s.addText("Example: Quadratic Kernel", {
-  x: X(0.06), y: Y(0.085), w: X(0.26), h: Y(0.05),
-  align: "center", valign: "middle",
-  fontSize: 12, italic: true, color: "0000FF", fontFace: FONT, margin: 0,
-});
+// ---- header label + panels + peach strips + kernel boxes (spec section 4) ----
+box([0.06, 0.08, 0.32, 0.14], "FFFFFF", "3333CC", pres.shapes.ROUNDED_RECTANGLE);
+box([0.05, 0.23, 0.96, 0.46], "FFFFFF", "3333CC");
+box([0.05, 0.59, 0.96, 0.87], "FFFFFF", "3333CC");
+box([0.12, 0.47, 0.88, 0.51], "FFDAB9", "800000");
+box([0.12, 0.83, 0.88, 0.87], "FFDAB9", "800000");
+box([0.28, 0.47, 0.42, 0.54], "FFFFFF", "800000");
+box([0.59, 0.48, 0.71, 0.54], "FFFFFF", "800000");
+// ---- text labels (spec verbatim) ----
+label([0.06, 0.08, 0.32, 0.14], "Example: Quadratic Kernel", "0000FF", true);
+label([0.28, 0.47, 0.42, 0.54], "Kernelize using", "FF0000", false);
 
-// ---- top panel [0.05,0.23,0.96,0.46] + bottom panel [0.05,0.59,0.96,0.87] ----
-box(0.05, 0.23, 0.96, 0.46, "FFFFFF", "3333CC");
-box(0.05, 0.59, 0.96, 0.87, "FFFFFF", "3333CC");
-// ---- peach class-of-vector boxes (drawn before the white center boxes) ----
-box(0.12, 0.47, 0.88, 0.51, "FFDAB9", "800000");
-box(0.12, 0.83, 0.88, 0.87, "FFDAB9", "800000");
-
-// ---- center: "Kernelize using" box + kernel equation box + red down arrow ----
-box(0.28, 0.47, 0.42, 0.54, "FFFFFF", "800000");
-s.addText("Kernelize using", {
-  x: X(0.28), y: Y(0.47), w: X(0.14), h: Y(0.07),
-  align: "center", valign: "middle",
-  fontSize: 12, color: "FF0000", fontFace: FONT, margin: 0,
-});
-box(0.59, 0.48, 0.71, 0.54, "FFFFFF", "800000");
-imgIn("f36_kern", 0.59, 0.48, 0.12, 0.06);
+// ---- red block down-arrow bridging kernel strip to bottom panel (spec x/y
+//      [0.43,0.48,0.47,...]; extended down to visibly connect into the panel) ----
 s.addShape(pres.shapes.DOWN_ARROW, {
-  x: X(0.43), y: Y(0.48), w: X(0.04), h: Y(0.10),
+  x: 0.43 * IN_X, y: 0.48 * IN_Y, w: 0.04 * IN_X, h: 0.12 * IN_Y,
   fill: { color: "FF0000" }, line: { color: "FF0000", width: 0.5 },
 });
 
-// ---- top panel equations (spec boxes [0.08,0.24,0.92,0.31] / [0.08|0.38,0.32,...]) ----
-img("f36_lag_top", X(0.08), 1.80);
-img("f36_w", X(0.08), 2.42);
-const bTop = JSON.parse(fs.readFileSync(EQ + "f36_b_top.png.json"));
-img("f36_b_top", X(0.38), 2.42 + (0.50 - bTop.h_in) / 2);
-
-// ---- bottom panel: green highlight on the squared kernel term, then equations ----
-const lagBot = JSON.parse(fs.readFileSync(EQ + "f36_lag_bot.png.json"));
-const lagBotX = X(0.08), lagBotY = 4.50;
-const TAIL_W = 1.1667, PAD = 8 / 600; // tail seg [X_i^T X_j]^2 width at 24pt, render PAD_PX
-const tailX0 = lagBot.w_in - PAD - TAIL_W;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: lagBotX + tailX0 - 0.03, y: lagBotY, w: TAIL_W + 0.06, h: lagBot.h_in,
-  fill: { color: "90EE90" }, line: { color: "90EE90", width: 0 },
-});
-img("f36_lag_bot", lagBotX, lagBotY);
-img("f36_w", X(0.08), 5.325);
-const bBot = JSON.parse(fs.readFileSync(EQ + "f36_b_bot.png.json"));
-img("f36_b_bot", X(0.38), 5.325 + (0.50 - bBot.h_in) / 2);
-
-// ---- class-of-vector lines inside the peach boxes ----
-imgIn("f36_cls_top", 0.12, 0.47, 0.76, 0.04);
-imgIn("f36_cls_bot", 0.12, 0.83, 0.76, 0.04);
+// ---- equations (spec section 8 boxes): left-aligned at box x, vertically
+//      centered; green highlight rects over the marked terms, drawn first ----
+function eq(name, boxOverride) {
+  const m = M[name];
+  const b = boxOverride || m.box;
+  const x = b[0], y = b[1] + (b[3] - m.h_in) / 2;
+  for (const lab of m.highlights) {
+    const g = m.segments[lab];
+    s.addShape(pres.shapes.RECTANGLE, {
+      x: x + g[0] / 600 - 0.03, y: y + g[2] / 600 - 0.02,
+      w: (g[1] - g[0]) / 600 + 0.06, h: (g[3] - g[2]) / 600 + 0.04,
+      fill: { color: "90EE90" }, line: { type: "none" },
+    });
+  }
+  s.addImage({ path: path.join(EQ, m.image), x, y, w: m.w_in, h: m.h_in });
+}
+eq("s36rb3_lag_top");
+eq("s36rb3_w");
+eq("s36rb3_b_top");
+eq("s36rb3_cls_top");
+eq("s36rb3_kern");
+eq("s36rb3_lag_bot");
+eq("s36rb3_w", [1.0664, 5.325, 3.5991, 0.525]); // spec [0.08,0.71,0.35,0.78] -> inches; w repeats verbatim in bottom panel
+eq("s36rb3_b_bot");
+eq("s36rb3_cls_bot");
 
 pres.writeFile({ fileName: OUT })
   .then(() => console.log("wrote " + OUT))

@@ -1,10 +1,10 @@
-// slide_030.js — RBF Kernel derivation with Taylor series (FIXED)
-// Vision: Maroon title "RBF Kernel", badge 30, left derivation panel (identity, horizontal Taylor series box, φ(a)ᵀ/φ(b) pills, vertical Taylor column, e^(-b²/2) factor), right result panel with blue-boxed e^(-γ||a-b||²)
-// Doc-parse: "e^(-1/2(a-b)²) = e^(-a²/2) e^(-b²/2) e^(ab)" + horizontal Taylor: "1, a/√1!, a²/√2!, a³/√3!, a⁴/√4!, ..." + vertical Taylor: "1/b, b/√1!, b²/√2!, b³/√3!, b⁴/√4!, ..., ∞"
-// Run: NODE_PATH=$(npm root -g) node slide_030.js
-
+// slide_030.js — RBF Kernel (matches reanalysis spec layout; eq PNGs from eq_030/)
 const pptxgen = require("pptxgenjs");
+const fs = require("fs");
+const path = require("path");
 
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = NS + "/recreated_pptx/build/eq_030/";
 const NUM = 30;
 const TITLE = "Radial Basis Function (RBF) Kernel";
 const FONT = "Arial";
@@ -15,13 +15,10 @@ const W = 13.33, H = 7.5;
 const s = pres.addSlide();
 s.background = { color: "E8E8E8" };
 
-// 1. House red frame (0.15in inset)
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Slide-number badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
@@ -31,120 +28,76 @@ s.addText(String(NUM), {
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-
-// 3. Title box (maroon per vision)
 s.addText(TITLE, {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "800000", fontFace: FONT, margin: 0,
+  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// 4. Left derivation panel - LARGE to accommodate all content
-const leftX = 1.0, leftY = 1.0, leftW = 9.5, leftH = 5.8;
+function eq(name, x, y) {
+  const m = JSON.parse(fs.readFileSync(EQ + name + ".png.json"));
+  s.addImage({ path: EQ + name + ".png", x, y, w: m.w_in, h: m.h_in });
+  return m;
+}
+
+// Left derivation panel (blue border)
+const lx = 0.29, ly = 1.24, lw = 8.84, lh = 6.0;
 s.addShape(pres.shapes.RECTANGLE, {
-  x: leftX, y: leftY, w: leftW, h: leftH,
-  fill: { color: "F8F8F8" }, line: { color: "0066CC", width: 1 },
+  x: lx, y: ly, w: lw, h: lh,
+  fill: { color: "FFFFFF" }, line: { color: "20457A", width: 1.5 },
 });
 
-// Top: kernel identity with colored terms
-s.addText("e⁻¹ᐟ²||a−b||² = e⁻¹ᐟ²(aᵀa + bᵀb − 2aᵀb) = e⁻ᵃ²ᐟ² · e⁻ᵇ²ᐟ² · eᵃᵀᵇ", {
-  x: leftX + 0.2, y: leftY + 0.2, w: leftW - 0.4, h: 0.5,
-  fontSize: 14, color: "333333", fontFace: FONT, margin: 0,
-});
-
-// Horizontal Taylor series box (1, a/√1!, a²/√2!, a³/√3!, a⁴/√4!, ...)
-const taylorX = leftX + 0.3, taylorY = leftY + 0.8, taylorW = leftW - 0.6, taylorH = 0.7;
+// E1 row with peach highlight behind the first term
 s.addShape(pres.shapes.RECTANGLE, {
-  x: taylorX, y: taylorY, w: taylorW, h: taylorH,
-  fill: { color: "FFFDD0" }, line: { color: "C00000", width: 1 },
+  x: 0.77, y: 1.54, w: 2.43, h: 0.71,
+  fill: { color: "FBE3C4" }, line: { color: "FBE3C4", width: 0.5 },
 });
-s.addText("Taylor expansion of eᵃᵀᵇ:", {
-  x: taylorX + 0.1, y: taylorY + 0.05, w: taylorW - 0.2, h: 0.25,
-  fontSize: 12, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-s.addText("1  +  aᵀᵇ/√1!  +  (aᵀᵇ)²/√2!  +  (aᵀᵇ)³/√3!  +  (aᵀᵇ)⁴/√4!  +  ...  ∞", {
-  x: taylorX + 0.1, y: taylorY + 0.35, w: taylorW - 0.2, h: 0.3,
-  fontSize: 13, color: "333333", fontFace: FONT, margin: 0,
-});
+const e1a = eq("e1a", 0.85, 1.62);
+eq("e1b", 0.85 + e1a.w_in + 0.15, 1.64);
 
-// φ(a)ᵀ and φ(b) pills (rounded)
-const pillY = taylorY + taylorH + 0.2;
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: leftX + leftW - 3.5, y: pillY, w: 1.6, h: 0.35,
-  fill: { color: "E0F0E0" }, line: { color: "008000", width: 1 },
-});
-s.addText("φ(a)ᵀ = e⁻ᵃ²ᐟ² [1, a₁/√1!, ...]", {
-  x: leftX + leftW - 3.5, y: pillY, w: 1.6, h: 0.35,
-  align: "center", valign: "middle", fontSize: 11, bold: true, color: "008000", fontFace: FONT, margin: 0,
-});
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: leftX + leftW - 1.8, y: pillY, w: 1.6, h: 0.35,
-  fill: { color: "E0E0F0" }, line: { color: "000080", width: 1 },
-});
-s.addText("φ(b) = e⁻ᵇ²ᐟ² [1, b₁/√1!, ...]ᵀ", {
-  x: leftX + leftW - 1.8, y: pillY, w: 1.6, h: 0.35,
-  align: "center", valign: "middle", fontSize: 11, bold: true, color: "000080", fontFace: FONT, margin: 0,
-});
+// E2 row vector
+eq("e2", 0.83, 2.74);
 
-// Product line
-s.addText("φ(a)ᵀφ(b) = e⁻ᵃ²ᐟ² e⁻ᵇ²ᐟ² [1 + aᵀᵇ/√1! + (aᵀᵇ)²/√2! + ...] = e⁻ᵃ²ᐟ² e⁻ᵇ²ᐟ² eᵃᵀᵇ", {
-  x: leftX + 0.2, y: pillY + 0.5, w: leftW - 0.4, h: 0.4,
-  fontSize: 13, color: "333333", fontFace: FONT, margin: 0,
-});
-s.addText("= e⁻||a−b||²ᐟ²", {
-  x: leftX + 0.2, y: pillY + 0.9, w: leftW - 0.4, h: 0.4,
-  fontSize: 13, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-
-// Vertical Taylor column (1/b, b/√1!, b²/√2!, b³/√3!, b⁴/√4!, ..., ∞)
-const vertX = leftX + 0.3, vertY = pillY + 1.4, vertW = 2.0, vertH = 3.0;
+// phi(a)^T outlined label box under the row vector
+const paX = 1.93, paY = 4.09, paW = 1.47, paH = 0.75;
 s.addShape(pres.shapes.RECTANGLE, {
-  x: vertX, y: vertY, w: vertW, h: vertH,
-  fill: { color: "FFFFE0" }, line: { color: "999999", width: 0.5 },
+  x: paX, y: paY, w: paW, h: paH,
+  fill: { color: "FFFFFF" }, line: { color: "333333", width: 1 },
 });
-s.addText("b series:", {
-  x: vertX, y: vertY + 0.05, w: vertW, h: 0.25,
-  fontSize: 11, bold: true, color: "666666", fontFace: FONT, margin: 0,
-});
-const bTerms = [
-  "1",
-  "b/√1!",
-  "b²/√2!",
-  "b³/√3!",
-  "b⁴/√4!",
-  "...",
-  "∞"
-];
-bTerms.forEach((term, i) => {
-  s.addText(term, {
-    x: vertX + 0.1, y: vertY + 0.35 + i * 0.35, w: vertW - 0.2, h: 0.3,
-    fontSize: 12, color: "333333", fontFace: FONT, margin: 0,
-  });
-});
+const phia = JSON.parse(fs.readFileSync(EQ + "phia.png.json"));
+s.addImage({ path: EQ + "phia.png", x: paX + (paW - phia.w_in) / 2, y: paY + (paH - phia.h_in) / 2, w: phia.w_in, h: phia.h_in });
 
-// e^(-b²/2) factor below vertical column
-s.addText("e⁻ᵇ²ᐟ²", {
-  x: vertX, y: vertY + vertH + 0.1, w: vertW, h: 0.3,
-  align: "center", fontSize: 13, color: "000080", fontFace: FONT, margin: 0,
+// phi(b) outlined label box and e^{-b^2/2} label, left of the column bracket
+const pbX = 4.60, pbY = 4.50, pbW = 1.87, pbH = 0.83;
+s.addShape(pres.shapes.RECTANGLE, {
+  x: pbX, y: pbY, w: pbW, h: pbH,
+  fill: { color: "FFFFFF" }, line: { color: "333333", width: 1 },
 });
+const phib = JSON.parse(fs.readFileSync(EQ + "phib.png.json"));
+s.addImage({ path: EQ + "phib.png", x: pbX + (pbW - phib.w_in) / 2, y: pbY + (pbH - phib.h_in) / 2, w: phib.w_in, h: phib.h_in });
+eq("eb2", 6.33, 4.62);
 
-// 5. Right result panel - blue boxed final formula (matching original)
-const rightX = leftX + leftW + 0.3, rightY = 1.0, rightW = 3.0, rightH = 2.0;
+// tall column bracket of the b series
+eq("colb", 7.27, 2.74);
+
+// Right panel
+const rx = 9.01, ry = 1.80, rw = 4.16, rh = 5.44;
+s.addShape(pres.shapes.RECTANGLE, {
+  x: rx, y: ry, w: rw, h: rh,
+  fill: { color: "FFFFFF" }, line: { color: "20457A", width: 1.5 },
+});
 s.addText("RBF Kernel", {
-  x: rightX, y: rightY, w: rightW, h: 0.4,
-  align: "center", fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  x: rx + 0.32, y: ry + 0.26, w: rw - 0.64, h: 0.41,
+  align: "center", fontSize: 18, bold: true, color: "9E1B1B", fontFace: FONT, margin: 0,
 });
+const bx = 9.49, by = 5.29, bw = 3.28, bh = 0.94;
 s.addShape(pres.shapes.RECTANGLE, {
-  x: rightX + 0.3, y: rightY + 0.5, w: rightW - 0.6, h: 1.0,
-  fill: { color: "E8F4FF" }, line: { color: "0066CC", width: 2 },
+  x: bx, y: by, w: bw, h: bh,
+  fill: { color: "FFFFFF" }, line: { color: "333333", width: 1 },
 });
-s.addText("e⁻ᵞ||a−b||²", {
-  x: rightX + 0.3, y: rightY + 0.5, w: rightW - 0.6, h: 1.0,
-  align: "center", valign: "middle", fontSize: 18, bold: true, color: "0066CC", fontFace: FONT, margin: 0,
-});
+const rbf = JSON.parse(fs.readFileSync(EQ + "rbf.png.json"));
+s.addImage({ path: EQ + "rbf.png", x: bx + (bw - rbf.w_in) / 2, y: by + (bh - rbf.h_in) / 2, w: rbf.w_in, h: rbf.h_in });
 
-// Note: Bottom black letterbox bar from original treated as capture chrome, omitted
-
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_030_recreated.pptx" })
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_030_recreated.pptx") })
   .then(() => console.log("wrote slide_030_recreated.pptx"))
-  .catch(err => console.error(err));
+  .catch(e => console.error(e));

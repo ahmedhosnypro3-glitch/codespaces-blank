@@ -1,160 +1,156 @@
-// slide_007.js — "Equal Constraints" (rebuild wave 3)
-// Built ONLY from qa/reanalysis2/slide_007_analysis.txt (spec starts at "1. SLIDE_TITLE").
-// House chrome per video AGENTS.md overrides spec frame/badge/title.
-// Math assets: 600-dpi mathtext PNGs in build/eq_007/ (gen_eq_007.py + manifest.json).
-// Run: NODE_PATH=$(npm root -g) node slide_007.js
-
-const fs = require("fs");
+// slide_007.js — fresh wave-3 rebuild from qa/reanalysis2/slide_007_analysis.txt ONLY.
+const path = require("path");
 const pptxgen = require("pptxgenjs");
-const { newPres, W, H, FONT } = require("./shared.js");
 
-const NUM = 7;
-const TITLE = "Equal Constraints";
-const MATH = "Times New Roman";
-const BASE = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
-const EQ = BASE + "/recreated_pptx/build/eq_007/";
-const OUT = BASE + "/recreated_pptx/slide_007_recreated.pptx";
-const M = JSON.parse(fs.readFileSync(EQ + "manifest.json", "utf8"));
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx", "build", "eq_007");
+const MAN = require(path.join(EQ, "rb3_manifest.json"));
 
-const pres = newPres();
-const s = pres.addSlide();
+const W = 13.33, H = 7.5;
+const X = (v) => v * W, Y = (v) => v * H;
+const box = (b) => ({ x: X(b[0]), y: Y(b[1]), w: X(b[2] - b[0]), h: Y(b[3] - b[1]) });
 
-// House chrome
-s.background = { color: "E8E8E8" };
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
+const pres = new pptxgen();
+pres.layout = "LAYOUT_WIDE";
+const slide = pres.addSlide();
+slide.background = { color: "E8E8E8" };
+
+// Solid black rectangle, lower-right corner (spec layout; drawn under house frame)
+let b = box([0.823, 0.861, 1.0, 1.0]);
+slide.addShape(pres.shapes.RECTANGLE, { x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "000000" }, line: { type: "none" } });
+
+// House chrome (mandatory, overrides spec): red frame, badge, title
+slide.addShape(pres.shapes.RECTANGLE, {
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-s.addShape(pres.shapes.OVAL, {
+slide.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
+slide.addText("7", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
+  fontSize: 18, bold: true, color: "333333", fontFace: "Arial", margin: 0,
 });
-s.addText(TITLE, {
+slide.addText("Equal Constraints", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 20, bold: true, color: "C00000", fontFace: "Arial", margin: 0,
 });
 
-// Helpers
-const N = (v) => v * 13.33;          // normalized x -> in
-const NY = (v) => v * 7.5;           // normalized y -> in
-const box = (b) => ({ x: N(b[0]), y: NY(b[1]), w: N(b[2] - b[0]), h: NY(b[3] - b[1]) });
-function img(name, b) {               // centered in normalized box, native px/600 size
-  const m = M[name], r = box(b);
-  s.addImage({ path: EQ + m.image, x: r.x + (r.w - m.w_in) / 2, y: r.y + (r.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+// Three red-outlined white panels
+for (const p of [
+  [0.094, 0.176, 0.823, 0.319],
+  [0.094, 0.339, 0.823, 0.620],
+  [0.094, 0.639, 0.823, 0.824],
+]) {
+  b = box(p);
+  slide.addShape(pres.shapes.RECTANGLE, { x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "FFFFFF" }, line: { color: "FF0000", width: 1 } });
 }
-function imgAt(name, x, y) {
-  const m = M[name];
-  s.addImage({ path: EQ + m.image, x, y, w: m.w_in, h: m.h_in });
-}
-function panel(b) {
-  const r = box(b);
-  s.addShape(pres.shapes.RECTANGLE, { x: r.x, y: r.y, w: r.w, h: r.h, fill: { color: "FFFFFF" }, line: { color: "FF0000", width: 1 } });
-}
-function label(text, b) {             // blue bold underlined header, h>=0.35
-  const r = box(b), cy = r.y + r.h / 2;
-  s.addText(text, {
-    x: r.x, y: cy - 0.175, w: r.w, h: 0.35,
-    align: "left", valign: "middle", fontSize: 12, bold: true, underline: true,
-    color: "0000FF", fontFace: FONT, margin: 0,
+
+// Math PNG at natural size (w = px/600), centered in a spec box
+function eqC(name, bb) {
+  const m = MAN[name];
+  slide.addImage({
+    path: path.join(EQ, m.image),
+    x: bb.x + (bb.w - m.w_in) / 2, y: bb.y + (bb.h - m.h_in) / 2,
+    w: m.w_in, h: m.h_in,
   });
 }
-function chip(b) {                    // pink rounded "A x = b" chip
-  const r = box(b), cy = r.y + r.h / 2;
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: r.x, y: r.y, w: r.w, h: r.h, fill: { color: "FFC7CE" }, line: { color: "FFC7CE", width: 0.5 } });
-  s.addText("A x = b", {
-    x: r.x, y: cy - 0.175, w: r.w, h: 0.35,
-    align: "center", valign: "middle", fontSize: 13, bold: true, italic: true,
-    color: "FF0000", fontFace: MATH, margin: 0,
+// Math PNG at explicit x, vertically centered on cy; returns its width
+function eqAt(name, x, cy) {
+  const m = MAN[name];
+  slide.addImage({ path: path.join(EQ, m.image), x, y: cy - m.h_in / 2, w: m.w_in, h: m.h_in });
+  return m.w_in;
+}
+// Thin black vertical bracket bars around a stacked matrix block
+function brackets(x0, x1, y0, y1) {
+  slide.addShape(pres.shapes.RECTANGLE, { x: x0, y: y0, w: 0.022, h: y1 - y0, fill: { color: "000000" }, line: { type: "none" } });
+  slide.addShape(pres.shapes.RECTANGLE, { x: x1 - 0.022, y: y0, w: 0.022, h: y1 - y0, fill: { color: "000000" }, line: { type: "none" } });
+}
+// Stack matrix row PNGs centered in sub-box; draw brackets; return geometry
+function matrixBlock(rowNames, bb, gap) {
+  const g = gap || 0.07;
+  const hs = rowNames.map((n) => MAN[n].h_in);
+  const total = hs.reduce((a, c) => a + c, 0) + g * (rowNames.length - 1);
+  const wMax = Math.max(...rowNames.map((n) => MAN[n].w_in));
+  const x0 = bb.x + (bb.w - wMax) / 2;
+  let y = bb.y + (bb.h - total) / 2;
+  for (const n of rowNames) {
+    slide.addImage({ path: path.join(EQ, MAN[n].image), x: x0, y, w: MAN[n].w_in, h: MAN[n].h_in });
+    y += MAN[n].h_in + g;
+  }
+  brackets(x0 - 0.05, x0 + wMax + 0.05, bb.y + (bb.h - total) / 2 - 0.02, y - g + 0.02);
+  return { x0, w: wMax, cy: bb.y + bb.h / 2 };
+}
+// Section labels (blue, bold, underlined) and pink "A x = b" chips
+for (const [txt, bb0] of [
+  ["One Constraint", [0.692, 0.183, 0.803, 0.209]],
+  ["Three Constraints", [0.678, 0.387, 0.810, 0.413]],
+  ["Four Constraints", [0.685, 0.665, 0.813, 0.691]],
+]) {
+  b = box(bb0);
+  slide.addText(txt, {
+    x: b.x, y: b.y, w: b.w, h: b.h,
+    align: "left", valign: "middle",
+    fontSize: 12, bold: true, underline: true, color: "0000FF", fontFace: "Arial", margin: 0,
   });
 }
-function matrix(rows, x, y, gap) {    // stacked colored rows + thin black bracket bars
-  const wMax = Math.max(...rows.map((r) => M[r].w_in));
-  const hTot = rows.reduce((a, r) => a + M[r].h_in, 0) + gap * (rows.length - 1);
-  let ry = y;
-  rows.forEach((r) => { imgAt(r, x + 0.03, ry); ry += M[r].h_in + gap; });
-  s.addShape(pres.shapes.RECTANGLE, { x, y: y - 0.02, w: 0.025, h: hTot + 0.04, fill: { color: "000000" }, line: { color: "000000", width: 0.25 } });
-  s.addShape(pres.shapes.RECTANGLE, { x: x + 0.03 + wMax + 0.005, y: y - 0.02, w: 0.025, h: hTot + 0.04, fill: { color: "000000" }, line: { color: "000000", width: 0.25 } });
-  return { w: wMax + 0.06, h: hTot };
-}
-
-// Panels (spec section 3/4: white fill, red stroke)
-panel([0.094, 0.176, 0.823, 0.319]);
-panel([0.094, 0.339, 0.823, 0.620]);
-panel([0.094, 0.639, 0.823, 0.824]);
-
-// Panel 1: summation, red arrow, 1x3 * 3x1 = (z)_{1*1}, label, chip
-img("sum1", [0.101, 0.190, 0.368, 0.283]);
-img("arrow", [0.405, 0.219, 0.424, 0.248]);
-{
-  const r = box([0.435, 0.181, 0.625, 0.294]), cy = r.y + r.h / 2, gap = 0.04;
-  let x = r.x + (r.w - (M.p1_row.w_in + gap + M.vec_x.w_in + gap + M.p1_rhs.w_in)) / 2;
-  const y1 = cy - M.p1_row.h_in / 2; imgAt("p1_row", x, y1); x += M.p1_row.w_in + gap;
-  const y2 = cy - M.vec_x.h_in / 2; imgAt("vec_x", x, y2); x += M.vec_x.w_in + gap;
-  const y3 = cy - M.p1_rhs.h_in / 2; imgAt("p1_rhs", x, y3);
-  imgAt("ann_1x1", x + M.p1_rhs.w_in - M.ann_1x1.w_in + 0.03, y3 + M.p1_rhs.h_in - M.ann_1x1.h_in * 0.7);
-}
-label("One Constraint", [0.692, 0.183, 0.803, 0.209]);
-chip([0.729, 0.222, 0.803, 0.263]);
-
-// Panel 2: three summations, red arrow, 3x3 * 3x1 = Z^{3*1}, label, chip
-img("sum_a", [0.101, 0.357, 0.172, 0.415]);
-img("sum_b", [0.101, 0.439, 0.172, 0.502]);
-img("sum_c", [0.101, 0.528, 0.172, 0.593]);
-img("arrow", [0.234, 0.444, 0.253, 0.474]);
-{
-  const r = box([0.269, 0.398, 0.487, 0.528]), cy = r.y + r.h / 2, gap = 0.05;
-  const mat = matrix(["r_a3", "r_b3", "r_c3"], 0, 0, 0.04);
-  let x = r.x + (r.w - (mat.w + gap + M.vec_x.w_in + gap + M.eq_sign.w_in + gap + M.z_vec3.w_in)) / 2;
-  const mat2 = matrix(["r_a3", "r_b3", "r_c3"], x, cy - mat.h / 2, 0.04);
-  x += mat2.w + gap;
-  imgAt("vec_x", x, cy - M.vec_x.h_in / 2); x += M.vec_x.w_in + gap;
-  imgAt("eq_sign", x, cy - M.eq_sign.h_in / 2); x += M.eq_sign.w_in + gap;
-  imgAt("z_vec3", x, cy - M.z_vec3.h_in / 2);
-  imgAt("ann_3x1", x + M.z_vec3.w_in - M.ann_3x1.w_in + 0.04, cy - mat.h / 2 - 0.02);
-}
-label("Three Constraints", [0.678, 0.387, 0.810, 0.413]);
-chip([0.729, 0.446, 0.803, 0.487]);
-
-// Panel 3: four red equations, red arrow, 4x3 * 3x1 = 4x1, label, chip
-img("e1", [0.116, 0.648, 0.207, 0.678]);
-img("e2", [0.113, 0.687, 0.211, 0.717]);
-img("e3", [0.113, 0.726, 0.211, 0.757]);
-img("e4", [0.109, 0.767, 0.211, 0.809]);
-img("arrow", [0.254, 0.702, 0.273, 0.732]);
-{
-  const r = box([0.296, 0.644, 0.512, 0.791]), cy = r.y + r.h / 2, gap = 0.05;
-  const mat = matrix(["n1", "n2", "n3", "n4"], 0, 0, 0.02);
-  let x = r.x + (r.w - (mat.w + gap + M.vec_x.w_in + gap + M.eq_sign.w_in + gap + M.rhs_vec4.w_in)) / 2;
-  matrix(["n1", "n2", "n3", "n4"], x, cy - mat.h / 2, 0.02);
-  imgAt("ann_4x3", x + mat.w - M.ann_4x3.w_in + 0.04, cy - mat.h / 2 - 0.02);
-  x += mat.w + gap;
-  imgAt("vec_x", x, cy - M.vec_x.h_in / 2); x += M.vec_x.w_in + gap;
-  imgAt("eq_sign", x, cy - M.eq_sign.h_in / 2); x += M.eq_sign.w_in + gap;
-  imgAt("rhs_vec4", x, cy - M.rhs_vec4.h_in / 2);
-  imgAt("ann_4x1", x + M.rhs_vec4.w_in - M.ann_4x1.w_in + 0.04, cy - mat.h / 2 - 0.02);
-}
-label("Four Constraints", [0.685, 0.665, 0.813, 0.691]);
-chip([0.729, 0.709, 0.803, 0.750]);
-
-// Small grey pen/pointer graphic (spec: ISOSCELES_TRIANGLE, greys)
-{
-  const r = box([0.536, 0.637, 0.558, 0.678]);
-  s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
-    x: r.x, y: r.y, w: r.w, h: r.h, rotate: 40,
-    fill: { color: "D9D9D9" }, line: { color: "808080", width: 1 },
+for (const c of [
+  [0.729, 0.222, 0.803, 0.263],
+  [0.729, 0.446, 0.803, 0.487],
+  [0.729, 0.709, 0.803, 0.750],
+]) {
+  b = box(c);
+  slide.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: b.x, y: b.y, w: b.w, h: b.h, fill: { color: "FFC7CE" }, line: { type: "none" } });
+  slide.addText("A x = b", {
+    x: b.x, y: b.y, w: b.w, h: b.h,
+    align: "center", valign: "middle",
+    fontSize: 13, bold: true, italic: true, color: "FF0000", fontFace: "Times New Roman", margin: 0,
   });
 }
 
-// Solid black rectangle, lower-right outside frame area
-{
-  const r = box([0.823, 0.861, 1.000, 1.000]);
-  s.addShape(pres.shapes.RECTANGLE, { x: r.x, y: r.y, w: r.w, h: r.h, fill: { color: "000000" }, line: { color: "000000", width: 0.25 } });
-}
+// Panel 1: summation equation, red arrow, bracketed product
+eqC("rb3_sum1", box([0.101, 0.190, 0.368, 0.283]));
+eqC("rb3_arrow", box([0.405, 0.219, 0.424, 0.248]));
+b = box([0.435, 0.181, 0.625, 0.294]);
+let cx = b.x + 0.02, cy = b.y + b.h / 2;
+cx += eqAt("rb3_p1_rowA", cx, cy) + 0.07;
+cx += eqAt("rb3_p1_vecX", cx, cy) + 0.07;
+eqAt("rb3_p1_rhs", cx, cy);
 
-pres.writeFile({ fileName: OUT }).then(() => console.log("wrote", OUT));
+// Panel 2: three stacked summations, arrow, 3x3 matrix, x-vector, Z-vector
+eqC("rb3_sum_a", box([0.101, 0.357, 0.172, 0.415]));
+eqC("rb3_sum_b", box([0.101, 0.439, 0.172, 0.502]));
+eqC("rb3_sum_c", box([0.101, 0.528, 0.172, 0.593]));
+eqC("rb3_arrow", box([0.234, 0.444, 0.253, 0.474]));
+b = box([0.269, 0.398, 0.487, 0.528]);
+const m2 = matrixBlock(["rb3_r_a", "rb3_r_b", "rb3_r_c"], { x: b.x, y: b.y, w: b.w * 0.42, h: b.h });
+cx = m2.x0 + m2.w + 0.12;
+cx += eqAt("rb3_eq", cx, b.y + b.h / 2) + 0.06;
+cx += eqAt("rb3_p2_vecX", cx, b.y + b.h / 2) + 0.06;
+eqAt("rb3_p2_rhs", cx, b.y + b.h / 2);
+// Panel 3: four red equations, arrow, 4x3 matrix, x-vector, rhs vector
+eqC("rb3_p3_left", box([0.109, 0.648, 0.210, 0.809]));
+eqC("rb3_arrow", box([0.254, 0.702, 0.273, 0.732]));
+b = box([0.296, 0.644, 0.512, 0.791]);
+const m3 = matrixBlock(["rb3_n1", "rb3_n2", "rb3_n3", "rb3_n4"], { x: b.x, y: 4.7925, w: b.w * 0.42, h: 1.3875 });
+eqAt("rb3_ann43", m3.x0 + m3.w + 0.06, b.y + 0.10);
+cx = m3.x0 + m3.w + 0.12;
+cx += eqAt("rb3_eq", cx, b.y + b.h / 2) + 0.06;
+cx += eqAt("rb3_p3_vecX", cx, b.y + b.h / 2) + 0.06;
+eqAt("rb3_p3_rhs", cx, b.y + b.h / 2);
+
+// Small grey pen/pointer graphic (tilted pen)
+b = box([0.536, 0.637, 0.558, 0.678]);
+slide.addShape(pres.shapes.RECTANGLE, {
+  x: b.x + b.w * 0.3, y: b.y, w: b.w * 0.24, h: b.h * 0.7,
+  fill: { color: "808080" }, line: { color: "000000", width: 0.5 }, rotate: 38,
+});
+slide.addShape(pres.shapes.RIGHT_TRIANGLE, {
+  x: b.x + b.w * 0.58, y: b.y + b.h * 0.58, w: b.w * 0.34, h: b.h * 0.42,
+  fill: { color: "D9D9D9" }, line: { color: "000000", width: 0.5 }, rotate: 38,
+});
+
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_007_recreated.pptx") });

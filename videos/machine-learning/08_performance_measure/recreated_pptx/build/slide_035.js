@@ -13,7 +13,8 @@ const pptx = new pptxgenpkg();
 pptx.layout = "LAYOUT_WIDE";
 
 const BG = "E8E8E8", RED = "C00000", DRED = "8B0000", INK = "000000", BADGE = "FFF9C4", NUM = "333333";
-const HDR_FILL = "FDE1CB", GREEN = "00FF00", BLUE = "00008B";
+const HDR_FILL = "FBD6C7", PANEL_FILL = "FCF8E7", CAP_FILL = "ECECEC", EQBOX_FILL = "F9ECEC";
+const GREEN_TP = "A7FF5F", GREEN_TN = "8AFF11", BLUE = "00008B";
 const FONT = "Arial";
 const PX = 1 / 72;                       // px -> inches
 
@@ -77,18 +78,18 @@ function panel(cx, ry, thr) {
   const bh = ROWS[ry][1];
   const m = MATRICES[thr];
 
-  // panel body
+  // panel body (pale cream per frame measurement)
   s.addShape(pptx.shapes.RECTANGLE, {
     x: rel(bx), y: rel(by), w: rel(bw), h: rel(bh),
-    fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
+    fill: { color: PANEL_FILL }, line: { color: DRED, width: 1 },
   });
-  // header strip
+  // header: small peach box at the panel's upper-left (frame-measured x[bx+10..bx+114] y[by+10..by+33])
   s.addShape(pptx.shapes.RECTANGLE, {
-    x: rel(bx + HDR[0]), y: rel(by + HDR[1]), w: rel(bw - 2 * HDR[0]), h: rel(HDR[2]),
-    fill: { color: HDR_FILL }, line: { color: HDR_FILL, width: 0 },
+    x: rel(bx + 10), y: rel(by + 10), w: rel(104), h: rel(23),
+    fill: { color: HDR_FILL }, line: { color: DRED, width: 1 },
   });
-  txt(rel(bx + HDR[0]), rel(by + HDR[1]), rel(bw - 2 * HDR[0]), rel(HDR[2]),
-    "Threshold=" + thr, 16, DRED, { bold: true });
+  txt(rel(bx + 10), rel(by + 10), rel(104), rel(23),
+    "Threshold=" + thr, 13, DRED, { bold: true });
 
   // "Predicted as" caption over the P/N columns
   txt(rel(bx + GRID[0]), rel(by + 36), rel(GRID[2]), rel(12), "Predicted as", 9, INK);
@@ -129,7 +130,7 @@ function panel(cx, ry, thr) {
   const ex = bx + EQBOX[0], ey = by + EQBOX[1], ew = EQBOX[2], eh = EQBOX[3];
   s.addShape(pptx.shapes.RECTANGLE, {
     x: rel(ex), y: rel(ey), w: rel(ew), h: rel(eh),
-    fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
+    fill: { color: "FFF2CC" }, line: { color: DRED, width: 1 },
   });
   const a1 = MAN["eq_" + m.k + "_tpr"], a2 = MAN["eq_" + m.k + "_fpr"];
   s.addImage({ path: a1.path, x: rel(ex + 5), y: rel(ey + 4), w: a1.w_in, h: a1.h_in });
@@ -147,7 +148,7 @@ panel(1, 2, "1");
 // ---------------- bottom-middle caption box (x345..639, y403..490) ----------------
 s.addShape(pptx.shapes.RECTANGLE, {
   x: rel(345), y: rel(403), w: rel(294), h: rel(87),
-  fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
+  fill: { color: CAP_FILL }, line: { color: DRED, width: 1 },
 });
 s.addText([
   { text: "ROC Curve for", options: { breakLine: true } },
@@ -166,9 +167,18 @@ s.addShape(pptx.shapes.RECTANGLE, {
   x: rel(634), y: rel(399), w: rel(269), h: rel(128),
   fill: { color: "FFFFFF" }, line: { color: DRED, width: 1 },
 });
+// two pale-rose formula boxes stacked at the left (frame-measured x648..750)
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: rel(648), y: rel(412), w: rel(102), h: rel(44),
+  fill: { color: EQBOX_FILL }, line: { color: DRED, width: 1 },
+});
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: rel(648), y: rel(464), w: rel(102), h: rel(41),
+  fill: { color: EQBOX_FILL }, line: { color: DRED, width: 1 },
+});
 const dtpr = MAN.eq_def_tpr, dfpr = MAN.eq_def_fpr;
-s.addImage({ path: dtpr.path, x: rel(648), y: rel(414), w: dtpr.w_in, h: dtpr.h_in });
-s.addImage({ path: dfpr.path, x: rel(648), y: rel(463), w: dfpr.w_in, h: dfpr.h_in });
+s.addImage({ path: dtpr.path, x: rel(652), y: rel(421), w: dtpr.w_in, h: dtpr.h_in });
+s.addImage({ path: dfpr.path, x: rel(652), y: rel(470), w: dfpr.w_in, h: dfpr.h_in });
 
 // legend matrix: x750..903, y422..500; cols [53,42,58], rows [25,28,25]
 txt(rel(750), rel(404), rel(153), rel(14), "Predicted as", 9, BLUE);
@@ -187,11 +197,11 @@ hline(rel(lgx), rel(lr2), rel(lgw));
 // green highlight cells: TP (col1,row1) and TN (col2,row2)
 s.addShape(pptx.shapes.RECTANGLE, {
   x: rel(lc1), y: rel(lr1), w: rel(lcols[1]), h: rel(lrows[1]),
-  fill: { color: GREEN }, line: { color: DRED, width: 1 },
+  fill: { color: GREEN_TP }, line: { color: DRED, width: 1 },
 });
 s.addShape(pptx.shapes.RECTANGLE, {
   x: rel(lc2), y: rel(lr2), w: rel(lcols[2]), h: rel(lrows[2]),
-  fill: { color: GREEN }, line: { color: DRED, width: 1 },
+  fill: { color: GREEN_TN }, line: { color: DRED, width: 1 },
 });
 const lccx = [lgx + lcols[0] / 2, lgx + lcols[0] + lcols[1] / 2, lgx + lcols[0] + lcols[1] + lcols[2] / 2];
 const lccy = [lgy + lrows[0] / 2, lgy + lrows[0] + lrows[1] / 2, lgy + lrows[0] + lrows[1] + lrows[2] / 2];

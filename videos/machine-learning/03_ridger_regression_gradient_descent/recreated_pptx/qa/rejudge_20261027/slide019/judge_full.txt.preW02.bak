@@ -1,0 +1,55 @@
+## Elementâbyâelement comparison (IMG1 = recreation, IMG2 = original)
+
+**What matches well (no discrepancy):**
+* House chrome: gray panel, left/right/bottom darkâred strokes with correctly **no top stroke**, yellow â19â badge with purple ring, position/size as mandated.
+* Top âTest Dataâ blue box: same footprint (âx62â405, y57â143), same title, same three zâvectors (30/15, 40/20, 50/25) and the blue yâlabels (60, 80, 100).
+* Column headers: âNO Regularizer with (as if Î»=0)â, âRidge Regularizer with Î»=3â, âRidge Regularizer with Î»=10â â verbatim, same order, same colors (blue + red Î» terms).
+* Outlier column: âOutlierâ, xâ, (11/3), (30/3), (60/3), and the green â22â figures â same order, same values, same emphasis.
+* Every prediction table (3 columns Ã 3 rows): header row Test1/Test2/Test3, xâ/xâ rows, yellow yârow â structure matches, and **all numeric values match exactly** (e.g., 32.4/42.3/52.3; 59/78.7/98.4; 57.4/76.5/95.6; 34.6/46/57.4; 26.8/35.4/44.1 â¦). All Wâvector values match (0/2/0; 2.7/0.67/0.64; 4/0.29/0.76; 0.1/1.95/0.03; 1.2/0.72/0.77; 1.77/0.32/0.99; 0.13/1.87/0.09; 0.54/0.73/0.81; 0.82/0.33/1.1).
+* Blue block arrows between Wâblock and table, and the green frame around the Î»=10 column, are present.
+
+---
+
+## Discrepancies
+
+**1. Norm label rewritten: â||W||Â² = â¦â â âRMSÂ² = â¦â â MAJOR, confidence high.**
+The original shows a boxed blue `||W||Â² = 4` (and 8.11, 16.7, 3.8, 2.45, 4.2, 3.5, 1.48, 1.92). The recreation replaces the symbol with the literal string âRMSÂ²â in red. This is not a typographic/medium difference: it changes the mathematical quantity named (squared L2 norm vs. rootâmeanâsquare) and is a textâverbatim failure, so it is a content discrepancy, not an allowed rendering upgrade.
+
+**2. Norm label boxes omitted â MAJOR, confidence high.**
+In the original each `||W||Â²` value sits inside its own small blueâoutlined rectangle at the bottom of the Wâcell. The recreation draws the red âRMSÂ²=â¦â text with **no enclosing box** â a whole subâelement (label box) is absent from every Wâblock in all three columns.
+
+**3. âRMSÂ²â label sits outside/below the red Wâcell frame â MAJOR (frame containment), confidence medium.**
+In the original the norm label is inside the red Wâcell rectangle. In the recreation the label sits below the Wâblockâs red border (e.g., first cell at ây247 while the red block closes ây240), i.e., ink that is not contained by the frame it belongs to. Please verify against the fullâresolution 150 dpi PNG.
+
+**4. Blue enclosing rectangle for the âNO Regularizerâ column appears missing â MAJOR, confidence medium.**
+The original frames the whole first prediction column with a 1âpt blue rectangle (left edge âx115, right edge âx350, top ây152, bottom ây500) running the full height of the grid. In the recreation only a short blue top rule is evident; the long vertical blue borders and the bottom rule are not visible. The green frame on the Î»=10 column is present, so the omission is asymmetric. Confirm at full resolution; if the verticals really are absent, the column frame is a missing structural element.
+
+**5. Wâvector numerals recolored red â MINOR, confidence high.**
+Original Wâvector entries (0, 2, 0; 0.1, 1.95, 0.03; â¦) are black; the recreation renders them red (only âW =â is red in the original). Red is also the table data colour, so the vector values now read like table data.
+
+**6. Delimiter/value crowding inside the Wâparentheses â MINOR, confidence lowâmedium.**
+In the recreation the large black parenthesis is drawn very close to (apparently touching) the rightâhand numerals in the narrow cells (most visible in the 0/2/0 cell, where the bottom â0â sits at the closing stroke), and in at least one cell faint duplicateâlooking small red numerals appear just right of the stroke. The original keeps a clear gap between stroke and values. If the duplicate numerals are real, this becomes a MAJOR duplicatedâelement defect.
+
+**7. Wâvector line height slightly compressed â MINOR, confidence medium.**
+The three stacked W values are spaced â10â11 px apart in the recreation vs â13 px in the original, so the stack sits tighter and slightly higher inside its cell.
+
+**8. Handwritingâspecific emphasis lost â MINOR, confidence high.**
+The original underlines zâ/zâ/zâ in red and Test1 in red; the recreation omits these underlines. Per the mediumâdifference rule this is at most MINOR.
+
+**9. Test Data equation block slightly smaller / yâlabels sit ~6â8 px higher â MINOR, confidence medium.**
+The parenthesised (30/15) group is drawn a little smaller and the blue ây=60 / y=80 / y=100â line sits higher relative to the box bottom than in the original, altering the internal vertical rhythm of the box (stackedâfraction style itself is the mandated upgrade, so only the spacing/scale is at issue).
+
+---
+
+## Visualâquality defects in the recreation
+* Label text colour scheme is internally inconsistent: red âRMSÂ²â labels with no box, sitting visually loose beneath their red Wâframes (items 2â3).
+* Red Wâvector numerals crowd the heavy traced parenthesis strokes (item 6).
+* If the blue column frame is truly absent (item 4), the first column reads as unframed compared with the framed Î»=10 column.
+* No clipping, no text truncation, no table overflow, and no illegible text; all table data is crisp and readable.
+
+---
+
+## Conclusion
+The quantitative content (every W value, every xâ/xâ/y value, headers, outlier column, testâdata vectors) is reproduced faithfully and is fully usable. However, the recreation changes the norm label from the originalâs boxed `||W||Â²` to an unboxed âRMSÂ²â (wrong quantity named), omits those label boxes, appears to place the label outside its cell frame, and appears to drop the blue enclosing frame of the NOâRegularizer column. These are content/structure defects, not permitted medium or chrome differences.
+
+**FINAL VERDICT: FAIL**

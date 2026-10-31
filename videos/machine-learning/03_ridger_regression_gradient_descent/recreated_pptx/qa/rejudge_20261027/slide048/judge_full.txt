@@ -1,0 +1,36 @@
+## Element-by-element fidelity check â Slide 048 (recreation IMG1 vs. original IMG2)
+
+### House chrome (per founder rules â checked, not discrepancies)
+- Gray E9E9E7 panel, left/right/bottom C00000 strokes, **no top stroke**: correctly reproduced in IMG1. â
+- Yellow FDFD96 badge with 6A5ACD ring, bold 333333 "48": present in IMG1, numeral matches. â
+- Original's mouse pointer artifact near "â¦is unaccepted": correctly omitted. â
+- Original is a content-bearing slide (not a placeholder), so content equivalence is required and mostly met. â
+
+### Content verification (things that DO match)
+- Top blue-framed algorithm box: training table xââ¦xâ with all three rows ([1][2][1][5][6][6] / [1][1][2][4][5][6] / [1][2][2][5][6][6]), class labels CâCâCâCâCâCâ, key "Câ positive Câ negative Zero is unaccepted" (Zero green), "Check classes of", Zâ/Zâ/Zâ with (0,0)/(7,6)/(3,2), "REPEAT using Step Î· = 1" with Î· = 1 red. â
+- Left "Augmented Vectors (from Top)" box: title, all three augmented rows, class-label row â present and correct. â
+- Six right-hand panels: d(xâ)â¦d(xâ) with input vectors (1 1 1 / 1 2 1 / 1 1 2 / 1 5 4 / 1 6 5 / 1 6 6), the (4,â2,â2)â(5,â1,â1) weight columns, results 0, 2, 2, â4, â6, â7, and row 1's "â Update Weight", W = (4,â2,â2) + 1Â·(1,1,1) = (5,â1,â1) with the trailing red mark. â (no missing equations/rows â no BLOCKER)
+
+### Discrepancies
+
+| # | Element | Original (IMG2) | Recreation (IMG1) | Severity | Confidence |
+|---|---|---|---|---|---|
+| 1 | "Iteration 1" red banner | Red box xâ78â205, yâ250â273; text ~14 px cap height, serif bold, spanning xâ90â192 | Red box xâ78â200, yâ238â263; text ~7 px cap height, sans bold, spanning xâ110â170 (âÂ½ the original size) and ~12 px higher; banner now straddles the row-2/row-3 gap instead of aligning with the d(xâ) panel | **MAJOR** | High |
+| 2 | Vertical rhythm of the six right-hand panels | Panel tops â128 / 185 / 245 / 305 / 365 / 425; pitch â60 px; inter-panel gap â8 px; last panel bottom â479 (â61 px above panel bottom) | Panel tops â122 / 176 / 234 / 292 / 350 / 408; pitch â58 px; gap â5 px; last panel bottom â462 (â78 px above panel bottom). Column is shifted up ~6 px at the top and drifts to ~17 px high by row 6, leaving an oversized empty gray band at lower right | **MAJOR** (line spacing / vertical alignment deviation) | Medium-high |
+| 3 | "Initial W =" label placement | Sits to the LEFT of the initial weight vector (xâ246, baseline â mid-vector), so the reading order is Initial W = â vector â REPEATâ¦ | Vector drawn first (xâ312â328), then "Initial W = REPEAT using Step Î· = 1" on a single line (xâ340â530); the label is separated from the vector it refers to and the element order is reversed | **MINOR** | Medium |
+| 4 | Arrow glyphs | Black "â" before "Update Weight" and before each "Keep same Weight" | Red "â" in row 1 and in all five "Keep same Weight" rows | **MINOR** | Medium-high |
+| 5 | Class-2 value colouring in the d(x) input vectors (e.g. "1 5 4", "1 6 5", "1 6 6") and the Câ label cells | Câ-class entries carry the second (green/neutral) colour distinct from the red Câ entries | The 5/4/6 entries and the Câ labels render in the same red/dark tone as the Câ entries, weakening the class coding | **MINOR** | Low-medium (resolution-limited) |
+| 6 | Left "Augmented Vectors (from Top)" sub-panel | ~11 pt bold-italic serif blue title; box â62â232 Ã 125â228 with a visible thin border and generous row leading | Title ~7â8 pt sans italic, smaller and lighter; box â65â232 Ã 120â215, no visible border, rows packed tighter | **MINOR** | Medium |
+| 7 | Body typeface / small-text metrics | Typeset serif face for "d(xáµ¢)", "Keep same Weight", "Update Weight" | Sans-serif substitute throughout the panels; glyphs ~1 px smaller than the original, so line boxes read slightly tighter | **MINOR** | Medium |
+
+### Visual-quality defects in the recreation
+- **Text-size mismatch** in the "Iteration 1" banner (item 1) â the only remaining call-out label is rendered at roughly half the original size; it reads as a caption rather than the original's section header.
+- **Vertical drift / dead space** (item 2): the whole result stack sits high, the six panels are closer together than the original, and the lower-right quadrant of the gray panel is empty compared with the original's balanced composition.
+- **Mis-anchored label** (item 3): "Initial W =" is visually attached to the "REPEATâ¦" instruction line instead of the (4,â2,â2) column vector, slightly muddling the algorithm's reading order.
+- **Colour inconsistency** (items 4â5): red arrows where the original uses black, and loss of the Câ/Câ value colour distinction.
+- No clipping, no text overflow, no collisions, no delimiter-geometry faults, and no table-data errors were observed; the stacked vectors and brackets are legible and correctly spaced (professional 2D format per the founder directive).
+
+### Assessment
+All substantive content â every training row, augmented-vector row, class label, ZââZâ column, d(xáµ¢) vector, weight vector, and computed result (0, 2, 2, â4, â6, â7) â is present and numerically correct; there are no missing elements and no frame-overflow/clipping defects. However, the "Iteration 1" banner is materially wrong in text size and vertical position, and the six result panels deviate in vertical spacing/alignment from the original, both of which are MAJOR-class deviations under the founder directives.
+
+FINAL VERDICT: FAIL

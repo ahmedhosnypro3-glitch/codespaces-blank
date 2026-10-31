@@ -9,3 +9,6 @@
 | slide_005.jpg | Revision | PASS_WITH_FIXES | 10 | 0 |
 | slide_006.jpg | Update Weights of Output Layer | PASS_WITH_FIXES | 9 | 1 |
 | slide_007.jpg | Neural Network Model | PASS_WITH_FIXES | 9 | 2 |
+| slide_008.jpg | Neural Network / Backpropagation Diagram with Erro | PASS_WITH_FIXES | 8 | 4 |
+| slide_009.jpg | Gradient Descent | PASS_WITH_FIXES | 9 | 3 |
+| slide_010.jpg | Gradient Descent | PASS_WITH_FIXES | 9 | 4 |

@@ -130,93 +130,96 @@ node(641.5, 278, "0", NODE_GREEN);    tag(641.5, "TN", NODE_GREEN);
 node(733, 278.5, "70", NODE_RED);     tag(733, "FP", RED);
 
 // ============================================================
-// DESCRIPTION BOXES (original y324-395)
+// DESCRIPTION BOXES (original: left x78-410 y327-396 pale green,
+// right x427-760 y327-396 pale salmon; both sit BELOW the panel
+// frames, which end at y324)
 // ============================================================
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(78, 324, 329, 71), fill: { color: "E9FFF6" }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(78, 327, 332, 69), fill: { color: "D9F5E4" }, line: { color: "5E9170", width: 1 } });
 s.addText("Good Model:", {
-  ...rect(80, 334, 250, 18), fontSize: 12, bold: true, color: GREEN_HDR, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(80, 332, 250, 16), fontSize: 12, bold: true, color: GREEN_HDR, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("Properly Classifies 20 out of 30 as Positive", {
-  ...rect(80, 353, 320, 18), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(80, 352, 320, 16), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("Properly Classifies 59 out of 70 as Negative", {
-  ...rect(80, 370, 320, 18), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(80, 371, 320, 16), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
 
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(428, 324, 329, 71), fill: { color: "F9E4CF" }, line: { color: BORDER, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(427, 327, 333, 69), fill: { color: "FFDBCD" }, line: { color: BORDER, width: 1 } });
 s.addText("Actually:", {
-  ...rect(429, 334, 250, 18), fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(429, 332, 250, 16), fontSize: 12, bold: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText([
   { text: "This is ", options: { color: BLACK } },
   { text: "Not a Model", options: { color: RED, bold: true } },
   { text: ":", options: { color: BLACK } }
 ], {
-  ...rect(429, 353, 320, 18), fontSize: 10.5, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(429, 352, 320, 16), fontSize: 10.5, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("It classifies ALL Samples as Positive", {
-  ...rect(429, 370, 320, 18), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(429, 371, 320, 16), fontSize: 10.5, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
 
 // ============================================================
-// METRIC ROWS (original: three separated filled rows per panel on the
-// gray background; L x85-369, R x440-725; fills pale yellow / blue / gray)
+// METRIC ROWS (original: three CONTIGUOUS stacked rows per panel, no gaps,
+// shared thin borders; L x81-373, R x438-730, y399-507;
+// fills pale yellow y401-424 / pale blue y427-464 / pale gray y467-506)
 // ============================================================
 const eqRow = (x, y, h, fill) =>
-  s.addShape(pptx.shapes.RECTANGLE, { ...rect(x, y, 284, h), fill: { color: fill }, line: { color: "BFBFBF", width: 0.75 } });
-eqRow(85, 401, 23, "F6FBD4"); eqRow(85, 440, 24, "D9E2FF"); eqRow(85, 482, 27, "E8E8F0");
-eqRow(440, 401, 23, "F6FBD4"); eqRow(440, 440, 24, "D9E2FF"); eqRow(440, 482, 27, "E8E8F0");
+  s.addShape(pptx.shapes.RECTANGLE, { ...rect(x, y, 292, h), fill: { color: fill }, line: { color: "BFBFBF", width: 0.75 } });
+eqRow(81, 401, 24, "F8FED2"); eqRow(81, 425, 41, "EDF4FF"); eqRow(81, 466, 41, "E8EBF2");
+eqRow(438, 401, 24, "F8FED2"); eqRow(438, 425, 41, "EDF4FF"); eqRow(438, 466, 41, "E8EBF2");
 
 const eqText = (x, y, h, text) => s.addText(text, {
-  ...rect(x, y, 330, h), fontSize: 11, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(x, y, 292, h), fontSize: 11, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
-eqText(92, 401, 23, "Precision= 20/(20+11) =64.5%");
-eqText(92, 440, 24, "Recall= 20/(20+10) =66.6%");
-eqText(92, 482, 28, "Average= 64.5%+66.6% =65.55%");
-eqText(448, 401, 23, "Precision= 30/(30+70) =30.3%");
-eqText(448, 440, 24, "Recall= 30/(30+0) =100%");
-eqText(448, 482, 28, "Average= 30.3%+100% =65%");
+eqText(92, 401, 24, "Precision= 20/(20+11) =64.5%");
+eqText(92, 425, 41, "Recall= 20/(20+10) =66.6%");
+eqText(92, 466, 41, "Average= 64.5%+66.6% =65.55%");
+eqText(449, 401, 24, "Precision= 30/(30+70) =30.3%");
+eqText(449, 425, 41, "Recall= 30/(30+0) =100%");
+eqText(449, 466, 41, "Average= 30.3%+100% =65%");
 
 // ============================================================
-// BLUE REFERENCE FORMULA BOXES (original x749-896; box1 y122-168, box2 y168-228)
-// stacked 2D fractions TP/(TP+FP) and TP/(TP+FN)
+// REFERENCE FORMULA BOXES (original: x746-898; box1 y120-173 pale yellow,
+// box2 y174-232 pale cyan; stacked 2D fractions TP/(TP+FP), TP/(TP+FN))
 // ============================================================
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(749, 122, 147, 46), fill: { color: "FDFBCB" }, line: { color: NAVY, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(746, 120, 152, 53), fill: { color: "FFFBCF" }, line: { color: NAVY, width: 1.25 } });
 s.addText("Precision =", {
-  ...rect(756, 127, 62, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(754, 128, 70, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("TP", {
-  ...rect(826, 126, 44, 12), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(828, 127, 44, 12), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(822, 140, 52, 2), fill: { color: DARK_BLUE } });
+s.addShape(pptx.shapes.RECTANGLE, { ...rect(824, 145, 52, 2), fill: { color: DARK_BLUE } });
 s.addText("TP+FP", {
-  ...rect(822, 143, 52, 13), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(824, 148, 52, 13), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
 
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(749, 168, 147, 60), fill: { color: "D3FFFE" }, line: { color: NAVY, width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(746, 174, 152, 58), fill: { color: "DFFFFF" }, line: { color: NAVY, width: 1.25 } });
 s.addText("Recall =", {
-  ...rect(756, 180, 62, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(754, 182, 70, 14), fontSize: 10, bold: true, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("TP", {
-  ...rect(826, 182, 44, 12), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(828, 181, 44, 12), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
-s.addShape(pptx.shapes.RECTANGLE, { ...rect(822, 198, 52, 2), fill: { color: DARK_BLUE } });
+s.addShape(pptx.shapes.RECTANGLE, { ...rect(824, 199, 52, 2), fill: { color: DARK_BLUE } });
 s.addText("TP+FN", {
-  ...rect(822, 201, 52, 13), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(824, 202, 52, 13), align: "center", fontSize: 10, color: DARK_BLUE, fontFace: FONT, margin: 0, valign: "middle"
 });
 
 // ============================================================
-// CONCLUSION BOX (original x737-895, y430-484)
+// CONCLUSION BOX (original x735-896, y427-487, lavender fill, purple border)
 // ============================================================
-s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(737, 430, 158, 54), fill: { color: "F9DCFA" }, line: { color: "7030A0", width: 1 } });
+s.addShape(pptx.shapes.ROUNDED_RECTANGLE, { ...rect(735, 427, 161, 60), fill: { color: "F5E1F7" }, line: { color: "7030A0", width: 1 } });
 s.addText("Conclusion:", {
-  ...rect(745, 433, 145, 13), fontSize: 11, bold: true, color: PURPLE, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(743, 433, 145, 14), fontSize: 11, bold: true, color: PURPLE, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("Average", {
-  ...rect(745, 449, 145, 13), fontSize: 10, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(743, 450, 145, 14), fontSize: 10, bold: true, italic: true, color: RED, fontFace: FONT, margin: 0, valign: "middle"
 });
 s.addText("is NOT good idea", {
-  ...rect(745, 465, 145, 14), fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
+  ...rect(743, 466, 145, 15), fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0, valign: "middle"
 });
 
 const outFile = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/slide_014_recreated.pptx";

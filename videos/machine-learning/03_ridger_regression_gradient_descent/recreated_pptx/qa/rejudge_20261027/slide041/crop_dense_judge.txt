@@ -1,0 +1,18 @@
+Crop-relative comparison (IMG1 = recreation, IMG2 = original upscaled; same region, matched scale).
+
+Confirmed matches (no action):
+- Point values top-left: â2 in IMG1 vs â2 in IMG2 â same digit, same sign. Second column value 0 present in both (upper-right).
+- Subscript: âCââ in both â subscript 2 intact, not truncated, blue in both. âZeroâ green in both; ânegativeâ/âis unacceptedâ dark in both. No wrong glyph or garbled character detected.
+- Y-axis ticks in the lower part of the crop: 7 (top), 6, 5 (descending) in both, same heights, left of the axis. No swapped/missing label.
+- Delimiter enclosure in the recreation: the â(â2)/(0)â grouping spans its single line and does not touch the numerals â geometry OK.
+- Table/cell content in view: single row only; nothing missing. Red thin stroke is bottom/edge chrome only (no top stroke), consistent with the mandated template â not counted.
+
+Discrepancies:
+1. Punctuation after ânegativeâ â IMG1 reads âCâ negative, Zero is unacceptedâ (comma present); IMG2 reads âCâ negative Zero is unacceptedâ (no comma). Recreation adds a comma. Severity: MINOR. Confidence: high. (Punctuation only; no semantic/math change.)
+2. Matrix/entry delimiter style â IMG1 uses parentheses â(â2)â/â(0)â; IMG2 uses single vertical bars â|â2â/â|0â. This is a notation rendering (grouping vs. bar); the enclosed numerals â2 and 0 are preserved and correctly signed, and the enclosure geometry is clean. Severity: MINOR (notation). Confidence: high on the value match; medium on whether it should be considered an intentional 2D-format matrix delimiter rather than a difference.
+3. Thin blue horizontal rule directly under the sentence in IMG1 (between âCâ negative â¦ is unacceptedâ and the plot top edge) â no corresponding blue rule in IMG2; in the original that gap is just the panel/plot boundary. Reads as an added underline/separator in the recreation. Severity: MINOR. Confidence: medium (could be a separator-style choice rather than content).
+4. Background of the upper strip (matrix row + sentence): recreation renders it on a cream-toned band; original sits on the plain light/gray panel. Treated as template/placement, not content. Severity: MINOR (at most). Confidence: medium.
+
+No BLOCKER and no MAJOR issues found in this region: no wrong digit, no swapped table value, no missing row, no truncated subscript, no delimiter that fails to span its enclosed line, and no stroke continuity/weight problem.
+
+FINAL VERDICT: PASS â faithful, usable recreation of this region (only minor punctuation/notation/separator differences; all numerals, subscripts, tick labels, and the point values â2 and 0 are correct).

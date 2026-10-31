@@ -1,0 +1,17 @@
+Cell-by-cell verification of the overlapping region (crop-relative; upper half = Table 1, lower half = Table 2; leftâright = X1â¦X7):
+
+- Table 1 header: X1 X2 X3 X4 X5 X6 X7 â subscripts intact (not truncated/garbled); blue/red alternation correct (odd columns blue, even red). Matches IMG2.
+- Table 1 row 1: 1, 2, 3, 4, 8, 9, 10 â all seven cells match IMG2 exactly (blue/red assignment correct).
+- Table 1 row 2: 1, 3, 5, 6, 16, 7, 5 â matches IMG2 exactly, including the irregular 16 / 7 / 5 in columns 5â7.
+- Table 1 row 3: 2, 4, 6, 8, 16, 18, 20 â matches IMG2 exactly.
+- Table 2 header: X1â¦X7 â matches (subscripts present, colors correct).
+- Table 2 first data row, visible cells: 1 (blue), 2 (red), 3 (blue) â match the start of IMG2âs 1, 2, 3, 4, 8, 9, 10.
+
+Discrepancies:
+- MAJOR/BLOCKER content defects: none found. No wrong/missing/garbled digit, no swapped table value, no missing row, no truncated subscript, no delimiter/equation issue applicable to this crop; grid strokes are continuous and cell contents are vertically centered.
+- MINOR â LOW confidence: In IMG1 the lower tableâs first data row is cut by the crop after the 3rd cell (1, 2, 3 visible), whereas IMG2 shows cells 1â10 within the matched window. This reads as a slightly larger headerârow leading in the recreation (or a crop-boundary effect). The cells that are visible agree; it is not a value defect and would be invisible at full-slide scale.
+- Excluded per ground rules (not discrepancies): the pointer/cursor touching X6 in IMG2 and the yellow highlight at the lower-right of IMG2 are capture/chrome artifacts; typed-vs-handwritten medium difference does not really apply here since both are typed/rendered.
+
+The recreation reproduces every visible cell value, glyph shape, subscript, and the blue/red color coding faithfully.
+
+FINAL VERDICT: PASS

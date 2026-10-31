@@ -217,21 +217,21 @@ const eEqInfo = JSON.parse(fs.readFileSync(ASSETS + "/e_eq.png.meta.json", "utf8
 s.addImage({ path: ASSETS + "/e_eq.png", x: ilX + px(8), y: stripY + px(26),
   w: eEqInfo.w_in, h: eEqInfo.h_in });
 
-// 5. Node Bias marker (purple circled 2 + label) and the circled 1 marker
+// 5. Node Bias marker (purple circled 1 + label) and the circled 1 marker
 s.addShape(pres.shapes.OVAL, { x: px(73), y: px(370), w: px(24), h: px(24),
-  fill: { color: "800080" }, line: { color: "800080", width: 0 } });
-s.addText("2", { x: px(73), y: px(370), w: px(24), h: px(24),
+  fill: { color: "8D0088" }, line: { color: "8D0088", width: 0 } });
+s.addText("1", { x: px(73), y: px(370), w: px(24), h: px(24),
   align: "center", valign: "middle", fontSize: 12, bold: true,
   color: "FFFFFF", fontFace: FONT, margin: 0 });
 s.addText("Node Bias", { x: px(101), y: px(372), w: px(70), h: px(20),
-  align: "left", valign: "middle", fontSize: 11, color: "000000",
+  align: "left", valign: "middle", fontSize: 11, color: "822C77",
   fontFace: FONT, margin: 0 });
 s.addShape(pres.shapes.OVAL, { x: px(395), y: px(365), w: px(23), h: px(23),
-  fill: { color: "800080" }, line: { color: "800080", width: 0 } });
+  fill: { color: "8D0088" }, line: { color: "8D0088", width: 0 } });
 s.addText("1", { x: px(395), y: px(365), w: px(23), h: px(23),
   align: "center", valign: "middle", fontSize: 12, bold: true,
   color: "FFFFFF", fontFace: FONT, margin: 0 });
 
-pres.writeFile({ fileName: VID + "/recreated_pptx/build/slide_003_attempt1_recreated.pptx" })
-  .then(() => console.log("wrote slide_003_attempt1_recreated.pptx"))
+pres.writeFile({ fileName: VID + "/recreated_pptx/build/slide_003_recreated.pptx" })
+  .then(() => console.log("wrote slide_003_recreated.pptx"))
   .catch((e) => { console.error(e); process.exit(1); });

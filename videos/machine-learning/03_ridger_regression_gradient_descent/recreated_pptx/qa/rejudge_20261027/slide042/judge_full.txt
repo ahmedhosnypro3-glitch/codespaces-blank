@@ -1,0 +1,44 @@
+## Fidelity check â Slide 42 (IMG1 recreation vs IMG2 original)
+
+**Method note:** Both frames were compared at the same onâscreen scale (900 Ã 500). Because IMG1 is a 150âdpi render of a 13.33 Ã 7.5 in deck and IMG2 is a 960 Ã 540 capture, all geometry below is quoted *relative to slide width* (or to the shared 900âpx frame) so that scale differences are not mistaken for layout differences. House chrome (gray panel, red left/right/bottom strokes, no top stroke, badge 42) was treated as mandated and excluded from the discrepancy list.
+
+### Element-by-element verification
+
+| Element | IMG2 (original) | IMG1 (recreation) | Result |
+|---|---|---|---|
+| Yellow header panel + blue border | x â 62â672, y â 42â112 | x â 62â675, y â 42â111 | Match (position/size within ~0.5%) |
+| Six training vectors xââ¦xâ (1,1,1 / 1,1,1 / 1,2,1 / 1,5,4 / 1,6,5 / 1,6,6) | present, 3âline columns | present, same values | Match (values, order) |
+| Class labels under vectors Câ Câ Câ Câ Câ Câ | present | present, same colors (red/blue) | Match |
+| "Initial W = (4, â2, â2)" | present | present | Match |
+| "Step Î· = 2" (red) | present | present | Match |
+| "Check classes of" + Zâ(0,0,0), Zâ(0,2,0), Zâ(3,6,2) | present | present, same values | Match |
+| Legend "â¦positive / Câ negative / Zero is unaccepted" | present | present (see Dâ1/Dâ2) | Mostly match |
+| Left box "Ugmented Vectors (from Top)" + 6 columns + C labels | present | present, same 6 columns and labels | Match (text verbatim, incl. original's typo) |
+| "Iteration 1" red banner | x â 78â200, y â 243â265 | x â 80â200, y â 233â256 | Present; minor shift (Dâ3) |
+| Row 1: d(xâ)=(1 1 1)(4 â2 â2)=0 â Update Weight, W=(4 â2 â2)+2*(1 1 1)=(6 0 0) â | present | present, identical values | Match |
+| Row 2: d(xâ)=(1 2 1)(6 0 0)=6 â Keep same Weight, W=(6 0 0) | present | identical | Match |
+| Row 3: d(xâ)=(1 1 2)(6 0 0)=6 â Keep same Weight, W=(6 0 0) | present | identical | Match |
+| Row 4: d(xâ)=(1 5 4)(6 0 0)=6 â Update Weight, W=(6 0 0)â2*(1 5 4)=(4 â10 â8) â | present | identical | Match (arithmetic correct: 4, â10, â8) |
+| Row 5: d(x)=(1 6 5)(4 â10 â8)=â96 â Keep same Weight, W=(4 â10 â8) | present | identical | Match (â96 correct) |
+| Row 6: d(xâ)=(1 6 6)(4 â10 â8)=â104 â Keep same Weight, W=(4 â10 â8) | present | identical | Match (â104 correct) |
+| Video cursor artifact (â x543, y290 in IMG2) | present | omitted | Correct per ground rule (c) â not a discrepancy |
+| Frame containment | all ink inside panels | all ink inside panels; nothing crosses the red left/right/bottom strokes or the yellow/gray panel edges | Pass |
+| Multiâline delimiter geometry | parentheses span all 3 vector rows | parentheses span all 3 rows, no overlap with numerals, not clipped | Pass |
+
+### Discrepancies
+
+1. **MINOR â Typeface family across the whole body (confidence: HIGH).** IMG2 uses a serif face (Timesâlike) for "Initial W", "Check classes of", "Update Weight / Keep same Weight", "d(xâ¦)" and the legend; IMG1 uses Arial/helveticaâstyle sansâserif throughout. Text metrics and colour weight therefore differ slightly from the original, though all wording, order and line breaks are preserved.
+2. **MINOR â Legend spacing / possible missing colour key (confidence: MEDIUM, â60%).** In IMG2 the legend reads "**Câ** positive  **Câ** negative  **Zero** is unaccepted" with the red Câ key immediately before "positive" and tight gaps between items. In IMG1 the red "Câ" token does not appear to be present before "positive", and the item gaps are wider (notably "Zero" and "is unaccepted" are visibly separated, and the legend string extends further right, ending near x â 487 instead of â 405â445). The legend's meaning (positive / negative / Zero is unaccepted) is still readable, so this is a typographic/cosmetic issue rather than a data or equation omission.
+3. **MINOR â Vertical compression of the rightâhand row stack (confidence: MEDIUMâHIGH).** The six row panels in IMG1 are â 44â45 px tall versus â 54 px in IMG2 (â 18â20 % shorter relative to slide width), with interârow gaps of â 11 px versus â 6 px in the original. The 3âline vector numerals are correspondingly a little smaller/tighter, so the sixârow stack ends at â 88 % of slide height in IMG1 versus â 94 % in IMG2, leaving a visibly larger dead band above the bottom red stroke. Column alignment, perârow centering and row ordering are all preserved, so this is a spacing/scale deviation, not a misplacement.
+4. **MINOR â Panelâheading typography (confidence: HIGH).** Leftâbox heading "Ugmented Vectors (from Top)" is bold sansâserif in IMG1 versus italic serif in IMG2; wording (including the original's "Ugmented" typo) is verbatim. The "Iteration 1" banner text is bold sans in IMG1 versus white serif in IMG2; the banner rectangle is also â 10 px shorter and sits â 10 px higher than in IMG2.
+
+### Visualâquality defects in the recreation
+* No text overflow, clipping, truncation or collisions; every text run, vector column, delimiter and row panel sits fully inside its enclosing frame, and nothing touches or crosses the house panel's left/right/bottom strokes.
+* No wrong wrapping: all labels are on the intended single lines, and the multiâline vector parentheses correctly span all three entries with no stroke sitting on the numerals.
+* No illegible content: numerals, subscripts (xââ¦xâ, Zââ¦Zâ), Î·, the â/â arrows and the red/blue/green colour coding of class labels and intermediate results all read cleanly; all arithmetic in the six update/keep steps is correct.
+* Only cosmetic issues: uniform sansâserif substitution, slightly undersized equation numerals, and the legend spacing/key described above.
+
+### Conclusion
+No BLOCKER and no MAJOR defects were found: there are no missing equations, rows, vectors or values, no overflow, no broken delimiters, no misâcentring, and no data errors. The deviations that remain are typographic (typeface, legend spacing/key, banner/heading styling) and a modest vertical compression of the row stack, all of which leave the slide complete, readable and correctly ordered.
+
+**FINAL VERDICT: PASS**

@@ -1,83 +1,83 @@
+// slide_008.js — "Example" QP slide (rebuild wave 3)
+// Built ONLY from qa/reanalysis2/slide_008_analysis.txt (spec starts at "1. SLIDE_TITLE").
+// House chrome per video AGENTS.md overrides spec frame/badge/title.
+// Math assets: 600-dpi mathtext PNGs in build/eq_008/ (gen_eq_008.py + manifest.json).
+// Run: NODE_PATH=$(npm root -g) node slide_008.js
+const fs = require("fs");
+const path = require("path");
 const pptxgen = require("pptxgenjs");
+const { newPres, W, H, FONT } = require("./shared.js");
 
-// ---- parameters ----
-const NUM = 8;
-const TITLE = "Example: QP Formulation";
-const FONT = "Arial";
-const W = 13.33, H = 7.5;
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx/build/eq_008/");
+const OUT = path.join(NS, "recreated_pptx/slide_008_recreated.pptx");
+const M = JSON.parse(fs.readFileSync(EQ + "manifest.json", "utf8"));
+const MATH = "Times New Roman";
 
-const pres = new pptxgen();
-pres.layout = "LAYOUT_WIDE";
+const pres = newPres();
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" };
 
-// 1. House frame
+// House chrome (mandatory, overrides spec frame/badge/title)
+s.background = { color: "E8E8E8" };
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
+s.addText("8", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-
-// 3. Title box
-s.addText(TITLE, {
+s.addText("Example", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 20, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// Objective function
-let y = 0.9;
-s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y, w: 12.3, h: 1.2, fill: { color: "FFFFFF" }, line: { color: "3498DB", width: 1.5 } });
-s.addText("Objective Function:", { x: 0.7, y: y+0.1, w: 11.8, h: 0.3, fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
-s.addText("Minimize 0.5 x^2 + 3x + 4y", { x: 0.7, y: y+0.4, w: 11.8, h: 0.3, fontSize: 16, color: "333333", fontFace: FONT, margin: 0 });
-s.addText("Standard QP form: \u00bd [x^T P x] + q^T x", { x: 0.7, y: y+0.7, w: 11.8, h: 0.3, fontSize: 14, color: "3498DB", fontFace: FONT, margin: 0 });
+const N = (v) => v * 13.33;
+const NY = (v) => v * 7.5;
+const box = (b) => ({ x: N(b[0]), y: NY(b[1]), w: N(b[2] - b[0]), h: NY(b[3] - b[1]) });
+function img(name, b, align) {  // native px/600 size, vertically centered in box
+  const m = M[name], r = box(b);
+  const x = align === "left" ? r.x : r.x + (r.w - m.w_in) / 2;
+  s.addImage({ path: EQ + m.image, x, y: r.y + (r.h - m.h_in) / 2, w: m.w_in, h: m.h_in });
+}
+function panel(b) {
+  const r = box(b);
+  s.addShape(pres.shapes.RECTANGLE, { x: r.x, y: r.y, w: r.w, h: r.h, fill: { color: "FFFFFF" }, line: { color: "C00000", width: 1 } });
+}
+function callout(b) {
+  const r = box(b);
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: r.x, y: r.y, w: r.w, h: r.h, fill: { color: "FCE4D6" }, line: { color: "E8B79B", width: 1 } });
+}
 
-// Subject to
-y += 1.4;
-s.addText("Subject to: Gx \u2264 h", { x: 0.7, y, w: 11.8, h: 0.3, fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
+// Objective panel: "Minimize 0.5x^2+3x+4y" + quadratic-form callout
+panel([0.076, 0.196, 0.931, 0.500]);
+{
+  const r = box([0.085, 0.208, 0.188, 0.248]);
+  s.addText("Minimize", { x: r.x, y: r.y, w: r.w, h: r.h, align: "left", valign: "middle", fontSize: 20, bold: true, italic: true, color: "1A1A1A", fontFace: MATH, margin: 0 });
+}
+img("obj", [0.188, 0.203, 0.325, 0.248], "left");
+callout([0.763, 0.293, 0.917, 0.372]);
+img("qform", [0.765, 0.293, 0.917, 0.372]);
 
-// Constraints
-y += 0.4;
-const constraints = [
-  "x \u2265 0  =>  -x \u2264 0",
-  "y \u2265 0  =>  -y \u2264 0",
-  "x + 3y \u2265 15  =>  -x - 3y \u2264 -15",
-  "2x + 5y \u2264 100",
-  "3x + 4y \u2264 80",
-];
-constraints.forEach((c, i) => {
-  s.addText(c, { x: 0.7, y: y + i*0.35, w: 11.8, h: 0.3, fontSize: 14, color: "333333", fontFace: FONT, margin: 0 });
-});
+// Constraint panel: "Subject to" + Gx<=h callout + 5-line stack
+panel([0.076, 0.519, 0.931, 0.867]);
+{
+  const r = box([0.086, 0.535, 0.168, 0.566]);
+  s.addText("Subject to", { x: r.x, y: r.y, w: r.w, h: r.h, align: "left", valign: "middle", fontSize: 16, bold: true, color: "C00000", fontFace: FONT, margin: 0 });
+}
+callout([0.404, 0.534, 0.508, 0.602]);
+img("gxh", [0.413, 0.545, 0.500, 0.590]);
+img("c1", [0.085, 0.611, 0.126, 0.648], "left");
+img("c2", [0.085, 0.653, 0.126, 0.689], "left");
+img("c3", [0.085, 0.694, 0.185, 0.731], "left");
+img("c4", [0.085, 0.735, 0.201, 0.772], "left");
+img("c5", [0.085, 0.777, 0.194, 0.813], "left");
 
-// G matrix and h vector
-y += constraints.length * 0.35 + 0.2;
-s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y, w: 6.0, h: 2.0, fill: { color: "FFFFFF" }, line: { color: "3498DB", width: 1.5 } });
-s.addText("G =", { x: 0.7, y: y+0.1, w: 5.6, h: 0.3, fontSize: 14, bold: true, color: "3498DB", fontFace: FONT, margin: 0 });
-s.addText("[-1  0 ]", { x: 0.7, y: y+0.4, w: 5.6, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[ 0 -1 ]", { x: 0.7, y: y+0.65, w: 5.6, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[-1 -3 ]", { x: 0.7, y: y+0.9, w: 5.6, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[ 2  5 ]", { x: 0.7, y: y+1.15, w: 5.6, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[ 3  4 ]", { x: 0.7, y: y+1.4, w: 5.6, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-
-s.addShape(pres.shapes.RECTANGLE, { x: 7.0, y, w: 5.8, h: 2.0, fill: { color: "FFFFFF" }, line: { color: "3498DB", width: 1.5 } });
-s.addText("h =", { x: 7.2, y: y+0.1, w: 5.4, h: 0.3, fontSize: 14, bold: true, color: "3498DB", fontFace: FONT, margin: 0 });
-s.addText("[  0 ]", { x: 7.2, y: y+0.4, w: 5.4, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[  0 ]", { x: 7.2, y: y+0.65, w: 5.4, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[-15 ]", { x: 7.2, y: y+0.9, w: 5.4, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[100 ]", { x: 7.2, y: y+1.15, w: 5.4, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-s.addText("[ 80 ]", { x: 7.2, y: y+1.4, w: 5.4, h: 0.25, fontSize: 14, color: "000080", fontFace: "Courier New", margin: 0 });
-
-// Write
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_008_recreated.pptx" })
-  .then(() => console.log("wrote slide_008_recreated.pptx"))
-  .catch(e => console.error(e));
+pres.writeFile({ fileName: require("path").join(NS, "recreated_pptx/slide_008_recreated.pptx") })
+  .then(() => console.log("wrote", OUT));

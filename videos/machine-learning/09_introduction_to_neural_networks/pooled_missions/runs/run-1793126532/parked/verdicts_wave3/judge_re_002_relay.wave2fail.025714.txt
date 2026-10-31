@@ -1,0 +1,46 @@
+[info] context header injected: VIEW: judge slide 002 | CAPTURE: recreated render first, original frame second
+[info] mode comparison | endpoint http://localhost:17844/v1 | models: images | auth: key file present | pid 578278
+[warn] comparison :: images :: attempt 1: ABORT HangError: hard wall-clock 450s exceeded — call aborted (possible stuck thinking stream) — abort+retry 1/3
+[info] degenerate events: 0 (full-page tier: 0)
+[info] 1/1 result(s) analyzed successfully
+=== /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/recreated_pptx/build/slide_002_rendered-1.png, /home/codespace/ai_llm_slides/videos/machine-learning/09_introduction_to_neural_networks/unique_slides/slide_002.jpg ===
+[winner] images (round 1, attempt 2)
+## Element-by-element comparison â slide 002
+
+**Scored content:** only the two-line title block and the bottom black band. House chrome (red frame position, badge "2", title box x/w) is excluded per ground rule (a).
+
+### Title text (verbatim)
+- Recreation: "Revision of" / "Perceptron Algorithm" â correct wording, correct line break, bold sans-serif, red, horizontally centered at x â 0.50 of width. â Matches original (original lines also centered at x â 0.50).
+
+### Measured geometry
+
+| Property | Original (img 2) | Recreation (img 1) | Î |
+|---|---|---|---|
+| Line 1 ink rows | y 0.352â0.417 | y â 0.050â0.105 | block far too high |
+| Line 2 ink rows | y 0.472â0.556 | y â 0.118â0.175 | block far too high |
+| Title block vertical center | â 0.454 (mid-slide) | â 0.113 | **â0.34 of slide height** |
+| Blank gap between the two lines | â 30 px / 540 = **0.056** of height | â 8â10 px / 506 = **0.017** of height | gap ~3Ã too tight |
+| Line 1 cap height | 35/540 = 0.065 | â 26/506 = 0.051 | â 0.79Ã |
+| Line 2 width | x 0.27â0.73 = 0.46 of width | â 0.383 of width | â 0.83Ã (font ~15â20% smaller) |
+| Font | bold Arial/Helvetica-like, single crimson | bold Arial-like, red | â comparable color |
+
+### Discrepancies (every item, with severity and confidence)
+
+1. **MAJOR â Title block vertical placement.** The original's two-line title sits vertically centered in the slide field (ink 0.352â0.556, i.e. mid-slide); the recreation pins it to the top (ink â 0.050â0.175, just under the top frame edge). The two title boxes at y 0.28 / 0.85 in put the block at ~11% of slide height instead of ~45%. This is a gross vertical-alignment deviation on a slide whose only content is that block. Confidence: **high**.
+2. **MAJOR â Inter-line spacing inside the two-line title block.** Original leaves â 0.056 of slide height blank between "Revision of" and "Perceptron Algorithm" (generous, modest-but-airy separation); the recreation's two boxes overlap vertically so the gap collapses to â 0.017. Per founder directive 2026-10-10 this is a MAJOR line-separation defect even though the text is verbatim. Confidence: **high**.
+3. **MINOR â Title font size.** Recreation renders the title at 36 pt, measuring ~0.79â0.83Ã the original's glyph heights/line widths (original â 44â48 pt equivalent). Legible and same weight/color family, but noticeably smaller than the source. Confidence: **medium**.
+4. **MINOR â Bottom black player band geometry.** Original band: rows y 485â540 (â 10% of height), inset to x 35â865 (i.e. *narrower* than the red frame, overlapping the frame's bottom edge). Recreation band: full-bleed slide width, y 7.30â7.50 in (â 2.7% of height), sitting below the frame and clipping/covering the frame's bottom stroke by ~0.05 in. The band is a video-capture artifact (per ground rule (c) it could legitimately be omitted entirely), so its presence is not an addition of slide content; only its size/placement differ. Confidence: **medium**.
+
+**Not scored (house chrome, ground rule a):** red frame inset (original 0.060â0.940 x / 0.074â0.954 y vs template frame), yellow "2" badge shape/outline, title-box placement x/w.
+
+### Visual-quality defects in the recreation
+- No text overflow or clipping; both title lines are fully inside the red frame and fully legible.
+- No collisions, no stray ink, no missing/added slide content (correctly no bullets, body text, equations, charts, or tables â the original is a pure title slide).
+- Minor: the black band's top edge intersects the red frame's bottom rule; the frame's bottom stroke is partially hidden behind it.
+- Minor: the title's two lines are visually cramped together (coupled with item 2 above).
+
+### Summary
+Content inventory and wording are correct (no missing or added elements), and horizontal centering matches. However, the single scored content block â the two-line title â is placed roughly one-third of a slide height too high and its internal line separation is about three times tighter than the original, i.e. a clear vertical-placement/line-spacing fidelity failure on the very element the slide consists of.
+
+FINAL VERDICT: FAIL
+

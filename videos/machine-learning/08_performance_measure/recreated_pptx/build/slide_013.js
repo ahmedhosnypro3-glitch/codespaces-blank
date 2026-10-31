@@ -48,8 +48,8 @@ s.addText("Negative", {
 });
 
 // Airplane icons above parent nodes (parent centers x150.5 and x331.5, y215.5)
-s.addImage({ path: `${ASSETS}/airplane_013.png`, x: P(150.5) - P(85) / 2, y: P(146), w: P(85), h: P(52) });
-s.addImage({ path: `${ASSETS}/airplane_013.png`, x: P(331.5) - P(85) / 2, y: P(146), w: P(85), h: P(52) });
+s.addImage({ path: `${ASSETS}/icon_013_pos.png`, x: P(118), y: P(142), w: P(89), h: P(51) });
+s.addImage({ path: `${ASSETS}/icon_013_neg.png`, x: P(298), y: P(147), w: P(88), h: P(61) });
 
 // Parent nodes: 30 dark red (c 150.5,215.5 d33), 70 dark green (c 331.5,215 d33)
 function node(cx, cy, d, fill, label) {
@@ -128,7 +128,7 @@ s.addImage({ path: `${ASSETS}/eq_013_rec.png`, x: P(826), y: P(193), w: 0.68333,
 // ---- Good Model box: green border x68-413 y329-395, light green fill ----
 s.addShape(pptx.shapes.RECTANGLE, {
   x: P(76), y: P(334), w: P(304), h: P(58),
-  fill: { color: "FFFFFF" }, line: { color: "008000", width: 1.5 },
+  fill: { color: "E2EFDA" }, line: { color: "008000", width: 1.5 },
 });
 s.addText("Good Model:", {
   x: P(84), y: P(337), w: P(160), h: P(17),

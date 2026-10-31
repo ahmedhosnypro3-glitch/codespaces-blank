@@ -1,0 +1,13 @@
+**Discrepancies found**
+
+1. **Extra/garbled trailing glyph in the top heading** â IMG1 shows the title ending with a partial blue character `h` immediately after `model` (crop-relative right edge of the heading, roughly the far-right 10â15% of the text line). In the matched IMG2 crop of the same slide region, no such glyph is visible; the visible title text simply ends at `model`. A matched-scale, same-region crop pair should expose the same text boundary, so the recreation appears to render an unauthorized/mis-cropped partial character there.  
+   **Severity: MAJOR** â wrong glyph/content at crop boundary, exactly the kind of text-integrity break the zoom rules target.  
+   **Confidence: MEDIUM** (the `h` is clearly present in IMG1 and clearly absent in IMG2; slight residual uncertainty remains about sub-pixel crop alignment).
+
+2. **Heading inter-word spacing / underline interruption** â IMG2 shows an expanded horizontal gap between `regression` and `model` (roughly mid-to-right portion of the heading line) that IMG1 does not reproduce; IMG1 renders normal single-word spacing. This also appears to break the underline run in the original frame.  
+   **Severity: MINOR** â it may be a video-capture/pointer/compression artifact rather than true slide content, and word-spacing is a weaker fidelity signal than glyph identity.  
+   **Confidence: LOWâMEDIUM**.
+
+No swapped/bad table cells, no missing rows, no equation/delimiter content in this region, and the repeated bullet lines (`Overfitting Problem`, `Matrix Inversion Problem` Ã2) match in count, wording, and order. The pen/cursor artifact crossing the second bullet in IMG2 is a capture artifact and is ignored per the ground rules.
+
+FINAL VERDICT: FAIL

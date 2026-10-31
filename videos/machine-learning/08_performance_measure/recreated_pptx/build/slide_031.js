@@ -1,14 +1,19 @@
-// Slide 031 — ROC Curve for Same Model - Different Thresholds
-// Frame-vs-spec notes (measured from unique_slides/slide_031.jpg, 960x540, 1px=1pt):
-// - Original has NO top title; house title box carries the spec slide_title per house rule.
+// Slide 031 — ROC Curve for Same Model - Different Thresholds (v3, re-measured 2026-10-31)
+// Frame-vs-spec notes (PIL-measured from unique_slides/slide_031.jpg, 960x540, 1px=1pt):
+// - Original has NO top title; its only title text is the bottom-center caption box.
 // - FPR inline values render without leading zero (".66", ".33") per the fresh image-analysis
 //   read (pool_run/image_analysis/slide_031_analysis.txt = designated source of truth).
 // - Matrix value colors measured from pixels: diagonal (TP, TN) blue, off-diagonal (FN, FP) red.
+// - Left panel x58..635 y48..503; blue dividers x344, y163/286/401/475.
+// - Caption cell x354..622 y401..476 (blue border), red bold two-line text.
 // - ROC plot is a generated matplotlib image (build/assets/slide031_roc.png) at the measured
-//   region x642..894 y81..387; points (FPR,TPR)=(1/3,1),(2/3,1),(1.0,1) labeled 0.3/0.1/0.0,
-//   plus the mandated "1.0" corner label (spec_gaps slide_031: label '1.0', chart value 1.0).
+//   region x642..894 y81..387; circles at (725,148),(809,148),(873,148) with cream-boxed
+//   labels 0.3/0.1/0.0, plus the mandated "1.0" label inside the frame at the upper-right
+//   corner (spec_gaps slide_031: label '1.0', chart value 1.0).
 // - TPR/FPR definition equations rendered as professional 2D stacked fractions (mathtext PNGs)
 //   inside the original's red-bordered boxes — spec_gaps drift items.
+// - Side TPR line blue, FPR line red (reanalysis typography); rotated "Actual" labels get
+//   h>=16 boxes so LibreOffice does not clip them.
 const pptxgenpkg = require("pptxgenjs");
 const pptx = new pptxgenpkg();
 pptx.layout = "LAYOUT_WIDE";
@@ -69,12 +74,13 @@ function textBox(str, x, y, w, h, size, color, opts) {
   });
 }
 
-// --- LEFT PANEL (red border x58..635, y48..517) ---
-rect(58, 48, 577, 469, WHITE, RED, 1.5);
-lineV(343, 49, 468, NAVY, 2);                       // blue vertical divider
-lineH(61, 164, 573, NAVY, 2);                       // band dividers
-lineH(62, 287, 572, NAVY, 2);
-lineH(61, 402, 573, NAVY, 2);
+// --- LEFT PANEL (red border x58..635, y48..503; measured) ---
+rect(58, 48, 577, 455, WHITE, RED, 1.5);
+lineV(344, 49, 454, NAVY, 2);                       // blue vertical divider
+lineH(61, 163, 573, NAVY, 2);                       // band dividers (measured y163/286/401/475)
+lineH(62, 286, 572, NAVY, 2);
+lineH(61, 401, 573, NAVY, 2);
+lineH(61, 475, 573, NAVY, 2);
 
 // --- threshold bands ---
 // band = {hy: header box y, my: matrix top, tpr: tpr/fpr box y, thr: label, fpr: fpr line}
@@ -84,12 +90,12 @@ const bands = [
     cols: ["P", "N"], rows: ["P", "N"],
     vals: [["5", BLUE], ["0", RED], ["6", RED], ["0", BLUE]],
     vc: [139, 185], vr: [127, 148.5], tlines: [116, 135] },
-  { hy: 175, my: 213, tprY: 218, thr: "Threshold=0.1", fpr: "FPR=4/(4+2)=0.66",
+  { hy: 175, my: 213, tprY: 218, thr: "Threshold=0.1", fpr: "FPR=4/(4+2)=.66",
     mx: 78, mw: 136, v1: 115, v2: 164, r1: 234, r2: 256, mb: 278,
     cols: ["P", "N"], rows: ["P", "N"],
     vals: [["5", BLUE], ["0", RED], ["4", RED], ["2", BLUE]],
     vc: [139, 185], vr: [248, 269], tlines: [237, 256] },
-  { hy: 292, my: 328, tprY: 333, thr: "Threshold=0.3", fpr: "FPR=2/(2+4)=0.33",
+  { hy: 292, my: 328, tprY: 333, thr: "Threshold=0.3", fpr: "FPR=2/(2+4)=.33",
     mx: 77, mw: 137, v1: 115, v2: 164, r1: 349, r2: 372, mb: 394,
     cols: ["P", "N"], rows: ["P", "N"],
     vals: [["5", BLUE], ["0", RED], ["2", RED], ["4", BLUE]],
@@ -117,8 +123,10 @@ for (const b of bands) {
   text(b.cols[1], (b.v2 + b.mx + b.mw) / 2, b.my + 13.5, 14, 14, 12, INK, { bold: true });
   text(b.rows[0], (b.mx + b.v1) / 2, (b.r1 + b.r2) / 2, 14, 14, 12, INK, { bold: true });
   text(b.rows[1], (b.mx + b.v1) / 2, (b.r2 + b.mb) / 2, 14, 14, 12, INK, { bold: true });
-  // "Actual" vertical label left of the label column
-  textBox("Actual", b.mx - 19, b.my + 32, 40, 12, 10, RED, { rotate: 270 });
+  // "Actual" vertical label left of the label column; textBox takes top-left, rotation is
+  // about the box center, so center the box at (mx-14, matrix mid) with w=56,h=18 (visual
+  // footprint after 270deg rotation: 18 wide x 56 tall, clear of the matrix edge)
+  textBox("Actual", b.mx - 14 - 28, (b.my + b.mb) / 2 - 9, 56, 18, 10, RED, { rotate: 270 });
   // values: [[P,P],[P,N],[N,P],[N,N]]
   const vpos = [[b.vc[0], b.vr[0]], [b.vc[1], b.vr[0]], [b.vc[0], b.vr[1]], [b.vc[1], b.vr[1]]];
   b.vals.forEach((v, i) => text(v[0], vpos[i][0], vpos[i][1], 14, 15, 14, v[1], { bold: true }));
@@ -126,21 +134,21 @@ for (const b of bands) {
   const boxH = (b === bands[0]) ? 48 : 54;
   rect(225, b.tprY, 114, boxH, WHITE, RED, 1.5);
   s.addText([
-    { text: "TPR=5/(5+0)=1", options: { fontSize: 11.5, color: INK, fontFace: FONT, breakLine: true } },
-    { text: b.fpr, options: { fontSize: 11.5, color: INK, fontFace: FONT, breakLine: false } }
+    { text: "TPR=5/(5+0)=1", options: { fontSize: 11.5, color: "0000FF", fontFace: FONT, breakLine: true } },
+    { text: b.fpr, options: { fontSize: 11.5, color: "FF0000", fontFace: FONT, breakLine: false } }
   ], {
     x: P(233), y: P(b.tprY + 5), w: P(104), h: P(boxH - 8),
     align: "left", valign: "middle", margin: 0, lineSpacing: 19
   });
 }
 
-// --- bottom band: blue title box ---
-rect(353, 426, 269, 50, TITLEFILL, NAVY, 2);
+// --- bottom band: blue caption box (measured x354..622, y401..476) ---
+rect(354, 401, 268, 75, TITLEFILL, NAVY, 2);
 s.addText([
   { text: "ROC Curve for", options: { fontSize: 14, bold: true, color: RED, fontFace: FONT, breakLine: true } },
   { text: "Same Model -different thresholds", options: { fontSize: 14, bold: true, color: RED, fontFace: FONT, breakLine: false } }
 ], {
-  x: P(354), y: P(428), w: P(267), h: P(46), align: "center", valign: "middle",
+  x: P(355), y: P(403), w: P(266), h: P(71), align: "center", valign: "middle",
   margin: 0, lineSpacing: 20
 });
 
@@ -150,8 +158,7 @@ s.addImage({
   path: NS + "/build/assets/slide031_roc.png",
   x: P(642), y: P(81), w: P(252), h: P(306)
 });
-// red bottom edge of the right column (measured y=517, x658..887)
-lineH(658, 517, 229, RED, 2);
+// right column has no outer red frame in the original (measured); no stray bottom line
 
 // formula boxes with stacked 2D fractions (red border, white fill)
 rect(650, 416, 98, 39, WHITE, RED, 1.5);
@@ -165,26 +172,26 @@ s.addImage({
   x: P(700) - P(88.08) / 2, y: P(484) - P(29.88) / 2, w: P(88.08), h: P(29.88)
 });
 
-// legend matrix x770..886 y428..499
-rect(770, 428, 116, 71, WHITE, RED, 1.5);
-lineV(802, 428, 71, RED, 2);
-lineV(844, 428, 71, RED, 2);
-lineH(770, 457, 116, RED, 2);
-lineH(770, 478, 116, RED, 2);
+// legend matrix (measured x771..886, y437..499; header row y437..455, cells y455..499)
+rect(771, 437, 115, 62, WHITE, RED, 1.5);
+lineV(802, 437, 62, RED, 2);
+lineV(844, 437, 62, RED, 2);
+lineH(771, 455, 115, RED, 2);
+lineH(771, 478, 115, RED, 2);
 // cell fills: TP/TN green, FN/FP pink
-rect(803, 458, 40, 19, GREEN, null);
-rect(845, 458, 40, 19, PINK, null);
+rect(803, 456, 40, 21, GREEN, null);
+rect(845, 456, 40, 21, PINK, null);
 rect(803, 479, 40, 19, PINK, null);
 rect(845, 479, 40, 19, GREEN, null);
 // "Predicted as" above, column headers, row labels, Actual
-textBox("Predicted as", 800, 424, 90, 12, 11, RED, { italic: true });
-text("P", 823, 450, 14, 13, 11, INK, { bold: true });
-text("N", 865, 450, 14, 13, 11, INK, { bold: true });
-text("P", 787.5, 468, 14, 13, 11, INK, { bold: true });
+textBox("Predicted as", 806, 428, 90, 12, 11, RED, { italic: true });
+text("P", 823, 446, 14, 13, 11, INK, { bold: true });
+text("N", 865, 446, 14, 13, 11, INK, { bold: true });
+text("P", 787.5, 466, 14, 13, 11, INK, { bold: true });
 text("N", 788, 489, 14, 13, 11, INK, { bold: true });
-textBox("Actual", 758, 478, 40, 11, 10, RED, { rotate: 270 });
-text("TP", 823, 468, 16, 13, 12, INK, { bold: true });
-text("FN", 865, 468, 16, 13, 12, INK, { bold: true });
+textBox("Actual", 757 - 25, 468 - 8, 50, 16, 10, RED, { rotate: 270 });
+text("TP", 823, 467, 16, 13, 12, INK, { bold: true });
+text("FN", 865, 467, 16, 13, 12, INK, { bold: true });
 text("FP", 824, 489, 16, 13, 12, INK, { bold: true });
 text("TN", 865, 489, 16, 13, 12, INK, { bold: true });
 

@@ -1,0 +1,94 @@
+// slide_028.js — REBUILD from qa/reanalysis2/slide_028_analysis.txt (wave 3).
+// Spec coords [x0,y0,x1,y1] normalized -> inches: x*13.33, y*7.5.
+// Run: NODE_PATH=$(npm root -g) node slide_028.js
+const pptxgen = require("pptxgenjs");
+const fs = require("fs");
+
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = NS + "/recreated_pptx/build/eq_028/";
+const man = JSON.parse(fs.readFileSync(EQ + "manifest.json", "utf8"));
+const W = 13.33, H = 7.5;
+const FONT = "Arial";
+
+const pres = new pptxgen();
+pres.layout = "LAYOUT_WIDE";
+const s = pres.addSlide();
+s.background = { color: "E8E8E8" }; // house rule
+
+// House chrome (overrides spec): red frame, badge. Spec has NO title -> no title text.
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
+  fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
+});
+s.addShape(pres.shapes.OVAL, {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
+});
+s.addText("28", {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
+  align: "center", valign: "middle",
+  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
+});
+
+// Thin light-gray rule near top of frame [0.000,0.059,0.880,0.063]
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.0, y: 0.059 * H, w: 0.880 * W, h: (0.063 - 0.059) * H,
+  fill: { color: "CCCCCC" }, line: { type: "none" },
+});
+
+// Upper blue panel [0.065,0.152,0.783,0.411], white fill
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.065 * W, y: 0.152 * H, w: (0.783 - 0.065) * W, h: (0.411 - 0.152) * H,
+  fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1.5 },
+});
+// Lower blue panel [0.065,0.426,0.833,0.843], white fill
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.065 * W, y: 0.426 * H, w: (0.833 - 0.065) * W, h: (0.843 - 0.426) * H,
+  fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1.5 },
+});
+
+// Peach rounded chip behind "a^T b + 1" [0.069,0.246,0.136,0.309]
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+  x: 0.069 * W, y: 0.246 * H, w: (0.136 - 0.069) * W, h: (0.309 - 0.246) * H,
+  fill: { color: "FFE4C4" }, line: { type: "none" }, adj: 0.25,
+});
+
+// Equation PNGs at exact size (w = px/600 in), left-aligned, vertically centered
+function eq(name, x0, y0, x1, y1) {
+  const m = man[name];
+  const bx = x0 * W, by = y0 * H, bh = (y1 - y0) * H;
+  s.addImage({ path: EQ + m.file, x: bx, y: by + Math.max(0, (bh - m.h_in) / 2), w: m.w_in });
+}
+// Upper panel content
+eq("c_chip", 0.073, 0.256, 0.133, 0.300);   // a^T b + 1 (red, on chip)
+eq("c_sq", 0.139, 0.254, 0.154, 0.281);     // ^2 =
+eq("c_arow", 0.154, 0.178, 0.367, 0.207);   // red alpha row vector
+eq("c_bcol", 0.371, 0.167, 0.429, 0.398);   // blue beta 6-column
+eq("c_eq", 0.443, 0.265, 0.518, 0.296);     // = phi(a)^T phi(b)
+eq("c_where", 0.550, 0.250, 0.651, 0.302);  // Where: phi(x) = (x1/x2)^T
+eq("c_arrow", 0.690, 0.267, 0.704, 0.291);  // red =>
+eq("c_phicol", 0.717, 0.167, 0.773, 0.398); // black phi(x) 6-column (slide order)
+// Lower panel content
+eq("l_a", 0.073, 0.444, 0.125, 0.528);      // a = (1/2)^T red
+eq("l_b", 0.146, 0.444, 0.200, 0.528);      // b = (3/4)^T blue
+eq("l_eq", 0.073, 0.615, 0.169, 0.652);     // phi(a)^T phi(b) =
+eq("l_row", 0.175, 0.541, 0.388, 0.574);    // red numeric row
+eq("l_bcol", 0.394, 0.537, 0.460, 0.737);   // blue numeric 6-column
+eq("l_prod", 0.479, 0.587, 0.627, 0.617);   // = red product row
+eq("l_numcol", 0.654, 0.533, 0.710, 0.741); // blue (9,16,12sqrt2,...)
+eq("l_sum", 0.461, 0.746, 0.652, 0.778);    // = 9+64+48+6+16+1 = 144
+eq("l_bot", 0.073, 0.787, 0.346, 0.824);    // |a^Tb+1|^2 = ... = 144
+
+// Red hollow left-pointing arrows (outline only)
+function larrow(x0, y0, x1, y1) {
+  s.addShape(pres.shapes.LEFT_ARROW, {
+    x: x0 * W, y: y0 * H, w: (x1 - x0) * W, h: (y1 - y0) * H,
+    fill: { type: "none" }, line: { color: "FF0033", width: 1.5 },
+  });
+}
+larrow(0.654, 0.754, 0.691, 0.780); // beside the = 144 sum
+larrow(0.350, 0.796, 0.386, 0.822); // beside the bottom-left computation
+
+pres.writeFile({ fileName: NS + "/recreated_pptx/slide_028_recreated.pptx" })
+  .then(() => console.log("wrote slide_028_recreated.pptx"))
+  .catch(err => { console.error(err); process.exit(1); });

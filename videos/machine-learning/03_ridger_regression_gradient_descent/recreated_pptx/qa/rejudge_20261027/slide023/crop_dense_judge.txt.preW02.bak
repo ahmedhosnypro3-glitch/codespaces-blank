@@ -1,0 +1,24 @@
+**Discrepancies found in the crop pair**
+
+1. **Added/extra top text line âRecallâ â MAJOR, high confidence**  
+   - In **IMG1/render**, at the very top-left of the crop, roughly crop coords `x â 8â125, y â 0â45`, there is a separate underlined text line: **âRecallâ** with a visible underline.  
+   - In **IMG2/original**, the same top-left region begins directly with the equation row, roughly `\underline{W} = (...) ^ {-1} X`; there is **no âRecallâ** line and no corresponding underline at that position.  
+   - This is a content-line mismatch, not a font/medium artifact.
+
+2. **Vertical placement/shift caused by the extra line â MINOR as a layout issue, MAJOR in conjunction with the missing/added âRecallâ line â medium-high confidence**  
+   - At matched scale, the formula row and the following `if Feature vectors are of dimension â¦` line sit noticeably lower in IMG1 than in IMG2.  
+   - The internal spacing of the equation and `if Feature â¦` line otherwise looks reasonable, so this appears to be a consequence of the extra âRecallâ row rather than an independent typography failure.
+
+**Equation/content otherwise matching**
+
+- The core equation is consistent with the original:  
+  **\(\underline{W} = (X^{T}X + \lambda I)^{-1}X\)**.
+- Subscript/superscript placement, the `-1` exponent, and the surrounding parentheses are structurally correct in the render.
+- The body text lines visible in the crop:
+  - `The standard matrix inversioâ¦`
+  - `which means that the computâ¦`
+  - `the matrix (increasing cubicaâ¦`
+  
+  match the original in the crop.
+
+**FINAL VERDICT: FAIL**

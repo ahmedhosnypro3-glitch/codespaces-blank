@@ -1,0 +1,26 @@
+## Comparison of IMG1 (recreation) vs IMG2 (original), slide 036, region (64,112)â(368,320)
+
+**Structure check first (per ground rules):** Both crops show the same two bordered blocks, the same line counts, the same cropped right-edge truncation, and the same red/blue/green color coding of class labels, the discriminant d(X), and the comparison signs. Panel strokes, canvas, and typed-vs-handwritten font are exempt chrome/medium differences. The crop-pair is correctly matched in scale and region.
+
+### Discrepancies found
+
+1. **Capitalization of the blue class label changed: "Class II" instead of "class II"** â MINOR, confidence: high.
+   - First block, 4th line (~x 150â295, y 155â200): recreation reads "if X â **Class II** then d(X) < 0"; original reads "if X â *class II* then d(X) < 0" with a lowercase italic "c".
+   - Second block, 3rd line (~x 150â295, y 375â420): recreation reads "If X â **Class II** and misclassifiedâ¦"; original reads "If X â *class II* and misclassifiedâ¦" (lowercase, italic).
+   - The red label in the parallel positions ("class I", both in the first block and in the second block's first line) is correctly kept lowercase in the recreation, so this is an internal inconsistency, not a stylistic rendering choice. The two occurrences should read "class II" to match the original.
+
+2. **Handwritten underlining of emphasis marks omitted** â MINOR, confidence: moderate (may be partially excused by the typed-vs-handwritten ink rule, but the underline is a deliberate markup/emphasis device, not a glyph artifact).
+   - Original underlines "misclassified" in the second-block header (~x 95â250, y 275â285), and "misclassified" in both lines of the second block (~x 380â600, y 325â335 and ~x 385â630, y 400â410).
+   - Original also underlines each handwritten X (in "if X", "d(X)", and the green "X" in the header) â e.g., ~x 70â100 y 95â130, ~x 455â495 y 95â130, ~x 70â100 y 155â190, ~x 455â495 y 155â190, ~x 375â410 y 255â290.
+   - The recreation renders none of these underlines.
+
+### Items checked and confirmed faithful
+- Line order and count in both blocks (4 lines upper block incl. the cropped "Define two classesâ¦" line; 3 lines lower block).
+- Membership symbol "â" present and correctly positioned in all four membership statements.
+- Operator/value pairs: "> 0" (red) and "< 0" (blue) in the correct lines, with correct inequality direction and correct 0 (no sign swap).
+- Green d(X) in all three occurrences (line 2 and both conditional lines), green X in "For misclassified X :"; red "class I" in the two class-I positions; red stroke weight of the surrounding panel borders matches.
+- Colon and spacing after "For misclassified X :" preserved; both crops truncate identically at the right edge, so no missing text attributable to the recreation.
+
+**Assessment:** The only content-level deviation is the capitalization of the blue label ("Class II" vs "class II") in two places, plus omission of handwritten emphasis underlines. These do not alter the mathematical meaning, the line structure, or usability of the region; no digit, symbol, table value, row, subscript, or delimiter geometry is wrong.
+
+FINAL VERDICT: PASS

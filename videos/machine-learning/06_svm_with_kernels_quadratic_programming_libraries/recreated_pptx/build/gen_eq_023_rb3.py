@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Fresh (wave-3 rebuild) math assets for slide 023, rendered ONLY from
-qa/reanalysis2/slide_023_analysis.txt section 8 equations.
+"""Fresh slide-023 math assets (rebuild wave 3) from qa/reanalysis2/slide_023_analysis.txt.
 
-Matrices/vectors are composed cell-by-cell with render_math.py segments
-(mathtext lacks \\begin{array} / \\textcolor); paren/bracket delimiters are
-single glyphs stretched to body height. Output: eq_023/*.png at 600 dpi +
-eq_023/manifest.json with w_in/h_in per asset.
+Matrices composed cell-by-cell with render_math.py segments (mathtext lacks
+array envs); paren/bracket delimiters are glyphs stretched to body height.
+Output: recreated_pptx/build/eq_023/*.png at 600 dpi + manifest.json.
 """
 import json
 import os
@@ -76,8 +74,9 @@ def compose(rows, size, delim=None):
     return canvas
 
 
-def fit(name, rows, size0, maxw, maxh, delim=None):
+def fit(manifest, name, rows, size0, maxw, maxh, delim=None):
     size = size0
+    canvas = None
     for _ in range(14):
         canvas = compose(rows, size, delim)
         w_in, h_in = canvas.shape[1] / DPI, canvas.shape[0] / DPI
@@ -85,60 +84,42 @@ def fit(name, rows, size0, maxw, maxh, delim=None):
             break
         size *= 0.92
     os.makedirs(OUT, exist_ok=True)
-    path = os.path.join(OUT, name + ".png")
-    Image.fromarray(canvas).save(path)
-    return {"image": name + ".png", "path": path,
-            "w_px": int(canvas.shape[1]), "h_px": int(canvas.shape[0]),
-            "w_in": round(w_in, 5), "h_in": round(h_in, 5), "pt": round(size, 2)}
+    p = os.path.join(OUT, name + ".png")
+    Image.fromarray(canvas).save(p)
+    manifest[name] = {"image": name + ".png", "path": p,
+                      "w_px": int(canvas.shape[1]), "h_px": int(canvas.shape[0]),
+                      "w_in": round(canvas.shape[1] / DPI, 5),
+                      "h_in": round(canvas.shape[0] / DPI, 5), "pt": round(size, 2)}
 
 
 def main():
-    manifest = {}
-    # spec eq 1: [ e^{-gamma ||a - b||^2} ] top band, black, bracketed
-    manifest["top_rbf"] = fit("top_rbf",
-                              [[("e^{-\\gamma\\,\\|a-b\\|^{2}}", BLACK)]],
-                              22, 1.70, 0.42, delim=("[", "]"))
-    # spec eq 7: (a1 b1 / a2 b2) input matrix, a red / b blue, both copies
+    m = {}
+    fit(m, "top_rbf", [[("e^{-\\gamma\\,\\|a-b\\|^{2}}", BLACK)]], 22, 1.72, 0.40,
+        delim=("[", "]"))
     ab = [[("a_1", RED), ("b_1", BLUE)], [("a_2", RED), ("b_2", BLUE)]]
-    manifest["mat_ab"] = fit("mat_ab", ab, 16, 0.95, 0.55, delim=("(", ")"))
-    # spec eq 2: e^{-gamma ||a - b||^2} grey box, black, no delimiters
-    manifest["eq_rbf"] = fit("eq_rbf",
-                             [[("e^{-\\gamma\\,\\|a-b\\|^{2}}", BLACK)]],
-                             16, 1.30, 0.38)
-    # spec eq 8: (a1 a2 / b1 b2) cyan box in Normal Model panel [?]
-    manifest["mat_normal"] = fit("mat_normal",
-                                 [[("a_1", RED), ("a_2", RED)],
-                                  [("b_1", BLUE), ("b_2", BLUE)]],
-                                 15, 0.78, 0.50, delim=("(", ")"))
-    # spec eq 5: a , b => u , v  (a,b red; u,v blue)
-    manifest["vec_map"] = fit("vec_map",
-                              [[("\\mathbf{a\\ ,\\ b\\ \\Rightarrow}", RED),
-                                ("\\mathbf{u\\ ,\\ v}", BLUE2)]],
-                              14, 1.35, 0.27)
-    # spec eq 9: pink two-column list u1..u-inf | v1..v-inf
+    fit(m, "mat_ab", ab, 16, 0.95, 0.55, delim=("(", ")"))
+    fit(m, "eq_rbf", [[("e^{-\\gamma\\,}", BLACK), ("\\|a-b\\|^{2}", BLUE)]],
+        16, 1.35, 0.40)
+    fit(m, "mat_normal", [[("a_1", RED), ("a_2", RED), ("b_1", BLUE)],
+                          [(None, RED), (None, RED), ("b_2", BLUE)]],
+        15, 0.78, 0.50, delim=("(", ")"))
+    fit(m, "vec_map", [[("\\mathbf{a\\ ,\\ b\\ \\Rightarrow}", RED),
+                        ("\\ \\mathbf{u\\ ,\\ v}", BLUE)]], 14, 1.38, 0.27)
     pink = [[(f"u_{s}", RED), (f"v_{s}", BLUE2)]
             for s in ("1", "2", "3", "\\dots", "\\dots", "\\infty")]
-    manifest["vec_pink"] = fit("vec_pink", pink, 14, 0.68, 1.50)
-    # spec eq 10: kernel matrix, u-row across top, v-column down the right
+    fit(m, "vec_pink", pink, 14, 0.70, 1.55)
     kern = [[("u_1", RED), ("u_2", RED), ("u_3", RED), ("\\dots", RED),
              ("\\dots", RED), ("u_\\infty", RED), ("v_1", BLUE2)]]
     for s in ("2", "3", "\\dots", "\\dots", "\\infty"):
         kern.append([(None, RED)] * 6 + [(f"v_{s}", BLUE2)])
-    manifest["mat_kernel"] = fit("mat_kernel", kern, 14, 2.60, 1.00,
-                                 delim=("(", ")"))
-    # spec eq 3/4: Calculate a^T b / Calculate u^T v
-    manifest["calc_atb"] = fit("calc_atb",
-                               [[("\\mathit{Calculate}\\ ", BLACK),
-                                 ("\\mathbf{a^{T}\\,b}", RED)]],
-                               14, 1.15, 0.25)
-    manifest["calc_utv"] = fit("calc_utv",
-                               [[("\\mathit{Calculate}\\ ", BLACK),
-                                 ("\\mathbf{u^{T}\\,v}", RED)]],
-                               14, 1.15, 0.25)
+    fit(m, "mat_kernel", kern, 14, 2.42, 1.50, delim=("(", ")"))
+    fit(m, "calc_atb", [[("\\mathit{Calculate}\\ ", BLACK),
+                         ("\\mathbf{a^{T}\\,b}", RED)]], 14, 1.15, 0.25)
+    fit(m, "calc_utv", [[("\\mathit{Calculate}\\ ", BLACK),
+                         ("\\mathbf{u^{T}\\,v}", RED)]], 14, 1.15, 0.25)
     with open(os.path.join(OUT, "manifest.json"), "w") as fh:
-        json.dump(manifest, fh, indent=2)
-    for k, v in manifest.items():
-        print(k, v["w_in"], "x", v["h_in"], "in")
+        json.dump(m, fh, indent=2)
+    print(json.dumps({k: {"w_in": v["w_in"], "h_in": v["h_in"]} for k, v in m.items()}))
 
 
 if __name__ == "__main__":

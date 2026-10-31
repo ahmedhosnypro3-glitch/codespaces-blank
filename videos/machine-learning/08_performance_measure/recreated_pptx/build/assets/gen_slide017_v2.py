@@ -54,13 +54,13 @@ for p, color, marker in series:
     with np.errstate(divide="ignore", invalid="ignore"):
         f1 = np.where(recall > 0, 2 * p * recall / (p + recall), 0.0)
     if marker == "+":
-        ax.plot(recall, f1, color=color, marker=marker, linewidth=0.8,
-                markersize=4.0, markeredgewidth=1.0, markerfacecolor=color,
+        ax.plot(recall, f1, color=color, marker=marker, linewidth=0.7,
+                markersize=3.6, markeredgewidth=0.9, markerfacecolor=color,
                 markeredgecolor=color)
     else:
-        ax.plot(recall, f1, color=color, marker=marker, linewidth=0.8,
-                markersize=4.0, markerfacecolor="none", markeredgecolor=color,
-                markeredgewidth=0.9)
+        ax.plot(recall, f1, color=color, marker=marker, linewidth=0.7,
+                markersize=3.6, markerfacecolor="none", markeredgecolor=color,
+                markeredgewidth=0.8)
 
 ax.set_xlim(-0.04, 1.04)
 ax.set_ylim(-0.04, 1.04)
@@ -69,7 +69,7 @@ ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
 ax.set_xticklabels(["0.0", "0.2", "0.4", "0.6", "0.8", "1.0"], fontsize=9, color="black")
 ax.set_yticklabels(["0.0", "0.2", "0.4", "0.6", "0.8", "1.0"], fontsize=9, color="black")
 ax.set_xlabel("recall", fontsize=13, color="black", labelpad=2)
-ax.set_ylabel("F1", fontsize=13, color="black", labelpad=2)
+ax.set_ylabel("F1", fontsize=13, color="black", labelpad=8)
 for spine in ax.spines.values():
     spine.set_color("black")
     spine.set_linewidth(0.8)
@@ -87,20 +87,21 @@ handles = [
 ax.legend(handles, [f"precision = {p:g}" for p, _, _ in series],
           loc="upper left", fontsize=12, frameon=True, facecolor="white",
           edgecolor="gray", framealpha=1.0, borderpad=0.6, labelspacing=0.25,
-          handlelength=2.2, markerscale=1.4, borderaxespad=0.0)
+          handlelength=2.2, markerscale=1.0, borderaxespad=0.0)
 
 GREEN = "#2E7D32"
 RED = "#FF0000"
 # green solid guides (measured: H F1=0.592 r0->0.60 + V r=0.60 down;
 # H F1=0.176 r0->0.917 + V r=0.917 down)
-ax.plot([0.0, 0.60], [0.592, 0.592], color=GREEN, linewidth=1.6, solid_capstyle="butt")
-ax.plot([0.60, 0.60], [-0.04, 0.592], color=GREEN, linewidth=1.6, solid_capstyle="butt")
-ax.plot([0.0, 0.917], [0.176, 0.176], color=GREEN, linewidth=1.6, solid_capstyle="butt")
-ax.plot([0.917, 0.917], [-0.04, 0.176], color=GREEN, linewidth=1.6, solid_capstyle="butt")
+ax.plot([0.0, 0.60], [0.592, 0.592], color=GREEN, linewidth=1.4, solid_capstyle="butt")
+ax.plot([0.60, 0.60], [-0.04, 0.592], color=GREEN, linewidth=1.4, solid_capstyle="butt")
+ax.plot([0.0, 0.917], [0.176, 0.176], color=GREEN, linewidth=1.4, solid_capstyle="butt")
+ax.plot([0.917, 0.917], [-0.04, 0.176], color=GREEN, linewidth=1.4, solid_capstyle="butt")
 # green short solid L near origin (H F1=0.209 r0->0.12; V r=0.12 down to axis)
-ax.plot([0.0, 0.12], [0.209, 0.209], color=GREEN, linewidth=1.6, solid_capstyle="butt")
-ax.plot([0.12, 0.12], [-0.04, 0.209], color=GREEN, linewidth=1.6, solid_capstyle="butt")
-# red dashed annotations with left-pointing arrowheads at r=0
+ax.plot([0.0, 0.12], [0.209, 0.209], color=GREEN, linewidth=1.4, solid_capstyle="butt")
+ax.plot([0.12, 0.12], [-0.04, 0.209], color=GREEN, linewidth=1.4, solid_capstyle="butt")
+# red dashed annotations with left-pointing arrowheads at r=0 (xy must stay
+# inside the axes or annotation_clip drops the whole arrow)
 ax.annotate("", xy=(0.0, 0.645), xytext=(0.645, 0.645),
             arrowprops=dict(arrowstyle="->", color=RED, lw=1.2, linestyle=(0, (4, 3))))
 ax.plot([0.645, 0.645], [-0.04, 0.645], color=RED, linewidth=1.2, linestyle=(0, (4, 3)))

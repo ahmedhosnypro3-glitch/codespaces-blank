@@ -222,3 +222,108 @@ Recommend: APPROVE / RE-RUN OPEN SCOPES / NEEDS DECISIONS.
   — do NOT treat a ledger row as certification; the judge transcript decides.
 - If a merge ever fails with "Bad magic number" the deck was raced: report it and
   do NOT self-repair by re-merging — the orchestrator rebuilds from placeholder.
+---
+
+## 10. FLEET CORRECTIONS (2026-10-31 — binding on all workers, present + future)
+
+These were measured on this deck against real failures. They override any older
+guidance in this file.
+
+### 10.1 JUDGE CALLS — `--max-tokens` IS A VERDICT-BREAKER
+
+The `analyze_image.py` default `--max-tokens` is **8192**. A comparison judge on
+this deck's dense slides produces a 30–40 KB transcript; at 8192 tokens the
+response is truncated **mid-body with no `FINAL VERDICT` line**. Measured:
+`qa/slide022/rejudge/judge_attempt_1.txt` (32383 B) and `judge_attempt_2.txt`
+(30618 B) — both reasoned to a conclusion, both truncated before the verdict.
+
+**Always pass `--max-tokens 24000` (minimum) for judge calls.** Use 32768+ for
+slide 021/022-class dense slides. A transcript with no terminal
+`FINAL VERDICT:` line is **NO-RESULT**, not a FAIL — re-run with a raised
+budget; do NOT spend fix-loop iterations on it.
+
+### 10.2 JUDGE CALLS — TIMEOUT WALL
+
+`--timeout 240` (270 s wall) demonstrably aborts with `HangError` on this deck;
+a 420 s wall completed successfully on the same slide. Use **`--timeout 420`**
+as the floor, and `--timeout 780` when the route is congested. The script's own
+wall is `--timeout + 30 s` — an outer `timeout` that races it destroys the
+transcript (and Python's buffered stdout, so the file lands 0 bytes). Run
+`python3 -u` and let the script's wall govern.
+
+### 10.3 IMAGE ORDER (frozen, deck-wide)
+
+**Image 1 = recreation render. Image 2 = original lecture frame.** The frozen
+template states this. Passing the original first makes the judge score the
+ORIGINAL as the recreation and returns a bogus FAIL.
+
+### 10.4 FROZEN JUDGE TEMPLATE PATH
+
+The deck's frozen template is **`judge_template.txt` at the namespace root**
+(2597 B). `_pool/judge_template.txt` is an identical copy — either path is fine,
+but `_pool/audit_prompt.txt` is the ANALYSIS prompt (11 sections), NOT the judge
+prompt. Do not mix them.
+
+### 10.5 STORM DETECTION MUST NOT MATCH THE BENIGN WARNING
+
+`analyze_image.py` prints `[warn] --timeout > 600s …` as a benign advisory.
+A storm regex that matches "timeout" reports a false storm and burns the whole
+attempt budget. Match only `HTTP 429`, `HTTP 504`, `HTTP 5xx`, `HangError`,
+`Connection reset`, `GarbageError`, and `0 bytes`/`0/1 result(s)`.
+
+### 10.6 VISION CONCURRENCY — SELF-COMPETITION IS THE 429 SOURCE
+
+The shared gateway is saturated fleet-wide (41–61 analyzer processes from OTHER
+video namespaces). A worker that runs several vision calls at once starves
+itself. Per worker: **`VISION_SLOTS=2`**, and run judge calls **serially**, one
+at a time. Do the build / PIL / measurement work in parallel — only the vision
+call is scarce.
+
+### 10.7 PRESERVE BANKED EVIDENCE BEFORE ANY OVERWRITE
+
+A judge transcript is evidence. Before re-running a judge over an existing
+transcript, **copy it to a `prior_attempts/` dir or a `_prior_<stamp>.txt`
+name**. Overwriting a banked transcript is evidence loss and is forbidden
+("never delete banked evidence").
+
+### 10.8 CERTIFICATION IS THE TRANSCRIPT, NOT THE LEDGER
+
+A `certified` ledger row alone is NOT certification. A slide is certified iff a
+banked transcript contains an explicit `FINAL VERDICT: PASS` **bound to the
+exact deliverable bytes** being merged. Slides 4, 10, 11, 17, 21, 22, 24 were
+flagged as DECEIVING (FAIL + certified row) on 2026-10-27 — re-verify each one
+against its transcript before trusting its row.
+
+### 10.9 RESUME IS CHEAP; GATE-SATURATION IS NOT
+
+If a resumed worker dies on HTTP 429 within <300 s of resuming, it was starved
+by sibling agents — back the fleet off rather than immediately re-respawning.
+Prefer: (a) doing the build/measurement work without vision, (b) running one
+serial judge call, (c) parking as honest debt when the route is hard-down.
+
+---
+
+## 11. ARTIFACT-FIRST LAW (2026-10-31 — the answer to 429 death churn)
+
+Measured: every resume of a vision-heavy worker now dies on HTTP 429/504 within
+**125–300 s**, while a sibling that only ran local tools survived 4600 s. The
+workers that die are the ones whose FIRST actions are vision calls; the workers
+that survive are the ones whose first actions are Bash/Read/Write/Edit.
+
+**Therefore every worker MUST complete all gateway-free work and land it on disk
+BEFORE its first vision call of the turn, in this order:**
+
+1. **Read + measure** (Read, Bash, PIL) — no gateway.
+2. **Build/rebuild** the pptx (Write/Edit the JS, run node) — no gateway.
+3. **Render** it (LO headless → PDF → PNG, 150 dpi) — no gateway.
+4. **Closed-loop PIL checks** (~4 px tolerance at 150 dpi) — no gateway.
+5. **Only then** a single serial judge call through `_pool/vision_gate.sh`
+   `VISION_SLOTS=2`.
+
+An artifact that exists on disk survives the worker; a judge verdict in flight
+does not. If a worker dies mid-build, the next resume starts from the landed
+pptx, not from scratch.
+
+**Never** re-render or re-measure an asset that already exists and already has a
+banked PASS (the b04 failure: a worker burned its entire 2-hour wall polishing an
+already-certified build and was killed still re-judging it).

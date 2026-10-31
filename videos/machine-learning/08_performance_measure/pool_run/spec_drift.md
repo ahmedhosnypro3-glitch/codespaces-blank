@@ -114,6 +114,105 @@ A MATERIAL delta is text or a table/chart data value present in the reanalysis b
 - **Reanalysis (original frame)**: Any value → (0, +1)
 - **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
 
+### Slide 025 — `verbatim_text.labels`
+
+- **Reanalysis (original frame)**: Predicted Value
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 025 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.1
+- **Consumed spec**: Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at ≈0.6 extends from just below the flowchart down to the axis.
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 025 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 16
+- **Consumed spec**: Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at ≈0.6 extends from just below the flowchart down to the axis.
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 025 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: -41
+- **Consumed spec**: Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at ≈0.6 extends from just below the flowchart down to the axis.
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 025 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 58
+- **Consumed spec**: Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at ≈0.6 extends from just below the flowchart down to the axis.
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 025 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: -86
+- **Consumed spec**: Horizontal number line (scatter of categorical markers). Dark-red horizontal axis from 0.0 to 1.0 with tick marks at every 0.1; red labels '0.0' (left end), '0.5' (middle), '1.0' (right end) below the axis. A dashed purple vertical line at ≈0.6 extends from just below the flowchart down to the axis.
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: (Any value → (0, +1))
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `verbatim_text.equations`
+
+- **Reanalysis (original frame)**: (0 → -1)
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.1
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.2
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.3
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.4
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.6
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.8
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.9
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 11
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
+### Slide 026 — `visual_elements[chart].data`
+
+- **Reanalysis (original frame)**: 0.65
+- **Consumed spec**: Horizontal score axis (number line) drawn in red with a right-pointing arrowhead at the right end. Tick marks at 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1.0 (11 ticks, evenly spaced). Only three tick labels are printed, all in bold red: '0.0' at the far left, '0.5' at the middle tick, '
+- **Action**: re-dispatch this slide's build worker to add the missing content, then re-run both judge reads.
+
 ### Slide 028 — `verbatim_text.equations`
 
 - **Reanalysis (original frame)**: TPR = TP / (TP + FN)

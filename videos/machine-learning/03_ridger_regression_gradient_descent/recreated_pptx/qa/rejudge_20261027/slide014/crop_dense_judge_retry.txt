@@ -1,0 +1,19 @@
+Comparison is IMG1 (top, 150âdpi PPTX render crop) vs IMG2 (bottom, original frame region 280,208â584,416 upscaled to match). Region = dense middle of slide 014. Cropârelative coords below are approximate within the matched crop; âband 2â = white equation row, âband 3â = peach row.
+
+Discrepancies found (everything not listed is either mandated chrome per rules (a)â(e) or a capture artifact):
+
+1. MAJOR â high confidence â Equation colorâcoding wrong, band 2 (white equation row), leftâtoâcenter. IMG2 original: âLossâ is RED, âÎ»â blue, âR (WÌ²)â GREEN. IMG1 recreation: the visible ââ¦oss(X,Y,W)â is BLACK (the âLâ is at the crop edge, but the remaining âossâ should still be red if the word were red) and â+Î»R(W)â is all BLUE â i.e., R is not green. Loss redâblack and R greenâblue break the slideâs color code. Sits roughly crop xâ0â200 (âLossâ) and xâ250â360 (âÎ»R(W)â), yâ225â265.
+
+2. MAJOR â high confidence â Vector underlines dropped in the equation, band 2. IMG2 underlines the vectors: J(WÌ²), âWÌ²â, and inside the args Loss(X, YÌ², WÌ²) and R(WÌ²). IMG1 shows plain âLoss(X,Y,W)+Î»R(W)â with NO underlines on X/Y/W or the W in R(W) â yet IMG1 *does* underline the final Y in band 3 (ââ¦and YÌ²â), so the omission is inconsistent, not a medium limitation. Same area as #1, yâ225â265.
+
+3. MAJOR â medium confidence â Row metrics / content offset in the fixed region (line separation & vertical centering). At the claimed matched scale the dark separator lines do not coincide (IMG1 â y 88/181/289/437 vs IMG2 â y 95/213/333/445); the peach band is far taller in IMG1. Consequently the same window shows different fragments: IMG1 band 1 reads ââ¦is minimum This is called Ridge Regulaâ¦â, IMG2 band 1 reads âand âWÌ²â is minimum Thisâ; IMG1 band 2 carries a trailing inline â(Î» is a weighting factoâ¦)â that IMG2âs equation row does not have in this region (IMG2âs row ends at âR(WÌ²)â). Net effect: recreation is shifted/reflowed so the region does not land on the same text. Whole region; most visible at the band boundaries and band 2 right edge (xâ430â640, yâ225â265).
+
+4. MINOR â high confidence â âsquared distanceâ text color, band 3 (peach), leftâofâcenter (crop xâ40â330, yâ360â410). IMG2: blue with blue underline. IMG1: purple with purple underline. Same words, same underline; only the fill/text color differs.
+
+5. MINOR â high confidence â Operator/comma spacing in the linear equation, band 2. IMG1: tight âLoss(X,Y,W)+Î»R(W)â. IMG2: spaced âLoss (X, YÌ², WÌ²) + Î» R (WÌ²)â. Rule (d) permits 2D upgrades, but the linear spacing itself is not matched. Band 2, yâ225â265.
+
+Checked and NOT flagging: red box strokes (left/right/bottom only) and yellow badge/purple ring = intentional chrome (rule b); Å¶ hat in band 3 matches in both; topâright red fragment consistent; no wrong digits, no missing rows, no garbled glyphs, and no multiâline delimiter geometry in this region (equation parens are singleâline); JPEG halos in IMG2 ignored (rule e).
+
+No BLOCKERâclass item (no wrong digit / swapped value / missing row / truncated subscript / nonâspanning delimiter), but items 1â3 are MAJOR at this matched zoom.
+
+FINAL VERDICT: FAIL for âfaithful, usable recreation of this regionâ at matched scale (MAJOR colorâcode errors on Loss/R, missing vector underlines in the equation, and row/reflow offset), even though it would read fine at fullâslide scale.

@@ -1,129 +1,121 @@
-// slide_006.js — FRESH rebuild from qa/reanalysis2/slide_006_analysis.txt (rebuild wave 3).
-// Slide: "Less Than Equal Constraints" — three bordered panels: leq / geq / chained
-// constraint strings with stacked matrix-vector inequalities, G x <= h chips, Convert chip.
-// Run: cd recreated_pptx/build && NODE_PATH=$(npm root -g) node slide_006.js
-
+// slide_006.js — fix pass for qa/rejudge2/slide_006_judge_a1_1.txt MAJORs:
+// crisp Unicode text for inline inequalities / chips / convert box, arc-paren
+// matrix images (fx_*), panel-2 chip moved inside the panel border.
 const pptxgen = require("pptxgenjs");
 const fs = require("fs");
+const path = require("path");
 
 const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
-const EQ = NS + "/recreated_pptx/build/eq_006/";
-const NUM = 6;
-const TITLE = "Less Than Equal Constraints";
-const W = 13.33, H = 7.5;
-const SANS = "Arial";
-const RED = "C00000", LABEL_RED = "FF0000", BLUE = "0000FF", GREEN = "008000",
-      BLACK = "000000", ORANGE = "FF8C00";
+const EQ = path.join(NS, "recreated_pptx", "build", "eq_006") + "/";
+const W = 13.33, H = 7.5, SANS = "Arial";
+const RED = "C00000", LRED = "FF0000";
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" }; // house rule
+s.background = { color: "E8E8E8" };
 
-// House chrome (mandatory, overrides spec geometry for frame/badge/title)
-s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
-  fill: { type: "none" }, line: { color: RED, width: 1.5 },
-});
-s.addShape(pres.shapes.OVAL, {
-  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
-  fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
-});
-s.addText(String(NUM), {
-  x: 12.48, y: 0.30, w: 0.5, h: 0.5,
-  align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: "333333", fontFace: SANS, margin: 0,
-});
-s.addText(TITLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
-  align: "center", valign: "top",
-  fontSize: 28, bold: true, color: RED, fontFace: SANS, margin: 0,
-});
-
-// Spec normalized coords -> inches: x*13.33, y*7.5. Content containers (white, gray border)
-function container(y, h) {
+const R = (text, o) => ({ text, options: Object.assign({ fontSize: 16, color: "000000", fontFace: SANS }, o) });
+function T(x, y, w, h, runs, o) {
+  s.addText(runs, Object.assign({ x, y, w, h, margin: 0, valign: "middle", fontFace: SANS }, o));
+}
+function imgC(name, cx, cy) {
+  const j = JSON.parse(fs.readFileSync(EQ + "fx_" + name + ".json"));
+  s.addImage({ path: EQ + "fx_" + name + ".png", x: cx - j.w_in / 2, y: cy - j.h_in / 2, w: j.w_in });
+}
+function panel(y0, y1) {
   s.addShape(pres.shapes.RECTANGLE, {
-    x: 0.3999, y, w: 12.5302, h,
+    x: 0.03 * W, y: y0 * H, w: 0.94 * W, h: (y1 - y0) * H,
     fill: { color: "FFFFFF" }, line: { color: "808080", width: 0.75 },
   });
 }
-container(1.2, 1.35);     // panel 1 [0.030,0.160,0.970,0.340]
-container(2.5875, 1.725); // panel 2 [0.030,0.345,0.970,0.575]
-container(4.3875, 2.175); // panel 3 [0.030,0.585,0.970,0.875]
-
-// G x <= h chips (red outline, pale fill) + their mathtext PNG centered inside
-function gxChip(cx, cy, w) {
-  const h = 0.35;
+function chip(x, y, w, h) {
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-    x: cx - w / 2, y: cy - h / 2, w, h,
-    fill: { color: "FFFDD0" }, line: { color: LABEL_RED, width: 1.25 },
+    x, y, w, h, fill: { color: "FFFDD0" }, line: { color: LRED, width: 1.25 },
   });
-  const j = JSON.parse(fs.readFileSync(EQ + "gxleh.json"));
-  s.addImage({ path: EQ + "gxleh.png", x: cx - j.w_in / 2, y: cy - j.h_in / 2, w: j.w_in });
+  T(x, y, w, h, [R("G x ≤ h", { bold: true, color: LRED, fontSize: 16 })], { align: "center" });
 }
-gxChip(9.74455, 1.99125, 1.5731); // [0.672,0.246,0.790,0.285]
-gxChip(9.74455, 4.21875, 1.5731); // [0.672,0.545,0.790,0.580]
-gxChip(9.7644, 5.4, 1.5332);      // [0.675,0.700,0.790,0.740]
+const sub = (i) => ["₁", "₂", "₃"][i - 1];
+function ineq3(a, op, b, col, cc) {
+  const r = [];
+  [1, 2, 3].forEach((i) => {
+    if (i > 1) r.push(R(" , ", { color: cc }));
+    r.push(R(a + sub(i), { color: col }), R(op, { color: cc }), R(b + sub(i), { color: col }));
+  });
+  return r;
+}
+function chain3() {
+  const r = [];
+  [1, 2, 3].forEach((i) => {
+    if (i > 1) r.push(R(" , ", { color: "000000" }));
+    r.push(R("y" + sub(i), { color: "0000FF" }), R("≤", { color: "000000" }),
+      R("x" + sub(i), { color: "0000FF" }), R("≤", { color: "000000" }),
+      R("z" + sub(i), { color: "0000FF" }));
+  });
+  return r;
+}
+function conv() {
+  const r = [];
+  [1, 2, 3].forEach((i) => {
+    if (i > 1) r.push(R(" , ", { color: "008000" }));
+    r.push(R("-x" + sub(i), { color: "008000" }), R("≤", { color: "008000" }),
+      R("-z" + sub(i), { color: "008000" }));
+  });
+  return r;
+}
+function arrow(cx, cy) { T(cx - 0.3, cy - 0.22, 0.6, 0.44, [R("⇒", { color: LRED, fontSize: 24 })], { align: "center" }); }
+function leqMark(cx, cy) { T(cx - 0.2, cy - 0.2, 0.4, 0.4, [R("≤", { fontSize: 18 })], { align: "center" }); }
 
-// Convert chip (yellow fill, gray outline) [0.674,0.375,0.902,0.535]
+// House chrome (mandatory)
+s.addShape(pres.shapes.RECTANGLE, {
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2, fill: { type: "none" }, line: { color: RED, width: 1.5 },
+});
+s.addShape(pres.shapes.OVAL, {
+  x: 12.48, y: 0.30, w: 0.5, h: 0.5, fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
+});
+T(12.48, 0.30, 0.5, 0.5, [R("6", { fontSize: 18, bold: true, color: "333333" })], { align: "center" });
+T(0.6, 0.28, 12.13, 0.55, [R("Less Than Equal Constraints", { fontSize: 28, bold: true, color: RED })], { align: "center", valign: "top" });
+
+panel(0.160, 0.340); panel(0.345, 0.575); panel(0.585, 0.875);
+chip(0.672 * W, 0.246 * H, (0.790 - 0.672) * W, (0.285 - 0.246) * H);
+chip(0.672 * W, 4.06, (0.790 - 0.672) * W, 0.24); // inside panel 2 (bottom edge 4.3125)
+chip(0.675 * W, 0.700 * H, (0.790 - 0.675) * W, (0.740 - 0.700) * H);
+
+T(0.063 * W, 1.30, 2.2, 0.28, [R("3 constraints", { bold: true, italic: true, color: LRED, fontSize: 14 })], { align: "left" });
+T(0.063 * W, 4.46, 3.4, 0.28, [R("6 constraints , 3 variables", { bold: true, italic: true, color: LRED, fontSize: 14 })], { align: "left" });
+
+// Panel 1: x_i <= z_i  =>  I [x] <= [z]
+T(0.065 * W, 0.237 * H, (0.335 - 0.065) * W, (0.275 - 0.237) * H, ineq3("x", "≤", "z", "0000FF", "000000"), { align: "left" });
+arrow(4.55, 1.875);
+imgC("m3id", 5.30, 1.875);
+imgC("vx3", 6.45, 1.875);
+leqMark(7.05, 1.875);
+imgC("vz3", 7.75, 1.875);
+
+// Panel 2: x_i >= z_i  =>  -I [x] <= [-z]  + Convert box + chip
+T(0.065 * W, 0.385 * H, (0.335 - 0.065) * W, (0.425 - 0.385) * H, ineq3("x", "≥", "z", "0000FF", "000000"), { align: "left" });
+arrow(4.55, 3.45);
+imgC("m3neg", 5.30, 3.45);
+imgC("vx3", 6.45, 3.45);
+leqMark(7.05, 3.45);
+imgC("vnegz3", 7.80, 3.45);
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-  x: 8.9856, y: 2.8125, w: 3.0392, h: 1.2,
+  x: 0.674 * W, y: 0.375 * H, w: (0.902 - 0.674) * W, h: (0.535 - 0.375) * H,
   fill: { color: "FFFF99" }, line: { color: "808080", width: 0.75 },
 });
+T(0.674 * W, 2.86, (0.902 - 0.674) * W, 0.22, [R("Convert", { bold: true, italic: true, color: "FF8C00", fontSize: 11 })], { align: "center" });
+T(0.674 * W, 3.12, (0.902 - 0.674) * W, 0.26, ineq3("x", "≥", "z", "008000", "008000"), { align: "center" });
+T(0.674 * W, 3.42, (0.902 - 0.674) * W, 0.20, [R("to", { color: "008000", fontSize: 10 })], { align: "center" });
+T(0.674 * W, 3.64, (0.902 - 0.674) * W, 0.30, conv(), { align: "center" });
 
-function txt(x, y, w, runs, extra) {
-  s.addText(runs, Object.assign(
-    { x, y, w, h: 0.35, margin: 0, valign: "middle" }, extra || {}));
-}
-const run = (text, o) => ({ text, options: Object.assign(
-  { fontSize: 11, fontFace: SANS, color: BLACK }, o) });
-const img = (name, x, y) => {
-  const j = JSON.parse(fs.readFileSync(EQ + name + ".json"));
-  s.addImage({ path: EQ + name + ".png", x, y, w: j.w_in });
-  return j;
-};
-// Panel headers (red bold italic, spec y; wide left boxes per lesson)
-txt(1.33, 1.425, 9.5, [run("3 constraints", { bold: true, italic: true, color: LABEL_RED, fontSize: 14 })],
-  { align: "left" });
-txt(1.33, 4.6125, 9.5, [run("6 constraints , 3 variables", { bold: true, italic: true, color: LABEL_RED, fontSize: 14 })],
-  { align: "left" });
+// Panel 3: y_i <= x_i <= z_i  =>  6x3 [x] <= [-y; z]
+T(0.065 * W, 0.665 * H, (0.335 - 0.065) * W, (0.705 - 0.665) * H, chain3(), { align: "left" });
+arrow(4.55, 5.475);
+imgC("m6", 5.30, 5.475);
+T(4.90, 6.02, 0.80, 0.22, [R("6 x 3", { color: LRED, fontSize: 10 })], { align: "center" });
+imgC("vx3", 6.45, 5.475);
+leqMark(7.05, 5.475);
+imgC("vyz6", 7.80, 5.475);
 
-// Convert chip contents: heading + two green conversion lines + "to"
-txt(8.9856, 2.8425, 3.0392, [run("Convert", { bold: true, italic: true, color: ORANGE, fontSize: 11 })],
-  { align: "center" });
-// place conv lines centered in chip (chip cx=10.5052)
-{
-  const j1 = JSON.parse(fs.readFileSync(EQ + "conv1.json"));
-  s.addImage({ path: EQ + "conv1.png", x: 10.5052 - j1.w_in / 2, y: 3.2625 + (0.225 - j1.h_in) / 2, w: j1.w_in });
-  const j2 = JSON.parse(fs.readFileSync(EQ + "conv2.json"));
-  s.addImage({ path: EQ + "conv2.png", x: 10.5052 - j2.w_in / 2, y: 3.6375 + (0.225 - j2.h_in) / 2, w: j2.w_in });
-}
-txt(8.9856, 3.39, 3.0392, [run("to", { color: GREEN, fontSize: 11 })], { align: "center" });
-
-// Row 1 (panel 1): x1<=z1, x2<=z2, x3<=z3  =>  I [x] <= [z]
-img("le_str", 0.8665, 1.7775 + (0.285 - 0.27667) / 2);
-img("arrow", 4.55, 2.04375 - 0.245 / 2);
-img("m3_id", 4.8655, 2.04375 - 0.43333 / 2);
-img("vx3", 6.4972, 2.04375 - 0.45 / 2);
-img("leq", 7.3989, 2.04375 - 0.115 / 2);
-img("vz3", 7.6389, 2.04375 - 0.45 / 2);
-
-// Row 2 (panel 2): x1>=z1, x2>=z2, x3>=z3  =>  -I [x] <= [-z]
-img("ge_str", 0.8665, 2.8875 + (0.3 - 0.27667) / 2);
-img("arrow", 4.55, 3.20625 - 0.245 / 2);
-img("m3_neg", 4.8655, 3.20625 - 0.43333 / 2);
-img("vx3", 6.4972, 3.20625 - 0.45 / 2);
-img("leq", 7.3989, 3.20625 - 0.115 / 2);
-img("vnegz3", 7.6389, 3.20625 - 0.45 / 2);
-
-// Row 3 (panel 3): y<=x<=z chained  =>  6x3 matrix [x] <= [-y; z]
-img("chain_str", 0.8665, 4.9875 + (0.3 - 0.20833) / 2);
-img("arrow", 4.55, 5.45625 - 0.245 / 2);
-img("m6", 4.8655, 5.45625 - 0.93333 / 2);
-img("vx3", 6.4972, 4.98958); // top-aligned with the 6-row matrix
-img("leq", 7.3989, 5.45625 - 0.115 / 2);
-img("vyz6", 7.6389, 4.98958);
-txt(4.8655, 5.9625, 2.0, [run("6 x 3", { color: LABEL_RED, fontSize: 10 })], { align: "center" });
-
-pres.writeFile({ fileName: NS + "/recreated_pptx/slide_006_recreated.pptx" });
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx", "slide_006_recreated.pptx") });
 console.log("wrote slide_006_recreated.pptx");

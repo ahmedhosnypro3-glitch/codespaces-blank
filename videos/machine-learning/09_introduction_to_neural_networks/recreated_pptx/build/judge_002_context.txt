@@ -2,20 +2,22 @@ PER-SLIDE CONTEXT — slide 002 (09_introduction_to_neural_networks)
 
 IMAGE ORDER: Image 1 = PowerPoint recreation render (2001x1125 px @150 dpi, 16:9). Image 2 = original lecture frame (960x540 px).
 
-ORIGINAL FRAME (image 2) — measured content, for comparison:
-- Background: light gray, PIL-measured mean ~#E8E8E8.
-- Outer frame: a thin crimson/red outline enclosing the slide field. Measured ink bbox x 58-902 of 960 (fractions 0.060-0.940), y 40-515 of 540 (0.074-0.954). Stroke width at this capture resolution is ~1-1.5 px.
-- Title, two centered lines, verbatim, single red color (approx crimson/carmine), bold sans-serif (Arial/Helvetica-like):
-  - Line 1: "Revision of" — measured red ink rows y 190-225 of 540 (0.352-0.417).
-  - Line 2: "Perceptron Algorithm" — measured red ink rows y 255-300 of 540 (0.472-0.556).
-  - Horizontal extent of the widest (second) line is roughly x 260-700 of 960 (0.27-0.73).
-  - Inter-line gap is ~30 px blank — consistent, modest line spacing; the two-line block sits vertically centered in the slide field, not pinned to the top.
-- Top-right corner, just inside the red frame: a small pale-yellow rounded badge containing the numeral "2". Analysis hex: fill ~#FFFF99 / measured pale yellow class #FFF3B0, thin purple-violet outline ~#6633CC, numeral purple/dark, ~12-14 pt equivalent. This badge is house chrome (ground rule a) and is not scored.
-- Bottom of the image, below the red frame's bottom edge and extending slightly past its left/right edges: a solid BLACK strip. Measured ink class #000000, rows y 485-540 of 540, roughly x 35-865 of 960. This is the video-player capture strip, present in image 2, so the recreation carries the matching band.
+ORIGINAL FRAME (image 2) — measured content, for comparison (PIL-measured on the 960x540 frame):
+- Background: light gray, PIL-measured mean ~#E8E8E8 (sampled RGB 231,232,230).
+- Outer frame: a thin crimson/red outline enclosing the slide field. Measured ink: verticals x 58-902 of 960 (0.060-0.940), horizontals y 42 and y 516-517 of 540 (0.078-0.958). Stroke width ~1-1.5 px.
+- Title, two centered lines, verbatim, single red color (approx crimson/carmine), bold sans-serif (Arial/Helvetica-like). PIL-measured:
+  - Line 1: "Revision of" — red ink rows 190-222 of 540 (0.352-0.413 of height), cols 359-585 (width 23.6% of image width); first glyph 'R' cap height 30 px @72dpi.
+  - Line 2: "Perceptron Algorithm" — red ink rows 262-302 of 540 (0.485-0.561), cols 261-691 (width 44.9% of image width).
+  - Line ink-top pitch = 72 px = exactly 1.00 in (line centers ~38% and ~52% of image height); blank gap between the two lines = 39 px (~0.54 in).
+  - 'R' cap height 30 px @72 dpi corresponds to ~42-43 pt bold Arial; the two-line block sits vertically centered in the slide field.
+- Top-right corner, just inside the red frame: a small pale-yellow rounded badge containing the numeral "2" (fill ~#FFFF99 / #FFF3B0, thin purple-violet outline ~#6633CC, numeral purple/dark, ~12-14 pt equivalent). This badge is house chrome (ground rule a) and is not scored.
+- Bottom of the image: a solid BLACK strip. PIL-measured rows 517-539 of 540 (0.32 in tall), x 38-921 of 960 (0.53-12.81 in, 92% of width, extending ~20 px past the red frame's left/right edges), flush with the image bottom edge. This is the video-player capture strip, present in image 2, so the recreation carries a matching band.
 
 RECREATION NOTES (what image 1 actually contains, stated plainly):
 - House template is present as specified by ground rule (a): #E8E8E8 background, outer red frame at x 0.15 / y 0.15 / w 13.03 / h 7.2, yellow badge oval at x 12.48 / y 0.30 / w 0.5 h 0.5 with a centered bold "2", title box at y 0.28 / x 0.6 / w 12.13 that is horizontally centered.
-- The two title lines are placed as two separate text boxes at y 0.28 and y 0.85 (0.55 in tall each, 36 pt bold), i.e. the title block occupies the upper-middle of the slide per the house title rule.
-- The bottom black player strip is present as a shape-block rectangle (NOT as an image) spanning the full slide width at y 7.30, height 0.20 in.
+- The two title lines are two text boxes at y 0.28 and y 1.28 (42.5 pt bold, #C00000, Arial). Measured on the render: line 1 ink rows 66-130, line 2 ink rows 216-298; line ink-top pitch = 150 px @150 dpi = exactly 1.00 in (matches the original's pitch, previously 0.62 in); line widths 3.14 in / 5.96 in vs the original's 3.15 in / 5.99 in (within ~1%, the residual is typeface substitution).
+- TITLE-Y NOTE: the original's title block sits mid-slide (ink 0.35-0.56 of height) while the recreation's block sits high (ink 0.04-0.18 of height), because the house rule pins the title box at y 0.28. Per ground rule (a) this title-y placement is INTENTIONAL house chrome and is NOT a discrepancy — do not score it.
+- The bottom black player strip is a shape rectangle (not an image) at x 0.53-12.81 in, y 7.35-7.50 in, i.e. flush with the bottom edge, inset horizontally like the original (92% of width), and placed BELOW the house frame's bottom stroke so the red frame stays fully visible. The original's own frame bottom sits at 7.17 in (its band is correspondingly taller, 0.32 in); with the mandated house frame bottom at 7.35 in the band is 0.15 in tall. The band is a video-capture artifact (ground rule c).
+- PIL closed-loop verification of this render vs the original (4 px @150 dpi tolerance): line widths, ink heights, line pitch and inter-line gap, band width, background color all within tolerance; the only deviations are the two mandated house-chrome items (title-y placement; band height consequence of the mandated frame position) and a ~0.05 in left-of-center offset of the original's own title lines (the recreation is centered per the house rule).
 
 NO OTHER CONTENT: no bullets, no body text, no captions, no headers/footers, no equations, no graphs/charts/diagrams, no tables, no logos, no watermarks, no subtitle. The slide is a title/divider slide — its fidelity is decided on exactly these elements and nothing else. Any content the recreation ADDS that is absent in image 2 is a real discrepancy.

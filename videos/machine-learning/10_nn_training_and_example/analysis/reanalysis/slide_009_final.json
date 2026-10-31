@@ -1,0 +1,154 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [
+      "Where \u0394_ji = -\u03b7 \u2202E/\u2202W_ji"
+    ],
+    "labels": [
+      "Gradient Descent",
+      "Where",
+      "For Sigmoid Activation",
+      "Node Bias",
+      "\u03a3",
+      "f",
+      "Net_j",
+      "O_i",
+      "O_j",
+      "w_ij",
+      "w_ji",
+      "Output 1",
+      "Output 2",
+      "Output m",
+      "Error Error Error",
+      "Class 1",
+      "Class 2",
+      "Class m",
+      "1",
+      "9"
+    ],
+    "equations": [
+      "W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji",
+      "W_ji^Updated = W_ji^old + \u0394_ji",
+      "\u0394_ji = -\u03b7 \u2202E/\u2202W_ji",
+      "E = (1/2) \u03a3_j (t_j - O_j)^2",
+      "O_j = f(Net_j) = 1/(1 + e^(-Net_j))",
+      "Net_j = \u03a3_i (w_ji O_i)",
+      "\u2202E/\u2202O_j = -(t_j - O_j)",
+      "\u2202O_j/\u2202Net_j = O_j(1 - O_j)",
+      "\u2202Net_j/\u2202W_ji = O_i",
+      "\u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji",
+      "= -(t_j - O_j) * O_j(1-O_j) * O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "White slide enclosed in a thick dark-maroon border. Top-left: a bordered box headed 'Gradient Descent' in red italic with 3 equation lines: 2 weight-update equations and 1 'Where' delta equation. Top-right, largest element: a beige-panel feedforward neural-network diagram with 4 purple input dots, 3 hidden rows each containing a \u03a3 circle, an f box, and 3 tiny output circles, a purple bias node '1' captioned 'Node Bias', 3 output rows each containing a \u03a3 circle, an f box, and an O_j label labeled Output 1/2/m, magenta weight lines labeled w_ij/w_ji and Net_j, dashed backpropagation arrows, blue up-arrows, a red vertical 'Error Error Error' bar with 3 green Class boxes, and a yellow circle '9' at the far top-right corner. Middle band: 3 equations side by side, with error E on the left, sigmoid O_j in the center under a blue 'For Sigmoid Activation' kicker, and Net_j on the right; below them are 3 small boxed partial derivatives in a row. Bottom-left: 1 large bordered box containing the chain-rule expansion of \u2202E/\u2202W_ji. Bottom-right: 1 pale-yellow box repeating the same 3 partial derivatives.",
+    "regions": [
+      {
+        "name": "gradient_descent_box",
+        "position": "top-left, roughly x 3%-35%, y 8%-38%",
+        "content": "Red italic header 'Gradient Descent'; equations W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji; W_ji^Updated = W_ji^old + \u0394_ji; red 'Where' + \u0394_ji = -\u03b7 \u2202E/\u2202W_ji"
+      },
+      {
+        "name": "network_diagram",
+        "position": "top-right, roughly x 38%-86%, y 8%-38%",
+        "content": "Beige-panel 3-layer network: 4 purple input dots; 3 hidden rows each with a \u03a3 circle, an f box, and 3 tiny output circles labeled O_i; a purple bias node '1' captioned 'Node Bias'; 3 output rows each with a \u03a3 circle, an f box, and O_j, labeled Output 1, Output 2, Output m; magenta lines labeled w_ij/w_ji and Net_j; dashed feedback arrows; blue up-arrows; a red vertical 'Error Error Error' bar with 3 green boxes reading Class 1, Class 2, Class m"
+      },
+      {
+        "name": "slide_number_badge",
+        "position": "far top-right, roughly x 88%-94%, y 9%-17%",
+        "content": "Yellow circle with black bold '9'"
+      },
+      {
+        "name": "middle_equation_band",
+        "position": "middle, roughly y 40%-58%, full width x 3%-93%",
+        "content": "E = (1/2) \u03a3_j (t_j - O_j)^2 on the left; blue italic 'For Sigmoid Activation' + O_j = f(Net_j) = 1/(1+e^(-Net_j)) in the center; Net_j = \u03a3_i (w_ji O_i) on the right; below them, 3 boxed derivatives: \u2202E/\u2202O_j = -(t_j - O_j), \u2202O_j/\u2202Net_j = O_j(1 - O_j), \u2202Net_j/\u2202W_ji = O_i"
+      },
+      {
+        "name": "chain_rule_box",
+        "position": "bottom-left, roughly x 3%-70%, y 60%-86%",
+        "content": "Large bordered box: \u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji, then = -(t_j - O_j) * O_j(1-O_j) * O_i"
+      },
+      {
+        "name": "derivative_summary_box",
+        "position": "bottom-right, roughly x 76%-93%, y 60%-86%",
+        "content": "Pale-yellow box listing \u2202E/\u2202O_j = -(t_j - O_j); \u2202O_j/\u2202Net_j = O_j(1 - O_j); \u2202Net_j/\u2202W_ji = O_i"
+      }
+    ],
+    "hierarchy": "The beige neural-network diagram is the largest and most dominant visual, placed top-right. All math is black serif and medium-sized; the only colored text is the red italic headers 'Gradient Descent' and 'Where' and the blue italic kicker 'For Sigmoid Activation'. The small yellow '9' badge is the brightest accent on the slide."
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Feedforward neural network diagram on a beige panel. Far left: 4 small purple/magenta dots stacked vertically as the input layer. Hidden layer: 3 horizontal rows, each row = a circle labeled '\u03a3' connected to a small box labeled 'f' connected to 3 tiny circles as node outputs; beneath each hidden row is a blue upward arrow; below the hidden layer sits a purple circle containing '1' with the caption 'Node Bias' to its lower left, with an arrow feeding the hidden nodes. Black lines run from the input dots to each hidden \u03a3. Each hidden row's output is labeled 'O_i', and the lines from hidden outputs to the output layer are labeled 'Net_j' and carry weight labels 'w_ij'/'w_ji' drawn as magenta/pink lines. Output layer: 3 horizontal rows, each = a '\u03a3' circle, an 'f' box, and 'O_j', labeled 'Output 1', 'Output 2', 'Output m' to the right; blue upward arrows beneath the output layer. Dashed curved arrows arc from the output/weight area back over the top toward the earlier weights as backpropagation arrows. To the right of the output nodes: a tall red vertical bar with vertical white text 'Error Error Error', and beside it 3 green boxes reading 'Class 1', 'Class 2', 'Class m'.",
+      "colors": [
+        "#E9DFC9 beige panel",
+        "#9B30B0 purple dots/bias node",
+        "#000000 black \u03a3/f text and input lines",
+        "#D24FD0 magenta weight lines",
+        "#2E75B6 blue arrows",
+        "#C00000 red error bar",
+        "#FFFFFF white error-bar text",
+        "#92D050 green class boxes",
+        "#006100 dark green class text"
+      ],
+      "position": "top-right of slide, roughly x 38%-86%, y 8%-38%"
+    }
+  ],
+  "imagery": [
+    "Vector-style, non-photographic neural-network diagram on a beige panel: 4 purple input dots, 3 hidden rows each with a \u03a3 circle, an f box, and 3 small output dots, a purple bias node '1' captioned 'Node Bias', 3 output rows each with \u03a3, f, and O_j labeled Output 1/2/m, magenta connection lines labeled w_ij/w_ji with Net_j labels, dashed curved backpropagation arrows across the top, blue upward arrows under the hidden and output layers, a red vertical 'Error Error Error' bar with green 'Class 1/2/m' boxes, and a yellow circular badge with '9' at the top-right corner of the slide."
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#E60000",
+    "body_text": "#000000",
+    "accents": [
+      "#E60000 red italic headers",
+      "#0000CD blue italic kicker",
+      "#FFFF00 yellow slide-number badge",
+      "#92D050 green class boxes",
+      "#C00000 red error bar",
+      "#FFFFFF white error-bar text",
+      "#006100 dark green class text",
+      "#E9DFC9 beige diagram panel",
+      "#D24FD0 magenta weight lines",
+      "#9B30B0 purple nodes/dots",
+      "#2E75B6 blue arrows",
+      "#FFFFCC pale-yellow summary box",
+      "#8B0000 maroon slide border",
+      "gray thin box borders, hex not specified in source"
+    ]
+  },
+  "typography_notes": "All mathematics is set in an italic serif face similar to Times New Roman; partial derivatives are written inline as \u2202E/\u2202W_ji, and 'Updated'/'old' appear as small superscripts. Red headers 'Gradient Descent' and 'Where' are italic serif; 'For Sigmoid Activation' is blue italic serif. Diagram labels such as \u03a3, f, Net_j, O_i, O_j, w_ij, w_ji, Output 1/2/m, Node Bias, and Class 1/2/m are small sans-serif. The slide number '9' is bold black sans-serif inside a yellow circle. In this italic serif font, the numeral '1' in O_j(1 - O_j) can visually resemble a lowercase 'i'. Exact font sizes and border thicknesses are not specified.",
+  "animation_state": "Static and fully built \u2014 every box, equation, and diagram element is visible; no partial bullet reveals or mid-animation states.",
+  "recreation_brief": "1. Slide background and border: set the slide background to white #FFFFFF and draw a thick rectangle border in dark maroon #8B0000, inset about 2% from every edge. Shape: rectangle border.\n2. Top-left container: draw a rectangle at x 3%-35%, y 8%-38% with white fill and a thin gray border, hex not specified. Shape: rectangle.\n3. Header text: inside the top-left container at its top, place red #E60000 italic serif text 'Gradient Descent', with 'Gradient Descent' as a text box.\n4. Weight-update equation 1: inside the top-left container below the header, place black #000000 italic serif text 'W_ji^Updated = W_ji^old - \u03b7 \u2202E/\u2202W_ji', with 'Updated' and 'old' as superscripts. Shape: text box.\n5. Weight-update equation 2: below equation 1, place black #000000 italic serif text 'W_ji^Updated = W_ji^old + \u0394_ji', with 'Updated' and 'old' as superscripts. Shape: text box.\n6. Where line: below equation 2, place one text line with red #E60000 italic serif 'Where' followed by black #000000 italic serif '\u0394_ji = -\u03b7 \u2202E/\u2202W_ji'. Shape: text box.\n7. Network panel: draw a rectangle at x 38%-86%, y 8%-38% filled beige #E9DFC9. Shape: rectangle.\n8. Input dots: on the far left edge of the beige panel, draw 4 small circles filled purple #9B30B0, stacked vertically. Shape: 4 circles.\n9. Hidden \u03a3 nodes: in the left-center area of the beige panel, draw 3 circles labeled '\u03a3' in black #000000, one for each hidden row. Shape: 3 circles with text.\n10. Hidden f boxes: immediately to the right of each hidden \u03a3 circle, draw 3 small boxes labeled 'f' in black #000000. Shape: 3 rectangles with text.\n11. Hidden output dots: to the right of each hidden f box, draw 3 tiny circles; repeat for each of the 3 hidden rows, for 9 tiny circles total. Shape: 9 small circles.\n12. Hidden output labels: label each hidden row's output 'O_i' in small black sans-serif. Shape: 3 text labels.\n13. Hidden up-arrows: beneath each of the 3 hidden rows, draw 1 blue #2E75B6 upward arrow, for 3 arrows total. Shape: 3 arrows.\n14. Bias node: below the hidden layer, draw 1 purple #9B30B0 circle containing '1'. Shape: circle with text.\n15. Bias caption: to the lower left of the bias node, place small sans-serif text 'Node Bias'. Shape: text label.\n16. Bias arrow: draw 1 arrow from the bias node feeding the hidden nodes. Shape: arrow.\n17. Input-to-hidden lines: draw black #000000 lines from the 4 input dots to the hidden \u03a3 nodes. Shape: connector lines.\n18. Output \u03a3 nodes: to the right of the hidden outputs, draw 3 circles labeled '\u03a3' in black #000000, one for each output row. Shape: 3 circles with text.\n19. Output f boxes: immediately to the right of each output \u03a3 circle, draw 3 small boxes labeled 'f' in black #000000. Shape: 3 rectangles with text.\n20. Output O_j labels: at the right end of each output row, place 'O_j' in small black sans-serif. Shape: 3 text labels.\n21. Output row captions: to the right of the output rows, place 'Output 1', 'Output 2', and 'Output m' in small sans-serif. Shape: 3 text labels.\n22. Output up-arrows: beneath each of the 3 output rows, draw 1 blue #2E75B6 upward arrow, for 3 arrows total. Shape: 3 arrows.\n23. Magenta weight lines: draw magenta #D24FD0 lines from the hidden outputs to the output \u03a3 nodes, and label the lines 'Net_j' and 'w_ij'/'w_ji' in small sans-serif. Shape: connector lines with text labels.\n24. Backpropagation arrows: add dashed curved arrows arcing from the output/weight area back over the top toward the earlier weights. Shape: dashed curved arrows.\n25. Error bar: at the right edge of the beige panel, draw a tall vertical rectangle filled red #C00000 with vertical white #FFFFFF text 'Error Error Error'. Shape: vertical bar with text.\n26. Class boxes: beside the error bar, draw 3 green #92D050 boxes with dark green #006100 text 'Class 1', 'Class 2', and 'Class m'. Shape: 3 rectangles with text.\n27. Slide number badge: at x 88%-94%, y 9%-17%, draw a yellow #FFFF00 circle with bold black #000000 sans-serif text '9'. Shape: circle with text.\n28. Middle-left equation: in the middle band at y 40%-58%, left third, place black serif text 'E = (1/2) \u03a3_j (t_j - O_j)^2'. Shape: text box.\n29. Sigmoid kicker: in the center third of the middle band, place blue #0000CD italic serif text 'For Sigmoid Activation' above the sigmoid equation. Shape: text box.\n30. Sigmoid equation: below the kicker in the center third, place black serif text 'O_j = f(Net_j) = 1/(1 + e^(-Net_j))'. Shape: text box.\n31. Net_j equation: in the right third of the middle band, place black serif text 'Net_j = \u03a3_i (w_ji O_i)'. Shape: text box.\n32. Derivative box 1: beneath the middle band, left position, draw a small white box with a thin gray border, hex not specified, containing black serif text '\u2202E/\u2202O_j = -(t_j - O_j)'. Shape: rectangle with text.\n33. Derivative box 2: beneath the middle band, center position, draw a small white box with a thin gray border, hex not specified, containing black serif text '\u2202O_j/\u2202Net_j = O_j(1 - O_j)'. Shape: rectangle with text.\n34. Derivative box 3: beneath the middle band, right position, draw a small white box with a thin gray border, hex not specified, containing black serif text '\u2202Net_j/\u2202W_ji = O_i'. Shape: rectangle with text.\n35. Chain-rule container: draw a large rectangle at x 3%-70%, y 60%-86% with white fill and a thin gray border, hex not specified. Shape: rectangle.\n36. Chain-rule line 1: inside the container, place black italic serif text '\u2202E/\u2202W_ji = \u2202E/\u2202O_j * \u2202O_j/\u2202Net_j * \u2202Net_j/\u2202W_ji'. Shape: text box.\n37. Chain-rule line 2: below line 1, place black italic serif text '= -(t_j - O_j) * O_j(1-O_j) * O_i'. Shape: text box.\n38. Summary container: draw a rectangle at x 76%-93%, y 60%-86% filled pale yellow #FFFFCC. Shape: rectangle.\n39. Summary line 1: inside the pale-yellow container, place black serif text '\u2202E/\u2202O_j = -(t_j - O_j)'. Shape: text box.\n40. Summary line 2: below line 1, place black serif text '\u2202O_j/\u2202Net_j = O_j(1 - O_j)'. Shape: text box.\n41. Summary line 3: below line 2, place black serif text '\u2202Net_j/\u2202W_ji = O_i'. Shape: text box.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Left subtitle_or_header as null because no subtitle text exists in the source JSON.",
+      "Rewrote layout.arrangement with exact counts: 4 input dots, 3 hidden rows, 3 tiny hidden output circles per row, 3 output rows, 3 class boxes, 3 derivative boxes, and 3 middle equations.",
+      "Expanded layout.regions.network_diagram content so it matches visual_elements exactly, including the 3 tiny circles per hidden row and all labels.",
+      "Added missing colors #FFFFFF white error-bar text and #006100 dark green class text to colors.accents.",
+      "Documented that the thin gray box borders have no specified hex value.",
+      "Rewrote recreation_brief as a 41-step ordered checklist with exact text, region positions, colors, fonts, and shape types for each placed element."
+    ],
+    "uncertain_items": [
+      "No [?] markers were present in the source JSON.",
+      "Thin gray box borders are described as gray, but no exact hex value is given.",
+      "Exact font sizes, border thicknesses, and pixel-level coordinates are not specified; region positions are approximate percentages."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_009.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 9,
+      "image": "slide_009.jpg",
+      "badge": "9"
+    },
+    "elapsed_s": 191.6,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 422.3
+  }
+}

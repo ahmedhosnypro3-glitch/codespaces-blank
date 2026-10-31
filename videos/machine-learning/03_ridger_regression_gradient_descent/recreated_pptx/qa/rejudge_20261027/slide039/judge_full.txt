@@ -1,0 +1,33 @@
+# Fidelity Check â Slide 39 (Recreation IMG1 vs Original IMG2)
+
+## Settled per ground rules (NOT discrepancies)
+- **House chrome**: gray E9E9E7 panel, red C00000 strokes on left/right/bottom only (no top stroke â correct as specified), yellow "39" badge at (876,73) with purple ring â intentional template, matches spec.
+- **Equation format**: IMG2 shows linear typed notation (`W^(updated) = W^old - Î· Î´_i X_i`); IMG1 renders professional 2D (raised superscripts, subscript *i*, proper minus). Mandated upgrade per directive 2026-10-09 â **not a discrepancy**.
+- **Mouse cursor** over the equation in IMG2 â video artifact, correctly omitted from IMG1.
+- **Background**: IMG2 white slide vs IMG1 gray house panel â intentional house chrome.
+
+## Element-by-element comparison
+| Element | IMG2 (original) | IMG1 (recreation) | Verdict |
+|---|---|---|---|
+| Title, 2 lines, red, "Mini-Batch" in purple, en-dash | verbatim | verbatim, same break, same width (~115â845 of 960) | MATCH |
+| Bullet 1 (wraps after "Error") | 2 lines, same wrap point | same wrap, same line separation | MATCH |
+| Bullets 2â3 | verbatim | verbatim | MATCH |
+| Green equation box (pos., size, green border, vertically centered content, red "Repeat for ALL misclassified Samples") | â | matches; 2D math per rule (e) | MATCH |
+| "Why using SGD" red bold + 2 bullets | verbatim | verbatim | MATCH |
+| Bottom paragraph (red bold lead-in, wrap after "through", curly quotes on "Mini-Batch") | verbatim | verbatim, same wrap | MATCH |
+| Purple centered line "If n=N (it is GD), and if n=1 (it is SGD)" | centered in box | centered in box | MATCH |
+| Badge "39" | present | present, spec geometry | MATCH |
+| Containment | â | all ink inside content box â panel â canvas; title, box, badge clear of all strokes; no overflow/clipping/collisions | PASS |
+
+## Discrepancies found
+1. **MINOR** (confidence: medium) â In IMG2 the subscript "i" in Î´áµ¢ and Xáµ¢ is rendered **green**; IMG1 renders the whole 2D equation in black. Color-only nuance inside the mandated math re-render.
+2. **MINOR** (confidence: high) â IMG2 bullet 1 contains a double space ("gradient  of the Error"); IMG1 normalizes to single space. Text otherwise verbatim.
+3. **MINOR** (confidence: medium) â Bullet glyphs: IMG2 uses hollow/outlined blue triangles; IMG1 uses solid filled dark-blue triangles. Same size, position, and ordering.
+4. **MINOR** (confidence: low) â Green equation-box fill is a slightly lighter mint in IMG1 vs IMG2's light green (~D9EAD3 vs ~C6E0B4); border green and red note text match. Within approximate-color tolerance.
+
+**No BLOCKER items** (nothing missing â equation region fully rendered, no absent elements). **No MAJOR items** (no overflow, no delimiter issues â no multi-line delimiters exist, no tables/charts, line breaks and line spacing match, vertical centering inside the green box correct, all regions aligned).
+
+## Visual-quality defects in the recreation
+None observed: no text overflow, clipping, wrong wrapping, misalignment, collisions, or illegibility.
+
+**FINAL VERDICT: PASS** â faithful, usable recreation.

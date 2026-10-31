@@ -59,23 +59,29 @@ const mLabW = IN(16);                 // left "Actual" label column
 const mGridX = mX + mLabW;            // 75px
 const mGridW = IN(166 - 75);          // 91px
 const mColW = mGridW / 2;
-const mHeadH = IN(14);                // header row P|N
-const mRowH = IN(14);                 // content rows
+const mHeadH = IN(27);                // top band y81-108: "Predicted as" y81-97, P|N y97-108
+const mRowH = IN(14);                 // content rows y108-122, y122-136
 
+// "Predicted as" sits INSIDE the matrix top band (original y90-95 over the grid)
 s.addText("Predicted as", {
-  x: mGridX, y: mY - IN(15), w: mGridW, h: IN(14),
-  fontSize: 8, bold: true, color: RED2, fontFace: FONT, align: "center", margin: 0,
+  x: mGridX, y: mY + IN(4), w: mGridW, h: IN(11),
+  fontSize: 7, bold: true, color: RED2, fontFace: FONT, align: "center", margin: 0,
 });
+// matrix top border + divider between caption band and P|N band
+s.addShape(pptx.shapes.LINE, { x: mGridX, y: mY, w: mGridW, h: 0, line: { color: RED2, width: 0.75 } });
+s.addShape(pptx.shapes.LINE, { x: mGridX, y: mY + IN(16), w: mGridW, h: 0, line: { color: RED2, width: 0.75 } });
+// rotated label: pre-rotation w becomes the vertical extent
 s.addText("Actual", {
-  x: mX - IN(2), y: mY + mHeadH - IN(2), w: mLabW + IN(2), h: mHeadH + mRowH * 2 + IN(4),
+  x: IN(67) - IN(18), y: mY + IN(20), w: IN(36), h: IN(14),
   fontSize: 7, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle",
   margin: 0, rotate: 270,
 });
-// header row P | N
-s.addShape(pptx.shapes.RECTANGLE, { x: mGridX, y: mY, w: mColW, h: mHeadH, fill: { color: WHITE }, line: { color: RED2, width: 0.75 } });
-s.addText("P", { x: mGridX, y: mY, w: mColW, h: mHeadH, fontSize: 9, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
-s.addShape(pptx.shapes.RECTANGLE, { x: mGridX + mColW, y: mY, w: mColW, h: mHeadH, fill: { color: WHITE }, line: { color: RED2, width: 0.75 } });
-s.addText("N", { x: mGridX + mColW, y: mY, w: mColW, h: mHeadH, fontSize: 9, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+// header row P | N (bottom of the top band)
+const mPnY = mY + IN(16), mPnH = mHeadH - IN(16);
+s.addShape(pptx.shapes.RECTANGLE, { x: mGridX, y: mPnY, w: mColW, h: mPnH, fill: { color: WHITE }, line: { color: RED2, width: 0.75 } });
+s.addText("P", { x: mGridX, y: mPnY, w: mColW, h: mPnH, fontSize: 9, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+s.addShape(pptx.shapes.RECTANGLE, { x: mGridX + mColW, y: mPnY, w: mColW, h: mPnH, fill: { color: WHITE }, line: { color: RED2, width: 0.75 } });
+s.addText("N", { x: mGridX + mColW, y: mPnY, w: mColW, h: mPnH, fontSize: 9, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 // row labels P / N
 s.addText("P", { x: mX, y: mY + mHeadH, w: mLabW, h: mRowH, fontSize: 8, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 s.addText("N", { x: mX, y: mY + mHeadH + mRowH, w: mLabW, h: mRowH, fontSize: 8, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
@@ -113,7 +119,7 @@ s.addText("Predicted as", {
   fontSize: 9, bold: true, color: RED2, fontFace: FONT, align: "center", margin: 0,
 });
 s.addText("Actual", {
-  x: nX - IN(2), y: nY + IN(8), w: nLabW + IN(2), h: nHeadH + nRowH * 2 + IN(4),
+  x: IN(112) - IN(24), y: nY + IN(10) + nHeadH + nRowH - IN(7), w: IN(48), h: IN(14),
   fontSize: 8, bold: true, color: RED2, fontFace: FONT, align: "center", valign: "middle", margin: 0, rotate: 270,
 });
 s.addShape(pptx.shapes.RECTANGLE, { x: nGridX, y: nY + IN(10), w: nColW, h: nHeadH, fill: { color: WHITE }, line: { color: RED2, width: 1 } });
@@ -140,7 +146,7 @@ numCells.forEach((c, i) => {
 // PIPELINE PANEL — beige pill x 328-840px, y 102-194px
 // ============================================================
 const pnX = IN(328), pnY = IN(102), pnW = IN(512), pnH = IN(92);
-s.addShape(pptx.shapes.RECTANGLE, { x: pnX, y: pnY, w: pnW, h: pnH, fill: { color: PANEL }, line: { color: "C8C8A0", width: 1 } });
+s.addShape(pptx.shapes.RECTANGLE, { x: pnX, y: pnY, w: pnW, h: pnH, fill: { color: PANEL }, line: { color: "CEB396", width: 1 } });
 
 const fy = IN(150); // flow center line ~150px
 
@@ -152,30 +158,21 @@ function arrow(x0, x1, y) {
 
 // Test Sample box x 355-440px, y 130-170px, with airplane sketch
 const tsX = IN(355), tsY = IN(130), tsW = IN(85), tsH = IN(40);
-s.addText("Test Sample", { x: tsX, y: pnY + IN(2), w: tsW, h: IN(12), fontSize: 9, bold: true, color: DARK, fontFace: FONT, align: "center", margin: 0 });
+s.addText("Test\nSample", { x: tsX, y: pnY + IN(0), w: tsW, h: IN(24), fontSize: 9, bold: true, color: DARK, fontFace: FONT, align: "center", margin: 0, lineSpacing: 10 });
 s.addShape(pptx.shapes.RECTANGLE, { x: tsX, y: tsY, w: tsW, h: tsH, fill: { color: WHITE }, line: { color: RED2, width: 1 } });
-// airplane sketch inside box, centered (legible line-art, ~30px wide)
-(function planeIcon(cx, cy, sc) {
-  s.addShape(pptx.shapes.OVAL, { x: cx - 0.19 * sc, y: cy - 0.02 * sc, w: 0.40 * sc, h: 0.04 * sc, fill: { type: "none" }, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.02 * sc, y: cy, w: 0, h: 0.18 * sc, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.17 * sc, y: cy, w: 0, h: -0.10 * sc, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.02 * sc, y: cy + 0.18 * sc, w: 0.16 * sc, h: 0, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.OVAL, { x: cx + 0.17 * sc, y: cy - 0.03 * sc, w: 0.06 * sc, h: 0.06 * sc, fill: { color: "C0392B" }, line: { type: "none" } });
-})(tsX + tsW / 2, tsY + tsH / 2, 1.0);
+// original airplane sketch cropped from the frame, embedded at measured size (74x32px)
+s.addImage({ path: __dirname + "/assets/slide025/ts_icon.png", x: tsX + IN(6), y: tsY + IN(4), w: IN(74), h: IN(32) });
 
 arrow(tsX + tsW, IN(448), fy);
 
-// Model box: red fill x 445-571px, y 121-180px
+// Model box: dark red fill x 445-571px, y 121-180px (original #9F0000)
 const mdX = IN(445), mdY = IN(121), mdW = IN(126), mdH = IN(59);
-s.addShape(pptx.shapes.RECTANGLE, { x: mdX, y: mdY, w: mdW, h: mdH, fill: { color: "B03A2E" }, line: { type: "none" } });
+s.addShape(pptx.shapes.RECTANGLE, { x: mdX, y: mdY, w: mdW, h: mdH, fill: { color: "9F0000" }, line: { type: "none" } });
 s.addText("Model", { x: mdX, y: mdY + IN(2), w: IN(42), h: IN(20), fontSize: 12, bold: true, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 s.addText("[Any value] ~ (0, +\u221E)", { x: mdX, y: mdY + IN(38), w: mdW, h: IN(18), fontSize: 8, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 
-// Magenta clock disc INSIDE Model box right side (x 487-527px, y 123-159px): disc + thin black radial hand
-const ccX = IN(487), ccY = IN(123), ccD = IN(36);
-s.addShape(pptx.shapes.OVAL, { x: ccX, y: ccY, w: ccD, h: ccD, fill: { color: MAGENTA }, line: { type: "none" } });
-s.addShape(pptx.shapes.LINE, { x: ccX + ccD / 2, y: ccY + ccD / 2, w: 0.14, h: -0.13, line: { color: "111111", width: 1.25 } });
-s.addShape(pptx.shapes.OVAL, { x: ccX + ccD / 2 - 0.025, y: ccY + ccD / 2 - 0.025, w: 0.05, h: 0.05, fill: { color: "111111" }, line: { type: "none" } });
+// Model icon: verbatim crop of the original's light-purple sigmoid circle (orig x526-571, y124-168)
+s.addImage({ path: __dirname + "/assets/slide025/model_icon.png", x: IN(526), y: IN(124), w: IN(45), h: IN(44) });
 
 arrow(IN(571), IN(585) - 0.0, fy);
 
@@ -199,10 +196,10 @@ s.addShape(pptx.shapes.LINE, { x: fkX + IN(2), y: fy + IN(6), w: IN(24), h: IN(2
 
 // Class I (green) / Class II (purple) ovals INSIDE panel right: x 760-833px
 const clX = IN(760), clW = IN(73);
-s.addShape(pptx.shapes.OVAL, { x: clX, y: IN(112), w: clW, h: IN(34), fill: { color: GREEN }, line: { color: GREEN, width: 1 } });
-s.addText("Class I", { x: clX, y: IN(112), w: clW, h: IN(34), fontSize: 10, bold: true, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
-s.addShape(pptx.shapes.OVAL, { x: clX, y: IN(158), w: clW, h: IN(34), fill: { color: PURPLE }, line: { color: PURPLE, width: 1 } });
-s.addText("Class II", { x: clX, y: IN(158), w: clW, h: IN(34), fontSize: 10, bold: true, color: WHITE, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+s.addShape(pptx.shapes.OVAL, { x: clX, y: IN(112), w: clW, h: IN(34), fill: { color: "D3FFE4" }, line: { color: "D3FFE4", width: 1 } });
+s.addText("Class I", { x: clX, y: IN(112), w: clW, h: IN(34), fontSize: 10, bold: true, color: DARK, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
+s.addShape(pptx.shapes.OVAL, { x: clX, y: IN(158), w: clW, h: IN(34), fill: { color: "F8C8FA" }, line: { color: "F8C8FA", width: 1 } });
+s.addText("Class II", { x: clX, y: IN(158), w: clW, h: IN(34), fontSize: 10, bold: true, color: DARK, fontFace: FONT, align: "center", valign: "middle", margin: 0 });
 
 // ============================================================
 // BOTTOM PLOT — airplane scatter + full-width red axis + dashed threshold
@@ -211,36 +208,23 @@ s.addText("Class II", { x: clX, y: IN(158), w: clW, h: IN(34), fontSize: 10, bol
 const axL = IN(86), axR = IN(889), axY = IN(436);
 const thrX = IN(557);
 
-// dashed threshold line from above the plot down to the axis (blue-gray + faint purple offset)
-s.addShape(pptx.shapes.LINE, { x: thrX, y: IN(210), w: 0, h: IN(436 - 210), line: { color: DASH, width: 1.5, dashType: "dash" } });
-s.addShape(pptx.shapes.LINE, { x: thrX + IN(3), y: IN(210), w: 0, h: IN(436 - 210), line: { color: PURPLE, width: 0.75, dashType: "dash" } });
+// dashed threshold line: from above the plot down past the axis (blue-gray + faint purple offset)
+s.addShape(pptx.shapes.LINE, { x: thrX, y: IN(210), w: 0, h: IN(460 - 210), line: { color: DASH, width: 1.5, dashType: "dash" } });
+s.addShape(pptx.shapes.LINE, { x: thrX + IN(3), y: IN(210), w: 0, h: IN(460 - 210), line: { color: PURPLE, width: 0.75, dashType: "dash" } });
 
-// airplanes (side-view line art ~90px wide), measured centers; dot colors measured
-const planes = [
-  { x: 703, y: 325, dot: "C0392B" },
-  { x: 153, y: 356, dot: "C0392B" },
-  { x: 822, y: 371, dot: BLUE_D },
-  { x: 811, y: 264, dot: BLUE_D },
-  { x: 401, y: 329, dot: "C0392B" },
-  { x: 162, y: 260, dot: "C0392B" },
-  { x: 246, y: 307, dot: "C0392B" },
-  { x: 377, y: 255, dot: "C0392B" },
-  { x: 249, y: 383, dot: "C0392B" },
-  { x: 518, y: 314, dot: "C0392B" },
-  { x: 527, y: 388, dot: BLUE_D },
-  { x: 584, y: 383, dot: "C0392B" },
+// airplanes: real doodles cropped from the original frame, embedded at measured bbox (1px = 1/72in)
+const planeCrops = [
+  [630, 293, 777, 358], [90, 327, 217, 387], [768, 340, 877, 404], [759, 224, 865, 306],
+  [349, 288, 454, 372], [109, 231, 217, 291], [193, 282, 301, 334], [325, 224, 430, 287],
+  [205, 358, 294, 409], [482, 285, 556, 345], [499, 367, 556, 411], [560, 365, 609, 403],
+  [560, 289, 590, 329],
 ];
-function drawPlane(cxp, cyp, dot) {
-  const cx = IN(cxp), cy = IN(cyp), sc = 1.25; // ~90px wide line-art plane
-  s.addShape(pptx.shapes.OVAL, { x: cx - 0.45 * sc, y: cy - 0.022 * sc, w: 0.95 * sc, h: 0.045 * sc, fill: { type: "none" }, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.02 * sc, y: cy, w: 0, h: 0.26 * sc, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.02 * sc, y: cy, w: 0, h: -0.22 * sc, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.02 * sc, y: cy + 0.26 * sc, w: 0.22 * sc, h: 0, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.50 * sc, y: cy, w: 0, h: -0.12 * sc, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.LINE, { x: cx - 0.50 * sc, y: cy - 0.12 * sc, w: 0.10 * sc, h: 0, line: { color: GRAY_D, width: 1 } });
-  s.addShape(pptx.shapes.OVAL, { x: cx + 0.47 * sc, y: cy - 0.035 * sc, w: 0.07 * sc, h: 0.07 * sc, fill: { color: dot }, line: { type: "none" } });
-}
-planes.forEach(p => drawPlane(p.x, p.y, p.dot));
+planeCrops.forEach((b, i) => {
+  s.addImage({
+    path: __dirname + "/assets/slide025/plane_" + String(i).padStart(2, "0") + ".png",
+    x: IN(b[0]), y: IN(b[1]), w: IN(b[2] - b[0]), h: IN(b[3] - b[1]),
+  });
+});
 
 // horizontal red axis: plain left terminus (tick), arrowhead at right end only
 s.addShape(pptx.shapes.LINE, { x: axL, y: axY, w: axR - axL - IN(8), h: 0, line: { color: RED2, width: 2 } });

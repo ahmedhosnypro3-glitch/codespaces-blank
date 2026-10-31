@@ -1,0 +1,34 @@
+# Fidelity Check â Slide 003, Region (568,136â872,344): "Remember" callout + "In General" strip
+
+## Element-by-element match check (crop-relative coords, ~region as displayed)
+
+| Element | IMG1 (recreation) | IMG2 (original) | Match? |
+|---|---|---|---|
+| "Remember" heading (~250, 75) | Red italic, bold typed | Red italic, handwritten | â text/color; weight differs (medium, rule c) |
+| Cyan panel + blue border (box ~160âright edge, yâ37â185) | Complete on all visible sides, not touching text | Same geometry | â |
+| Equation line, yâ150: `y = WáµX = XáµW` | y, =, Wáµ, X, =, Xáµ, W â same order, no missing/garbled glyphs, superscripts intact, no swapped sides | Identical structure | â structure |
+| W glyphs (~360,155 / ~555,155) | Blue, underlined, underline continuous | Blue, underlined | â |
+| X glyphs (~415,158 / ~490,155) | Red, not underlined | Red, not underlined | â |
+| Equals signs (~325,155 / ~455,155) | Black, properly spaced | Black | â |
+| "In General:" box (xâ195â610, yâ255â322) | Thin dark border, full rectangle, text vertically centered, no contact | Same | â |
+| "In General:" text (~285,290) | Black | Black | â |
+| N (~400,290) | Red | Red | â |
+| >>> (~465,290) | Blue, three chevrons | Blue, three chevrons | â |
+| d (~575,290) | Red italic | Red italic | â |
+| Left blue vertical stroke (xâ45), bottom red stroke (yâ357) | Continuous, same weight | Continuous, same weight | â chrome |
+
+Equation has no fractions/limits/delimiters, so numerator/denominator and bracket-span checks are N/A â nothing truncated or mis-spanned.
+
+## Discrepancies found
+
+1. **MINOR â color of `y`** (high confidence): `y` is **blue** in IMG1 (~275,155) vs **black** in IMG2. Small text-color difference; glyph itself matches modulo medium.
+2. **MINOR â color of first superscript `T`** (medium confidence): the `T` on `Wáµ` (~385,140) renders **red** in IMG1 but **blue** (base-matched to W) in IMG2; the second `T` on `Xáµ` (~515,140) is red in both, as it should be. One superscript glyph with wrong hue â cosmetic only, no structural impact.
+3. **MINOR â typed vs handwritten ink throughout** (rule c, inherent): `Remember` boldness, handwritten `y`/`>>>`/`N` shapes, and tighter `WáµX` spacing in the original. Mandated medium difference, at most MINOR.
+4. **MINOR â vertical padding/scale** (medium confidence): IMG1's cyan box and "In General" box are ~10 px taller with more whitespace, and the whole block sits slightly lower in IMG1 than IMG2 â consistent with a small crop-offset/scale mismatch; text remains vertically centered in both enclosures, so this is layout slack, not a content defect.
+5. **MINOR / observation, low confidence â left-edge black tick** (~x0â45, yâ310 in IMG1): a short horizontal black stroke crossing the blue vertical line is visible in IMG1 but not clearly in IMG2. At the extreme crop edge this is most likely a crop-boundary/JPEG artifact (rule e), not content.
+
+**Not found:** no wrong digits, no swapped values, no missing rows/characters, no truncated subscripts/superscripts, no delimiter-span failures, no stroke breaks in borders, no fill-color shifts in panels/badges.
+
+## FINAL VERDICT: PASS
+
+The recreation is a faithful, usable recreation of this region: equation structure (`y = WáµX = XáµW`), every glyph and value in the "In General: N >>> d" strip, colors of W/X/N/d/>>>, and enclosure geometry all match; the only findings are MINOR medium/color notes (blue `y`, red first `T`, inherent typed-vs-handwritten differences), none of which rise to MAJOR or BLOCKER.

@@ -10,7 +10,7 @@ const RED2 = "FF0000";     // original slide's bright-red accents
 const DRED = "8B2E3A";     // measured dark maroon (outer rect, title text)
 const BLUE = "6666CC";     // measured blue grid/borders
 const CELLBLUE = "2020C0"; // measured matrix TP/TN glyph blue
-const GREEN = "90EE90";
+const GREEN = "A9D08E";
 const YELLOW = "FFF9C4";
 const DARK = "333333";
 const BLACK = "000000";
@@ -39,11 +39,7 @@ s.addText("32", {
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: DARK, fontFace: FONT, margin: 0,
 });
-s.addText("ROC Curve for Same Model -different thresholds", {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.8,
-  align: "center", valign: "middle",
-  fontSize: 26, bold: true, color: RED, fontFace: FONT, margin: 0,
-});
+// (house title text is added LAST so content panels never cover it)
 
 // ============================================================
 // ORIGINAL CONTENT (measured from unique_slides/slide_032.jpg)
@@ -67,7 +63,7 @@ const gridH = [
   [80, 342, 894],
   [162, 70, 895],
   [288, 63, 895],
-  [386, 179, 895],
+  [386, 342, 895],
   [400, 61, 634],
 ];
 for (const [x, y0, y1] of gridV) {
@@ -89,22 +85,22 @@ const panels = [
   { th: "Threshold=0.0", tp: "5", fn: "0", fp: "6", tn: "0", tpr: "TPR=5/(5+0)=1", fpr: "FPR=6/(6+0)=1" },
   { th: "Threshold=0.1", tp: "5", fn: "0", fp: "4", tn: "2", tpr: "TPR=5/(5+0)=1", fpr: "FPR=4/(4+2)=.66" },
   { th: "Threshold=0.3", tp: "5", fn: "0", fp: "2", tn: "4", tpr: "TPR=5/(5+0)=1", fpr: "FPR=2/(2+4)=.33" },
-  { th: "Threshold=0.4", tp: "4", fn: "1", fp: "1", tn: "5", tpr: "TPR=4/(4+1)=4/5=", fpr: "FPR=1/(1+5)=.16" },
+  { th: "Threshold=0.4", tp: "4", fn: "1", fp: "1", tn: "5", tpr: "TPR=4/(4+1)=4/5", fpr: "FPR=1/(1+5)=.16" },
 ];
 
 panels.forEach((p, i) => {
   const T = bands[i];
 
-  // threshold label in a thin red-bordered box x[61,121]
-  const labY = i === 0 ? T : T + 13;
+  // threshold label in a thin red-bordered pale-yellow box x[61,160] (single line)
+  const labY = T + 2;
   s.addShape(pptx.shapes.RECTANGLE, {
-    x: P(61), y: P(labY), w: P(121 - 61), h: P(29),
-    fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 },
+    x: P(61), y: P(labY), w: P(160 - 61), h: P(28),
+    fill: { color: "FFF9C4" }, line: { color: RED2, width: 1 },
   });
   s.addText(p.th, {
-    x: P(61), y: P(labY), w: P(121 - 61), h: P(29),
+    x: P(61), y: P(labY), w: P(160 - 61), h: P(28),
     align: "center", valign: "middle",
-    fontSize: 10, bold: true, color: RED2, fontFace: FONT, margin: 0,
+    fontSize: 9, bold: true, color: RED2, fontFace: FONT, margin: 0,
   });
 
   // rotated vertical "Actual" label on the far left
@@ -122,37 +118,35 @@ panels.forEach((p, i) => {
     fontSize: 9, bold: true, color: BLACK, fontFace: FONT, margin: 0,
   });
 
-  // column headers P / N, row labels P / N
-  s.addText("P", {
-    x: P(113), y: P(T + 50), w: P(53), h: P(13),
-    align: "center", valign: "middle", fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
+  // full 3x3 red-bordered matrix: corner col x[80,113], P col x[113,166],
+  // N col x[166,215]; header row y[T+50,T+63], row P y[T+63,T+86], row N y[T+86,T+109]
+  s.addShape(pptx.shapes.RECTANGLE, {
+    x: P(80), y: P(T + 50), w: P(215 - 80), h: P(109 - 50),
+    fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 },
   });
-  s.addText("N", {
-    x: P(166), y: P(T + 50), w: P(49), h: P(13),
-    align: "center", valign: "middle", fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
-  });
-  s.addText("P", {
-    x: P(80), y: P(T + 63), w: P(33), h: P(23),
-    align: "center", valign: "middle", fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
-  });
-  s.addText("N", {
-    x: P(80), y: P(T + 86), w: P(33), h: P(23),
-    align: "center", valign: "middle", fontSize: 9, color: BLACK, fontFace: FONT, margin: 0,
-  });
+  for (const cx of [113, 166]) {
+    s.addShape(pptx.shapes.RECTANGLE, {
+      x: P(cx), y: P(T + 50), w: P(1.5), h: P(109 - 50),
+      fill: { color: RED2 }, line: { type: "none" },
+    });
+  }
+  for (const ry of [T + 63, T + 86]) {
+    s.addShape(pptx.shapes.RECTANGLE, {
+      x: P(80), y: P(ry), w: P(215 - 80), h: P(1.5),
+      fill: { color: RED2 }, line: { type: "none" },
+    });
+  }
 
-  // matrix cell borders (thin red)
-  for (const cx of [113, 166, 215]) {
-    s.addShape(pptx.shapes.RECTANGLE, {
-      x: P(cx), y: P(T + 63), w: P(1.5), h: P(109 - 63),
-      fill: { color: RED2 }, line: { type: "none" },
-    });
-  }
-  for (const ry of [T + 63, T + 86, T + 109]) {
-    s.addShape(pptx.shapes.RECTANGLE, {
-      x: P(113), y: P(ry), w: P(215 - 113), h: P(1.5),
-      fill: { color: RED2 }, line: { type: "none" },
-    });
-  }
+  // bordered header cells P / N (header row), bordered row-label cells P / N
+  const hcell = (x, y, w, h, txt, color, bold) => s.addText(txt, {
+    x: P(x), y: P(y), w: P(w), h: P(h),
+    align: "center", valign: "middle",
+    fontSize: 9, bold: bold, color: color, fontFace: FONT, margin: 0,
+  });
+  hcell(113, T + 50, 53, 13, "P", BLACK, false);
+  hcell(166, T + 50, 49, 13, "N", BLACK, false);
+  hcell(80, T + 63, 33, 23, "P", BLACK, false);
+  hcell(80, T + 86, 33, 23, "N", BLACK, false);
 
   // cell digits: TP/TN blue (correct), FN/FP red (errors) — measured glyph colors
   const cell = (x, y, txt, color) => s.addText(txt, {
@@ -165,14 +159,14 @@ panels.forEach((p, i) => {
   cell(120, T + 93, p.fp, RED2);      // (N,P)
   cell(168, T + 93, p.tn, CELLBLUE);  // (N,N)
 
-  // TPR/FPR calc pair in a thin red-bordered box x[224,333]
+  // TPR/FPR calc pair in a thin red-bordered pale-yellow box x[224,333]
   const boxY = i === 0 ? T + 50 : (i === 1 ? 218 : i === 2 ? 332 : 449);
   s.addShape(pptx.shapes.RECTANGLE, {
     x: P(224), y: P(boxY), w: P(333 - 224), h: P(49),
-    fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 },
+    fill: { color: "FFF9C4" }, line: { color: RED2, width: 1 },
   });
   s.addText([
-    { text: p.tpr, options: { fontSize: 9, color: BLACK, fontFace: FONT, breakLine: true } },
+    { text: p.tpr, options: { fontSize: 9, color: DRED, fontFace: FONT, breakLine: true } },
     { text: p.fpr, options: { fontSize: 9, color: BLUE, fontFace: FONT, breakLine: true } },
   ], {
     x: P(226), y: P(boxY), w: P(333 - 226), h: P(49),
@@ -185,9 +179,9 @@ s.addShape(pptx.shapes.RECTANGLE, {
   x: P(641), y: P(80), w: P(895 - 641), h: P(386 - 80),
   fill: { type: "none" }, line: { color: BLUE, width: 2 },
 });
-// roc_032_v3.png 2233x2891 px at 600dpi; box x[634,902] y[43,390]
+// roc_032_v4.png 2233x2891 px at 600dpi; box x[634,902] y[43,390]
 s.addImage({
-  path: NS + "roc_032_v3.png",
+  path: NS + "roc_032_v4.png",
   x: P(634), y: P(43), w: 2233 / 600, h: 2891 / 600,
 });
 
@@ -206,22 +200,22 @@ s.addText([
 });
 
 // ---------- bottom-right: TPR/FPR definition equations in red boxes ----------
-// eq PNGs 546x127 / 545x127 px at 600dpi; boxes x[651,748] y[417,455] / y[466,503]
+// eq PNGs 634x296 / 622x296 px at 600dpi; boxes x[651,748] y[417,455] / y[466,503]
 s.addShape(pptx.shapes.RECTANGLE, {
   x: P(651), y: P(417), w: P(748 - 651), h: P(455 - 417),
   fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 },
 });
 s.addImage({
-  path: NS + "eq_032_tpr.png",
-  x: P(655), y: P(421), w: 546 / 600, h: 127 / 600,
+  path: NS + "eq_032_tpr_v4.png",
+  x: P(655), y: P(420), w: 634 / 600, h: 296 / 600,
 });
 s.addShape(pptx.shapes.RECTANGLE, {
   x: P(651), y: P(466), w: P(748 - 651), h: P(503 - 466),
   fill: { color: "FFFFFF" }, line: { color: RED2, width: 1 },
 });
 s.addImage({
-  path: NS + "eq_032_fpr.png",
-  x: P(655), y: P(470), w: 545 / 600, h: 127 / 600,
+  path: NS + "eq_032_fpr_v4.png",
+  x: P(655), y: P(469), w: 622 / 600, h: 296 / 600,
 });
 
 // ---------- bottom-right legend matrix x[771,886] y[438,499] ----------
@@ -273,6 +267,13 @@ lcell(800, 460, 44, 19, "TP", "006400", true);
 lcell(844, 460, 42, 19, "FN", BLACK, true);
 lcell(800, 479, 44, 20, "FP", BLACK, true);
 lcell(844, 479, 42, 20, "TN", "006400", true);
+
+// house title on top of all content panels
+s.addText("ROC Curve for Same Model -different thresholds", {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.8,
+  align: "center", valign: "middle",
+  fontSize: 26, bold: true, color: RED, fontFace: FONT, margin: 0,
+});
 
 pptx.writeFile({
   fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/slide_032_recreated.pptx",

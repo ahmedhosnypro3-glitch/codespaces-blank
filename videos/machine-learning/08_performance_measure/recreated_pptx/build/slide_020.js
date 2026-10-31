@@ -91,40 +91,47 @@ s.addShape(pptx.shapes.RECTANGLE, {
   fill: { color: "FFFFFF" }, line: { color: "730000", width: 1.5 },
 });
 
-// ---- five varied aircraft sketches per class (measured widths 1.28..1.88 in) ----
-const ROW_Y = [2.70, 3.56, 4.42, 5.28, 6.14];       // row centres, 62px apart in the original
-const POS_W = [1.30, 1.85, 1.35, 1.35, 1.35];
-const NEG_W = [1.35, 1.10, 1.33, 1.83, 1.33];
+// ---- aircraft sketches (measured from the original) ----
+// positive column: 5 glyphs (centres 185/264/325/387/454 px), widths 91/134/95/93/95 px
+// negative column: 6 glyphs (centres 185/236/291/340/393/445 px), widths 95/95/77/94/114/92 px
+const POS_CY = [2.57, 3.67, 4.51, 5.38, 6.31];
+const POS_W = [1.28, 1.88, 1.33, 1.31, 1.33];
+const NEG_CY = [2.57, 3.28, 4.04, 4.72, 5.46, 6.18];
+const NEG_W = [1.32, 1.32, 1.07, 1.31, 1.58, 1.28];
 const ENEMY = ["eq_020_plane_enemy_a.png", "eq_020_plane_enemy_b.png", "eq_020_plane_enemy_c.png"];
 const SAFE = ["eq_020_plane_safe_a.png", "eq_020_plane_safe_b.png", "eq_020_plane_safe_c.png"];
 const ASPECT = 2.6;
 for (let i = 0; i < 5; i++) {
   const pw = POS_W[i], ph = pw / ASPECT;
-  s.addImage({ path: ASSET + ENEMY[i % 3], x: 2.21 - pw / 2, y: ROW_Y[i] - ph / 2, w: pw, h: ph });
+  s.addImage({ path: ASSET + ENEMY[i % 3], x: 2.21 - pw / 2, y: POS_CY[i] - ph / 2, w: pw, h: ph });
+}
+for (let i = 0; i < 6; i++) {
   const nw = NEG_W[i], nh = nw / ASPECT;
-  s.addImage({ path: ASSET + SAFE[i % 3], x: 5.645 - nw / 2, y: ROW_Y[i] - nh / 2, w: nw, h: nh });
+  s.addImage({ path: ASSET + SAFE[i % 3], x: 5.645 - nw / 2, y: NEG_CY[i] - nh / 2, w: nw, h: nh });
 }
 
-// ---- +1 strip: x 251..285 y 165..488 -> 3.49..3.96, 2.29..6.78 ----
+// ---- +1 strip: x 251..285 y 165..488 -> 3.49..3.96, 2.29..6.78 (5 values, centres 197/257/319/381/444 px) ----
+const POS_LABEL_Y = [2.74, 3.57, 4.43, 5.29, 6.17];
+const NEG_LABEL_Y = [2.44, 3.31, 3.93, 4.67, 5.50, 6.36];
 s.addShape(pptx.shapes.RECTANGLE, {
   x: 3.49, y: 2.29, w: 0.47, h: 4.49,
   fill: { color: PINK }, line: { color: RED_T, width: 1 },
 });
 for (let i = 0; i < 5; i++) {
   s.addText("+1", {
-    x: 3.49, y: ROW_Y[i] - 0.15, w: 0.47, h: 0.3,
+    x: 3.49, y: POS_LABEL_Y[i] - 0.15, w: 0.47, h: 0.3,
     align: "center", valign: "middle",
     fontSize: 14, bold: true, color: RED_T, fontFace: FONT, margin: 0,
   });
 }
-// ---- 0 strip: x 498..536 y 162..497 -> 6.92..7.44, 2.25..6.90 ----
+// ---- 0 strip: x 498..536 y 162..497 -> 6.92..7.44, 2.25..6.90 (6 values, centres 176/238/283/336/396/458 px) ----
 s.addShape(pptx.shapes.RECTANGLE, {
   x: 6.92, y: 2.25, w: 0.52, h: 4.65,
   fill: { color: MINT }, line: { color: GREEN_T, width: 1 },
 });
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 6; i++) {
   s.addText("0", {
-    x: 6.92, y: ROW_Y[i] - 0.15, w: 0.52, h: 0.3,
+    x: 6.92, y: NEG_LABEL_Y[i] - 0.15, w: 0.52, h: 0.3,
     align: "center", valign: "middle",
     fontSize: 14, bold: true, color: GREEN_T, fontFace: FONT, margin: 0,
   });

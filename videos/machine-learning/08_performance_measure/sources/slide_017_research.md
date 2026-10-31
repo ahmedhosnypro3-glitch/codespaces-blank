@@ -10,3 +10,9 @@ Method: mandated web-source verification. Tool: `mcp__agy-cli-mcp__agy_web_searc
 - Chart-only slide carries no bullet text: CONFIRMED by the spec's own note — all verbatim text lives in labels (axis titles, ticks, ten legend entries, one "+" marker). The lone "+" entry is a chart-generator marker artifact, not data; no source claim applies.
 
 Query budget: 1 of 3-6.
+
+## Reinforcement (parallel web-research lane)
+
+- Fixed-precision F1-vs-recall family: F1(R; P0) = 2·P0·R/(P0+R) is strictly increasing and concave in R, capped at F1(1; P0) = 2·P0/(1+P0): CONFIRMED — Splunk, "F1 Score" (https://www.splunk.com/en_us/blog/learn/f1-score.html) and DataCamp, "F1 Score" tutorial (https://www.datacamp.com/tutorial/f1-score) — with P0=0.1 and R=1.0, F1 = 0.2/1.1 ≈ 0.18, matching the frame's p=0.1 curve ceiling; P0=1 gives F1(1) = 1.0, matching the p=1 curve topping out at 1.0.
+- A family of curves parametrized by precision, plotted over recall 0..1, is the conventional way to visualize F1: CONFIRMED — scikit-learn example "Precision-Recall" with iso-F1 curves (https://github.com/scikit-learn/scikit-learn/blob/main/examples/model_selection/plot_precision_recall.py) and Stats StackExchange iso-F1 derivation P(R) = F1*·R/(2R − F1*) (https://stats.stackexchange.com/questions/345204/iso-f1-curve-for-precision-recall-curve) — same chart shape and axis ranges 0.0–1.0 as the frame.
+- Each fixed-precision F1 curve stays below the arithmetic-mean line: CONFIRMED — APXML, "F1-score metric" (https://apxml.com/courses/basics-model-evaluation-metrics/chapter-2-metrics-for-classification/f1-score-metric) — P=0.05, R=1.0 gives mean 0.525 vs F1 ≈ 0.095; the harmonic mean penalizes the small component, which is why the frame's curves sit under the straight (p+R)/2 line.

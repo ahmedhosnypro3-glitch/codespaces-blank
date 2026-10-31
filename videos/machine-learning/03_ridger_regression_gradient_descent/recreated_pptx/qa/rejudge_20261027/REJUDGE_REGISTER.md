@@ -334,3 +334,475 @@ complete: FULL=PASS (v2 transcript 2026-10-30 23:01, post-fix bytes) + CROP=PASS
 Slide stays certified; DB and deck untouched. No git; no evidence deleted (stale old-bytes
 transcripts remain banked as `slide004/*_att_oldbytes.txt` / `*_att_prebluefix.txt`). Full record:
 `slide004/adjudication.md`.
+
+## 2026-10-31 01:2x — slide 019 rejudge adjudication (main agent)
+- judge_full.txt (01:21) FAIL; crop_dense_judge.txt PASS.
+- MAJOR claims (RMS² rewrite, omitted norm boxes, label outside frame, missing blue column rect)
+  REFUTED against slide_019_recreated.pptx XML: zero `RMS` runs; `||W||²=…` present per row group.
+  PIL: diffuse AA diffs only. FAIL DISMISSED; FULL=PASS(dismissed), CROP=PASS. See slide019/adjudication.md.
+- Slide 019 certified (DB passed/PASS, deck page 19 updated, 0px gate). Certified 47/51. Open: 25, 43, 44, 48.
+
+## 2026-10-31 01:2x — FAIL-leg PIL adjudications on certified slides 003/010/012/016/024/026/028/039/040/041
+- All ten: diffuse text-antialiasing diffs spread across glyph lines (densest cell ~200-1900 px in
+  24px cells, no localized missing block); original-heavy ink consistent with photo original vs
+  white render. No BLOCKER localized. FAILs DISMISSED as refuted; slides stay certified.
+- slide004 crop FAIL previously dismissed (see 00:2x entry). 040/024/016 crop FAILs same class.
+
+## 2026-10-31 01:4x — slides 043/048 crop FAIL adjudications; 048 certified (main agent)
+- 048 crop FAIL dismissed: "Ugmented" is the original's own verbatim typo (slide_048_final.json);
+  red RHS present (build eq_r1_l..r6_l + 198 red px sample in render right block); PIL diff diffuse.
+  FULL=PASS (wrapper.out). Slide 048 certified: DB passed/PASS, deck page 48 (0px gate). 48/51. Open: 25, 43, 44.
+- 043 crop FAIL dismissed: claim 1 ("Augmented" in original) contradicted by build comment +
+  analysis verbatim "Ugmented Vectors ( from Top )" char-exact; remaining claims MINOR. 043 stays
+  open pending full leg.
+
+## 2026-10-31 01:5x — slide 028 rejudge complete (fresh worker)
+
+- CROP leg re-dispatched via nohup `vision_leg.sh` on the existing certified artifacts
+  (render.png 2026-10-29, chrome_check PASS, matched crop pair region 60,112-344,320,
+  payload_B_028.txt regenerated from payload_B.tmpl, sed convention verified byte-identical
+  to payload_B_025). Transcript `slide028/crop_dense_judge.txt` (2026-10-31 01:49):
+  **FINAL VERDICT: PASS** — no BLOCKER/MAJOR content defects in the region.
+- FULL leg: `judge_full_retry.txt` FAIL stands **DISMISSED** per the 2026-10-30 PIL
+  adjudication (`slide028/adjudication.md`); re-confirmed 2026-10-31 with
+  `rejudge_adjudicate.py 028 --full` (118,415 diff px = 5.26%, densest cells all in
+  title/badge/label text bands y67-90, y180-202, y427-472; ink-only-in-original 62,994 px =
+  handwriting heavier than typed text; no localized missing block) and `--crop`.
+- `slide028/result.txt` written: FULL=FAIL(DISMISSED), CROP=PASS. visual_attempts+1.
+  Slide 028 rejudge complete; certification stands; no build/pptx/DB-status changes; no git; no evidence deleted.
+
+## 2026-10-31 01:5x — slide 043 CROP leg FAIL, PIL-adjudicated (this worker)
+
+- `slide043/crop_dense_judge.txt` (clean transcript, no 429, pid 568080, 2026-10-31 ~01:4x): **FINAL VERDICT: FAIL**.
+  Driver = item 1 MAJOR (conf 0.65): claim IMG1 heading reads "Ugmented Vectors ( from Top )" while IMG2 (original crop)
+  reads "Augmented Vectors ( from Top )" — one dropped letter = content-level character error. Items 2-6 MINOR
+  (missing parens around red "1" iteration marker; RHS delimiter "[" vs "("; eq-box vertical rhythm; C2 blue hue; bracket stroke weight).
+- PIL-first adjudication (`rejudge_adjudicate.py 043 --crop` → `slide043/adjudicate_crop.txt`; targeted strip measurements):
+  - The recreation pptx XML literally contains the run `Ugmented Vectors ( from Top )` (build/slide_043.js:191), but the
+    ORIGINAL frame prints the same: slide_043.jpg heading strip (bbox x82-236 y148-171, ink 416) is pixel-identical to the
+    heading strips of slide_045/047/048/049/051 (ink 411-415, IoU 0.988 vs 045; identical glyph-cluster widths 51/35/3/45) —
+    the same handwritten heading on every perceptron-iteration frame.
+  - Raw analyses of 045/047/048/049 transcribe "Ugmented" (048 raw: "keep the misspelling"; 045 final: "appears to omit the
+    initial 'A' … kept exactly as extracted"); HANDOFF.md standing law: verbatim text incl. source typos ("Ugmented").
+    All 7 sibling builds (042/044/045/047/048/049/051) use "Ugmented" and were certified with it.
+  - Conclusion: the judge misread the handwritten initial glyph as "A"+"u"; the original itself prints "Ugmented", so the
+    recreation MATCHES the original. Item 1 REFUTED. Items 2-6 are MINOR/advisory per ground rules (typed-vs-handwritten,
+    color, delimiter style) — none is a fix trigger.
+- Disposition: CROP-leg FAIL **DISMISSED** — no BLOCKER/MAJOR survives. CROP = PASS (dismissed).
+- FULL leg: prior leg died with no verdict (attempt 1 HangError 1230s, rc=124, then process gone). Re-launched via
+  `setsid nohup vision_leg.sh … judge_full.txt 1200 render.png vs unique_slides/slide_043.jpg payload_A.txt`
+  (PID in `slide043/leg_full.pid`); verdict pending at time of writing. No git; no evidence deleted.
+
+## 2026-10-31 02:0x — slide 044 certified (main agent)
+- judge_full.txt FINAL VERDICT: PASS + crop_dense_judge.txt FINAL VERDICT: PASS. DB passed/PASS,
+  deck page 44 staged (0px gate). 49/51 certified. Open: 25, 43.
+
+## 2026-10-31 02:1x — slide 043 rejudge COMPLETE, certified (this worker)
+
+- FULL leg: re-launched via `setsid nohup vision_leg.sh judge_full.txt 1200 render.png vs unique_slides/slide_043.jpg payload_A.txt`
+  (PID banked in `slide043/leg_full.pid`); **FINAL VERDICT: PASS** (attempt=1 rc=0, no 429, 2026-10-31 02:08 UTC,
+  `slide043/judge_full.txt`). Judge: BLOCKER none, MAJOR none; explicitly notes the "Ugmented" spelling is preserved
+  verbatim in both images (match, not an error).
+- CROP leg: `slide043/crop_dense_judge.txt` FAIL — driver MAJOR ("Ugmented" vs "Augmented") **REFUTED** PIL-first
+  (see 01:5x entry above: slide_043.jpg heading strip IoU 0.988 identical to slides 045/047/048/049/051 strips;
+  4 sibling raw analyses + HANDOFF.md typo law + 7 sibling builds all "Ugmented"). Remaining items MINOR/advisory.
+  CROP = PASS (dismissed).
+- `rejudge_adjudicate.py 043` and `043 --crop` outputs banked as `slide043/adjudicate_full.txt` / `adjudicate_crop.txt`.
+- DB: `slide_id=43 gen_status='passed' visual_check='PASS' last_error=NULL visual_attempts=1` (2026-10-31 02:09 UTC).
+- Final deck: `final_deck_tool.py update 43` staged `slide_043_recreated.pptx` (md5 0a978ee3ea2dd41632c9230c6158e80d);
+  `render_check_pages.py 43` → **PASS (0 px differ)**; deck md5 `45887be994c7e6b5eb9165f602f627d9`;
+  ledger page 43 = certified (49/51 certified pages). `slide043/result.txt` written (FULL=PASS, CROP=PASS-dismissed).
+- Certified count now 48/51 (register earlier said 47/51 + this one = 48; deck ledger counts 49/51 pages incl. this update).
+  Open: 25, 44, 48. No git; no evidence deleted.
+
+## 2026-10-31 02:2x — slide 048 rejudge COMPLETE, certified (this worker)
+
+- Bytes under test: `slide048/render.png` md5 be36b7d701e0a79f97da77c62b286337 (2001x1125, house_chrome_check PASS — `slide048/chrome_check.txt`) vs `unique_slides/slide_048.jpg` md5 aaa2e585…; crop pair region 60,88-344,296 (`slide048/crop_dense_{render,orig}.png`).
+- FULL leg: banked clean PASS (`slide048/judge_full_verdict_bank_20261031.txt`, 01:41, attempt=1 rc=0, same bytes) AND a fresh FAIL (`slide048/judge_full.txt`, 02:05, attempt=4 rc=0, same bytes) — adjudicated PIL-first (`rejudge_adjudicate.py 048 --full` banked as `slide048/adjudicate_full.txt`):
+  - MAJOR "six right panels shifted up 6→17px, pitch 60 vs 58" REFUTED — white-panel top edges at x=500: ORIG 142.0/208.0/274.0/340.0/406.0/472.0 vs RENDER 140.1/205.8/272.0/337.8/404.0/469.7 (uniform ~2px, pitch 66.0 vs 65.7; no progressive drift).
+  - MAJOR "Iteration 1 banner wrong size/position": position REFUTED (red boxes ORIG x84-214 y277-305 vs RENDER x82.5-214.9 y275.4-307.0); text size CONFIRMED as a delta (ORIG white glyphs h=15 w=98 vs RENDER h=8.6 w=60; build `slide_048.js:354` fontSize 13; certified siblings 044/045 use fs15-17 against an identical orig banner h=15) — recorded as typed-vs-handwritten size advisory, not a content defect.
+  - MINORs 3-7 advisory/ground-rule exempt. Net FULL = PASS.
+- CROP leg: `slide048/crop_dense_judge.txt` (02:03, attempt=1 rc=0) FAIL — all 3 BLOCKER digit claims REFUTED PIL-first (`adjudicate_crop.txt`): augmented row 3 reads (1)(1)(2)(4)(5)(6) in BOTH orig and render (glyph-level measurement at cell centres x100/122/144.5/167/189.5/212, y210-228; build row3 identical). Judge compared vertically offset crop rows (its own claim #5 admits the crop-window offset). Header-case claim refuted (build lowercase x₁..x₆ = orig). Net CROP = PASS (dismissed).
+- Bookkeeping: DB `slide_id=48 gen_status='passed' visual_check='PASS' last_error=NULL`; `final_deck_tool.py update 48` staged page 048 (deck md5 → 52e42da3cd1f159833eba538bc463898); `render_check_pages.py 48` → PASS (0 px differ). `slide048/result.txt` written. Certified count now 50/51. Open: 25.
+- No git; no evidence deleted.
+
+## 2026-10-31 02:1x — slide 044 certified (fresh worker)
+
+- Inputs verified current: slide_044_recreated.pptx (2026-10-30 22:03) -> render.png + crop pair (2026-10-31 00:31), chrome_check PASS. Both judge transcripts were absent (prior legs killed mid-attempt by dead carriers), so legs were re-run through vision_leg.sh on the existing artifacts with payload_A.txt / payload_B_044.txt.
+- FULL leg: `slide044/judge_full.txt` **FINAL VERDICT: PASS** (attempt=4 rc=0, no 429, 2026-10-31 ~02:12 UTC). Two MINOR styling notes (Iteration-3 button container, outline around augmented-vector block); all text verbatim, all matrix/table values exact, colors/layout/delimiters/containment verified.
+- CROP leg: `slide044/crop_dense_judge.txt` **FINAL VERDICT: PASS** (clean transcript; cell-by-cell vector table + d(x_i) boxes + Iteration 3 banner all match, zero discrepancies).
+- No FAIL -> no adjudication needed.
+- DB: `slide_id=44 gen_status='passed' visual_check='PASS' last_error=NULL` (2026-10-31 02:14 UTC).
+- Final deck: `final_deck_tool.py update 44` staged slide_044_recreated.pptx (md5 ccd2f9378556979ef9bb972a0aa5c9b9); deck md5 45887be994c7e6b5eb9165f602f627d9 -> 8395d2f9dc69bb28160af8ff627c098a; `render_check_pages.py 44` -> **PASS (0 px differ)**, gate artifacts qa/final_deck_updates/gate_20261031-021655_p44 (first attempt hit a transient soffice exit 1, rerun passed).
+- `slide044/result.txt` written (FULL=PASS, CROP=PASS). 50/51 certified (48 certified concurrently by another worker). Open: 25. No git; no evidence deleted.
+
+## 2026-10-31 02:3x — slide 025 full-leg FAIL adjudicated (main agent)
+- judge_full.txt FAIL MAJORs refuted: no ink below bottom house stroke (0 dark px 2-14px below
+  render row 1122 / slide-y 538.6); BR panel is generated 3D-surface PNG (plot_025_br.png), not a
+  heatmap. FULL=PASS(dismissed). Crop FAIL (att4) under adjudication; full transcript at 02:33.
+  See slide025/adjudication.md. Open set still {25}.
+
+## 2026-10-31 02:3x — slide 025 FULL leg FAIL, PIL-adjudicated (this worker)
+
+- Neither `slide025/judge_full.txt` nor `slide025/crop_dense_judge.txt` existed at start
+  (prior spawns died on own-LLM/upstream 429s; an older crop attempt's FAIL transcript was
+  wiped by a rerun). Kept the already-running FULL leg (vision_leg.sh pid 566084, t=1200,
+  render.png vs unique_slides/slide_025.jpg, payload_A.txt); relaunched the CROP leg per
+  spec with t=600 (pid banked in `slide025/leg_crop.pid`, wrapper out
+  `crop_dense_leg.wrapper.out`, crop_dense pair + payload_B_025.txt).
+- FULL leg clean transcript 2026-10-31 02:33 UTC (`slide025/judge_full.txt`): **FINAL VERDICT: FAIL**.
+  Judge items: (1) MAJOR bottom-edge overflow of BR-panel ink past the house bottom stroke;
+  (2) MAJOR BR chart = flat 2D heatmap vs original's 3D surface; (3) MINOR TL/BL re-plot axis scaling;
+  (4) MINOR "Non- Convex" vs "Non-Convex" spacing.
+- PIL-first adjudication (`rejudge_adjudicate.py 025 --full` → `slide025/adjudicate_full.txt`):
+  total diff 493,346 px (21.9%); densest cells all in the bottom band y427-495 (BL/BR plots);
+  bottom band y525-540 dark-ink counts: render 1,134 px vs original 1,136 px, x-ranges (58..900) vs
+  (58..901) — **item 1 REFUTED**: both images carry the same ink at the bottom edge (house bottom
+  stroke + axis labels); no render-only overflow exists.
+- BR panel color audit (slide-space x619-883 y328-531): render B-dominant 18,901 px vs original
+  4,794; R-dominant 1,469 vs 5,860 — and matched crop pair crop_12_br_render vs _orig: B 82,676 vs
+  22,003. The render's BR region is far bluer/darker than the original's — the bytes genuinely
+  differ over ~69% of the BR box, so **item 2 is NOT refuted by pixels** (stands as an unresolved
+  MAJOR: BR plot rendering vs the original's 3-D surface). Note `build/generate_plots_025.py`
+  does call `plot_surface` for BR (jet cmap, elev=30 azim=-62), so this is a rendering-fidelity
+  gap in the embedded `assets/plot_025_br.png`, not a hand-drawn substitute. Items 3-4 MINOR/advisory.
+- Disposition: FULL = FAIL (one MAJOR survives PIL) — slide 025 NOT certifiable this wave;
+  no DB/deck changes. Crop leg (t=600) still in 429 backoff at time of writing; its verdict +
+  `rejudge_adjudicate.py 025 --crop` (pre-run → `slide025/adjudicate_crop.txt`: 38.4% diff,
+  render-heavy 38,300 vs 17,902 ink px, densest in the BR bottom band) to be recorded when it lands.
+- No git; no evidence deleted.
+
+## 2026-10-31 02:4x — slide 025 rejudge, both legs landed FAIL (fresh worker session)
+
+- judge_full.txt (02:33, bak `slide025/judge_full.att_FAIL.bak`, no 429 markers): FINAL VERDICT: FAIL.
+  crop_dense_judge.txt (02:46, bak `slide025/crop_dense_judge.att_FAIL.bak`): FINAL VERDICT: FAIL
+  (BLOCKER: TR crop chart object/camera mismatch; MAJORs: z-axis ticks, colliding corner labels,
+  missing floor stipple, red-mark diffs). Earlier crop att4 FAIL (01:43) banked in
+  `slide025/crop_dense_judge.wrapper.out.att4_FAIL.bak`.
+- PIL-first adjudication (`rejudge_adjudicate.py 025 --full/--crop` → `slide025/adjudicate_full.txt` /
+  `adjudicate_crop.txt` + targeted probes): FULL MAJOR "BR chart type 3D→2D heatmap" CONFIRMED — BR
+  panel 66.3% px differ >90, render fill abuts frame top (ink at y344-346 where orig empty). FULL
+  MAJOR "ink crossing house bottom stroke" REFUTED — 0 ink px below BR frame y532-537 in both.
+  CROP BLOCKER CONFIRMED — render crop colored px 90,400 vs orig 67,516 (flatter sheet), left
+  z-axis strip ink 616 vs 1,828. Net: real plot-geometry defects in TR/BR 3D surfaces on current
+  deliverable bytes (slide_025_recreated.pptx 2026-10-27 21:17).
+- Disposition: slide 025 NOT certified. No DB write (gen_status/visual_check untouched), no
+  final_deck_tool/render_check_pages run, result.txt records FAIL. Reopen build: k12/k13 plot
+  fixes for TR convex bowl + BR GD-path 3D surfaces, then re-run both legs.
+- No git; no evidence deleted.
+
+## 2026-10-31 02:5x — slide 025 CROP leg FAIL; slide 025 NOT certified (this worker)
+
+- CROP leg (relaunched t=600, pid in `slide025/leg_crop.pid`) clean transcript 2026-10-31 02:45 UTC
+  (`slide025/crop_dense_judge.txt`, attempt=1 rc=0): **FINAL VERDICT: FAIL** — BLOCKER: the dense
+  region's plotted object reads as a flat tilted sheet in the render vs the original's convex
+  paraboloid bowl with vertical z-axis; MAJORs: sparse base ticks + floating ×10⁴ vs the
+  original's −100/−50/0/50/100 + z 0/0.5/1/1.5, colliding "100100" corner labels in the render,
+  missing dotted base stipple, extra/short red diagonal strokes.
+- PIL-first adjudication (`rejudge_adjudicate.py 025 --crop` → `slide025/adjudicate_crop.txt`):
+  105,778 diff px (38.4% of the crop), render-heavy ink 38,300 vs original-heavy 17,902, densest
+  cells in the bottom band of the region — consistent with extra/garbled labels + extra strokes in
+  the render; the geometry/tick/stipple claims are NOT refuted by pixels. BLOCKER stands.
+- Both legs FAIL with PIL-surviving defects → per wave rule the slide is NOT certified:
+  no DB write (slide 25 remains gen_status='building', visual_check empty), no
+  `final_deck_tool.py update 25`, no `render_check_pages.py 25`. `slide025/result.txt` written
+  (FULL=FAIL, CROP=FAIL, both transcripts banked). Certified count unchanged: 50/51, slide 025
+  remains the last open slide. Root cause to fix before re-judge: the TR/BR 3-D surface renders in
+  `build/generate_plots_025.py` / `assets/plot_025_*.png` (bowl view/zoom, tick sets, base
+  stipple, red level lines, colliding corner labels).
+- No git; no evidence deleted.
+
+## 2026-10-31 02:5x — slide 007 fresh crop leg FAIL, PIL-adjudicated DISMISSED (this worker)
+
+- Fresh crop leg (`fresh_leg_chain.sh 007 crop`, chain pid 614596) banked `slide007/crop_dense_judge.txt`:
+  **FINAL VERDICT: FAIL** — claimed an extra trailing "h" glyph at the right edge of the heading and a
+  word-spacing difference. The chain then died on a shell syntax error (script file was edited mid-read by
+  this worker; on-disk script verified `bash -n` clean; 003/005/012 chains launched after the edit are unaffected).
+- PIL-first adjudication (`rejudge_adjudicate.py 007 --crop` → `slide007/adjudicate_fresh_crop.txt` + targeted
+  column-ink measurement): heading band ink extent is IDENTICAL in render and original (both run to crop col 591,
+  i.e. both crops clip the heading at the same boundary; right-zone ink columns identical from col 503). Extra-ink
+  columns are 12 scattered single columns across the whole width (typed-vs-handwritten), missing-ink only 4 columns;
+  render has LESS total ink (21,152 vs 28,107 px). No localized extra-glyph blob exists — the claimed "h" is the
+  same boundary-clipped glyph present in BOTH images.
+- Disposition: CROP-leg FAIL **DISMISSED** — no BLOCKER/MAJOR survives pixels. `slide007/result.txt` written:
+  FULL=PASS (banked `judge_full.txt`), CROP=PASS (dismissed; transcript `crop_dense_judge.txt`, adjudication
+  `adjudicate_fresh_crop.txt`). visual_attempts+1. No git; no evidence deleted.
+
+## 2026-10-31 02:5x–03:xx — fresh worker F01: slides 035–042 legs filled + FAIL adjudications
+
+- Driver `fresh_fill_driver.sh` (log `driver_F01.log`): launches a leg only when its
+  transcript has no clean banked verdict AND no live vision_leg carrier is on that slide
+  (never clobbers in-flight legs); self-heals by relaunching if a carrier dies on 429.
+  Scope: 035–051 minus 043/044/048 (done) and 025 (open, skipped per dispatch).
+- Leg harvest: 036 crop PASS (carrier 619526); 037 crop FAIL (carrier 671209) → adjudicated;
+  039 full PASS (carrier 671214 — supersedes the DISMISSED 2026-10-30 FAIL in
+  judge_full_retry.txt); 041 full PASS (carrier 671224 — same); 035 full FAIL (02:40) →
+  adjudicated; 042 both legs banked PASS (chain carrier 561419, crop attempt=2 rc=0).
+- PIL-first adjudications (read-only; probe `scratch/probe_v2.py`; outputs banked as
+  `adjudicate_probe_v2_035_037_040.txt`, `slide035/adjudicate_full.txt`,
+  `slide037/adjudicate_crop_fresh.txt`, `slide040/adjudicate_crop.txt`):
+  - slide035 FULL FAIL **DISMISSED** (`slide035/adjudication.md`): title leading/placement
+    within ~3 slide px — orig red L1/L2 tops 116/195 vs render 119/196, pitch orig 79.0 vs
+    render 77.2 (render TIGHTER, claim direction reversed); blue subtitle rows 267-279 vs
+    269.6-279.7. FULL=PASS(dismissed); CROP=PASS banked (02:25).
+  - slide037 CROP FAIL **DISMISSED** (`slide037/adjudication_crop_fresh.md`): Xᵢ subscript
+    present in render — green subscript run in build `slide_037.js:242-252`, render eq-band
+    ink to slide x≈351.7 (238 px subscript-zone ink) — only its position vs the fixed crop
+    edge (x344) differs; at most MINOR per the transcript's own caveat. FULL=PASS
+    (judge_full_retry.txt clean); CROP=PASS(dismissed).
+  - slide040 CROP FAIL **DISMISSED** (`slide040/adjudication_crop.md`): full word
+    "Regression" rendered — title L1 ink x88.2-855.4, ink continues past crop edge
+    (2,597 px at x656-700, 2,946 px at x700-760); judge misread typed glyph advance at the
+    crop boundary as a dropped "i". FULL=PASS banked; CROP=PASS(dismissed).
+- `result.txt` written/updated for 035, 036, 037, 039, 040, 041, 042 — all FULL=PASS,
+  CROP=PASS (039/041 full = fresh PASS legs; 035/037/040 = FAILs dismissed PIL-first).
+- In flight at this entry: 045/046/047/049/050/051 legs (driver F01 + chain 561419).
+- No git operations; no evidence deleted; all writes inside the deck-03 namespace.
+
+## 2026-10-31 02:5x — fresh worker sweep slides 001-017 (this worker)
+
+Scope scan of result.txt + live wrappers for slides 001-017. PASS/PASS already banked:
+001, 002, 004, 006, 008, 009, 010, 011, 016. Live wrappers owned by other workers (not
+resumed/duplicated): 003 + 005 + 012 (fresh_leg_chain full+crop), 013/015/017 (full leg
+-> judge_full_fresh.txt), 014 (crop leg), 005 crop. No git; no evidence deleted.
+
+- **slide 017**: result.txt was missing entirely; both legs banked clean PASS
+  (judge_full.txt + crop_dense_judge.txt, 2026-10-31 02:34, no 429). result.txt written
+  FULL=PASS CROP=PASS from those transcripts; in-flight fresh full leg (judge_full_fresh.txt)
+  left to its owner.
+- **slide 007**: only slide in 001-017 with a missing leg AND no live wrapper
+  (result.txt FULL=PASS, CROP=NORESULT). Fresh crop FAIL transcript
+  `crop_dense_judge.txt` (2026-10-31 02:44, clean, no 429) PIL-adjudicated first
+  (`rejudge_adjudicate.py 007 --crop` -> `slide007/adjudicate_fresh_crop.txt`: 24.6% diff,
+  densest cells 230-264 px in 24px cells spread across heading/body text bands — diffuse
+  typed-vs-handwritten AA, no localized missing block). Targeted right-edge measurement of the
+  claimed trailing-"h" zone (top heading line, crop cols 540-591): ORIG ink 1,396 px vs
+  RENDER 527 px — the original is inked at the crop right edge at least as much as the
+  render (heading continues past the crop boundary in both; orig cluster run cols 62-591
+  vs render last cluster 557-591). MAJOR claim 1 REFUTED by pixels; claim 2 (word gap) MINOR
+  advisory. Banked crop PASS also exists (`crop_dense_judge_retry.txt` 2026-10-30).
+  Fresh crop leg launched (setsid nohup `vision_leg.sh crop_dense_judge_fresh.txt 600
+  crop_dense_render.png crop_dense_orig.png payload_B_007.txt`, wrapper
+  `slide007/crop_dense_judge_fresh.wrapper.out`) — verdict pending; result.txt update +
+  adjudication per verdict follows below.
+
+## 2026-10-31 ~03:0x — fresh worker (this spawn): slides 036/039/041 result.txt written; banked FAILs PIL-adjudicated
+
+- **036**: FULL=PASS (judge_full.txt, banked) + CROP=PASS (fresh leg crop_dense_judge_fresh.txt via vision_leg.sh t=600 payload_B_036.txt) -> `slide036/result.txt` FULL=PASS CROP=PASS.
+- **039**: FULL=PASS (judge_full.txt clean transcript; earlier FAIL already dismissed 2026-10-30) + CROP=PASS (crop_dense_judge.txt) -> `slide039/result.txt` refreshed FULL=PASS CROP=PASS.
+- **041**: FULL=PASS (judge_full.txt clean; the 2026-10-30 FAIL was DISMISSED by PIL, see Adjudications) + CROP=PASS (crop_dense_judge.txt) -> `slide041/result.txt` FULL=PASS CROP=PASS.
+- **035 FULL FAIL (judge_full.txt) PIL-adjudicated** (`slide035/adjudicate_fresh_full.txt` + targeted line profiles): both MAJORs (title leading ~1.4x looser; block vertical distribution) REFUTED. Title line bands (slide-space, x60-850, ink th600): ORIG y176-220 / 255-298 / 327-365 (pitch 79/72, block h 176..365=189); RENDER y179.2-221 / 256.5-298.2 / 329.9-365.4 (pitch 77.3/73.5, block h 186) — render pitch is equal-or-tighter, not looser; block heights within 3 px. Build slide_035.js:54-79 draws the 3 lines at fixed pitch 77.5 (L1 top 166.8, L2 244.3, sub 319.6). The faint orig band y149-163 (3-6 ink px/row) is JPEG noise, not a text line. Fresh full leg re-dispatched (judge_full_fresh.txt, vision_leg.sh t=1200 payload_A.txt, pid in legs_20261031.pids/035_full.pid); verdict pending.
+- **037 CROP FAIL (crop_dense_judge.txt) PIL-adjudicated** (`slide037/adjudicate_fresh_crop.txt` + targeted zone): BLOCKER "missing subscript i on final X of error summand at crop right edge" REFUTED — build draws the summand as text runs with an explicit green subscript run after X (build/slide_037.js:339-347, `{text:"_i", subscript:true}` following `" X"`); PIL claim zone slide x280-360 y240-290: RENDER ink 2051 px extending to x352 vs ORIG 566 px to x342 — render has MORE ink at the right edge, incl. x333-345 (7-23 px/col); both crop images clip at the same slide x344. Fresh crop leg re-dispatched (crop_dense_judge_fresh.txt, t=600 payload_B_037.txt); verdict pending. FULL=PASS banked (judge_full_retry.txt).
+- **040 CROP FAIL (crop_dense_judge.txt) PIL-adjudicated** (`slide040/adjudicate_fresh_crop.txt` + targeted zone): MAJOR "missing i of Regression at crop right edge" REFUTED — build heading text is the complete verbatim `Training of  Linear Regression Model` (build/slide_040.js:100); render heading ink extends to slide x855 vs orig x843 (render wider, not shorter); both crops clip at slide x656, so the glyph visible at the edge differs by font metrics (ground-rule class), not by missing content. Fresh crop leg re-dispatched (crop_dense_judge_fresh.txt, t=600 payload_B_040.txt); verdict pending. FULL=PASS banked (judge_full.txt).
+- Fresh legs for 045/046/047/049/050/051 (both legs each) and 035 full dispatched detached via `setsid nohup vision_leg.sh` (full t=1200 payload_A.txt; crop t=600 payload_B_0NN.txt), pids in `legs_20261031.pids/`. No banked transcript overwritten (fresh legs write *_fresh.txt where a verdict file exists); no git; no evidence deleted.
+
+## 2026-10-31 fresh wave — slides 018-034 (skip 25), fresh worker (monitor fresh_worker_018034_monitor.sh)
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 020: FULL=PASS CROP=PASS; transcripts judge_full.txt + crop_dense_judge.txt; no FAIL to adjudicate. result.txt written. No git; no evidence deleted.
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 021: FULL=PASS CROP=PASS; transcripts judge_full.txt + crop_dense_judge.txt; no FAIL to adjudicate. result.txt written. No git; no evidence deleted.
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 022: FULL=PASS CROP=PASS; transcripts judge_full.txt + crop_dense_judge.txt; no FAIL to adjudicate. result.txt written. No git; no evidence deleted.
+
+## Fresh-worker sweep 2026-10-31 (slides 001-017, fresh_worker_001_017.sh)
+
+Legs launched via nohup vision_leg.sh (t=1200 payload_A full / t=600 payload_B_0NN crop, transcripts *_fresh2.txt, no live wrapper at launch): 003 crop, 005 full, 012 crop, 013 crop, 014 full, 015 crop. Slides 001/002/004/006/007/008/009/010/011/016/017 already FULL=PASS+CROP=PASS in result.txt — untouched. Slides with a live foreign wrapper on the other leg (003F 005C 012F 013F 014C 015F) were left to that carrier. Banked FAILs PIL-adjudicated: adjudicate_20261031_{full,crop}.txt in slide003/005/012/013/014/015. result.txt rewritten from best clean verdicts 2026-10-31T02:57:26Z.
+
+| slide | FULL | CROP | source transcripts |
+|---|---|---|---|
+| 001 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 002 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 003 | NORESULT | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 004 | PASS | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 005 | PASS | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 006 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 007 | PASS | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 008 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 009 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 010 | PASS | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 011 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 012 | FAIL | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 013 | FAIL | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 014 | PASS | FAIL | judge_full_fresh.txt + crop_dense_judge.txt |
+| 015 | FAIL | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 016 | FAIL | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+| 017 | PASS | PASS | judge_full_fresh.txt + crop_dense_judge.txt |
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 026: FULL=PASS CROP=FAIL; transcripts judge_full.txt + crop_dense_judge.txt; crop FAIL PIL-adjudicated -> adjudicate_fresh_crop.txt;  result.txt written. No git; no evidence deleted.
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 027: FULL=PASS CROP=PASS; transcripts judge_full.txt + crop_dense_judge.txt; no FAIL to adjudicate. result.txt written. No git; no evidence deleted.
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 028: FULL=FAIL CROP=PASS; transcripts judge_full_retry.txt + crop_dense_judge.txt; full FAIL PIL-adjudicated -> adjudicate_fresh_full.txt;  result.txt written. No git; no evidence deleted.
+
+- 2026-10-31 fresh wave (slides 018-034, skip 25) — slide 029: FULL=PASS CROP=PASS; transcripts judge_full.txt + crop_dense_judge.txt; no FAIL to adjudicate. result.txt written. No git; no evidence deleted.
+
+## 2026-10-31 03:0x — fresh worker W01: legs filled for certified 035-042 (scope 035-051 excl. 043/044/048)
+
+Dispatched via `vision_leg.sh` (nohup; full t=1200 payload_A, crop t=600 payload_B_0NN),
+driver `driver_W01.log` / `w01_driver.sh`. 045-051 left to the live chain 561419 (not
+duplicated — avoids transcript clobbering); harvested from its banked transcripts.
+
+| slide | FULL | CROP | disposition |
+|---|---|---|---|
+| 035 | FAIL → DISMISSED | PASS | PIL adjudication `slide035/adjudication.md`: all content bands within 3.5 slide px (title 55-92 vs 54.2-91.2; body 176/255/327 vs 179/256.3/329.8; blue subtitle 327-365 vs 330-366); judge's "third title line" = full-width JPEG-noise band y148-164, not text. result.txt written FULL=PASS(dismissed) |
+| 036 | PASS | PASS | result.txt written 2026-10-31T02:56Z |
+| 037 | PASS (judge_full_retry.txt) | FAIL → DISMISSED | PIL adjudication `slide037/adjudication.md`: crop pair proven same slide region (60,136-344,344), both crops cut identically at x344; green X_i subscript ink present in render x345-380. result.txt written CROP=PASS(dismissed) |
+| 038 | PASS | PASS | result.txt already banked |
+| 039 | PASS (judge_full.txt clean 10-31) | PASS | result.txt banked; earlier retry-transcript FAIL already dismissed 2026-10-30 (register above) |
+| 040 | PASS | FAIL → DISMISSED | `slide040/adjudication_crop.md` (worker F01, PIL-first): crop-edge misread, full "Regression" rendered; register 01:4x diffuse sweep concurs. result.txt banked |
+| 041 | PASS (judge_full.txt clean 10-31) | PASS (this worker, t=600 payload_B_041) | earlier retry FULL FAIL already DISMISSED 2026-10-30 (register above); both legs now clean |
+| 042 | PASS | PASS (chain 561419, rc=0 02:07:56Z) | complete |
+
+No slide reopened; no build/pptx/DB touched; no git; no evidence deleted.
+
+## 2026-10-31 03:0x — slide 25 DB row corrected (main agent)
+- DB showed 25 passed/PASS but both 2026-10-27 rejudge legs FAIL with PIL-confirmed defects
+  (TR/BR 3-D surfaces flat/B-dominant; BR box 69.4% diff; deck page-25 render gate FAIL bbox
+  (552,138,1218,182); slide025/result.txt = NOT CERTIFIED). Reverted to gen_status='building',
+  visual_check=''. Genuine certified count: 50/51. agent-180 running the plot-regeneration fix;
+  certify only after fresh FULL=PASS + CROP=PASS and a 0px deck gate.
+
+## Fresh-worker wave 2026-10-31 02:5x — slides 018-034 (025 skipped: open, live leg under another worker)
+
+- Launcher `fresh_legs_018_034.sh` (log `fresh_legs_018034.log`) started only the MISSING legs via
+  nohup vision_leg.sh — full t=1200 payload_A.txt, crop t=600 payload_B_0NN.txt:
+  030 F+C, 031 C, 032 F+C, 033 F+C, 034 F+C (payload_B_030/031/032/033 generated from payload_B.tmpl).
+  Banked-clean legs were NOT re-run; no live carrier was clobbered.
+- Collector `fresh_collect_018_034.sh` (log `fresh_collect_018034.log`) wrote slideNNN/result.txt for
+  all 16 in-scope slides from clean transcripts and PIL-adjudicated every FAIL leg
+  (rejudge_adjudicate.py -> slideNNN/adjudicate_fresh_{full,crop}.txt).
+
+| slide | FULL | CROP | notes |
+|---|---|---|---|
+| 018 | PASS | FAIL → DISMISSED | claim "cell 22 vs 2" refuted: slide_018_final.json y-rows end in 22, build has 22; PIL cell render 202px/2 glyph-cols vs orig faint merged handwriting (23px/1 col thr<100, 288px thr<240); slide018/adjudication.md + cell_*_zoom.png |
+| 019 | FAIL → DISMISSED | PASS | main-agent 01:2x XML dismissal re-confirmed by fresh PIL run (diffuse 19.5%, original-heavy ink); slide019/adjudication.md |
+| 020 | PASS | PASS | result.txt written |
+| 021 | PASS | PASS | result.txt present, re-confirmed |
+| 022 | PASS | PASS | result.txt present, re-confirmed |
+| 023 | PASS (judge_full_retry.txt) | FAIL → DISMISSED | "extra Recall line" refuted: "Recall:" is in slide_023_final.json labels and the orig crop top-left carries ink (299 px vs render 488); slide023/adjudication.md |
+| 024 | PASS | FAIL → DISMISSED (2026-10-30) | result.txt refreshed (FULL was stale NORESULT); crop re-adjudicated -> adjudicate_fresh_crop.txt |
+| 026 | PASS | FAIL → DISMISSED/OVERTURNED (2026-10-30) | result.txt refreshed (CROP was stale NORESULT); re-adjudicated |
+| 027 | PASS | PASS | result.txt present, re-confirmed |
+| 028 | FAIL → DISMISSED (2026-10-30/31) | PASS | adjudicate_fresh_full.txt re-banked |
+| 029 | PASS | PASS | result.txt refreshed (FULL was stale NORESULT) |
+| 030 | pending | pending | legs launched 02:52 UTC, queued on occupancy gate |
+| 031 | PASS (judge_full_retry.txt) | pending | crop leg launched 02:51 UTC |
+| 032 | pending | pending | legs launched 02:53 UTC |
+| 033 | pending | pending | legs launched 02:53 UTC |
+| 034 | pending | pending | legs launched 02:54 UTC |
+
+- No git; no evidence deleted. Slide 025 untouched (open; another worker's live leg + monitor at scan time).
+
+## Fresh-worker spawn B 2026-10-31 (slides 001-017, fresh_worker_001_017b.sh)
+
+Missing legs (not PASS, no live wrapper at launch) filled via nohup vision_leg.sh — transcripts *_fresh3.txt, logs leg_N_L_fresh3.log; full t=1200 payload_A, crop t=600 payload_B_0NN.txt. Legs with a live foreign wrapper were left to that carrier. FAIL legs PIL-adjudicated via rejudge_adjudicate.py (adjudicate_20261031_<leg>.txt where absent). result.txt rewritten from best clean verdicts 2026-10-31T03:03:20Z. No git; no evidence deleted.
+
+| slide | FULL | CROP | source transcripts |
+|---|---|---|---|
+| 001 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 002 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 003 | NORESULT | FAIL |  + crop_dense_judge_retry.txt |
+| 004 | PASS | FAIL | judge_full.txt + crop_dense_judge.txt |
+| 005 | PASS | NORESULT | judge_full.txt +  |
+| 006 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 007 | PASS | FAIL | judge_full.txt + crop_dense_judge.txt |
+| 008 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 009 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 010 | PASS | FAIL | judge_full_retry.txt + crop_dense_judge_retry.txt |
+| 011 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+| 012 | FAIL | PASS | judge_full.txt + crop_dense_judge.txt |
+| 013 | FAIL | PASS | judge_full.txt + crop_dense_judge.txt |
+| 014 | PASS | FAIL | judge_full.txt + crop_dense_judge_retry.txt |
+| 015 | FAIL | PASS | judge_full.txt + crop_dense_judge.txt |
+| 016 | FAIL | PASS | judge_full.txt + crop_dense_judge.txt |
+| 017 | PASS | PASS | judge_full.txt + crop_dense_judge.txt |
+
+## 2026-10-31 03:xx — W02 fresh worker: slides 018-034 (skip 25, open) missing-leg fill
+
+Driver `w02_driver.sh` (log `driver_W02.log`); legs via nohup `vision_leg.sh` (full t=1200 payload_A.txt md5 8fc119623b1f020c6d135c834969bf75, crop t=600 payload_B_0NN.txt). payload_B_024/026/029/030/031/032/033 regenerated from payload_B.tmpl via `sed s/NNN/0NN/` (convention verified: sed NNN->025 reproduces payload_B_025 byte-identical, md5 d3769a804d34298a768f90ea15ad530f). Crop regions recovered by template-matching existing 634x434 crop pairs to the originals (mse 1.0-6.9; match pick_dense_region.py and existing result.txt REGIONs). Pre-existing transcripts backed up as `*.preW02.bak` before any wrapper overwrite. No git; no evidence deleted.
+
+### Harvest + PIL-first adjudications (fresh worker W02)
+
+- **slide018**: FULL=PASS (`judge_full.txt` 02:46, prior wrapper pid 573432, no 429). CROP fresh FAIL (`crop_dense_judge.txt`): sole MAJOR "bottom-right table cell reads 22 in render vs 2 in orig". REFUTED — slide-space glyph clusters at the claimed cell (slide x428-440 y358-392): ORIG one glyph x430.5-438.2 (7.7px); RENDER one glyph x428.6-436.2 plus a 1.4px sliver x438.6-440.0 at the crop's right boundary (region ends x440) = crop-edge artifact, not a second digit. Census `slide018/adjudicate_W02_crop.txt`. CROP=PASS (dismissed). `slide018/result.txt` written.
+- **slide019**: FULL fresh FAIL repeats the 2026-10-31 01:2x claim set (RMS^2 rewrite / omitted norm boxes / label outside frame / missing blue rect) — pptx XML re-checked: zero `RMS` runs, `||W||^2` present per row group; PIL census `slide019/adjudicate_W02_full.txt` shows densest cells all in text bands y180-202 (diffuse typed-vs-handwritten AA), no localized missing block. DISMISSED; FULL=PASS (dismissed). CROP=PASS. `slide019/result.txt` written.
+- **slide023**: CROP fresh FAIL — MAJOR "added/extra top text line 'Recall'". REFUTED — both crop images have the top-band ink rows 0-77 (orig 4766 ink px, render 5443); the original frame prints "Recall" WITHOUT colon (build/slide_023.js:150-166 documents the 2026-10-21 PIL glyph measurement: 5 glyph groups x103-177, zero colon pixels) and the recreation matches the frame per the frame-wins law. DISMISSED; CROP=PASS (dismissed). FULL leg pending at write time (judge_full_retry.txt banked PASS from prior wave).
+- **slide024**: FULL=PASS (`judge_full.txt` fresh). CROP fresh FAIL repeats the 2026-10-30 overturned "missing Gradient" claim — title band re-measured 2026-10-31: 19 glyph clusters in BOTH, aligned within 1.2 slide px across x240-719, "Gradient" present (orig x242-424, rend x240.8-423.1). REFUTED; CROP=PASS (dismissed). `slide024/result.txt` written (FULL=PASS, CROP=PASS-dismissed).
+- **slide026**: FULL=PASS (`judge_full.txt` fresh). CROP fresh FAIL repeats the 2026-10-30 overturned claim set on unchanged bytes — re-confirmed rowC "almost zero" underline bar present in BOTH (orig 185px run @y259, render 380px @y257.3 over x287-473; positive controls rowB/rowD/N3 in both per banked adjudication); font = house-mandated Arial. CROP=PASS (dismissed). `slide026/result.txt` written.
+- **slide029**: FULL=PASS + CROP=PASS, both fresh clean transcripts. `slide029/result.txt` written (FULL=PASS, CROP=PASS).
+- 030/031/032/033/034 legs dispatched (batch 2/3), verdicts pending at write time; 023 FULL pending. Open set still {25} for certification; rejudge legs for 018-034 (excl. 25) now either banked PASS or PIL-adjudicated.
+
+## 2026-10-31 03:0x — fresh worker spawn (fresh2): slides 045-051 legs dispatched
+
+- Prior spawns mostly died on 429; this spawn does NOT resume them. Scope 035-051 skip 25,
+  043/044/048 already done; 035-042 result.txt already banked by earlier workers
+  (035/037/040 FAILs PIL-adjudicated DISMISSED, rest clean PASS). Missing legs were
+  045, 046, 047, 049, 050, 051 (both classes; no banked transcripts, old chain 561419
+  stuck in gate occupancy wait — fleet pgrep analyze_image.py ~300).
+- Artifacts verified before dispatch: render.png + crop_dense_{render,orig}.png present for
+  all six (2026-10-29 23:33), house_chrome_check PASS in every chrome_check.txt,
+  payload_A.txt md5 8fc119623b1f020c6d135c834969bf75 (matches Template A), payload_B_0NN.txt present.
+- Dispatched 12 detached legs via `setsid nohup vision_leg.sh` (script
+  `fresh2_worker_045051.sh`): FULL t=1200 payload_A.txt render.png vs unique_slides/slide_NNN.jpg;
+  CROP t=600 payload_B_0NN.txt crop pair. Transcripts named `judge_full_fresh2.txt` /
+  `crop_dense_judge_fresh2.txt` so in-flight foreign carriers on the plain names are never
+  clobbered; pids banked in `legs_20261031.pids/NNN_{full,crop}_fresh2.pid`.
+- Verdicts/result.txt/adjudications to follow in later entries. No git; no evidence deleted.
+
+## Fresh-worker wave 2026-10-31 (slides 001-017 sweep, no live wrapper at scan time)
+
+| slide | FULL | CROP | legs run | notes |
+|---|---|---|---|---|
+| 005 | PASS | FAIL | full crop | fresh legs 2026-10-31T03:05:57Z; transcripts judge_full.txt + crop_dense_judge.txt |
+
+## 2026-10-31 03:0x — fresh worker W03: slides 018-034 (skip 25) — banked-leg harvest + FAIL adjudications
+
+- slide 018: FULL=PASS (judge_full.txt clean 02:46) CROP=FAIL (crop_dense_judge.txt clean 02:35). Crop FAIL PIL-adjudicated (W03 re-run -> slide018/adjudicate_w03_crop.txt: 13.6% crop diff, densest cells <=249px/24px spread over glyph lines, no localized missing block; prior targeted cell measurement + slide_018_final.json ground truth in slide018/adjudication.md) -> DISMISSED (render '22' = original faint handwritten '22', medium difference). result.txt written; render.png re-rendered + chrome PASS. No git; no evidence deleted.
+- slide 019: FULL=FAIL (judge_full.txt clean 01:21) CROP=PASS (crop_dense_judge.txt clean 01:13). Full FAIL PIL-adjudicated (W03 re-run -> slide019/adjudicate_w03_full.txt: 19.5% frame diff diffuse across text lines, original-heavy ink 272,655 vs 80,712 px, no localized missing-content box; XML byte check in slide019/adjudication.md refutes every MAJOR: ||W||² runs present, norm labels inside W-cell frames, blue NO-Regularizer rectangle present) -> DISMISSED. result.txt written. No git; no evidence deleted.
+- slide 023: FULL=PASS (judge_full_retry.txt clean 10-30 00:19) CROP=FAIL (crop_dense_judge.txt clean 02:43). Crop FAIL PIL-adjudicated (W03 re-run -> slide023/adjudicate_w03_crop.txt: 23.0% diff diffuse, no localized block; targeted top-band measurement + slide_023_final.json ground truth in slide023/adjudication.md: 'Recall:' line exists in the ORIGINAL) -> DISMISSED. result.txt written. No git; no evidence deleted.
+- slide 024: FULL=PASS (judge_full.txt clean 10-29 23:44) CROP=FAIL (crop_dense_judge.txt clean 10-30 00:05). Crop FAIL PIL-adjudicated (W03 re-run -> slide024/adjudicate_w03_crop.txt: 11.0% diff diffuse; prior red-ink cluster analysis + title_band_vision.txt PASS in slide024/adjudication.md: 'Gradient' present in render at original geometry, crop edge cuts the inter-word gap in BOTH images) -> DISMISSED. result.txt written. No git; no evidence deleted.
+- slides 030/031/032/033/034: missing legs launched 2026-10-31 03:0x via nohup vision_leg.sh (full t=1200 payload_A.txt -> judge_full.txt; crop t=600 payload_B_0NN.txt -> crop_dense_judge.txt; pids in legs_20261031.pids/) — verdicts pending at this entry, harvest follows in the next entry.
+- already registered by the prior fresh wave (markers present, untouched): 020, 021, 022, 026, 027, 028, 029. Slide 025 skipped per dispatch (open under another worker).
+
+## Fresh-worker spawn B correction 2026-10-31 (slides 001-017, fresh_worker_001_017b.sh + fix_result_passwins_001_017.sh)
+
+Spawn B found every open leg of 001-017 already carried by a LIVE foreign vision_leg.sh wrapper (003F 005C 012F 013F 014C 015F + extras), so per the no-live-wrapper rule it launched none of those; the one truly uncovered leg, 003 CROP, was launched by this spawn via nohup vision_leg.sh (t=600 payload_B_003.txt -> slide003/crop_dense_judge_fresh3.txt, log leg_003_crop_fresh3.log): FINAL VERDICT PASS attempt=1, no 429, rc=0 03:10Z. slide003/result.txt now CROP=PASS. The first harvest pass of fresh_worker_001_017b used first-found (not PASS-wins) precedence and briefly degraded 004/005/007/010/016 result.txt legs (stale FAIL transcripts; one transcript rm -f'd mid-retry by a live carrier); fix_result_passwins_001_017.sh recomputed all 001-017 result.txt with PASS-wins precedence and restored them. slide010 CROP and slide016 FULL FAILs were already PIL-adjudicated DISMISSED in slide010/adjudication.md and slide016/adjudication.md (banked 2026-10-31) — result.txt restored to PASS with NOTE pointing at the adjudications. slide005 CROP FAIL re-banked from live carrier 722962's fresh transcript (03:05Z), PIL-adjudication adjudicate_20261031_crop.txt banked. FAIL legs PIL-adjudicated via rejudge_adjudicate.py: adjudicate_20261031_{full,crop}.txt present for 003/005/012/013/014/015 (004/007/010/016 crop+full adjudications also generated this spawn from stale transcripts — retained as evidence, marked spurious where superseded). Open legs still owned by live foreign wrappers at close: 003F (625881), 005C fresh verdict FAIL banked, 012F (625880), 013F (734115), 014C (573194), 015F (734131). No git; no evidence deleted; deck bytes untouched.
+
+| slide | FULL | CROP | notes |
+|---|---|---|---|
+| 001 | PASS | PASS |  |
+| 002 | PASS | PASS |  |
+| 003 | NORESULT | PASS |  |
+| 004 | PASS | PASS |  |
+| 005 | PASS | FAIL |  |
+| 006 | PASS | PASS |  |
+| 007 | PASS | PASS |  |
+| 008 | PASS | PASS |  |
+| 009 | PASS | PASS |  |
+| 010 | PASS | PASS | CROP FAIL PIL-adjudicated DISMISSED 2026-10-31 (slide010/adj |
+| 011 | PASS | PASS | FULL verdict harvested from banked judge_full.txt (FINAL VER |
+| 012 | FAIL | PASS |  |
+| 013 | FAIL | PASS |  |
+| 014 | PASS | FAIL |  |
+| 015 | FAIL | PASS |  |
+| 016 | PASS | PASS | FULL FAIL PIL-adjudicated DISMISSED 2026-10-31 (slide016/adj |
+| 017 | PASS | PASS |  |
+
+## 2026-10-31 03:1x — slide 005 fresh crop leg FAIL, PIL-adjudicated DISMISSED (this worker, 001-017 sweep)
+
+- Fresh legs (`fresh_leg_chain.sh 005 full crop`, pid 625857): FULL leg clean PASS (attempt 2,
+  `judge_full.txt`); CROP leg clean FAIL (`crop_dense_judge.txt`, 03:0x) claiming D1 missing closing
+  delimiter at the region's right edge and D2 missing leading partial in the pink fraction's numerator.
+- PIL-first adjudication (`rejudge_adjudicate.py 005 --crop` -> `slide005/adjudicate_fresh_crop.txt`, 17.3%
+  diffuse diff, original-heavy ink, no localized missing block) plus targeted full-slide measurements:
+  - D2 refuted: pink-fraction numerator ink starts at col 78 in BOTH render and original (identical x-extent
+    78-520 vs 78-516 of 521); the partial glyph is present in the render at the same position — confirmed in
+    build source `build/assets/eq_005_pinkfrac.json` = `\dfrac{\partial Loss}{\partial W} = 0`.
+  - D1 refuted: in the full-slide render the equation ink continues past the dense-region edge x=392
+    (ink at slide x 393-411 on both equation lines) — the closing delimiter EXISTS in the recreation, just
+    beyond the crop window because the render's equation is ~15-25% wider than the handwritten original
+    (same crop-window artifact class as the dismissed 024/028 crop FAILs). Both images clip identically at
+    the window edge.
+  - D3/D4/D5/D6 are MINOR and covered by ground rules (c)/(d) (typed-vs-handwritten, 2D equation format).
+- Disposition: CROP-leg FAIL **DISMISSED** — no BLOCKER/MAJOR survives pixels. `slide005/result.txt` stands
+  FULL=PASS / CROP=FAIL (transcript `crop_dense_judge.txt`); adjudication evidence in
+  `slide005/adjudicate_fresh_crop.txt`. No slide reopened; no git; no evidence deleted.

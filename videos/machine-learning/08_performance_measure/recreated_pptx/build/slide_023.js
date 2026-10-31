@@ -41,6 +41,11 @@ s.addText("Effect of Selecting Threshold Value on Model Performance", {
   fontSize: 24, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 
+// ---- original inner red content frame (x59..900, y63..516, measured) ----
+s.addShape(pptx.shapes.RECTANGLE, {
+  x: P(59), y: P(63), w: P(841), h: P(453),
+  fill: { type: "none" }, line: { color: RED, width: 1.5 },
+});
 // ---- divider under title band (original full-width red line at y=82) ----
 s.addShape(pptx.shapes.LINE, {
   x: P(59), y: P(82), w: P(841), h: 0, line: { color: RED, width: 1.5 },
@@ -100,9 +105,9 @@ confusionMatrix(82, 95, 41, 17, {
   fill: WHITE,
   cellFills: { "1,1": "C6E0B4", "2,2": "C6E0B4", "2,1": PALE_YELLOW }, // TP, TN green; FN pale yellow
 });
-// header row (y95..112): P, N in cols 2,3 — dark per frame (no blue ink there)
-cellText(143, 103, 30, 14, "P", DARK, 10, true);
-cellText(183, 103, 30, 14, "N", DARK, 10, true);
+// header row (y95..112): P, N in cols 2,3 — red-family ink per frame
+cellText(143, 103, 30, 14, "P", RED, 10, true);
+cellText(183, 103, 30, 14, "N", RED, 10, true);
 // row labels col1
 cellText(102, 120, 30, 14, "P", DARK, 9, true);
 cellText(102, 137, 30, 14, "N", DARK, 9, true);
@@ -126,16 +131,16 @@ s.addText("Threshold=0.4", {
 // ---- matrix 2 (lower-left, numeric 4/1/1/5) ----
 // grid x81..229 (cw ~49), y176..222 (rh ~15.3); "Predicted as" above, clear of matrix 1
 s.addText("Predicted as", {
-  x: P(81), y: P(149), w: P(148), h: P(12),
+  x: P(81), y: P(152), w: P(148), h: P(12),
   align: "center", valign: "middle",
   fontSize: 10, bold: true, color: RED, fontFace: FONT, margin: 0,
 });
 rotatedLabel(73, 199, 30, 14, "Actual", RED, 8);
 confusionMatrix(81, 176, 49, 15, { fill: WHITE });
-cellText(154, 183, 30, 12, "P", BLUE, 11, true);
-cellText(204, 183, 30, 12, "N", BLUE, 11, true);
-cellText(105, 191, 30, 12, "P", BLUE, 10, true);
-cellText(105, 207, 30, 12, "N", BLUE, 10, true);
+cellText(154, 183, 30, 12, "P", RED, 11, true);
+cellText(204, 183, 30, 12, "N", RED, 11, true);
+cellText(105, 191, 30, 12, "P", RED, 11, true);
+cellText(105, 207, 30, 12, "N", RED, 11, true);
 cellText(154, 199, 30, 13, "4", BLUE, 12, true);
 cellText(204, 199, 30, 13, "1", RED, 12, true);
 cellText(154, 214, 30, 13, "1", RED, 12, true);
@@ -153,41 +158,51 @@ s.addText("Test\nSample", {
   fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
 });
 
-// propeller-plane sketch (gray line art), centered at (cx,cy) in px
-function drawPlane(cx, cy, wpx) {
+// hand-drawn-style passenger jet (gray line art), centered at (cx,cy) in px, width wpx
+function drawPlane(cx, cy, wpx, flip) {
   const w = P(wpx), h = w * 0.42, X = P(cx), Y = P(cy);
+  const F = flip ? { flipH: true } : {};
   s.addShape(pptx.shapes.ROUNDED_RECTANGLE, {
     x: X - w / 2, y: Y - h * 0.10, w: w, h: h * 0.20,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 }, adjustValue: 0.5,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, adjustValue: 0.5, ...F,
   });
+  // nose
   s.addShape(pptx.shapes.OVAL, {
     x: X + w / 2 - h * 0.24, y: Y - h * 0.10, w: h * 0.24, h: h * 0.20,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 },
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, ...F,
   });
-  s.addShape(pptx.shapes.LINE, {
-    x: X + w / 2, y: Y - h * 0.32, w: 0, h: h * 0.64, line: { color: GRAY, width: 1.25 },
-  });
-  s.addShape(pptx.shapes.LINE, {
-    x: X + w / 2 - h * 0.09, y: Y, w: h * 0.18, h: 0, line: { color: GRAY, width: 1 },
+  // fuselage windows
+  for (let i = 0; i < 4; i++) {
+    s.addShape(pptx.shapes.OVAL, {
+      x: X - w * 0.30 + i * w * 0.16, y: Y - h * 0.045, w: h * 0.09, h: h * 0.09,
+      fill: { color: GRAY }, line: { type: "none" }, ...F,
+    });
+  }
+  // swept main wings
+  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
+    x: X + w * 0.02, y: Y + h * 0.05, w: w * 0.30, h: h * 0.55,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 215, ...F,
   });
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X + w * 0.10, y: Y + h * 0.05, w: w * 0.22, h: h * 0.46,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 }, rotate: 210,
+    x: X + w * 0.02, y: Y - h * 0.60, w: w * 0.30, h: h * 0.55,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 145, ...F,
+  });
+  // tail wings
+  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
+    x: X - w * 0.44, y: Y + h * 0.03, w: w * 0.16, h: h * 0.38,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 200, ...F,
   });
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X + w * 0.10, y: Y - h * 0.51, w: w * 0.22, h: h * 0.46,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 }, rotate: 150,
+    x: X - w * 0.44, y: Y - h * 0.41, w: w * 0.16, h: h * 0.38,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 160, ...F,
   });
+  // tail fin
   s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X - w * 0.46, y: Y + h * 0.04, w: w * 0.18, h: h * 0.36,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 }, rotate: 195,
-  });
-  s.addShape(pptx.shapes.ISOSCELES_TRIANGLE, {
-    x: X - w * 0.46, y: Y - h * 0.40, w: w * 0.18, h: h * 0.36,
-    fill: { color: WHITE }, line: { color: GRAY, width: 1 }, rotate: 165,
+    x: X - w * 0.50, y: Y - h * 0.52, w: w * 0.12, h: h * 0.52,
+    fill: { color: WHITE }, line: { color: GRAY, width: 1.25 }, rotate: 180, ...F,
   });
 }
-drawPlane(388, 133, 46);
+drawPlane(388, 133, 55);
 
 // block arrows (white fill, red outline)
 function blockArrow(x0, y0, wpx, hpx) {
@@ -208,10 +223,10 @@ s.addText("Model", {
   align: "center", valign: "middle",
   fontSize: 16, bold: true, color: WHITE, fontFace: FONT, margin: 0,
 });
-s.addText("[Any value] \u2192 (0, +1)", {
-  x: P(449), y: P(144), w: P(120), h: P(10),
-  align: "center", valign: "middle",
-  fontSize: 6.5, bold: false, color: "FFFF00", fontFace: FONT, margin: 0,
+s.addText("[Any value] \u2192 (0,+1)", {
+  x: P(449), y: P(143), w: P(120), h: P(11),
+  align: "center", valign: "middle", wrap: false,
+  fontSize: 8, bold: false, color: "FFFF00", fontFace: FONT, margin: 0,
 });
 // pie icon at right end of Model box: 600dpi PNG embedded at exact size (w = px/600 in)
 s.addImage({
@@ -254,7 +269,7 @@ s.addShape(pptx.shapes.OVAL, {
 s.addText("Class I", {
   x: P(759), y: P(119), w: P(78), h: P(20),
   align: "center", valign: "middle",
-  fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  fontSize: 10, bold: true, color: "006100", fontFace: FONT, margin: 0,
 });
 s.addShape(pptx.shapes.OVAL, {
   x: P(759), y: P(152), w: P(78), h: P(28),
@@ -263,7 +278,7 @@ s.addShape(pptx.shapes.OVAL, {
 s.addText("Class II", {
   x: P(759), y: P(152), w: P(78), h: P(28),
   align: "center", valign: "middle",
-  fontSize: 10, bold: true, color: BLACK, fontFace: FONT, margin: 0,
+  fontSize: 10, bold: true, color: "C71585", fontFace: FONT, margin: 0,
 });
 // thin red arrows: threshold right edge -> Class I (up-right) and Class II (down-right)
 s.addShape(pptx.shapes.LINE, {
@@ -306,25 +321,23 @@ tickLabel(0, "0.0"); tickLabel(0.5, "0.5"); tickLabel(1, "1.0");
 s.addShape(pptx.shapes.LINE, {
   x: P(59), y: P(500), w: P(841), h: 0, line: { color: RED, width: 2 },
 });
-// two dashed gray-lavender verticals at threshold 0.4 (x397 / x400.5), y210..495 per frame
-for (const dx of [397, 400.5]) {
-  s.addShape(pptx.shapes.LINE, {
-    x: P(dx), y: P(210), w: 0, h: P(285),
-    line: { color: "7F7F9F", width: 1.25, dashType: "dash" },
-  });
-}
+// single dashed gray-lavender vertical at threshold 0.4 (x397), y210..495 per frame
+s.addShape(pptx.shapes.LINE, {
+  x: P(397), y: P(210), w: 0, h: P(285),
+  line: { color: "7F7F9F", width: 1.25, dashType: "dash" },
+});
 // 11 airplane samples: [axis_fraction, y_px, dot_color]
 const planes = [
-  [0.05, 340, RED], [0.25, 300, RED], [0.03, 360, RED], [0.17, 380, RED],
-  [0.365, 332, RED], [0.62, 320, RED],
-  [0.34, 240, BLUE], [0.55, 385, BLUE], [0.72, 310, BLUE],
-  [0.89, 260, BLUE], [0.99, 370, BLUE],
+  [0.05, 340, RED, false], [0.25, 300, RED, false], [0.03, 360, RED, true],
+  [0.17, 380, RED, false], [0.365, 332, RED, false], [0.62, 320, RED, true],
+  [0.34, 240, BLUE, false], [0.55, 385, BLUE, false], [0.72, 310, BLUE, true],
+  [0.89, 260, BLUE, false], [0.95, 370, BLUE, false],
 ];
-for (const [f, y, dot] of planes) {
+for (const [f, y, dot, flip] of planes) {
   const x = 89 + 788 * f;
-  drawPlane(x, y, 34);
+  drawPlane(x, y, 78, flip);
   s.addShape(pptx.shapes.OVAL, {
-    x: P(x + 13), y: P(y - 6), w: P(7), h: P(7),
+    x: P(x + (flip ? -40 : 36)), y: P(y - 8), w: P(8), h: P(8),
     fill: { color: dot }, line: { color: dot, width: 0.5 },
   });
 }

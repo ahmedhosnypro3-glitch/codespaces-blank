@@ -16,7 +16,7 @@ for try in 1 2 3; do
   echo "=== slide $N audit try $try $(date +%F\ %T) ==="
   timeout 960 env VISION_SLOTS=3 bash "$NS/_pool/vision_gate.sh" \
     python3 "$SKILL/scripts/analyze_image.py" analysis "$IMG" \
-    --timeout 900 --rounds 1 --tries 1 \
+    --timeout 900 --rounds 1 --tries 1 --max-tokens 24000 \
     --view "Slide $N — 'Neural Network Training and Example' lecture slide, printed badge $N" \
     --capture "960x540 CSS px, 1x scale, lecture video frame" \
     -p "$(cat "$NS/_pool/audit_prompt.txt")" > "$OUT.tmp" 2>&1

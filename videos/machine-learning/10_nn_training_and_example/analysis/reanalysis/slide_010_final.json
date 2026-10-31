@@ -1,0 +1,172 @@
+{
+  "slide_title": "Gradient Descent",
+  "subtitle_or_header": null,
+  "verbatim_text": {
+    "bullets": [],
+    "labels": [
+      "Gradient Descent",
+      "Slide Notes",
+      "Output 1",
+      "Output 2",
+      "Output 3",
+      "Error Output",
+      "Class 1",
+      "Class 2",
+      "Class 3",
+      "10",
+      "For Sigmoid Activation",
+      "Where",
+      "for output Layer",
+      "ONLY"
+    ],
+    "equations": [
+      "W_{ji}^{Updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "W_{ji}^{Updated} = W_{ji}^{old} + \\Delta_{ji}",
+      "Where \\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}}",
+      "E = \\frac{1}{2}\\sum_j (t_j - O_j)^2",
+      "For Sigmoid Activation O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}}",
+      "Net_j = \\sum_i (w_{ji}O_i)",
+      "\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)",
+      "\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)",
+      "\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i",
+      "\\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}",
+      "= \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial Net_j}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}",
+      "= -(t_j - O_j) * O_j(1-O_j) * O_i",
+      "Where \\delta_j = -\\frac{\\partial E}{\\partial Net_j} = (t_j - O_j) * O_j(1-O_j)",
+      "(\\delta_j depends on j ONLY)",
+      "\\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\eta * \\delta_j * O_i",
+      "Where \\delta_j = (t_j - O_j) * O_j(1-O_j) for output Layer",
+      "\\frac{\\partial E}{\\partial O_j} = -(t_j - O_j)",
+      "\\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j)",
+      "\\frac{\\partial Net_j}{\\partial W_{ji}} = O_i"
+    ]
+  },
+  "layout": {
+    "arrangement": "title top-left in red; left column contains gradient descent update rules at top, error/sigmoid definitions in middle, chain-rule derivation below, and final delta rule at bottom; right column contains a fully-connected neural network diagram at top and a boxed summary of key partial derivatives at bottom right; thin black frame borders the entire slide; yellow slide-number circle sits at the extreme top-right",
+    "regions": [
+      {
+        "name": "Title",
+        "position": "top-left, approx 0-25% width, 2-8% height",
+        "content": "Red header text 'Gradient Descent'"
+      },
+      {
+        "name": "Gradient Descent Update Rules",
+        "position": "top-left, approx 2-45% width, 8-25% height",
+        "content": "Two weight-update equations and the delta definition, with 'Updated', 'old', and 'Where' in red"
+      },
+      {
+        "name": "Error & Activation Definitions",
+        "position": "center-left, approx 2-45% width, 27-40% height",
+        "content": "Mean-squared error formula, sigmoid activation formula in blue, and Net_j summation"
+      },
+      {
+        "name": "Partial Derivatives Row",
+        "position": "center, approx 2-98% width, 42-52% height",
+        "content": "Three derivative identities laid out horizontally: dE/dO_j, dO/dNet_j, dNet_j/dW_ji"
+      },
+      {
+        "name": "Chain Rule Derivation",
+        "position": "center-left, approx 2-60% width, 54-75% height",
+        "content": "Three-line chain-rule expansion with intermediate simplification and delta_j definition"
+      },
+      {
+        "name": "Delta Rule Footer",
+        "position": "bottom-left, approx 2-60% width, 88-97% height",
+        "content": "Final Delta_ji formula equal to eta * delta_j * O_i, with 'for output Layer' note"
+      },
+      {
+        "name": "Neural Network Diagram",
+        "position": "top-right, approx 48-98% width, 3-55% height",
+        "content": "3-4-3 fully-connected network with Sigma nodes, bias '1' markers, output/error/class labels, and yellow '10' circle"
+      },
+      {
+        "name": "Slide Notes Label",
+        "position": "bottom-left of neural network diagram, approx 48-60% width, 50-55% height",
+        "content": "Small black text 'Slide Notes'"
+      },
+      {
+        "name": "Derivative Summary Box",
+        "position": "bottom-right, approx 62-98% width, 58-97% height",
+        "content": "Boxed recap of the three partial derivatives; first equation in red, remaining two in black"
+      },
+      {
+        "name": "Slide Number",
+        "position": "extreme top-right, approx 94-98% width, 3-8% height",
+        "content": "Yellow circle containing black numeral '10'"
+      }
+    ],
+    "hierarchy": "Title in large red dominates the top-left; equation blocks are the primary visual mass on the left; the neural network diagram is the secondary focal point on the right; the yellow slide-number circle is a small high-contrast accent"
+  },
+  "visual_elements": [
+    {
+      "type": "network",
+      "description": "Fully-connected feedforward neural network with three layers. Input layer: 3 circular nodes containing the Sigma symbol, arranged vertically on the left. Hidden layer: 4 circular Sigma nodes in the middle. Output layer: 3 circular Sigma nodes on the right. Small circular bias markers labeled '1' appear at the bottom of the input and hidden layers. Black directed arrows connect every node in each layer to every node in the next layer. To the right of the output layer are three text labels stacked vertically: 'Output 1', 'Output 2', 'Output 3', followed by 'Error Output' labels and 'Class 1', 'Class 2', 'Class 3'. A yellow circle with black '10' sits at the top-right corner. 'Slide Notes' appears in small text at the bottom-left of the diagram.",
+      "colors": [
+        "#000000",
+        "#D8BFD8",
+        "#FFFF00",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "top-right quadrant of slide"
+    },
+    {
+      "type": "highlight-box",
+      "description": "Rectangular bordered box containing three stacked equations recap: dE/dO_j = -(t_j-O_j) in red, dO_j/dNet_j = O_j(1-O_j), and dNet_j/dW_ji = O_i",
+      "colors": [
+        "#000000",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "position": "bottom-right quadrant of slide"
+    }
+  ],
+  "imagery": [
+    "Neural network node circles with Greek Sigma symbols",
+    "Yellow circular slide-number badge with '10'",
+    "Small circular bias markers labeled '1'"
+  ],
+  "colors": {
+    "background": "#FFFFFF",
+    "title_text": "#FF0000",
+    "body_text": "#000000",
+    "accents": [
+      "#FF0000",
+      "#0000FF",
+      "#FFFF00",
+      "#D8BFD8"
+    ]
+  },
+  "typography_notes": "Sans-serif title in bold red; mathematical body text in a serif/math font with mixed weight; key terms such as 'Updated', 'old', 'Where', 'For Sigmoid Activation', and delta expressions are color-emphasized in red or blue; multiplication is denoted with asterisks; subscripts use standard mathematical notation",
+  "animation_state": "Static slide; all equations and diagram elements are fully visible with no build indicators",
+  "recreation_brief": "1) Set the slide background to white (#FFFFFF) and draw a thin black (#000000) rectangular frame around the entire canvas.\n2) Place the title \"Gradient Descent\" in bold red (#FF0000) sans-serif at the top-left, spanning approx 0-25% width and 2-8% height.\n3) In the top-left column (approx 2-45% width, 8-25% height), place the equation W_{ji}^{Updated} = W_{ji}^{old} - \\eta \\frac{\\partial E}{\\partial W_{ji}} with \"Updated\" and \"old\" in red (#FF0000) and all other text in black (#000000).\n4) Directly below it, place W_{ji}^{Updated} = W_{ji}^{old} + \\Delta_{ji} with \"Updated\" and \"old\" in red.\n5) Below that, place Where \\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} with \"Where\" in red.\n6) In the center-left block (approx 2-45% width, 27-40% height), place E = \\frac{1}{2}\\sum_j (t_j - O_j)^2 in black.\n7) Below it, place For Sigmoid Activation O_j = f(Net_j) = \\frac{1}{1+e^{-Net_j}} with \"For Sigmoid Activation\" in blue (#0000FF) and the remainder in black.\n8) Below that, place Net_j = \\sum_i (w_{ji}O_i) in black.\n9) Across the center (approx 2-98% width, 42-52% height), place three derivative identities left-to-right: \\frac{\\partial E}{\\partial O_j} = -(t_j - O_j), \\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j), and \\frac{\\partial Net_j}{\\partial W_{ji}} = O_i, all in black.\n10) In the center-left block (approx 2-60% width, 54-75% height), place the chain-rule derivation as three lines: \\frac{\\partial E}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial O_j}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}, then = \\frac{\\partial E}{\\partial O_j} * \\frac{\\partial Net_j}{\\partial W_{ji}} = \\frac{\\partial E}{\\partial Net_j} * \\frac{\\partial Net_j}{\\partial W_{ji}}, then = -(t_j - O_j) * O_j(1-O_j) * O_i, all in black.\n11) Immediately below, place Where \\delta_j = -\\frac{\\partial E}{\\partial Net_j} = (t_j - O_j) * O_j(1-O_j) with \"Where\" in red, followed by (\\delta_j depends on j ONLY) in black.\n12) In the bottom-left block (approx 2-60% width, 88-97% height), place \\Delta_{ji} = -\\eta \\frac{\\partial E}{\\partial W_{ji}} = \\eta * \\delta_j * O_i in black, followed by the note \"for output Layer\" in black.\n13) In the top-right quadrant (approx 48-98% width, 3-55% height), draw a fully-connected feedforward neural network: (a) 3 white circular input nodes with black borders and black Sigma symbols on the left; (b) 4 white circular hidden nodes with black borders and black Sigma symbols in the middle; (c) 3 white circular output nodes with black borders and black Sigma symbols on the right; (d) small circular bias nodes labeled \"1\" at the bottom of the input and hidden layers; (e) black directed arrows connecting every node to every node in the next layer; (f) stacked black labels to the right of the output layer reading \"Output 1\", \"Output 2\", \"Output 3\", \"Error Output\", \"Class 1\", \"Class 2\", \"Class 3\"; (g) small black text \"Slide Notes\" at the bottom-left of the diagram.\n14) At the extreme top-right (approx 94-98% width, 3-8% height), draw a yellow (#FFFF00) circle with a black (#000000) numeral \"10\" centered inside.\n15) In the bottom-right quadrant (approx 62-98% width, 58-97% height), draw a rectangular highlight box with a black border and white fill; inside, stack three equations: \\frac{\\partial E}{\\partial O_j} = -(t_j - O_j) in red (#FF0000), \\frac{\\partial O_j}{\\partial Net_j} = O_j(1-O_j) in black, and \\frac{\\partial Net_j}{\\partial W_{ji}} = O_i in black.\n16) Use a serif/math font for all equations; keep multiplication as asterisks and use standard subscript notation throughout.",
+  "validation": {
+    "verdict": "PASS_WITH_FIXES",
+    "fixes_applied": [
+      "Added a dedicated 'Slide Notes Label' region to layout.regions so every element mentioned in visual_elements and verbatim_text is covered.",
+      "Updated Derivative Summary Box region content to specify that only the first recap equation is red and the remaining two are black, matching visual_elements.",
+      "Rewrote recreation_brief into a 16-step ordered checklist specifying exact text, position, color, and shape/chart type for every element.",
+      "Confirmed verbatim_text.bullets remains an empty array because the source slide contains only equations and labels, not bullet points.",
+      "Set subtitle_or_header to null because no subtitle is present in the source."
+    ],
+    "uncertain_items": [
+      "Accent color #D8BFD8 is listed in visual_elements but not explicitly mapped to a specific shape or text run.",
+      "Exact font family for mathematical body text is described only as 'serif/math font'.",
+      "Precise coordinates for the 'Slide Notes' label within the neural network diagram are approximate.",
+      "Fill style of bias '1' markers (outlined vs. filled) is not specified."
+    ],
+    "recreatability_score_1_to_10": 9
+  },
+  "_meta": {
+    "frame": "slide_010.jpg",
+    "model": "images",
+    "source_timestamps": {
+      "slide": 10,
+      "image": "slide_010.jpg",
+      "badge": "10"
+    },
+    "elapsed_s": 484.1,
+    "validated_by": "validate_slides",
+    "validation_elapsed_s": 268.5
+  }
+}

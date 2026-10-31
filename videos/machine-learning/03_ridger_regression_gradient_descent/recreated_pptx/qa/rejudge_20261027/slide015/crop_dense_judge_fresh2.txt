@@ -1,0 +1,18 @@
+Comparing IMG1 (recreation) to IMG2 (original), matched scale, region 88,160â392,368:
+
+**What matches cleanly (so you know the baseline is good):** equation line 2 `J(W)=1/2[Y^T Y + (XW)^T(XW)â¦]` is reproduced correctly; the stacked `1/2`; the stacked `âJ(W)/âW = 0` with proper fraction bar, numerator/denominator order, and baseline alignment of `= 0`; the `+` sign and the raised `T` on `Y^T` and `(XW)^T`; the square-bracket type; and the caption "Get Best W that minâ¦" including the red `W`. House chrome and the linear-vs-stacked handling are excluded per the ground rules.
+
+**Discrepancies**
+
+1. **MAJOR â wrong function letter on the first equation line (confidence: high).**
+   Top-left of the region, left-hand side of equation line 1: IMG1 reads `I(W)` â a plain vertical-bar glyph with no descender hook â while IMG2 reads `J(W)` (capital J with the same hooked descender used on line 2 and in `âJ(W)` on line 3). Note that inside IMG1 itself, line 2 and the derivative line both render a hooked `J`, so line 1 is genuinely an `I`, not a font rendering of `J`. This renames the objective function (`I` vs `J`) in the very equation that the derivative line minimizes â a character-level content error, not a styling issue.
+
+2. **MINOR â vector-variable underline/bold treatment dropped (confidence: medium; partly may be capture artifact).**
+   Throughout both equation lines the original shows underlines beneath the vector symbols (the `W` in `J(W)`, the `Y`s in `Y^T Y`, and the `X`,`W` inside `(XW)^T(XW)`); the recreation renders them as plain italic with no underline/bold cue. Symbols and meaning are identical; this is notation styling only.
+
+3. **MINOR â inter-token spacing around `= 1/2 [` (confidence: high, but purely cosmetic).**
+   IMG1 uses `I(W) = 1/2[` (space after `=`, none before `[`); IMG2 uses `J(W)=1/2 [` (no space after `=`, space before `[`). IMG1 also fits one extra character at the right crop edge before the cut, i.e., the recreation is very slightly tighter horizontally. No glyph meaning affected.
+
+**Note on things deliberately not scored:** the pink highlight band, the linearâstacked fraction treatment, and JPEG/video softness are excluded per rules. The right-edge truncation of lines 1â2 is at the same coordinate in both crops and shows no reliably readable difference (anything past the second `(XW)` is cut off/illegible in IMG2), so I am not counting it.
+
+**FINAL VERDICT: FAIL** â driven by discrepancy #1: a wrong objective-function letter (`I(W)` vs `J(W)`) in the lead equation is a MAJOR character-level defect even though it would be invisible at full-slide scale. Everything else in the region is a faithful, usable reproduction.

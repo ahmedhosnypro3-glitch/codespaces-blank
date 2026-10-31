@@ -1,29 +1,26 @@
-// slide_003.js — FRESH rebuild from qa/reanalysis2/slide_003_analysis.txt (rebuild wave 3).
-// Slide: "Input to Quadratic Equation Solver" — three red-bordered white panels with
-// colour-coded QP definitions; objective + constraint equations as mathtext PNGs.
+const pptxgen = require("pptxgenjs");
+const fs = require("fs");
+
+// Slide 003 — FRESH rebuild from qa/reanalysis2/slide_003_analysis.txt ONLY.
+// "Input to Quadratic Equation Solver" — 3 red-bordered panels. House chrome mandatory.
 // Run: cd recreated_pptx/build && NODE_PATH=$(npm root -g) node slide_003.js
 
-const pptxgen = require("pptxgenjs");
-
-const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
-const EQ = NS + "/recreated_pptx/build/eq_003/";
 const NUM = 3;
-const TITLE = "Input to Quadratic Equation Solver";
-const W = 13.33, H = 7.5;
-const SANS = "Arial";
+const FONT = "Arial";
 const SERIF = "Times New Roman";
-const RED = "C00000", PANEL_RED = "CC0000", VAR_RED = "FF0000", BLUE = "0000FF",
-      GREEN = "008000", BLACK = "000000";
+const BASE = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = BASE + "/recreated_pptx/build/eq_003/";
+const OUT = BASE + "/recreated_pptx/slide_003_recreated.pptx";
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" }; // house rule
+s.background = { color: "E8E8E8" };
 
-// House chrome (mandatory, overrides spec geometry for frame/badge/title)
+// ---- house chrome (overrides spec) ----
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
-  fill: { type: "none" }, line: { color: RED, width: 1.5 },
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2,
+  fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
@@ -32,98 +29,91 @@ s.addShape(pres.shapes.OVAL, {
 s.addText(String(NUM), {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: "333333", fontFace: SANS, margin: 0,
+  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-s.addText(TITLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
+s.addText("Input to Quadratic Equation Solver", {
+  x: 0.6, y: 0.28, w: 12.13, h: 0.5,
   align: "center", valign: "top",
-  fontSize: 14, bold: true, color: RED, fontFace: SANS, margin: 0,
+  fontSize: 18, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// Panels (spec coords -> inches; white fill, thin red stroke)
-function panel(y, h) {
+const X = n => n * 13.33, Y = n => n * 7.5;
+function panel(x0, y0, x1, y1) {
   s.addShape(pres.shapes.RECTANGLE, {
-    x: 0.91977, y, w: 10.14413, h,
-    fill: { color: "FFFFFF" }, line: { color: PANEL_RED, width: 1.5 },
+    x: X(x0), y: Y(y0), w: X(x1 - x0), h: Y(y1 - y0),
+    fill: { color: "FFFFFF" }, line: { color: "CC0000", width: 1.25 },
   });
 }
-panel(1.3875, 1.5675);  // panel 1
-panel(3.15, 1.4775);    // panel 2
-panel(4.8075, 1.635);   // panel 3
-
-function txt(x, y, w, h, runs, extra) {
-  s.addText(runs, Object.assign(
-    { x, y, w, h, margin: 0, valign: "top" }, extra || {}));
+function txt(str, x0, y0, x1, y1, o) {
+  s.addText(str, {
+    x: X(x0), y: Y(y0), w: X(x1 - x0), h: Y(y1 - y0),
+    align: o.align || "left", valign: "middle",
+    fontSize: o.fs || 12, bold: !!o.bold, italic: !!o.italic,
+    color: o.color || "000000", fontFace: o.font || FONT, margin: 0,
+  });
 }
-const run = (text, o) => ({ text, options: Object.assign({ fontSize: 11, fontFace: SANS, color: BLACK }, o) });
-
-// Panel headers
-txt(1.17304, 1.47, 3.29251, 0.2475,
-  [run("Put quadratic equation in the form:", { bold: true, italic: true, color: RED, fontSize: 12 })]);
-txt(1.07973, 3.2475, 3.38582, 0.27,
-  [run("Put all ≤ , ≥ constraints in the form:", { bold: true, color: RED, fontSize: 12 })]);
-txt(1.07973, 4.905, 3.38582, 0.2775, [
-  run("Put all ", { bold: true, color: RED, fontSize: 12 }),
-  run('Equal "="', { bold: true, italic: true, color: BLUE, fontSize: 12 }),
-  run(" constraints in the form:", { bold: true, color: RED, fontSize: 12 }),
-]);
-// Definition-line builder: var | black italic serif descriptor | red italic serif size | " ,"
-function defLine(x, y, w, varRuns, descriptor, size) {
-  txt(x, y, w, 0.26, [
-    ...varRuns,
-    run(" " + descriptor + " ", { italic: true, fontFace: SERIF }),
-    run(size, { italic: true, fontFace: SERIF, color: PANEL_RED }),
-    run(" ,", { fontFace: SERIF }),
-  ]);
+function runs(arr, x0, y0, x1, y1) {
+  s.addText(arr, {
+    x: X(x0), y: Y(y0), w: X(x1 - x0), h: Y(y1 - y0),
+    align: "left", valign: "middle", margin: 0,
+  });
 }
-const vRun = (t, color) => run(t, { bold: true, color, fontSize: 11 });
-function mLine(x, y, w) {
-  txt(x, y, w, 0.24, [
-    run("m", { bold: true, italic: true, color: GREEN, fontSize: 11 }),
-    run(" is Number of constraints", { italic: true, fontFace: SERIF }),
-    run(" ,", { fontFace: SERIF }),
-  ]);
+function img(name, x0n, y0n, y1n) {
+  const m = JSON.parse(fs.readFileSync(EQ + name + ".json"));
+  s.addImage({ path: EQ + name + ".png", x: X(x0n),
+    y: Y(y0n) + (Y(y1n - y0n) - m.h_in) / 2, w: m.w_in, h: m.h_in });
 }
+const vr = (t, c, o) => ({ text: t, options: Object.assign(
+  { fontFace: FONT, fontSize: 11, bold: true, color: c }, o || {}) });
+const serif = (t, o) => ({ text: t, options: Object.assign(
+  { fontFace: SERIF, fontSize: 11, italic: true, color: "000000" }, o || {}) });
+function defline(vruns, desc, size, x0, y0, x1, y1) {
+  const tail = [serif(" " + desc + " ")];
+  if (size) tail.push(serif(size, { color: "CC0000" }));
+  tail.push(serif(" ,"));
+  runs(vruns.concat(tail), x0, y0, x1, y1);
+}
+// ---- panel 1: objective ----
+panel(0.069, 0.185, 0.830, 0.394);
+txt("Put quadratic equation in the form:", 0.088, 0.196, 0.335, 0.229,
+    { fs: 12, bold: true, italic: true, color: "C00000" });
+img("eq_obj", 0.082, 0.259, 0.356);
+txt("where:", 0.349, 0.283, 0.395, 0.319, { fs: 11, bold: true });
+defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.414, 0.2540, 0.622, 0.2904);
+defline([vr("P", "FF0000")], "is a Matrix of size", "d*d", 0.414, 0.2904, 0.622, 0.3267);
+defline([vr("q", "FF0000"), vr("T", "FF0000", { superscript: true })],
+        "is a Vector of size", "1*d", 0.414, 0.3267, 0.622, 0.3630);
+txt("?", 0.689, 0.244, 0.730, 0.333, { fs: 40, bold: true, color: "C00000", align: "center" });
 
-// Panel 1: objective equation PNG (exact size, never rescaled), centred in its spec box
-s.addImage({ path: EQ + "eq_obj.png", x: 1.09306, y: 2.0979, w: 2.295, h: 0.41667 });
-// Mouse-pointer arrow over the equation
-s.addImage({ path: EQ + "cursor.png", x: 2.2661, y: 2.4, w: 0.24, h: 0.27833 });
-// "where:" label
-txt(4.65217, 2.1225, 0.61318, 0.27,
-  [run("where:", { bold: true, fontSize: 11 })]);
-// Panel-1 definition list (X / P / q^T)
-defLine(5.51862, 1.905, 2.77264, [vRun("X", BLUE)], "is a Vector of size", "d+1");
-defLine(5.51862, 2.1775, 2.77264, [vRun("P", VAR_RED)], "is a Matrix of size", "d×d");
-defLine(5.51862, 2.45, 2.77264,
-  [vRun("q", VAR_RED), run("T", { bold: true, color: VAR_RED, superScript: true, fontSize: 11 })],
-  "is a Vector of size", "1×d");
-// Large red question mark
-txt(9.18437, 1.83, 0.54653, 0.6675,
-  [run("?", { bold: true, color: RED, fontSize: 40 })],
-  { align: "center", valign: "middle" });
+// ---- panel 2: inequality constraints ----
+panel(0.069, 0.420, 0.830, 0.617);
+txt("Put all ≤ , ≥ constraints in the form:", 0.081, 0.433, 0.335, 0.469,
+    { fs: 12, bold: true, color: "C00000" });
+defline([vr("m", "008000")], "is Number of constraints", "", 0.294, 0.476, 0.620, 0.505);
+img("eq_gxleh", 0.081, 0.515, 0.557);
+txt("where:", 0.228, 0.524, 0.275, 0.557, { fs: 11, bold: true });
+defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.294, 0.5090, 0.492, 0.5413);
+defline([vr("G", "FF0000")], "is a Matrix of size", "m*d", 0.294, 0.5413, 0.492, 0.5737);
+defline([vr("h", "0000FF")], "is a Vector of size", "m*1", 0.294, 0.5737, 0.492, 0.6060);
 
-// Panel 2: G x ≤ h equation PNG, where:, definition list (X / G / h)
-s.addImage({ path: EQ + "eq_gxleh.png", x: 1.07973, y: 3.888, w: 0.81667, h: 0.26333 });
-mLine(3.91902, 3.57, 2.71932);
-txt(3.03924, 3.93, 0.62651, 0.2475, [run("where:", { bold: true, fontSize: 11 })]);
-defLine(3.91902, 3.8175, 2.63934, [vRun("X", BLUE)], "is a Vector of size", "d+1");
-defLine(3.91902, 4.06, 2.63934, [vRun("G", VAR_RED)], "is a Matrix of size", "m×d");
-defLine(3.91902, 4.3025, 2.63934, [vRun("h", BLUE)], "is a Vector of size", "m×1");
+// ---- panel 3: equality constraints ----
+panel(0.069, 0.641, 0.830, 0.859);
+runs([
+  { text: "Put all ", options: { fontFace: FONT, fontSize: 12, bold: true, color: "C00000" } },
+  { text: 'Equal "="', options: { fontFace: FONT, fontSize: 12, bold: true, italic: true, color: "0000FF" } },
+  { text: " constraints in the form:", options: { fontFace: FONT, fontSize: 12, bold: true, color: "C00000" } },
+], 0.081, 0.654, 0.335, 0.691);
+defline([vr("m", "008000")], "is Number of constraints", "", 0.294, 0.696, 0.620, 0.726);
+img("eq_axeqb", 0.081, 0.730, 0.774);
+txt("where:", 0.222, 0.739, 0.271, 0.772, { fs: 11, bold: true });
+defline([vr("X", "0000FF")], "is a Vector of size", "d*1", 0.294, 0.7260, 0.492, 0.7587);
+defline([vr("A", "FF0000")], "is a Matrix of size", "m*d", 0.294, 0.7587, 0.492, 0.7913);
+defline([vr("b", "0000FF", { italic: true })], "is a Vector of size", "m*1", 0.294, 0.7913, 0.492, 0.8240);
 
-// Panel 3: A x = b equation PNG, where:, definition list (X / A / b)
-s.addImage({ path: EQ + "eq_axeqb.png", x: 1.07973, y: 5.5083, w: 0.80833, h: 0.26333 });
-mLine(3.91902, 5.22, 2.71932);
-txt(2.95926, 5.5425, 0.65317, 0.2475, [run("where:", { bold: true, fontSize: 11 })]);
-defLine(3.91902, 5.445, 2.63934, [vRun("X", BLUE)], "is a Vector of size", "d+1");
-defLine(3.91902, 5.69, 2.63934, [vRun("A", VAR_RED)], "is a Matrix of size", "m×d");
-defLine(3.91902, 5.935, 2.63934, [vRun("b", BLUE)], "is a Vector of size", "m×1");
-
-// Solid black band across the bottom of the capture
+// ---- solid black capture band across the bottom ----
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.5332, y: 6.8475, w: 12.2636, h: 0.6525,
+  x: X(0.040), y: Y(0.913), w: X(0.920), h: Y(0.087),
   fill: { color: "000000" }, line: { type: "none" },
 });
 
-pres.writeFile({ fileName: NS + "/recreated_pptx/slide_003_recreated.pptx" });
-console.log("wrote slide_003_recreated.pptx");
+pres.writeFile({ fileName: OUT }).then(() => console.log("wrote", OUT));

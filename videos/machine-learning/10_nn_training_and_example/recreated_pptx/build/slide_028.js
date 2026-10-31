@@ -123,7 +123,7 @@ function wl(x, y, txt, color, size) {
 wl(468, 96, "0.1", GREEN); wl(520, 86, "0.2", GREEN); wl(488, 89, "0.3", GREEN);
 wl(470, 118, "0.4", GREEN); wl(520, 114, "0.5", GREEN); wl(520, 139, "0.6", GREEN);
 wl(576, 74, "0.3", REDW); wl(600, 104, "0.4", REDW); wl(578, 112, "0.5", REDW);
-wl(576, 148, "0.2", REDW); wl(688, 133, "0.3", REDW); wl(707, 95, "0.5", REDW);
+wl(576, 148, "0.2", REDW); wl(716, 132, "0.3", REDW); wl(716, 95, "0.5", REDW);
 
 // ---- delta lines (red, 2D PNGs) ----
 eq("eq28_delta6", px(57), px(243));

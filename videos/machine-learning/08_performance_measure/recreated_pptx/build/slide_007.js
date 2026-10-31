@@ -138,20 +138,21 @@ s.addText([
 });
 
 // ---------- confusion matrix helper ----------
-function matrix(x0, y0, x1, y1, stubX1, cellX0, cellX1, hy0, hy1, ry0, ry1, cells) {
+function matrix(x0, y0, x1, y1, stubX1, cellX0, cellX1, hy0, hy1, ry0, ry1, cells, splitRight) {
   rect(x0, y0, x1, y1, "FFFFFF", BLUE, 1.5);
   text("Predicted as", cellX0, y0 + 9, cellX1, hy0, 10, RED);
-  text("P", cellX0, hy0, (cellX0 + cellX1) / 2, hy1, 10, BLACK);
-  text("N", (cellX0 + cellX1) / 2, hy0, cellX1, hy1, 10, BLACK);
-  const mid = (ry1 + ry0 + ry1) / 2; // unused
+  const splitX = cells[0][2];
+  text("P", cellX0, hy0, splitX, hy1, 10, BLACK);
+  text("N", splitX, hy0, cellX1, hy1, 10, BLACK);
   cells.forEach(([cx0, cy0, cx1, cy1, fill]) => { if (fill) rect(cx0, cy0, cx1, cy1, fill, null); });
   hline(hy0, x0, x1, RED, 1.5);
   hline(hy1, x0, x1, RED, 1.5);
+  hline(cells[0][3], x0, x1, RED, 1.5); // row separator between the two data rows
   hline(ry1, x0, x1, RED, 1.5);
   vline(stubX1, hy0, y1, RED, 1.5);
   vline(cellX0, hy0, y1, RED, 1.5);
-  vline((cellX0 + cellX1) / 2, hy0, y1, RED, 1.5);
-  vline(x1 - 2, hy0, y1, RED, 1.5);
+  vline(splitX, hy0, y1, RED, 1.5); // column split at first cell's right edge
+  if (splitRight) vline(cellX1, hy0, y1, RED, 1.5);
   cells.forEach(([cx0, cy0, cx1, cy1, , label]) => { if (label) text(label, cx0, cy0, cx1, cy1, 12, BLACK); });
 }
 function actualLabel(cx, cy) {
@@ -168,7 +169,7 @@ matrix(673, 43, 866, 168, 698, 738, 866, 73, 98, 98, 158, [
   [791, 98, 866, 125, null, "FN"],
   [738, 125, 791, 158, null, "FP"],
   [791, 125, 866, 158, GRN_FILL, "TN"],
-]);
+], false);
 text("P", 676, 104, 698, 122, 10, BLACK);
 text("N", 676, 132, 698, 150, 10, BLACK);
 actualLabel(685, 112);
@@ -178,19 +179,19 @@ matrix(673, 168, 866, 291, 704, 746, 856, 191, 220, 220, 283, [
   [746, 220, 800, 252, null, "18"],
   [800, 220, 856, 252, null, "12"],
   [746, 252, 800, 283, null, "10"],
-  [800, 252, 856, 283, null, "60"],
-]);
+  [800, 252, 856, 283, GRN_FILL, "60"],
+], true);
 text("P", 676, 234, 704, 250, 10, BLACK);
 text("N", 676, 262, 704, 278, 10, BLACK);
 actualLabel(688, 244);
-// hand-drawn blue circles around 18 and 10 (the predicted-positive column)
+// hand-drawn red circles around 18 and 10 (the predicted-positive column)
 s.addShape(pptx.shapes.OVAL, {
   x: px(742), y: px(216), w: px(62), h: px(40),
-  fill: { type: "none" }, line: { color: BLUE, width: 2 },
+  fill: { type: "none" }, line: { color: RED, width: 2 },
 });
 s.addShape(pptx.shapes.OVAL, {
   x: px(742), y: px(248), w: px(62), h: px(40),
-  fill: { type: "none" }, line: { color: BLUE, width: 2 },
+  fill: { type: "none" }, line: { color: RED, width: 2 },
 });
 // hand-drawn green rectangle around 60
 s.addShape(pptx.shapes.RECTANGLE, {
@@ -254,8 +255,8 @@ text("FN", 658, 482, 684, 498, 10, RED);
 text("TN", 748, 482, 774, 498, 10, RED);
 text("FP", 838, 482, 864, 498, 10, RED);
 
-// ---------- black footer bar (bottom edge, below house frame line) ----------
-rect(38, 530, 921, 540, BLACK, null);
+// ---------- black footer bar (bottom edge, measured y517-540 x38-921) ----------
+rect(38, 517, 921, 540, BLACK, null);
 
 const outPath = "/home/codespace/ai_llm_slides/videos/machine-learning/08_performance_measure/recreated_pptx/slide_007_recreated.pptx";
 pptx.writeFile({ fileName: outPath }).then(() => console.log("done: " + outPath));

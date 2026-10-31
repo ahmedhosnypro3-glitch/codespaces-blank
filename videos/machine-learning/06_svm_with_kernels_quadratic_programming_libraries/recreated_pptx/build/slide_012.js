@@ -1,94 +1,137 @@
 const pptxgen = require("pptxgenjs");
+const path = require("path");
+const fs = require("fs");
 
-// ---- parameters ----
-const NUM = 12;
-const TITLE = "SVM Primal Problem & Quadratic Equation in \u03b1 with Constraints";
-const FONT = "Arial";
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx/build/eq_012");
 const W = 13.33, H = 7.5;
+const SERIF = "Times New Roman";
+const RED = "CC0000", BLUE = "0000CC", GREEN = "008000", PINK = "FBEEEE";
+
+const X = v => v * W, Y = v => v * H;
+const box = r => ({ x: X(r[0]), y: Y(r[1]), w: (r[2] - r[0]) * W, h: (r[3] - r[1]) * H });
+
+function eqImg(slide, name, r) {
+  const meta = JSON.parse(fs.readFileSync(path.join(EQ, name + ".json")));
+  const b = box(r);
+  slide.addImage({
+    path: path.join(EQ, name + ".png"),
+    x: b.x + (b.w - meta.w_in) / 2, y: b.y + (b.h - meta.h_in) / 2,
+    w: meta.w_in, h: meta.h_in,
+  });
+}
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
 s.background = { color: "E8E8E8" };
 
-// 1. House frame (red, 0.15in inset, 1.5pt, no fill)
+// House chrome (mandatory, overrides spec)
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
-  fill: { type: "none" },
-  line: { color: "C00000", width: 1.5 },
+  x: 0.15, y: 0.15, w: 13.03, h: 7.2,
+  fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Badge (yellow oval + centered bold numeral)
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
+s.addText("12", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
-  fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
+  fontSize: 18, bold: true, color: "333333", fontFace: "Arial", margin: 0,
 });
+// SLIDE_TITLE: none — no title text added.
 
-// 3. Title box (house position: y=0.28, x=0.6, w=12.13, centered)
-s.addText(TITLE, {
-  x: 0.6, y: 0.28, w: 12.13, h: 0.55,
-  align: "center", valign: "top",
-  fontSize: 20, bold: true, color: "C00000", fontFace: FONT, margin: 0,
-});
-
-// 4. Upper panel: Primal formulation (salmon/peach background)
-const primalY = 0.9;
-const primalH = 2.9;
+// Letterbox black band
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 0.5, y: primalY, w: 12.3, h: primalH,
-  fill: { color: "FADBD8" },
-  line: { color: "E74C3C", width: 1.5 },
+  ...box([0.039, 0.907, 0.921, 1.000]),
+  fill: { color: "000000" }, line: { type: "none" },
 });
 
-// Primal label + polynomial (verbatim from spec bullet 1)
-s.addText("Minimize:", {
-  x: 0.7, y: primalY + 0.1, w: 2.0, h: 0.35,
-  fontSize: 16, bold: true, color: "E74C3C", fontFace: FONT, margin: 0,
-});
-s.addText("[ +1 \u03b1\u2081\u00b2+2 \u03b1\u2081 \u03b1\u2082-5.5 \u03b1\u2081\u03b1\u2083-6 \u03b1\u2081\u03b1\u2084 +2 \u03b1\u2082\u03b1\u2081+4 \u03b1\u2082\u00b2-11 \u03b1\u2082\u03b1\u2083-12 \u03b1\u2082\u03b1\u2084", {
-  x: 0.7, y: primalY + 0.5, w: 11.8, h: 0.35,
-  fontSize: 14, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 18,
-});
-s.addText("-5.5 \u03b1\u2083\u03b1\u2081-11 \u03b1\u2083\u03b1\u2082+32.5 \u03b1\u2083\u00b2+36 \u03b1\u2083\u03b1\u2084 -6 \u03b1\u2084\u03b1\u2081-12 \u03b1\u2084\u03b1\u2082+36 \u03b1\u2084\u03b1\u2083+40 \u03b1\u2084\u00b2 ]- [ \u03b1\u2081+\u03b1\u2082+\u03b1\u2083+\u03b1\u2084 ]", {
-  x: 0.7, y: primalY + 0.85, w: 11.8, h: 0.35,
-  fontSize: 14, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 18,
-});
-
-// Floating equation box: 1/2[X^T P X] + q^T X (right side of top panel)
+// Upper pale-pink panel
 s.addShape(pres.shapes.RECTANGLE, {
-  x: 8.6, y: primalY + 0.3, w: 4.0, h: 0.9,
-  fill: { color: "FFFFFF" }, line: { color: "E74C3C", width: 1 },
+  ...box([0.071, 0.122, 0.849, 0.380]),
+  fill: { color: PINK }, line: { color: RED, width: 1.5 },
 });
-s.addText("1/2[ X\u1d40 P X ] + q\u1d40 X", {
-  x: 8.7, y: primalY + 0.5, w: 3.8, h: 0.5,
-  align: "center", fontSize: 15, color: "2C3E50", fontFace: FONT, margin: 0,
+// Lower pale-pink panel
+s.addShape(pres.shapes.RECTANGLE, {
+  ...box([0.073, 0.463, 0.880, 0.615]),
+  fill: { color: PINK }, line: { color: RED, width: 1.5 },
 });
 
-// Subject to block with checkbox-style delimiters (structured)
+// Labels
+s.addText("Minimise:", {
+  ...box([0.078, 0.143, 0.146, 0.172]),
+  fontSize: 13, bold: true, italic: true, color: RED, fontFace: SERIF, margin: 0,
+});
 s.addText("Subject to:", {
-  x: 0.7, y: primalY + 1.35, w: 2.0, h: 0.35,
-  fontSize: 16, bold: true, color: "E74C3C", fontFace: FONT, margin: 0,
+  ...box([0.076, 0.204, 0.146, 0.233]),
+  fontSize: 13, bold: true, color: RED, fontFace: SERIF, margin: 0,
 });
-s.addText("\u2211 \u03b1\u1d62y\u1d62=0 \u2192 \u03b1\u2081+\u03b1\u2082-\u03b1\u2083-\u03b1\u2084=0", {
-  x: 0.9, y: primalY + 1.75, w: 5.5, h: 0.35,
-  fontSize: 14, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 18,
+s.addText("Minimise:", {
+  ...box([0.078, 0.500, 0.146, 0.530]),
+  fontSize: 13, bold: true, italic: true, color: RED, fontFace: SERIF, margin: 0,
 });
-s.addText("\u03b1\u2081\u22641, \u03b1\u2082\u22641, \u03b1\u2083\u22641, \u03b1\u2084\u22641", {
-  x: 0.9, y: primalY + 2.1, w: 5.5, h: 0.35,
-  fontSize: 14, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 18,
-});
-s.addText("\u03b1\u1d62\u22650 \u2192 \u03b1\u2081\u22650, \u03b1\u2082\u22650, \u03b1\u2083\u22650, \u03b1\u2084\u22650", {
-  x: 0.9, y: primalY + 2.45, w: 5.5, h: 0.35,
-  fontSize: 14, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 18,
+// Upper objective: green stacked 1/2 then blue two-line objective
+eqImg(s, "half", [0.147, 0.133, 0.167, 0.225]);
+eqImg(s, "e1", [0.170, 0.141, 0.625, 0.176]);
+eqImg(s, "e2", [0.183, 0.183, 0.833, 0.219]);
+
+// Three small white constraint boxes with red borders
+const cBoxes = [[0.079, 0.235, 0.120, 0.281], [0.079, 0.291, 0.120, 0.331], [0.079, 0.335, 0.120, 0.376]];
+cBoxes.forEach(b => s.addShape(pres.shapes.RECTANGLE, {
+  ...box(b), fill: { color: "FFFFFF" }, line: { color: RED, width: 1 },
+}));
+// Boxed red constraints
+eqImg(s, "e3", cBoxes[0]);
+eqImg(s, "e5", cBoxes[1]);
+eqImg(s, "e7", cBoxes[2]);
+// Middle red constraint expressions
+eqImg(s, "e4", [0.172, 0.246, 0.292, 0.274]);
+eqImg(s, "e6", [0.172, 0.294, 0.391, 0.319]);
+eqImg(s, "e8", [0.172, 0.343, 0.396, 0.367]);
+
+// Red heading right of constraints
+s.addText("Quadratic Equation in \u03b1 with constraints", {
+  ...box([0.438, 0.296, 0.802, 0.328]),
+  fontSize: 18, bold: true, color: RED, fontFace: SERIF, margin: 0, valign: "middle",
 });
 
-// Section header inside the primal panel, right side (per judge finding 5)
-s.addText("Quadratic Equation in \u03b1 with constraints", {
-  x: 8.6, y: primalY + 1.5, w: 4.0, h: 0.7,
-  align: "center", fontSize: 13, bold: true, color: "2C3E50", fontFace: FONT, margin: 0, lineSpacing: 16,
+// Amber rounded rectangle with compact objective
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+  ...box([0.719, 0.380, 0.863, 0.454]),
+  fill: { color: "FFFFFF" }, line: { color: "E8A33D", width: 1.5 },
 });
+eqImg(s, "e9", [0.724, 0.385, 0.861, 0.441]);
+
+// Lower panel: green stacked 1/2 + blue objective in four separate term lines
+eqImg(s, "half", [0.149, 0.485, 0.165, 0.541]);
+eqImg(s, "q1", [0.172, 0.482, 0.830, 0.512]);
+eqImg(s, "q2", [0.172, 0.512, 0.830, 0.542]);
+eqImg(s, "q3", [0.172, 0.542, 0.830, 0.572]);
+eqImg(s, "q4", [0.172, 0.572, 0.830, 0.604]);
+
+// P matrix box (blue border) + matrix image
+s.addShape(pres.shapes.RECTANGLE, {
+  ...box([0.100, 0.630, 0.354, 0.815]),
+  fill: { color: "FFFFFF" }, line: { color: BLUE, width: 1.5 },
+});
+eqImg(s, "pmat", [0.111, 0.637, 0.349, 0.807]);
+
+// Light-blue arrow pointing down-left toward the q^T box
+s.addShape(pres.shapes.LINE, {
+  ...box([0.445, 0.676, 0.461, 0.706]),
+  flipHorizontal: true,
+  line: { color: "8FB4DE", width: 1.5, endArrowType: "triangle" },
+});
+
+// q^T box (blue border) + row vector
+s.addShape(pres.shapes.RECTANGLE, {
+  ...box([0.461, 0.689, 0.716, 0.769]),
+  fill: { color: "FFFFFF" }, line: { color: BLUE, width: 1.5 },
+});
+eqImg(s, "e13", [0.490, 0.699, 0.700, 0.750]);
+
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_012_recreated.pptx") })
+  .then(() => console.log("wrote slide_012_recreated.pptx"))
+  .catch(e => console.error(e));

@@ -1,217 +1,165 @@
-// slide_035.js — "How to Kernelize SVM" (v2: three bands, color-coded serif math, green ovals)
-// Upper band: original SVM formulation. Middle band: Remember. Lower band: kernelized formulation.
-// Run: NODE_PATH=$(npm root -g) node slide_035.js
-
+// slide_035.js — REBUILD WAVE 3, built ONLY from qa/reanalysis2/slide_035_analysis.txt
+// "How to Kernelize SVM": upper SVM panel, middle Remember panel, lower kernelized panel.
+// Build from project root: node <NS>/recreated_pptx/build/slide_035.js
 const pptxgen = require("pptxgenjs");
+const path = require("path");
 
-const NUM = 35;
-const TITLE = "How to Kernelize SVM";
-const FONT = "Arial";
-const MATH = "Times New Roman";
+const NS = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries";
+const EQ = path.join(NS, "recreated_pptx/build/eq_035/");
 const W = 13.33, H = 7.5;
-const EQ34 = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/build/eq_034/";
-const EQ35 = "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/build/eq_035/";
+const FONT = "Arial", MATH = "Times New Roman";
+
+// normalized [x0,y0,x1,y1] -> inches
+const R = (x0, y0, x1, y1) => ({ x: x0 * 13.33, y: y0 * 7.5, w: (x1 - x0) * 13.33, h: (y1 - y0) * 7.5 });
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
 const s = pres.addSlide();
-s.background = { color: "E8E8E8" }; // house rule
+s.background = { color: "E8E8E8" };
 
-// 1. House red frame
+// House chrome (overrides spec): red frame, badge, title
 s.addShape(pres.shapes.RECTANGLE, {
   x: 0.15, y: 0.15, w: W - 0.3, h: H - 0.3,
   fill: { type: "none" }, line: { color: "C00000", width: 1.5 },
 });
-
-// 2. Slide-number badge
 s.addShape(pres.shapes.OVAL, {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   fill: { color: "FFF9C4" }, line: { color: "FFF9C4", width: 0.5 },
 });
-s.addText(String(NUM), {
+s.addText("35", {
   x: 12.48, y: 0.30, w: 0.5, h: 0.5,
   align: "center", valign: "middle",
   fontSize: 18, bold: true, color: "333333", fontFace: FONT, margin: 0,
 });
-
-// 3. Title box (house position y=0.28)
-s.addText(TITLE, {
+s.addText("How to Kernelize SVM", {
   x: 0.6, y: 0.28, w: 12.13, h: 0.55,
   align: "center", valign: "top",
-  fontSize: 28, bold: true, color: "C00000", fontFace: FONT, margin: 0,
+  fontSize: 24, bold: true, color: "C00000", fontFace: FONT, margin: 0,
 });
 
-// 4. Large blue-bordered container
-const contX = 0.45, contY = 0.92, contW = 12.43, contH = 6.15;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: contX, y: contY, w: contW, h: contH,
-  fill: { type: "none" }, line: { color: "2980B9", width: 1.5 },
-});
+// Three panels: upper cream, middle white, lower cream (thin blue borders)
+const pU = R(0.071, 0.137, 0.875, 0.387);
+const pM = R(0.071, 0.394, 0.875, 0.580);
+const pL = R(0.071, 0.589, 0.875, 0.837);
+s.addShape(pres.shapes.RECTANGLE, { ...pU, fill: { color: "F7F7DE" }, line: { color: "0000FF", width: 1 } });
+s.addShape(pres.shapes.RECTANGLE, { ...pM, fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1 } });
+s.addShape(pres.shapes.RECTANGLE, { ...pL, fill: { color: "F7F7DE" }, line: { color: "0000FF", width: 1 } });
+// Green highlight ovals (lower panel) — drawn before the equations/text they sit behind
+const ovals = [
+  R(0.401, 0.617, 0.454, 0.683),  // around x_i^T x_j tail of lower Lagrangian
+  R(0.521, 0.700, 0.576, 0.752),  // around first W^T X_i in lower b
+  R(0.667, 0.700, 0.723, 0.752),  // around second W^T X_i in lower b
+  R(0.388, 0.778, 0.431, 0.826),  // around W^T Z in lower callout
+];
+// oval 1 must hug the actual rendered tail of the lower Lagrangian image
+const lagL = { w: 2.88667, h: 0.54 };
+ovals[0].x = R(0.098, 0.611, 0.454, 0.689).x + lagL.w - ovals[0].w;
+ovals[0].y = 4.5825 + (0.585 - lagL.h) / 2 + (lagL.h - ovals[0].h) / 2;
+ovals[1].y = 5.12292 + (0.54667 - ovals[1].h) / 2;
+ovals[2].y = 5.12292 + (0.54667 - ovals[2].h) / 2;
+for (const o of ovals) {
+  s.addShape(pres.shapes.OVAL, { x: o.x, y: o.y, w: o.w, h: o.h, fill: { color: "A6F3A6" }, line: { color: "2E9E2E", width: 1 } });
+}
 
-const bandW = contW - 0.4;
-const bandX = contX + 0.2;
-const upperY = contY + 0.08;
-const midY = upperY + 1.9;
-const lowY = midY + 1.95;
+// White blue-bordered boxes holding w and b equations (upper + lower)
+const wB_U = R(0.090, 0.228, 0.240, 0.311), bB_U = R(0.347, 0.226, 0.736, 0.313);
+const wB_L = R(0.090, 0.680, 0.240, 0.763), bB_L = R(0.347, 0.676, 0.736, 0.763);
+for (const b of [wB_U, bB_U, wB_L, bB_L]) {
+  s.addShape(pres.shapes.RECTANGLE, { ...b, fill: { color: "FFFFFF" }, line: { color: "0000FF", width: 1 } });
+}
 
-// --- UPPER BAND ---
-// 5a. Lagrangian (no highlight)
-s.addImage({ path: EQ34 + "eq1_lagrangian_multi.png", x: bandX + 0.6, y: upperY + 0.05, w: 5.40667, h: 0.995 });
+// Peach callout boxes (upper + lower)
+const cU = R(0.125, 0.324, 0.486, 0.376), cL = R(0.125, 0.774, 0.486, 0.830);
+for (const c of [cU, cL]) {
+  s.addShape(pres.shapes.RECTANGLE, { ...c, fill: { color: "FBE5D6" }, line: { color: "E8A87C", width: 1 } });
+}
 
-// 5b. W and b boxes, sized to hug content
-const uFormulaY = upperY + 1.12;
-const wImgW = 2.01167, wImgH = 0.95;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX, y: uFormulaY, w: wImgW + 0.3, h: wImgH + 0.12,
-  fill: { color: "FFFFFF" }, line: { color: "2980B9", width: 1 },
-});
-s.addImage({ path: EQ34 + "eq2_W_multi.png", x: bandX + 0.15, y: uFormulaY + 0.06, w: wImgW, h: wImgH });
-const bImgW = 6.26, bImgH = 0.44667;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX + wImgW + 0.5, y: uFormulaY + 0.2, w: bImgW + 0.3, h: bImgH + 0.12,
-  fill: { color: "FFFFFF" }, line: { color: "2980B9", width: 1 },
-});
-s.addImage({ path: EQ34 + "eq3_b_multi.png", x: bandX + wImgW + 0.65, y: uFormulaY + 0.23, w: bImgW, h: bImgH });
-
-// 5c. Classification strip
-const uClassY = uFormulaY + 1.08;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX, y: uClassY, w: 6.9, h: 0.4,
-  fill: { color: "FDEBD0" }, line: { type: "none" },
-});
-s.addText([
-  { text: "Class of vector ", options: { color: "2C3E50", fontFace: FONT } },
-  { text: "Z", options: { color: "2C3E50", bold: true, fontFace: MATH } },
-  { text: " \u21d2 sign(", options: { color: "2C3E50", fontFace: MATH } },
-  { text: "W", options: { color: "2C3E50", fontFace: MATH } },
-  { text: "T", options: { color: "2C3E50", fontFace: MATH, superscript: true } },
-  { text: " Z + b)", options: { color: "2C3E50", fontFace: MATH } },
-], {
-  x: bandX, y: uClassY, w: 6.9, h: 0.4,
-  align: "center", valign: "middle",
-  fontSize: 15, color: "2C3E50", fontFace: MATH, margin: 0,
-});
-
-// 6. Band separator
-s.addShape(pres.shapes.LINE, {
-  x: contX, y: midY - 0.12, w: contW, h: 0,
-  line: { color: "2980B9", width: 1.5 },
-});
-
-// --- MIDDLE BAND: Remember ---
-// 7a. Header
+// Equation images at exact rendered size (w = px/600 in, never rescaled)
+const img = (f, x, y, w, h) => s.addImage({ path: EQ + f, x, y, w, h });
+const lagU = R(0.098, 0.157, 0.439, 0.233), lagLbox = R(0.098, 0.611, 0.454, 0.689);
+img("rb2_lag_upper.png", lagU.x, lagU.y + (lagU.h - 0.54) / 2, 2.88667, 0.54);
+img("rb2_lag_lower.png", lagLbox.x, 4.5825 + (0.585 - 0.54) / 2, lagL.w, lagL.h);
+img("rb2_w.png", wB_U.x + (wB_U.w - 1.09) / 2, wB_U.y + (wB_U.h - 0.49667) / 2, 1.09, 0.49667);
+img("rb2_w.png", wB_L.x + (wB_L.w - 1.09) / 2, wB_L.y + (wB_L.h - 0.49667) / 2, 1.09, 0.49667);
+img("rb2_b_upper.png", bB_U.x + (bB_U.w - 4.37667) / 2, bB_U.y + (bB_U.h - 0.54333) / 2, 4.37667, 0.54333);
+img("rb2_b_lower.png", bB_L.x + (bB_L.w - 4.81667) / 2, 5.12292, 4.81667, 0.54667);
+const idb = R(0.281, 0.467, 0.590, 0.515);
+img("rb2_ident.png", idb.x + (idb.w - 2.245) / 2, idb.y + (idb.h - 0.32333) / 2, 2.245, 0.32333);
+// Middle panel: "Remember :" header (blue bold italic)
 s.addText("Remember :", {
-  x: bandX, y: midY, w: bandW, h: 0.3,
-  align: "left", fontSize: 15, bold: true, italic: true, color: "2980B9", fontFace: FONT, margin: 0,
+  x: 1.07973, y: 2.99, w: 3.0, h: 0.25, align: "left", valign: "middle",
+  fontSize: 12, bold: true, italic: true, color: "0000FF", fontFace: FONT, margin: 0,
 });
 
-// 7b. Mapping row (inline typeset math)
-const mapY = midY + 0.35;
+// Mapping line (verbatim): Mapping Instead of using X_i (of dimension d) use φ(X_i) (with higher dimension )
 s.addText([
-  { text: "Mapping", options: { fontSize: 13, bold: true, italic: true, color: "C0392B", fontFace: FONT, margin: 0 } },
-  { text: "  Instead of using ", options: { fontSize: 12, color: "2C3E50", fontFace: FONT, margin: 0 } },
-  { text: "X", options: { fontSize: 12, bold: true, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "i", options: { fontSize: 12, bold: true, color: "2980B9", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: " (of dimension ", options: { fontSize: 12, color: "2C3E50", fontFace: FONT, margin: 0 } },
-  { text: "d", options: { fontSize: 12, italic: true, bold: true, color: "C0392B", fontFace: MATH, margin: 0 } },
-  { text: ") use ", options: { fontSize: 12, color: "2C3E50", fontFace: FONT, margin: 0 } },
-  { text: "\u03c6(X", options: { fontSize: 12, bold: true, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "i", options: { fontSize: 12, bold: true, color: "2980B9", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: ") (with higher dimension )", options: { fontSize: 12, italic: true, color: "C0392B", fontFace: FONT, margin: 0 } },
-], { x: bandX, y: mapY, w: bandW, h: 0.28, align: "left", valign: "middle", margin: 0 });
+  { text: "Mapping", options: { fontSize: 13, bold: true, italic: true, color: "FF0000", fontFace: FONT, margin: 0 } },
+  { text: " Instead of using ", options: { fontSize: 12, color: "000000", fontFace: FONT, margin: 0 } },
+  { text: "X", options: { fontSize: 12, bold: true, color: "0000FF", fontFace: MATH, margin: 0 } },
+  { text: "i", options: { fontSize: 12, bold: true, color: "0000FF", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: " (of dimension ", options: { fontSize: 12, color: "000000", fontFace: FONT, margin: 0 } },
+  { text: "d", options: { fontSize: 12, bold: true, italic: true, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: ") use ", options: { fontSize: 12, color: "000000", fontFace: FONT, margin: 0 } },
+  { text: "φ(X", options: { fontSize: 12, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: "i", options: { fontSize: 12, color: "FF0000", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: ") (with higher dimension )", options: { fontSize: 12, italic: true, color: "FF0000", fontFace: FONT, margin: 0 } },
+], { x: 1.07973, y: 3.2475, w: 8.34258, h: 0.28, align: "left", valign: "middle", margin: 0 });
 
-// 7c. Mapping math line
-s.addImage({ path: EQ34 + "eq4_mapping.png", x: bandX + 0.3, y: mapY + 0.3, w: 2.845, h: 0.45667 });
-
-// 7d. Kernelization row
-const kernY = mapY + 0.85;
+// Kernelization line (verbatim): Kernelization Instead of using φ(X_i), φ(X_j) use K(X_i^T, X_j^T) (Where K is one of kernel functions)
 s.addText([
-  { text: "Kernelization", options: { fontSize: 13, bold: true, italic: true, color: "C0392B", fontFace: FONT, margin: 0 } },
-  { text: "  Instead of using ", options: { fontSize: 12, color: "2C3E50", fontFace: FONT, margin: 0 } },
-  { text: "\u03c6(X", options: { fontSize: 12, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "i", options: { fontSize: 12, color: "2980B9", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: ")", options: { fontSize: 12, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "T", options: { fontSize: 12, color: "2980B9", fontFace: MATH, superscript: true, margin: 0 } },
-  { text: " \u03c6(X", options: { fontSize: 12, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "i", options: { fontSize: 12, color: "2980B9", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: ")", options: { fontSize: 12, color: "2980B9", fontFace: MATH, margin: 0 } },
-  { text: "T", options: { fontSize: 12, color: "2980B9", fontFace: MATH, superscript: true, margin: 0 } },
-  { text: " use ", options: { fontSize: 12, color: "2C3E50", fontFace: FONT, margin: 0 } },
-  { text: "K", options: { fontSize: 12, color: "C0392B", fontFace: MATH, margin: 0 } },
-  { text: " (X", options: { fontSize: 12, color: "C0392B", fontFace: MATH, margin: 0 } },
-  { text: "i", options: { fontSize: 12, color: "C0392B", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: "T", options: { fontSize: 12, color: "C0392B", fontFace: MATH, superscript: true, margin: 0 } },
-  { text: " , X", options: { fontSize: 12, color: "C0392B", fontFace: MATH, margin: 0 } },
-  { text: "j", options: { fontSize: 12, color: "C0392B", fontFace: MATH, subscript: true, margin: 0 } },
-  { text: ") (Where ", options: { fontSize: 12, italic: true, color: "C0392B", fontFace: FONT, margin: 0 } },
-  { text: "K", options: { fontSize: 12, italic: true, color: "C0392B", fontFace: MATH, margin: 0 } },
-  { text: " is one of kernel functions)", options: { fontSize: 12, italic: true, color: "C0392B", fontFace: FONT, margin: 0 } },
-], { x: bandX, y: kernY, w: bandW, h: 0.28, align: "left", valign: "middle", margin: 0 });
+  { text: "Kernelization", options: { fontSize: 13, bold: true, italic: true, color: "FF0000", fontFace: FONT, margin: 0 } },
+  { text: " Instead of using ", options: { fontSize: 12, color: "000000", fontFace: FONT, margin: 0 } },
+  { text: "φ(X", options: { fontSize: 12, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: "i", options: { fontSize: 12, color: "FF0000", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: "), φ(X", options: { fontSize: 12, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: "j", options: { fontSize: 12, color: "FF0000", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: ") use ", options: { fontSize: 12, color: "000000", fontFace: FONT, margin: 0 } },
+  { text: "K(X", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: "i", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: "T", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, superscript: true, margin: 0 } },
+  { text: ", X", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: "j", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, subscript: true, margin: 0 } },
+  { text: "T", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, superscript: true, margin: 0 } },
+  { text: ")", options: { fontSize: 12, bold: true, color: "FF0000", fontFace: MATH, margin: 0 } },
+  { text: " (Where ", options: { fontSize: 12, italic: true, color: "0000FF", fontFace: FONT, margin: 0 } },
+  { text: "K", options: { fontSize: 12, italic: true, color: "0000FF", fontFace: MATH, margin: 0 } },
+  { text: " is one of kernel functions)", options: { fontSize: 12, italic: true, color: "0000FF", fontFace: FONT, margin: 0 } },
+], { x: 1.07973, y: 3.975, w: 9.76024, h: 0.26, align: "left", valign: "middle", margin: 0 });
+// Callout texts: "Class of vector Z ⇒ sign(W^T Z + b)" (upper: black/green/red/blue; lower: red/black)
+const callout = (c, runs) => s.addText(runs, {
+  x: c.x, y: c.y, w: c.w, h: c.h, align: "center", valign: "middle", margin: 0,
+});
+callout(cU, [
+  { text: "Class of vector ", options: { fontSize: 13, color: "000000", fontFace: MATH } },
+  { text: "Z", options: { fontSize: 13, bold: true, color: "2E9E2E", fontFace: MATH } },
+  { text: " ⇒ ", options: { fontSize: 13, color: "FF0000", fontFace: MATH } },
+  { text: "sign(", options: { fontSize: 13, italic: true, color: "FF0000", fontFace: MATH } },
+  { text: "W", options: { fontSize: 13, color: "0000FF", fontFace: MATH } },
+  { text: "T", options: { fontSize: 13, color: "0000FF", fontFace: MATH, superscript: true } },
+  { text: " Z + b)", options: { fontSize: 13, color: "0000FF", fontFace: MATH } },
+]);
+callout(cL, [
+  { text: "Class of vector ", options: { fontSize: 13, color: "FF0000", fontFace: MATH } },
+  { text: "Z", options: { fontSize: 13, bold: true, color: "FF0000", fontFace: MATH } },
+  { text: " ⇒ ", options: { fontSize: 13, color: "FF0000", fontFace: MATH } },
+  { text: "sign(", options: { fontSize: 13, italic: true, color: "000000", fontFace: MATH } },
+  { text: "W", options: { fontSize: 13, color: "000000", fontFace: MATH } },
+  { text: "T", options: { fontSize: 13, color: "000000", fontFace: MATH, superscript: true } },
+  { text: " Z + b)", options: { fontSize: 13, color: "000000", fontFace: MATH } },
+]);
 
-// 8. Band separator
-s.addShape(pres.shapes.LINE, {
-  x: contX, y: lowY - 0.12, w: contW, h: 0,
-  line: { color: "2980B9", width: 1.5 },
-});
+// Faint gray hairline near top-right edge
+const hl = R(0.860, 0.060, 0.925, 0.070);
+s.addShape(pres.shapes.RECTANGLE, { x: hl.x, y: hl.y + hl.h / 2, w: hl.w, h: 0.02, fill: { color: "D9D9D9" }, line: { type: "none" } });
 
-// --- LOWER BAND: kernelized formulation ---
-// 9a. Kernelized Lagrangian
-s.addImage({ path: EQ35 + "eq1_lagrangian_k_multi.png", x: bandX + 0.6, y: lowY + 0.05, w: 5.815, h: 0.995 });
-// green oval around (X_i^T X_j)^2 at the tail of the equation
-s.addShape(pres.shapes.OVAL, {
-  x: bandX + 0.6 + 4.62, y: lowY + 0.24, w: 1.75, h: 0.6,
-  fill: { type: "none" }, line: { color: "2ECC71", width: 1.75 },
-});
+// Mouse-pointer cursor over the lower b equation
+const cur = R(0.590, 0.715, 0.606, 0.748);
+s.addShape(pres.shapes.ISOSCELES_TRIANGLE, { x: cur.x, y: cur.y, w: cur.w, h: cur.h, fill: { color: "FFFFFF" }, line: { color: "000000", width: 1 } });
 
-// 9b. W box (unchanged) and kernelized b box (with green ovals)
-const lFormulaY = lowY + 1.12;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX, y: lFormulaY, w: wImgW + 0.3, h: wImgH + 0.12,
-  fill: { color: "FFFFFF" }, line: { color: "2980B9", width: 1 },
-});
-s.addImage({ path: EQ34 + "eq2_W_multi.png", x: bandX + 0.15, y: lFormulaY + 0.06, w: wImgW, h: wImgH });
-const bkImgW = 6.99667, bkImgH = 0.44667;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX + wImgW + 0.5, y: lFormulaY + 0.2, w: bkImgW + 0.3, h: bkImgH + 0.12,
-  fill: { color: "FFFFFF" }, line: { color: "2980B9", width: 1 },
-});
-s.addImage({ path: EQ35 + "eq2_b_k_multi.png", x: bandX + wImgW + 0.65, y: lFormulaY + 0.23, w: bkImgW, h: bkImgH });
-// green ovals around the two [W^T X_i]^2 terms
-s.addShape(pres.shapes.OVAL, {
-  x: bandX + wImgW + 0.65 + 2.02, y: lFormulaY + 0.19, w: 1.55, h: 0.54,
-  fill: { type: "none" }, line: { color: "2ECC71", width: 1.75 },
-});
-s.addShape(pres.shapes.OVAL, {
-  x: bandX + wImgW + 0.65 + 4.86, y: lFormulaY + 0.19, w: 1.55, h: 0.54,
-  fill: { type: "none" }, line: { color: "2ECC71", width: 1.75 },
-});
+// Black overlay strip along the bottom-left edge of the capture
+const blk = R(0.042, 0.856, 0.500, 1.000);
+s.addShape(pres.shapes.RECTANGLE, { ...blk, fill: { color: "000000" }, line: { type: "none" } });
 
-// 9c. Kernelized classification strip with green oval on [W^T Z]^2
-const lClassY = lFormulaY + 1.08;
-s.addShape(pres.shapes.RECTANGLE, {
-  x: bandX, y: lClassY, w: 7.6, h: 0.4,
-  fill: { color: "FDEBD0" }, line: { type: "none" },
-});
-s.addText([
-  { text: "Class of vector ", options: { color: "2C3E50", fontFace: FONT } },
-  { text: "Z", options: { color: "2C3E50", bold: true, fontFace: MATH } },
-  { text: " is sign([", options: { color: "2C3E50", fontFace: MATH } },
-  { text: "W", options: { color: "2C3E50", fontFace: MATH } },
-  { text: "T", options: { color: "2C3E50", fontFace: MATH, superscript: true } },
-  { text: " Z]", options: { color: "2C3E50", fontFace: MATH } },
-  { text: "2", options: { color: "2C3E50", fontFace: MATH, superscript: true } },
-  { text: " + b)", options: { color: "2C3E50", fontFace: MATH } },
-], {
-  x: bandX, y: lClassY, w: 7.6, h: 0.4,
-  align: "center", valign: "middle",
-  fontSize: 15, color: "2C3E50", fontFace: MATH, margin: 0,
-});
-s.addShape(pres.shapes.OVAL, {
-  x: bandX + 2.35, y: lClassY + 0.04, w: 1.5, h: 0.32,
-  fill: { type: "none" }, line: { color: "2ECC71", width: 1.5 },
-});
-
-// Write
-pres.writeFile({ fileName: "/home/codespace/ai_llm_slides/videos/machine-learning/06_svm_with_kernels_quadratic_programming_libraries/recreated_pptx/slide_035_recreated.pptx" })
+pres.writeFile({ fileName: path.join(NS, "recreated_pptx/slide_035_recreated.pptx") })
   .then(() => console.log("wrote slide_035_recreated.pptx"))
   .catch(err => console.error(err));

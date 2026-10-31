@@ -43,7 +43,7 @@ ax.add_patch(plt.Rectangle((rx(637), ry(399)), rx(904) - rx(637), ry(42) - ry(39
 
 # plot frame x[660,890] y[84,352], light fill
 PX0, PX1, PY0, PY1 = rx(660), rx(890), ry(352), ry(84)
-ax.add_patch(plt.Rectangle((PX0, PY0), PX1 - PX0, PY1 - PY0, facecolor="#DAECF0",
+ax.add_patch(plt.Rectangle((PX0, PY0), PX1 - PX0, PY1 - PY0, facecolor="#EDFEFB",
                            edgecolor=DRED, lw=1.2))
 
 def X(fpr): return rx(660 + 216.0 * fpr)
@@ -51,35 +51,35 @@ def Y(tpr): return ry(352 - 201.0 * tpr)
 
 # grid at 0.2 steps
 for v in [0.2, 0.4, 0.6, 0.8]:
-    ax.plot([X(v), X(v)], [Y(0), Y(1)], color="#B9C4CC", lw=0.6, zorder=1)
-    ax.plot([X(0), X(1)], [Y(v), Y(v)], color="#B9C4CC", lw=0.6, zorder=1)
+    ax.plot([X(v), X(v)], [Y(0), Y(1)], color="#C8D7D7", lw=0.6, zorder=1)
+    ax.plot([X(0), X(1)], [Y(v), Y(v)], color="#C8D7D7", lw=0.6, zorder=1)
 ax.set_axisbelow(True)
-
-# dashed diagonal (0,0)-(1,1)
-ax.plot([X(0), X(1)], [Y(0), Y(1)], ls=(0, (5, 4)), color="#888888", lw=1.0, zorder=2)
+# NOTE: original has NO dashed diagonal on the ROC plot (PIL-verified: diagonal
+# path pixels are plain background) — do not add one.
 
 # ROC points: threshold -> (fpr, tpr) from the 7 confusion matrices
 pts = [("0.0", 1.0, 1.0), ("0.1", 0.66, 1.0), ("0.3", 0.33, 1.0), ("0.4", 0.16, 1.0),
        ("0.6", 0.16, 0.6), ("0.7", 0.0, 0.6), ("1.0", 0.0, 0.0)]
-xs = [X(p[1]) for p in pts]
-ys = [Y(p[2]) for p in pts]
-ax.plot(xs, ys, color=DRED, lw=1.4, zorder=3)
+# marker-only scatter: original has NO connecting polyline (PIL-verified: the only
+# ink along the TPR=1 row is the gridline itself; no vertical connector exists)
 for _, fpr, tpr in pts:
-    ax.plot([X(fpr)], [Y(tpr)], marker="o", ms=8, mfc="#FF0000", mec="#FF0000", zorder=4)
+    ax.plot([X(fpr)], [Y(tpr)], marker="o", ms=8, mfc="none", mec="#FF0000",
+            mew=1.5, zorder=4)
 
 # threshold labels near points (measured black comps in the frame)
-lbl_off = {"0.0": (-14, 10), "0.1": (-2, 10), "0.3": (-10, 10), "0.4": (20, -58),
-           "0.6": (20, 16), "0.7": (4, -22), "1.0": (26, 12)}
+lbl_off = {"0.0": (-15, 22), "0.1": (6, 22), "0.3": (-10, 22), "0.4": (20, -58),
+           "0.6": (20, -18), "0.7": (4, 20), "1.0": (26, -12)}
 for lab, fpr, tpr in pts:
     dx, dy = lbl_off[lab]
     ax.text(X(fpr) + dx, Y(tpr) + dy, lab, ha="center", va="center", fontsize=7.5,
             color="black", zorder=5,
-            bbox=dict(boxstyle="square,pad=0.12", fc="white", ec="none", alpha=0.85))
+            bbox=dict(boxstyle="square,pad=0.15", fc="#F7FBDC", ec="#D8D8B0", lw=0.5))
 
-# "Best (FPR)" annotation, gutter left of plot near y~155 (frame px)
-ax.text(rx(650), ry(162), "Best", ha="left", va="center", fontsize=9,
+# "Best (FPR)" annotation INSIDE the plot, left of the (0,0.6) point
+# (measured maroon comps at frame x684-694, y189-199 and y228-238)
+ax.text(rx(689), ry(194), "Best", ha="center", va="center", fontsize=7.5,
         fontweight="bold", color=DRED, zorder=5)
-ax.text(rx(650), ry(174), "(FPR)", ha="left", va="center", fontsize=9,
+ax.text(rx(689), ry(233), "(FPR)", ha="center", va="center", fontsize=7.5,
         fontweight="bold", color=DRED, zorder=5)
 
 # axis titles (maroon): TPR rotated at left, FPR below
